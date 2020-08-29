@@ -1,0 +1,60 @@
+{
+	"name": "@sapphire/plugin-api",
+	"version": "0.0.1",
+	"description": "Plugin for @sapphire/framework to expose a REST API",
+	"author": "@sapphire",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"homepage": "https://github.com/sapphire-project/plugins/tree/main/packages/api",
+	"scripts": {
+		"test": "jest",
+		"prelint": "yarn test && yarn build",
+		"lint": "eslint src tests --ext ts --fix",
+		"build": "tsc -b src"
+	},
+	"dependencies": {
+		"@sapphire/utilities": "github:sapphire-project/utilities#build-utilities",
+		"@skyra/decorators": "^2.3.0"
+	},
+	"peerDependencies": {
+		"@sapphire/framework": "github:sapphire-project/framework#build",
+		"@sapphire/pieces": "github:sapphire-project/pieces#build",
+		"@types/ws": "latest",
+		"discord.js": "12.x"
+	},
+	"peerDependenciesMeta": {
+		"@types/ws": {
+			"optional": true
+		}
+	},
+	"devDependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sapphire-project/plugins.git",
+		"directory": "packages/api"
+	},
+	"files": [
+		"dist",
+		"!dist/tsconfig.tsbuildinfo"
+	],
+	"engines": {
+		"node": ">=12",
+		"npm": ">=6"
+	},
+	"keywords": [
+		"plugin",
+		"bot",
+		"typescript",
+		"ts",
+		"yarn",
+		"discord",
+		"sapphire"
+	],
+	"bugs": {
+		"url": "https://github.com/sapphire-project/plugins/issues"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
