@@ -1566,11 +1566,6 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@skyra/decorators@^2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@skyra/decorators/-/decorators-2.3.0.tgz#bfd7f95c764c0f2791aa18b47a3f5a620e638eae"
-  integrity sha512-40z/OAje4j1OsjnHYfgBu6/L/PSIJ9riGqO2baGZj3Z6PKA3hd4fQQQe4w2CXu2zBnV7Bawu17kQtWnq/ma/rg==
-
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.9"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.9.tgz#77e59d438522a6fb898fa43dc3455c6e72f3963d"
@@ -3673,6 +3668,15 @@ fs-extra@8.1.0, fs-extra@^8.1.0:
   integrity sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==
   dependencies:
     graceful-fs "^4.2.0"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
+
+fs-extra@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-6.0.1.tgz#8abc128f7946e310135ddc93b98bddb410e7a34b"
+  integrity sha512-GnyIkKhhzXZUWFCaJzvyDLEEgDkPfb4/TPvJCJVuS8MWZgoSsErf++QpiAlDnKFcqhRlm+tIOcencCjyJE6ZCA==
+  dependencies:
+    graceful-fs "^4.1.2"
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
@@ -7741,6 +7745,13 @@ typedoc-plugin-lerna-packages@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/typedoc-plugin-lerna-packages/-/typedoc-plugin-lerna-packages-0.3.1.tgz#3e65068e6c6ef987fc4c4553416af3fb22c8a5e6"
   integrity sha512-azeP5DVv4Me+C32RoGbMAzXo7JeYmeEstMAx4mdtVGHLtrXjitlaf0pS562vogofwyIcyVnjL6BlZWvbPQ3hmw==
+
+typedoc-plugin-nojekyll@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/typedoc-plugin-nojekyll/-/typedoc-plugin-nojekyll-1.0.1.tgz#d6879d4118bbf10efe3feb3b766b69a09c80b3ef"
+  integrity sha512-hdFMhn0vAFCwepihSaVVs5yyImjo2FCX/OVQW89lrrqoARYHlAchOki4BQug23UqFSrYdykUu8yP4gD0M48qbw==
+  dependencies:
+    fs-extra "^6.0.1"
 
 typedoc@^0.19.0:
   version "0.19.0"
