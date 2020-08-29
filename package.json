@@ -1,0 +1,103 @@
+{
+	"name": "@sapphire/template",
+	"version": "0.0.1",
+	"description": "template",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"author": "@sapphire",
+	"license": "MIT",
+	"private": false,
+	"scripts": {
+		"prepublishOnly": "yarn build",
+		"lint": "eslint src tests --ext ts --fix",
+		"format": "prettier --write {src,tests}/**/*.ts",
+		"format:check": "prettier --check {src,tests}/**/*.ts",
+		"docs": "typedoc",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"update": "yarn upgrade-interactive --latest",
+		"build": "tsc -b src",
+		"clean": "tsc -b src --clean",
+		"watch": "tsc -b src -w",
+		"sversion": "standard-version",
+		"commit": "git-cz",
+		"cz": "git-cz"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@commitlint/cli": "^9.1.2",
+		"@commitlint/config-conventional": "^9.1.2",
+		"@sapphire/eslint-config": "github:sapphire-project/utilities#build-eslint-config",
+		"@sapphire/ts-config": "github:sapphire-project/utilities#build-tsconfig",
+		"@types/jest": "^26.0.10",
+		"@types/node": "^14.6.1",
+		"cz-conventional-changelog": "^3.3.0",
+		"husky": "^4.2.5",
+		"jest-circus": "^26.4.2",
+		"jest": "^26.4.2",
+		"lint-staged": "^10.2.13",
+		"prettier": "^2.1.1",
+		"pretty-quick": "^3.0.0",
+		"standard-version": "^9.0.0",
+		"ts-jest": "^26.3.0",
+		"typedoc": "^0.18.0",
+		"typescript": "^4.0.2"
+	},
+	"peerDependencies": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sapphire-project/template.git"
+	},
+	"files": [
+		"dist",
+		"!dist/tsconfig.tsbuildinfo"
+	],
+	"engines": {
+		"node": ">=12",
+		"npm": ">=6"
+	},
+	"keywords": [
+		"@sapphire/template",
+		"bot",
+		"typescript",
+		"ts",
+		"yarn",
+		"discord",
+		"sapphire",
+		"standalone"
+	],
+	"bugs": {
+		"url": "https://github.com/sapphire-project/template/issues"
+	},
+	"homepage": "https://sapphire-project.github.io/template",
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+			"pre-commit": "yarn pretty-quick --staged && yarn lint-staged"
+		}
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"lint-staged": {
+		"*.{mjs,js,ts}": "eslint --fix --ext mjs,js,ts"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"resolutions": {
+		"acorn": "^7.3.1",
+		"minimist": "^1.2.2",
+		"kind-of": "^6.0.3",
+		"jest-environment-jsdom": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.0.2.tgz",
+		"jest-jasmine2": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.0.2.tgz",
+		"dot-prop": "^5.2.0"
+	}
+}
