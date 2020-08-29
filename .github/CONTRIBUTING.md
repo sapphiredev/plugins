@@ -13,11 +13,11 @@ in your text editor or IDE of your choice to ensure builds from GitHub Actions d
 5. Commit your changes, and push them.
 6. Submit a Pull Request [here]!
 
-## @sapphire/framework Concept Guidelines
+## Sapphire Plugins Concept Guidelines
 
 There are a number of guidelines considered when reviewing Pull Requests to be merged. _This is by no means an exhaustive list, but here are some things to consider before/while submitting your ideas._
 
--   Everything in @sapphire/template should be generally useful for the majority of users. Don't let that stop you if you've got a good concept though, as your idea still might be a great addition.
+-   Everything in Sapphire Plugins should be generally useful for the majority of users. Don't let that stop you if you've got a good concept though, as your idea still might be a great addition.
 -   Everything should be shard compliant. If code you put in a pull request would break when sharding, break other things from supporting sharding, or is incompatible with sharding; then you will need to think of a way to make it work with sharding in mind before the pull request will be accepted and merged.
 -   Everything should follow [OOP paradigms] and generally rely on behaviour over state where possible. This generally helps methods be predictable, keeps the codebase simple and understandable, reduces code duplication through abstraction, and leads to efficiency and therefore scalability.
 -   Everything should follow our ESLint rules as closely as possible, and should pass lint tests even if you must disable a rule for a single line.
@@ -27,7 +27,7 @@ There are a number of guidelines considered when reviewing Pull Requests to be m
 <!-- Link Dump -->
 
 [discord server]: https://join.skyra.pw/sapphire
-[here]: https://github.com/sapphire-project/template/pulls
+[here]: https://github.com/sapphire-project/plugins/pulls
 [eslint]: https://eslint.org/
 [node.js]: https://nodejs.org/en/download/
 [yarn]: https://classic.yarnpkg.com/en/docs/install

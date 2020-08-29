@@ -1,12 +1,9 @@
 {
 	"out": "./docs/",
 	"readme": "./README.md",
-	"name": "@sapphire/template",
-	"exclude": [
-		"**/node_modules/**",
-		"tests/**"
-	],
-	"mode": "file",
+	"name": "Sapphire Plugins",
+	"exclude": ["**/node_modules/**", "**/*.test.ts", "tests/**", "**/*.js", "**/rollup.config.ts"],
+	"mode": "modules",
 	"excludeExternals": true,
 	"excludeNotExported": true,
 	"tsconfig": "./tsconfig.base.json"
