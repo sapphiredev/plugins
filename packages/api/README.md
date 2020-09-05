@@ -4,7 +4,7 @@
 
 # @sapphire/plugin-api
 
-Plugin for <a href="https://github.com/sapphire-project/framework">@sapphire/framework</a> to expose a REST API.</h4>
+**Plugin for <a href="https://github.com/sapphire-project/framework">@sapphire/framework</a> to expose a REST API.**
 
 [![GitHub](https://img.shields.io/github/license/sapphire-project/plugins)](https://github.com/sapphire-project/plugins/blob/main/LICENSE.md)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/sapphire-project/plugins.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/plugins/alerts/)
