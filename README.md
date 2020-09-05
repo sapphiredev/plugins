@@ -4,7 +4,7 @@
 
 # Sapphire Plugins
 
-Plugins for Sapphire Framework.</h4>
+**Plugins for Sapphire Framework.**
 
 [![GitHub](https://img.shields.io/github/license/sapphire-project/plugins)](https://github.com/sapphire-project/plugins/blob/main/LICENSE.md)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/sapphire-project/plugins.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/plugins/alerts/)
