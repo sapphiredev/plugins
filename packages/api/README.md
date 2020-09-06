@@ -1,5 +1,10 @@
-<div style="text-align:center;"><h1>@sapphire/plugin-api</h1>
-<h3>Plugin for <a href="https://github.com/sapphire-project/framework">@sapphire/framework</a> to expose a REST API</h3></div>
+<div align="center">
+
+![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire.png)
+
+# @sapphire/plugin-api
+
+**Plugin for <a href="https://github.com/sapphire-project/framework">@sapphire/framework</a> to expose a REST API.**
 
 [![GitHub](https://img.shields.io/github/license/sapphire-project/plugins)](https://github.com/sapphire-project/plugins/blob/main/LICENSE.md)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/sapphire-project/plugins.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/plugins/alerts/)
@@ -8,6 +13,8 @@
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/plugin-api?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/plugin-api)
 [![npm](https://img.shields.io/npm/v/@sapphire/plugin-api?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/plugin-api)
 [![Depfu](https://badges.depfu.com/badges/11bbf7392987e6fd51fc6559e1d42dfc/count.svg)](https://depfu.com/github/sapphire-project/plugins?project_id=15201)
+
+</div>
 
 ## Features
 
@@ -29,12 +36,11 @@ T.B.D.
 
 ## API Documentation
 
-For the full API documentation please refer to [the TypeDoc generated documentation](https://sapphire-project.github.io/utilities/modules/_sapphire_eslint_config.html)
+For the full API documentation please refer to the TypeDoc generated [documentation](https://sapphire-project.github.io/utilities/modules/_sapphire_eslint_config.html).
 
 ## Buy us some doughnuts
 
-Sapphire Project is open source and always will be, even if we don't get donations. That said, we know there are amazing people who
-may still want to donate just to show their appreciation. Thanks you very much in advance!
+Sapphire Project is and always will be open source, even if we don't get donations. That being said, we know there are amazing people who may still want to donate just to show their appreciation. Thank you very much in advance!
 
 We accept donations through Open Collective, Ko-fi, Paypal, Patreon and GitHub Sponsorships. You can use the buttons below to donate through your method of choice.
 
