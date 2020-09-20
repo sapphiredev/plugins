@@ -25,8 +25,8 @@
 		"@sapphire/pieces": "github:sapphire-project/pieces#build",
 		"@sapphire/ts-config": "^1.0.0",
 		"@sapphire/utilities": "^1.0.0",
-		"@types/jest": "^26.0.13",
-		"@types/node": "^14.10.1",
+		"@types/jest": "^26.0.14",
+		"@types/node": "^14.11.1",
 		"@types/ws": "^7.2.6",
 		"cz-conventional-changelog": "^3.3.0",
 		"discord.js": "^12.3.1",
@@ -34,14 +34,14 @@
 		"jest": "^26.4.2",
 		"jest-circus": "^26.4.2",
 		"lerna": "^3.22.1",
-		"lint-staged": "^10.3.0",
-		"prettier": "^2.1.1",
+		"lint-staged": "^10.4.0",
+		"prettier": "^2.1.2",
 		"pretty-quick": "^3.0.2",
 		"ts-jest": "^26.3.0",
 		"typedoc": "^0.19.1",
 		"typedoc-plugin-lerna-packages": "^0.3.1",
 		"typedoc-plugin-nojekyll": "^1.0.1",
-		"typescript": "^4.0.2"
+		"typescript": "^4.0.3"
 	},
 	"peerDependencies": {},
 	"repository": {
