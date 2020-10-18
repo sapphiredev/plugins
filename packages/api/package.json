@@ -14,7 +14,7 @@
 		"build": "tsc -b src"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^1.0.0"
+		"@sapphire/utilities": "^1.0.2"
 	},
 	"peerDependencies": {
 		"@sapphire/framework": "github:sapphire-project/framework#build",
