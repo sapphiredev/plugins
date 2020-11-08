@@ -16,11 +16,16 @@
 
 </div>
 
+## Description
+
+T.B.D.
+
 ## Features
 
 -   Fully ready for TypeScript!
 -   Provides a Decorator-based API to make developing your routes easy!
 -   Follows common REST standards.
+-   Includes ESM ready entrypoint
 
 ## Installation
 
@@ -36,7 +41,7 @@ T.B.D.
 
 ## API Documentation
 
-For the full API documentation please refer to the TypeDoc generated [documentation](https://sapphire-project.github.io/utilities/modules/_sapphire_eslint_config.html).
+For the full API documentation please refer to the TypeDoc generated [documentation](https://sapphire-project.github.io/plugins/modules/_sapphire_plugin_api.html).
 
 ## Buy us some doughnuts
 
@@ -65,7 +70,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
