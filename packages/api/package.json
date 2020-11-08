@@ -6,15 +6,23 @@
 	"license": "MIT",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		},
+		"./register": "./dist/register.js"
+	},
 	"homepage": "https://github.com/sapphire-project/plugins/tree/main/packages/api",
 	"scripts": {
 		"test": "jest",
 		"prelint": "yarn test && yarn build",
 		"lint": "eslint src tests --ext ts --fix",
-		"build": "tsc -b src"
+		"build": "tsc -b src",
+		"postbuild": "gen-esm-wrapper dist/index.js dist/index.mjs"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^1.0.2"
+		"@sapphire/utilities": "^1.1.0"
 	},
 	"peerDependencies": {
 		"@sapphire/framework": "github:sapphire-project/framework#build",

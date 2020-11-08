@@ -12,11 +12,12 @@
 			"allowBranch": "main",
 			"conventionalCommits": true,
 			"push": true,
+			"createRelease": "github",
 			"message": "chore(release): publish"
 		},
 		"create": {
 			"license": "MIT",
-			"keywords": ["plugin", "bot", "typescript", "ts", "yarn", "discord", "sapphire"]
+			"keywords": ["sapphire-project", "plugin", "bot", "typescript", "ts", "yarn", "discord", "sapphire"]
 		}
 	}
 }
