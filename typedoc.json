@@ -2,9 +2,19 @@
 	"out": "./docs/",
 	"readme": "./README.md",
 	"name": "Sapphire Plugins",
-	"exclude": ["**/node_modules/**", "**/*.test.ts", "tests/**", "**/*.js", "**/rollup.config.ts"],
+	"exclude": [
+		"**/node_modules/**",
+		"**/*.test.ts",
+		"packages/**/tests/**",
+		"**/*.js",
+		"**/rollup.config.ts",
+		"**/jest.config.ts",
+		"packages/api/src/index.ts",
+		"packages/api/src/register.ts"
+	],
 	"mode": "modules",
 	"excludeExternals": true,
 	"excludeNotExported": true,
+	"stripInternal": true,
 	"tsconfig": "./tsconfig.base.json"
 }
