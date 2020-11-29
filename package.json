@@ -27,8 +27,8 @@
 		"@sapphire/utilities": "^1.1.0",
 		"@types/jest": "^26.0.15",
 		"@types/node": "^14.14.6",
-		"@types/ws": "^7.2.9",
-		"@typescript-eslint/eslint-plugin": "^4.8.1",
+		"@types/ws": "^7.4.0",
+		"@typescript-eslint/eslint-plugin": "^4.8.2",
 		"@typescript-eslint/parser": "^4.6.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"discord.js": "^12.4.1",
@@ -42,14 +42,14 @@
 		"lerna": "^3.22.1",
 		"lint-staged": "^10.5.1",
 		"npm-run-all": "^4.1.5",
-		"prettier": "^2.1.2",
+		"prettier": "^2.2.0",
 		"pretty-quick": "^3.1.0",
 		"ts-jest": "^26.4.4",
 		"ts-node": "^9.0.0",
 		"typedoc": "^0.19.2",
 		"typedoc-plugin-lerna-packages": "^0.3.1",
 		"typedoc-plugin-nojekyll": "^1.0.1",
-		"typescript": "^4.0.5"
+		"typescript": "^4.1.2"
 	},
 	"peerDependencies": {},
 	"repository": {
