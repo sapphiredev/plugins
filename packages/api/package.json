@@ -27,7 +27,7 @@
 		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^1.1.0"
+		"@sapphire/utilities": "^1.1.1"
 	},
 	"peerDependencies": {
 		"@sapphire/framework": "github:sapphire-project/framework#build",
