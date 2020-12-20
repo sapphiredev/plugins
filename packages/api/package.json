@@ -26,9 +26,6 @@
 		"esm:register": "gen-esm-wrapper dist/register.js dist/register.mjs",
 		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs"
 	},
-	"dependencies": {
-		"@sapphire/utilities": "^1.1.1"
-	},
 	"peerDependencies": {
 		"@sapphire/framework": "github:sapphire-project/framework#build",
 		"@sapphire/pieces": "github:sapphire-project/pieces#build",
@@ -40,7 +37,9 @@
 			"optional": true
 		}
 	},
-	"devDependencies": {},
+	"devDependencies": {
+		"@sapphire/utilities": "1.1.1"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/sapphire-project/plugins.git",

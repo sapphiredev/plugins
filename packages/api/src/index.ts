@@ -10,5 +10,3 @@ export * from './lib/structures/Route';
 export * from './lib/structures/RouteStore';
 export * from './lib/utils/Mime';
 export * from './lib/utils/RouteData';
-
-export const main = () => 'this builds and pushes';

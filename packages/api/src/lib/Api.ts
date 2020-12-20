@@ -1,6 +1,5 @@
 import { Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
-import type { ClientOptions } from 'discord.js';
-import type { ServerOptions } from 'https';
+import type { ServerOptions } from 'http';
 import { Server } from './structures/http/Server';
 
 export const kRoutePathCacheSymbol = Symbol('pathCache');
@@ -8,13 +7,11 @@ export const kRoutePathCacheSymbol = Symbol('pathCache');
 /**
  * @since 1.0.0
  */
-// eslint-disable-next-line @typescript-eslint/no-extraneous-class
-export class Api implements Plugin {
+export class Api extends Plugin {
 	/**
 	 * @since 1.0.0
 	 */
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	public static [postInitialization](this: SapphireClient, _options?: ClientOptions): void {
+	public static [postInitialization](this: SapphireClient): void {
 		this.server = new Server(this);
 	}
 }
