@@ -1,8 +1,8 @@
-import { Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
+import { Plugin, postInitialization, preLogin, SapphireClient } from '@sapphire/framework';
 import type { ServerOptions } from 'http';
+import type { ListenOptions } from 'net';
+import { join } from 'path';
 import { Server } from './structures/http/Server';
-
-export const kRoutePathCacheSymbol = Symbol('pathCache');
 
 /**
  * @since 1.0.0
@@ -13,6 +13,18 @@ export class Api extends Plugin {
 	 */
 	public static [postInitialization](this: SapphireClient): void {
 		this.server = new Server(this);
+		this.registerStore(this.server.routes) //
+			.registerStore(this.server.middlewares);
+
+		this.events.registerPath(join(__dirname, '..', 'events'));
+		this.server.middlewares.registerPath(join(__dirname, '..', 'middlewares'));
+	}
+
+	/**
+	 * @since 1.0.0
+	 */
+	public static async [preLogin](this: SapphireClient): Promise<void> {
+		await this.server.connect();
 	}
 }
 
@@ -22,13 +34,27 @@ export class Api extends Plugin {
 export interface ApiOptions {
 	/**
 	 * @since 1.0.0
+	 * @default ''
 	 */
-	prefix: string;
+	prefix?: string;
 
 	/**
 	 * @since 1.0.0
+	 * @default '*'
 	 */
-	server: ServerOptions;
+	origin?: string;
+
+	/**
+	 * @since 1.0.0
+	 * @default {}
+	 */
+	server?: ServerOptions;
+
+	/**
+	 * @since 1.0.0
+	 * @default { port: 4000 }
+	 */
+	listenOptions?: ListenOptions;
 }
 
 declare module 'discord.js' {
@@ -37,6 +63,6 @@ declare module 'discord.js' {
 	}
 
 	export interface ClientOptions {
-		api: ApiOptions;
+		api?: ApiOptions;
 	}
 }

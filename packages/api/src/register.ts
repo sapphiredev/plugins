@@ -1,5 +1,5 @@
-import { postInitialization, SapphireClient } from '@sapphire/framework';
+import { postInitialization, preLogin, SapphireClient } from '@sapphire/framework';
 import { Api } from './lib/Api';
 
-// eslint-disable-next-line @typescript-eslint/unbound-method
-SapphireClient.plugins.registerPostInitializationHook(Api[postInitialization]);
+SapphireClient.plugins.registerPostInitializationHook(Api[postInitialization], 'API-PostInitialization');
+SapphireClient.plugins.registerPreLoginHook(Api[preLogin], 'API-PreLogin');

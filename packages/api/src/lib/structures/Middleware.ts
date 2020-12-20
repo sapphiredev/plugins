@@ -1,4 +1,4 @@
-import { BasePiece } from '@sapphire/framework';
+import { Awaited, BasePiece } from '@sapphire/framework';
 import type { PieceContext, PieceOptions } from '@sapphire/pieces';
 import type { ApiRequest } from './api/ApiRequest';
 import type { ApiResponse } from './api/ApiResponse';
@@ -15,7 +15,7 @@ export abstract class Middleware extends BasePiece {
 		this.priority = options.priority ?? 1000;
 	}
 
-	public abstract run(request: ApiRequest, response: ApiResponse, route: Route): void | Promise<void>;
+	public abstract run(request: ApiRequest, response: ApiResponse, route: Route): Awaited<unknown>;
 }
 
 export interface MiddlewareOptions extends PieceOptions {

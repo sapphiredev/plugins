@@ -1,5 +1,6 @@
 import { ServerResponse, STATUS_CODES } from 'http';
-import { Types as MimeTypes } from '../../utils/Mime';
+import { MimeTypes } from '../../utils/MimeTypes';
+import { HttpCodes } from '../http/HttpCodes';
 import type { CookieStore } from './CookieStore';
 
 /**
@@ -14,24 +15,24 @@ export class ApiResponse extends ServerResponse {
 	/**
 	 * @since 1.0.0
 	 */
-	public ok(data: unknown = STATUS_CODES[200]) {
-		this.status(200);
+	public ok(data: unknown = STATUS_CODES[HttpCodes.OK]) {
+		this.status(HttpCodes.OK);
 		return this.respond(data);
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
-	public created(data: unknown = STATUS_CODES[201]) {
-		this.status(201);
+	public created(data: unknown = STATUS_CODES[HttpCodes.Created]) {
+		this.status(HttpCodes.Created);
 		return this.respond(data);
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
-	public noContent(data: unknown = STATUS_CODES[204]) {
-		this.status(204);
+	public noContent(data: unknown = STATUS_CODES[HttpCodes.NoContent]) {
+		this.status(HttpCodes.NoContent);
 		return this.respond(data);
 	}
 
@@ -39,35 +40,35 @@ export class ApiResponse extends ServerResponse {
 	 * @since 1.0.0
 	 */
 	public badRequest(data?: unknown) {
-		return this.error(400, data);
+		return this.error(HttpCodes.BadRequest, data);
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
 	public unauthorized(data?: unknown) {
-		return this.error(401, data);
+		return this.error(HttpCodes.Unauthorized, data);
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
 	public forbidden(data?: unknown) {
-		return this.error(403, data);
+		return this.error(HttpCodes.Forbidden, data);
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
 	public notFound(data?: unknown) {
-		return this.error(404, data);
+		return this.error(HttpCodes.NotFound, data);
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
 	public conflict(data?: unknown) {
-		return this.error(409, data);
+		return this.error(HttpCodes.Conflict, data);
 	}
 
 	/**
@@ -75,7 +76,7 @@ export class ApiResponse extends ServerResponse {
 	 */
 	public error(error: number | string, data?: unknown): void {
 		if (typeof error === 'string') {
-			return this.status(500).json({ error });
+			return this.status(HttpCodes.InternalServerError).json({ error });
 		}
 
 		return this.status(error).json({ error: data ?? STATUS_CODES[error] });
