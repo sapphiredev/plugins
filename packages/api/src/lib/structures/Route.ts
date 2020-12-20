@@ -1,65 +1,58 @@
-import { BasePiece } from '@sapphire/framework';
-import { Collection } from 'discord.js';
-import { kRoutePathCacheSymbol } from '../Api';
-import { METHODS } from 'http';
-import type { RouteCacheDefinition } from '../decorators/HttpMethods';
-import { parse, ParsedPart } from '../utils/pathParsing';
-import type { Methods } from './http/HttpMethods';
+import { Awaited, BasePiece } from '@sapphire/framework';
 import type { PieceContext, PieceOptions } from '@sapphire/pieces';
+import { RouteData } from '../utils/RouteData';
+import { methodEntries } from './http/HttpMethods';
+import type { MethodCallback, RouteStore } from './RouteStore';
 
 /**
  * @since 1.0.0
  */
 export abstract class Route extends BasePiece {
-	/**
-	 * @since 1.0.0
-	 */
-	public route: string;
+	public readonly router: RouteData;
 
-	/**
-	 * @since 1.0.0
-	 */
-	public $internalRoutingTable: Collection<Methods, [string, ParsedPart[]][]> = new Collection();
-
-	/**
-	 * Internal route remains empty until either the store fills it from piece options or the decorator sets it.
-	 * Its main function is acting as the main route for the DEFAULT HttpMethod decorators.
-	 * OR as the base route for decorator defined sub routes.
-	 * @protected
-	 * @since 1.0.0
-	 */
-	protected $internalRoute = '';
-
-	public constructor(context: PieceContext, { name, ...options }: PieceOptions = {}) {
-		super(context, { ...options, name: name?.toLowerCase() });
-
-		this.route = `${this.client.options.api.prefix}${this.$internalRoute}`;
-
-		Reflect.defineProperty(Route, kRoutePathCacheSymbol, { value: [] });
-		for (const method of METHODS) {
-			this.$internalRoutingTable.set(
-				method as Methods,
-				(Reflect.get(Route, kRoutePathCacheSymbol) as RouteCacheDefinition[])
-					.filter((rt) => rt.httpMethod === method)
-					.map((rt) => [rt.method, parse(rt.route)])
-			);
-		}
-	}
-
-	public matchRoute(method: Methods, split: string[]): string {
-		const routes = this.$internalRoutingTable.get(method)!;
-		if (!routes.some((rt) => rt[1].length === split.length)) return '';
-		for (const rte of routes) {
-			for (let ir = 0; ir < rte[1].length; ir++) {
-				const routeEntry = rte[1][ir];
-				if (routeEntry[1] !== 0 && routeEntry[0] === split[ir]) return rte[0];
-			}
-		}
-		return '';
+	public constructor(context: PieceContext, options: RouteOptions = {}) {
+		super(context, options);
+		this.router = new RouteData(`${this.client.options.api.prefix}${options.route ?? ''}`);
 	}
 
 	/**
-	 * @since 1.0.0
+	 * Per-piece listener that is called when the piece is loaded into the store.
+	 * Useful to set-up asynchronous initialization tasks.
 	 */
-	public static [kRoutePathCacheSymbol]: RouteCacheDefinition[];
+	public onLoad(): Awaited<unknown> {
+		const store = (this.store as unknown) as RouteStore;
+
+		for (const [method, cb] of this.handlers()) {
+			store.table.get(method)!.set(this, cb.bind(this));
+		}
+
+		return undefined;
+	}
+
+	/**
+	 * Per-piece listener that is called when the piece is unloaded from the store.
+	 * Useful to set-up clean-up tasks.
+	 */
+	public onUnload(): Awaited<unknown> {
+		const store = (this.store as unknown) as RouteStore;
+
+		for (const [method] of this.handlers()) {
+			store.table.get(method)!.delete(this);
+		}
+
+		return undefined;
+	}
+
+	protected *handlers() {
+		for (const [method, symbol] of methodEntries) {
+			const value = Reflect.get(this, symbol) as MethodCallback;
+			if (typeof value !== 'function') continue;
+
+			yield [method, value] as const;
+		}
+	}
+}
+
+export interface RouteOptions extends PieceOptions {
+	route?: string;
 }

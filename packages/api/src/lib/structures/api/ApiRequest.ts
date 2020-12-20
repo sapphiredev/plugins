@@ -8,15 +8,9 @@ export interface UserAuthObject {
 	expires: number;
 }
 
-export class ApiRequest extends IncomingMessage {}
-
-export interface ApiRequest {
-	originalUrl: string;
-	path: string;
-	search: string;
-	query: Record<string, string | string[]>;
-	params: Record<string, string>;
-	body?: any;
-	length?: number;
-	auth?: UserAuthObject;
+export class ApiRequest extends IncomingMessage {
+	public query: Record<string, string | string[]> = {};
+	public params: Record<string, string> = {};
+	public body?: unknown;
+	public auth?: UserAuthObject;
 }
