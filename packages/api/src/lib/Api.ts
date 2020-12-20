@@ -46,6 +46,12 @@ export interface ApiOptions {
 
 	/**
 	 * @since 1.0.0
+	 * @default []
+	 */
+	extraHeaders?: [string, string][];
+
+	/**
+	 * @since 1.0.0
 	 * @default {}
 	 */
 	server?: ServerOptions;

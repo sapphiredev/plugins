@@ -74,7 +74,7 @@ export class PluginMiddleware extends Middleware {
 	}
 
 	private contentStream(request: ApiRequest) {
-		switch ((request.headers['content-encoding'] || 'identity').toLowerCase()) {
+		switch ((request.headers['content-encoding'] ?? 'identity').toLowerCase()) {
 			case 'deflate': {
 				const stream = createInflate();
 				request.pipe(stream);
@@ -86,8 +86,7 @@ export class PluginMiddleware extends Middleware {
 				return stream;
 			}
 			case 'identity': {
-				const stream = request;
-				return stream;
+				return request;
 			}
 		}
 
