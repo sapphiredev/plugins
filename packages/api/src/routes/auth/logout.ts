@@ -78,7 +78,7 @@ export class PluginRoute extends Route {
 		//
 		// RFC 7009 2.2.
 		// The content of the response body is ignored by the client as all necessary information is conveyed in the response code.
-		const result = await fetch('https://discord.com/api/v6/oauth2/token/revoke', {
+		const result = await fetch('https://discord.com/api/v8/oauth2/token/revoke', {
 			method: 'POST',
 			body: stringify({
 				token,

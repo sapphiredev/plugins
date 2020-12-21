@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import type { PieceContext } from '@sapphire/pieces';
-import type { APIUser, RESTPostOAuth2AccessTokenResult, RESTPostOAuth2AccessTokenURIEncodedData } from 'discord-api-types/v6';
+import type { APIUser, RESTPostOAuth2AccessTokenResult, RESTPostOAuth2AccessTokenURIEncodedData } from 'discord-api-types/v8';
 import fetch from 'node-fetch';
 import { stringify } from 'querystring';
 import type { ApiRequest } from '../../lib/structures/api/ApiRequest';
@@ -53,7 +53,7 @@ export class PluginRoute extends Route {
 			redirect_uri: undefined
 		};
 
-		const result = await fetch('https://discord.com/api/v6/oauth2/token', {
+		const result = await fetch('https://discord.com/api/v8/oauth2/token', {
 			method: 'POST',
 			body: stringify(data as any),
 			headers: {
@@ -65,7 +65,7 @@ export class PluginRoute extends Route {
 	}
 
 	private async fetchUser(token: string) {
-		const result = await fetch('https://discord.com/api/v6/users/@me', {
+		const result = await fetch('https://discord.com/api/v8/users/@me', {
 			headers: {
 				Authorization: `Bearer ${token}`
 			}
