@@ -1,5 +1,6 @@
-import { Awaited, BasePiece } from '@sapphire/framework';
+import { BasePiece } from '@sapphire/framework';
 import type { PieceContext, PieceOptions } from '@sapphire/pieces';
+import type { Awaited } from '@sapphire/utilities';
 import { RouteData } from '../utils/RouteData';
 import { methodEntries, Methods } from './http/HttpMethods';
 import type { MethodCallback, RouteStore } from './RouteStore';
@@ -74,7 +75,7 @@ export interface RouteOptions extends PieceOptions {
 	 * // request.params -> {}
 	 * ```
 	 * @example
-	 * ``typescript
+	 * ```typescript
 	 * '/guilds/:guild/members/:member/'
 	 * // request.params -> { guild: '...', member: '...' }
 	 * ```

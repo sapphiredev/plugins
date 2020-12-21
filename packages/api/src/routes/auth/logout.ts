@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import type { PieceContext } from '@sapphire/pieces';
 import fetch from 'node-fetch';
 import { stringify } from 'querystring';
@@ -80,11 +79,13 @@ export class PluginRoute extends Route {
 			method: 'POST',
 			body: stringify({
 				token,
+				/* eslint-disable @typescript-eslint/naming-convention */
 				client_id: auth.id,
 				client_secret: auth.secret
+				/* eslint-enable @typescript-eslint/naming-convention */
 			}),
 			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
+				'content-type': 'application/x-www-form-urlencoded'
 			}
 		});
 

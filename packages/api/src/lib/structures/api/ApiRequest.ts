@@ -1,6 +1,5 @@
 import { IncomingMessage } from 'http';
 import type { AuthData } from '../http/Auth';
-// import { RESTPostOAuth2AccessTokenResult } from 'discord-api-types/v6';
 
 export class ApiRequest extends IncomingMessage {
 	/**

@@ -293,6 +293,14 @@ export const enum HttpCodes {
 	IAmATeapot = 418,
 
 	/**
+	 * Returned by the Twitter Search and Trends API when the client is being rate limited.
+	 * The text is a quote from 'Demolition Man' and the '420' code is likely a reference
+	 * to this number's association with marijuana. Other services may wish to implement
+	 * the 429 Too Many Requests response code instead.
+	 */
+	EnhanceYourCalm = 420,
+
+	/**
 	 * (RFC 7540) The request was directed at a server that is not able to
 	 * produce a response (for example because of connection reuse).
 	 */

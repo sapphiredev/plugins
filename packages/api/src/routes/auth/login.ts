@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import type { PieceContext } from '@sapphire/pieces';
 import type {
 	RESTGetAPICurrentUserConnectionsResult,
@@ -58,19 +57,21 @@ export class PluginRoute extends Route {
 
 	private async fetchAuth(code: string) {
 		const data: RESTPostOAuth2AccessTokenURIEncodedData = {
+			/* eslint-disable @typescript-eslint/naming-convention */
 			client_id: this.client.server.auth!.id,
 			client_secret: this.client.server.auth!.secret,
 			code,
 			grant_type: 'authorization_code',
 			scope: this.scopeString,
 			redirect_uri: this.redirectUri
+			/* eslint-enable @typescript-eslint/naming-convention */
 		};
 
 		const result = await fetch('https://discord.com/api/v8/oauth2/token', {
 			method: 'POST',
 			body: stringify(data as any),
 			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
+				'content-type': 'application/x-www-form-urlencoded'
 			}
 		});
 
@@ -91,7 +92,7 @@ export class PluginRoute extends Route {
 
 		const result = await fetch(url, {
 			headers: {
-				Authorization: `Bearer ${token}`
+				authorization: `Bearer ${token}`
 			}
 		});
 
