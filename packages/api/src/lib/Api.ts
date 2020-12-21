@@ -17,6 +17,7 @@ export class Api extends Plugin {
 			.registerStore(this.server.middlewares);
 
 		this.events.registerPath(join(__dirname, '..', 'events'));
+		this.server.routes.registerPath(join(__dirname, '..', 'routes'));
 		this.server.middlewares.registerPath(join(__dirname, '..', 'middlewares'));
 	}
 
