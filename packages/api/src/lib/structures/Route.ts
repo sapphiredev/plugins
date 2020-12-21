@@ -1,6 +1,7 @@
 import { BasePiece } from '@sapphire/framework';
 import type { PieceContext, PieceOptions } from '@sapphire/pieces';
 import type { Awaited } from '@sapphire/utilities';
+import { Collection } from 'discord.js';
 import { RouteData } from '../utils/RouteData';
 import { methodEntries, Methods } from './http/HttpMethods';
 import type { MethodCallback, RouteStore } from './RouteStore';
@@ -22,7 +23,7 @@ export abstract class Route extends BasePiece {
 	/**
 	 * The methods this route accepts.
 	 */
-	public readonly methods = new Map<Methods, MethodCallback>();
+	public readonly methods = new Collection<Methods, MethodCallback>();
 
 	public constructor(context: PieceContext, options: RouteOptions = {}) {
 		super(context, options);
