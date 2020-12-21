@@ -8,21 +8,30 @@ import type { MethodCallback, RouteStore } from './RouteStore';
  * @since 1.0.0
  */
 export abstract class Route extends BasePiece {
+	/**
+	 * (RFC 7230 3.3.2) The maximum decimal number of octets.
+	 */
 	public readonly maximumBodyLength: number;
+
+	/**
+	 * The route information.
+	 */
 	public readonly router: RouteData;
-	public readonly methods: readonly [Methods, MethodCallback][];
+
+	/**
+	 * The methods this route accepts.
+	 */
+	public readonly methods = new Map<Methods, MethodCallback>();
 
 	public constructor(context: PieceContext, options: RouteOptions = {}) {
 		super(context, options);
 		this.router = new RouteData(`${this.client.options.api?.prefix ?? ''}${options.route ?? ''}`);
 
-		const methods: [Methods, MethodCallback][] = [];
 		for (const [method, symbol] of methodEntries) {
 			const value = Reflect.get(this, symbol) as MethodCallback;
-			if (typeof value === 'function') methods.push([method, value]);
+			if (typeof value === 'function') this.methods.set(method, value);
 		}
 
-		this.methods = methods;
 		this.maximumBodyLength = options.maximumBodyLength ?? this.client.options.api?.maximumBodyLength ?? 1024 * 1024 * 50;
 	}
 
@@ -56,6 +65,25 @@ export abstract class Route extends BasePiece {
 }
 
 export interface RouteOptions extends PieceOptions {
+	/**
+	 * The route the piece should represent.
+	 * @default ''
+	 * @example
+	 * ```typescript
+	 * '/users'
+	 * // request.params -> {}
+	 * ```
+	 * @example
+	 * ``typescript
+	 * '/guilds/:guild/members/:member/'
+	 * // request.params -> { guild: '...', member: '...' }
+	 * ```
+	 */
 	route?: string;
+
+	/**
+	 * (RFC 7230 3.3.2) The maximum decimal number of octets.
+	 * @default this.client.options.api?.maximumBodyLength ?? 1024 * 1024 * 50
+	 */
 	maximumBodyLength?: number;
 }

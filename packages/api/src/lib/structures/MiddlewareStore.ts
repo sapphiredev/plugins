@@ -8,7 +8,10 @@ import type { Route } from './Route';
  * @since 1.0.0
  */
 export class MiddlewareStore extends BaseStore<Middleware> {
-	public sortedMiddlewares: Middleware[] = [];
+	/**
+	 * The sorted middlewares, in ascending order of {@see Middleware#position}.
+	 */
+	public readonly sortedMiddlewares: Middleware[] = [];
 
 	public constructor(client: SapphireClient) {
 		super(client, Middleware as any, { name: 'middlewares' });

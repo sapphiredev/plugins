@@ -36,7 +36,7 @@ export class RouteStore extends BaseStore<Route> {
 
 		const parsed = new URL(request.url ?? '');
 		const splitUrl = parsed.pathname.split('/');
-		for (const [route, cb] of methodTable) {
+		for (const [route, cb] of methodTable.entries()) {
 			const result = route.router.match(splitUrl);
 			if (result === null) continue;
 
