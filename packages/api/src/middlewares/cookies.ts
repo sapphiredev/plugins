@@ -7,7 +7,7 @@ import { Middleware } from '../lib/structures/Middleware';
 export class PluginMiddleware extends Middleware {
 	private readonly production: boolean = process.env.NODE_ENV === 'production';
 	public constructor(context: PieceContext) {
-		super(context, { priority: 30 });
+		super(context, { position: 30 });
 	}
 
 	public run(request: ApiRequest, response: ApiResponse) {

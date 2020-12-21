@@ -10,13 +10,14 @@ import { MimeTypes } from '../lib/utils/MimeTypes';
 
 export class PluginMiddleware extends Middleware {
 	public constructor(context: PieceContext) {
-		super(context, { priority: 20 });
+		super(context, { position: 20 });
 	}
 
 	public run(request: ApiRequest, response: ApiResponse, route: Route) {
 		const contentType = request.headers['content-type'];
 		if (typeof contentType !== 'string') return null;
 
+		// RFC 7230 3.3.2.
 		const lengthString = request.headers['content-length'];
 		if (typeof lengthString !== 'string') return null;
 

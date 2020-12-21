@@ -1,15 +1,22 @@
 import type { SapphireClient } from '@sapphire/framework';
 import { createCipheriv, createDecipheriv, randomBytes } from 'crypto';
+import type { ApiOptionsAuth } from '../../Api';
 
 export class Auth {
-	public client: SapphireClient;
+	public id: string;
+	public cookie: string;
 
 	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
 	#secret: string;
 
-	public constructor(client: SapphireClient, secret: string) {
-		this.client = client;
+	private constructor(id: string, cookie: string, secret: string) {
+		this.id = id;
+		this.cookie = cookie;
 		this.#secret = secret;
+	}
+
+	public get secret() {
+		return this.#secret;
 	}
 
 	/**
@@ -34,6 +41,15 @@ export class Auth {
 		const [data, iv] = token.split('.');
 		const decipher = createDecipheriv('aes-256-cbc', this.#secret, Buffer.from(iv, 'base64'));
 		return JSON.parse(decipher.update(data, 'base64', 'utf8') + decipher.final('utf8'));
+	}
+
+	public static create(client: SapphireClient, options?: ApiOptionsAuth): Auth | null {
+		if (!options?.secret) return null;
+
+		const id = options.id ?? client.id ?? client.options.id;
+		if (!id) return null;
+
+		return new Auth(id, options.cookie ?? 'SAPPHIRE_AUTH', options.secret);
 	}
 }
 

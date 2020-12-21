@@ -56,7 +56,7 @@ export class Server extends EventEmitter {
 		});
 		this.routes = new RouteStore(client);
 		this.middlewares = new MiddlewareStore(client);
-		this.auth = this.client.options.api?.clientSecret ? new Auth(this.client, this.client.options.api.clientSecret) : null;
+		this.auth = Auth.create(client, this.client.options.api?.auth);
 		this.server.on('error', this.emit.bind(this, ServerEvents.Error));
 		this.server.on('request', this.emit.bind(this, ServerEvents.Request));
 	}

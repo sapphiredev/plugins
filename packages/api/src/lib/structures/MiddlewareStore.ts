@@ -22,7 +22,7 @@ export class MiddlewareStore extends BaseStore<Middleware> {
 	}
 
 	public set(key: string, value: Middleware): this {
-		const index = this.sortedMiddlewares.findIndex((middleware) => middleware.priority >= value.priority);
+		const index = this.sortedMiddlewares.findIndex((middleware) => middleware.position >= value.position);
 
 		// If a middleware with lower priority wasn't found, push to the end of the array
 		if (index === -1) this.sortedMiddlewares.push(value);
