@@ -79,9 +79,9 @@ export class PluginRoute extends Route {
 
 	private async fetchData(token: string): Promise<LoginData> {
 		const [user, guilds, connections] = await Promise.all([
-			this.fetchInformation<RESTPatchAPICurrentUserResult>('identify', 'https://discord.com/api/v8/users/@me', token),
-			this.fetchInformation<RESTGetAPICurrentUserGuildsResult>('guilds', 'https://discord.com/api/v8/users/@me/guilds', token),
-			this.fetchInformation<RESTGetAPICurrentUserConnectionsResult>('connections', 'https://discord.com/api/v8/users/@me/connections', token)
+			this.fetchInformation<RESTPatchAPICurrentUserResult>('identify', token, 'https://discord.com/api/v8/users/@me'),
+			this.fetchInformation<RESTGetAPICurrentUserGuildsResult>('guilds', token, 'https://discord.com/api/v8/users/@me/guilds'),
+			this.fetchInformation<RESTGetAPICurrentUserConnectionsResult>('connections', token, 'https://discord.com/api/v8/users/@me/connections')
 		]);
 		return { user, guilds, connections };
 	}
