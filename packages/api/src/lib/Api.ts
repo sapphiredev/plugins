@@ -53,6 +53,19 @@ export interface ApiOptionsAuth {
 	 * @default null
 	 */
 	secret?: string | null;
+
+	/**
+	 * The scopes defined at https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes.
+	 * @since 1.0.0
+	 * @default ['identify']
+	 */
+	scopes?: string[];
+
+	/**
+	 * The redirect uri.
+	 * @since 1.0.0
+	 */
+	redirect?: string;
 }
 
 /**
