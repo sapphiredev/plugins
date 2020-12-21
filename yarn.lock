@@ -712,18 +712,6 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@klasa/cache@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@klasa/cache/-/cache-0.0.3.tgz#824595f247fbd6204a6278eae988d22eb783d00b"
-  integrity sha512-8+V14gY0soYSd9j5NKel+gKpoEccwFnKYPEL2XALx+SOHzVMAmmfVBqO4cd3QzPdIW3770jklLY2SeXeEv9xvA==
-
-"@klasa/ratelimits@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@klasa/ratelimits/-/ratelimits-0.1.0.tgz#34e1e49fd68d16e6db03801b3a6c2ec4457b78c6"
-  integrity sha512-fms8ZAB5gVHj5i0wPzM0Pmb6KEDv+gR+A6le0ZY1X9+6r8jH3R1kakVgysDePiObiUI3yqiNhUpPyuz4syXGeQ==
-  dependencies:
-    "@klasa/cache" "^0.0.3"
-
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
@@ -1572,6 +1560,11 @@
   dependencies:
     "@discordjs/collection" "^0.1.6"
 
+"@sapphire/ratelimits@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-1.1.0.tgz#274236efe51a785b758a7233708198b0ded710f9"
+  integrity sha512-C+3AZ/AoLJR2h4hQK8heyGuYfKDzdOOA9MKlwSZrx0uKa9DypgajEAYjcOjrsAjhzQ9jatKvkQ4XKK5oTzp4LA==
+
 "@sapphire/ts-config@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@sapphire/ts-config/-/ts-config-1.0.3.tgz#e923ca8b04a1f759961cee309ed8f64880bfa9a1"
@@ -1581,10 +1574,6 @@
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-1.1.1.tgz#899b033312794ecfb48efa81b6e97ecc7b2879d4"
   integrity sha512-G4I963k2bhBXRS+ZlpOLzDjks51MuZrBPsq8/hA7FUKbRkO1VizQAzY/cTQA1vVZI6jOHPxZRWJD0xWPNbjLuA==
-
-"@sapphire/utilities@github:sapphire-project/utilities#build-utilities":
-  version "1.0.2"
-  resolved "https://codeload.github.com/sapphire-project/utilities/tar.gz/d59ea99921b6d36247e088cec4231a5492d112f3"
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.1"
@@ -3097,6 +3086,11 @@ dir-glob@^3.0.1:
   integrity sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==
   dependencies:
     path-type "^4.0.0"
+
+discord-api-types@^0.11.2:
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.11.2.tgz#02a9a400c80675f1c426a55bb9ac53fe5ff9415b"
+  integrity sha512-CU9kKhAg+xZ/e+0v3CH70tmwPFx0vzidGZbJbIegnutr9NucrW8Mg45n40nvJf261LtZWLbJLWVopfwx+T6Rpg==
 
 discord.js@^12.5.1:
   version "12.5.1"

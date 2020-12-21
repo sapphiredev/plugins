@@ -23,7 +23,7 @@ export abstract class Route extends BasePiece {
 		}
 
 		this.methods = methods;
-		this.maximumBodyLength = options.maximumBodyLength ?? Infinity;
+		this.maximumBodyLength = options.maximumBodyLength ?? this.client.options.api?.maximumBodyLength ?? 1024 * 1024 * 50;
 	}
 
 	/**

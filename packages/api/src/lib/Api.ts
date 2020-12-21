@@ -34,6 +34,17 @@ export class Api extends Plugin {
 export interface ApiOptions {
 	/**
 	 * @since 1.0.0
+	 * @default 'SAPPHIRE_AUTH'
+	 */
+	authCookieName?: string;
+
+	/**
+	 * @since 1.0.0
+	 */
+	clientSecret?: string;
+
+	/**
+	 * @since 1.0.0
 	 * @default ''
 	 */
 	prefix?: string;
@@ -49,6 +60,12 @@ export interface ApiOptions {
 	 * @default []
 	 */
 	extraHeaders?: [string, string][];
+
+	/**
+	 * @since 1.0.0
+	 * @default 1024 * 1024 * 50
+	 */
+	maximumBodyLength?: number;
 
 	/**
 	 * @since 1.0.0

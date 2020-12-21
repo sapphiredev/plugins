@@ -1,8 +1,8 @@
 import { BaseStore, SapphireClient } from '@sapphire/framework';
 import type { ApiRequest } from './api/ApiRequest';
 import type { ApiResponse } from './api/ApiResponse';
-import type { Middleware } from './Middleware';
-import { Route } from './Route';
+import { Middleware } from './Middleware';
+import type { Route } from './Route';
 
 /**
  * @since 1.0.0
@@ -11,7 +11,7 @@ export class MiddlewareStore extends BaseStore<Middleware> {
 	public sortedMiddlewares: Middleware[] = [];
 
 	public constructor(client: SapphireClient) {
-		super(client, Route as any, { name: 'middlewares' });
+		super(client, Middleware as any, { name: 'middlewares' });
 	}
 
 	public async run(request: ApiRequest, response: ApiResponse, route: Route): Promise<void> {

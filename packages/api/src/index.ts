@@ -2,6 +2,7 @@ export * from './lib/Api';
 export * from './lib/structures/api/ApiRequest';
 export * from './lib/structures/api/ApiResponse';
 export * from './lib/structures/api/CookieStore';
+export * from './lib/structures/http/Auth';
 export * from './lib/structures/http/HttpCodes';
 export * from './lib/structures/http/HttpMethods';
 export * from './lib/structures/http/Server';

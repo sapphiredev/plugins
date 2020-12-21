@@ -18,7 +18,9 @@ export class PluginMiddleware extends Middleware {
 		if (typeof contentType !== 'string') return null;
 
 		const lengthString = request.headers['content-length'];
-		const length = lengthString ? Number(lengthString) : Number.MAX_SAFE_INTEGER;
+		if (typeof lengthString !== 'string') return null;
+
+		const length = Number(lengthString);
 		if (length > route.maximumBodyLength) {
 			response.status(HttpCodes.PayloadTooLarge).json({ error: 'Exceeded maximum content length.' });
 			return null;

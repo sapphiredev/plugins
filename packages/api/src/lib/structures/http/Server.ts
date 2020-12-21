@@ -5,6 +5,7 @@ import { ApiRequest } from '../api/ApiRequest';
 import { ApiResponse } from '../api/ApiResponse';
 import { MiddlewareStore } from '../MiddlewareStore';
 import { RouteStore } from '../RouteStore';
+import { Auth } from './Auth';
 
 export const enum ServerEvents {
 	Error = 'error',
@@ -23,6 +24,8 @@ export class Server extends EventEmitter {
 	public readonly routes: RouteStore;
 
 	public readonly middlewares: MiddlewareStore;
+
+	public readonly auth: Auth | null;
 
 	/**
 	 * The http.Server instance that manages the recieved HTTP requests.
@@ -53,6 +56,7 @@ export class Server extends EventEmitter {
 		});
 		this.routes = new RouteStore(client);
 		this.middlewares = new MiddlewareStore(client);
+		this.auth = this.client.options.api?.clientSecret ? new Auth(this.client, this.client.options.api.clientSecret) : null;
 		this.server.on('error', this.emit.bind(this, ServerEvents.Error));
 		this.server.on('request', this.emit.bind(this, ServerEvents.Request));
 	}
