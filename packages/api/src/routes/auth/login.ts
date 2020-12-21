@@ -3,7 +3,7 @@ import type { PieceContext } from '@sapphire/pieces';
 import type {
 	RESTGetAPICurrentUserConnectionsResult,
 	RESTGetAPICurrentUserGuildsResult,
-	RESTPatchAPICurrentUserResult,
+	RESTGetAPICurrentUserResult,
 	RESTPostOAuth2AccessTokenResult,
 	RESTPostOAuth2AccessTokenURIEncodedData
 } from 'discord-api-types/v8';
@@ -79,7 +79,7 @@ export class PluginRoute extends Route {
 
 	private async fetchData(token: string): Promise<LoginData> {
 		const [user, guilds, connections] = await Promise.all([
-			this.fetchInformation<RESTPatchAPICurrentUserResult>('identify', token, 'https://discord.com/api/v8/users/@me'),
+			this.fetchInformation<RESTGetAPICurrentUserResult>('identify', token, 'https://discord.com/api/v8/users/@me'),
 			this.fetchInformation<RESTGetAPICurrentUserGuildsResult>('guilds', token, 'https://discord.com/api/v8/users/@me/guilds'),
 			this.fetchInformation<RESTGetAPICurrentUserConnectionsResult>('connections', token, 'https://discord.com/api/v8/users/@me/connections')
 		]);
@@ -100,7 +100,7 @@ export class PluginRoute extends Route {
 }
 
 export interface LoginData {
-	user?: RESTPatchAPICurrentUserResult | null;
+	user?: RESTGetAPICurrentUserResult | null;
 	guilds?: RESTGetAPICurrentUserGuildsResult | null;
 	connections?: RESTGetAPICurrentUserConnectionsResult | null;
 }

@@ -8,7 +8,7 @@ import type { MethodCallback, RouteStore } from './RouteStore';
  * @since 1.0.0
  */
 export abstract class Route extends BasePiece {
-	public maximumBodyLength: number;
+	public readonly maximumBodyLength: number;
 	public readonly router: RouteData;
 	public readonly methods: readonly [Methods, MethodCallback][];
 

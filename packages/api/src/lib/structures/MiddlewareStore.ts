@@ -34,7 +34,7 @@ export class MiddlewareStore extends BaseStore<Middleware> {
 	public delete(key: string): boolean {
 		const index = this.sortedMiddlewares.findIndex((middleware) => middleware.name === key);
 
-		// If a middleware with lower priority wasn't found, push to the end of the array
+		// If the middleware was found, remove it
 		if (index !== -1) this.sortedMiddlewares.splice(index, 1);
 
 		return super.delete(key);

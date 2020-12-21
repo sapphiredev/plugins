@@ -27,17 +27,15 @@ export class PluginRoute extends Route {
 		// exists and may retry after a reasonable delay.
 		// The server may include a "Retry-After" header in the response to indicate how long the service is expected to
 		// be unavailable to the requesting client.
-		if (result.status === 503) {
+		if (result.status === HttpCodes.ServiceUnavailable) {
 			// RFC 7231 7.1.3. Servers send the "Retry-After" header field to indicate how long the user agent ought to
 			// wait before making a follow-up request.
 			//
 			// The value of this field can be either an HTTP-date or a number of seconds to delay after the response is
 			// received.
-			//
-			// Note: Discord sends Retry-After in seconds, never an HTTP-date, therefore, we will assume this behaviour.
-			const retryAfter = result.headers.get('Retry-After');
+			const retryAfter = this.processRetryAfter(result.headers.get('Retry-After'));
 			if (retryAfter) {
-				await sleep(Number(retryAfter));
+				await sleep(retryAfter);
 
 				const result = await this.revoke(request.auth.token);
 				if (result.ok) return this.success(response);
@@ -91,5 +89,11 @@ export class PluginRoute extends Route {
 		});
 
 		return result;
+	}
+
+	private processRetryAfter(retryAfter: string | null) {
+		// Discord sends Retry-After in seconds, never an HTTP-date, therefore, we will assume this behaviour.
+		// Either way, if it's not present, we will retry in 5 seconds.
+		return retryAfter === null ? 5000 : Number(retryAfter) * 1000;
 	}
 }
