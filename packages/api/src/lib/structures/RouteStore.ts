@@ -1,20 +1,51 @@
 import { BaseStore, SapphireClient } from '@sapphire/framework';
 import { Collection } from 'discord.js';
-import { METHODS } from 'http';
-import type { Methods } from './http/HttpMethods';
+import { URL } from 'url';
+import type { ApiRequest } from './api/ApiRequest';
+import type { ApiResponse } from './api/ApiResponse';
+import { methodEntries, Methods } from './http/HttpMethods';
 import { Route } from './Route';
+
+export interface MethodCallback {
+	(request: ApiRequest, response: ApiResponse): unknown;
+}
+
+export interface RouteMatch {
+	route: Route;
+	cb: MethodCallback;
+}
 
 /**
  * @since 1.0.0
  */
 export class RouteStore extends BaseStore<Route> {
-	public routingTable: Collection<Methods, Collection<string, Route>> = new Collection();
+	public readonly table = new Collection<Methods, Collection<Route, MethodCallback>>();
 
 	public constructor(client: SapphireClient) {
-		// @ts-expect-error Argument of type 'typeof Route' is not assignable to parameter of type 'Constructor<Route>'. Cannot assign an abstract constructor type to a non-abstract constructor type. (2345)
-		super(client, Route);
+		super(client, Route as any, { name: 'routes' });
 
-		// TODO: Add routes to routingTable
-		for (const method of METHODS) this.routingTable.set(method as Methods, new Collection());
+		for (const [method] of methodEntries) this.table.set(method, new Collection());
+	}
+
+	public match(request: ApiRequest): RouteMatch | null {
+		const { method } = request;
+		if (typeof method === 'undefined') return null;
+
+		const methodTable = this.table.get(method as Methods);
+		if (typeof methodTable === 'undefined') return null;
+
+		const parsed = new URL(request.url ?? '');
+		const splitUrl = parsed.pathname.split('/');
+		for (const [route, cb] of methodTable.entries()) {
+			const result = route.router.match(splitUrl);
+			if (result === null) continue;
+
+			request.params = result;
+			request.query = Object.fromEntries(parsed.searchParams.entries());
+
+			return { route, cb };
+		}
+
+		return null;
 	}
 }

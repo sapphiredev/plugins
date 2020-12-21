@@ -1,22 +1,28 @@
 import { IncomingMessage } from 'http';
+import type { AuthData } from '../http/Auth';
 
-export interface UserAuthObject {
-	token: string;
-	refresh: string;
-	// eslint-disable-next-line @typescript-eslint/naming-convention
-	user_id: string;
-	expires: number;
-}
+export class ApiRequest extends IncomingMessage {
+	/**
+	 * The query parameters.
+	 */
+	public query: Record<string, string | string[]> = {};
 
-export class ApiRequest extends IncomingMessage {}
+	/**
+	 * The URI parameters.
+	 */
+	public params: Record<string, string> = {};
 
-export interface ApiRequest {
-	originalUrl: string;
-	path: string;
-	search: string;
-	query: Record<string, string | string[]>;
-	params: Record<string, string>;
-	body?: any;
-	length?: number;
-	auth?: UserAuthObject;
+	/**
+	 * The body that was sent by the user.
+	 */
+	public body?: unknown;
+
+	/**
+	 * The authorization information. This field indicates three possible values:
+	 *
+	 * - `undefined`: The authorization middleware has not been executed yet.
+	 * - `null`: The user is not authorized.
+	 * - `AuthData`: The user is authorized.
+	 */
+	public auth?: AuthData | null;
 }

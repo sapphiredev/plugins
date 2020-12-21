@@ -1,65 +1,91 @@
 import { BasePiece } from '@sapphire/framework';
-import { Collection } from 'discord.js';
-import { kRoutePathCacheSymbol } from '../Api';
-import { METHODS } from 'http';
-import type { RouteCacheDefinition } from '../decorators/HttpMethods';
-import { parse, ParsedPart } from '../utils/pathParsing';
-import type { Methods } from './http/HttpMethods';
 import type { PieceContext, PieceOptions } from '@sapphire/pieces';
+import type { Awaited } from '@sapphire/utilities';
+import { Collection } from 'discord.js';
+import { RouteData } from '../utils/RouteData';
+import { methodEntries, Methods } from './http/HttpMethods';
+import type { MethodCallback, RouteStore } from './RouteStore';
 
 /**
  * @since 1.0.0
  */
 export abstract class Route extends BasePiece {
 	/**
-	 * @since 1.0.0
+	 * (RFC 7230 3.3.2) The maximum decimal number of octets.
 	 */
-	public route: string;
+	public readonly maximumBodyLength: number;
 
 	/**
-	 * @since 1.0.0
+	 * The route information.
 	 */
-	public $internalRoutingTable: Collection<Methods, [string, ParsedPart[]][]> = new Collection();
+	public readonly router: RouteData;
 
 	/**
-	 * Internal route remains empty until either the store fills it from piece options or the decorator sets it.
-	 * Its main function is acting as the main route for the DEFAULT HttpMethod decorators.
-	 * OR as the base route for decorator defined sub routes.
-	 * @protected
-	 * @since 1.0.0
+	 * The methods this route accepts.
 	 */
-	protected $internalRoute = '';
+	public readonly methods = new Collection<Methods, MethodCallback>();
 
-	public constructor(context: PieceContext, { name, ...options }: PieceOptions = {}) {
-		super(context, { ...options, name: name?.toLowerCase() });
+	public constructor(context: PieceContext, options: RouteOptions = {}) {
+		super(context, options);
+		this.router = new RouteData(`${this.client.options.api?.prefix ?? ''}${options.route ?? ''}`);
 
-		this.route = `${this.client.options.api.prefix}${this.$internalRoute}`;
-
-		Reflect.defineProperty(Route, kRoutePathCacheSymbol, { value: [] });
-		for (const method of METHODS) {
-			this.$internalRoutingTable.set(
-				method as Methods,
-				(Reflect.get(Route, kRoutePathCacheSymbol) as RouteCacheDefinition[])
-					.filter((rt) => rt.httpMethod === method)
-					.map((rt) => [rt.method, parse(rt.route)])
-			);
+		for (const [method, symbol] of methodEntries) {
+			const value = Reflect.get(this, symbol) as MethodCallback;
+			if (typeof value === 'function') this.methods.set(method, value);
 		}
-	}
 
-	public matchRoute(method: Methods, split: string[]): string {
-		const routes = this.$internalRoutingTable.get(method)!;
-		if (!routes.some((rt) => rt[1].length === split.length)) return '';
-		for (const rte of routes) {
-			for (let ir = 0; ir < rte[1].length; ir++) {
-				const routeEntry = rte[1][ir];
-				if (routeEntry[1] !== 0 && routeEntry[0] === split[ir]) return rte[0];
-			}
-		}
-		return '';
+		this.maximumBodyLength = options.maximumBodyLength ?? this.client.options.api?.maximumBodyLength ?? 1024 * 1024 * 50;
 	}
 
 	/**
-	 * @since 1.0.0
+	 * Per-piece listener that is called when the piece is loaded into the store.
+	 * Useful to set-up asynchronous initialization tasks.
 	 */
-	public static [kRoutePathCacheSymbol]: RouteCacheDefinition[];
+	public onLoad(): Awaited<unknown> {
+		const store = (this.store as unknown) as RouteStore;
+
+		for (const [method, cb] of this.methods) {
+			store.table.get(method)!.set(this, cb.bind(this));
+		}
+
+		return undefined;
+	}
+
+	/**
+	 * Per-piece listener that is called when the piece is unloaded from the store.
+	 * Useful to set-up clean-up tasks.
+	 */
+	public onUnload(): Awaited<unknown> {
+		const store = (this.store as unknown) as RouteStore;
+
+		for (const [method] of this.methods) {
+			store.table.get(method)!.delete(this);
+		}
+
+		return undefined;
+	}
+}
+
+export interface RouteOptions extends PieceOptions {
+	/**
+	 * The route the piece should represent.
+	 * @default ''
+	 * @example
+	 * ```typescript
+	 * '/users'
+	 * // request.params -> {}
+	 * ```
+	 * @example
+	 * ```typescript
+	 * '/guilds/:guild/members/:member/'
+	 * // request.params -> { guild: '...', member: '...' }
+	 * ```
+	 */
+	route?: string;
+
+	/**
+	 * (RFC 7230 3.3.2) The maximum decimal number of octets.
+	 * @default this.client.options.api?.maximumBodyLength ?? 1024 * 1024 * 50
+	 */
+	maximumBodyLength?: number;
 }

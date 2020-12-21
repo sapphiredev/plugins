@@ -61,7 +61,7 @@ export class CookieStore extends Map<string, string> {
 		this.response.setHeader('Set-Cookie', set);
 	}
 
-	protected prepare(name: string, value: string, { expires, maxAge, domain = this.domain, path = '/' }: SecureCookieStoreSetOptions = {}) {
+	protected prepare(name: string, value: string, { expires, maxAge, domain, path, httpOnly }: SecureCookieStoreSetOptions = {}) {
 		const now = new Date();
 
 		if (expires === undefined) {
@@ -81,18 +81,20 @@ export class CookieStore extends Map<string, string> {
 		}
 
 		// RFC 6265 5.1.3 Domain Matching
-		domain = domain.toLowerCase();
+		domain = (domain ?? this.domain).toLowerCase();
 		if (domain !== this.domain) {
 			entry += `; Domain=${domain}`;
 		}
 
-		entry += `; Path=${path}`;
+		entry += `; Path=${path ?? '/'}`;
 
 		if (this.secure) {
 			entry += `; Secure`;
 		}
 
-		entry += `; HttpOnly`;
+		if (httpOnly ?? true) {
+			entry += `; HttpOnly`;
+		}
 
 		return entry;
 	}
@@ -114,4 +116,5 @@ export interface SecureCookieStoreSetOptions {
 	maxAge?: number;
 	domain?: string;
 	path?: string;
+	httpOnly?: boolean;
 }
