@@ -22,6 +22,7 @@
 		"@sapphire/eslint-config": "^1.0.4",
 		"@sapphire/framework": "github:sapphire-project/framework#build",
 		"@sapphire/pieces": "github:sapphire-project/pieces#build",
+		"@sapphire/prettier-config": "^1.0.1",
 		"@sapphire/ts-config": "^1.0.3",
 		"@sapphire/utilities": "^1.1.1",
 		"@types/jest": "^26.0.19",
@@ -85,5 +86,6 @@
 		"jest-environment-jsdom": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.0.2.tgz",
 		"jest-jasmine2": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.0.2.tgz",
 		"dot-prop": "^6.0.0"
-	}
+	},
+	"prettier": "@sapphire/prettier-config"
 }
