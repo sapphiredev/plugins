@@ -9,11 +9,11 @@ export class PluginEvent extends Event {
 	}
 
 	public run(request: ApiRequest, response: ApiResponse) {
-		const match = this.client.server.routes.match(request);
+		const match = this.context.server.routes.match(request);
 		if (match === null) {
-			this.client.server.emit(ServerEvents.NoMatch, request, response);
+			this.context.server.emit(ServerEvents.NoMatch, request, response);
 		} else {
-			this.client.server.emit(ServerEvents.Match, request, response, match);
+			this.context.server.emit(ServerEvents.Match, request, response, match);
 		}
 	}
 }

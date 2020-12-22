@@ -86,7 +86,7 @@ export interface RouteOptions extends PieceOptions {
 
 	/**
 	 * (RFC 7230 3.3.2) The maximum decimal number of octets.
-	 * @default this.client.options.api?.maximumBodyLength ?? 1024 * 1024 * 50
+	 * @default this.context.server.options.maximumBodyLength ?? 1024 * 1024 * 50
 	 */
 	maximumBodyLength?: number;
 }
