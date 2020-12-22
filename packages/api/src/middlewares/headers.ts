@@ -1,4 +1,4 @@
-import type { PieceContext } from '@sapphire/framework';
+import type { PieceContext } from '@sapphire/pieces';
 import { METHODS } from 'http';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../lib/structures/api/ApiResponse';
@@ -10,7 +10,7 @@ export class PluginMiddleware extends Middleware {
 
 	public constructor(context: PieceContext) {
 		super(context, { position: 10 });
-		this.origin = this.client.options.api?.origin ?? '*';
+		this.origin = this.context.server.options.origin ?? '*';
 	}
 
 	public run(request: ApiRequest, response: ApiResponse) {

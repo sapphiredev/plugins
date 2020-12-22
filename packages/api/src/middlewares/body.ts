@@ -1,4 +1,4 @@
-import type { PieceContext } from '@sapphire/framework';
+import type { PieceContext } from '@sapphire/pieces';
 import { URLSearchParams } from 'url';
 import { createGunzip, createInflate } from 'zlib';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';

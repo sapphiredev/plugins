@@ -11,15 +11,15 @@ export class PluginEvent extends Event {
 
 	public async run(request: ApiRequest, response: ApiResponse, match: RouteMatch) {
 		try {
-			await this.client.server.middlewares.run(request, response, match.route);
-			this.client.server.emit(
+			await this.context.server.middlewares.run(request, response, match.route);
+			this.context.server.emit(
 				response.writableEnded ? ServerEvents.MiddlewareFailure : ServerEvents.MiddlewareSuccess,
 				request,
 				response,
 				match
 			);
 		} catch (error) {
-			this.client.server.emit(ServerEvents.MiddlewareError, request, response, error, match);
+			this.context.server.emit(ServerEvents.MiddlewareError, request, response, error, match);
 		}
 	}
 }

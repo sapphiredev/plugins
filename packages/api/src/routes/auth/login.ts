@@ -21,10 +21,12 @@ export class PluginRoute extends Route {
 
 	public constructor(context: PieceContext) {
 		super(context);
-		this.enabled = this.client.server.auth !== null;
-		this.scopes = this.client.options.api?.auth?.scopes ?? ['identify'];
+
+		const { server } = this.context;
+		this.enabled = server.auth !== null;
+		this.scopes = server.auth?.scopes ?? ['identify'];
 		this.scopeString = this.scopes.join(' ');
-		this.redirectUri = this.client.options.api?.auth?.redirect;
+		this.redirectUri = server.auth?.redirect;
 	}
 
 	public async [methods.POST](request: ApiRequest, response: ApiResponse) {
@@ -43,7 +45,7 @@ export class PluginRoute extends Route {
 			return response.status(HttpCodes.InternalServerError).json({ error: 'Failed to fetch the user.' });
 		}
 
-		const auth = this.client.server.auth!;
+		const auth = this.context.server.auth!;
 		const token = auth.encrypt({
 			id: data.user.id,
 			expires: value.expires_in,
@@ -56,10 +58,11 @@ export class PluginRoute extends Route {
 	}
 
 	private async fetchAuth(code: string) {
+		const { id, secret } = this.context.server.auth!;
 		const data: RESTPostOAuth2AccessTokenURIEncodedData = {
 			/* eslint-disable @typescript-eslint/naming-convention */
-			client_id: this.client.server.auth!.id,
-			client_secret: this.client.server.auth!.secret,
+			client_id: id,
+			client_secret: secret,
 			code,
 			grant_type: 'authorization_code',
 			scope: this.scopeString,

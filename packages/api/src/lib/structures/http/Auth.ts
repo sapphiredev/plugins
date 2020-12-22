@@ -1,20 +1,45 @@
-import type { SapphireClient } from '@sapphire/framework';
 import { createCipheriv, createDecipheriv, randomBytes } from 'crypto';
-import type { ApiOptionsAuth } from '../../Api';
 
 export class Auth {
+	/**
+	 * The client's application id, this can be retrieved in Discord Developer Portal at https://discord.com/developers/applications.
+	 * @since 1.0.0
+	 */
 	public id: string;
+
+	/**
+	 * The name for the cookie, this will be used to identify a Secure HttpOnly cookie.
+	 * @since 1.0.0
+	 */
 	public cookie: string;
+
+	/**
+	 * The scopes defined at https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes.
+	 * @since 1.0.0
+	 */
+	public scopes: readonly string[];
+
+	/**
+	 * The redirect uri.
+	 * @since 1.0.0
+	 */
+	public redirect: string | undefined;
 
 	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
 	#secret: string;
 
-	private constructor(id: string, cookie: string, secret: string) {
-		this.id = id;
-		this.cookie = cookie;
-		this.#secret = secret;
+	private constructor(options: ServerOptionsAuth) {
+		this.id = options.id;
+		this.cookie = options.cookie ?? 'SAPPHIRE_AUTH';
+		this.scopes = options.scopes ?? ['identify'];
+		this.redirect = options.redirect;
+		this.#secret = options.secret;
 	}
 
+	/**
+	 * The client secret, this can be retrieved in Discord Developer Portal at https://discord.com/developers/applications.
+	 * @since 1.0.0
+	 */
 	public get secret() {
 		return this.#secret;
 	}
@@ -43,13 +68,9 @@ export class Auth {
 		return JSON.parse(decipher.update(data, 'base64', 'utf8') + decipher.final('utf8'));
 	}
 
-	public static create(client: SapphireClient, options?: ApiOptionsAuth): Auth | null {
-		if (!options?.secret) return null;
-
-		const id = options.id ?? client.id ?? client.options.id;
-		if (!id) return null;
-
-		return new Auth(id, options.cookie ?? 'SAPPHIRE_AUTH', options.secret);
+	public static create(options?: ServerOptionsAuth): Auth | null {
+		if (!options?.secret || !options.id) return null;
+		return new Auth(options);
 	}
 }
 
@@ -58,4 +79,42 @@ export interface AuthData {
 	expires: number;
 	refresh: string;
 	token: string;
+}
+
+/**
+ * Defines the authentication options.
+ * @since 1.0.0
+ */
+export interface ServerOptionsAuth {
+	/**
+	 * The client's application id, this can be retrieved in Discord Developer Portal at https://discord.com/developers/applications.
+	 * @since 1.0.0
+	 */
+	id: string;
+
+	/**
+	 * The name for the cookie, this will be used to identify a Secure HttpOnly cookie.
+	 * @since 1.0.0
+	 * @default 'SAPPHIRE_AUTH'
+	 */
+	cookie?: string;
+
+	/**
+	 * The client secret, this can be retrieved in Discord Developer Portal at https://discord.com/developers/applications.
+	 * @since 1.0.0
+	 */
+	secret: string;
+
+	/**
+	 * The scopes defined at https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes.
+	 * @since 1.0.0
+	 * @default ['identify']
+	 */
+	scopes?: string[];
+
+	/**
+	 * The redirect uri.
+	 * @since 1.0.0
+	 */
+	redirect?: string;
 }

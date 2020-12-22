@@ -1,11 +1,7 @@
 import { isClass } from '@sapphire/utilities';
-import { Api, ApiRequest, ApiResponse, CookieStore, Server } from '../src';
+import { ApiRequest, ApiResponse, CookieStore, Server } from '../src';
 
 describe('Integration', () => {
-	test('API should be a class', () => {
-		expect(isClass(Api)).toBe(true);
-	});
-
 	test('ApiRequest should be a class', () => {
 		expect(isClass(ApiRequest)).toBe(true);
 	});
