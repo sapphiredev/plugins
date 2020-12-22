@@ -22,7 +22,7 @@
 		"@sapphire/eslint-config": "^1.0.4",
 		"@sapphire/framework": "github:sapphire-project/framework#build",
 		"@sapphire/pieces": "github:sapphire-project/pieces#build",
-		"@sapphire/prettier-config": "^1.0.1",
+		"@sapphire/prettier-config": "^1.0.2",
 		"@sapphire/ts-config": "^1.0.3",
 		"@sapphire/utilities": "^1.1.1",
 		"@types/jest": "^26.0.19",
