@@ -1549,14 +1549,14 @@
   version "0.0.1"
   resolved "https://codeload.github.com/sapphire-project/framework/tar.gz/22b9e6aba0c6997f5b3ac0dbc320b7191eeab060"
   dependencies:
+    "@klasa/ratelimits" "^0.1.0"
     "@sapphire/pieces" "github:sapphire-project/pieces#build"
-    "@sapphire/ratelimits" "^1.1.0"
-    "@sapphire/utilities" "^1.1.1"
+    "@sapphire/utilities" "github:sapphire-project/utilities#build-utilities"
     lexure "^0.17.0"
 
 "@sapphire/pieces@github:sapphire-project/pieces#build":
   version "1.0.0"
-  resolved "https://codeload.github.com/sapphire-project/pieces/tar.gz/4fe62491bcec10442062756e52cd101d20bf2018"
+  resolved "https://codeload.github.com/sapphire-project/pieces/tar.gz/1ae16b5d030d71d7ce5d7d52b123b4a68cd219a1"
   dependencies:
     "@discordjs/collection" "^0.1.6"
 

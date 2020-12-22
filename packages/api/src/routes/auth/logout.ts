@@ -13,7 +13,7 @@ const sleep = promisify(setTimeout);
 export class PluginRoute extends Route {
 	public constructor(context: PieceContext) {
 		super(context);
-		this.enabled = this.client.server.auth !== null;
+		this.enabled = this.context.server.auth !== null;
 	}
 
 	public async [methods.POST](request: ApiRequest, response: ApiResponse) {
@@ -52,12 +52,12 @@ export class PluginRoute extends Route {
 
 	private success(response: ApiResponse) {
 		// Sending an empty cookie with "expires" set to 1970-01-01 makes the browser instantly remove the cookie.
-		response.cookies.add(this.client.server.auth!.cookie, '', { expires: new Date(0) });
+		response.cookies.add(this.context.server.auth!.cookie, '', { expires: new Date(0) });
 		return response.json({ sucess: true });
 	}
 
 	private async revoke(token: string) {
-		const auth = this.client.server.auth!;
+		const auth = this.context.server.auth!;
 
 		// RFC 7009 2.1.
 		// The following parameters must be formatted as "application/x-www-form-urlencoded" in the HTTP request-body:

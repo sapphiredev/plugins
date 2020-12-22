@@ -1,5 +1,4 @@
-import { BasePiece } from '@sapphire/framework';
-import type { PieceContext, PieceOptions } from '@sapphire/pieces';
+import { Piece, PieceContext, PieceOptions } from '@sapphire/pieces';
 import type { Awaited } from '@sapphire/utilities';
 import { Collection } from 'discord.js';
 import { RouteData } from '../utils/RouteData';
@@ -9,7 +8,7 @@ import type { MethodCallback, RouteStore } from './RouteStore';
 /**
  * @since 1.0.0
  */
-export abstract class Route extends BasePiece {
+export abstract class Route extends Piece {
 	/**
 	 * (RFC 7230 3.3.2) The maximum decimal number of octets.
 	 */
@@ -27,14 +26,16 @@ export abstract class Route extends BasePiece {
 
 	public constructor(context: PieceContext, options: RouteOptions = {}) {
 		super(context, options);
-		this.router = new RouteData(`${this.client.options.api?.prefix ?? ''}${options.route ?? ''}`);
+
+		const api = this.context.server.options;
+		this.router = new RouteData(`${api.prefix ?? ''}${options.route ?? ''}`);
 
 		for (const [method, symbol] of methodEntries) {
 			const value = Reflect.get(this, symbol) as MethodCallback;
 			if (typeof value === 'function') this.methods.set(method, value);
 		}
 
-		this.maximumBodyLength = options.maximumBodyLength ?? this.client.options.api?.maximumBodyLength ?? 1024 * 1024 * 50;
+		this.maximumBodyLength = options.maximumBodyLength ?? api.maximumBodyLength ?? 1024 * 1024 * 50;
 	}
 
 	/**

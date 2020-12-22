@@ -1,5 +1,4 @@
-import { BasePiece } from '@sapphire/framework';
-import type { PieceContext, PieceOptions } from '@sapphire/pieces';
+import { Piece, PieceContext, PieceOptions } from '@sapphire/pieces';
 import type { Awaited } from '@sapphire/utilities';
 import type { ApiRequest } from './api/ApiRequest';
 import type { ApiResponse } from './api/ApiResponse';
@@ -8,7 +7,7 @@ import type { Route } from './Route';
 /**
  * @since 1.0.0
  */
-export abstract class Middleware extends BasePiece {
+export abstract class Middleware extends Piece {
 	/**
 	 * The position the middleware has. The {@link MiddlewareStore} will run all middlewares with lower position than
 	 * this one.

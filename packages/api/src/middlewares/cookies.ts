@@ -1,4 +1,4 @@
-import type { PieceContext } from '@sapphire/framework';
+import type { PieceContext } from '@sapphire/pieces';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../lib/structures/api/ApiResponse';
 import { CookieStore } from '../lib/structures/api/CookieStore';
