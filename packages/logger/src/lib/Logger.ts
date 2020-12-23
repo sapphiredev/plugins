@@ -1,11 +1,30 @@
-import { Logger as BuiltLogger, LogLevel, LogMethods } from '@sapphire/framework';
-import { bgRed, cyan, gray, magenta, red, Style, white, yellow } from 'colorette';
+import { Logger as BuiltinLogger, LogLevel, LogMethods } from '@sapphire/framework';
+import { bgRed, cyan, gray, magenta, options as coloretteOptions, red, Style, white, yellow } from 'colorette';
 import { Console } from 'console';
+import { inspect, InspectOptions } from 'util';
 import { LoggerLevel, LoggerLevelOptions } from './LoggerLevel';
 
-export class Logger extends BuiltLogger {
+/**
+ * The logger class.
+ * @since 1.0.0
+ */
+export class Logger extends BuiltinLogger {
+	/**
+	 * The console this writes to.
+	 * @since 1.0.0
+	 */
 	protected readonly console: Console;
+
+	/**
+	 * The formats supported by the logger.
+	 * @since 1.0.0
+	 */
 	protected readonly formats: Map<LogLevel, LoggerLevel>;
+
+	/**
+	 * The string write will join values by.
+	 * @since 1.0.0
+	 */
 	protected readonly join: string;
 
 	public constructor(options: LoggerOptions = {}) {
@@ -14,22 +33,39 @@ export class Logger extends BuiltLogger {
 		this.console = new Console(options.stdout ?? process.stdout, options.stderr ?? process.stderr);
 		this.formats = Logger.createFormatMap(options.format, options.defaultFormat);
 		this.join = options.join ?? ' ';
+
+		if (typeof options.colors === 'boolean') coloretteOptions.enabled = options.colors;
 	}
 
+	/**
+	 * Writes the log message given a level and the value(s).
+	 * @param level The log level.
+	 * @param values The values to log.
+	 */
 	public write(level: LogLevel, ...values: readonly unknown[]): void {
 		if (level < this.level) return;
 
 		const method = this.levels.get(level) ?? 'log';
 		const formatter = this.formats.get(level) ?? this.formats.get(LogLevel.None)!;
 
-		this.console[method](formatter.run(values.join(this.join)));
+		this.console[method](formatter.run(this.preprocess(values)));
 	}
 
-	protected get levels() {
-		return Reflect.get(BuiltLogger, 'levels') as Map<LogLevel, LogMethods>;
+	/**
+	 * Pre-processes an array of values.
+	 * @since 1.0.0
+	 * @param values The values to pre-process.
+	 */
+	protected preprocess(...values: readonly unknown[]) {
+		const inspectOptions: InspectOptions = { colors: coloretteOptions.enabled, depth: 0 };
+		return values.map((value) => (typeof value === 'string' ? value : inspect(value, inspectOptions))).join(this.join);
 	}
 
-	protected static createFormatMap(options: LoggerFormatOptions = {}, defaults: LoggerLevelOptions = options.none ?? {}) {
+	private get levels() {
+		return Reflect.get(BuiltinLogger, 'levels') as Map<LogLevel, LogMethods>;
+	}
+
+	private static createFormatMap(options: LoggerFormatOptions = {}, defaults: LoggerLevelOptions = options.none ?? {}) {
 		const map = new Map<LogLevel, LoggerLevel>();
 
 		map.set(LogLevel.Trace, Logger.ensureDefaultLevel(options.trace, defaults, gray, 'TRACE'));
@@ -43,12 +79,12 @@ export class Logger extends BuiltLogger {
 		return map;
 	}
 
-	protected static ensureDefaultLevel(options: LoggerLevelOptions | undefined, defaults: LoggerLevelOptions, color: Style, name: string) {
+	private static ensureDefaultLevel(options: LoggerLevelOptions | undefined, defaults: LoggerLevelOptions, color: Style, name: string) {
 		if (options) return new LoggerLevel(options);
 		return new LoggerLevel({
 			...defaults,
 			timestamp: defaults.timestamp === null ? null : { ...(defaults.timestamp ?? {}), color },
-			prefix: name.length ? `${color(name.padEnd(5, ' '))} -` : null
+			infix: name.length ? `${color(name.padEnd(5, ' '))} -` : ''
 		});
 	}
 }
@@ -60,7 +96,7 @@ export class Logger extends BuiltLogger {
 export interface LoggerOptions {
 	/**
 	 * The WriteStream for the output logs.
-	 * @since 0.0.1
+	 * @since 1.0.0
 	 * @default process.stdout
 	 */
 	stdout?: NodeJS.WriteStream;
@@ -100,6 +136,13 @@ export interface LoggerOptions {
 	 * @default ' '
 	 */
 	join?: string;
+
+	/**
+	 * Whether or not colors should be added, this modifies colorette's global options. For specific ones, use `null` in
+	 * the style options.
+	 * @since 1.0.0
+	 */
+	colors?: boolean;
 }
 
 /**

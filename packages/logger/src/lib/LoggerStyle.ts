@@ -1,6 +1,73 @@
 import * as Colorette from 'colorette';
 
-export enum LoggerStyleText {
+/**
+ * Logger utility that applies a style to a string.
+ * @since 1.0.0
+ */
+export class LoggerStyle {
+	private readonly style: Colorette.Style;
+
+	public constructor(resolvable: LoggerStyleResolvable = {}) {
+		if (typeof resolvable === 'function') {
+			this.style = resolvable;
+		} else {
+			const styles: Colorette.Style[] = [];
+			if (resolvable.text) styles.push(...resolvable.text.map((text) => Colorette[text]));
+			if (resolvable.color) styles.push(Colorette[resolvable.color]);
+			if (resolvable.background) styles.push(Colorette[resolvable.background]);
+
+			this.style = styles.length //
+				? (string) => styles.reduce((out, style) => style(out), string)
+				: Colorette.reset;
+		}
+	}
+
+	/**
+	 * Applies the style to a string.
+	 * @since 1.0.0
+	 * @param string The value to apply the style to.
+	 */
+	public run(string: string) {
+		return this.style(string);
+	}
+}
+
+/**
+ * The options for [[LoggerStyle]].
+ * @since 1.0.0
+ */
+export interface LoggerStyleOptions {
+	/**
+	 * The text effects, e.g. `italic`, `strikethrough`, etc.
+	 * @since 1.0.0
+	 */
+	text?: LoggerStyleText[];
+
+	/**
+	 * The text color, e.g. `red` or `yellow`.
+	 * @since 1.0.0
+	 */
+	color?: LoggerStyleColor;
+
+	/**
+	 * The background color, e.g. `magenta` or `red`.
+	 * @since 1.0.0
+	 */
+	background?: LoggerStyleBackground;
+}
+
+/**
+ * The value accepted by [[LoggerStyle]]'s constructor. Read `colorette`'s documentation for more information.
+ * @since 1.0.0
+ * @seealso https://www.npmjs.com/package/colorette
+ */
+export type LoggerStyleResolvable = Colorette.Style | LoggerStyleOptions;
+
+/**
+ * The text styles.
+ * @since 1.0.0
+ */
+export const enum LoggerStyleText {
 	Reset = 'reset',
 	Bold = 'bold',
 	Dim = 'dim',
@@ -11,7 +78,11 @@ export enum LoggerStyleText {
 	Strikethrough = 'strikethrough'
 }
 
-export enum LoggerStyleColor {
+/**
+ * The text colors.
+ * @since 1.0.0
+ */
+export const enum LoggerStyleColor {
 	Black = 'black',
 	Red = 'red',
 	Green = 'green',
@@ -31,7 +102,11 @@ export enum LoggerStyleColor {
 	WhiteBright = 'whiteBright'
 }
 
-export enum LoggerStyleBackground {
+/**
+ * The background colors.
+ * @since 1.0.0
+ */
+export const enum LoggerStyleBackground {
 	Black = 'bgBlack',
 	Red = 'bgRed',
 	Green = 'bgGreen',
@@ -49,34 +124,3 @@ export enum LoggerStyleBackground {
 	CyanBright = 'bgCyanBright',
 	WhiteBright = 'bgWhiteBright'
 }
-
-export class LoggerStyle {
-	private readonly style: Colorette.Style;
-
-	public constructor(resolvable: LoggerStyleResolvable = {}) {
-		if (typeof resolvable === 'function') {
-			this.style = resolvable;
-		} else {
-			const styles: Colorette.Style[] = [];
-			if (resolvable.text) styles.push(...resolvable.text.map((text) => Colorette[text]));
-			if (resolvable.color) styles.push(Colorette[resolvable.color]);
-			if (resolvable.background) styles.push(Colorette[resolvable.background]);
-
-			this.style = styles.length //
-				? (string) => styles.reduce((out, style) => style(out), string)
-				: Colorette.reset;
-		}
-	}
-
-	public run(string: string) {
-		return this.style(string);
-	}
-}
-
-export interface LoggerStyleOptions {
-	text?: LoggerStyleText[];
-	color?: LoggerStyleColor;
-	background?: LoggerStyleBackground;
-}
-
-export type LoggerStyleResolvable = Colorette.Style | LoggerStyleOptions;

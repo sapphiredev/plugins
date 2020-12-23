@@ -18,12 +18,14 @@
 
 ## Description
 
-T.B.D.
+A Logger implementation that implements Sapphire's `ILogger` and implements timestamp and style formatting with the
+blazing fast [`colorette`](https://www.npmjs.com/package/colorette).
 
 ## Features
 
 -   Fully ready for TypeScript!
 -   Includes ESM ready entrypoint
+-   [`NO_COLOR`](https://no-color.org) friendly, inherited by colorette
 
 ## Installation
 
@@ -35,7 +37,9 @@ yarn add -D @sapphire/plugin-logger
 
 ## Usage
 
-T.B.D.
+```typescript
+import '@sapphire/plugin-logger/register';
+```
 
 ## Logger Documentation
 
