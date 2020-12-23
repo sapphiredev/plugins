@@ -30,8 +30,8 @@
 		"node-fetch": "^2.6.1"
 	},
 	"peerDependencies": {
-		"@sapphire/framework": "1.0.0-alpha.0",
-		"@sapphire/pieces": "1.0.0",
+		"@sapphire/framework": "1.x",
+		"@sapphire/pieces": "1.x",
 		"@types/ws": "latest",
 		"discord.js": "12.x"
 	},
