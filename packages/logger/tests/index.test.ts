@@ -1,20 +1,20 @@
 import { isClass } from '@sapphire/utilities';
-import { ApiRequest, ApiResponse, CookieStore, Server } from '../src';
+import { Logger, LoggerLevel, LoggerStyle, LoggerTimestamp } from '../src';
 
 describe('Integration', () => {
-	test('ApiRequest should be a class', () => {
-		expect(isClass(ApiRequest)).toBe(true);
+	test('Logger should be a class', () => {
+		expect(isClass(Logger)).toBe(true);
 	});
 
-	test('ApiResponse should be a class', () => {
-		expect(isClass(ApiResponse)).toBe(true);
+	test('LoggerLevel should be a class', () => {
+		expect(isClass(LoggerLevel)).toBe(true);
 	});
 
-	test('CookieStore should be a class', () => {
-		expect(isClass(CookieStore)).toBe(true);
+	test('LoggerStyle should be a class', () => {
+		expect(isClass(LoggerStyle)).toBe(true);
 	});
 
-	test('Server should be a class', () => {
-		expect(isClass(Server)).toBe(true);
+	test('LoggerTimestamp should be a class', () => {
+		expect(isClass(LoggerTimestamp)).toBe(true);
 	});
 });

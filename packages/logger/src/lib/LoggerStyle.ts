@@ -50,14 +50,6 @@ export enum LoggerStyleBackground {
 	WhiteBright = 'bgWhiteBright'
 }
 
-export interface LoggerStyleOptions {
-	text?: LoggerStyleText;
-	color?: LoggerStyleColor;
-	background?: LoggerStyleBackground;
-}
-
-export type LoggerStyleResolvable = Colorette.Style | LoggerStyleOptions;
-
 export class LoggerStyle {
 	private readonly style: Colorette.Style;
 
@@ -66,7 +58,7 @@ export class LoggerStyle {
 			this.style = resolvable;
 		} else {
 			const styles: Colorette.Style[] = [];
-			if (resolvable.text) styles.push(Colorette[resolvable.text]);
+			if (resolvable.text) styles.push(...resolvable.text.map((text) => Colorette[text]));
 			if (resolvable.color) styles.push(Colorette[resolvable.color]);
 			if (resolvable.background) styles.push(Colorette[resolvable.background]);
 
@@ -80,3 +72,11 @@ export class LoggerStyle {
 		return this.style(string);
 	}
 }
+
+export interface LoggerStyleOptions {
+	text?: LoggerStyleText[];
+	color?: LoggerStyleColor;
+	background?: LoggerStyleBackground;
+}
+
+export type LoggerStyleResolvable = Colorette.Style | LoggerStyleOptions;
