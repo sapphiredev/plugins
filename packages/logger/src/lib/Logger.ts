@@ -105,7 +105,7 @@ export class Logger extends BuiltinLogger {
 		return new LoggerLevel({
 			...defaults,
 			timestamp: defaults.timestamp === null ? null : { ...(defaults.timestamp ?? {}), color },
-			infix: name.length ? `${color(name.padEnd(5, ' '))} -` : ''
+			infix: name.length ? `${color(name.padEnd(5, ' '))} - ` : ''
 		});
 	}
 }
