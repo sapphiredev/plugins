@@ -22,7 +22,7 @@ export class Logger extends BuiltinLogger {
 	public readonly formats: Map<LogLevel, LoggerLevel>;
 
 	/**
-	 * The string write will join values by.
+	 * The string `write` will join values by.
 	 * @since 1.0.0
 	 */
 	public readonly join: string;
