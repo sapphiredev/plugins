@@ -1,4 +1,4 @@
-import { rename } from 'fs/promises';
+import { copyFile } from 'fs/promises';
 
 const distDir = new URL('../dist/', import.meta.url);
 const rootDir = new URL('../', import.meta.url);
@@ -12,5 +12,5 @@ const registerFiles = [
 ];
 
 for (const [sourceFile, destFile] of registerFiles) {
-	await rename(sourceFile, destFile);
+	await copyFile(sourceFile, destFile);
 }

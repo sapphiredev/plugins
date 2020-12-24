@@ -29,6 +29,7 @@ test_out/
 **/*.mjs
 **/*.js.map
 **/*.d.ts
+**/*.d.ts.map
 **/*.tsbuildinfo
 !packages/**/src/**/*.d.ts
 !jest.config.ts
