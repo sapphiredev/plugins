@@ -1,1 +1,1 @@
-export * from './dist/register';
+export * from './dist/register.mjs';
