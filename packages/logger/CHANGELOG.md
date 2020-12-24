@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-logger@1.0.0...@sapphire/plugin-logger@1.0.1) (2020-12-24)
+
+### Bug Fixes
+
+-   **logger:** remove second spread ([61cddb7](https://github.com/sapphire-project/plugins/commit/61cddb7dfd433c0afd8aeddd6a42b78a1be17850))
+-   **logger:** use pre-generics initialization hook ([d8d3ce1](https://github.com/sapphire-project/plugins/commit/d8d3ce183c4e246a9707cbbfca0c69b135be7267))
+
 # 1.0.0 (2020-12-24)
 
 ### Features
