@@ -23,6 +23,7 @@
 		"lint": "eslint src tests --ext ts --fix",
 		"build": "tsc -b src",
 		"postbuild": "run-p esm:**",
+		"prepublishOnly": "yarn build",
 		"esm:register": "gen-esm-wrapper dist/register.js dist/register.mjs",
 		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs"
 	},
