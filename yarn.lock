@@ -1569,14 +1569,21 @@
     "@discordjs/collection" "^0.1.6"
 
 "@sapphire/prettier-config@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@sapphire/prettier-config/-/prettier-config-1.0.2.tgz#b656e806c6088dce70427b527070324c31838be2"
-  integrity sha512-OGIt0oDKk6UAZfWt+OH1kYfmFJkUbDZtzgsObssfAP8L93pkB56Wm2y+HFAv1RmLBHJQOxO99ngTyIsLN2bWzA==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@sapphire/prettier-config/-/prettier-config-1.0.3.tgz#94ac022956a0aebd2ae625a0a2c88d605ef5a6ef"
+  integrity sha512-bbfmP5iViyEtFC40GWBO6qgMxUzbfuMs2tk77D/1hfxRGB5XD0f7udBoD+sBn2p4Y/jgIrY0BW7F1BnQDf9ZuA==
 
 "@sapphire/ratelimits@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-1.1.1.tgz#0e9a0f6b8fa1a4e3d1c909435f964b4755f04dbe"
   integrity sha512-TsXgkduFgZvuiEgNm7rlIHhciJgbKBhJKpDZwKvCLUmdB+7OzpSL9xIWH4AtUe4xXZs61FjgNdRvf7yfSsOcdQ==
+
+"@sapphire/time-utilities@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.2.1.tgz#6ffa9af8256a9c193c2a9dd0932a75165497fb9c"
+  integrity sha512-EG0Vc5AwMZsIVZmFUJYphEpq0ldFHRRqmy0RqJJeVWr8nviJ2bcvOmZ+TmIYXbvU9R9giTbl9C6z0F++9JAeeA==
+  dependencies:
+    "@sapphire/utilities" "^1.2.0"
 
 "@sapphire/ts-config@^1.0.3":
   version "1.0.3"
@@ -2598,6 +2605,11 @@ color-name@~1.1.4:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
+
+colorette@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/colorette/-/colorette-1.2.1.tgz#4d0b921325c14faf92633086a536db6e89564b1b"
+  integrity sha512-puCDz0CzydiSYOrnXpz/PKd69zRrribezjtE9yd4zvytoRc8+RY/KJPvtPFKZS3E3wP6neGyMe0vOTlHO5L3Pw==
 
 columnify@^1.5.4:
   version "1.5.4"

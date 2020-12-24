@@ -10,7 +10,9 @@
 		"**/rollup.config.ts",
 		"**/jest.config.ts",
 		"packages/api/src/index.ts",
-		"packages/api/src/register.ts"
+		"packages/api/src/register.ts",
+		"packages/logger/src/index.ts",
+		"packages/logger/src/register.ts"
 	],
 	"mode": "modules",
 	"excludeExternals": true,
