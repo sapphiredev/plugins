@@ -62,6 +62,7 @@ jobs:
           rsync -vaI ../../LICENSE.md out/
           rsync -vaI README.md out/
           rsync -vaI dist/ out/dist
+          rsync -vaI register* out/
 
           echo -e "\n# Commit and push"
           cd out

@@ -13,8 +13,8 @@
 			"require": "./dist/index.js"
 		},
 		"./register": {
-			"import": "./dist/register.mjs",
-			"require": "./dist/register.js"
+			"import": "./register.mjs",
+			"require": "./register.js"
 		}
 	},
 	"homepage": "https://github.com/sapphire-project/plugins/tree/main/packages/api",
@@ -23,12 +23,13 @@
 		"lint": "eslint src tests --ext ts --fix",
 		"build": "tsc -b src",
 		"postbuild": "run-p esm:**",
-		"prepublishOnly": "yarn build",
 		"esm:register": "gen-esm-wrapper dist/register.js dist/register.mjs",
-		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs"
+		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
+		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"node-fetch": "^2.6.1"
+		"node-fetch": "^2.6.1",
+		"tslib": "^2.0.1"
 	},
 	"peerDependencies": {
 		"@sapphire/framework": "1.x",
@@ -51,7 +52,8 @@
 	},
 	"files": [
 		"dist",
-		"!dist/*.tsbuildinfo"
+		"!dist/*.tsbuildinfo",
+		"register.*"
 	],
 	"engines": {
 		"node": ">=14",
