@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-logger@1.0.1...@sapphire/plugin-logger@1.0.2) (2020-12-24)
+
+### Bug Fixes
+
+-   **logger:** append extra space in default infix ([0daa435](https://github.com/sapphire-project/plugins/commit/0daa4351f75782bde0a2e763c61ca401e559d64f))
+
 ## [1.0.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-logger@1.0.0...@sapphire/plugin-logger@1.0.1) (2020-12-24)
 
 ### Bug Fixes
