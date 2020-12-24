@@ -13,25 +13,25 @@ export class Logger extends BuiltinLogger {
 	 * The console this writes to.
 	 * @since 1.0.0
 	 */
-	protected readonly console: Console;
+	public readonly console: Console;
 
 	/**
 	 * The formats supported by the logger.
 	 * @since 1.0.0
 	 */
-	protected readonly formats: Map<LogLevel, LoggerLevel>;
+	public readonly formats: Map<LogLevel, LoggerLevel>;
 
 	/**
 	 * The string write will join values by.
 	 * @since 1.0.0
 	 */
-	protected readonly join: string;
+	public readonly join: string;
 
 	/**
 	 * The inspect depth when logging objects.
 	 * @since 1.0.0
 	 */
-	protected readonly depth: number;
+	public readonly depth: number;
 
 	public constructor(options: LoggerOptions = {}) {
 		super(options.level ?? LogLevel.Info);
