@@ -63,7 +63,7 @@ export class Logger extends BuiltinLogger {
 	 * @since 1.0.0
 	 * @param values The values to pre-process.
 	 */
-	protected preprocess(...values: readonly unknown[]) {
+	protected preprocess(values: readonly unknown[]) {
 		const inspectOptions: InspectOptions = { colors: coloretteOptions.enabled, depth: this.depth };
 		return values.map((value) => (typeof value === 'string' ? value : inspect(value, inspectOptions))).join(this.join);
 	}
