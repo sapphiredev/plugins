@@ -1,7 +1,7 @@
 import { Event, PieceContext } from '@sapphire/framework';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../lib/structures/api/ApiResponse';
-import { ServerEvents } from '../lib/structures/http/Server';
+import { Server, ServerEvents, ServerOptions } from '../lib/structures/http/Server';
 import type { RouteMatch } from '../lib/structures/RouteStore';
 
 export class PluginEvent extends Event {
@@ -21,5 +21,15 @@ export class PluginEvent extends Event {
 		} catch (error) {
 			this.context.server.emit(ServerEvents.MiddlewareError, request, response, error, match);
 		}
+	}
+}
+
+declare module 'discord.js' {
+	export interface Client {
+		server: Server;
+	}
+
+	export interface ClientOptions {
+		api?: ServerOptions;
 	}
 }
