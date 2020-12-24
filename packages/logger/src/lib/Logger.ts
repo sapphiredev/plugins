@@ -27,14 +27,21 @@ export class Logger extends BuiltinLogger {
 	 */
 	protected readonly join: string;
 
+	/**
+	 * The inspect depth when logging objects.
+	 * @since 1.0.0
+	 */
+	protected readonly depth: number;
+
 	public constructor(options: LoggerOptions = {}) {
 		super(options.level ?? LogLevel.Info);
 
 		this.console = new Console(options.stdout ?? process.stdout, options.stderr ?? process.stderr);
 		this.formats = Logger.createFormatMap(options.format, options.defaultFormat);
 		this.join = options.join ?? ' ';
+		this.depth = options.depth ?? 0;
 
-		if (typeof options.colors === 'boolean') coloretteOptions.enabled = options.colors;
+		if (typeof options.stylize === 'boolean') Logger.stylize = options.stylize;
 	}
 
 	/**
@@ -57,7 +64,7 @@ export class Logger extends BuiltinLogger {
 	 * @param values The values to pre-process.
 	 */
 	protected preprocess(...values: readonly unknown[]) {
-		const inspectOptions: InspectOptions = { colors: coloretteOptions.enabled, depth: 0 };
+		const inspectOptions: InspectOptions = { colors: coloretteOptions.enabled, depth: this.depth };
 		return values.map((value) => (typeof value === 'string' ? value : inspect(value, inspectOptions))).join(this.join);
 	}
 
@@ -65,18 +72,32 @@ export class Logger extends BuiltinLogger {
 		return Reflect.get(BuiltinLogger, 'levels') as Map<LogLevel, LogMethods>;
 	}
 
+	/**
+	 * Gets whether or not colorette is enabled.
+	 * @since 1.0.0
+	 */
+	public static get stylize() {
+		return coloretteOptions.enabled;
+	}
+
+	/**
+	 * Sets whether or not colorette should be enabled.
+	 * @since 1.0.0
+	 */
+	public static set stylize(value: boolean) {
+		coloretteOptions.enabled = value;
+	}
+
 	private static createFormatMap(options: LoggerFormatOptions = {}, defaults: LoggerLevelOptions = options.none ?? {}) {
-		const map = new Map<LogLevel, LoggerLevel>();
-
-		map.set(LogLevel.Trace, Logger.ensureDefaultLevel(options.trace, defaults, gray, 'TRACE'));
-		map.set(LogLevel.Debug, Logger.ensureDefaultLevel(options.debug, defaults, magenta, 'DEBUG'));
-		map.set(LogLevel.Info, Logger.ensureDefaultLevel(options.info, defaults, cyan, 'INFO'));
-		map.set(LogLevel.Warn, Logger.ensureDefaultLevel(options.warn, defaults, yellow, 'WARN'));
-		map.set(LogLevel.Error, Logger.ensureDefaultLevel(options.error, defaults, red, 'ERROR'));
-		map.set(LogLevel.Fatal, Logger.ensureDefaultLevel(options.fatal, defaults, bgRed, 'FATAL'));
-		map.set(LogLevel.None, Logger.ensureDefaultLevel(options.none, defaults, white, ''));
-
-		return map;
+		return new Map<LogLevel, LoggerLevel>([
+			[LogLevel.Trace, Logger.ensureDefaultLevel(options.trace, defaults, gray, 'TRACE')],
+			[LogLevel.Debug, Logger.ensureDefaultLevel(options.debug, defaults, magenta, 'DEBUG')],
+			[LogLevel.Info, Logger.ensureDefaultLevel(options.info, defaults, cyan, 'INFO')],
+			[LogLevel.Warn, Logger.ensureDefaultLevel(options.warn, defaults, yellow, 'WARN')],
+			[LogLevel.Error, Logger.ensureDefaultLevel(options.error, defaults, red, 'ERROR')],
+			[LogLevel.Fatal, Logger.ensureDefaultLevel(options.fatal, defaults, bgRed, 'FATAL')],
+			[LogLevel.None, Logger.ensureDefaultLevel(options.none, defaults, white, '')]
+		]);
 	}
 
 	private static ensureDefaultLevel(options: LoggerLevelOptions | undefined, defaults: LoggerLevelOptions, color: Style, name: string) {
@@ -138,11 +159,18 @@ export interface LoggerOptions {
 	join?: string;
 
 	/**
-	 * Whether or not colors should be added, this modifies colorette's global options. For specific ones, use `null` in
-	 * the style options.
+	 * Whether or not styles should be applied, this modifies colorette's global options. For specific ones, use `null`
+	 * in the style options. Alternatively, you can set a boolean to [[Logger.stylize]] to change this setting anytime.
 	 * @since 1.0.0
 	 */
-	colors?: boolean;
+	stylize?: boolean;
+
+	/**
+	 * The inspect depth when logging objects.
+	 * @since 1.0.0
+	 * @default 0
+	 */
+	depth?: number;
 }
 
 /**

@@ -19,4 +19,4 @@ declare module '@sapphire/framework' {
 	export interface ClientLoggerOptions extends LoggerOptions {}
 }
 
-SapphireClient.plugins.registerPostInitializationHook(LoggerPlugin[preInitialization], 'Logger-PreInitialization');
+SapphireClient.plugins.registerPreInitializationHook(LoggerPlugin[preInitialization], 'Logger-PreInitialization');

@@ -18,8 +18,8 @@
 
 ## Description
 
-A Logger implementation that implements Sapphire's `ILogger` and implements timestamp and style formatting with the
-blazing fast [`colorette`](https://www.npmjs.com/package/colorette).
+A Logger implementation that implements Sapphire's `ILogger` interface and implements timestamp and style formatting
+with the blazing fast [`colorette`](https://www.npmjs.com/package/colorette) library.
 
 ## Features
 
@@ -43,7 +43,7 @@ import '@sapphire/plugin-logger/register';
 
 ## Logger Documentation
 
-For the full Logger documentation please refer to the TypeDoc generated [documentation](https://sapphire-project.github.io/plugins/modules/_sapphire_plugin_logger.html).
+For the full @sapphire/plugin-logger documentation please refer to the TypeDoc generated [documentation](https://sapphire-project.github.io/plugins/modules/_sapphire_plugin_logger.html).
 
 ## Buy us some doughnuts
 

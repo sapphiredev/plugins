@@ -5,7 +5,8 @@
   "repoHost": "https://github.com",
   "files": [
     "README.md",
-    "packages/api/README.md"
+    "packages/api/README.md",
+	"packages/logger/README.md"
   ],
   "imageSize": 100,
   "commit": true,
