@@ -1,3 +1,9 @@
+/**
+ * ================================================
+ * | THIS IS FOR TYPEDOC. DO NOT REMOVE THIS FILE |
+ * ===============================================
+ */
+
 import type { Server, ServerOptions } from './http/Server';
 
 declare module 'discord.js' {
