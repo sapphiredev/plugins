@@ -9,6 +9,6 @@ export class PluginEvent extends Event {
 	}
 
 	public run(_: ApiRequest, response: ApiResponse) {
-		response.notFound();
+		if (!response.writableEnded) response.notFound();
 	}
 }

@@ -17,7 +17,7 @@ export class MiddlewareStore extends Store<Middleware> {
 		super(Middleware as any, { name: 'middlewares' });
 	}
 
-	public async run(request: ApiRequest, response: ApiResponse, route: Route): Promise<void> {
+	public async run(request: ApiRequest, response: ApiResponse, route: Route | null): Promise<void> {
 		for (const middleware of this.sortedMiddlewares) {
 			if (response.writableEnded) return;
 			if (middleware.enabled) await middleware.run(request, response, route);

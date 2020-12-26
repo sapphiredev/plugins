@@ -9,11 +9,13 @@ import type { Route } from '../lib/structures/Route';
 import { MimeTypes } from '../lib/utils/MimeTypes';
 
 export class PluginMiddleware extends Middleware {
+	private readonly maximumBodyLength: number;
 	public constructor(context: PieceContext) {
 		super(context, { position: 20 });
+		this.maximumBodyLength = this.context.server.options.maximumBodyLength ?? 1024 * 1024 * 50;
 	}
 
-	public run(request: ApiRequest, response: ApiResponse, route: Route) {
+	public run(request: ApiRequest, response: ApiResponse, route: Route | null) {
 		const contentType = request.headers['content-type'];
 		if (typeof contentType !== 'string') return null;
 
@@ -22,14 +24,14 @@ export class PluginMiddleware extends Middleware {
 		if (typeof lengthString !== 'string') return null;
 
 		const length = Number(lengthString);
-		if (length > route.maximumBodyLength) {
+		const maximumLength = route?.maximumBodyLength ?? this.maximumBodyLength;
+		if (length > maximumLength) {
 			response.status(HttpCodes.PayloadTooLarge).json({ error: 'Exceeded maximum content length.' });
 			return null;
 		}
 
 		const index = contentType.indexOf(';');
 		const type = index === -1 ? contentType : contentType.slice(0, index);
-
 		switch (type) {
 			case MimeTypes.ApplicationJson:
 				return this.applicationJson(request, response);

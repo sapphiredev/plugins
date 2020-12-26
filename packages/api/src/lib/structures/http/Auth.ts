@@ -113,7 +113,7 @@ export interface ServerOptionsAuth {
 	scopes?: string[];
 
 	/**
-	 * The redirect uri.
+	 * The redirect uri. This will default to [[OAuth2BodyData.redirectUri]] if missing.
 	 * @since 1.0.0
 	 */
 	redirect?: string;

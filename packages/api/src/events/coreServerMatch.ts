@@ -9,17 +9,7 @@ export class PluginEvent extends Event {
 		super(context, { emitter: 'server', event: ServerEvents.Match });
 	}
 
-	public async run(request: ApiRequest, response: ApiResponse, match: RouteMatch) {
-		try {
-			await this.context.server.middlewares.run(request, response, match.route);
-			this.context.server.emit(
-				response.writableEnded ? ServerEvents.MiddlewareFailure : ServerEvents.MiddlewareSuccess,
-				request,
-				response,
-				match
-			);
-		} catch (error) {
-			this.context.server.emit(ServerEvents.MiddlewareError, request, response, error, match);
-		}
+	public run(request: ApiRequest, response: ApiResponse, match: RouteMatch) {
+		this.context.server.emit(response.writableEnded ? ServerEvents.MiddlewareFailure : ServerEvents.MiddlewareSuccess, request, response, match);
 	}
 }
