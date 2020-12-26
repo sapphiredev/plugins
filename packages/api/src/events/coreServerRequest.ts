@@ -8,8 +8,19 @@ export class PluginEvent extends Event {
 		super(context, { emitter: 'server', event: ServerEvents.Request });
 	}
 
-	public run(request: ApiRequest, response: ApiResponse) {
+	public async run(request: ApiRequest, response: ApiResponse) {
 		const match = this.context.server.routes.match(request);
+
+		try {
+			// Middlewares need to be run regardless of the match, specially since browsers do an OPTIONS request first.
+			await this.context.server.middlewares.run(request, response, match?.route ?? null);
+		} catch (error) {
+			this.context.server.emit(ServerEvents.MiddlewareError, request, response, error, match);
+
+			// If a middleware errored, it might cause undefined behaviour in the routes, so we will return early.
+			return;
+		}
+
 		if (match === null) {
 			this.context.server.emit(ServerEvents.NoMatch, request, response);
 		} else {

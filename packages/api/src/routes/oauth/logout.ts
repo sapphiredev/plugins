@@ -12,7 +12,7 @@ const sleep = promisify(setTimeout);
 
 export class PluginRoute extends Route {
 	public constructor(context: PieceContext) {
-		super(context);
+		super(context, { route: 'oauth/logout' });
 		this.enabled = this.context.server.auth !== null;
 	}
 
