@@ -116,24 +116,24 @@ export interface LoginData {
 
 /**
  * The OAuth2 body data sent to the callback.
- * @since 1.0.0
+ * @since 1.2.0
  */
 export interface OAuth2BodyData {
 	/**
 	 * The code sent by the client.
-	 * @since 1.0.0
+	 * @since 1.2.0
 	 */
 	code: string;
 
 	/**
 	 * The client's ID.
-	 * @since 1.0.0
+	 * @since 1.2.0
 	 */
 	clientId: string;
 
 	/**
 	 * The redirect URI.
-	 * @since 1.0.0
+	 * @since 1.2.0
 	 */
 	redirectUri: string;
 }
