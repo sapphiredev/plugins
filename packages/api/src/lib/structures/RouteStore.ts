@@ -1,10 +1,12 @@
 import { Store } from '@sapphire/pieces';
 import { Collection } from 'discord.js';
-import { URL } from 'url';
+import { URLSearchParams } from 'url';
 import type { ApiRequest } from './api/ApiRequest';
 import type { ApiResponse } from './api/ApiResponse';
 import { methodEntries, Methods } from './http/HttpMethods';
 import { Route } from './Route';
+
+const slash = '/'.charCodeAt(0);
 
 export interface MethodCallback {
 	(request: ApiRequest, response: ApiResponse): unknown;
@@ -34,18 +36,41 @@ export class RouteStore extends Store<Route> {
 		const methodTable = this.table.get(method as Methods);
 		if (typeof methodTable === 'undefined') return null;
 
-		const parsed = new URL(request.url ?? '');
-		const splitUrl = parsed.pathname.split('/');
+		const { splits, querystring } = this.parseURL(request.url);
+
 		for (const [route, cb] of methodTable.entries()) {
-			const result = route.router.match(splitUrl);
+			const result = route.router.match(splits);
 			if (result === null) continue;
 
 			request.params = result;
-			request.query = Object.fromEntries(parsed.searchParams.entries());
+			request.query = Object.fromEntries(new URLSearchParams(querystring).entries());
 
 			return { route, cb };
 		}
 
 		return null;
+	}
+
+	private parseURL(url = '') {
+		const index = url.indexOf('?');
+
+		/* eslint-disable @typescript-eslint/init-declarations */
+		let pathname: string;
+		let querystring: string;
+		/* eslint-enable @typescript-eslint/init-declarations */
+		if (index === -1) {
+			pathname = url;
+			querystring = '';
+		} else {
+			pathname = url.substring(0, index);
+			querystring = url.substring(index + 1);
+		}
+
+		if (pathname.charCodeAt(0) === slash) pathname = pathname.substring(1);
+		if (pathname.length > 0 && pathname.charCodeAt(pathname.length - 1) === slash) pathname = pathname.substring(0, pathname.length - 1);
+
+		const splits = pathname.split('/');
+
+		return { splits, querystring };
 	}
 }

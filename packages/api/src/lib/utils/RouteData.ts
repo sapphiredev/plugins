@@ -52,7 +52,7 @@ export class RouteData {
 	 * @since 1.0.0
 	 */
 	private static parsePart(value: string): ParsedPart {
-		const type = value.charCodeAt(0) === colon ? TypeState.Static : TypeState.Dynamic;
+		const type = value.charCodeAt(0) === colon ? TypeState.Dynamic : TypeState.Static;
 		if (type === TypeState.Dynamic) value = value.substring(1);
 		return { value, type };
 	}
@@ -61,8 +61,9 @@ export class RouteData {
 	 * @since 1.0.0
 	 */
 	private static split(url: string): string[] {
-		if (url.length === 1 && url.charCodeAt(0) === slash) return [url];
-		else if (url.charCodeAt(0) === slash) url = url.substring(1);
+		if (url.length === 1 && url.charCodeAt(0) === slash) return [''];
+		if (url.charCodeAt(0) === slash) url = url.substring(1);
+		if (url.length > 0 && url.charCodeAt(url.length - 1) === slash) url = url.substring(0, url.length - 1);
 		return url.split('/');
 	}
 }
