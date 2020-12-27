@@ -4,7 +4,7 @@ import { MiddlewareErrorContext, ServerEvents } from '../lib/structures/http/Ser
 
 export class PluginEvent extends Event {
 	public constructor(context: PieceContext) {
-		super(context, { emitter: 'server', event: ServerEvents.MiddlewareError });
+		super(context, { emitter: 'server', event: ServerEvents.RouteError });
 	}
 
 	public run(error: Error, { response }: MiddlewareErrorContext) {
