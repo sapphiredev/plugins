@@ -15,7 +15,7 @@ export class PluginEvent extends Event {
 			// Middlewares need to be run regardless of the match, specially since browsers do an OPTIONS request first.
 			await this.context.server.middlewares.run(request, response, match?.route ?? null);
 		} catch (error) {
-			this.context.server.emit(ServerEvents.MiddlewareError, request, response, error, match);
+			this.context.server.emit(ServerEvents.MiddlewareError, error, { request, response, match });
 
 			// If a middleware errored, it might cause undefined behaviour in the routes, so we will return early.
 			return;

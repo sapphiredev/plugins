@@ -10,6 +10,10 @@ export class PluginEvent extends Event {
 	}
 
 	public async run(request: ApiRequest, response: ApiResponse, match: RouteMatch) {
-		await match.cb(request, response);
+		try {
+			await match.cb(request, response);
+		} catch (error) {
+			this.context.server.emit(ServerEvents.RouteError, error, { request, response, match });
+		}
 	}
 }

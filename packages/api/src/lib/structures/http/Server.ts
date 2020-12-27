@@ -5,7 +5,7 @@ import type { ListenOptions } from 'net';
 import { ApiRequest } from '../api/ApiRequest';
 import { ApiResponse } from '../api/ApiResponse';
 import { MiddlewareStore } from '../MiddlewareStore';
-import { RouteStore } from '../RouteStore';
+import { RouteMatch, RouteStore } from '../RouteStore';
 import { Auth, ServerOptionsAuth } from './Auth';
 
 export const enum ServerEvents {
@@ -13,6 +13,7 @@ export const enum ServerEvents {
 	Request = 'request',
 	Match = 'match',
 	NoMatch = 'noMatch',
+	RouteError = 'routeError',
 	MiddlewareFailure = 'middlewareFailure',
 	MiddlewareError = 'middlewareError',
 	MiddlewareSuccess = 'middlewareSuccess'
@@ -172,6 +173,30 @@ export interface ServerOptions {
  * @since 1.0.0
  */
 export type AuthLessServerOptions = Omit<ServerOptions, 'auth'>;
+
+/**
+ * The context sent in the error events.
+ * @since 1.2.0
+ */
+export interface MiddlewareErrorContext {
+	/**
+	 * The erroneous request.
+	 * @since 1.2.0
+	 */
+	request: ApiRequest;
+
+	/**
+	 * The server's response.
+	 * @since 1.2.0
+	 */
+	response: ApiResponse;
+
+	/**
+	 * The route match.
+	 * @since 1.2.0
+	 */
+	match: RouteMatch;
+}
 
 declare module '@sapphire/pieces' {
 	interface PieceContextExtras {
