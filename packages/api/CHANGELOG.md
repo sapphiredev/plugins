@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.1.1...@sapphire/plugin-api@1.2.0) (2020-12-28)
+
+### Bug Fixes
+
+-   **api:** correct the registered paths ([986dc5d](https://github.com/sapphire-project/plugins/commit/986dc5d6d6c37b071b09f655853998c2596efd10))
+-   **api:** resolved a few critical bugs ([#30](https://github.com/sapphire-project/plugins/issues/30)) ([fc479c5](https://github.com/sapphire-project/plugins/commit/fc479c5c487303a21bad1d7023a40437ec328d17))
+-   **api:** resolved all bugs with oauth2 ([#31](https://github.com/sapphire-project/plugins/issues/31)) ([d7c4ad4](https://github.com/sapphire-project/plugins/commit/d7c4ad47af1ff693c9fffc83a078eab4ffb6c33c))
+-   **api,logger:** add type augments to index.ts ([ae1f4da](https://github.com/sapphire-project/plugins/commit/ae1f4da9671a531edf10555242e21f39eb3b0d17))
+-   **api,logger:** properly export ESM register ([7cf7ea9](https://github.com/sapphire-project/plugins/commit/7cf7ea9a9c91f73874035b0512292cc08d93e38e))
+-   **api,logger:** third attempt at fixing register and types ([faa3ee2](https://github.com/sapphire-project/plugins/commit/faa3ee2f53d2ca1153a7eff2a64e2abf3feaae85))
+
+### Features
+
+-   **api:** handle route errors ([#33](https://github.com/sapphire-project/plugins/issues/33)) ([bc3c6f6](https://github.com/sapphire-project/plugins/commit/bc3c6f619a8f27fcf5b505c441fb95f9ef439d72))
+
 ## [1.1.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.1.0...@sapphire/plugin-api@1.1.1) (2020-12-24)
 
 **Note:** Version bump only for package @sapphire/plugin-api

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-logger@1.0.3...@sapphire/plugin-logger@1.0.4) (2020-12-28)
+
+### Bug Fixes
+
+-   **api,logger:** add type augments to index.ts ([ae1f4da](https://github.com/sapphire-project/plugins/commit/ae1f4da9671a531edf10555242e21f39eb3b0d17))
+-   **api,logger:** properly export ESM register ([7cf7ea9](https://github.com/sapphire-project/plugins/commit/7cf7ea9a9c91f73874035b0512292cc08d93e38e))
+-   **api,logger:** third attempt at fixing register and types ([faa3ee2](https://github.com/sapphire-project/plugins/commit/faa3ee2f53d2ca1153a7eff2a64e2abf3feaae85))
+-   **logger:** fix location of register file ([6e9a6f7](https://github.com/sapphire-project/plugins/commit/6e9a6f7ae4de5222e879394d717ae04ffb048aeb))
+-   **logger:** include register in github publishes ([e297af8](https://github.com/sapphire-project/plugins/commit/e297af8cada0ff3cf94bbe17e2f1c340743cd4d2))
+
 ## [1.0.3](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-logger@1.0.2...@sapphire/plugin-logger@1.0.3) (2020-12-24)
 
 **Note:** Version bump only for package @sapphire/plugin-logger
