@@ -12,6 +12,7 @@ export interface In17nOptions {
 	 * @since 1.0.0
 	 */
 	defaultName?: string;
+
 	/**
 	 * The options passed to `backend` in `i18next.init`.
 	 * @since 1.0.0
