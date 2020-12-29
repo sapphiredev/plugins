@@ -58,7 +58,9 @@
 		"ts",
 		"yarn",
 		"discord",
-		"sapphire"
+		"sapphire",
+		"i18next",
+		"i18n"
 	],
 	"bugs": {
 		"url": "https://github.com/sapphire-project/plugins/issues"
