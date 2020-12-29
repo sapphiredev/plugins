@@ -21,7 +21,7 @@ export class In17nHandler {
 	 * A `Map` of `i18next` language functions keyed by their language code.
 	 * @since 1.0.0
 	 */
-	public languages!: Map<string, TFunction>;
+	public readonly languages = new Map<string, TFunction>();
 
 	private readonly options?: In17nOptions;
 
