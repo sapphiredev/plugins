@@ -27,7 +27,7 @@
 		"@sapphire/framework": "1.0.0-alpha.1",
 		"@sapphire/pieces": "1.0.1",
 		"@types/i18next-fs-backend": "^1.0.0",
-		"discord.js": "^12.5.1"
+		"discord.js": "^12.x"
 	},
 	"peerDependenciesMeta": {
 		"@types/i18next-fs-backend": {
