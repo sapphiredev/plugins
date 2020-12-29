@@ -72,7 +72,9 @@ export class In17nHandler {
 			)
 		);
 
-		this.languages = new Map(languages.map((item) => [item, i18next.getFixedT(item)]));
+		for (const item of languages) {
+			this.languages.set(item, i18next.getFixedT(item));
+		}
 		this.languagesLoaded = true;
 	}
 
