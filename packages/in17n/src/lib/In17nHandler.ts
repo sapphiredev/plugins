@@ -85,9 +85,8 @@ export class In17nHandler {
 		if (!this.languagesLoaded) throw new Error('Cannot call this method until In17nHandler#init has been called');
 
 		const t = this.languages.get(locale);
-		if (!t) throw new ReferenceError('Invalid language provided');
-
-		return t;
+		if (t) return t;
+		throw new ReferenceError('Invalid language provided');
 	}
 
 	/**
