@@ -9,7 +9,7 @@
 	"contributors": [
 		"QuantumlyTangled <yo@quantumlytangled.com>"
 	],
-	"license": "BSD-3-Clause",
+	"license": "MIT",
 	"main": "dist/index.js",
 	"homepage": "https://github.com/sapphire-project/plugins/tree/main/packages/in17n",
 	"scripts": {
