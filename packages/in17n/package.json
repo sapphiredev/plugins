@@ -32,9 +32,6 @@
 	"peerDependenciesMeta": {
 		"@types/i18next-fs-backend": {
 			"optional": true
-		},
-		"discord.js": {
-			"optional": true
 		}
 	},
 	"devDependencies": {
