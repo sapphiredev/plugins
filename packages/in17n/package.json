@@ -1,17 +1,11 @@
 {
-	"name": "@sapphire/plugin-in17n",
+	"name": "@sapphire/plugin-i18next",
 	"version": "1.0.0",
-	"description": "> TODO: description",
+	"description": "Plugin for @sapphire/framework to support i18next.",
 	"author": "@sapphire",
-	"maintainers": [
-		"QuantumlyTangled <yo@quantumlytangled.com>"
-	],
-	"contributors": [
-		"QuantumlyTangled <yo@quantumlytangled.com>"
-	],
 	"license": "MIT",
 	"main": "dist/index.js",
-	"homepage": "https://github.com/sapphire-project/plugins/tree/main/packages/in17n",
+	"homepage": "https://github.com/sapphire-project/plugins/tree/main/packages/i18next",
 	"scripts": {
 		"lint": "eslint src tests --ext ts --fix",
 		"build": "tsc -b src",
@@ -40,7 +34,7 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/sapphire-project/plugins.git",
-		"directory": "packages/in17n"
+		"directory": "packages/i18next"
 	},
 	"files": [
 		"dist",

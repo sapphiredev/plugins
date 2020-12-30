@@ -2,11 +2,11 @@
 
 ![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire.png)
 
-# @sapphire/plugin-in17n
+# @sapphire/plugin-i18next
 
 **Plugin for <a href="https://github.com/sapphire-project/framework">@sapphire/framework</a> to support i18next based internationalization.**
 
-[![GitHub](https://img.shields.io/badge/License-BSD%203--Clause-green)](https://github.com/sapphire-project/plugins/blob/main/packages/in17n/LICENSE.md)
+[![GitHub](https://img.shields.io/github/license/sapphire-project/plugins)](https://github.com/sapphire-project/plugins/blob/main/LICENSE.md)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/sapphire-project/plugins.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/plugins/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/sapphire-project/plugins.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/plugins/context:javascript)
 [![Coverage Status](https://coveralls.io/repos/github/sapphire-project/plugins/badge.svg?branch=main)](https://coveralls.io/github/sapphire-project/plugins?branch=main)
@@ -18,7 +18,9 @@
 
 ## Description
 
-T.B.D
+An implementation of i18next's [filesystem backend] for Sapphire. It allows you to use a JSON-based `languages` directory to add internationalization for your bot using `SapphireClient`'s `fetchLanguage` hook and a custom message extension, adding features such as `sendTranslated` and `fetchLanguageKey`.
+
+[filesystem backend]: https://github.com/i18next/i18next-fs-backend
 
 ## Features
 
@@ -28,7 +30,7 @@ T.B.D
 ## Installation
 
 ```sh
-yarn add -D @sapphire/plugin-in17n
+yarn add -D @sapphire/plugin-i18next
 ```
 
 ---
@@ -36,12 +38,12 @@ yarn add -D @sapphire/plugin-in17n
 ## Usage
 
 ```typescript
-import '@sapphire/plugin-in17n/register';
+import '@sapphire/plugin-i18next/register';
 ```
 
-## In17n Documentation
+## Sapphire i18next Documentation
 
-For the full @sapphire/plugin-in17n documentation please refer to the TypeDoc generated [documentation](https://sapphire-project.github.io/plugins/modules/_sapphire_plugin_in17n.html).
+For the full @sapphire/plugin-i18next documentation please refer to the TypeDoc generated [documentation](https://sapphire-project.github.io/plugins/modules/_sapphire_plugin_i18next.html).
 
 ## Buy us some doughnuts
 
