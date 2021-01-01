@@ -12,6 +12,7 @@
 		"**/jest.config.ts",
 		"packages/api/src/index.ts",
 		"packages/logger/src/index.ts",
+		"packages/i18next/src/index.ts",
 		"packages/**/register*"
 	],
 	"mode": "modules",
