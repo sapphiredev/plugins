@@ -22,7 +22,7 @@ class I18nextMessage extends Structures.get('Message') {
 		key: string,
 		values?: readonly unknown[],
 		options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions,
-		edit?: Boolean
+		edit?: boolean
 	): Promise<Message>;
 
 	public translated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
@@ -32,7 +32,7 @@ class I18nextMessage extends Structures.get('Message') {
 		key: string,
 		valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
 		rawOptions?: MessageOptions,
-		edit?: Boolean
+		edit?: boolean
 	): Promise<Message | Message[]> {
 		const [values, options]: [readonly unknown[], MessageOptions] =
 			valuesOrOptions === undefined || Array.isArray(valuesOrOptions)
@@ -80,7 +80,7 @@ declare module 'discord.js' {
 			key: string,
 			values?: readonly unknown[],
 			options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions,
-			edit?: Boolean
+			edit?: boolean
 		): Promise<Message>;
 		translated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
 		translated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
@@ -89,7 +89,7 @@ declare module 'discord.js' {
 			key: string,
 			valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
 			rawOptions?: MessageOptions,
-			edit?: Boolean
+			edit?: boolean
 		): Promise<Message | Message[]>;
 	}
 
