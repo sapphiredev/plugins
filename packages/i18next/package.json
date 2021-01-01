@@ -1,0 +1,90 @@
+{
+	"name": "@sapphire/plugin-i18next",
+	"version": "0.0.1",
+	"description": "Plugin for @sapphire/framework to support i18next.",
+	"author": "@sapphire",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		},
+		"./register": {
+			"import": "./register.mjs",
+			"require": "./register.js"
+		},
+		"./register-discordjs": {
+			"import": "./register-discordjs.mjs",
+			"require": "./register-discordjs.js"
+		}
+	},
+	"homepage": "https://github.com/sapphire-project/plugins/tree/main/packages/i18next",
+	"scripts": {
+		"test": "jest",
+		"lint": "eslint src tests --ext ts --fix",
+		"build": "tsc -b src",
+		"postbuild": "run-p esm:**",
+		"esm:register": "gen-esm-wrapper dist/register.js dist/register.mjs",
+		"esm:register-discordjs": "gen-esm-wrapper dist/register-discordjs.js dist/register-discordjs.mjs",
+		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
+		"prepublishOnly": "yarn build"
+	},
+	"dependencies": {
+		"@sapphire/utilities": "^1.3.0",
+		"i18next": "^19.8.4",
+		"i18next-fs-backend": "^1.0.7"
+	},
+	"peerDependencies": {
+		"@sapphire/framework": "1.x",
+		"@sapphire/pieces": "1.x",
+		"@types/i18next-fs-backend": "^1.0.0",
+		"discord.js": "^12.x"
+	},
+	"peerDependenciesMeta": {
+		"@types/i18next-fs-backend": {
+			"optional": true
+		},
+		"discord.js": {
+			"optional": true
+		}
+	},
+	"devDependencies": {
+		"@types/i18next-fs-backend": "^1.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sapphire-project/plugins.git",
+		"directory": "packages/i18next"
+	},
+	"files": [
+		"dist",
+		"!dist/*.tsbuildinfo",
+		"register.*",
+		"register-discordjs.*"
+	],
+	"engines": {
+		"node": ">=14",
+		"npm": ">=6"
+	},
+	"keywords": [
+		"sapphire-project",
+		"plugin",
+		"bot",
+		"typescript",
+		"ts",
+		"yarn",
+		"discord",
+		"sapphire",
+		"i18next",
+		"i18n"
+	],
+	"bugs": {
+		"url": "https://github.com/sapphire-project/plugins/issues"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
