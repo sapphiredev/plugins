@@ -36,7 +36,7 @@ class I18nextMessage extends Structures.get('Message') {
 			valuesOrOptions === undefined || Array.isArray(valuesOrOptions)
 				? [valuesOrOptions ?? [], rawOptions ?? {}]
 				: [[], valuesOrOptions as MessageOptions];
-		const content = await this.fetchLanguageKey(key, ...values);
+		const content = await this.resolveKey(key, ...values);
 		return this.channel.send(content, options);
 	}
 }
@@ -64,7 +64,7 @@ declare module 'discord.js' {
 		 * @since 1.0.0
 		 * @return A string, which is the translated result of the key, with templated values.
 		 */
-		fetchLanguageKey(key: string, ...values: readonly any[]): Promise<string>;
+		resolveKey(key: string, ...values: readonly any[]): Promise<string>;
 
 		/**
 		 * Function that sends a message to the context channel with the translated key and values.
