@@ -26,6 +26,8 @@ An implementation of i18next's [filesystem backend] for Sapphire. It allows you 
 
 -   Fully ready for TypeScript!
 -   Includes ESM ready entrypoint
+-   Framework agnostic
+-   Includes convenience register for discord.js
 
 ## Installation
 
@@ -40,6 +42,16 @@ yarn add -D @sapphire/plugin-i18next
 ```typescript
 import '@sapphire/plugin-i18next/register';
 ```
+
+And for discord.js:
+
+```typescript
+import '@sapphire/plugin-i18next/register-discordjs';
+```
+
+It is to be noted that unless you are using discord.js which has the convenience register to extend the client and message methods for you, you will have to implement your own extensions.
+
+This is currently undocumented and not covered by guides, but will be in the future. For now, you may follow the structure of `register-discordjs.ts` if this is the case for you.
 
 ## Sapphire i18next Documentation
 
