@@ -18,25 +18,28 @@ class I18nextMessage extends Structures.get('Message') {
 		return this.client.i18n.fetchLocale(await this.fetchLanguage(), key, ...values);
 	}
 
-	public sendTranslated(
+	public translated(
 		key: string,
 		values?: readonly unknown[],
-		options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
+		options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions,
+		edit?: Boolean
 	): Promise<Message>;
 
-	public sendTranslated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
-	public sendTranslated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
-	public sendTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
-	public async sendTranslated(
+	public translated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+	public translated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+	public translated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+	public async translated(
 		key: string,
 		valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
-		rawOptions?: MessageOptions
+		rawOptions?: MessageOptions,
+		edit?: Boolean
 	): Promise<Message | Message[]> {
 		const [values, options]: [readonly unknown[], MessageOptions] =
 			valuesOrOptions === undefined || Array.isArray(valuesOrOptions)
 				? [valuesOrOptions ?? [], rawOptions ?? {}]
 				: [[], valuesOrOptions as MessageOptions];
 		const content = await this.resolveKey(key, ...values);
+		if (edit) return this.edit(content, options);
 		return this.channel.send(content, options);
 	}
 }
@@ -67,23 +70,26 @@ declare module 'discord.js' {
 		resolveKey(key: string, ...values: readonly any[]): Promise<string>;
 
 		/**
-		 * Function that sends a message to the context channel with the translated key and values.
-		 * Functionally equivalent to piping fetchLanguageKey through channel#send.
+		 * Function that sends or edits a message for the context channel with the translated key and values.
+		 * Functionally equivalent to piping fetchLanguageKey through channel#send or message#edit.
 		 * @since 1.0.0
-		 * @return The message object that was sent.
+		 * @return The message object that was sent or edited.
+		 * @param edit Whether to attempt to edit the message object or send a new one.
 		 */
-		sendTranslated(
+		translated(
 			key: string,
 			values?: readonly unknown[],
-			options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
+			options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions,
+			edit?: Boolean
 		): Promise<Message>;
-		sendTranslated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
-		sendTranslated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
-		sendTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
-		sendTranslated(
+		translated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+		translated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+		translated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+		translated(
 			key: string,
 			valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
-			rawOptions?: MessageOptions
+			rawOptions?: MessageOptions,
+			edit?: Boolean
 		): Promise<Message | Message[]>;
 	}
 
