@@ -1,3 +1,4 @@
+import './register';
 export * from './register';
 import type { TFunction } from 'i18next';
 import type { I18nextHandler, I18nOptions } from './index';
@@ -87,6 +88,10 @@ declare module 'discord.js' {
 	}
 
 	export interface Client {
+		/**
+		 * See: {@link I18nextHandler}
+		 * @since 1.0.0
+		 */
 		i18n: I18nextHandler;
 
 		/**
@@ -122,6 +127,10 @@ declare module 'discord.js' {
 	}
 
 	export interface ClientOptions {
+		/**
+		 * See: {@link I18nOptions}
+		 * @since 1.0.0
+		 */
 		i18n?: I18nOptions;
 
 		/**

@@ -1,19 +1,19 @@
-name: Continuous Delivery - in17n
+name: Continuous Delivery - i18next
 
 on:
   push:
     branches:
       - main
     paths:
-      - packages/in17n/**
+      - packages/i18next/**
       - .all-contributorsrc
       - LICENSE.md
       - package.json
-      - .github/workflows/cd-in17n.yml
+      - .github/workflows/cd-i18next.yml
 
 jobs:
-  BuildIn17n:
-    name: Publish In17n
+  BuildI18next:
+    name: Publish i18next
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     steps:
@@ -31,7 +31,7 @@ jobs:
       - name: Install Dependencies
         run: yarn --ignore-scripts --frozen-lockfile
       - name: Build Code
-        run: yarn workspace @sapphire/plugin-in17n build
+        run: yarn workspace @sapphire/plugin-i18next build
       - name: Push new code
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
@@ -44,10 +44,10 @@ jobs:
           else
             SOURCE_TYPE="tag"
           fi
-          echo -e "\n# Move to the in17n directory"
-          cd packages/in17n
+          echo -e "\n# Move to the i18next directory"
+          cd packages/i18next
           echo -e "\n# Checkout the repo in the target branch"
-          TARGET_BRANCH="build-in17n"
+          TARGET_BRANCH="build-i18next"
           git clone $REPO out -b $TARGET_BRANCH
           echo -e "\n# Remove any old files in the dist folder"
           rm -rfv out/dist/*
@@ -63,7 +63,7 @@ jobs:
           git add --all .
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_EMAIL}"
-          git commit -m "build: in17n build for ${GITHUB_SHA}" || true
+          git commit -m "build: i18next build for ${GITHUB_SHA}" || true
           git push origin $TARGET_BRANCH
         env:
           GITHUB_TOKEN: ${{ secrets.SKYRA_TOKEN }}

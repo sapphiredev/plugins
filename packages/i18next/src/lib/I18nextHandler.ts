@@ -1,6 +1,6 @@
 import { getRootData } from '@sapphire/pieces';
 import { Awaited, mergeDefault } from '@sapphire/utilities';
-import { readdir, stat as pStat } from 'fs/promises';
+import { opendir } from 'fs/promises';
 import i18next, { InitOptions, StringMap, TFunction, TOptions } from 'i18next';
 import Backend, { i18nextFsBackend } from 'i18next-fs-backend';
 import { join } from 'path';
@@ -121,23 +121,25 @@ export class I18nextHandler {
 	 * @description Skips any files that don't end with `.json`.
 	 * @param dir The directory that should be walked.
 	 * @param namespaces The currently known namespaces.
-	 * @param folderName The currently walked folder.
+	 * @param current The directory currently being traversed.
 	 * @since 1.0.0
 	 * @protected
 	 */
-	protected async walkLanguageDirectory(dir: string, namespaces: string[] = [], folderName = '') {
-		const files = await readdir(dir);
+	protected async walkLanguageDirectory(dir: string, namespaces: string[] = [], current = '') {
+		const directory = await opendir(dir);
 
 		const languages: string[] = [];
-		for (const file of files) {
-			const stat = await pStat(join(dir, file));
-			if (stat.isDirectory()) {
-				const isLanguage = file.includes('-');
-				if (isLanguage) languages.push(file);
+		for await (const entry of directory) {
+			const fn = entry.name;
+			if (entry.isDirectory()) {
+				// This structure may very well be changed in future.
+				// See i18next/i18next-fs-backend#13
+				const isLanguage = fn.includes('-');
+				if (isLanguage) languages.push(fn);
 
-				({ namespaces } = await this.walkLanguageDirectory(join(dir, file), namespaces, isLanguage ? '' : `${file}/`));
-			} else if (file.endsWith('.json')) {
-				namespaces.push(`${folderName}${file.substr(0, file.length - 5)}`);
+				({ namespaces } = await this.walkLanguageDirectory(join(dir, fn), namespaces, isLanguage ? '' : `${fn}/`));
+			} else if (entry.name.endsWith('.json')) {
+				namespaces.push(`${current}${fn.substr(0, fn.length - 5)}`);
 			}
 		}
 

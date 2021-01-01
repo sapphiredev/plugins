@@ -1,5 +1,6 @@
 import { isClass } from '@sapphire/utilities';
 import { I18nextHandler } from '../src';
+
 function structureTest(i18n: I18nextHandler) {
 	expect(i18n.languagesLoaded).toBe(false);
 	expect(i18n.languages).toBeDefined();
