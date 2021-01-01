@@ -4,15 +4,15 @@ import { readdir, stat as pStat } from 'fs/promises';
 import i18next, { InitOptions, StringMap, TFunction, TOptions } from 'i18next';
 import Backend, { i18nextFsBackend } from 'i18next-fs-backend';
 import { join } from 'path';
-import type { In17nOptions } from './types/options';
+import type { I18nOptions } from './types/options';
 
 /**
  * A generalised class for handling `i18next` JSON files and their discovery.
  * @since 1.0.0
  */
-export class In17nHandler {
+export class I18nextHandler {
 	/**
-	 * Describes whether `In17nHandler#init` has been run and languages are loaded in `In17nHandler.languages`.
+	 * Describes whether `I18nextHandler#init` has been run and languages are loaded in `I18nextHandler.languages`.
 	 * @since 1.0.0
 	 */
 	public languagesLoaded = false;
@@ -23,17 +23,17 @@ export class In17nHandler {
 	 */
 	public readonly languages = new Map<string, TFunction>();
 
-	private readonly options?: In17nOptions;
+	private readonly options?: I18nOptions;
 
 	private readonly languagesDir: string;
 	private readonly backendOptions: i18nextFsBackend.i18nextFsBackendOptions;
 
 	/**
-	 * @param options The options that `i18next`, `i18next-fs-backend`, and {@link In17nHandler} should use.
+	 * @param options The options that `i18next`, `i18next-fs-backend`, and {@link I18nextHandler} should use.
 	 * @since 1.0.0
 	 * @constructor
 	 */
-	public constructor(options?: In17nOptions) {
+	public constructor(options?: I18nOptions) {
 		this.options = options;
 		this.languagesDir = this.options?.defaultLanguageDirectory ?? join(getRootData().root, 'languages');
 
@@ -47,7 +47,7 @@ export class In17nHandler {
 	}
 
 	/**
-	 * Intitialises the handler by loading in the namespaces, passing the data to i18next, and filling in the {@link In17nHandler#languages}.
+	 * Intitialises the handler by loading in the namespaces, passing the data to i18next, and filling in the {@link I18nextHandler#languages}.
 	 * @since 1.0.0
 	 */
 	public async init() {
@@ -84,7 +84,7 @@ export class In17nHandler {
 	 * @since 1.0.0
 	 */
 	public fetchT(locale: string) {
-		if (!this.languagesLoaded) throw new Error('Cannot call this method until In17nHandler#init has been called');
+		if (!this.languagesLoaded) throw new Error('Cannot call this method until I18nextHandler#init has been called');
 
 		const t = this.languages.get(locale);
 		if (t) return t;
@@ -100,7 +100,7 @@ export class In17nHandler {
 	 * @since 1.0.0
 	 */
 	public fetchLocale(locale: string, key: string, replace?: Record<string, unknown>, options?: TOptions<StringMap>): Awaited<string> {
-		if (!this.languagesLoaded) throw new Error('Cannot call this method until In17nHandler#init has been called');
+		if (!this.languagesLoaded) throw new Error('Cannot call this method until I18nextHandler#init has been called');
 
 		const language = this.languages.get(locale);
 		if (!language) throw new ReferenceError('Invalid language provided');

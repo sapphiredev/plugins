@@ -1,25 +1,21 @@
-import { Awaited, Plugin, preGenericsInitialization, preLogin, SapphireClient } from '@sapphire/framework';
-import { ClientOptions, Structures } from 'discord.js';
-import { In17nHandler, In17nOptions } from './index';
-import { In17nMessage } from './lib/extensions';
+import { Plugin, preGenericsInitialization, preLogin, SapphireClient, SapphireClientOptions } from '@sapphire/framework';
+import { I18nextHandler, I18nOptions } from './index';
 
-Structures.extend('Message', () => In17nMessage);
+export class I18nextPlugin extends Plugin {
+	public static [preGenericsInitialization](this: SapphireClient, options: SapphireClientOptions): void {
+		this.i18n = new I18nextHandler(options.i18n);
 
-export class In17nPlugin extends Plugin {
-	public static [preGenericsInitialization](this: SapphireClient, options: ClientOptions): void {
-		this.in17n = new In17nHandler(options.in17n);
-
-		this.fetchLanguage = options.fetchLanguage ?? (() => options.in17n?.defaultName ?? null) ?? (() => 'en-US');
+		this.fetchLanguage = options.fetchLanguage ?? (() => null);
 	}
 
 	public static async [preLogin](this: SapphireClient): Promise<void> {
-		await this.in17n.init();
+		await this.i18n.init();
 	}
 }
 
-declare module 'discord.js' {
-	export interface Client {
-		in17n: In17nHandler;
+declare module '@sapphire/framework' {
+	export interface SapphireClient {
+		i18n: I18nextHandler;
 
 		/**
 		 * The method to be overriden by the developer.
@@ -30,12 +26,12 @@ declare module 'discord.js' {
 		 * @return A string for the desired language or null for no match.
 		 * @example
 		 * ```typescript
-		 * // Return always the same language (unconfigurable):
+		 * // Always use the same language (no per-guild configuration):
 		 * client.fetchLanguage = () => 'en-US';
 		 * ```
 		 * @example
 		 * ```typescript
-		 * // Retrieving the prefix from a SQL database:
+		 * // Retrieving the prefix from an SQL database:
 		 * client.fetchLanguage = async (message) => {
 		 *   const guild = await driver.getOne('SELECT language FROM public.guild WHERE id = $1', [message.guild.id]);
 		 *   return guild?.language ?? 'en-US';
@@ -50,20 +46,20 @@ declare module 'discord.js' {
 		 * };
 		 * ```
 		 */
-		fetchLanguage: (message: Message) => Awaited<string | null>;
+		fetchLanguage: (message: any) => Promise<string | null> | string | null;
 	}
 
-	export interface ClientOptions {
-		in17n?: In17nOptions;
+	export interface SapphireClientOptions {
+		i18n?: I18nOptions;
 
 		/**
-		 * The lanuage hook, by default it is a callback function that returns {@link In17nOptions#defaultName}.
+		 * Hook that returns the name of a language, or {@link I18nOptions#defaultName} by default.
 		 * @since 1.0.0
 		 * @default () => client.options.defaultLanguage
 		 */
-		fetchLanguage?: (message: Message) => Awaited<string | null>;
+		fetchLanguage?: (message: any) => Promise<string | null> | string | null;
 	}
 }
 
-SapphireClient.plugins.registerPostInitializationHook(In17nPlugin[preGenericsInitialization], 'In17n-PreGenericsInitialization');
-SapphireClient.plugins.registerPreLoginHook(In17nPlugin[preLogin], 'In17n-PreLogin');
+SapphireClient.plugins.registerPostInitializationHook(I18nextPlugin[preGenericsInitialization], 'I18next-PreGenericsInitialization');
+SapphireClient.plugins.registerPreLoginHook(I18nextPlugin[preLogin], 'I18next-PreLogin');

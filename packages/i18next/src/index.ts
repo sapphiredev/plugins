@@ -1,2 +1,2 @@
 export * from './lib/types/options';
-export * from './lib/In17nHandler';
+export * from './lib/I18nextHandler';
