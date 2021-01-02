@@ -69,7 +69,77 @@ class I18nextMessage extends Structures.get('Message') {
 	}
 }
 
-class I18nextChannel extends Structures.get('TextChannel') {
+class I18nextTextChannel extends Structures.get('TextChannel') {
+	public async fetchLanguage(): Promise<string> {
+		return fetchLanguage.apply(this, [this, undefined, this.guild]);
+	}
+
+	public async fetchT(): Promise<TFunction> {
+		return this.client.i18n.fetchT(await this.fetchLanguage());
+	}
+
+	public async resolveKey(key: string, ...values: readonly any[]): Promise<string> {
+		return this.client.i18n.fetchLocale(await this.fetchLanguage(), key, ...values);
+	}
+
+	public sendTranslated(
+		key: string,
+		values?: readonly unknown[],
+		options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
+	): Promise<Message>;
+
+	public sendTranslated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+	public sendTranslated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+	public sendTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+	public async sendTranslated(
+		key: string,
+		valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
+		rawOptions?: MessageOptions
+	): Promise<Message | Message[]> {
+		const [values, options]: [readonly unknown[], MessageOptions] =
+			valuesOrOptions === undefined || Array.isArray(valuesOrOptions)
+				? [valuesOrOptions ?? [], rawOptions ?? {}]
+				: [[], valuesOrOptions as MessageOptions];
+		return this.send(await this.resolveKey(key, ...values), options);
+	}
+}
+
+class I18nextDMChannel extends Structures.get('DMChannel') {
+	public async fetchLanguage(): Promise<string> {
+		return fetchLanguage.apply(this, [this, undefined, undefined]);
+	}
+
+	public async fetchT(): Promise<TFunction> {
+		return this.client.i18n.fetchT(await this.fetchLanguage());
+	}
+
+	public async resolveKey(key: string, ...values: readonly any[]): Promise<string> {
+		return this.client.i18n.fetchLocale(await this.fetchLanguage(), key, ...values);
+	}
+
+	public sendTranslated(
+		key: string,
+		values?: readonly unknown[],
+		options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
+	): Promise<Message>;
+
+	public sendTranslated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+	public sendTranslated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+	public sendTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+	public async sendTranslated(
+		key: string,
+		valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
+		rawOptions?: MessageOptions
+	): Promise<Message | Message[]> {
+		const [values, options]: [readonly unknown[], MessageOptions] =
+			valuesOrOptions === undefined || Array.isArray(valuesOrOptions)
+				? [valuesOrOptions ?? [], rawOptions ?? {}]
+				: [[], valuesOrOptions as MessageOptions];
+		return this.send(await this.resolveKey(key, ...values), options);
+	}
+}
+
+class I18nextNewsChannel extends Structures.get('NewsChannel') {
 	public async fetchLanguage(): Promise<string> {
 		return fetchLanguage.apply(this, [this, undefined, this.guild]);
 	}
@@ -119,11 +189,13 @@ class I18nextGuild extends Structures.get('Guild') {
 }
 
 Structures.extend('Message', () => I18nextMessage);
-Structures.extend('TextChannel', () => I18nextChannel);
+Structures.extend('TextChannel', () => I18nextTextChannel);
+Structures.extend('DMChannel', () => I18nextDMChannel);
+Structures.extend('NewsChannel', () => I18nextNewsChannel);
 Structures.extend('Guild', () => I18nextGuild);
 
 declare module 'discord.js' {
-	interface Message {
+	export interface Message {
 		/**
 		 * Accessor for {@link I18nextPlugin#fetchLanguage} that implements an order of preference for locales.
 		 * @since 1.0.0
@@ -186,7 +258,7 @@ declare module 'discord.js' {
 		): Promise<Message | Message[]>;
 	}
 
-	interface Channel {
+	export interface Channel {
 		/**
 		 * Accessor for {@link I18nextPlugin#fetchLanguage} that implements an order of preference for locales.
 		 * @since 1.0.0
@@ -229,7 +301,7 @@ declare module 'discord.js' {
 		): Promise<Message | Message[]>;
 	}
 
-	interface Guild {
+	export interface Guild {
 		/**
 		 * Accessor for {@link I18nextPlugin#fetchLanguage} that implements an order of preference for locales.
 		 * @since 1.0.0
