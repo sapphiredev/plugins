@@ -1,13 +1,21 @@
 import './register';
 export * from './register';
 import type { TFunction } from 'i18next';
-import type { I18nextHandler, I18nOptions } from './index';
-import { Message, MessageAdditions, MessageOptions, SplitOptions, Structures } from 'discord.js';
+import type { I18nextHandler, I18nOptions, I18nContext } from './index';
+import { Message, MessageAdditions, MessageOptions, SplitOptions, Structures, Channel, Guild, User } from 'discord.js';
+
+async function fetchLanguage(this: Message | Channel | Guild, channel?: Channel | null, author?: User | null, guild?: Guild | null): Promise<string> {
+	const lang = await this.client.fetchLanguage({
+		channel,
+		guild,
+		author
+	} as I18nContext);
+	return lang ?? guild?.preferredLocale ?? this.client.i18n?.options?.defaultName ?? 'en-US';
+}
 
 class I18nextMessage extends Structures.get('Message') {
 	public async fetchLanguage(): Promise<string> {
-		const lang = await this.client.fetchLanguage(this);
-		return lang ?? this.guild?.preferredLocale ?? this.client.options.i18n?.defaultName ?? 'en-US';
+		return fetchLanguage.apply(this, [this.channel, this.author, this.guild]);
 	}
 
 	public async fetchT(): Promise<TFunction> {
@@ -18,33 +26,101 @@ class I18nextMessage extends Structures.get('Message') {
 		return this.client.i18n.fetchLocale(await this.fetchLanguage(), key, ...values);
 	}
 
-	public translated(
+	public replyTranslated(
 		key: string,
 		values?: readonly unknown[],
-		options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions,
-		edit?: boolean
+		options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
 	): Promise<Message>;
 
-	public translated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
-	public translated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
-	public translated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
-	public async translated(
+	public replyTranslated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+	public replyTranslated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+	public replyTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+	public async replyTranslated(
 		key: string,
 		valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
-		rawOptions?: MessageOptions,
-		edit?: boolean
+		rawOptions?: MessageOptions
 	): Promise<Message | Message[]> {
 		const [values, options]: [readonly unknown[], MessageOptions] =
 			valuesOrOptions === undefined || Array.isArray(valuesOrOptions)
 				? [valuesOrOptions ?? [], rawOptions ?? {}]
 				: [[], valuesOrOptions as MessageOptions];
-		const content = await this.resolveKey(key, ...values);
-		if (edit) return this.edit(content, options);
-		return this.channel.send(content, options);
+		return this.reply(await this.resolveKey(key, ...values), options);
+	}
+
+	public editTranslated(
+		key: string,
+		values?: readonly unknown[],
+		options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
+	): Promise<Message>;
+
+	public editTranslated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+	public editTranslated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+	public editTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+	public async editTranslated(
+		key: string,
+		valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
+		rawOptions?: MessageOptions
+	): Promise<Message | Message[]> {
+		const [values, options]: [readonly unknown[], MessageOptions] =
+			valuesOrOptions === undefined || Array.isArray(valuesOrOptions)
+				? [valuesOrOptions ?? [], rawOptions ?? {}]
+				: [[], valuesOrOptions as MessageOptions];
+		return this.edit(await this.resolveKey(key, ...values), options);
+	}
+}
+
+class I18nextChannel extends Structures.get('TextChannel') {
+	public async fetchLanguage(): Promise<string> {
+		return fetchLanguage.apply(this, [this, undefined, this.guild]);
+	}
+
+	public async fetchT(): Promise<TFunction> {
+		return this.client.i18n.fetchT(await this.fetchLanguage());
+	}
+
+	public async resolveKey(key: string, ...values: readonly any[]): Promise<string> {
+		return this.client.i18n.fetchLocale(await this.fetchLanguage(), key, ...values);
+	}
+
+	public sendTranslated(
+		key: string,
+		values?: readonly unknown[],
+		options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
+	): Promise<Message>;
+
+	public sendTranslated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+	public sendTranslated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+	public sendTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+	public async sendTranslated(
+		key: string,
+		valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
+		rawOptions?: MessageOptions
+	): Promise<Message | Message[]> {
+		const [values, options]: [readonly unknown[], MessageOptions] =
+			valuesOrOptions === undefined || Array.isArray(valuesOrOptions)
+				? [valuesOrOptions ?? [], rawOptions ?? {}]
+				: [[], valuesOrOptions as MessageOptions];
+		return this.send(await this.resolveKey(key, ...values), options);
+	}
+}
+
+class I18nextGuild extends Structures.get('Guild') {
+	public async fetchLanguage(): Promise<string> {
+		return fetchLanguage.apply(this, [undefined, undefined, this]);
+	}
+
+	public async fetchT(): Promise<TFunction> {
+		return this.client.i18n.fetchT(await this.fetchLanguage());
+	}
+
+	public async resolveKey(key: string, ...values: readonly any[]): Promise<string> {
+		return this.client.i18n.fetchLocale(await this.fetchLanguage(), key, ...values);
 	}
 }
 
 Structures.extend('Message', () => I18nextMessage);
+Structures.extend('TextChannel', () => I18nextChannel);
+Structures.extend('Guild', () => I18nextGuild);
 
 declare module 'discord.js' {
 	interface Message {
@@ -70,27 +146,110 @@ declare module 'discord.js' {
 		resolveKey(key: string, ...values: readonly any[]): Promise<string>;
 
 		/**
-		 * Function that sends or edits a message for the context channel with the translated key and values.
-		 * Functionally equivalent to piping fetchLanguageKey through channel#send or message#edit.
+		 * Function that sends a response message for the context channel with the translated key and values.
+		 * Functionally equivalent to piping resolveKey through Message#reply.
 		 * @since 1.0.0
-		 * @return The message object that was sent or edited.
-		 * @param edit Whether to attempt to edit the message object or send a new one.
+		 * @return The message object that was sent.
 		 */
-		translated(
+		replyTranslated(
 			key: string,
 			values?: readonly unknown[],
-			options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions,
-			edit?: boolean
+			options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
 		): Promise<Message>;
-		translated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
-		translated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
-		translated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
-		translated(
+		replyTranslated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+		replyTranslated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+		replyTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+		replyTranslated(
 			key: string,
 			valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
-			rawOptions?: MessageOptions,
-			edit?: boolean
+			rawOptions?: MessageOptions
 		): Promise<Message | Message[]>;
+
+		/**
+		 * Function that edits a message with the translated key and values.
+		 * Functionally equivalent to piping resolveKey through Message#edit.
+		 * @since 1.0.0
+		 * @return The message object that was edited.
+		 */
+		editTranslated(
+			key: string,
+			values?: readonly unknown[],
+			options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
+		): Promise<Message>;
+		editTranslated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+		editTranslated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+		editTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+		editTranslated(
+			key: string,
+			valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
+			rawOptions?: MessageOptions
+		): Promise<Message | Message[]>;
+	}
+
+	interface Channel {
+		/**
+		 * Accessor for {@link I18nextPlugin#fetchLanguage} that implements an order of preference for locales.
+		 * @since 1.0.0
+		 * @return In preference order, {@link I18nextPlugin#fetchLanguage} -> the guild's preferredLocale -> {@link I18nextOptions#defaultName} -> 'en-US'.
+		 */
+		fetchLanguage(): Promise<string>;
+
+		/**
+		 * Function that gets a TFunction (translator function) from i18next.
+		 * @since 1.0.0
+		 * @return An i18next TFunction.
+		 */
+		fetchT(): Promise<TFunction>;
+
+		/**
+		 * Function that resolves a language key from the store.
+		 * @since 1.0.0
+		 * @return A string, which is the translated result of the key, with templated values.
+		 */
+		resolveKey(key: string, ...values: readonly any[]): Promise<string>;
+
+		/**
+		 * Function that sends a message for the channel with the translated key and values.
+		 * Functionally equivalent to piping resolveKey through Channel#send.
+		 * @since 1.0.0
+		 * @return The message object that was sent.
+		 */
+		sendTranslated(
+			key: string,
+			values?: readonly unknown[],
+			options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
+		): Promise<Message>;
+		sendTranslated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+		sendTranslated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+		sendTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+		sendTranslated(
+			key: string,
+			valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
+			rawOptions?: MessageOptions
+		): Promise<Message | Message[]>;
+	}
+
+	interface Guild {
+		/**
+		 * Accessor for {@link I18nextPlugin#fetchLanguage} that implements an order of preference for locales.
+		 * @since 1.0.0
+		 * @return In preference order, {@link I18nextPlugin#fetchLanguage} -> the guild's preferredLocale -> {@link I18nextOptions#defaultName} -> 'en-US'.
+		 */
+		fetchLanguage(): Promise<string>;
+
+		/**
+		 * Function that gets a TFunction (translator function) from i18next.
+		 * @since 1.0.0
+		 * @return An i18next TFunction.
+		 */
+		fetchT(): Promise<TFunction>;
+
+		/**
+		 * Function that resolves a language key from the store.
+		 * @since 1.0.0
+		 * @return A string, which is the translated result of the key, with templated values.
+		 */
+		resolveKey(key: string, ...values: readonly any[]): Promise<string>;
 	}
 
 	export interface Client {
@@ -129,7 +288,7 @@ declare module 'discord.js' {
 		 * };
 		 * ```
 		 */
-		fetchLanguage: (message: any) => Promise<string | null> | string | null;
+		fetchLanguage: (context: I18nContext) => Promise<string | null> | string | null;
 	}
 
 	export interface ClientOptions {
@@ -144,6 +303,6 @@ declare module 'discord.js' {
 		 * @since 1.0.0
 		 * @default () => client.options.defaultLanguage
 		 */
-		fetchLanguage?: (message: any) => Promise<string | null> | string | null;
+		fetchLanguage?: (context: I18nContext) => Promise<string | null> | string | null;
 	}
 }
