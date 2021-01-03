@@ -2,20 +2,26 @@ import './register';
 export * from './register';
 import type { TFunction } from 'i18next';
 import type { I18nextHandler, I18nOptions, I18nContext } from './index';
-import { Message, MessageAdditions, MessageOptions, SplitOptions, Structures, Channel, Guild, User } from 'discord.js';
+import { Message, MessageAdditions, MessageOptions, SplitOptions, Structures, Channel, Guild, User, Client } from 'discord.js';
 
-async function fetchLanguage(this: Message | Channel | Guild, channel?: Channel | null, author?: User | null, guild?: Guild | null): Promise<string> {
-	const lang = await this.client.fetchLanguage({
-		channel,
+declare module './index' {
+	export interface I18nGuildContext extends Guild {}
+	export interface I18nChannelContext extends Channel {}
+	export interface I18nAuthorContext extends Channel {}
+}
+
+async function fetchLanguage(client: Client, guild?: Guild | null, channel?: Channel | null, author?: User | null): Promise<string> {
+	const lang = await client.fetchLanguage({
 		guild,
+		channel,
 		author
 	} as I18nContext);
-	return lang ?? guild?.preferredLocale ?? this.client.i18n?.options?.defaultName ?? 'en-US';
+	return lang ?? guild?.preferredLocale ?? client.i18n?.options?.defaultName ?? 'en-US';
 }
 
 class I18nextMessage extends Structures.get('Message') {
 	public async fetchLanguage(): Promise<string> {
-		return fetchLanguage.apply(this, [this.channel, this.author, this.guild]);
+		return fetchLanguage(this.client, this.guild, this.channel, this.author);
 	}
 
 	public async fetchT(): Promise<TFunction> {
@@ -71,7 +77,7 @@ class I18nextMessage extends Structures.get('Message') {
 
 class I18nextTextChannel extends Structures.get('TextChannel') {
 	public async fetchLanguage(): Promise<string> {
-		return fetchLanguage.apply(this, [this, undefined, this.guild]);
+		return fetchLanguage(this.client, this.guild, this, undefined);
 	}
 
 	public async fetchT(): Promise<TFunction> {
@@ -106,7 +112,7 @@ class I18nextTextChannel extends Structures.get('TextChannel') {
 
 class I18nextDMChannel extends Structures.get('DMChannel') {
 	public async fetchLanguage(): Promise<string> {
-		return fetchLanguage.apply(this, [this, undefined, undefined]);
+		return fetchLanguage(this.client, undefined, this, undefined);
 	}
 
 	public async fetchT(): Promise<TFunction> {
@@ -141,7 +147,7 @@ class I18nextDMChannel extends Structures.get('DMChannel') {
 
 class I18nextNewsChannel extends Structures.get('NewsChannel') {
 	public async fetchLanguage(): Promise<string> {
-		return fetchLanguage.apply(this, [this, undefined, this.guild]);
+		return fetchLanguage(this.client, this.guild, this, undefined);
 	}
 
 	public async fetchT(): Promise<TFunction> {
@@ -176,7 +182,7 @@ class I18nextNewsChannel extends Structures.get('NewsChannel') {
 
 class I18nextGuild extends Structures.get('Guild') {
 	public async fetchLanguage(): Promise<string> {
-		return fetchLanguage.apply(this, [undefined, undefined, this]);
+		return fetchLanguage(this.client, this, undefined, undefined);
 	}
 
 	public async fetchT(): Promise<TFunction> {

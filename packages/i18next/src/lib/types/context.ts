@@ -1,9 +1,13 @@
+export interface I18nGuildContext {};
+export interface I18nChannelContext {};
+export interface I18nAuthorContext {};
+
 /**
  * Context for fetchLanguage functions.
  * This context enables implementation of per-guild, per-channel, and per-user localisation.
  */
 export interface I18nContext {
-	guild: Record<string, unknown> | undefined;
-	channel: Record<string, unknown> | undefined;
-	author: Record<string, unknown> | undefined;
+	guild?: I18nGuildContext;
+	channel?: I18nChannelContext;
+	author?: I18nAuthorContext;
 }
