@@ -1,6 +1,6 @@
-export interface I18nGuildContext {};
-export interface I18nChannelContext {};
-export interface I18nAuthorContext {};
+export interface I18nGuildContext {}
+export interface I18nChannelContext {}
+export interface I18nAuthorContext {}
 
 /**
  * Context for fetchLanguage functions.
