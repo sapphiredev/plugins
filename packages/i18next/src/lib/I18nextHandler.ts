@@ -23,7 +23,10 @@ export class I18nextHandler {
 	 */
 	public readonly languages = new Map<string, TFunction>();
 
-	private readonly options?: I18nOptions;
+	/**
+	 * The options I18nextHandler was initialized with in the client.
+	 */
+	public readonly options?: I18nOptions;
 
 	private readonly languagesDir: string;
 	private readonly backendOptions: i18nextFsBackend.i18nextFsBackendOptions;

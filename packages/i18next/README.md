@@ -18,7 +18,7 @@
 
 ## Description
 
-An implementation of i18next's [filesystem backend] for Sapphire. It allows you to use a JSON-based `languages` directory to add internationalization for your bot using `SapphireClient`'s `fetchLanguage` hook and a custom message extension, adding features such as `sendTranslated` and `fetchLanguageKey`.
+An implementation of i18next's [filesystem backend] for Sapphire. It allows you to use a JSON-based `languages` directory to add internationalization for your bot using `SapphireClient`'s `fetchLanguage` hook and a custom message extension, adding features such as `sendTranslated` and `resolveKey`.
 
 [filesystem backend]: https://github.com/i18next/i18next-fs-backend
 
@@ -49,7 +49,7 @@ And for discord.js:
 import '@sapphire/plugin-i18next/register-discordjs';
 ```
 
-It is to be noted that unless you are using discord.js, which has the convenience register to extend the client and message methods for you, you will have to implement your own extensions.
+It is to be noted that unless you are using discord.js, which has the convenience register to extend the client, guild, channel and message methods for you, you will have to implement your own extensions.
 
 This is currently undocumented and not covered by guides, but will be in the future. For now, you may follow the structure of `register-discordjs.ts` if this is the case for you.
 
