@@ -4,6 +4,7 @@ import { createServer as httpCreateServer, Server as HttpServer, ServerOptions a
 import type { ListenOptions } from 'net';
 import { ApiRequest } from '../api/ApiRequest';
 import { ApiResponse } from '../api/ApiResponse';
+import { MediaParserStore } from '../MediaParserStore';
 import { MiddlewareStore } from '../MiddlewareStore';
 import { RouteMatch, RouteStore } from '../RouteStore';
 import { Auth, ServerOptionsAuth } from './Auth';
@@ -34,6 +35,12 @@ export class Server extends EventEmitter {
 	 * @since 1.0.0
 	 */
 	public readonly middlewares: MiddlewareStore;
+
+	/**
+	 * The media parsers this server holds.
+	 * @since 1.3.0
+	 */
+	public readonly mediaParsers: MediaParserStore;
 
 	/**
 	 * The authentication system.
@@ -72,6 +79,7 @@ export class Server extends EventEmitter {
 		});
 		this.routes = new RouteStore();
 		this.middlewares = new MiddlewareStore();
+		this.mediaParsers = new MediaParserStore();
 		this.auth = Auth.create(auth);
 		this.server.on('error', this.emit.bind(this, ServerEvents.Error));
 		this.server.on('request', this.emit.bind(this, ServerEvents.Request));
