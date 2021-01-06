@@ -7,11 +7,9 @@ import { Middleware } from '../lib/structures/Middleware';
 import type { Route } from '../lib/structures/Route';
 
 export class PluginMiddleware extends Middleware {
-	private readonly maximumBodyLength: number;
 	private readonly mediaParsers: MediaParserStore;
 	public constructor(context: PieceContext) {
 		super(context, { position: 20 });
-		this.maximumBodyLength = this.context.server.options.maximumBodyLength ?? 1024 * 1024 * 50;
 		this.mediaParsers = this.context.server.mediaParsers;
 	}
 
@@ -26,7 +24,7 @@ export class PluginMiddleware extends Middleware {
 
 		// Verify if the content length is lower than accepted:
 		const length = Number(lengthString);
-		const maximumLength = route.maximumBodyLength ?? this.maximumBodyLength;
+		const maximumLength = route.maximumBodyLength;
 		if (length > maximumLength) {
 			response.status(HttpCodes.PayloadTooLarge).json({ error: 'Exceeded maximum content length.' });
 			return;
