@@ -15,7 +15,8 @@ export class PluginMiddleware extends Middleware {
 		this.mediaParsers = this.context.server.mediaParsers;
 	}
 
-	public async run(request: ApiRequest, response: ApiResponse, route: Route | null) {
+	public async run(request: ApiRequest, response: ApiResponse, route: Route) {
+		// RFC 1341 4.
 		const contentType = request.headers['content-type'];
 		if (typeof contentType !== 'string') return;
 
@@ -23,22 +24,24 @@ export class PluginMiddleware extends Middleware {
 		const lengthString = request.headers['content-length'];
 		if (typeof lengthString !== 'string') return;
 
+		// Verify if the content length is lower than accepted:
 		const length = Number(lengthString);
-		const maximumLength = route?.maximumBodyLength ?? this.maximumBodyLength;
+		const maximumLength = route.maximumBodyLength ?? this.maximumBodyLength;
 		if (length > maximumLength) {
 			response.status(HttpCodes.PayloadTooLarge).json({ error: 'Exceeded maximum content length.' });
 			return;
 		}
 
-		const index = contentType.indexOf(';');
-		const type = index === -1 ? contentType : contentType.slice(0, index);
+		// Verify if the content type is supported by the parser:
+		const type = this.mediaParsers.parseContentType(contentType);
 		const parser = this.mediaParsers.get(type);
-		if (!parser) {
+		if (!parser || !parser.accepts(route)) {
 			response.status(HttpCodes.UnsupportedMediaType).json({ error: `Unsupported type ${type}.` });
 			return;
 		}
 
 		try {
+			// Parse the content body:
 			request.body = await parser.run(request);
 		} catch {
 			response.status(HttpCodes.BadRequest).json({ error: `Cannot parse ${type} data.` });
