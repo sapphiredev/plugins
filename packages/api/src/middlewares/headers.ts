@@ -3,6 +3,7 @@ import { METHODS } from 'http';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../lib/structures/api/ApiResponse';
 import { Middleware } from '../lib/structures/Middleware';
+import type { Route } from '../lib/structures/Route';
 
 export class PluginMiddleware extends Middleware {
 	private readonly origin: string;
@@ -13,7 +14,7 @@ export class PluginMiddleware extends Middleware {
 		this.origin = this.context.server.options.origin ?? '*';
 	}
 
-	public run(request: ApiRequest, response: ApiResponse) {
+	public run(request: ApiRequest, response: ApiResponse, route: Route | null) {
 		response.setHeader('Date', new Date().toUTCString());
 		response.setHeader('Access-Control-Allow-Credentials', 'true');
 		response.setHeader('Access-Control-Allow-Origin', this.origin);
@@ -26,5 +27,7 @@ export class PluginMiddleware extends Middleware {
 		//
 		// Due to this method's nature, it is recommended to end the request after setting pre-flight CORS headers.
 		if (request.method === 'OPTIONS') response.end();
+		// If there is no route, there is no reason to continue matching other middlewares.
+		else if (route === null) response.end();
 	}
 }

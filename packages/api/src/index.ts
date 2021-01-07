@@ -7,6 +7,8 @@ export * from './lib/structures/http/Auth';
 export * from './lib/structures/http/HttpCodes';
 export * from './lib/structures/http/HttpMethods';
 export * from './lib/structures/http/Server';
+export * from './lib/structures/MediaParser';
+export * from './lib/structures/MediaParserStore';
 export * from './lib/structures/Middleware';
 export * from './lib/structures/MiddlewareStore';
 export * from './lib/structures/Route';
