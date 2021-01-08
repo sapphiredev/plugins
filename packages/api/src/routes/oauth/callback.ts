@@ -4,7 +4,7 @@ import type {
 	RESTGetAPICurrentUserGuildsResult,
 	RESTGetAPICurrentUserResult,
 	RESTPostOAuth2AccessTokenResult,
-	RESTPostOAuth2AccessTokenURIEncodedData
+	RESTPostOAuth2AccessTokenURLEncodedData
 } from 'discord-api-types/v8';
 import fetch from 'node-fetch';
 import { stringify } from 'querystring';
@@ -60,7 +60,7 @@ export class PluginRoute extends Route {
 	private async fetchAuth(body: OAuth2BodyData) {
 		const { id, secret } = this.context.server.auth!;
 
-		const data: RESTPostOAuth2AccessTokenURIEncodedData = {
+		const data: RESTPostOAuth2AccessTokenURLEncodedData = {
 			/* eslint-disable @typescript-eslint/naming-convention */
 			client_id: id,
 			client_secret: secret,
