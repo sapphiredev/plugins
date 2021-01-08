@@ -10,8 +10,8 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/sapphire-project/plugins.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/plugins/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/sapphire-project/plugins.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/plugins/context:javascript)
 [![Coverage Status](https://coveralls.io/repos/github/sapphire-project/plugins/badge.svg?branch=main)](https://coveralls.io/github/sapphire-project/plugins?branch=main)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/plugin-in17n?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/plugin-in17n)
-[![npm](https://img.shields.io/npm/v/@sapphire/plugin-in17n?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/plugin-in17n)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/plugin-prompt?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/plugin-prompt)
+[![npm](https://img.shields.io/npm/v/@sapphire/plugin-i18n?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/plugin-prompt)
 [![Depfu](https://badges.depfu.com/badges/11bbf7392987e6fd51fc6559e1d42dfc/count.svg)](https://depfu.com/github/sapphire-project/plugins?project_id=15201)
 
 </div>
