@@ -18,7 +18,7 @@
 
 ## Description
 
-Simple plugin to extend Channel & Messages with a prompt.
+There are various times that would want your bot to prompt the user of a command for something, such as asking them confirmation for certain actions. This is where @sapphire/plugin-prompt comes in as the perfect plugin to use. Using this plugin you can easily send prompt messages and handle the responses from users.
 
 ## Features
 

@@ -33,7 +33,8 @@
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^1.3.0"
+		"@sapphire/utilities": "^1.3.0",
+		"tslib": "^2.0.1"
 	},
 	"peerDependencies": {
 		"@sapphire/framework": "1.x",
@@ -48,7 +49,7 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/sapphire-project/plugins.git",
-		"directory": "packages/i18next"
+		"directory": "packages/prompt"
 	},
 	"files": [
 		"dist",
