@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.2.0...@sapphire/plugin-api@1.3.0) (2021-01-09)
+
+### Bug Fixes
+
+-   **api:** update to latest discord-api-types ([6a46797](https://github.com/sapphire-project/plugins/commit/6a4679770f44b4930016280963c0fe4563c48bf2))
+
+### Features
+
+-   **api:** add media parsers ([#39](https://github.com/sapphire-project/plugins/issues/39)) ([18fac10](https://github.com/sapphire-project/plugins/commit/18fac107e9210a8c66da6b7cc5d3b24ab47a07e1))
+
 # [1.2.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.1.1...@sapphire/plugin-api@1.2.0) (2020-12-28)
 
 ### Bug Fixes
