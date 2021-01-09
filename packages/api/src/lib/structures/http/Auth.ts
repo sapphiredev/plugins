@@ -1,12 +1,12 @@
 import { createCipheriv, createDecipheriv, randomBytes } from 'crypto';
-import type { Snowflake } from 'discord-api-types';
+import type { Snowflake } from 'discord-api-types/v8';
 
 export class Auth {
 	/**
 	 * The client's application id, this can be retrieved in Discord Developer Portal at https://discord.com/developers/applications.
 	 * @since 1.0.0
 	 */
-	public id: `${bigint}`;
+	public id: Snowflake;
 
 	/**
 	 * The name for the cookie, this will be used to identify a Secure HttpOnly cookie.
@@ -91,7 +91,7 @@ export interface ServerOptionsAuth {
 	 * The client's application id, this can be retrieved in Discord Developer Portal at https://discord.com/developers/applications.
 	 * @since 1.0.0
 	 */
-	id: `${bigint}`;
+	id: string;
 
 	/**
 	 * The name for the cookie, this will be used to identify a Secure HttpOnly cookie.
