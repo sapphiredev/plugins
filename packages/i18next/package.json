@@ -1,6 +1,6 @@
 {
 	"name": "@sapphire/plugin-i18next",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"description": "Plugin for @sapphire/framework to support i18next.",
 	"author": "@sapphire",
 	"license": "MIT",
