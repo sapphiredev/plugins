@@ -1,5 +1,5 @@
 import { getRootData } from '@sapphire/pieces';
-import { Awaited, mergeDefault } from '@sapphire/utilities';
+import { Awaited, isFunction, mergeDefault } from '@sapphire/utilities';
 import { opendir } from 'fs/promises';
 import i18next, { InitOptions, StringMap, TFunction, TOptions } from 'i18next';
 import Backend, { i18nextFsBackend } from 'i18next-fs-backend';
@@ -71,7 +71,7 @@ export class I18nextHandler {
 					ns: namespaces,
 					preload: languages
 				} as InitOptions,
-				this.options?.i18next
+				isFunction(this.options?.i18next) ? this.options?.i18next(namespaces, languages) : this.options?.i18next
 			)
 		);
 
