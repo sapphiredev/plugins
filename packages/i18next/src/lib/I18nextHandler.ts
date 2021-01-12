@@ -45,7 +45,6 @@ export class I18nextHandler {
 	/**
 	 * The backend options for `i18next-fs-backend` used by `i18next`.
 	 * @since 1.0.0
-	 * @protected
 	 */
 	protected readonly backendOptions: i18nextFsBackend.i18nextFsBackendOptions;
 
