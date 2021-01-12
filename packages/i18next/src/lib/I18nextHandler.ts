@@ -37,7 +37,7 @@ export class I18nextHandler {
 
 	/**
 	 * The director passed to `i18next-fs-backend`.
-	 * Also used in {@link I18nextHandler#walkLanguageDirectory}.
+	 * Also used in {@link I18nextHandler.walkLanguageDirectory}.
 	 * @since 1.2.0
 	 */
 	public readonly languagesDir: string;
