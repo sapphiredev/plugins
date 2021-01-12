@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-i18next@1.1.0...@sapphire/plugin-i18next@1.2.0) (2021-01-12)
+
+### Features
+
+-   **i18next:** store loaded namespaces ([#42](https://github.com/sapphire-project/plugins/issues/42)) ([978f0ad](https://github.com/sapphire-project/plugins/commit/978f0ad59a708ffabc02dda3f82fc84a69abf54d))
+
 # [1.1.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-i18next@1.0.0...@sapphire/plugin-i18next@1.1.0) (2021-01-11)
 
 ### Features
