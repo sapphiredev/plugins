@@ -18,6 +18,12 @@ export class I18nextHandler {
 	public languagesLoaded = false;
 
 	/**
+	 * A `Set` of initially loaded namespaces.
+	 * @since 1.2.0
+	 */
+	public namespaces = new Set<string>();
+
+	/**
 	 * A `Map` of `i18next` language functions keyed by their language code.
 	 * @since 1.0.0
 	 */
@@ -87,6 +93,7 @@ export class I18nextHandler {
 			)
 		);
 
+		this.namespaces = new Set(namespaces);
 		for (const item of languages) {
 			this.languages.set(item, i18next.getFixedT(item));
 		}
