@@ -18,6 +18,12 @@ export class I18nextHandler {
 	public languagesLoaded = false;
 
 	/**
+	 * A `Set` of initially loaded namespaces.
+	 * @since 1.2.0
+	 */
+	public namespaces = new Set<string>();
+
+	/**
 	 * A `Map` of `i18next` language functions keyed by their language code.
 	 * @since 1.0.0
 	 */
@@ -25,11 +31,22 @@ export class I18nextHandler {
 
 	/**
 	 * The options I18nextHandler was initialized with in the client.
+	 * @since 1.0.0
 	 */
 	public readonly options?: I18nOptions;
 
-	private readonly languagesDir: string;
-	private readonly backendOptions: i18nextFsBackend.i18nextFsBackendOptions;
+	/**
+	 * The director passed to `i18next-fs-backend`.
+	 * Also used in {@link I18nextHandler.walkLanguageDirectory}.
+	 * @since 1.2.0
+	 */
+	public readonly languagesDir: string;
+
+	/**
+	 * The backend options for `i18next-fs-backend` used by `i18next`.
+	 * @since 1.0.0
+	 */
+	protected readonly backendOptions: i18nextFsBackend.i18nextFsBackendOptions;
 
 	/**
 	 * @param options The options that `i18next`, `i18next-fs-backend`, and {@link I18nextHandler} should use.
@@ -75,6 +92,7 @@ export class I18nextHandler {
 			)
 		);
 
+		this.namespaces = new Set(namespaces);
 		for (const item of languages) {
 			this.languages.set(item, i18next.getFixedT(item));
 		}
@@ -126,9 +144,8 @@ export class I18nextHandler {
 	 * @param namespaces The currently known namespaces.
 	 * @param current The directory currently being traversed.
 	 * @since 1.0.0
-	 * @protected
 	 */
-	protected async walkLanguageDirectory(dir: string, namespaces: string[] = [], current = '') {
+	public async walkLanguageDirectory(dir: string, namespaces: string[] = [], current = '') {
 		const directory = await opendir(dir);
 
 		const languages: string[] = [];
