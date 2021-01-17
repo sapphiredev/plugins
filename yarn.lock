@@ -1553,10 +1553,10 @@
   dependencies:
     twemoji-parser "^13.0.0"
 
-"@sapphire/eslint-config@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/eslint-config/-/eslint-config-2.0.0.tgz#33d07dfe37b583010fbc32c555e2ae5e9ff4de68"
-  integrity sha512-f/tNgR9nP8Tjb0MdQ9OjKnbSfTQGJFWGlX1dUb+o0vW3uwx0J2IBXBslCn1rsuz1mzp7XsVzj2jSxyASBugyUQ==
+"@sapphire/eslint-config@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/eslint-config/-/eslint-config-2.0.1.tgz#5f202a6ea070eabdbaf60aed0af204829bfccfe6"
+  integrity sha512-agDGE0zLgyWRcFU9gmmKqWZWTwqFrkBuIQr3J5zeIkRGao7YW/72+XnEXRKbz3gBbawnPC4/17p2Lf75vdp9/Q==
 
 "@sapphire/framework@1.0.0-alpha.2":
   version "1.0.0-alpha.2"
@@ -1586,22 +1586,22 @@
   resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-1.1.3.tgz#bdb54a3ae0b4f358c26f1877b8f7b83b767fd055"
   integrity sha512-DDJmmSZTgfWVinPuvnwgIkxtZte5cYxMeyT0jDyFiE4PRn7yC/rx0DqDz4FmroQQSto8A/p3JMVy6tx8tAuRPA==
 
-"@sapphire/time-utilities@^1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.2.3.tgz#7676687932a95606325960e84ee23a6f3fecbda4"
-  integrity sha512-8DXVKEo3/40sKPROi0QHhRbjkMrJ44E9daJ5IQXQ7w55Zy0kUqR/DuQ22eET1tftpzXhLvXEv7Nbb/NUxUxTgA==
+"@sapphire/time-utilities@^1.2.7":
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/@sapphire/time-utilities/-/time-utilities-1.2.7.tgz#381cf8e36719fe1b02445c79102498adaaa47b5f"
+  integrity sha512-iNozGuQ5w0BIO+AXGjKmVNtUq9f9bbffrIv0htyVioxIgpiow6aKQpKK6AsnTVh0nVArTxB0RCVxuBG7dwe07A==
   dependencies:
-    "@sapphire/utilities" "^1.3.1"
+    "@sapphire/utilities" "^1.4.3"
 
 "@sapphire/ts-config@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@sapphire/ts-config/-/ts-config-2.0.0.tgz#414f47a134e8016193e1685c7ca999dfdcd54bf2"
   integrity sha512-gYjOTGZ9jMOWJoCbxbMZo7hspBDzz7gX2CJnt7iB4C4xR8gOXA2EpZLFD8e9b8EWmwclQWiQjdZYGGRqMEVovw==
 
-"@sapphire/utilities@^1.3.0", "@sapphire/utilities@^1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-1.3.1.tgz#32f2af73b0ac0131bad579439ce33fb7d5c1e624"
-  integrity sha512-4HBXS2q3le89rDgjN6r+wPi5T+s1Dd1iGo+OUwSo8rEM7Fp7ukZwdYwDz5cWQ0FWlC3VIHBtdoMosafuX1UfKQ==
+"@sapphire/utilities@^1.3.0", "@sapphire/utilities@^1.4.3":
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-1.4.3.tgz#cf5540ee79fdb63c9af64754c9db6d533f58c812"
+  integrity sha512-OS4Tvimwqa2iKusNeP3rPd3RnoRazbKHh1ANEzwbE6zawSTPstcehmIYJ1G02eDae/45H1nrOg37O67eAY8uOw==
 
 "@sinonjs/commons@^1.7.0":
   version "1.8.1"
