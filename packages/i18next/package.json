@@ -35,7 +35,7 @@
 	"dependencies": {
 		"@sapphire/utilities": "^1.4.3",
 		"i18next": "^19.8.4",
-		"i18next-fs-backend": "^1.0.7",
+		"i18next-fs-backend": "^1.0.8",
 		"tslib": "^2.1.0"
 	},
 	"peerDependencies": {

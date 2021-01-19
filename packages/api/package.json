@@ -42,9 +42,6 @@
 			"optional": true
 		}
 	},
-	"devDependencies": {
-		"@types/node-fetch": "^2.5.7"
-	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/sapphire-project/plugins.git",
