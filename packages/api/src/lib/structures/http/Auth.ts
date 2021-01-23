@@ -63,10 +63,15 @@ export class Auth {
 	 * @param token An data to decrypt
 	 * @param secret The secret to decrypt the data with
 	 */
-	public decrypt(token: string): AuthData {
+	public decrypt(token: string): AuthData | null {
 		const [data, iv] = token.split('.');
 		const decipher = createDecipheriv('aes-256-cbc', this.#secret, Buffer.from(iv, 'base64'));
-		return JSON.parse(decipher.update(data, 'base64', 'utf8') + decipher.final('utf8'));
+
+		try {
+			return JSON.parse(decipher.update(data, 'base64', 'utf8') + decipher.final('utf8'));
+		} catch {
+			return null;
+		}
 	}
 
 	public static create(options?: ServerOptionsAuth): Auth | null {
