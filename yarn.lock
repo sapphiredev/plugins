@@ -1569,10 +1569,10 @@
     "@sapphire/utilities" "^1.3.0"
     lexure "^0.17.0"
 
-"@sapphire/pieces@^1.0.1", "@sapphire/pieces@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/pieces/-/pieces-1.1.0.tgz#ec82ea79fc3c87bd4c712cb4c8021b5663eb49b8"
-  integrity sha512-/XmIkHGHi4ycit/+dvY5ZwWLY/z10k5aXxRT8WbHtqDpc5yyhG7zR1U6fqKD9VNU8Ii1hqB2eEzWNeAvlTnwyw==
+"@sapphire/pieces@^1.0.1", "@sapphire/pieces@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/pieces/-/pieces-1.2.0.tgz#a77f0ece618b6693ac90a4254b4e8b18ee79afbe"
+  integrity sha512-cwlk+iLkRLdrpXHvT3Jdn0wVHY4fQzYdomkjgUvIbIvJ8yKVWQldbWnucjzQ0q9r7KvUnjOKM/3Rp3joy1P3RQ==
   dependencies:
     "@discordjs/collection" "^0.1.6"
 
@@ -1722,15 +1722,10 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*", "@types/node@>= 8":
-  version "14.14.20"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.20.tgz#f7974863edd21d1f8a494a73e8e2b3658615c340"
-  integrity sha512-Y93R97Ouif9JEOWPIUyU+eyIdyRqQR0I8Ez1dzku4hDx34NWh4HbtIc3WNzwB1Y9ULvNGeu5B8h8bVL5cAk4/A==
-
-"@types/node@^14.14.21":
-  version "14.14.21"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.21.tgz#d934aacc22424fe9622ebf6857370c052eae464e"
-  integrity sha512-cHYfKsnwllYhjOzuC5q1VpguABBeecUp24yFluHpn/BQaVxB1CuQ1FSRZCzrPxrkIfWISXV2LbeoBthLWg0+0A==
+"@types/node@*", "@types/node@>= 8", "@types/node@^14.14.22":
+  version "14.14.22"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.22.tgz#0d29f382472c4ccf3bd96ff0ce47daf5b7b84b18"
+  integrity sha512-g+f/qj/cNcqKkc3tFqlXOYjrmZA+jNBiDzbP3kH+B+otKFqAdPgVTGP1IeKRdMml/aE69as5S4FqtxAbl+LaMw==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
