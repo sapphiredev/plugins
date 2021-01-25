@@ -12,13 +12,6 @@ export type ResolveSubCommandPayload = Omit<PreCommandRunPayload, 'context'>;
 
 export interface SubCommandsPluginOptions {
 	/**
-	 * Preconditions that will be overlap in parents by their sub commands
-	 * @since 1.0.0
-	 * @default []
-	 */
-	overlappedPreconditions?: string[];
-
-	/**
 	 * Should the search in commands store be performed on a value with a low case
 	 * @since 1.0.0
 	 * @default true
@@ -45,7 +38,6 @@ export class SubCommandsHandler {
 	 */
 	public constructor(options: SubCommandsPluginOptions = {}) {
 		this.options = {
-			overlappedPreconditions: options.overlappedPreconditions ?? [],
 			lowercasedCommandName: options.lowercasedCommandName ?? true
 		};
 	}
@@ -89,36 +81,47 @@ export class SubCommandsHandler {
 	}
 
 	/**
-	 * Builds parent-child sub commands tree and make preconditions for them.
+	 * Inspects the parent-child subcommands relations and merge preconditions for these.
 	 * @param commands The commands store.
 	 */
 	public inspectSubCommands(commands: CommandStore) {
 		for (const [, command] of commands.entries()) {
 			if (!command.subCommands) continue;
 
-			for (const { command: subCommandPieceName } of command.subCommands) {
+			for (const { command: subCommandPieceName, ignoredParentPreconditions } of command.subCommands) {
 				if (!subCommandPieceName) continue;
 
 				const subCommand = commands.get(subCommandPieceName);
 				if (!subCommand) throw new SubCommandNotLoadedError(subCommandPieceName, command.name);
 				subCommand.isSubCommand = true;
 
-				// Setting up parent's preconditions to found sub command with filtering
-				if ((command.preconditions as PreconditionContainerArray).entries) {
+				// Preconditions merging
+				if ((command.preconditions as PreconditionContainerArray).entries && ignoredParentPreconditions !== 'all') {
 					const subCommandPreconditions = subCommand.preconditions as PreconditionContainerArray;
-					let parentPreconditionFiltered: IPreconditionContainer | null = command.preconditions;
-					for (const preconditionName of this.options.overlappedPreconditions) {
-						const a = (this.preconditionsDeepFilter(subCommandPreconditions, preconditionName) ??
-							new PreconditionContainerArray()) as PreconditionContainerArray;
-						if (subCommandPreconditions.entries.every((e, i) => e === a.entries[i])) continue;
+					let parentPreconditionsFiltered: IPreconditionContainer | null = command.preconditions;
 
-						parentPreconditionFiltered = this.preconditionsDeepFilter(parentPreconditionFiltered, preconditionName);
+					for (const preconditionName of this.getPreconditionsNames(subCommandPreconditions, ignoredParentPreconditions)) {
+						parentPreconditionsFiltered = this.preconditionsDeepFilter(parentPreconditionsFiltered, preconditionName);
 					}
 
-					parentPreconditionFiltered && subCommandPreconditions.add(parentPreconditionFiltered);
+					parentPreconditionsFiltered && subCommandPreconditions.add(parentPreconditionsFiltered);
 				}
 			}
 		}
+	}
+
+	/**
+	 * Getting all [[PreconditionContainerSingle]] names recursively.
+	 * @param container Some precondition container.
+	 * @param buffer Starter array and intermediate buffer.
+	 */
+	private getPreconditionsNames(container: IPreconditionContainer, buffer: string[] = []): string[] {
+		if (container instanceof PreconditionContainerArray) {
+			return [...buffer, ...container.entries.flatMap((p) => this.getPreconditionsNames(p, buffer))];
+		} else if (container instanceof PreconditionContainerSingle) {
+			return buffer.includes(container.name) ? buffer : [...buffer, container.name];
+		}
+		return buffer;
 	}
 
 	/**
@@ -145,14 +148,17 @@ export class SubCommandsHandler {
 	}
 }
 
-interface SubCommandCommandInfo {
+interface SubCommandBaseInfo {
 	name: string;
+	ignoredParentPreconditions?: string[] | 'all';
+}
+
+interface SubCommandCommandInfo extends SubCommandBaseInfo {
 	command: string;
 	method?: string;
 }
 
-interface SubCommandMethodInfo {
-	name: string;
+interface SubCommandMethodInfo extends SubCommandBaseInfo {
 	command?: string;
 	method: string;
 }
