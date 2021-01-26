@@ -58,14 +58,17 @@ export class SubCommandsHandler {
 			if (!nameFromArgs.success || !iterableCommand.subCommands) break;
 
 			const soughtName = this.options.lowercasedCommandName ? nameFromArgs.value.toLowerCase() : nameFromArgs.value;
-			const subCommandInfo = iterableCommand.subCommands.find((s) => s.name === soughtName);
+			const subCommandInfo = iterableCommand.subCommands.find((s) =>
+				// Calling user defined predicate otherwise checking out that the subcommand is exists (including alias store)
+				typeof s.name === 'function' ? s.name(soughtName) : s.name === soughtName || store.get(s.command ?? '')?.aliases.includes(soughtName)
+			);
 			if (!subCommandInfo) break;
 
 			if (!subCommandInfo.command && !subCommandInfo.method) {
-				throw new SubCommandMissingOptionsError(subCommandInfo.name, parentName);
+				throw new SubCommandMissingOptionsError(subCommandInfo.name.toString(), parentName);
 			}
 
-			const soughtCommand = store.get(subCommandInfo.command ?? '') ?? (subCommandInfo.method ? command : undefined);
+			const soughtCommand = store.get(subCommandInfo.command ?? '') ?? store.get(parentName);
 			if (!soughtCommand) break;
 
 			parentName = soughtCommand.name;
@@ -149,17 +152,46 @@ export class SubCommandsHandler {
 }
 
 interface SubCommandBaseInfo {
-	name: string;
+	/**
+	 * Subcommand name. Note: If a predicate is passed, aliases will not work.
+	 * @since 1.0.0
+	 */
+	name: string | ((name: string) => boolean);
+
+	/**
+	 * Preconditions that shouldn't be inherited.
+	 * @since 1.0.0
+	 */
 	ignoredParentPreconditions?: string[] | 'all';
 }
 
 interface SubCommandCommandInfo extends SubCommandBaseInfo {
+	/**
+	 * Piece command name where's should be method called.
+	 * @since 1.0.0
+	 */
 	command: string;
+
+	/**
+	 * Method name that's should be run.
+	 * @default run
+	 * @since 1.0.0
+	 */
 	method?: string;
 }
 
 interface SubCommandMethodInfo extends SubCommandBaseInfo {
+	/**
+	 * Piece command name where's should be method called.
+	 * @default Parent command piece
+	 * @since 1.0.0
+	 */
 	command?: string;
+
+	/**
+	 * Method name that's should be run.
+	 * @since 1.0.0
+	 */
 	method: string;
 }
 
