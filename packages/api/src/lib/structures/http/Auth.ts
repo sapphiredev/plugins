@@ -6,7 +6,6 @@ import type {
 	Snowflake
 } from 'discord-api-types/v8';
 import fetch from 'node-fetch';
-import type { LoginData } from '../../../routes/oauth/callback';
 
 export class Auth {
 	/**
@@ -198,6 +197,20 @@ export interface ServerOptionsAuth {
 	transformers?: LoginDataTransformer[];
 }
 
+/**
+ * The login data sent when fetching data from a user.
+ * @since 1.4.0
+ */
+export interface LoginData {
+	user?: RESTGetAPICurrentUserResult | null;
+	guilds?: RESTGetAPICurrentUserGuildsResult | null;
+	connections?: RESTGetAPICurrentUserConnectionsResult | null;
+}
+
+/**
+ * A login data transformer.
+ * @since 1.4.0
+ */
 export interface LoginDataTransformer {
 	(data: LoginData): LoginData;
 }
