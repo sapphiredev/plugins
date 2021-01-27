@@ -40,15 +40,16 @@ export class PluginRoute extends Route {
 			return response.status(HttpCodes.InternalServerError).json({ error: 'Failed to fetch the token.' });
 		}
 
-		const data = await this.fetchData(value.access_token);
+		const now = Date.now();
+		const auth = this.context.server.auth!;
+		const data = await auth.fetchData(value.access_token);
 		if (!data.user) {
 			return response.status(HttpCodes.InternalServerError).json({ error: 'Failed to fetch the user.' });
 		}
 
-		const auth = this.context.server.auth!;
 		const token = auth.encrypt({
 			id: data.user.id,
-			expires: value.expires_in,
+			expires: now + value.expires_in,
 			refresh: value.refresh_token,
 			token: value.access_token
 		});
@@ -84,27 +85,6 @@ export class PluginRoute extends Route {
 
 		this.context.client.logger.error(json);
 		return null;
-	}
-
-	private async fetchData(token: string): Promise<LoginData> {
-		const [user, guilds, connections] = await Promise.all([
-			this.fetchInformation<RESTGetAPICurrentUserResult>('identify', token, 'https://discord.com/api/v8/users/@me'),
-			this.fetchInformation<RESTGetAPICurrentUserGuildsResult>('guilds', token, 'https://discord.com/api/v8/users/@me/guilds'),
-			this.fetchInformation<RESTGetAPICurrentUserConnectionsResult>('connections', token, 'https://discord.com/api/v8/users/@me/connections')
-		]);
-		return { user, guilds, connections };
-	}
-
-	private async fetchInformation<T>(scope: string, token: string, url: string): Promise<T | null | undefined> {
-		if (!this.scopes.includes(scope)) return undefined;
-
-		const result = await fetch(url, {
-			headers: {
-				authorization: `Bearer ${token}`
-			}
-		});
-
-		return result.ok ? ((await result.json()) as T) : null;
 	}
 }
 
