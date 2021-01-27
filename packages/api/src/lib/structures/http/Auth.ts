@@ -212,5 +212,9 @@ export interface LoginData {
  * @since 1.4.0
  */
 export interface LoginDataTransformer {
-	(data: LoginData): LoginData;
+	/**
+	 * Transforms the object by mutating its properties or adding new ones.
+	 * @since 1.4.0
+	 */
+	<T extends LoginData>(data: LoginData): T;
 }
