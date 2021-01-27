@@ -1,5 +1,11 @@
 import { createCipheriv, createDecipheriv, randomBytes } from 'crypto';
-import type { Snowflake } from 'discord-api-types/v8';
+import type {
+	RESTGetAPICurrentUserConnectionsResult,
+	RESTGetAPICurrentUserGuildsResult,
+	RESTGetAPICurrentUserResult,
+	Snowflake
+} from 'discord-api-types/v8';
+import fetch from 'node-fetch';
 
 export class Auth {
 	/**
@@ -26,6 +32,12 @@ export class Auth {
 	 */
 	public redirect: string | undefined;
 
+	/**
+	 * The transformers used for [[Auth.fetchData]].
+	 * @since 1.4.0
+	 */
+	public transformers: LoginDataTransformer[];
+
 	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
 	#secret: string;
 
@@ -35,6 +47,7 @@ export class Auth {
 		this.scopes = options.scopes ?? ['identify'];
 		this.redirect = options.redirect;
 		this.#secret = options.secret;
+		this.transformers = options.transformers ?? [];
 	}
 
 	/**
@@ -68,10 +81,39 @@ export class Auth {
 		const decipher = createDecipheriv('aes-256-cbc', this.#secret, Buffer.from(iv, 'base64'));
 
 		try {
-			return JSON.parse(decipher.update(data, 'base64', 'utf8') + decipher.final('utf8'));
+			const parsed = JSON.parse(decipher.update(data, 'base64', 'utf8') + decipher.final('utf8')) as AuthData;
+			// If the token expired, return null:
+			return parsed.expires >= Date.now() ? null : parsed;
 		} catch {
 			return null;
 		}
+	}
+
+	/**
+	 * Retrieves the data for a specific user.
+	 * @since 1.4.0
+	 * @param token The access token from the user.
+	 */
+	public async fetchData(token: string): Promise<LoginData> {
+		const [user, guilds, connections] = await Promise.all([
+			this.fetchInformation<RESTGetAPICurrentUserResult>('identify', token, 'https://discord.com/api/v8/users/@me'),
+			this.fetchInformation<RESTGetAPICurrentUserGuildsResult>('guilds', token, 'https://discord.com/api/v8/users/@me/guilds'),
+			this.fetchInformation<RESTGetAPICurrentUserConnectionsResult>('connections', token, 'https://discord.com/api/v8/users/@me/connections')
+		]);
+
+		return this.transformers.reduce<LoginData>((data, fn) => fn(data), { user, guilds, connections });
+	}
+
+	private async fetchInformation<T>(scope: string, token: string, url: string): Promise<T | null | undefined> {
+		if (!this.scopes.includes(scope)) return undefined;
+
+		const result = await fetch(url, {
+			headers: {
+				authorization: `Bearer ${token}`
+			}
+		});
+
+		return result.ok ? ((await result.json()) as T) : null;
 	}
 
 	public static create(options?: ServerOptionsAuth): Auth | null {
@@ -80,10 +122,33 @@ export class Auth {
 	}
 }
 
+/**
+ * Defines the authentication data, this is to be encrypted and decrypted by the server.
+ * @since 1.0.0
+ */
 export interface AuthData {
+	/**
+	 * The user ID.
+	 * @since 1.0.0
+	 */
 	id: string;
+
+	/**
+	 * The timestamp at which the token expires.
+	 * @since 1.0.0
+	 */
 	expires: number;
+
+	/**
+	 * The refresh token.
+	 * @since 1.0.0
+	 */
 	refresh: string;
+
+	/**
+	 * The access token.
+	 * @since 1.0.0
+	 */
 	token: string;
 }
 
@@ -123,4 +188,33 @@ export interface ServerOptionsAuth {
 	 * @since 1.0.0
 	 */
 	redirect?: string;
+
+	/**
+	 * The login data transformers used for [[Auth.fetchData]].
+	 * @since 1.4.0
+	 * @default []
+	 */
+	transformers?: LoginDataTransformer[];
+}
+
+/**
+ * The login data sent when fetching data from a user.
+ * @since 1.4.0
+ */
+export interface LoginData {
+	user?: RESTGetAPICurrentUserResult | null;
+	guilds?: RESTGetAPICurrentUserGuildsResult | null;
+	connections?: RESTGetAPICurrentUserConnectionsResult | null;
+}
+
+/**
+ * A login data transformer.
+ * @since 1.4.0
+ */
+export interface LoginDataTransformer {
+	/**
+	 * Transforms the object by mutating its properties or adding new ones.
+	 * @since 1.4.0
+	 */
+	<T extends LoginData>(data: LoginData): T;
 }
