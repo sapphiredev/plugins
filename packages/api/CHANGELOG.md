@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.3.1...@sapphire/plugin-api@1.4.0) (2021-01-27)
+
+### Features
+
+-   **plugin-api:** added Auth#{fetchData,transformers}, fixed Oauth bug ([#48](https://github.com/sapphire-project/plugins/issues/48)) ([957a63b](https://github.com/sapphire-project/plugins/commit/957a63be9b783521d1a95015369d9e2530a41f55))
+
 ## [1.3.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.3.0...@sapphire/plugin-api@1.3.1) (2021-01-23)
 
 ### Bug Fixes
