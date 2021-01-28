@@ -1,3 +1,4 @@
+import { Awaited, isThenable } from '@sapphire/utilities';
 import { createCipheriv, createDecipheriv, randomBytes } from 'crypto';
 import type {
 	RESTGetAPICurrentUserConnectionsResult,
@@ -95,13 +96,22 @@ export class Auth {
 	 * @param token The access token from the user.
 	 */
 	public async fetchData(token: string): Promise<LoginData> {
+		// Fetch the information:
 		const [user, guilds, connections] = await Promise.all([
 			this.fetchInformation<RESTGetAPICurrentUserResult>('identify', token, 'https://discord.com/api/v8/users/@me'),
 			this.fetchInformation<RESTGetAPICurrentUserGuildsResult>('guilds', token, 'https://discord.com/api/v8/users/@me/guilds'),
 			this.fetchInformation<RESTGetAPICurrentUserConnectionsResult>('connections', token, 'https://discord.com/api/v8/users/@me/connections')
 		]);
 
-		return this.transformers.reduce<LoginData>((data, fn) => fn(data), { user, guilds, connections });
+		// Transform the information:
+		let data: LoginData = { user, guilds, connections };
+		for (const transformer of this.transformers) {
+			const result = transformer(data);
+			if (isThenable(result)) data = await result;
+			else data = result as LoginData;
+		}
+
+		return data;
 	}
 
 	private async fetchInformation<T>(scope: string, token: string, url: string): Promise<T | null | undefined> {
@@ -202,8 +212,22 @@ export interface ServerOptionsAuth {
  * @since 1.4.0
  */
 export interface LoginData {
+	/**
+	 * The user data, defined when the `'identify'` scope is defined.
+	 * @since 1.4.0
+	 */
 	user?: RESTGetAPICurrentUserResult | null;
+
+	/**
+	 * The guilds data, defined when the `'guilds'` scope is defined.
+	 * @since 1.4.0
+	 */
 	guilds?: RESTGetAPICurrentUserGuildsResult | null;
+
+	/**
+	 * The connections data, defined when the `'connections'` scope is defined.
+	 * @since 1.4.0
+	 */
 	connections?: RESTGetAPICurrentUserConnectionsResult | null;
 }
 
@@ -211,10 +235,10 @@ export interface LoginData {
  * A login data transformer.
  * @since 1.4.0
  */
-export interface LoginDataTransformer {
+export interface LoginDataTransformer<T extends LoginData = LoginData> {
 	/**
 	 * Transforms the object by mutating its properties or adding new ones.
 	 * @since 1.4.0
 	 */
-	<T extends LoginData>(data: LoginData): T;
+	(data: LoginData): Awaited<T>;
 }
