@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.4.0...@sapphire/plugin-api@1.5.0) (2021-01-28)
+
+### Features
+
+-   **plugin-api:** make LoginDataTransformer accept Awaited<LoginData> ([#49](https://github.com/sapphire-project/plugins/issues/49)) ([666e0a2](https://github.com/sapphire-project/plugins/commit/666e0a2adfb00510fa303f8b3d796eb00409fd38))
+
 # [1.4.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.3.1...@sapphire/plugin-api@1.4.0) (2021-01-27)
 
 ### Features
