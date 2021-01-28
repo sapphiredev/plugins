@@ -1,6 +1,6 @@
 {
 	"name": "@sapphire/plugin-api",
-	"version": "1.5.0",
+	"version": "1.5.1",
 	"description": "Plugin for @sapphire/framework to expose a REST API",
 	"author": "@sapphire",
 	"license": "MIT",
@@ -34,8 +34,8 @@
 	"peerDependencies": {
 		"@sapphire/framework": "1.x",
 		"@sapphire/pieces": "1.x",
-		"@types/ws": "latest",
 		"@types/node-fetch": "^2.x",
+		"@types/ws": "latest",
 		"discord-api-types": "^0.12.1",
 		"discord.js": "12.x"
 	},

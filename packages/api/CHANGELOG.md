@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.5.0...@sapphire/plugin-api@1.5.1) (2021-01-28)
+
+### Bug Fixes
+
+-   add additional peer dependencies ([d67820a](https://github.com/sapphire-project/plugins/commit/d67820ab2e0390980c785b56d4194c05fa59b1ba))
+-   **plugin-api:** fixed typo ([#50](https://github.com/sapphire-project/plugins/issues/50)) ([d25c674](https://github.com/sapphire-project/plugins/commit/d25c674f2463f8bbe865f34ca5a6ef4c5b26f434))
+
 # [1.5.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.4.0...@sapphire/plugin-api@1.5.0) (2021-01-28)
 
 ### Features
