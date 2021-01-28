@@ -235,10 +235,10 @@ export interface LoginData {
  * A login data transformer.
  * @since 1.4.0
  */
-export interface LoginDataTransformer {
+export interface LoginDataTransformer<T extends LoginData = LoginData> {
 	/**
 	 * Transforms the object by mutating its properties or adding new ones.
 	 * @since 1.4.0
 	 */
-	<T extends LoginData>(data: LoginData): Awaited<T>;
+	(data: LoginData): Awaited<T>;
 }
