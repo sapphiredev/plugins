@@ -84,7 +84,7 @@ export class Auth {
 		try {
 			const parsed = JSON.parse(decipher.update(data, 'base64', 'utf8') + decipher.final('utf8')) as AuthData;
 			// If the token expired, return null:
-			return parsed.expires >= Date.now() ? null : parsed;
+			return parsed.expires >= Date.now() ? parsed : null;
 		} catch {
 			return null;
 		}
