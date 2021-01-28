@@ -35,10 +35,18 @@
 		"@sapphire/framework": "1.x",
 		"@sapphire/pieces": "1.x",
 		"@types/ws": "latest",
+		"@types/node-fetch": "^2.x",
+		"discord-api-types": "^0.12.1",
 		"discord.js": "12.x"
 	},
 	"peerDependenciesMeta": {
 		"@types/ws": {
+			"optional": true
+		},
+		"@types/node-fetch": {
+			"optional": true
+		},
+		"discord-api-types": {
 			"optional": true
 		}
 	},
