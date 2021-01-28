@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.5.1...@sapphire/plugin-api@1.5.2) (2021-01-28)
+
+### Bug Fixes
+
+-   **plugin-api:** swap condition ([27742f2](https://github.com/sapphire-project/plugins/commit/27742f23f71fbbc79b9e6606da9cfc4d48a891ae))
+
 ## [1.5.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.5.0...@sapphire/plugin-api@1.5.1) (2021-01-28)
 
 ### Bug Fixes
