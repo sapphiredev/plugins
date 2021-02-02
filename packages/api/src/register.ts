@@ -12,11 +12,12 @@ export class Api extends Plugin {
 	 */
 	public static [postInitialization](this: SapphireClient, options: ClientOptions): void {
 		this.server = new Server(options.api);
-		this.registerStore(this.server.routes) //
-			.registerStore(this.server.mediaParsers)
-			.registerStore(this.server.middlewares);
+		this.stores
+			.register(this.server.routes) //
+			.register(this.server.mediaParsers)
+			.register(this.server.middlewares);
 
-		this.events.registerPath(join(__dirname, 'events'));
+		this.stores.get('events').registerPath(join(__dirname, 'events'));
 		this.server.routes.registerPath(join(__dirname, 'routes'));
 		this.server.middlewares.registerPath(join(__dirname, 'middlewares'));
 		this.server.mediaParsers.registerPath(join(__dirname, 'mediaParsers'));
