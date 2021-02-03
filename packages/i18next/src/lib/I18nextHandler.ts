@@ -126,11 +126,15 @@ export class I18nextHandler {
 		const language = this.languages.get(locale);
 		if (!language) throw new ReferenceError('Invalid language provided');
 
+		const missingHandlers = this.options?.defaultMissingKey
+			? { defaultValue: language(this.options?.defaultMissingKey, { replace: { key } }) }
+			: {};
+
 		return language(
 			key,
 			mergeDefault(
 				{
-					defaultValue: language(this.options?.defaultMissingKey ?? 'default:default', { replace: { key } }),
+					...missingHandlers,
 					replace
 				},
 				options
