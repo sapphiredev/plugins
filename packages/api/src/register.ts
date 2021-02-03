@@ -2,6 +2,9 @@ import { Plugin, postInitialization, preLogin, SapphireClient } from '@sapphire/
 import type { ClientOptions } from 'discord.js';
 import { join } from 'path';
 import { Server, ServerOptions } from './lib/structures/http/Server';
+import type { MediaParserStore } from './lib/structures/MediaParserStore';
+import type { MiddlewareStore } from './lib/structures/MiddlewareStore';
+import type { RouteStore } from './lib/structures/RouteStore';
 
 /**
  * @since 1.0.0
@@ -38,6 +41,14 @@ declare module 'discord.js' {
 
 	export interface ClientOptions {
 		api?: ServerOptions;
+	}
+}
+
+declare module '@sapphire/framework' {
+	interface StoreRegistryEntries {
+		routes: RouteStore;
+		mediaParsers: MediaParserStore;
+		middlewares: MiddlewareStore;
 	}
 }
 
