@@ -4,7 +4,9 @@
  * ===============================================
  */
 
+import type { RouteStore, MiddlewareStore } from '../..';
 import type { Server, ServerOptions } from './http/Server';
+import type { MediaParserStore } from './MediaParserStore';
 
 declare module 'discord.js' {
 	export interface Client {
@@ -13,5 +15,13 @@ declare module 'discord.js' {
 
 	export interface ClientOptions {
 		api?: ServerOptions;
+	}
+}
+
+declare module '@sapphire/framework' {
+	interface StoreRegistryEntries {
+		routes: RouteStore;
+		mediaParsers: MediaParserStore;
+		middlewares: MiddlewareStore;
 	}
 }
