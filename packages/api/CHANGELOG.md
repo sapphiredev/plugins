@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.5.2...@sapphire/plugin-api@2.0.0) (2021-02-03)
+
+### Features
+
+-   **api:** update for @sapphire/framework alpha 5 ([#53](https://github.com/sapphire-project/plugins/issues/53)) ([fe51322](https://github.com/sapphire-project/plugins/commit/fe513225a671072acd6904165393cb0e3d078464))
+
+### BREAKING CHANGES
+
+-   **api:** refer to breaking changes in [@sapphire/framework v1.0.0-alpha.5](https://github.com/sapphire-project/framework/releases/tag/v1.0.0-alpha.5)
+
 ## [1.5.2](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.5.1...@sapphire/plugin-api@1.5.2) (2021-01-28)
 
 ### Bug Fixes

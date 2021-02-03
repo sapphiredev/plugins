@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-i18next@1.2.1...@sapphire/plugin-i18next@1.3.0) (2021-02-03)
+
+### Features
+
+-   **i18next:** respect alternative default handling ([#54](https://github.com/sapphire-project/plugins/issues/54)) ([5b12ba8](https://github.com/sapphire-project/plugins/commit/5b12ba8b4a321f73dd6b93c57ddd92143b796f08))
+
 ## [1.2.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-i18next@1.2.0...@sapphire/plugin-i18next@1.2.1) (2021-01-23)
 
 **Note:** Version bump only for package @sapphire/plugin-i18next
