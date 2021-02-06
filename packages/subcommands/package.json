@@ -1,5 +1,5 @@
 {
-	"name": "@sapphire/subcommands",
+	"name": "@sapphire/plugin-subcommands",
 	"version": "0.0.1",
 	"description": "Plugin for @sapphire/framework that adds support for subcommands.",
 	"author": "@sapphire",
@@ -17,9 +17,7 @@
 	"scripts": {
 		"lint": "eslint src tests --ext ts --fix",
 		"build": "tsc -b src",
-		"postbuild": "run-p esm:**",
-		"esm:register": "gen-esm-wrapper dist/register.js dist/register.mjs",
-		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
+		"postbuild": "gen-esm-wrapper dist/index.js dist/index.mjs",
 		"prepublishOnly": "yarn build"
 	},
 	"peerDependencies": {
