@@ -26,7 +26,7 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/sapphire-project/plugins.git",
-		"directory": "packages/api"
+		"directory": "packages/subcommands"
 	},
 	"files": [
 		"dist",
