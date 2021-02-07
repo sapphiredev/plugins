@@ -166,22 +166,15 @@ declare module 'discord.js' {
 			key: string,
 			values?: readonly unknown[],
 			options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
-		): Promise<I18nextMessageImplementation>;
-		replyTranslated(
-			key: string,
-			values?: readonly unknown[],
-			options?: MessageOptions & { split: true | SplitOptions }
-		): Promise<I18nextMessageImplementation[]>;
-		replyTranslated(
-			key: string,
-			options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
-		): Promise<I18nextMessageImplementation>;
-		replyTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<I18nextMessageImplementation[]>;
+		): Promise<Message>;
+		replyTranslated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+		replyTranslated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+		replyTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
 		replyTranslated(
 			key: string,
 			valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
 			rawOptions?: MessageOptions
-		): Promise<I18nextMessageImplementation | I18nextMessageImplementation[]>;
+		): Promise<Message | Message[]>;
 	}
 
 	export interface Channel extends I18nextChannelImplementation {
@@ -192,22 +185,15 @@ declare module 'discord.js' {
 			key: string,
 			values?: readonly unknown[],
 			options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
-		): Promise<I18nextMessageImplementation>;
-		sendTranslated(
-			key: string,
-			values?: readonly unknown[],
-			options?: MessageOptions & { split: true | SplitOptions }
-		): Promise<I18nextMessageImplementation[]>;
-		sendTranslated(
-			key: string,
-			options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions
-		): Promise<I18nextMessageImplementation>;
-		sendTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<I18nextMessageImplementation[]>;
+		): Promise<Message>;
+		sendTranslated(key: string, values?: readonly unknown[], options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
+		sendTranslated(key: string, options?: MessageOptions | (MessageOptions & { split?: false }) | MessageAdditions): Promise<Message>;
+		sendTranslated(key: string, options?: MessageOptions & { split: true | SplitOptions }): Promise<Message[]>;
 		sendTranslated(
 			key: string,
 			valuesOrOptions?: readonly unknown[] | MessageOptions | MessageAdditions,
 			rawOptions?: MessageOptions
-		): Promise<I18nextMessageImplementation | I18nextMessageImplementation[]>;
+		): Promise<Message | Message[]>;
 	}
 
 	export interface Guild extends I18nextGuildImplementation {}
