@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.0.0...@sapphire/plugin-api@2.0.1) (2021-02-07)
+
+**Note:** Version bump only for package @sapphire/plugin-api
+
 # [2.0.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@1.5.2...@sapphire/plugin-api@2.0.0) (2021-02-03)
 
 ### Features

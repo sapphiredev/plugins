@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-logger@1.0.6...@sapphire/plugin-logger@1.0.7) (2021-02-07)
+
+### Bug Fixes
+
+-   **logger:** update dependencies in package.json ([9386b3a](https://github.com/sapphire-project/plugins/commit/9386b3a30773e34ac1a50fe3d4ad0452a93a9fc1))
+
 ## [1.0.6](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-logger@1.0.5...@sapphire/plugin-logger@1.0.6) (2021-01-23)
 
 **Note:** Version bump only for package @sapphire/plugin-logger

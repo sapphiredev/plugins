@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-i18next@1.3.0...@sapphire/plugin-i18next@1.3.1) (2021-02-07)
+
+### Bug Fixes
+
+-   **i18n:** update dependencies in package.json ([8d0381b](https://github.com/sapphire-project/plugins/commit/8d0381be7b5ecc837fd9883c6035d4a16c065448))
+-   **i18next:** properly augment Discord.js extensions ([#56](https://github.com/sapphire-project/plugins/issues/56)) ([6f5b1a9](https://github.com/sapphire-project/plugins/commit/6f5b1a9a05a6d0508e05a33ef23ec1027160df79))
+
 # [1.3.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-i18next@1.2.1...@sapphire/plugin-i18next@1.3.0) (2021-02-03)
 
 ### Features
