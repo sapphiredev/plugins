@@ -1,13 +1,13 @@
-import { err, UserError } from '@sapphire/framework';
+import { Args, err, UserError } from '@sapphire/framework';
 import type { SubCommandEntry } from './SubCommandEntry';
 import { SubCommandEntryCommand } from './SubCommandEntryCommand';
 import { SubCommandEntryMethod } from './SubCommandEntryMethod';
 
-export class SubCommandManager {
-	private readonly entries: SubCommandEntry[] = [];
-	private readonly default: SubCommandEntry | null = null;
+export class SubCommandManager<T extends Args> {
+	private readonly entries: SubCommandEntry<T>[] = [];
+	private readonly default: SubCommandEntry<T> | null = null;
 
-	public constructor(entries: SubCommandManager.RawEntries) {
+	public constructor(entries: SubCommandManager.RawEntries<T>) {
 		for (const data of entries) {
 			const value = this.resolve(data);
 			const Ctor = SubCommandManager.handlers.get(value.type ?? 'method');
@@ -23,7 +23,7 @@ export class SubCommandManager {
 		}
 	}
 
-	public async run(context: SubCommandEntry.RunContext) {
+	public async run(context: SubCommandEntry.RunContext<T>) {
 		// Pick one argument, then try to match a subcommand:
 		context.args.save();
 		const value = context.args.nextMaybe();
@@ -42,7 +42,7 @@ export class SubCommandManager {
 		return err(new UserError({ identifier: 'SubCommandNoMatch', context }));
 	}
 
-	protected resolve(value: string | SubCommandManager.Entry): SubCommandManager.Entry {
+	protected resolve(value: string | SubCommandManager.Entry<T>): SubCommandManager.Entry<T> {
 		if (typeof value !== 'string') return value;
 		return { input: value, output: value, type: 'method' };
 	}
@@ -56,10 +56,10 @@ export class SubCommandManager {
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace SubCommandManager {
 	export type Type = 'command' | 'method';
-	export interface Entry extends SubCommandEntry.Options {
+	export interface Entry<T extends Args> extends SubCommandEntry.Options<T> {
 		type?: Type;
 		default?: boolean;
 	}
 
-	export type RawEntries = readonly (string | Entry)[];
+	export type RawEntries<T extends Args> = readonly (string | Entry<T>)[];
 }

@@ -8,21 +8,21 @@ import { isFunction } from '@sapphire/utilities';
  * @see {@link SubCommandEntryCommand}
  * @see {@link SubCommandEntryMethod}
  */
-export abstract class SubCommandEntry {
-	public readonly input: string | ((context: SubCommandEntry.RunContext) => Awaited<string>);
+export abstract class SubCommandEntry<T extends Args> {
+	public readonly input: string | ((context: SubCommandEntry.RunContext<T>) => Awaited<string>);
 	public readonly output: string;
 
-	public constructor(options: SubCommandEntry.Options) {
+	public constructor(options: SubCommandEntry.Options<T>) {
 		this.input = options.input;
 		if (!options.output && typeof options.input !== 'string') throw new ReferenceError('No output provided.');
 		this.output = options.output ?? (options.input as string);
 	}
 
-	public async match(value: string, context: SubCommandEntry.RunContext): Promise<boolean> {
+	public async match(value: string, context: SubCommandEntry.RunContext<T>): Promise<boolean> {
 		return (isFunction(this.input) ? await this.input(context) : this.input) === value;
 	}
 
-	public abstract run(context: SubCommandEntry.RunContext): unknown;
+	public abstract run(context: SubCommandEntry.RunContext<T>): unknown;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -39,8 +39,8 @@ export namespace SubCommandEntry {
 	 * }]
 	 * ```
 	 */
-	export interface Options {
-		input: string | ((context: RunContext) => Awaited<string>);
+	export interface Options<T extends Args> {
+		input: string | ((context: RunContext<T>) => Awaited<string>);
 		output?: string;
 	}
 
@@ -48,10 +48,10 @@ export namespace SubCommandEntry {
 	 * RunContext is passed to SubCommandManager.run() and to input (if it is a function)
 	 * @see {@link SubCommandEntry.Options}
 	 */
-	export interface RunContext {
+	export interface RunContext<T extends Args> {
 		command: Command;
 		message: Message;
-		args: Args;
+		args: T;
 		context: CommandContext;
 	}
 }

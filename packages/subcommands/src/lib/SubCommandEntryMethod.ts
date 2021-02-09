@@ -1,3 +1,4 @@
+import type { Args } from '@sapphire/framework';
 import { SubCommandEntry } from './SubCommandEntry';
 
 /**
@@ -10,7 +11,7 @@ import { SubCommandEntry } from './SubCommandEntry';
  * 			super(context, {
  * 				name: 'conf',
  * 				// by default, outputs default to inputs
- * 				subCommands: [{ input: 'set' }, { input: 'list', default: true }]
+ * 				subCommands: ['set', { input: 'list', default: true }]
  * 			})
  * 		}
  *
@@ -25,8 +26,8 @@ import { SubCommandEntry } from './SubCommandEntry';
  * }
  * ```
  */
-export class SubCommandEntryMethod extends SubCommandEntry {
-	public run(context: SubCommandEntry.RunContext): unknown {
+export class SubCommandEntryMethod<T extends Args> extends SubCommandEntry<T> {
+	public run(context: SubCommandEntry.RunContext<T>): unknown {
 		const method = Reflect.get(context.command, this.output);
 		if (method) return Reflect.apply(method, context.command, [context.message, context.args, context.context]);
 		throw new ReferenceError(`The method '${this.input}' does not exist for the command '${context.command.name}'.`);
