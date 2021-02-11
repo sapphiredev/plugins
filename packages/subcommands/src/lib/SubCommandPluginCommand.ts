@@ -16,6 +16,6 @@ export class SubCommandPluginCommand<T extends Args = Args> extends Command<T> {
 	}
 }
 
-export interface SubCommandPluginCommandOptions<T extends Args> extends CommandOptions {
+export interface SubCommandPluginCommandOptions<T extends Args = Args> extends CommandOptions {
 	subCommands: SubCommandManager.RawEntries<T>;
 }
