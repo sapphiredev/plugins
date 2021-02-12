@@ -21,7 +21,9 @@
 		"prepublishOnly": "yarn build"
 	},
 	"peerDependencies": {
-		"@sapphire/framework": "1.x"
+		"@sapphire/framework": "1.x",
+		"@sapphire/utilities": "1.x",
+		"discord.js": "12.x"
 	},
 	"repository": {
 		"type": "git",
@@ -30,8 +32,7 @@
 	},
 	"files": [
 		"dist",
-		"!dist/*.tsbuildinfo",
-		"register.*"
+		"!dist/*.tsbuildinfo"
 	],
 	"engines": {
 		"node": ">=14",

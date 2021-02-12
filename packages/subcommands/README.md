@@ -2,28 +2,101 @@
 
 ![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire.png)
 
-# Sapphire Plugins
+# @sapphire/plugin-subcommands
 
-**Plugins for Sapphire Framework.**
+**Plugin for <a href="https://github.com/sapphire-project/framework">@sapphire/framework</a> so your commands can have subcommands.**
 
 [![GitHub](https://img.shields.io/github/license/sapphire-project/plugins)](https://github.com/sapphire-project/plugins/blob/main/LICENSE.md)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/sapphire-project/plugins.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/plugins/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/sapphire-project/plugins.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sapphire-project/plugins/context:javascript)
 [![Coverage Status](https://coveralls.io/repos/github/sapphire-project/plugins/badge.svg?branch=main)](https://coveralls.io/github/sapphire-project/plugins?branch=main)
-[![Depfu](https://badges.depfu.com/badges/aec630570f2b49c60115673cff88a53e/count.svg)](https://depfu.com/github/sapphire-project/plugins?project_id=15372)
-
-**Packages**
-
-[![npm](https://img.shields.io/npm/v/@sapphire/plugin-api?color=crimson&logo=npm&style=flat-square&label=@sapphire/plugin-api)](https://www.npmjs.com/package/@sapphire/plugin-api)
-[![npm](https://img.shields.io/npm/v/@sapphire/plugin-logger?color=crimson&logo=npm&style=flat-square&label=@sapphire/plugin-logger)](https://www.npmjs.com/package/@sapphire/plugin-logger)
-[![npm](https://img.shields.io/npm/v/@sapphire/plugin-i18next?color=crimson&logo=npm&style=flat-square&label=@sapphire/plugin-i18next)](https://www.npmjs.com/package/@sapphire/plugin-i18next)
-[![npm](https://img.shields.io/npm/v/@sapphire/plugin-subcommands?color=crimson&logo=npm&style=flat-square&label=@sapphire/plugin-subcommands)](https://www.npmjs.com/package/@sapphire/plugin-subcommands)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/plugin-subcommands?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/plugin-subcommands)
+[![npm](https://img.shields.io/npm/v/@sapphire/plugin-subcommands?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/plugin-subcommands)
+[![Depfu](https://badges.depfu.com/badges/11bbf7392987e6fd51fc6559e1d42dfc/count.svg)](https://depfu.com/github/sapphire-project/plugins?project_id=15201)
 
 </div>
 
-## API Documentation
+## Description
 
-For the full API documentation please refer to the TypeDoc generated [documentation](https://sapphire-project.github.io/plugins/).
+Subcommands are a way to split 1 command into multiple. This can in particular be very useful for configuration commands with subcommands such as `set`, `reset` and `remove`.
+
+## Features
+
+-   Fully ready for TypeScript!
+-   Includes ESM ready entrypoint
+-   Type generics for easy extension in TypeScript
+-   Input/Output mapping
+
+## Installation
+
+```sh
+yarn add -D @sapphire/plugin-subcommands
+```
+
+---
+
+## Usage
+
+_With TypeScript:_
+
+```typescript
+import { SubCommandPluginCommand } from '@sapphire/plugin-subcommands';
+import { ApplyOptions } from '@sapphire/decorators';
+import type { Args } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+// Using ApplyOptions decorator makes it easy to configure
+@ApplyOptions<SubCommandPluginCommand.Options>({
+	subCommands: ['add', 'remove', 'list', 'reset', { input: 'show', default: true }]
+})
+// Extend `SubCommandPluginCommand` instead of `Command`
+export class UserCommand extends SubCommandPluginCommand {
+	// Do not include a `run` method, each method name should match with the subcommand names
+	public async add(message: Message, args: Args) {}
+
+	public async remove(message: Message, args: Args) {}
+
+	public async list(message: Message, args: Args) {}
+
+	public async reset(message: Message, args: Args) {}
+
+	public async show(message: Message, args: Args) {}
+}
+```
+
+_With JavaScript:_
+
+```javascript
+
+const { SubCommandPluginCommand } = require('@sapphire/plugin-subcommands');
+
+// Extend `SubCommandPluginCommand` instead of `Command`
+export class UserCommand extends SubCommandPluginCommand {
+
+	constructor(context, options) {
+		super(context, {
+				...options,
+				subCommands: ['add', 'remove', 'list', 'reset', { input: 'show', default: true }]
+			}
+		)
+	}
+
+	// Do not include a `run` method, each method name should match with the subcommand names
+	public async add(message, args) {}
+
+	public async remove(message, args) {}
+
+	public async list(message, args) {}
+
+	public async reset(message, args) {}
+
+	public async show(message, args) {}
+}
+```
+
+## SubCommands Documentation
+
+For the full @sapphire/plugin-subcommands documentation please refer to the TypeDoc generated [documentation](https://sapphire-project.github.io/plugins/modules/_sapphire_plugin_subcommands.html).
 
 ## Buy us some doughnuts
 

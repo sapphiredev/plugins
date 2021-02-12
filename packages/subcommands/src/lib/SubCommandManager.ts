@@ -3,11 +3,11 @@ import type { SubCommandEntry } from './SubCommandEntry';
 import { SubCommandEntryCommand } from './SubCommandEntryCommand';
 import { SubCommandEntryMethod } from './SubCommandEntryMethod';
 
-export class SubCommandManager<T extends Args, C extends Command> {
-	private readonly entries: SubCommandEntry<T, C>[] = [];
-	private readonly default: SubCommandEntry<T, C> | null = null;
+export class SubCommandManager<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>> {
+	private readonly entries: SubCommandEntry<ArgType, CommandType>[] = [];
+	private readonly default: SubCommandEntry<ArgType, CommandType> | null = null;
 
-	public constructor(entries: SubCommandManager.RawEntries<T, C>) {
+	public constructor(entries: SubCommandManager.RawEntries<ArgType, CommandType>) {
 		for (const data of entries) {
 			const value = this.resolve(data);
 			const Ctor = SubCommandManager.handlers.get(value.type ?? 'method');
@@ -23,7 +23,7 @@ export class SubCommandManager<T extends Args, C extends Command> {
 		}
 	}
 
-	public async run(context: SubCommandEntry.RunContext<T, C>) {
+	public async run(context: SubCommandEntry.RunContext<ArgType, CommandType>) {
 		// Pick one argument, then try to match a subcommand:
 		context.args.save();
 		const value = context.args.nextMaybe();
@@ -42,7 +42,7 @@ export class SubCommandManager<T extends Args, C extends Command> {
 		return err(new UserError({ identifier: Identifiers.SubCommandNoMatch, context }));
 	}
 
-	protected resolve(value: string | SubCommandManager.Entry<T, C>): SubCommandManager.Entry<T, C> {
+	protected resolve(value: string | SubCommandManager.Entry<ArgType, CommandType>): SubCommandManager.Entry<ArgType, CommandType> {
 		if (typeof value !== 'string') return value;
 		return { input: value, output: value, type: 'method' };
 	}
@@ -56,10 +56,14 @@ export class SubCommandManager<T extends Args, C extends Command> {
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace SubCommandManager {
 	export type Type = 'command' | 'method';
-	export interface Entry<T extends Args, C extends Command> extends SubCommandEntry.Options<T, C> {
+	export interface Entry<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>>
+		extends SubCommandEntry.Options<ArgType, CommandType> {
 		type?: Type;
 		default?: boolean;
 	}
 
-	export type RawEntries<T extends Args, C extends Command> = readonly (string | Entry<T, C>)[];
+	export type RawEntries<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>> = readonly (
+		| string
+		| Entry<ArgType, CommandType>
+	)[];
 }

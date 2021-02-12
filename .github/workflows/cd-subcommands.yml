@@ -55,7 +55,7 @@ jobs:
       - name: Install Dependencies
         run: yarn --ignore-scripts --frozen-lockfile
       - name: Build Code
-        run: yarn workspace @sapphire/subcommands build
+        run: yarn workspace @sapphire/plugin-subcommands build
       - name: Push new code
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
@@ -86,7 +86,6 @@ jobs:
           rsync -vaI ../../LICENSE.md out/
           rsync -vaI README.md out/
           rsync -vaI dist/ out/dist
-          rsync -vaI register* out/
 
           echo -e "\n# Commit and push"
           cd out

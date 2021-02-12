@@ -1,6 +1,6 @@
 import type { Args, Awaited, Command, CommandContext } from '@sapphire/framework';
-import type { Message } from 'discord.js';
 import { isFunction } from '@sapphire/utilities';
+import type { Message } from 'discord.js';
 
 /**
  * @since 1.0.0
@@ -8,21 +8,21 @@ import { isFunction } from '@sapphire/utilities';
  * @see {@link SubCommandEntryCommand}
  * @see {@link SubCommandEntryMethod}
  */
-export abstract class SubCommandEntry<T extends Args, C extends Command> {
-	public readonly input: string | ((context: SubCommandEntry.RunContext<T, C>) => Awaited<string>);
+export abstract class SubCommandEntry<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>> {
+	public readonly input: string | ((context: SubCommandEntry.RunContext<ArgType, CommandType>) => Awaited<string>);
 	public readonly output: string;
 
-	public constructor(options: SubCommandEntry.Options<T, C>) {
+	public constructor(options: SubCommandEntry.Options<ArgType, CommandType>) {
 		this.input = options.input;
 		if (!options.output && typeof options.input !== 'string') throw new ReferenceError('No output provided.');
 		this.output = options.output ?? (options.input as string);
 	}
 
-	public async match(value: string, context: SubCommandEntry.RunContext<T, C>): Promise<boolean> {
+	public async match(value: string, context: SubCommandEntry.RunContext<ArgType, CommandType>): Promise<boolean> {
 		return (isFunction(this.input) ? await this.input(context) : this.input) === value;
 	}
 
-	public abstract run(context: SubCommandEntry.RunContext<T, C>): unknown;
+	public abstract run(context: SubCommandEntry.RunContext<ArgType, CommandType>): unknown;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -39,8 +39,8 @@ export namespace SubCommandEntry {
 	 * }]
 	 * ```
 	 */
-	export interface Options<T extends Args, C extends Command> {
-		input: string | ((context: RunContext<T, C>) => Awaited<string>);
+	export interface Options<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>> {
+		input: string | ((context: RunContext<ArgType, CommandType>) => Awaited<string>);
 		output?: string;
 	}
 
@@ -48,10 +48,10 @@ export namespace SubCommandEntry {
 	 * RunContext is passed to SubCommandManager.run() and to input (if it is a function)
 	 * @see {@link SubCommandEntry.Options}
 	 */
-	export interface RunContext<T extends Args, C extends Command> {
-		command: C;
+	export interface RunContext<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>> {
+		command: CommandType;
 		message: Message;
-		args: T;
+		args: ArgType;
 		context: CommandContext;
 	}
 }
