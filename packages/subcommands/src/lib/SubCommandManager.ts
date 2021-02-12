@@ -1,13 +1,13 @@
-import { Args, err, UserError } from '@sapphire/framework';
+import { Args, Command, err, Identifiers, UserError } from '@sapphire/framework';
 import type { SubCommandEntry } from './SubCommandEntry';
 import { SubCommandEntryCommand } from './SubCommandEntryCommand';
 import { SubCommandEntryMethod } from './SubCommandEntryMethod';
 
-export class SubCommandManager<T extends Args> {
-	private readonly entries: SubCommandEntry<T>[] = [];
-	private readonly default: SubCommandEntry<T> | null = null;
+export class SubCommandManager<T extends Args, C extends Command> {
+	private readonly entries: SubCommandEntry<T, C>[] = [];
+	private readonly default: SubCommandEntry<T, C> | null = null;
 
-	public constructor(entries: SubCommandManager.RawEntries<T>) {
+	public constructor(entries: SubCommandManager.RawEntries<T, C>) {
 		for (const data of entries) {
 			const value = this.resolve(data);
 			const Ctor = SubCommandManager.handlers.get(value.type ?? 'method');
@@ -23,7 +23,7 @@ export class SubCommandManager<T extends Args> {
 		}
 	}
 
-	public async run(context: SubCommandEntry.RunContext<T>) {
+	public async run(context: SubCommandEntry.RunContext<T, C>) {
 		// Pick one argument, then try to match a subcommand:
 		context.args.save();
 		const value = context.args.nextMaybe();
@@ -39,10 +39,10 @@ export class SubCommandManager<T extends Args> {
 		if (this.default) return this.default.run(context);
 
 		// No match and no subcommand, return an err:
-		return err(new UserError({ identifier: 'SubCommandNoMatch', context }));
+		return err(new UserError({ identifier: Identifiers.SubCommandNoMatch, context }));
 	}
 
-	protected resolve(value: string | SubCommandManager.Entry<T>): SubCommandManager.Entry<T> {
+	protected resolve(value: string | SubCommandManager.Entry<T, C>): SubCommandManager.Entry<T, C> {
 		if (typeof value !== 'string') return value;
 		return { input: value, output: value, type: 'method' };
 	}
@@ -56,10 +56,10 @@ export class SubCommandManager<T extends Args> {
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace SubCommandManager {
 	export type Type = 'command' | 'method';
-	export interface Entry<T extends Args> extends SubCommandEntry.Options<T> {
+	export interface Entry<T extends Args, C extends Command> extends SubCommandEntry.Options<T, C> {
 		type?: Type;
 		default?: boolean;
 	}
 
-	export type RawEntries<T extends Args> = readonly (string | Entry<T>)[];
+	export type RawEntries<T extends Args, C extends Command> = readonly (string | Entry<T, C>)[];
 }

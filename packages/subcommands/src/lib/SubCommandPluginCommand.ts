@@ -2,8 +2,9 @@ import { Args, Awaited, Command, CommandContext, CommandOptions, PieceContext } 
 import type { Message } from 'discord.js';
 import { SubCommandManager } from './SubCommandManager';
 
-export class SubCommandPluginCommand<T extends Args = Args> extends Command<T> {
-	public readonly subCommands: SubCommandManager<T> | null;
+export class SubCommandPluginCommand<T extends Args = Args, C extends Command = Command> extends Command<T> {
+	public readonly subCommands: SubCommandManager<T, C> | null;
+
 	public constructor(context: PieceContext, options: SubCommandPluginCommandOptions<T>) {
 		super(context, options);
 
@@ -16,6 +17,6 @@ export class SubCommandPluginCommand<T extends Args = Args> extends Command<T> {
 	}
 }
 
-export interface SubCommandPluginCommandOptions<T extends Args = Args> extends CommandOptions {
-	subCommands: SubCommandManager.RawEntries<T>;
+export interface SubCommandPluginCommandOptions<T extends Args = Args, C extends Command = Command> extends CommandOptions {
+	subCommands: SubCommandManager.RawEntries<T, C>;
 }

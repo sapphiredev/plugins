@@ -1,4 +1,4 @@
-import type { Args } from '@sapphire/framework';
+import type { Args, Command } from '@sapphire/framework';
 import { SubCommandEntry } from './SubCommandEntry';
 
 /**
@@ -26,8 +26,8 @@ import { SubCommandEntry } from './SubCommandEntry';
  * }
  * ```
  */
-export class SubCommandEntryMethod<T extends Args> extends SubCommandEntry<T> {
-	public run(context: SubCommandEntry.RunContext<T>): unknown {
+export class SubCommandEntryMethod<T extends Args, C extends Command> extends SubCommandEntry<T, C> {
+	public run(context: SubCommandEntry.RunContext<T, C>): unknown {
 		const method = Reflect.get(context.command, this.output);
 		if (method) return Reflect.apply(method, context.command, [context.message, context.args, context.context]);
 		throw new ReferenceError(`The method '${this.input}' does not exist for the command '${context.command.name}'.`);
