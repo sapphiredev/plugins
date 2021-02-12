@@ -19,7 +19,7 @@ export class SubCommandPluginCommand<ArgType extends Args = Args, CommandType ex
 
 export interface SubCommandPluginCommandOptions<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>>
 	extends CommandOptions {
-	subCommands: SubCommandManager.RawEntries<ArgType, CommandType>;
+	subCommands?: SubCommandManager.RawEntries<ArgType, CommandType>;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
