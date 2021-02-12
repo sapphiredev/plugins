@@ -46,7 +46,7 @@ import type { Args } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 // Using ApplyOptions decorator makes it easy to configure
-@ApplyOptions<SkyraCommand.Options>({
+@ApplyOptions<SubCommandPluginCommand.Options>({
 	subCommands: ['add', 'remove', 'list', 'reset', { input: 'show', default: true }]
 })
 // Extend `SubCommandPluginCommand` instead of `Command`
