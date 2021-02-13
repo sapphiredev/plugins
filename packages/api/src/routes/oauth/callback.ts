@@ -43,7 +43,7 @@ export class PluginRoute extends Route {
 
 		const token = auth.encrypt({
 			id: data.user.id,
-			expires: now + value.expires_in,
+			expires: now + value.expires_in * 1000,
 			refresh: value.refresh_token,
 			token: value.access_token
 		});
