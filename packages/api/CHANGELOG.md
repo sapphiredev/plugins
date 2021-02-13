@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.0.1...@sapphire/plugin-api@2.0.2) (2021-02-13)
+
+### Bug Fixes
+
+-   **plugin-api:** `expires_in` is in seconds, not milliseconds ([#60](https://github.com/sapphire-project/plugins/issues/60)) ([fccfab5](https://github.com/sapphire-project/plugins/commit/fccfab5321791a80dd30b541fca207b87acba4d2))
+
 ## [2.0.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.0.0...@sapphire/plugin-api@2.0.1) (2021-02-07)
 
 **Note:** Version bump only for package @sapphire/plugin-api
