@@ -46,6 +46,10 @@ export class CookieStore extends Map<string, string> {
 		this.insert(name, this.prepare(name, value, options));
 	}
 
+	public remove(name: string) {
+		this.add(name, '', { expires: new Date(0) });
+	}
+
 	protected insert(name: string, entry: string) {
 		let set = this.response.getHeader('Set-Cookie');
 

@@ -14,7 +14,15 @@ export class PluginMiddleware extends Middleware {
 	}
 
 	public run(request: ApiRequest, response: ApiResponse) {
+		// If there are no cookies, set auth as null:
 		const authorization = response.cookies.get(this.cookieName);
-		request.auth = authorization ? this.context.server.auth!.decrypt(authorization) : null;
+		if (!authorization) {
+			request.auth = null;
+			return;
+		}
+
+		// Decrypt the cookie, and if the token is invalid, remove the cookie:
+		request.auth = this.context.server.auth!.decrypt(authorization);
+		if (request.auth === null) response.cookies.remove(this.cookieName);
 	}
 }
