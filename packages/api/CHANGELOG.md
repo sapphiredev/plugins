@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.0.2...@sapphire/plugin-api@2.0.3) (2021-02-16)
+
+### Bug Fixes
+
+-   **plugin-api:** automatically remove cookie on invalid token ([#62](https://github.com/sapphire-project/plugins/issues/62)) ([5ce667e](https://github.com/sapphire-project/plugins/commit/5ce667ed6fc1eb1b2b88fea7698041d71c4579b7))
+
 ## [2.0.2](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.0.1...@sapphire/plugin-api@2.0.2) (2021-02-13)
 
 ### Bug Fixes
