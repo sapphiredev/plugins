@@ -21,7 +21,7 @@
 		"prepublishOnly": "yarn build"
 	},
 	"peerDependencies": {
-		"@sapphire/framework": "1.x",
+		"@sapphire/framework": "^1.0.0-alpha.11",
 		"@sapphire/utilities": "1.x",
 		"discord.js": "12.x"
 	},

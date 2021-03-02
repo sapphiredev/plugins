@@ -39,9 +39,9 @@
 		"tslib": "^2.1.0"
 	},
 	"peerDependencies": {
-		"@sapphire/framework": "1.x",
+		"@sapphire/framework": "^1.0.0-alpha.11",
 		"@sapphire/pieces": "1.x",
-		"@types/i18next-fs-backend": "^1.0.0",
+		"@types/i18next-fs-backend": "^1.x",
 		"discord.js": "^12.x"
 	},
 	"peerDependenciesMeta": {
