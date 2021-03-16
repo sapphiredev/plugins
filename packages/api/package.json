@@ -32,7 +32,7 @@
 		"tslib": "^2.1.0"
 	},
 	"peerDependencies": {
-		"@sapphire/framework": "^1.0.0-alpha.11",
+		"@sapphire/framework": "^1.0.0",
 		"@sapphire/pieces": "1.x",
 		"@types/node-fetch": "^2.x",
 		"@types/ws": "latest",

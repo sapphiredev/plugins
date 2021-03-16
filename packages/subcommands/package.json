@@ -20,10 +20,13 @@
 		"postbuild": "gen-esm-wrapper dist/index.js dist/index.mjs",
 		"prepublishOnly": "yarn build"
 	},
+	"dependencies": {
+		"tslib": "^2.1.0"
+	},
 	"peerDependencies": {
-		"@sapphire/framework": "^1.0.0-alpha.11",
-		"@sapphire/utilities": "1.x",
-		"discord.js": "12.x"
+		"@sapphire/framework": "^1.0.0",
+		"@sapphire/utilities": "^1.4.6",
+		"discord.js": "^12.5.1"
 	},
 	"repository": {
 		"type": "git",

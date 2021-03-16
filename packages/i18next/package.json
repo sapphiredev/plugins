@@ -33,13 +33,13 @@
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^1.4.5",
-		"i18next": "^19.9.1",
+		"@sapphire/utilities": "^1.4.6",
+		"i18next": "^19.9.2",
 		"i18next-fs-backend": "^1.1.0",
 		"tslib": "^2.1.0"
 	},
 	"peerDependencies": {
-		"@sapphire/framework": "^1.0.0-alpha.11",
+		"@sapphire/framework": "^1.0.0",
 		"@sapphire/pieces": "1.x",
 		"@types/i18next-fs-backend": "^1.x",
 		"discord.js": "^12.x"
