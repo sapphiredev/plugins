@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.0.3...@sapphire/plugin-api@2.0.4) (2021-03-16)
+
+### Bug Fixes
+
+-   update dependencies, add tslib, bump framework to v1.0.0 ([880b761](https://github.com/sapphire-project/plugins/commit/880b7614d857f23fcbcd351e69795c451a95f49c))
+
 ## [2.0.3](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.0.2...@sapphire/plugin-api@2.0.3) (2021-02-16)
 
 ### Bug Fixes

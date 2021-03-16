@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.3](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-i18next@1.3.2...@sapphire/plugin-i18next@1.3.3) (2021-03-16)
+
+### Bug Fixes
+
+-   update dependencies, add tslib, bump framework to v1.0.0 ([880b761](https://github.com/sapphire-project/plugins/commit/880b7614d857f23fcbcd351e69795c451a95f49c))
+
 ## [1.3.2](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-i18next@1.3.1...@sapphire/plugin-i18next@1.3.2) (2021-02-16)
 
 **Note:** Version bump only for package @sapphire/plugin-i18next

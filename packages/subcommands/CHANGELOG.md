@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-subcommands@1.0.1...@sapphire/plugin-subcommands@1.0.2) (2021-03-16)
+
+### Bug Fixes
+
+-   update dependencies, add tslib, bump framework to v1.0.0 ([880b761](https://github.com/sapphire-project/plugins/commit/880b7614d857f23fcbcd351e69795c451a95f49c))
+
 ## [1.0.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-subcommands@1.0.0...@sapphire/plugin-subcommands@1.0.1) (2021-02-12)
 
 ### Bug Fixes
