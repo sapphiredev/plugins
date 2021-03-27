@@ -41,8 +41,8 @@
 		"@sapphire/pieces": "1.x",
 		"@types/i18next-fs-backend": "^1.x",
 		"discord.js": "^12.x",
-		"i18next": "^20.1.0",
-		"i18next-fs-backend": "^1.1.0"
+		"i18next": ">=18 < 21",
+		"i18next-fs-backend": "1.x"
 	},
 	"peerDependenciesMeta": {
 		"@types/i18next-fs-backend": {
@@ -54,8 +54,8 @@
 	},
 	"devDependencies": {
 		"@types/i18next-fs-backend": "^1.0.0",
-		"i18next": "*",
-		"i18next-fs-backend": "*"
+		"i18next": "^19.9.2",
+		"i18next-fs-backend": "^1.1.0"
 	},
 	"repository": {
 		"type": "git",
