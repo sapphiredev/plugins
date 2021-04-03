@@ -1,6 +1,7 @@
 // Copyright (c) 2018 Stanislav Woodger. All rights reserved. MIT license.
 // Source: https://github.com/woodger/cookie-httponly
 
+import psl from 'psl';
 import type { ApiRequest } from './ApiRequest';
 import type { ApiResponse } from './ApiResponse';
 
@@ -29,10 +30,10 @@ export class CookieStore extends Map<string, string> {
 			this.set(key, value);
 		}
 
-		const [domain] = this.request.headers.host?.split(':') ?? [''];
+		const { host } = this.request.headers;
+		const [splitHost] = host?.split(':') ?? [''];
 
-		// RFC 6265 5.1.3 Domain Matching
-		this.domain = domain.toLowerCase();
+		this.domain = this.getHostDomain(splitHost);
 
 		if (this.request.socket.remoteAddress === this.domain) {
 			throw new Error('The connection must be established from the domain name (i.e., not an IP address)');
@@ -101,6 +102,29 @@ export class CookieStore extends Map<string, string> {
 		}
 
 		return entry;
+	}
+
+	/**
+	 * Parses a host using the {@link https://github.com/lupomontero/psl psl} library to extract the domain.
+	 * This is used for the domain of the cookie
+	 * @param host The hot to parse
+	 * @returns Either the host in all lower case or the parsed domain, ready for use on cookies
+	 */
+	private getHostDomain(host: string): string {
+		// Transform the host to lower case
+		const lowercaseHost = host.toLowerCase();
+
+		// Try parsing the host with psl
+		const pslParsedInfo = psl.parse(lowercaseHost);
+
+		// If an error ocurred then return the host in lowercase
+		if (pslParsedInfo.error) return lowercaseHost;
+
+		// If the domain property is not defined then return the host in lowercase
+		if (!pslParsedInfo.domain) return lowercaseHost;
+
+		// If the domain was found from parsing then prefix it with a . for a cookie that works with subdomains and return it
+		return `.${pslParsedInfo.domain}`;
 	}
 
 	// RFC 6265 4.1.1. Syntax

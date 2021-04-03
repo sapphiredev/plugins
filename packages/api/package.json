@@ -28,7 +28,9 @@
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
+		"@types/psl": "^1.1.0",
 		"node-fetch": "^2.6.1",
+		"psl": "^1.8.0",
 		"tslib": "^2.1.0"
 	},
 	"peerDependencies": {
