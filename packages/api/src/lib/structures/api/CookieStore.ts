@@ -11,7 +11,7 @@ export class CookieStore extends Map<string, string> {
 	private domain: string;
 	private secure: boolean;
 
-	public constructor(request: ApiRequest, response: ApiResponse, secure: boolean, domainOverwrite: string | null) {
+	public constructor(request: ApiRequest, response: ApiResponse, secure: boolean, domainOverwrite?: string | null) {
 		super();
 
 		this.request = request;
