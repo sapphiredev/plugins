@@ -28,12 +28,12 @@
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"@sapphire/time-utilities": "^1.2.11",
+		"@sapphire/time-utilities": "^1.2.12",
 		"colorette": "^1.2.2",
 		"tslib": "^2.1.0"
 	},
 	"peerDependencies": {
-		"@sapphire/framework": "^1.0.0"
+		"@sapphire/framework": "^1.x"
 	},
 	"repository": {
 		"type": "git",

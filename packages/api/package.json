@@ -32,11 +32,11 @@
 		"tslib": "^2.1.0"
 	},
 	"peerDependencies": {
-		"@sapphire/framework": "^1.0.0",
+		"@sapphire/framework": "^1.x",
 		"@sapphire/pieces": "1.x",
 		"@types/node-fetch": "^2.x",
 		"@types/ws": "latest",
-		"discord-api-types": "^0.12.1",
+		"discord-api-types": "^0.13.x",
 		"discord.js": "12.x"
 	},
 	"peerDependenciesMeta": {
