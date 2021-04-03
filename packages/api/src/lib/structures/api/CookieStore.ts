@@ -30,8 +30,7 @@ export class CookieStore extends Map<string, string> {
 			this.set(key, value);
 		}
 
-		const { host } = this.request.headers;
-		const [splitHost] = host?.split(':') ?? [''];
+		const [splitHost] = this.request.headers.host?.split(':') ?? [''];
 
 		this.domain = this.getHostDomain(splitHost);
 
