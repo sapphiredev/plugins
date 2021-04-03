@@ -31,7 +31,7 @@ export abstract class Middleware extends Piece {
 	 * @param response The server's response.
 	 * @param route The route that matched this request, will be `null` if none matched.
 	 */
-	public abstract run(request: ApiRequest, response: ApiResponse, route: Route | null, domainOverwrite: string | null): Awaited<unknown>;
+	public abstract run(request: ApiRequest, response: ApiResponse, route: Route | null): Awaited<unknown>;
 }
 
 /**

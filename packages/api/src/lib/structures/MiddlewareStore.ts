@@ -12,18 +12,15 @@ export class MiddlewareStore extends Store<Middleware> {
 	 * The sorted middlewares, in ascending order of {@see Middleware#position}.
 	 */
 	public readonly sortedMiddlewares: Middleware[] = [];
-	private domainOverwrite: string | null = null;
 
-	public constructor(domainOverwrite?: string) {
+	public constructor() {
 		super(Middleware as any, { name: 'middlewares' });
-
-		this.domainOverwrite = domainOverwrite ?? null;
 	}
 
 	public async run(request: ApiRequest, response: ApiResponse, route: Route | null): Promise<void> {
 		for (const middleware of this.sortedMiddlewares) {
 			if (response.writableEnded) return;
-			if (middleware.enabled) await middleware.run(request, response, route, this.domainOverwrite);
+			if (middleware.enabled) await middleware.run(request, response, route);
 		}
 	}
 

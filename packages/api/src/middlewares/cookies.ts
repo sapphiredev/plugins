@@ -6,8 +6,12 @@ import { Middleware } from '../lib/structures/Middleware';
 
 export class PluginMiddleware extends Middleware {
 	private readonly production: boolean = process.env.NODE_ENV === 'production';
+	private domainOverwrite: string | null = null;
 	public constructor(context: PieceContext) {
 		super(context, { position: 30 });
+
+		const { server } = this.context;
+		this.domainOverwrite = server.auth?.domainOverwrite ?? null;
 	}
 
 	public run(request: ApiRequest, response: ApiResponse, _route: null, domainOverwrite: string | null) {
