@@ -223,7 +223,7 @@ export interface ServerOptions {
 	 * The domain that should be used for the cookie. This overwrites the automatic detection of the domain.
 	 * @remark if you want to support subdomains (`one.example.two` and `two.example.com`) then you need to use prefix your domain with a `.`, for example `.example.com`
 	 * @since 2.1.0
-	 * @default ''
+	 * @default undefined
 	 */
 	domainOverwrite?: string;
 }
