@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.1.0...@sapphire/plugin-api@2.1.1) (2021-04-03)
+
+### Bug Fixes
+
+-   **api:** fixed types for CookieStore ([83420f4](https://github.com/sapphire-project/plugins/commit/83420f46dfbcfba3477aa4db0897dc4aacc2118e))
+
 # [2.1.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.0.5...@sapphire/plugin-api@2.1.0) (2021-04-03)
 
 ### Features
