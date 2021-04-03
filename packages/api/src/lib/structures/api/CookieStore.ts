@@ -32,7 +32,7 @@ export class CookieStore extends Map<string, string> {
 
 		const [splitHost] = this.request.headers.host?.split(':') ?? [''];
 
-		this.domain = domainOverwrite ? domainOverwrite : this.getHostDomain(splitHost);
+		this.domain = domainOverwrite ?? this.getHostDomain(splitHost);
 
 		if (this.request.socket.remoteAddress === this.domain) {
 			throw new Error('The connection must be established from the domain name (i.e., not an IP address)');
