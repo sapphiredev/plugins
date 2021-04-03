@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.1.1...@sapphire/plugin-api@2.1.2) (2021-04-03)
+
+### Bug Fixes
+
+-   **api:** always set Domain on cookie ([90b76e9](https://github.com/sapphire-project/plugins/commit/90b76e9586f213745517c1937437b7c48e4cafb0))
+
 ## [2.1.1](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.1.0...@sapphire/plugin-api@2.1.1) (2021-04-03)
 
 ### Bug Fixes
