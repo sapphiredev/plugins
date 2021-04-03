@@ -11,7 +11,7 @@ export class CookieStore extends Map<string, string> {
 	private domain: string;
 	private secure: boolean;
 
-	public constructor(request: ApiRequest, response: ApiResponse, secure: boolean) {
+	public constructor(request: ApiRequest, response: ApiResponse, secure: boolean, domainOverwrite: string | null) {
 		super();
 
 		this.request = request;
@@ -32,7 +32,7 @@ export class CookieStore extends Map<string, string> {
 
 		const [splitHost] = this.request.headers.host?.split(':') ?? [''];
 
-		this.domain = this.getHostDomain(splitHost);
+		this.domain = domainOverwrite ? domainOverwrite : this.getHostDomain(splitHost);
 
 		if (this.request.socket.remoteAddress === this.domain) {
 			throw new Error('The connection must be established from the domain name (i.e., not an IP address)');

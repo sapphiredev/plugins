@@ -10,7 +10,7 @@ export class PluginMiddleware extends Middleware {
 		super(context, { position: 30 });
 	}
 
-	public run(request: ApiRequest, response: ApiResponse) {
-		response.cookies = new CookieStore(request, response, this.production);
+	public run(request: ApiRequest, response: ApiResponse, _route: null, domainOverwrite: string | null) {
+		response.cookies = new CookieStore(request, response, this.production, domainOverwrite);
 	}
 }
