@@ -39,6 +39,8 @@ export class Auth {
 	 */
 	public transformers: LoginDataTransformer[];
 
+	public domainOverwrite: string | null = null;
+
 	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
 	#secret: string;
 
@@ -49,6 +51,7 @@ export class Auth {
 		this.redirect = options.redirect;
 		this.#secret = options.secret;
 		this.transformers = options.transformers ?? [];
+		this.domainOverwrite = options.domainOverwrite ?? null;
 	}
 
 	/**
@@ -205,6 +208,13 @@ export interface ServerOptionsAuth {
 	 * @default []
 	 */
 	transformers?: LoginDataTransformer[];
+	/**
+	 * The domain that should be used for the cookie. This overwrites the automatic detection of the domain.
+	 * @remark if you want to support subdomains (`one.example.two` and `two.example.com`) then you need to use prefix your domain with a `.`, for example `.example.com`
+	 * @since 2.1.0
+	 * @default undefined
+	 */
+	domainOverwrite?: string;
 }
 
 /**
