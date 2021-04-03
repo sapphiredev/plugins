@@ -86,10 +86,8 @@ export class CookieStore extends Map<string, string> {
 
 		// RFC 6265 5.1.3 Domain Matching
 		domain = (domain ?? this.domain).toLowerCase();
-		if (domain !== this.domain) {
-			entry += `; Domain=${domain}`;
-		}
 
+		entry += `; Domain=${domain}`;
 		entry += `; Path=${path ?? '/'}`;
 
 		if (this.secure) {
