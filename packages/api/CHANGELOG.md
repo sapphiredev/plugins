@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.0.5...@sapphire/plugin-api@2.1.0) (2021-04-03)
+
+### Features
+
+-   **api:** add domainOverwrite to ServerOptions.auth ([#73](https://github.com/sapphire-project/plugins/issues/73)) ([32f9222](https://github.com/sapphire-project/plugins/commit/32f922240438b5587e4e51c76fe28babb1a5811f))
+
 ## [2.0.5](https://github.com/sapphire-project/plugins/compare/@sapphire/plugin-api@2.0.4...@sapphire/plugin-api@2.0.5) (2021-04-03)
 
 ### Bug Fixes
