@@ -30,7 +30,7 @@ T.B.D.
 ## Installation
 
 ```sh
-yarn add -D @sapphire/plugin-api
+yarn add @sapphire/plugin-api
 ```
 
 ---

@@ -30,7 +30,7 @@ with the blazing fast [`colorette`](https://www.npmjs.com/package/colorette) lib
 ## Installation
 
 ```sh
-yarn add -D @sapphire/plugin-logger
+yarn add @sapphire/plugin-logger
 ```
 
 ---

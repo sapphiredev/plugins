@@ -32,7 +32,7 @@ An implementation of i18next's [filesystem backend] for Sapphire. It allows you 
 ## Installation
 
 ```sh
-yarn add -D @sapphire/plugin-i18next
+yarn add @sapphire/plugin-i18next
 ```
 
 ---

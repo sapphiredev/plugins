@@ -30,7 +30,7 @@ Subcommands are a way to split 1 command into multiple. This can in particular b
 ## Installation
 
 ```sh
-yarn add -D @sapphire/plugin-subcommands
+yarn add @sapphire/plugin-subcommands
 ```
 
 ---
