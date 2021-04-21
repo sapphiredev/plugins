@@ -38,7 +38,7 @@
 		"@sapphire/pieces": "1.x",
 		"@types/node-fetch": "^2.x",
 		"@types/ws": "latest",
-		"discord-api-types": "^0.13.x",
+		"discord-api-types": "^0.18.x",
 		"discord.js": "12.x"
 	},
 	"peerDependenciesMeta": {
