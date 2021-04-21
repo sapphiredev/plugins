@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/sapphire-community/plugins/compare/@sapphire/plugin-api@2.1.2...@sapphire/plugin-api@2.1.3) (2021-04-21)
+
+### Bug Fixes
+
+-   change all Sapphire URLs from "project"->"community" & use our domain where applicable 👨‍🌾🚜 ([#75](https://github.com/sapphire-community/plugins/issues/75)) ([e437dc4](https://github.com/sapphire-community/plugins/commit/e437dc45fcd4d22ab2dcdb0e70c67cc5856883c0))
+
 ## [2.1.2](https://github.com/sapphire-community/plugins/compare/@sapphire/plugin-api@2.1.1...@sapphire/plugin-api@2.1.2) (2021-04-03)
 
 ### Bug Fixes

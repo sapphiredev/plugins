@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/sapphire-community/plugins/compare/@sapphire/plugin-subcommands@1.0.3...@sapphire/plugin-subcommands@1.0.4) (2021-04-21)
+
+### Bug Fixes
+
+-   change all Sapphire URLs from "project"->"community" & use our domain where applicable 👨‍🌾🚜 ([#75](https://github.com/sapphire-community/plugins/issues/75)) ([e437dc4](https://github.com/sapphire-community/plugins/commit/e437dc45fcd4d22ab2dcdb0e70c67cc5856883c0))
+
 ## [1.0.3](https://github.com/sapphire-community/plugins/compare/@sapphire/plugin-subcommands@1.0.2...@sapphire/plugin-subcommands@1.0.3) (2021-04-03)
 
 **Note:** Version bump only for package @sapphire/plugin-subcommands

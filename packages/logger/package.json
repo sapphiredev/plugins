@@ -1,6 +1,6 @@
 {
 	"name": "@sapphire/plugin-logger",
-	"version": "1.0.10",
+	"version": "1.0.11",
 	"description": "Plugin for @sapphire/framework to have pretty console output",
 	"author": "@sapphire",
 	"license": "MIT",
