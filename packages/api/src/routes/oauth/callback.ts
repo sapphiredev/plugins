@@ -9,8 +9,6 @@ import { methods } from '../../lib/structures/http/HttpMethods';
 import { Route } from '../../lib/structures/Route';
 
 export class PluginRoute extends Route {
-	private readonly scopes: readonly string[];
-	private readonly scopeString: string;
 	private readonly redirectUri: string | undefined;
 
 	public constructor(context: PieceContext) {
@@ -18,8 +16,6 @@ export class PluginRoute extends Route {
 
 		const { server } = this.context;
 		this.enabled = server.auth !== null;
-		this.scopes = server.auth?.scopes ?? ['identify'];
-		this.scopeString = this.scopes.join(' ');
 		this.redirectUri = server.auth?.redirect;
 	}
 
@@ -55,13 +51,12 @@ export class PluginRoute extends Route {
 	private async fetchAuth(body: OAuth2BodyData) {
 		const { id, secret } = this.context.server.auth!;
 
-		const data: RESTPostOAuth2AccessTokenURLEncodedData & { scope: string } = {
+		const data: RESTPostOAuth2AccessTokenURLEncodedData = {
 			/* eslint-disable @typescript-eslint/naming-convention */
 			client_id: id,
 			client_secret: secret,
 			code: body.code,
 			grant_type: 'authorization_code',
-			scope: this.scopeString,
 			redirect_uri: this.redirectUri ?? body.redirectUri
 			/* eslint-enable @typescript-eslint/naming-convention */
 		};
