@@ -1599,14 +1599,14 @@
   dependencies:
     "@octokit/openapi-types" "^6.0.0"
 
-"@sapphire/discord-utilities@^2.0.6", "@sapphire/discord-utilities@^2.1.0":
+"@sapphire/discord-utilities@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@sapphire/discord-utilities/-/discord-utilities-2.1.0.tgz#4761b7840597c9759e2b76ef20200604cdc13ef7"
   integrity sha512-BkJpWTylBA5IUefTRjgsQ9dSsbLfCBmWhVS92zZ6YAtNv1tV/uK0wdTM0GdUtz263LQBLQzk4W0DmwXoUx+klQ==
   dependencies:
     twemoji-parser "^13.0.0"
 
-"@sapphire/discord.js-utilities@^1.5.2":
+"@sapphire/discord.js-utilities@^1.5.6":
   version "1.5.6"
   resolved "https://registry.yarnpkg.com/@sapphire/discord.js-utilities/-/discord.js-utilities-1.5.6.tgz#2c169c08e3bd1dee977674985e15cbb82dbf2023"
   integrity sha512-GFwXpJuHI6vrfC7T1O+f7GMh8YNnW5cApcaNxXQHZbx+A00cqGEh0JwopW9NVqjn4NlNup76KdO/N0Op2jVeoA==
@@ -1626,26 +1626,26 @@
     prettier "^2.2.1"
     typescript "^4.2.4"
 
-"@sapphire/framework@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@sapphire/framework/-/framework-1.0.0.tgz#14c48ba6a665697a0a6e2f448fd8149de62f9232"
-  integrity sha512-JhcxQM4OTiWubNbvrwYuXiAU80JPoZeboopU3x9dOP9K+6humGxLeREtvHqHlg1i3EIXnWXfjUNc57WOpP8iNQ==
+"@sapphire/framework@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@sapphire/framework/-/framework-1.0.1.tgz#99f9ce830f98666d1edbd717aaf0e01ccd2529b6"
+  integrity sha512-eg6ulKV6Q043yob1JRqcGPOabz9IrOODB6dHBdfscMK6rS+SJQRd6jdYdB4nFKa/9pOLMnkJKvbcl0wGtx+zbg==
   dependencies:
-    "@sapphire/discord-utilities" "^2.0.6"
-    "@sapphire/discord.js-utilities" "^1.5.2"
-    "@sapphire/pieces" "^1.2.3"
-    "@sapphire/ratelimits" "^1.1.6"
-    "@sapphire/utilities" "^1.4.6"
+    "@sapphire/discord-utilities" "^2.1.0"
+    "@sapphire/discord.js-utilities" "^1.5.6"
+    "@sapphire/pieces" "^1.2.4"
+    "@sapphire/ratelimits" "^1.2.0"
+    "@sapphire/utilities" "^1.5.0"
     lexure "^0.17.0"
-    tslib "^2.1.0"
+    tslib "^2.2.0"
 
-"@sapphire/pieces@^1.2.3":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@sapphire/pieces/-/pieces-1.2.3.tgz#bd11f67e41c7a43e292a89be8d3126ce84e7b0ef"
-  integrity sha512-p92zy9rmgGAXOb4Mi5/E+nDJT6Nny1B+rbd+4h8JuS5SVsjfd+6gdilKw/daWGnJy2UsjQlC3qqOd0wpgCEImQ==
+"@sapphire/pieces@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@sapphire/pieces/-/pieces-1.2.4.tgz#595488389e187fb0637d083d2b5886a85497f695"
+  integrity sha512-3iEy0Rf/3kbfwmAd9cXtz64uS8ePViCGhG8y38JFSYyueuxlpg9pMdXKMBf1EUm6svJnu7oAkXG4vzL3H+V7vQ==
   dependencies:
     "@discordjs/collection" "^0.1.6"
-    tslib "^2.1.0"
+    tslib "^2.2.0"
 
 "@sapphire/prettier-config@^1.1.0":
   version "1.1.0"
@@ -1654,7 +1654,7 @@
   dependencies:
     prettier "2.x"
 
-"@sapphire/ratelimits@^1.1.6":
+"@sapphire/ratelimits@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@sapphire/ratelimits/-/ratelimits-1.2.0.tgz#71a3e0166aa833db2ab431a7b4433fd736fbd92c"
   integrity sha512-A3ydg8HucxbW26FZ6yQaNLSogdSBVpXHQLhUbJ9gRnwB+N8h8bEMUBi2UJFyUoc3BV8kJi+5AjzF+Wz45mSdMw==
@@ -1674,7 +1674,7 @@
     tslib "2.2.0"
     typescript "4.2.4"
 
-"@sapphire/utilities@^1.4.6", "@sapphire/utilities@^1.5.0":
+"@sapphire/utilities@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@sapphire/utilities/-/utilities-1.5.0.tgz#8ab8001219668e3a9db65e13d7305aec3b838e9b"
   integrity sha512-lgWjTsy9Dsl21zy4mAzZcftOhijWVq2Gok/aFfS8f3Jue5DC7jSTlJoyEypo9ihbLXHpl8ceIUlRPkMiXcaxIw==
@@ -8171,7 +8171,7 @@ ts-node@^9.1.1:
     source-map-support "^0.5.17"
     yn "3.1.1"
 
-tslib@2.2.0, tslib@^2.1.0, tslib@^2.2.0:
+tslib@2.2.0, tslib@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.2.0.tgz#fb2c475977e35e241311ede2693cee1ec6698f5c"
   integrity sha512-gS9GVHRU+RGn5KQM2rllAlR3dU6m7AcpJKdtH8gFvQiC4Otgk98XnmMU+nZenHt/+VhnBPWwgrJsyrdcw6i23w==
