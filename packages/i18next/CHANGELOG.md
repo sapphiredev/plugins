@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.6](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@1.3.5...@sapphire/plugin-i18next@1.3.6) (2021-05-02)
+
+### Bug Fixes
+
+-   drop the `www.` from the SapphireJS URL ([a86049f](https://github.com/sapphiredev/plugins/commit/a86049f185f0ccb12d61379dd82255b36d4fa145))
+-   update all the SapphireJS URLs from `.com` to `.dev` ([c5fd156](https://github.com/sapphiredev/plugins/commit/c5fd15691abb9a9712dc4b8aebd8400f6d91f719))
+
 ## [1.3.5](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@1.3.4...@sapphire/plugin-i18next@1.3.5) (2021-04-21)
 
 ### Bug Fixes
