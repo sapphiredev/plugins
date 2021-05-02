@@ -55,7 +55,7 @@ export class PluginRoute extends Route {
 	private async fetchAuth(body: OAuth2BodyData) {
 		const { id, secret } = this.context.server.auth!;
 
-		const data: RESTPostOAuth2AccessTokenURLEncodedData = {
+		const data: RESTPostOAuth2AccessTokenURLEncodedData & { scope: string } = {
 			/* eslint-disable @typescript-eslint/naming-convention */
 			client_id: id,
 			client_secret: secret,
