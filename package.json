@@ -58,7 +58,7 @@
 	"peerDependencies": {},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/sapphire-community/plugins.git"
+		"url": "git+https://github.com/sapphiredev/plugins.git"
 	},
 	"engines": {
 		"node": ">=12"
