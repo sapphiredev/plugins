@@ -50,7 +50,7 @@ export abstract class Route extends Piece {
 	 * Useful to set-up asynchronous initialization tasks.
 	 */
 	public onLoad(): Awaited<unknown> {
-		const store = (this.store as unknown) as RouteStore;
+		const store = this.store as unknown as RouteStore;
 
 		for (const [method, cb] of this.methods) {
 			store.table.get(method)!.set(this, cb.bind(this));
@@ -64,7 +64,7 @@ export abstract class Route extends Piece {
 	 * Useful to set-up clean-up tasks.
 	 */
 	public onUnload(): Awaited<unknown> {
-		const store = (this.store as unknown) as RouteStore;
+		const store = this.store as unknown as RouteStore;
 
 		for (const [method] of this.methods) {
 			store.table.get(method)!.delete(this);
