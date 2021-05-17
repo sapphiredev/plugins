@@ -13,7 +13,7 @@ export class SubCommandPluginCommand<ArgType extends Args = Args, CommandType ex
 
 	public run(message: Message, args: ArgType, context: CommandContext): Awaited<unknown> {
 		if (!this.subCommands) throw new Error(`The command ${this.name} does not have a 'run' method and does not support sub-commands.`);
-		return this.subCommands.run({ message, args, context, command: (this as unknown) as CommandType });
+		return this.subCommands.run({ message, args, context, command: this as unknown as CommandType });
 	}
 }
 
