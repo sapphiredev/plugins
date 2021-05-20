@@ -21,6 +21,14 @@
 			"require": "./register-discordjs.js"
 		}
 	},
+	"sideEffects": [
+		"./dist/register.js",
+		"./register.js",
+		"./register.mjs",
+		"./dist/register-discordjs.js",
+		"./register-discordjs.js",
+		"./register-discordjs.mjs"
+	],
 	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/i18next",
 	"scripts": {
 		"test": "jest",
