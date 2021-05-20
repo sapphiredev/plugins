@@ -13,6 +13,7 @@
 			"require": "./dist/index.js"
 		}
 	},
+	"sideEffects": false,
 	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/subcommands",
 	"scripts": {
 		"lint": "eslint src tests --ext ts --fix",
