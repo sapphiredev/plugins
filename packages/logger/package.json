@@ -17,6 +17,11 @@
 			"require": "./register.js"
 		}
 	},
+	"sideEffects": [
+		"./dist/register.js",
+		"./register.js",
+		"./register.mjs"
+	],
 	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/logger",
 	"scripts": {
 		"test": "jest",
