@@ -23,7 +23,7 @@
 		"@mdx-js/mdx": "^1.6.22",
 		"@sapphire/eslint-config": "^3.1.3",
 		"@sapphire/framework": "^1.0.2",
-		"@sapphire/pieces": "^1.2.5",
+		"@sapphire/pieces": "^2.0.0",
 		"@sapphire/prettier-config": "^1.1.2",
 		"@sapphire/ts-config": "^2.2.2",
 		"@sapphire/utilities": "^1.5.2",
