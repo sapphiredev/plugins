@@ -1,4 +1,4 @@
-import type { Args, Awaited, Command, CommandContext } from '@sapphire/framework';
+import { Args, Awaited, Command, CommandContext, Store } from '@sapphire/framework';
 import { isFunction } from '@sapphire/utilities';
 import type { Message } from 'discord.js';
 
@@ -19,7 +19,9 @@ export abstract class SubCommandEntry<ArgType extends Args = Args, CommandType e
 	}
 
 	public async match(value: string, context: SubCommandEntry.RunContext<ArgType, CommandType>): Promise<boolean> {
-		return (isFunction(this.input) ? await this.input(context) : this.input) === value;
+		const input = isFunction(this.input) ? await this.input(context) : this.input;
+		const caseInsensitive = Store.injectedContext.client.options.caseInsensitiveCommands;
+		return caseInsensitive ? input.toLowerCase() === value.toLowerCase() : input === value;
 	}
 
 	public abstract run(context: SubCommandEntry.RunContext<ArgType, CommandType>): unknown;
