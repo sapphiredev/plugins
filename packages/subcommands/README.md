@@ -69,7 +69,7 @@ _With JavaScript:_
 const { SubCommandPluginCommand } = require('@sapphire/plugin-subcommands');
 
 // Extend `SubCommandPluginCommand` instead of `Command`
-export class UserCommand extends SubCommandPluginCommand {
+module.exports = class UserCommand extends SubCommandPluginCommand {
 
 	constructor(context, options) {
 		super(context, {
@@ -80,15 +80,15 @@ export class UserCommand extends SubCommandPluginCommand {
 	}
 
 	// Do not include a `run` method, each method name should match with the subcommand names
-	public async add(message, args) {}
+	async add(message, args) {}
 
-	public async remove(message, args) {}
+	async remove(message, args) {}
 
-	public async list(message, args) {}
+	async list(message, args) {}
 
-	public async reset(message, args) {}
+	async reset(message, args) {}
 
-	public async show(message, args) {}
+	async show(message, args) {}
 }
 ```
 
