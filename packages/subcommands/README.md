@@ -27,8 +27,16 @@ Subcommands are a way to split 1 command into multiple. This can in particular b
 
 ## Installation
 
+`@sapphire/plugin-subcommands` depends on the following packages. Be sure to install these along with this package!
+
+-   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
+-   [`@sapphire/utilities`](https://www.npmjs.com/package/@sapphire/utilities)
+-   [`discord.js`](https://www.npmjs.com/package/discord.js)
+
+You can use the following command to install this package, or replace `npm install` with your package manager of choice.
+
 ```sh
-yarn add @sapphire/plugin-subcommands
+npm install @sapphire/plugin-subcommands @sapphire/framework @sapphire/utilities discord.js
 ```
 
 ---
@@ -65,18 +73,15 @@ export class UserCommand extends SubCommandPluginCommand {
 _With JavaScript:_
 
 ```javascript
-
 const { SubCommandPluginCommand } = require('@sapphire/plugin-subcommands');
 
 // Extend `SubCommandPluginCommand` instead of `Command`
 module.exports = class UserCommand extends SubCommandPluginCommand {
-
 	constructor(context, options) {
 		super(context, {
-				...options,
-				subCommands: ['add', 'remove', 'list', 'reset', { input: 'show', default: true }]
-			}
-		)
+			...options,
+			subCommands: ['add', 'remove', 'list', 'reset', { input: 'show', default: true }]
+		});
 	}
 
 	// Do not include a `run` method, each method name should match with the subcommand names
@@ -89,7 +94,7 @@ module.exports = class UserCommand extends SubCommandPluginCommand {
 	async reset(message, args) {}
 
 	async show(message, args) {}
-}
+};
 ```
 
 ## SubCommands Documentation

@@ -16,7 +16,7 @@
 
 ## Description
 
-T.B.D.
+Once your bot grows to a certain point and you start offering a variety of configuration options to your users, then you may want to write a website that allows people to change those configurations in a user friendly way. In order to be able to do this your bot will need some kind of API endpoint that can be called from the frontend. To easily provide this feature in your bot, there is this plugin.
 
 ## Features
 
@@ -24,18 +24,60 @@ T.B.D.
 -   Provides a Decorator-based API to make developing your routes easy!
 -   Follows common REST standards.
 -   Includes ESM ready entrypoint
+-   Premade OAUTH2 endpoint
 
 ## Installation
 
+`@sapphire/plugin-api` depends on the following packages. Be sure to install these along with this package!
+
+-   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
+-   [`@sapphire/pieces v1.x`](https://www.npmjs.com/package/@sapphire/pieces/v/1.2.5)
+-   [`discord.js`](https://www.npmjs.com/package/discord.js)
+-   [`discord-api-types`](https://www.npmjs.com/package/discord-api-types)
+
+You can use the following command to install this package, or replace `npm install` with your package manager of choice.
+
 ```sh
-yarn add @sapphire/plugin-api
+npm install @sapphire/plugin-api @sapphire/framework @sapphire/pieces@1 discord.js discord-api-types
 ```
 
 ---
 
 ## Usage
 
-T.B.D.
+Start by calling the register file in your code to start using this plugin:
+
+**JavaScript**
+
+```js
+require('@sapphire/plugin-api/register');
+```
+
+**TypeScript**
+
+```ts
+import '@sapphire/plugin-api/register';
+```
+
+Then you can start providing some extra options to where you initialize SapphireClient. This will be `new SapphireClient` or if you use `extends SapphireClient`, then whichever class you initialize for your client.
+
+```js
+{
+  auth: {
+    id: '', // The User ID of your discord bot
+    secret: '', // The bot secret of your discord bot. Get it from https://discord.com/developers/applications
+    cookie: '', // The name of the authentication cookie. Defaults to "SAPPHIRE_AUTH"
+    redirect: '', // The URL that users should be redirected to after a successful authentication
+    scopes: [], // The scopes that should be given to the authentication. Defaults to ['identify']
+    transformers: '' // Optional transformers to use when you want to transform the raw data from Discord to some data that your website can better understand. Defaults to []
+  },
+  prefix: '/', // The prefix for all routes, e.g. / or v1/.
+  origin: '', // The origin header to be set on every request at 'Access-Control-Allow-Origin'. Defaults to *
+  listenOptions: { // Any options passed to the NodeJS "net" internal server.listen function, see https://nodejs.org/api/net.html#net_server_listen_options_callback
+    port: 3000 // This is an option that should be set, it is the port on which the API will start.
+  }
+}
+```
 
 ## API Documentation
 
