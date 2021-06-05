@@ -1,4 +1,4 @@
-name: Continuous Delivery - docgen
+name: Continuous Delivery
 
 on:
   push:
@@ -6,10 +6,6 @@ on:
       - main
     paths:
       - packages/**
-      - .all-contributorsrc
-      - README.md
-      - package.json
-      - .github/workflows/continuous-delivery/docgen.yml
 
 jobs:
   pre_ci:
@@ -34,6 +30,37 @@ jobs:
           echo "::add-matcher::.github/problemMatchers/eslint-stylish.json"
     outputs:
       commit_message: $( [ -z "${{ steps.pr_get_commit_message.outputs.pr_commit_message }}" ] && echo "${{ steps.push_get_commit_message.outputs.push_commit_message }}" || echo "${{ steps.pr_get_commit_message.outputs.pr_commit_message }}" )
+
+  Publish:
+    name: Publish Next to npm
+    runs-on: ubuntu-latest
+    if: "!contains(needs.pre_ci.outputs.commit_message, '[skip ci]')"
+    needs: pre_ci
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Use Node.js v16
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: Restore CI Cache
+        uses: actions/cache@v2.1.6
+        id: cache-restore
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Dependencies if Cache Miss
+        if: ${{ !steps.cache-restore.outputs.cache-hit }}
+        run: yarn --frozen-lockfile
+      - name: Build all packages
+        run: yarn build
+      - name: Bump Version & Publish
+        run: yarn lerna publish --yes --conventional-prerelease --ignore-scripts --no-verify-access --no-git-tag-version --no-push --pre-dist-tag next --preid "next.$(git rev-parse --verify HEAD)"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
 
   Docgen:
     name: Docgen
