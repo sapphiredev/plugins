@@ -16,7 +16,7 @@
 
 ## Description
 
-Once your bot grows to a certain point and you start offering a variety of configuration options to your users, then you may want to write a website that allows people to change those configurations in a user friendly way. In order to be able to do this your bot will need some kind of API endpoint that can be called from the frontend. To easily provide this feature in your bot, there is this plugin.
+This plugin provides an API endpoint for your bot that can be called from external services. A good exemplary use case for this is once your bot grows to have enough configuration options that you want to offer a website to your end-users to change those settings, and your website needs to interface with the bot for this to work.
 
 ## Features
 
@@ -45,7 +45,7 @@ npm install @sapphire/plugin-api @sapphire/framework @sapphire/pieces@1 discord.
 
 ## Usage
 
-Start by calling the register file in your code to start using this plugin:
+Start by importing the registration file in your project to use the plugin:
 
 **JavaScript**
 
@@ -59,13 +59,13 @@ require('@sapphire/plugin-api/register');
 import '@sapphire/plugin-api/register';
 ```
 
-Then you can start providing some extra options to where you initialize SapphireClient. This will be `new SapphireClient` or if you use `extends SapphireClient`, then whichever class you initialize for your client.
+Then, you can use the following configuration options in your SapphireClient extension class or initializer. This will either be located in your `new SapphireClient` constructor call, or `super` in your constructor method if you use an extension class.
 
 ```js
 {
   auth: {
-    id: '', // The User ID of your discord bot
-    secret: '', // The bot secret of your discord bot. Get it from https://discord.com/developers/applications
+    id: '', // The user ID of your Discord bot
+    secret: '', // The client secret of your Discord bot. You can find this at https://discord.com/developers/applications
     cookie: '', // The name of the authentication cookie. Defaults to "SAPPHIRE_AUTH"
     redirect: '', // The URL that users should be redirected to after a successful authentication
     scopes: [], // The scopes that should be given to the authentication. Defaults to ['identify']
@@ -74,7 +74,7 @@ Then you can start providing some extra options to where you initialize Sapphire
   prefix: '/', // The prefix for all routes, e.g. / or v1/.
   origin: '', // The origin header to be set on every request at 'Access-Control-Allow-Origin'. Defaults to *
   listenOptions: { // Any options passed to the NodeJS "net" internal server.listen function, see https://nodejs.org/api/net.html#net_server_listen_options_callback
-    port: 3000 // This is an option that should be set, it is the port on which the API will start.
+    port: 3000 // The port the API will listen on. This option should always be set.
   }
 }
 ```
