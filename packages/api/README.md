@@ -24,7 +24,7 @@ This plugin provides an API endpoint for your bot that can be called from extern
 -   Provides a Decorator-based API to make developing your routes easy!
 -   Follows common REST standards.
 -   Includes ESM ready entrypoint
--   Premade OAUTH2 endpoint
+-   Premade OAuth 2.0 endpoints
 
 ## Installation
 
@@ -64,17 +64,30 @@ Then, you can use the following configuration options in your SapphireClient ext
 ```js
 {
   auth: {
-    id: '', // The user ID of your Discord bot
-    secret: '', // The client secret of your Discord bot. You can find this at https://discord.com/developers/applications
-    cookie: '', // The name of the authentication cookie. Defaults to "SAPPHIRE_AUTH"
-    redirect: '', // The URL that users should be redirected to after a successful authentication
-    scopes: [], // The scopes that should be given to the authentication. Defaults to ['identify']
-    transformers: '' // Optional transformers to use when you want to transform the raw data from Discord to some data that your website can better understand. Defaults to []
+	// The application/client ID of your bot.
+	// You can find this at https://discord.com/developers/applications
+    id: '',
+	// The client secret of your bot.
+	// You can find this at https://discord.com/developers/applications
+    secret: '',
+	// The name of the authentication cookie.
+    cookie: 'SAPPHIRE_AUTH',
+	// The URL that users should be redirected to after a successful authentication
+    redirect: '',
+	// The scopes that should be given to the authentication.
+    scopes: ['identify'],
+	// Transformers to transform the raw data from Discord to a different structure.
+    transformers: []
   },
-  prefix: '/', // The prefix for all routes, e.g. / or v1/.
-  origin: '', // The origin header to be set on every request at 'Access-Control-Allow-Origin'. Defaults to *
-  listenOptions: { // Any options passed to the NodeJS "net" internal server.listen function, see https://nodejs.org/api/net.html#net_server_listen_options_callback
-    port: 3000 // The port the API will listen on. This option should always be set.
+  // The prefix for all routes, e.g. / or v1/.
+  prefix: '',
+  // The origin header to be set on every request at 'Access-Control-Allow-Origin.
+  origin: '*',
+  // Any options passed to the NodeJS "net" internal server.listen function
+  // See https://nodejs.org/api/net.html#net_server_listen_options_callback
+  listenOptions: {
+	// The port the API will listen on.
+    port: 4000
   }
 }
 ```
