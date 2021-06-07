@@ -34,28 +34,11 @@
 	},
 	"dependencies": {
 		"@types/psl": "^1.1.0",
+		"@types/node-fetch": "^2.5.10",
+		"@types/ws": "latest",
 		"node-fetch": "^2.6.1",
 		"psl": "^1.8.0",
 		"tslib": "^2.2.0"
-	},
-	"peerDependencies": {
-		"@sapphire/framework": "^1.x",
-		"@sapphire/pieces": "1.x",
-		"@types/node-fetch": "^2.x",
-		"@types/ws": "latest",
-		"discord-api-types": "^0.18.x",
-		"discord.js": "12.x"
-	},
-	"peerDependenciesMeta": {
-		"@types/ws": {
-			"optional": true
-		},
-		"@types/node-fetch": {
-			"optional": true
-		},
-		"discord-api-types": {
-			"optional": true
-		}
 	},
 	"repository": {
 		"type": "git",

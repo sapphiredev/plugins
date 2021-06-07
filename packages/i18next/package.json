@@ -41,27 +41,11 @@
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^1.5.2",
+		"@types/i18next-fs-backend": "^1.0.0",
+		"@sapphire/utilities": "^1.5.3",
 		"i18next": "^19.9.2",
 		"i18next-fs-backend": "^1.1.1",
 		"tslib": "^2.2.0"
-	},
-	"peerDependencies": {
-		"@sapphire/framework": "^1.x",
-		"@sapphire/pieces": "1.x",
-		"@types/i18next-fs-backend": "^1.x",
-		"discord.js": "^12.x"
-	},
-	"peerDependenciesMeta": {
-		"@types/i18next-fs-backend": {
-			"optional": true
-		},
-		"discord.js": {
-			"optional": true
-		}
-	},
-	"devDependencies": {
-		"@types/i18next-fs-backend": "^1.0.0"
 	},
 	"repository": {
 		"type": "git",

@@ -27,8 +27,14 @@ with the blazing fast [`colorette`](https://www.npmjs.com/package/colorette) lib
 
 ## Installation
 
+`@sapphire/plugin-logger` depends on the following packages. Be sure to install these along with this package!
+
+-   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
+
+You can use the following command to install this package, or replace `npm install` with your package manager of choice.
+
 ```sh
-yarn add @sapphire/plugin-logger
+npm install @sapphire/plugin-logger @sapphire/framework
 ```
 
 ---
