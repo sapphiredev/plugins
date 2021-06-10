@@ -45,7 +45,7 @@ export class LoggerLevel {
 }
 
 /**
- * The options for [[LoggerLevel]].
+ * The options for {@link LoggerLevel}.
  * @since 1.0.0
  */
 export interface LoggerLevelOptions {

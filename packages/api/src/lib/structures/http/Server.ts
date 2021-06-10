@@ -222,7 +222,7 @@ export interface ServerOptions {
 }
 
 /**
- * The [[ServerOptions]] without [[ServerOptions.auth]].
+ * The {@link ServerOptions} without {@link ServerOptions.auth}.
  * @since 1.0.0
  */
 export type AuthLessServerOptions = Omit<ServerOptions, 'auth'>;

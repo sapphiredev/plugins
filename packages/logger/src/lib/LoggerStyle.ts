@@ -35,7 +35,7 @@ export class LoggerStyle {
 }
 
 /**
- * The options for [[LoggerStyle]].
+ * The options for {@link LoggerStyle}.
  * @since 1.0.0
  */
 export interface LoggerStyleOptions {
@@ -59,7 +59,7 @@ export interface LoggerStyleOptions {
 }
 
 /**
- * The value accepted by [[LoggerStyle]]'s constructor. Read `colorette`'s documentation for more information.
+ * The value accepted by {@link LoggerStyle}'s constructor. Read `colorette`'s documentation for more information.
  * @since 1.0.0
  * @seealso https://www.npmjs.com/package/colorette
  */

@@ -49,12 +49,12 @@ export class LoggerTimestamp {
 }
 
 /**
- * The options for [[LoggerTimestamp]].
+ * The options for {@link LoggerTimestamp}.
  * @since 1.0.0
  */
 export interface LoggerTimestampOptions {
 	/**
-	 * The [[Timestamp]] pattern.
+	 * The {@link Timestamp} pattern.
 	 * @since 1.0.0
 	 * @default 'YYYY-MM-DD HH:mm:ss'
 	 * @example
@@ -80,7 +80,7 @@ export interface LoggerTimestampOptions {
 	color?: LoggerStyleResolvable | null;
 
 	/**
-	 * The formatter. See [[LoggerTimestampFormatter]] for more information.
+	 * The formatter. See {@link LoggerTimestampFormatter} for more information.
 	 * @since 1.0.0
 	 * @default (value) => `${value} - `
 	 */
@@ -88,12 +88,12 @@ export interface LoggerTimestampOptions {
 }
 
 /**
- * The formatter used for [[LoggerTimestampOptions]]. This will be run **after** applying the color to the formatter.
+ * The formatter used for {@link LoggerTimestampOptions}. This will be run **after** applying the color to the formatter.
  * @since 1.0.0
  */
 export interface LoggerTimestampFormatter {
 	/**
-	 * @param timestamp The output of [[LoggerStyle.run]] on [[Timestamp.display]]/[[Timestamp.displayUTC]].
+	 * @param timestamp The output of {@link LoggerStyle.run} on {@link Timestamp.display}/{@link Timestamp.displayUTC}.
 	 * @since 1.0.0
 	 */
 	(timestamp: string): string;
