@@ -102,7 +102,7 @@ export class CookieStore extends Map<string, string> {
 	}
 
 	/**
-	 * Parses a host using the {@link https://github.com/lupomontero/psl psl} library to extract the domain.
+	 * Parses a host using the {@linkplain https://github.com/lupomontero/psl psl} library to extract the domain.
 	 * This is used for the domain of the cookie
 	 * @param host The hot to parse
 	 * @returns Either the host in all lower case or the parsed domain, ready for use on cookies
