@@ -130,7 +130,7 @@ export interface LoggerOptions {
 	stderr?: NodeJS.WriteStream;
 
 	/**
-	 * The default options used to fill all the possible values for [[LoggerOptions.format]].
+	 * The default options used to fill all the possible values for {@link LoggerOptions.format}.
 	 * @since 1.0.0
 	 * @default options.format.none ?? {}
 	 */
@@ -138,7 +138,7 @@ export interface LoggerOptions {
 
 	/**
 	 * The options for each log level. LogLevel.None serves to set the default for all keys, where only
-	 * [[LoggerTimestampOptions.timestamp]] and [[LoggerLevelOptions.prefix]] would be overridden.
+	 * {@link LoggerTimestampOptions.timestamp} and {@link LoggerLevelOptions.prefix} would be overridden.
 	 * @since 1.0.0
 	 * @default {}
 	 */
@@ -160,7 +160,7 @@ export interface LoggerOptions {
 
 	/**
 	 * Whether or not styles should be applied, this modifies colorette's global options. For specific ones, use `null`
-	 * in the style options. Alternatively, you can set a boolean to [[Logger.stylize]] to change this setting anytime.
+	 * in the style options. Alternatively, you can set a boolean to {@link Logger.stylize} to change this setting anytime.
 	 * @since 1.0.0
 	 */
 	stylize?: boolean;
@@ -179,43 +179,43 @@ export interface LoggerOptions {
  */
 export interface LoggerFormatOptions {
 	/**
-	 * The logger options for the lowest log level, used when calling [[ILogger.trace]].
+	 * The logger options for the lowest log level, used when calling {@link ILogger.trace}.
 	 * @since 1.0.0
 	 */
 	trace?: LoggerLevelOptions;
 
 	/**
-	 * The logger options for the debug level, used when calling [[ILogger.debug]].
+	 * The logger options for the debug level, used when calling {@link ILogger.debug}.
 	 * @since 1.0.0
 	 */
 	debug?: LoggerLevelOptions;
 
 	/**
-	 * The logger options for the info level, used when calling [[ILogger.info]].
+	 * The logger options for the info level, used when calling {@link ILogger.info}.
 	 * @since 1.0.0
 	 */
 	info?: LoggerLevelOptions;
 
 	/**
-	 * The logger options for the warning level, used when calling [[ILogger.warn]].
+	 * The logger options for the warning level, used when calling {@link ILogger.warn}.
 	 * @since 1.0.0
 	 */
 	warn?: LoggerLevelOptions;
 
 	/**
-	 * The logger options for the error level, used when calling [[ILogger.error]].
+	 * The logger options for the error level, used when calling {@link ILogger.error}.
 	 * @since 1.0.0
 	 */
 	error?: LoggerLevelOptions;
 
 	/**
-	 * The logger options for the critical level, used when calling [[ILogger.fatal]].
+	 * The logger options for the critical level, used when calling {@link ILogger.fatal}.
 	 * @since 1.0.0
 	 */
 	fatal?: LoggerLevelOptions;
 
 	/**
-	 * The logger options for an unknown or uncategorized level.
+	 * The logger options for an unknown or uncategorised level.
 	 * @since 1.0.0
 	 */
 	none?: LoggerLevelOptions;

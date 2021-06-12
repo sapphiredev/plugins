@@ -34,7 +34,7 @@ export class Auth {
 	public redirect: string | undefined;
 
 	/**
-	 * The transformers used for [[Auth.fetchData]].
+	 * The transformers used for {@link Auth.fetchData}.
 	 * @since 1.4.0
 	 */
 	public transformers: LoginDataTransformer[];
@@ -197,13 +197,13 @@ export interface ServerOptionsAuth {
 	scopes?: string[];
 
 	/**
-	 * The redirect uri. This will default to [[OAuth2BodyData.redirectUri]] if missing.
+	 * The redirect uri. This will default to {@link OAuth2BodyData.redirectUri} if missing.
 	 * @since 1.0.0
 	 */
 	redirect?: string;
 
 	/**
-	 * The login data transformers used for [[Auth.fetchData]].
+	 * The login data transformers used for {@link Auth.fetchData}.
 	 * @since 1.4.0
 	 * @default []
 	 */
