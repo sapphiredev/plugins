@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/naming-convention */
+import type { Ctor } from '@sapphire/utilities';
 import type { TFunction } from 'i18next';
-import type { I18nextClient, I18nextBaseImplementation, I18nContext, I18nGuildContext, I18nChannelContext, I18nAuthorContext } from './types/index';
-
-type Ctor = new (...args: any[]) => { client: I18nextClient };
+import type { I18nAuthorContext, I18nChannelContext, I18nContext, I18nextBaseImplementation, I18nextClient, I18nGuildContext } from './types/index';
 
 /**
  * @since 1.0.0
  * @returns An I18nextImplementation mixin which extends the Base parameter and fully implements {@link I18nextBaseImplementation}.
  * @param Base The class to use as the base for the implementation (e.g. a Discord library's Message object)
  */
-export function I18nextImplemented<BaseClass extends Ctor>(Base: BaseClass) {
+export function I18nextImplemented<BaseClass extends Ctor<any[], { client: I18nextClient }>>(Base: BaseClass) {
 	/**
 	 * The class that defines the base / default implementations of the plugin.
 	 * This class is used to extend the {@link I18nContext} objects for registers.
