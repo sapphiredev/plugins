@@ -38,7 +38,7 @@
 		"@types/ws": "latest",
 		"node-fetch": "^2.6.1",
 		"psl": "^1.8.0",
-		"tslib": "^2.2.0"
+		"tslib": "^2.3.0"
 	},
 	"repository": {
 		"type": "git",
