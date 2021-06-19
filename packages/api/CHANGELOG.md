@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@2.1.4...@sapphire/plugin-api@2.2.0) (2021-06-19)
+
+### Bug Fixes
+
+-   **api:** specify package side effects ([2b50666](https://github.com/sapphiredev/plugins/commit/2b506666031af0f7586d5cd98f35957ba5dc8620))
+-   **doc:** change `[@link](https://github.com/link)` to `[@linkplain](https://github.com/linkplain)` for support in VSCode IntelliSense ([e448947](https://github.com/sapphiredev/plugins/commit/e44894769aae533668de7d6f2559cc4f7b58041d))
+-   **docs:** update-tsdoc-for-vscode-may-2021 ([#92](https://github.com/sapphiredev/plugins/issues/92)) ([ac52451](https://github.com/sapphiredev/plugins/commit/ac52451f3cf5560a8b93931411cc04497c00d4a9))
+-   remove peer deps, update dev deps, update READMEs ([#91](https://github.com/sapphiredev/plugins/issues/91)) ([3489b1d](https://github.com/sapphiredev/plugins/commit/3489b1dc1e8a7c64c255595b3d441cd0b5bac936))
+
+### Features
+
+-   **api:** expand MimeTypes enum with more common mime types ([b824cc6](https://github.com/sapphiredev/plugins/commit/b824cc60ea9c160b6c057dfb48ad0f9f416c2a24))
+
 ## [2.1.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@2.1.3...@sapphire/plugin-api@2.1.4) (2021-05-02)
 
 ### Bug Fixes

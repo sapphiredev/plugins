@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.7](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@1.3.6...@sapphire/plugin-i18next@1.3.7) (2021-06-19)
+
+### Bug Fixes
+
+-   remove peer deps, update dev deps, update READMEs ([#91](https://github.com/sapphiredev/plugins/issues/91)) ([3489b1d](https://github.com/sapphiredev/plugins/commit/3489b1dc1e8a7c64c255595b3d441cd0b5bac936))
+-   **i18next:** specify package side effects ([33fd1ec](https://github.com/sapphiredev/plugins/commit/33fd1ec86c671ef7419c709793d28c326d21ada7))
+
 ## [1.3.6](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@1.3.5...@sapphire/plugin-i18next@1.3.6) (2021-05-02)
 
 ### Bug Fixes

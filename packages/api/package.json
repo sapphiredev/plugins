@@ -1,6 +1,6 @@
 {
 	"name": "@sapphire/plugin-api",
-	"version": "2.1.4",
+	"version": "2.2.0",
 	"description": "Plugin for @sapphire/framework to expose a REST API",
 	"author": "@sapphire",
 	"license": "MIT",
@@ -33,8 +33,8 @@
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"@types/psl": "^1.1.0",
 		"@types/node-fetch": "^2.5.10",
+		"@types/psl": "^1.1.0",
 		"@types/ws": "latest",
 		"node-fetch": "^2.6.1",
 		"psl": "^1.8.0",
