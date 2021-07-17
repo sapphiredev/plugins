@@ -33,8 +33,8 @@ export abstract class Route extends Piece {
 	public constructor(context: PieceContext, options: RouteOptions = {}) {
 		super(context, options);
 
-		const api = this.context.server.options;
-		this.router = new RouteData(`${api.prefix ?? ''}${options.route ?? ''}`);
+		const api = this.container.server.options;
+		this.router = new RouteData(`${api.prefix ?? ''}${options.route ?? this.name ?? ''}`);
 
 		for (const [method, symbol] of methodEntries) {
 			const value = Reflect.get(this, symbol) as MethodCallback;
