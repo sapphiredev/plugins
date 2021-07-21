@@ -34,7 +34,7 @@
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^1.6.1",
+		"@sapphire/utilities": "^2.0.1",
 		"@types/i18next-fs-backend": "^1.0.1",
 		"i18next": "^19.9.2",
 		"i18next-fs-backend": "^1.1.1",
