@@ -250,9 +250,3 @@ export interface MiddlewareErrorContext {
 	 */
 	match: RouteMatch;
 }
-
-declare module '@sapphire/pieces' {
-	interface PieceContextExtras {
-		server: Server;
-	}
-}
