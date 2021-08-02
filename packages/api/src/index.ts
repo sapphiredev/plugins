@@ -36,7 +36,7 @@ declare module '@sapphire/pieces' {
 		middlewares: MiddlewareStore;
 	}
 
-	interface PieceContextExtras {
+	interface Container {
 		server: Server;
 	}
 }
