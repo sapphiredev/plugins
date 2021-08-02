@@ -1,10 +1,11 @@
 import { container } from '@sapphire/pieces';
 import { isObject, NonNullObject } from '@sapphire/utilities';
-import { Message, MessageOptions } from 'discord.js';
+import { Guild, Message, MessageOptions } from 'discord.js';
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
 import type { DiscordChannel, InternationalizationContext, TextBasedDiscordChannel } from './types';
 
-type Target = Message | DiscordChannel;
+type ChannelTarget = Message | DiscordChannel;
+type Target = ChannelTarget | Guild;
 
 /**
  * Retrieves the language name for a specific target, using {@link InternationalizationHandler.fetchLanguage}, and if it
@@ -19,6 +20,11 @@ export function fetchLanguage(target: Target): Promise<string> {
 	// Handle Message:
 	if (target instanceof Message) {
 		return resolveLanguage({ author: target.author, channel: target.channel, guild: target.guild });
+	}
+
+	// Handle Guild:
+	if (target instanceof Guild) {
+		return resolveLanguage({ author: null, channel: null, guild: target });
 	}
 
 	// Handle DMChannel:
@@ -76,7 +82,7 @@ export interface PartialLocalizedMessageOptions<TInterpolationMap extends NonNul
  * // ➡ "Pinging..."
  * ```
  */
-export async function sendLocalized<TKeys extends TFunctionKeys = string>(target: Target, keys: TKeys | TKeys[]): Promise<Message>;
+export async function sendLocalized<TKeys extends TFunctionKeys = string>(target: ChannelTarget, keys: TKeys | TKeys[]): Promise<Message>;
 /**
  * Send a localized message using an objects option.
  * @since 2.0.0
@@ -99,11 +105,11 @@ export async function sendLocalized<TKeys extends TFunctionKeys = string>(target
  * ```
  */
 export async function sendLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: Target,
+	target: ChannelTarget,
 	options: LocalizedMessageOptions<TKeys, TInterpolationMap>
 ): Promise<Message>;
 export async function sendLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: Target,
+	target: ChannelTarget,
 	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap>
 ): Promise<Message> {
 	const channel = resolveTextChannel(target);
@@ -166,7 +172,7 @@ async function resolveLanguage(context: InternationalizationContext): Promise<st
 /**
  * @private
  */
-function resolveTextChannel(target: Target): TextBasedDiscordChannel {
+function resolveTextChannel(target: ChannelTarget): TextBasedDiscordChannel {
 	if (target instanceof Message) return target.channel;
 	if (target.isText()) return target;
 	throw new TypeError(`Cannot resolve ${target.name} to a text-based channel.`);
