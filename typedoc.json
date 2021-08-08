@@ -11,6 +11,7 @@
 		"**/rollup.config.ts",
 		"**/jest.config.ts",
 		"packages/api/src/index.ts",
+		"packages/editable-commands/src/index.ts",
 		"packages/logger/src/index.ts",
 		"packages/i18next/src/index.ts",
 		"packages/**/register*"

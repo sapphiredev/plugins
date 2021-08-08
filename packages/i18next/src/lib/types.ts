@@ -1,4 +1,4 @@
-import type { DMChannel, Guild, NewsChannel, StageChannel, StoreChannel, TextChannel, ThreadChannel, User, VoiceChannel } from 'discord.js';
+import type { Guild, Message, StageChannel, StoreChannel, User, VoiceChannel } from 'discord.js';
 import type { InitOptions } from 'i18next';
 import type { i18nextFsBackend } from 'i18next-fs-backend';
 
@@ -55,7 +55,7 @@ export interface InternationalizationOptions {
 	defaultNS?: string;
 }
 
-export type TextBasedDiscordChannel = TextChannel | NewsChannel | ThreadChannel | DMChannel;
+export type TextBasedDiscordChannel = Message['channel'];
 export type DiscordChannel = TextBasedDiscordChannel | StoreChannel | StageChannel | VoiceChannel;
 
 /**
