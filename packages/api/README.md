@@ -31,14 +31,13 @@ This plugin provides an API endpoint for your bot that can be called from extern
 `@sapphire/plugin-api` depends on the following packages. Be sure to install these along with this package!
 
 -   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
--   [`@sapphire/pieces v1.x`](https://www.npmjs.com/package/@sapphire/pieces/v/1.2.5)
 -   [`discord.js`](https://www.npmjs.com/package/discord.js)
 -   [`discord-api-types`](https://www.npmjs.com/package/discord-api-types)
 
 You can use the following command to install this package, or replace `npm install` with your package manager of choice.
 
 ```sh
-npm install @sapphire/plugin-api @sapphire/framework @sapphire/pieces@1 discord.js discord-api-types
+npm install @sapphire/plugin-api @sapphire/framework discord.js discord-api-types
 ```
 
 ---
