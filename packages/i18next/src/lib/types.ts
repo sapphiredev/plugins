@@ -71,7 +71,7 @@ export type TextBasedDiscordChannel = Message['channel'];
 export type DiscordChannel = TextBasedDiscordChannel | StoreChannel | StageChannel | VoiceChannel;
 
 /**
- * Context for {@link I18nextBaseImplementation.fetchLanguage} functions.
+ * Context for {@link InternationalizationHandler.fetchLanguage} functions.
  * This context enables implementation of per-guild, per-channel, and per-user localization.
  */
 export interface InternationalizationContext {
