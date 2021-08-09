@@ -32,13 +32,12 @@ An implementation of i18next's [filesystem backend] for Sapphire. It allows you 
 `@sapphire/plugin-i18next` depends on the following packages. Be sure to install these along with this package!
 
 -   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
--   [`@sapphire/pieces v1.x`](https://www.npmjs.com/package/@sapphire/pieces/v/1.2.5)
 -   [`discord.js`](https://www.npmjs.com/package/discord.js)
 
 You can use the following command to install this package, or replace `npm install` with your package manager of choice.
 
 ```sh
-npm install @sapphire/plugin-i18next @sapphire/framework @sapphire/pieces@1 discord.js
+npm install @sapphire/plugin-i18next @sapphire/framework discord.js
 ```
 
 ---
