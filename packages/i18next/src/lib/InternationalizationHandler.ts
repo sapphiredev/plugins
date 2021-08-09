@@ -62,6 +62,10 @@ export class InternationalizationHandler {
 			addPath: this.languagesDirectory,
 			...this.options.backend
 		};
+
+		if (isFunction(this.options.fetchLanguage)) {
+			this.fetchLanguage = this.options.fetchLanguage;
+		}
 	}
 
 	/**

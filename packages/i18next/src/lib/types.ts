@@ -1,3 +1,4 @@
+import type { Awaited } from '@sapphire/utilities';
 import type { Guild, Message, StageChannel, StoreChannel, User, VoiceChannel } from 'discord.js';
 import type { InitOptions } from 'i18next';
 import type { i18nextFsBackend } from 'i18next-fs-backend';
@@ -53,6 +54,17 @@ export interface InternationalizationOptions {
 	 * @since 1.0.0
 	 */
 	defaultNS?: string;
+	/**
+	 * A function that is to be used to retrieve the language for the current context.
+	 * Context exists of a {@link Guild `guild`}, a {@link DiscordChannel `channel`} and a {@link User `user`}.
+	 *
+	 * If this is not set, then the language will always be the default language.
+	 *
+	 * This will be inserted for {@link InternationalizationHandler.fetchLanguage}.
+	 * @since 2.0.0
+	 * @default () => InternationalizationOptions.defaultName
+	 */
+	fetchLanguage?: (context: InternationalizationContext) => Awaited<string | null>;
 }
 
 export type TextBasedDiscordChannel = Message['channel'];
@@ -70,11 +82,4 @@ export interface InternationalizationContext {
 
 export interface InternationalizationClientOptions {
 	i18n?: InternationalizationOptions;
-
-	/**
-	 * Hook that returns the name of a language. Should correspond to {@link InternationalizationHandler.fetchLanguage}.
-	 * @since 1.0.0
-	 * @default () => {@link I18nOptions.defaultName}
-	 */
-	fetchLanguage?: (context: InternationalizationContext) => Promise<string | null> | string | null;
 }
