@@ -5,7 +5,6 @@ import { InternationalizationClientOptions, InternationalizationHandler } from '
 export class I18nextPlugin extends Plugin {
 	public static [preGenericsInitialization](this: SapphireClient, options: ClientOptions): void {
 		container.i18n = new InternationalizationHandler(options.i18n);
-		if (typeof options.fetchLanguage === 'function') container.i18n.fetchLanguage = options.fetchLanguage;
 	}
 
 	public static async [preLogin](this: SapphireClient): Promise<void> {
