@@ -1,4 +1,4 @@
-import { Plugin, preInitialization, SapphireClient } from '@sapphire/framework';
+import { Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
 import { join } from 'path';
 
 /**
@@ -8,9 +8,9 @@ export class EditableCommandsPlugin extends Plugin {
 	/**
 	 * @since 1.0.0
 	 */
-	public static [preInitialization](this: SapphireClient): void {
+	public static [postInitialization](this: SapphireClient): void {
 		this.stores.get('listeners').registerPath(join(__dirname, 'listeners'));
 	}
 }
 
-SapphireClient.plugins.registerPreInitializationHook(EditableCommandsPlugin[preInitialization], 'EditableCommands-PreInitialization');
+SapphireClient.plugins.registerPostInitializationHook(EditableCommandsPlugin[postInitialization], 'EditableCommands-PostInitialization');
