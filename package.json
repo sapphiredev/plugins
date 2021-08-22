@@ -26,7 +26,7 @@
 		"@sapphire/prettier-config": "^1.1.6",
 		"@sapphire/ts-config": "^3.0.0",
 		"@sapphire/utilities": "^2.0.1",
-		"@types/jest": "^26.0.24",
+		"@types/jest": "^27.0.1",
 		"@types/node": "^16.6.2",
 		"@types/node-fetch": "^2.5.12",
 		"@types/ws": "^7.4.7",
