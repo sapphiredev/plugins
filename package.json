@@ -20,6 +20,7 @@
 	"devDependencies": {
 		"@commitlint/cli": "^13.1.0",
 		"@commitlint/config-conventional": "^13.1.0",
+		"@favware/npm-deprecate": "^1.0.2",
 		"@sapphire/eslint-config": "^3.2.3",
 		"@sapphire/framework": "next",
 		"@sapphire/pieces": "^2.1.0",

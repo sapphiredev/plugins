@@ -1,0 +1,7 @@
+name: '*next*'
+package:
+  - '@sapphire/plugin-api'
+  - '@sapphire/plugin-editable-commands'
+  - '@sapphire/plugin-i18next'
+  - '@sapphire/plugin-logger'
+  - '@sapphire/plugin-subcommands'
