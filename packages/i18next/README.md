@@ -80,7 +80,7 @@ await editLocalized(message, 'commands/ping:success_args', { latency: ws.ping })
 import { fetchLanguage } '@sapphire/plugin-i18next'
 
 console.log(await fetchLanguage(message))
-==> en
+// en
 ```
 
 ## Sapphire i18next Documentation
