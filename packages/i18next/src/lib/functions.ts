@@ -123,7 +123,7 @@ export async function sendLocalized<TKeys extends TFunctionKeys = string, TInter
  * @param options The options to be sent, requiring at least `keys` to be passed.
  * @example
  * ```typescript
- * await sendLocalized(message, 'commands/ping:success');
+ * await editLocalized(message, 'commands/ping:success');
  * // ➡ "Pong!"
  * ```
  */
