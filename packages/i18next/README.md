@@ -49,7 +49,7 @@ import '@sapphire/plugin-i18next/register';
 ```
 
 ```json
-// languages/en/commands.json
+// languages/en/commands/ping.json
 {
 	"ping": {
 		"success": "Pong!",
