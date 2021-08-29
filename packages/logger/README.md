@@ -45,6 +45,16 @@ npm install @sapphire/plugin-logger @sapphire/framework
 import '@sapphire/plugin-logger/register';
 ```
 
+```typescript
+import { container } '@sapphire/framework';
+container.logger.log('log message');
+```
+
+```typescript
+// ping command
+this.container.logger.warn('warning message');
+```
+
 ## Logger Documentation
 
 For the full @sapphire/plugin-logger documentation please refer to the TypeDoc generated [documentation](https://sapphiredev.github.io/plugins/modules/_sapphire_plugin_logger.html).
