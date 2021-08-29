@@ -48,6 +48,41 @@ npm install @sapphire/plugin-i18next @sapphire/framework discord.js
 import '@sapphire/plugin-i18next/register';
 ```
 
+```json
+// languages/en/commands.json
+{
+	"ping": {
+		"success": "Pong!",
+		"success_args": "Pong! Took me {{latency}}ms to reply"
+	}
+}
+```
+
+```typescript
+import { resolveKey } '@sapphire/plugin-i18next'
+
+await message.channel.send(await resolveKey('commands/ping:success'))
+```
+
+```typescript
+import { sendLocalized } '@sapphire/plugin-i18next'
+
+await sendLocalized(message, 'commands/ping:success')
+```
+
+```typescript
+import { editLocalized } '@sapphire/plugin-i18next'
+
+await editLocalized(message, 'commands/ping:success_args', { latency: ws.ping })
+```
+
+```typescript
+import { fetchLanguage } '@sapphire/plugin-i18next'
+
+console.log(await fetchLanguage(message))
+==> en
+```
+
 ## Sapphire i18next Documentation
 
 For the full @sapphire/plugin-i18next documentation please refer to the TypeDoc generated [documentation](https://sapphiredev.github.io/plugins/modules/_sapphire_plugin_i18next.html).
