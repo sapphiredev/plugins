@@ -52,10 +52,8 @@ import '@sapphire/plugin-i18next/register';
 ```json
 // languages/en/commands/ping.json
 {
-	"ping": {
-		"success": "Pong!",
-		"success_args": "Pong! Took me {{latency}}ms to reply"
-	}
+	"success": "Pong!",
+	"success_args": "Pong! Took me {{latency}}ms to reply"
 }
 ```
 
