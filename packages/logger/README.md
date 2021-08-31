@@ -42,17 +42,38 @@ npm install @sapphire/plugin-logger @sapphire/framework
 ## Usage
 
 ```typescript
+// Main bot file
 import '@sapphire/plugin-logger/register';
 ```
 
 ```typescript
-import { container } '@sapphire/framework';
-container.logger.log('log message');
+import { container } '@sapphire/plugin-logger';
+
+export class MyAwesomeService {
+	public printAwesomeLog() {
+		container.logger.log('log message');
+	}
+}
 ```
 
 ```typescript
 // ping command
-this.container.logger.warn('warning message');
+
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+export class PingCommand extends Command {
+	public constructor(context: PieceContext, options: CommandOptions) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async run(message: Message) {
+		this.container.logger.warn('warning message');
+	}
+}
 ```
 
 ## Logger Documentation
