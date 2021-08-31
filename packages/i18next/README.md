@@ -45,6 +45,7 @@ npm install @sapphire/plugin-i18next @sapphire/framework discord.js
 ## Usage
 
 ```typescript
+// Main bot file
 import '@sapphire/plugin-i18next/register';
 ```
 
@@ -59,28 +60,83 @@ import '@sapphire/plugin-i18next/register';
 ```
 
 ```typescript
-import { resolveKey } '@sapphire/plugin-i18next'
+import { resolveKey } '@sapphire/plugin-i18next';
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import type { Message } from 'discord.js';
 
-await message.channel.send(await resolveKey('commands/ping:success'))
+export class PingCommand extends Command {
+	public constructor(context: PieceContext, options: CommandOptions) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async run(message: Message) {
+		await message.channel.send(await resolveKey('commands/ping:success'))
+	}
+}
 ```
 
 ```typescript
 import { sendLocalized } '@sapphire/plugin-i18next'
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
 
-await sendLocalized(message, 'commands/ping:success')
+import type { Message } from 'discord.js';
+
+export class PingCommand extends Command {
+	public constructor(context: PieceContext, options: CommandOptions) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async run(message: Message) {
+		await sendLocalized(message, 'commands/ping:success')
+	}
+}
 ```
 
 ```typescript
 import { editLocalized } '@sapphire/plugin-i18next'
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
 
-await editLocalized(message, 'commands/ping:success_args', { latency: ws.ping })
+import type { Message } from 'discord.js';
+
+export class PingCommand extends Command {
+	public constructor(context: PieceContext, options: CommandOptions) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async run(message: Message) {
+		await editLocalized(message, 'commands/ping:success_args', { latency: ws.ping })
+	}
+}
 ```
 
 ```typescript
 import { fetchLanguage } '@sapphire/plugin-i18next'
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
 
-console.log(await fetchLanguage(message))
-// en
+import type { Message } from 'discord.js';
+
+export class PingCommand extends Command {
+	public constructor(context: PieceContext, options: CommandOptions) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async run(message: Message) {
+		return message.channel.send(await fetchLanguage(message));
+		// ===> en
+	}
+}
 ```
 
 ## Sapphire i18next Documentation
