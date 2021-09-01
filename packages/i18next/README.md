@@ -51,7 +51,7 @@ import '@sapphire/plugin-i18next/register';
 
 Basic structure of a command translation file, this file can have as many sections as you need.
 ```json
-// languages/en-us/commands/ping.json
+// languages/en-US/commands/ping.json
 {
 	"success": "Pong!",
 	"success_args": "Pong! Took me {{latency}}ms to reply"
