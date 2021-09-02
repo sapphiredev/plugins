@@ -133,7 +133,7 @@ export class PingCommand extends Command {
 
 	public async run(message: Message) {
 		return message.channel.send(await fetchLanguage(message));
-		// ===> en
+		// ===> en-US
 	}
 }
 ```
