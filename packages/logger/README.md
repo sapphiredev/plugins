@@ -55,7 +55,7 @@ export class MyAwesomeService {
 	}
 }
 ```
-In the commands, the container is already injected into the extended class "command", therefore it is enough to use the method `this.container` to be able to access the Logger method.
+In pieces (commands, arguments, preconditions, etc.), the container is already available on the class as `this.container`. Therefore there is often no need to specifically import the container in such files to access the Logger methods.
 ```typescript
 // ping command
 
