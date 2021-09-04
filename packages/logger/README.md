@@ -40,12 +40,16 @@ npm install @sapphire/plugin-logger @sapphire/framework
 ---
 
 ## Usage
+
 This registers the necessary options and methods in the Sapphire client to be able to use the log plugin.
+
 ```typescript
 // Main bot file
 import '@sapphire/plugin-logger/register';
 ```
+
 To be able to use the Logger anywhere you first need to import the `containter` property from the `@Sapphire/framework` package.
+
 ```typescript
 import { container } '@sapphire/plugin-logger';
 
@@ -55,7 +59,9 @@ export class MyAwesomeService {
 	}
 }
 ```
+
 In pieces (commands, arguments, preconditions, etc.), the container is already available on the class as `this.container`. Therefore there is often no need to specifically import the container in such files to access the Logger methods.
+
 ```typescript
 // ping command
 
@@ -77,6 +83,7 @@ export class PingCommand extends Command {
 ```
 
 ## Types of logs
+
 1. trace
 2. debug
 3. info

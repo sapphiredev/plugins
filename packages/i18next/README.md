@@ -43,13 +43,16 @@ npm install @sapphire/plugin-i18next @sapphire/framework discord.js
 ---
 
 ## Usage
+
 This registers the necessary methods and options in the Sapphire client to be able to use the message translations.
+
 ```typescript
 // Main bot file
 import '@sapphire/plugin-i18next/register';
 ```
 
 Basic structure of a command translation file, this file can have as many sections as you need.
+
 ```json
 // languages/en-US/commands/ping.json
 {
@@ -57,7 +60,9 @@ Basic structure of a command translation file, this file can have as many sectio
 	"success_args": "Pong! Took me {{latency}}ms to reply"
 }
 ```
+
 The `resolveKey` method can be used anywhere to get the translation of a message. In this example it is used in a method to send a message.
+
 ```typescript
 import { resolveKey } '@sapphire/plugin-i18next';
 import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
@@ -76,7 +81,9 @@ export class PingCommand extends Command {
 	}
 }
 ```
+
 This method will send a message with the translation of the message.
+
 ```typescript
 import { sendLocalized } '@sapphire/plugin-i18next'
 import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
@@ -96,7 +103,9 @@ export class PingCommand extends Command {
 	}
 }
 ```
+
 This method will edit a message with the translation of the translation key.
+
 ```typescript
 import { editLocalized } '@sapphire/plugin-i18next'
 import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
@@ -116,7 +125,9 @@ export class PingCommand extends Command {
 	}
 }
 ```
+
 This method will get the current language that the client is using on a server.
+
 ```typescript
 import { fetchLanguage } '@sapphire/plugin-i18next'
 import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
