@@ -65,7 +65,7 @@ Basic structure of a command translation file, this file can have as many sectio
 The `resolveKey` method can be used anywhere to get the translation of a message. In this example it is used in a method to send a message.
 
 ```typescript
-import { resolveKey } '@sapphire/plugin-i18next';
+import { resolveKey } from '@sapphire/plugin-i18next';
 import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
