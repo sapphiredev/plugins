@@ -48,6 +48,7 @@ This registers the necessary methods and options in the Sapphire client to be ab
 
 ```typescript
 // Main bot file
+// Be sure to register the plugin before logging in with the bot.
 import '@sapphire/plugin-i18next/register';
 ```
 

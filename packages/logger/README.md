@@ -45,6 +45,7 @@ This registers the necessary options and methods in the Sapphire client to be ab
 
 ```typescript
 // Main bot file
+// Be sure to register the plugin before logging in with the bot.
 import '@sapphire/plugin-logger/register';
 ```
 
@@ -91,7 +92,7 @@ export class PingCommand extends Command {
 5. error
 6. fatal
 
-> Example: `container.logger.debug("log debug message");`
+> Example: `container.logger.debug('log debug message');`
 
 ## Logger Documentation
 
