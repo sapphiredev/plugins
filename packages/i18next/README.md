@@ -108,7 +108,7 @@ export class PingCommand extends Command {
 This method will edit a message with the translation of the translation key.
 
 ```typescript
-import { editLocalized } '@sapphire/plugin-i18next'
+import { editLocalized } from '@sapphire/plugin-i18next'
 import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
 
 import type { Message } from 'discord.js';
