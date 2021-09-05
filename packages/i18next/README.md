@@ -86,7 +86,7 @@ export class PingCommand extends Command {
 This method will send a message with the translation of the message.
 
 ```typescript
-import { sendLocalized } '@sapphire/plugin-i18next'
+import { sendLocalized } from '@sapphire/plugin-i18next'
 import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
 
 import type { Message } from 'discord.js';
