@@ -130,7 +130,7 @@ export class PingCommand extends Command {
 This method will get the current language that the client is using on a server.
 
 ```typescript
-import { fetchLanguage } '@sapphire/plugin-i18next'
+import { fetchLanguage } from '@sapphire/plugin-i18next'
 import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
 
 import type { Message } from 'discord.js';
