@@ -52,7 +52,7 @@ import '@sapphire/plugin-logger/register';
 To be able to use the Logger anywhere you first need to import the `containter` property from the `@Sapphire/framework` package.
 
 ```typescript
-import { container } '@sapphire/plugin-logger';
+import { container } from '@sapphire/plugin-logger';
 
 export class MyAwesomeService {
 	public printAwesomeLog() {
