@@ -61,7 +61,7 @@ export class MyAwesomeService {
 }
 ```
 
-In pieces (commands, arguments, preconditions, etc.), the container is already available on the class as `this.container`. Therefore there is often no need to specifically import the container in such files to access the Logger methods.
+Note that in pieces (commands, arguments, preconditions, etc.), the container is already available on the class as `this.container`, so there is typically no need to import the container to access the Logger methods from them.
 Here is an example ping command, demonstrating the use of `this.container.logger` from within a piece by omitting the explicit import.
 ```typescript
 // ping command
