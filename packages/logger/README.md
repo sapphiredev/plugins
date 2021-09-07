@@ -56,7 +56,7 @@ import { container } from '@sapphire/plugin-logger';
 
 export class MyAwesomeService {
 	public printAwesomeLog() {
-		container.logger.log('log message');
+		container.logger.info('log message');
 	}
 }
 ```
