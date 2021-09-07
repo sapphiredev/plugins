@@ -49,7 +49,7 @@ This registers the necessary options and methods in the Sapphire client to be ab
 import '@sapphire/plugin-logger/register';
 ```
 
-To be able to use the Logger anywhere you first need to import the `container` property from the `@Sapphire/framework` package.
+In order to use the Logger in any place other than a piece (commands, arguments, preconditions, etc.), you must first import the `container` property of the `@Sapphire/framework` package.
 
 ```typescript
 import { container } from '@sapphire/plugin-logger';
