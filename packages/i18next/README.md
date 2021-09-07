@@ -83,7 +83,7 @@ export class PingCommand extends Command {
 }
 ```
 
-This method will send a message with the translation of the message.
+`sendLocalized` will send translated text resolved from a key to a specified channel.
 
 ```typescript
 import { sendLocalized } from '@sapphire/plugin-i18next'
