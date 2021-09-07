@@ -127,7 +127,7 @@ export class PingCommand extends Command {
 }
 ```
 
-This method will get the current language that the client is using on a server.
+`fetchLanguage` returns the guild-specific language that the client is using.
 
 ```typescript
 import { fetchLanguage } from '@sapphire/plugin-i18next'
