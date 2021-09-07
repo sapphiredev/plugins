@@ -85,12 +85,12 @@ export class PingCommand extends Command {
 
 ## Types of logs
 
-1. trace
-2. debug
-3. info
-4. warn
-5. error
-6. fatal
+1. `trace`
+1. `debug`
+1. `info`
+1. `warn`
+1. `error`
+1. `fatal`
 
 > Example: `container.logger.debug('log debug message');`
 
