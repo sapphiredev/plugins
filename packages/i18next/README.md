@@ -105,7 +105,7 @@ export class PingCommand extends Command {
 }
 ```
 
-This method will edit a message with the translation of the translation key.
+`editLocalized` edits a message, replacing its content with translated text resolved from its key.
 
 ```typescript
 import { editLocalized } from '@sapphire/plugin-i18next'
