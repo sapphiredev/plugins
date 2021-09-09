@@ -44,7 +44,7 @@ npm install @sapphire/plugin-i18next @sapphire/framework discord.js
 
 ## Usage
 
-This registers the necessary methods and options in the Sapphire client to be able to use the message translations.
+This registers the methods and options necessary for message translations in the Sapphire client.
 
 ```typescript
 // Main bot file
