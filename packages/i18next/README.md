@@ -52,7 +52,7 @@ This registers the methods and options necessary for message translations in the
 import '@sapphire/plugin-i18next/register';
 ```
 
-Basic structure of a command translation file, this file can have as many sections as you need.
+The basic structure of a translation file is as follows:
 
 ```jsonc
 // languages/en-US/commands/ping.json
