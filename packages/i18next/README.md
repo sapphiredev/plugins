@@ -58,7 +58,7 @@ The basic structure of a translation file is as follows:
 // languages/en-US/commands/ping.json
 {
 	"success": "Pong!",
-	"success_args": "Pong! Took me {{latency}}ms to reply"
+	"success_with_args": "Pong! Took me {{latency}}ms to reply"
 }
 ```
 
