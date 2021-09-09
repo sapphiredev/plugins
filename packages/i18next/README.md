@@ -54,7 +54,7 @@ import '@sapphire/plugin-i18next/register';
 
 Basic structure of a command translation file, this file can have as many sections as you need.
 
-```json
+```jsonc
 // languages/en-US/commands/ping.json
 {
 	"success": "Pong!",
