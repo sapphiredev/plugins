@@ -48,7 +48,7 @@ This registers the methods and options necessary for message translations in the
 
 ```typescript
 // Main bot file
-// Be sure to register the plugin before logging in with the bot.
+// Be sure to register the plugin before instantiating the client.
 import '@sapphire/plugin-i18next/register';
 ```
 
