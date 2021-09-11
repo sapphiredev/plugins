@@ -45,7 +45,7 @@ This registers the necessary options and methods in the Sapphire client to be ab
 
 ```typescript
 // Main bot file
-// Be sure to register the plugin before logging in with the bot.
+// Be sure to register the plugin before instantiating the client.
 import '@sapphire/plugin-logger/register';
 ```
 
