@@ -44,8 +44,110 @@ npm install @sapphire/plugin-i18next @sapphire/framework discord.js
 
 ## Usage
 
+This registers the methods and options necessary for message translations in the Sapphire client.
+
 ```typescript
+// Main bot file
+// Be sure to register the plugin before instantiating the client.
 import '@sapphire/plugin-i18next/register';
+```
+
+The basic structure of a translation file is as follows:
+
+```jsonc
+// languages/en-US/commands/ping.json
+{
+	"success": "Pong!",
+	"success_with_args": "Pong! Took me {{latency}}ms to reply"
+}
+```
+
+The `resolveKey` function can be used anywhere to get translated text by its key. In this example, it is used in a method to send a message.
+
+```typescript
+import { resolveKey } from '@sapphire/plugin-i18next';
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import type { Message } from 'discord.js';
+
+export class PingCommand extends Command {
+	public constructor(context: PieceContext, options: CommandOptions) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async run(message: Message) {
+		await message.channel.send(await resolveKey('commands/ping:success'))
+	}
+}
+```
+
+`sendLocalized` will send translated text resolved from a key to a specified channel.
+
+```typescript
+import { sendLocalized } from '@sapphire/plugin-i18next'
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+
+import type { Message } from 'discord.js';
+
+export class PingCommand extends Command {
+	public constructor(context: PieceContext, options: CommandOptions) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async run(message: Message) {
+		await sendLocalized(message, 'commands/ping:success')
+	}
+}
+```
+
+`editLocalized` edits a message, replacing its content with translated text resolved from its key.
+
+```typescript
+import { editLocalized } from '@sapphire/plugin-i18next'
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+
+import type { Message } from 'discord.js';
+
+export class PingCommand extends Command {
+	public constructor(context: PieceContext, options: CommandOptions) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async run(message: Message) {
+		await editLocalized(message, 'commands/ping:success_args', { latency: ws.ping })
+	}
+}
+```
+
+`fetchLanguage` returns the guild-specific language that the client is using.
+
+```typescript
+import { fetchLanguage } from '@sapphire/plugin-i18next'
+import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+
+import type { Message } from 'discord.js';
+
+export class PingCommand extends Command {
+	public constructor(context: PieceContext, options: CommandOptions) {
+		super(context, {
+			...options,
+			description: 'ping pong'
+		});
+	}
+
+	public async run(message: Message) {
+		return message.channel.send(await fetchLanguage(message));
+		// ===> en-US
+	}
+}
 ```
 
 ## Sapphire i18next Documentation
