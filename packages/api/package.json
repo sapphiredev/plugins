@@ -33,7 +33,7 @@
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"@types/node-fetch": "^2.5.12",
+		"@types/node-fetch": "^3.0.3",
 		"@types/psl": "^1.1.0",
 		"@types/ws": "7.4.7",
 		"node-fetch": "^2.6.1",
