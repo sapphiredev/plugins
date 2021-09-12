@@ -5,7 +5,7 @@ import type {
 	RESTGetAPICurrentUserGuildsResult,
 	RESTGetAPICurrentUserResult,
 	Snowflake
-} from 'discord-api-types/v8';
+} from 'discord-api-types/v9';
 import fetch from 'node-fetch';
 
 export class Auth {

@@ -1,5 +1,5 @@
 import type { PieceContext } from '@sapphire/pieces';
-import type { RESTPostOAuth2AccessTokenResult, RESTPostOAuth2AccessTokenURLEncodedData } from 'discord-api-types/v8';
+import type { RESTPostOAuth2AccessTokenResult, RESTPostOAuth2AccessTokenURLEncodedData } from 'discord-api-types/v9';
 import fetch from 'node-fetch';
 import { stringify } from 'querystring';
 import type { ApiRequest } from '../../lib/structures/api/ApiRequest';
