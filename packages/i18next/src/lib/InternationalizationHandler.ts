@@ -54,7 +54,7 @@ export class InternationalizationHandler {
 	 * @constructor
 	 */
 	public constructor(options?: InternationalizationOptions) {
-		this.options = options ?? {};
+		this.options = options ?? { i18next: { ignoreJSONStructure: false } };
 		this.languagesDirectory = this.options.defaultLanguageDirectory ?? join(getRootData().root, 'languages');
 
 		this.backendOptions = {
@@ -114,6 +114,7 @@ export class InternationalizationHandler {
 	public async init() {
 		const { namespaces, languages } = await this.walkLanguageDirectory(this.languagesDirectory);
 		const userOptions = isFunction(this.options.i18next) ? this.options.i18next(namespaces, languages) : this.options.i18next;
+		const ignoreJSONStructure = userOptions?.ignoreJSONStructure ?? false;
 
 		i18next.use(Backend);
 		await i18next.init({
@@ -128,7 +129,8 @@ export class InternationalizationHandler {
 			defaultNS: 'default',
 			ns: namespaces,
 			preload: languages,
-			...userOptions
+			...userOptions,
+			ignoreJSONStructure
 		});
 
 		this.namespaces = new Set(namespaces);
