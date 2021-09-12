@@ -1,10 +1,12 @@
 import { Awaited, isThenable } from '@sapphire/utilities';
 import { createCipheriv, createDecipheriv, randomBytes } from 'crypto';
-import type {
+import {
 	RESTGetAPICurrentUserConnectionsResult,
 	RESTGetAPICurrentUserGuildsResult,
 	RESTGetAPICurrentUserResult,
-	Snowflake
+	Snowflake,
+	Routes,
+	RouteBases
 } from 'discord-api-types/v9';
 import fetch from 'node-fetch';
 
@@ -101,9 +103,9 @@ export class Auth {
 	public async fetchData(token: string): Promise<LoginData> {
 		// Fetch the information:
 		const [user, guilds, connections] = await Promise.all([
-			this.fetchInformation<RESTGetAPICurrentUserResult>('identify', token, 'https://discord.com/api/v8/users/@me'),
-			this.fetchInformation<RESTGetAPICurrentUserGuildsResult>('guilds', token, 'https://discord.com/api/v8/users/@me/guilds'),
-			this.fetchInformation<RESTGetAPICurrentUserConnectionsResult>('connections', token, 'https://discord.com/api/v8/users/@me/connections')
+			this.fetchInformation<RESTGetAPICurrentUserResult>('identify', token, `${RouteBases.api}${Routes.user()}`),
+			this.fetchInformation<RESTGetAPICurrentUserGuildsResult>('guilds', token, `${RouteBases.api}${Routes.userGuilds()}`),
+			this.fetchInformation<RESTGetAPICurrentUserConnectionsResult>('connections', token, `${RouteBases.api}${Routes.userConnections()}`)
 		]);
 
 		// Transform the information:

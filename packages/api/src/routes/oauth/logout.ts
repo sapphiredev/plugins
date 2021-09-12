@@ -1,4 +1,5 @@
 import type { PieceContext } from '@sapphire/pieces';
+import { OAuth2Routes } from 'discord-api-types/v9';
 import fetch from 'node-fetch';
 import { stringify } from 'querystring';
 import { promisify } from 'util';
@@ -75,7 +76,7 @@ export class PluginRoute extends Route {
 		//
 		// RFC 7009 2.2.
 		// The content of the response body is ignored by the client as all necessary information is conveyed in the response code.
-		const result = await fetch('https://discord.com/api/v8/oauth2/token/revoke', {
+		const result = await fetch(OAuth2Routes.tokenRevocationURL, {
 			method: 'POST',
 			body: stringify({
 				token,

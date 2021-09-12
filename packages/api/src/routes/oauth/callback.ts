@@ -1,5 +1,5 @@
 import type { PieceContext } from '@sapphire/pieces';
-import type { RESTPostOAuth2AccessTokenResult, RESTPostOAuth2AccessTokenURLEncodedData } from 'discord-api-types/v9';
+import { OAuth2Routes, RESTPostOAuth2AccessTokenResult, RESTPostOAuth2AccessTokenURLEncodedData } from 'discord-api-types/v9';
 import fetch from 'node-fetch';
 import { stringify } from 'querystring';
 import type { ApiRequest } from '../../lib/structures/api/ApiRequest';
@@ -61,7 +61,7 @@ export class PluginRoute extends Route {
 			/* eslint-enable @typescript-eslint/naming-convention */
 		};
 
-		const result = await fetch('https://discord.com/api/v8/oauth2/token', {
+		const result = await fetch(OAuth2Routes.tokenURL, {
 			method: 'POST',
 			body: stringify(data as any),
 			headers: {
