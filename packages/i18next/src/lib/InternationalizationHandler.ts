@@ -189,13 +189,14 @@ export class InternationalizationHandler {
 	public async walkLanguageDirectory(dir: string, namespaces: string[] = [], current = '') {
 		const directory = await opendir(dir);
 
+		const availableLanguages: string[] = ['en-US', 'en-GB', 'zh-CN', 'zh-TW', 'cs', 'da', 'nl', 'fr', 'de', 'el', 'hu', 'it', 'ja', 'ko', 'no', 'pl', 'pt-BR', 'ru', 'es-ES', 'sv-SE', 'tr', 'bg', 'uk', 'fi', 'hr', 'ro', 'lt'];
 		const languages: string[] = [];
 		for await (const entry of directory) {
 			const fn = entry.name;
 			if (entry.isDirectory()) {
 				// This structure may very well be changed in future.
 				// See i18next/i18next-fs-backend#13
-				const isLanguage = fn.includes('-');
+				const isLanguage = availableLanguages.includes(fn);
 				if (isLanguage) languages.push(fn);
 
 				({ namespaces } = await this.walkLanguageDirectory(join(dir, fn), namespaces, isLanguage ? '' : `${fn}/`));
