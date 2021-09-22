@@ -4,8 +4,8 @@ import { Guild, Message, MessageOptions } from 'discord.js';
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
 import type { DiscordChannel, InternationalizationContext, TextBasedDiscordChannel } from './types';
 
-type ChannelTarget = Message | DiscordChannel;
-type Target = ChannelTarget | Guild;
+export type ChannelTarget = Message | DiscordChannel;
+export type Target = ChannelTarget | Guild;
 
 /**
  * Retrieves the language name for a specific target, using {@link InternationalizationHandler.fetchLanguage}, and if it

@@ -68,7 +68,7 @@ export class RouteData {
 	}
 }
 
-interface ParsedPart {
+export interface ParsedPart {
 	value: string;
 	type: TypeState;
 }
