@@ -36,7 +36,7 @@
 		"@types/node-fetch": "^2.5.12",
 		"@types/psl": "^1.1.0",
 		"@types/ws": "7.4.7",
-		"node-fetch": "^2.6.2",
+		"node-fetch": "^2.6.5",
 		"psl": "^1.8.0",
 		"tslib": "^2.3.1"
 	},
