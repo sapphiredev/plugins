@@ -8,7 +8,6 @@
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/plugins)](https://github.com/sapphiredev/plugins/blob/main/LICENSE.md)
 [![codecov](https://codecov.io/gh/sapphiredev/plugins/branch/main/graph/badge.svg?token=hygqPZuVZ5)](https://codecov.io/gh/sapphiredev/plugins)
-[![Depfu](https://badges.depfu.com/badges/aec630570f2b49c60115673cff88a53e/count.svg)](https://depfu.com/github/sapphiredev/plugins?project_id=15372)
 
 **Packages**
 

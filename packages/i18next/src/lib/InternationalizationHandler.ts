@@ -115,6 +115,7 @@ export class InternationalizationHandler {
 		const { namespaces, languages } = await this.walkLanguageDirectory(this.languagesDirectory);
 		const userOptions = isFunction(this.options.i18next) ? this.options.i18next(namespaces, languages) : this.options.i18next;
 		const ignoreJSONStructure = userOptions?.ignoreJSONStructure ?? false;
+		const skipOnVariables = userOptions?.interpolation?.skipOnVariables ?? false;
 
 		i18next.use(Backend);
 		await i18next.init({
@@ -123,7 +124,8 @@ export class InternationalizationHandler {
 			initImmediate: false,
 			interpolation: {
 				escapeValue: false,
-				...userOptions?.interpolation
+				...userOptions?.interpolation,
+				skipOnVariables
 			},
 			load: 'all',
 			defaultNS: 'default',
