@@ -10,7 +10,6 @@
 [![codecov](https://codecov.io/gh/sapphiredev/plugins/branch/main/graph/badge.svg?token=QWL8FB16BR)](https://codecov.io/gh/sapphiredev/plugins)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/plugin-in17n?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/plugin-in17n)
 [![npm](https://img.shields.io/npm/v/@sapphire/plugin-in17n?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/plugin-in17n)
-[![Depfu](https://badges.depfu.com/badges/11bbf7392987e6fd51fc6559e1d42dfc/count.svg)](https://depfu.com/github/sapphiredev/plugins?project_id=15201)
 
 </div>
 
@@ -78,7 +77,7 @@ export class PingCommand extends Command {
 	}
 
 	public async run(message: Message) {
-		await message.channel.send(await resolveKey('commands/ping:success'))
+		await message.channel.send(await resolveKey('commands/ping:success'));
 	}
 }
 ```
@@ -86,7 +85,7 @@ export class PingCommand extends Command {
 `sendLocalized` will send translated text resolved from a key to a specified channel.
 
 ```typescript
-import { sendLocalized } from '@sapphire/plugin-i18next'
+import { sendLocalized } from '@sapphire/plugin-i18next';
 import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
 
 import type { Message } from 'discord.js';
@@ -100,7 +99,7 @@ export class PingCommand extends Command {
 	}
 
 	public async run(message: Message) {
-		await sendLocalized(message, 'commands/ping:success')
+		await sendLocalized(message, 'commands/ping:success');
 	}
 }
 ```
@@ -108,7 +107,7 @@ export class PingCommand extends Command {
 `editLocalized` edits a message, replacing its content with translated text resolved from its key.
 
 ```typescript
-import { editLocalized } from '@sapphire/plugin-i18next'
+import { editLocalized } from '@sapphire/plugin-i18next';
 import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
 
 import type { Message } from 'discord.js';
@@ -122,7 +121,7 @@ export class PingCommand extends Command {
 	}
 
 	public async run(message: Message) {
-		await editLocalized(message, 'commands/ping:success_args', { latency: ws.ping })
+		await editLocalized(message, 'commands/ping:success_args', { latency: ws.ping });
 	}
 }
 ```
@@ -130,7 +129,7 @@ export class PingCommand extends Command {
 `fetchLanguage` returns the guild-specific language that the client is using.
 
 ```typescript
-import { fetchLanguage } from '@sapphire/plugin-i18next'
+import { fetchLanguage } from '@sapphire/plugin-i18next';
 import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
 
 import type { Message } from 'discord.js';
