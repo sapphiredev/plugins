@@ -5,13 +5,13 @@ import * as Colorette from 'colorette';
  * @since 1.0.0
  */
 export class LoggerStyle {
-	public readonly style: Colorette.Style;
+	public readonly style: Colorette.Color;
 
 	public constructor(resolvable: LoggerStyleResolvable = {}) {
 		if (typeof resolvable === 'function') {
 			this.style = resolvable;
 		} else {
-			const styles: Colorette.Style[] = [];
+			const styles: Colorette.Color[] = [];
 			if (resolvable.effects) styles.push(...resolvable.effects.map((text) => Colorette[text]));
 			if (resolvable.text) styles.push(Colorette[resolvable.text]);
 			if (resolvable.background) styles.push(Colorette[resolvable.background]);
@@ -19,7 +19,7 @@ export class LoggerStyle {
 			this.style = styles.length
 				? styles.length === 1
 					? styles[0]
-					: (string) => styles.reduce((out, style) => style(out), string)
+					: (string) => styles.reduce((out, style) => style(out), string) as string
 				: Colorette.reset;
 		}
 	}
@@ -29,7 +29,7 @@ export class LoggerStyle {
 	 * @since 1.0.0
 	 * @param string The value to apply the style to.
 	 */
-	public run(string: string) {
+	public run(string: string | number) {
 		return this.style(string);
 	}
 }
@@ -63,7 +63,7 @@ export interface LoggerStyleOptions {
  * @since 1.0.0
  * @seealso https://www.npmjs.com/package/colorette
  */
-export type LoggerStyleResolvable = Colorette.Style | LoggerStyleOptions;
+export type LoggerStyleResolvable = Colorette.Color | LoggerStyleOptions;
 
 /**
  * The text styles.
