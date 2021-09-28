@@ -85,7 +85,7 @@
 		"merge": "^2.1.1",
 		"minimist": "^1.2.5",
 		"tar": "^6.1.11",
-		"trim-newlines": "^3.0.1",
+		"trim-newlines": "^4.0.2",
 		"trim": "^1.0.1"
 	},
 	"prettier": "@sapphire/prettier-config"
