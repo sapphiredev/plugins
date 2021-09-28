@@ -58,7 +58,7 @@
 		"url": "git+https://github.com/sapphiredev/plugins.git"
 	},
 	"engines": {
-		"node": ">=v12.22.6"
+		"node": ">=v14.18.0"
 	},
 	"commitlint": {
 		"extends": [
