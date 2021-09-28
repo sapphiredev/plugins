@@ -1,5 +1,5 @@
 import { Logger as BuiltinLogger, LogLevel, LogMethods } from '@sapphire/framework';
-import { bgRed, cyan, gray, magenta, options as coloretteOptions, red, Style, white, yellow } from 'colorette';
+import { bgRed, cyan, gray, magenta, isColorSupported, red, white, yellow, Color } from 'colorette';
 import { Console } from 'console';
 import { inspect, InspectOptions } from 'util';
 import { LoggerLevel, LoggerLevelOptions } from './LoggerLevel';
@@ -40,8 +40,6 @@ export class Logger extends BuiltinLogger {
 		this.formats = Logger.createFormatMap(options.format, options.defaultFormat);
 		this.join = options.join ?? ' ';
 		this.depth = options.depth ?? 0;
-
-		if (typeof options.stylize === 'boolean') Logger.stylize = options.stylize;
 	}
 
 	/**
@@ -64,7 +62,7 @@ export class Logger extends BuiltinLogger {
 	 * @param values The values to pre-process.
 	 */
 	protected preprocess(values: readonly unknown[]) {
-		const inspectOptions: InspectOptions = { colors: coloretteOptions.enabled, depth: this.depth };
+		const inspectOptions: InspectOptions = { colors: isColorSupported, depth: this.depth };
 		return values.map((value) => (typeof value === 'string' ? value : inspect(value, inspectOptions))).join(this.join);
 	}
 
@@ -77,15 +75,7 @@ export class Logger extends BuiltinLogger {
 	 * @since 1.0.0
 	 */
 	public static get stylize() {
-		return coloretteOptions.enabled;
-	}
-
-	/**
-	 * Sets whether or not colorette should be enabled.
-	 * @since 1.0.0
-	 */
-	public static set stylize(value: boolean) {
-		coloretteOptions.enabled = value;
+		return isColorSupported;
 	}
 
 	private static createFormatMap(options: LoggerFormatOptions = {}, defaults: LoggerLevelOptions = options.none ?? {}) {
@@ -100,7 +90,7 @@ export class Logger extends BuiltinLogger {
 		]);
 	}
 
-	private static ensureDefaultLevel(options: LoggerLevelOptions | undefined, defaults: LoggerLevelOptions, color: Style, name: string) {
+	private static ensureDefaultLevel(options: LoggerLevelOptions | undefined, defaults: LoggerLevelOptions, color: Color, name: string) {
 		if (options) return new LoggerLevel(options);
 		return new LoggerLevel({
 			...defaults,
@@ -157,13 +147,6 @@ export interface LoggerOptions {
 	 * @default ' '
 	 */
 	join?: string;
-
-	/**
-	 * Whether or not styles should be applied, this modifies colorette's global options. For specific ones, use `null`
-	 * in the style options. Alternatively, you can set a boolean to {@link Logger.stylize} to change this setting anytime.
-	 * @since 1.0.0
-	 */
-	stylize?: boolean;
 
 	/**
 	 * The inspect depth when logging objects.
