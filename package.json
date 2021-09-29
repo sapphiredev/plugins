@@ -76,7 +76,7 @@
 	"resolutions": {
 		"acorn": "^8.5.0",
 		"dot-prop": "^6.0.1",
-		"i18next": "^21.1.1",
+		"i18next": "^21.2.0",
 		"jest-environment-jsdom": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.1.1.tgz",
 		"jest-jasmine2": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.1.1.tgz",
 		"kind-of": "^6.0.3",
