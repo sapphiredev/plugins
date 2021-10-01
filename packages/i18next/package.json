@@ -28,8 +28,7 @@
 	"scripts": {
 		"test": "jest",
 		"lint": "eslint src tests --ext ts --fix",
-		"build": "tsc -b src",
-		"postbuild": "run-p esm:**",
+		"build": "tsc -b src && yarn esm:register && yarn esm:default",
 		"esm:register": "gen-esm-wrapper dist/register.js dist/register.mjs",
 		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
 		"prepublishOnly": "yarn build"
@@ -37,7 +36,7 @@
 	"dependencies": {
 		"@sapphire/utilities": "^2.0.1",
 		"@types/i18next-fs-backend": "^1.1.2",
-		"i18next": "^21.2.0",
+		"i18next": "^21.2.1",
 		"i18next-fs-backend": "^1.1.1",
 		"tslib": "^2.3.1"
 	},

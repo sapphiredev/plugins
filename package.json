@@ -14,13 +14,13 @@
 		"docs": "typedoc",
 		"commit": "git-cz",
 		"cz": "git-cz",
-		"update": "yarn upgrade-interactive --latest",
+		"update": "yarn upgrade-interactive",
 		"prepare": "husky install .github/husky"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^13.2.0",
 		"@commitlint/config-conventional": "^13.2.0",
-		"@favware/npm-deprecate": "^1.0.2",
+		"@favware/npm-deprecate": "^1.0.3",
 		"@sapphire/eslint-config": "^3.2.3",
 		"@sapphire/framework": "next",
 		"@sapphire/pieces": "^3.0.0",
@@ -28,7 +28,7 @@
 		"@sapphire/ts-config": "^3.0.0",
 		"@sapphire/utilities": "^2.0.1",
 		"@types/jest": "^27.0.2",
-		"@types/node": "^16.10.1",
+		"@types/node": "^16.10.2",
 		"@types/node-fetch": "^2.5.12",
 		"@types/ws": "^8.2.0",
 		"@typescript-eslint/eslint-plugin": "^4.32.0",
@@ -45,12 +45,12 @@
 		"jest-circus": "^27.2.4",
 		"lerna": "^4.0.0",
 		"lint-staged": "^11.1.2",
-		"npm-run-all": "^4.1.5",
 		"prettier": "^2.4.1",
 		"pretty-quick": "^3.1.1",
+		"rimraf": "^3.0.2",
 		"ts-jest": "^27.0.5",
 		"ts-node": "^10.2.1",
-		"typedoc": "0.22.4",
+		"typedoc": "^0.22.4",
 		"typescript": "^4.4.3"
 	},
 	"repository": {
@@ -75,6 +75,7 @@
 	},
 	"resolutions": {
 		"acorn": "^8.5.0",
+		"colorette": "^2.0.13",
 		"dot-prop": "^6.0.1",
 		"i18next": "^21.2.0",
 		"jest-environment-jsdom": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.1.1.tgz",
@@ -88,5 +89,6 @@
 		"trim-newlines": "^4.0.2",
 		"trim": "^1.0.1"
 	},
-	"prettier": "@sapphire/prettier-config"
+	"prettier": "@sapphire/prettier-config",
+	"packageManager": "yarn@3.0.2"
 }

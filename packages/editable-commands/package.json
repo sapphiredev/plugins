@@ -26,8 +26,7 @@
 	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/editable-commands",
 	"scripts": {
 		"lint": "eslint src tests --ext ts --fix",
-		"build": "tsc -b src",
-		"postbuild": "run-p esm:**",
+		"build": "tsc -b src && yarn esm:register && yarn esm:default",
 		"esm:register": "gen-esm-wrapper dist/register.js dist/register.mjs",
 		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
 		"prepublishOnly": "yarn build"
