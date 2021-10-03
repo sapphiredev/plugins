@@ -1,2 +1,5 @@
-/packages/api @favna @kyranet
-/packages/i18next @nytelife26 @favna @kyranet
+/packages/api/**/*.ts @favna @kyranet
+/packages/editable-commands/**/*.ts @favna @kyranet
+/packages/i18next/**/*.ts @nytelife26 @favna @kyranet
+/packages/logger/**/*.ts @kyranet
+/packages/subcommands/**/*.ts @kyranet
