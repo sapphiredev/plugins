@@ -2168,13 +2168,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/utilities@npm:next":
-  version: 3.0.1-next.dbc03216.0
-  resolution: "@sapphire/utilities@npm:3.0.1-next.dbc03216.0"
-  checksum: 63083ee1bed32e9ff02c3b78c8f0721bcbf1bd16f24548d2de066cebdc1531d335be57a54de481a908e86b4400f6460ec27f777d28f080585a05d8e0df894b75
-  languageName: node
-  linkType: hard
-
 "@sindresorhus/is@npm:^4.0.1":
   version: 4.2.0
   resolution: "@sindresorhus/is@npm:4.2.0"
@@ -8446,7 +8439,7 @@ fsevents@^2.3.2:
     "@sapphire/pieces": ^3.0.0
     "@sapphire/prettier-config": ^1.1.6
     "@sapphire/ts-config": ^3.0.0
-    "@sapphire/utilities": next
+    "@sapphire/utilities": ^3.0.1
     "@types/jest": ^27.0.2
     "@types/node": ^16.10.2
     "@types/node-fetch": ^2.5.12
