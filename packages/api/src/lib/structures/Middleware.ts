@@ -1,5 +1,5 @@
 import { Piece, PieceContext, PieceOptions } from '@sapphire/pieces';
-import type { Awaited } from '@sapphire/utilities';
+import type { Awaitable } from '@sapphire/utilities';
 import type { ApiRequest } from './api/ApiRequest';
 import type { ApiResponse } from './api/ApiResponse';
 import type { Route } from './Route';
@@ -31,7 +31,7 @@ export abstract class Middleware extends Piece {
 	 * @param response The server's response.
 	 * @param route The route that matched this request, will be `null` if none matched.
 	 */
-	public abstract run(request: ApiRequest, response: ApiResponse, route: Route | null): Awaited<unknown>;
+	public abstract run(request: ApiRequest, response: ApiResponse, route: Route | null): Awaitable<unknown>;
 }
 
 /**

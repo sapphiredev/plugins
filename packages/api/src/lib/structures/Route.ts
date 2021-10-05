@@ -1,5 +1,5 @@
 import { Piece, PieceContext, PieceOptions } from '@sapphire/pieces';
-import type { Awaited } from '@sapphire/utilities';
+import type { Awaitable } from '@sapphire/utilities';
 import { Collection } from 'discord.js';
 import { RouteData } from '../utils/RouteData';
 import { methodEntries, Methods } from './http/HttpMethods';
@@ -49,7 +49,7 @@ export abstract class Route extends Piece {
 	 * Per-piece listener that is called when the piece is loaded into the store.
 	 * Useful to set-up asynchronous initialization tasks.
 	 */
-	public onLoad(): Awaited<unknown> {
+	public onLoad(): Awaitable<unknown> {
 		const store = this.store as unknown as RouteStore;
 
 		for (const [method, cb] of this.methods) {
@@ -63,7 +63,7 @@ export abstract class Route extends Piece {
 	 * Per-piece listener that is called when the piece is unloaded from the store.
 	 * Useful to set-up clean-up tasks.
 	 */
-	public onUnload(): Awaited<unknown> {
+	public onUnload(): Awaitable<unknown> {
 		const store = this.store as unknown as RouteStore;
 
 		for (const [method] of this.methods) {
