@@ -680,7 +680,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@favware/npm-deprecate@npm:^1.0.3":
+"@favware/npm-deprecate@npm:^1.0.4":
   version: 1.0.4
   resolution: "@favware/npm-deprecate@npm:1.0.4"
   dependencies:
@@ -2015,7 +2015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/eslint-config@npm:^3.2.3":
+"@sapphire/eslint-config@npm:^3.3.0":
   version: 3.3.0
   resolution: "@sapphire/eslint-config@npm:3.3.0"
   dependencies:
@@ -2054,7 +2054,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/pieces@npm:^3.0.0, @sapphire/pieces@npm:^3.0.1":
+"@sapphire/pieces@npm:^3.0.1":
   version: 3.0.1
   resolution: "@sapphire/pieces@npm:3.0.1"
   dependencies:
@@ -2117,7 +2117,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/prettier-config@npm:^1.1.6":
+"@sapphire/prettier-config@npm:^1.2.0":
   version: 1.2.0
   resolution: "@sapphire/prettier-config@npm:1.2.0"
   dependencies:
@@ -2144,7 +2144,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/ts-config@npm:^3.0.0":
+"@sapphire/ts-config@npm:^3.1.0":
   version: 3.1.0
   resolution: "@sapphire/ts-config@npm:3.1.0"
   dependencies:
@@ -8433,12 +8433,12 @@ fsevents@^2.3.2:
   dependencies:
     "@commitlint/cli": ^13.2.0
     "@commitlint/config-conventional": ^13.2.0
-    "@favware/npm-deprecate": ^1.0.3
-    "@sapphire/eslint-config": ^3.2.3
+    "@favware/npm-deprecate": ^1.0.4
+    "@sapphire/eslint-config": ^3.3.0
     "@sapphire/framework": next
-    "@sapphire/pieces": ^3.0.0
-    "@sapphire/prettier-config": ^1.1.6
-    "@sapphire/ts-config": ^3.0.0
+    "@sapphire/pieces": ^3.0.1
+    "@sapphire/prettier-config": ^1.2.0
+    "@sapphire/ts-config": ^3.1.0
     "@sapphire/utilities": ^3.0.1
     "@types/jest": ^27.0.2
     "@types/node": ^16.10.2
