@@ -1,5 +1,5 @@
 import { Piece } from '@sapphire/pieces';
-import type { Awaited } from '@sapphire/utilities';
+import type { Awaitable } from '@sapphire/utilities';
 import { createBrotliDecompress, createGunzip, createInflate } from 'zlib';
 import type { ApiRequest } from './api/ApiRequest';
 import type { MimeTypeWithoutParameters } from './http/Server';
@@ -14,7 +14,7 @@ export abstract class MediaParser extends Piece {
 	 * Parses the body data from an API request.
 	 * @since 1.3.0
 	 */
-	public abstract run(request: ApiRequest): Awaited<unknown>;
+	public abstract run(request: ApiRequest): Awaitable<unknown>;
 
 	/**
 	 * Checks if a route accepts the media type from this parser.

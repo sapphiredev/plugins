@@ -1,4 +1,4 @@
-import { Args, Awaited, Command, CommandContext, container } from '@sapphire/framework';
+import { Args, Awaitable, Command, CommandContext, container } from '@sapphire/framework';
 import { isFunction } from '@sapphire/utilities';
 import type { Message } from 'discord.js';
 
@@ -9,7 +9,7 @@ import type { Message } from 'discord.js';
  * @see {@link SubCommandEntryMethod}
  */
 export abstract class SubCommandEntry<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>> {
-	public readonly input: string | ((context: SubCommandEntry.RunContext<ArgType, CommandType>) => Awaited<string>);
+	public readonly input: string | ((context: SubCommandEntry.RunContext<ArgType, CommandType>) => Awaitable<string>);
 	public readonly output: string;
 
 	public constructor(options: SubCommandEntry.Options<ArgType, CommandType>) {
@@ -42,7 +42,7 @@ export namespace SubCommandEntry {
 	 * ```
 	 */
 	export interface Options<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>> {
-		input: string | ((context: RunContext<ArgType, CommandType>) => Awaited<string>);
+		input: string | ((context: RunContext<ArgType, CommandType>) => Awaitable<string>);
 		output?: string;
 	}
 

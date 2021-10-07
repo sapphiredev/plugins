@@ -1,4 +1,4 @@
-import { Awaited, isThenable } from '@sapphire/utilities';
+import { Awaitable, isThenable } from '@sapphire/utilities';
 import { createCipheriv, createDecipheriv, randomBytes } from 'crypto';
 import {
 	RESTGetAPICurrentUserConnectionsResult,
@@ -252,5 +252,5 @@ export interface LoginDataTransformer<T extends LoginData = LoginData> {
 	 * Transforms the object by mutating its properties or adding new ones.
 	 * @since 1.4.0
 	 */
-	(data: LoginData): Awaited<T>;
+	(data: LoginData): Awaitable<T>;
 }
