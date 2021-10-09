@@ -1,4 +1,4 @@
-import type { Awaited } from '@sapphire/utilities';
+import type { Awaitable } from '@sapphire/utilities';
 import type { Guild, Message, StageChannel, StoreChannel, User, VoiceChannel } from 'discord.js';
 import type { InitOptions } from 'i18next';
 import type { i18nextFsBackend } from 'i18next-fs-backend';
@@ -64,7 +64,7 @@ export interface InternationalizationOptions {
 	 * @since 2.0.0
 	 * @default () => InternationalizationOptions.defaultName
 	 */
-	fetchLanguage?: (context: InternationalizationContext) => Awaited<string | null>;
+	fetchLanguage?: (context: InternationalizationContext) => Awaitable<string | null>;
 }
 
 export type TextBasedDiscordChannel = Message['channel'];

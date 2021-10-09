@@ -1,5 +1,5 @@
 import { getRootData } from '@sapphire/pieces';
-import { Awaited, isFunction, NonNullObject } from '@sapphire/utilities';
+import { Awaitable, isFunction, NonNullObject } from '@sapphire/utilities';
 import { opendir } from 'fs/promises';
 import i18next, { StringMap, TFunction, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
 import Backend, { i18nextFsBackend } from 'i18next-fs-backend';
@@ -105,7 +105,7 @@ export class InternationalizationHandler {
 	 * };
 	 * ```
 	 */
-	public fetchLanguage: (context: InternationalizationContext) => Awaited<string | null> = () => null;
+	public fetchLanguage: (context: InternationalizationContext) => Awaitable<string | null> = () => null;
 
 	/**
 	 * Initializes the handler by loading in the namespaces, passing the data to i18next, and filling in the {@link InternationalizationHandler#languages}.
