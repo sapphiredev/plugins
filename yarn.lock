@@ -3345,7 +3345,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colorette@npm:^2.0.13":
+"colorette@npm:^2.0.16":
   version: 2.0.16
   resolution: "colorette@npm:2.0.16"
   checksum: cd55596a3a2d1071c1a28eee7fd8a5387593ff1bd10a3e8d0a6221499311fe34a9f2b9272d77c391e0e003dcdc8934fb2f8d106e7ef1f7516f8060c901d41a27
@@ -5152,7 +5152,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"i18next@npm:^21.2.4":
+"i18next@npm:^21.2.6":
   version: 21.2.6
   resolution: "i18next@npm:21.2.6"
   dependencies:
@@ -6767,7 +6767,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"marked@npm:^3.0.4":
+"marked@npm:^3.0.7":
   version: 3.0.7
   resolution: "marked@npm:3.0.7"
   bin:
