@@ -16,9 +16,9 @@ export class SubCommandEntryCommand<ArgType extends Args = Args, CommandType ext
 	ArgType,
 	CommandType
 > {
-	public run(context: SubCommandEntry.RunContext<ArgType, CommandType>): unknown {
+	public messageRun(context: SubCommandEntry.MessageRunContext<ArgType, CommandType>): unknown {
 		const command = container.stores.get('commands').get(this.output);
-		if (command) return command.run(context.message, context.args, context.context);
+		if (command) return command.messageRun(context.message, context.args, context.context);
 		throw new ReferenceError(`The command '${this.input}' does not exist.`);
 	}
 }

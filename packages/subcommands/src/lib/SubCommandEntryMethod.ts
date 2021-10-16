@@ -30,7 +30,7 @@ export class SubCommandEntryMethod<ArgType extends Args = Args, CommandType exte
 	ArgType,
 	CommandType
 > {
-	public run(context: SubCommandEntry.RunContext<ArgType, CommandType>): unknown {
+	public messageRun(context: SubCommandEntry.MessageRunContext<ArgType, CommandType>): unknown {
 		const method = Reflect.get(context.command, this.output);
 		if (method) return Reflect.apply(method, context.command, [context.message, context.args, context.context]);
 		throw new ReferenceError(`The method '${this.input}' does not exist for the command '${context.command.name}'.`);
