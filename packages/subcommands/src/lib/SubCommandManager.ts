@@ -23,20 +23,20 @@ export class SubCommandManager<ArgType extends Args = Args, CommandType extends 
 		}
 	}
 
-	public async run(context: SubCommandEntry.RunContext<ArgType, CommandType>) {
+	public async messageRun(context: SubCommandEntry.MessageRunContext<ArgType, CommandType>) {
 		// Pick one argument, then try to match a subcommand:
 		context.args.save();
 		const value = context.args.nextMaybe();
 
 		if (value.exists) {
 			for (const entry of this.entries) {
-				if (await entry.match(value.value, context)) return entry.run(context);
+				if (await entry.match(value.value, context)) return entry.messageRun(context);
 			}
 		}
 
 		// No subcommand matched, let's restore and try to run default, if any:
 		context.args.restore();
-		if (this.default) return this.default.run(context);
+		if (this.default) return this.default.messageRun(context);
 
 		// No match and no subcommand, return an err:
 		return err(new UserError({ identifier: Identifiers.SubCommandNoMatch, context }));

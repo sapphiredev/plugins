@@ -9,7 +9,7 @@ import type { Message } from 'discord.js';
  * @see {@link SubCommandEntryMethod}
  */
 export abstract class SubCommandEntry<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>> {
-	public readonly input: string | ((context: SubCommandEntry.RunContext<ArgType, CommandType>) => Awaitable<string>);
+	public readonly input: string | ((context: SubCommandEntry.MessageRunContext<ArgType, CommandType>) => Awaitable<string>);
 	public readonly output: string;
 
 	public constructor(options: SubCommandEntry.Options<ArgType, CommandType>) {
@@ -18,13 +18,13 @@ export abstract class SubCommandEntry<ArgType extends Args = Args, CommandType e
 		this.output = options.output ?? (options.input as string);
 	}
 
-	public async match(value: string, context: SubCommandEntry.RunContext<ArgType, CommandType>): Promise<boolean> {
+	public async match(value: string, context: SubCommandEntry.MessageRunContext<ArgType, CommandType>): Promise<boolean> {
 		const input = isFunction(this.input) ? await this.input(context) : this.input;
 		const caseInsensitive = container.client.options.caseInsensitiveCommands;
 		return caseInsensitive ? input.toLowerCase() === value.toLowerCase() : input === value;
 	}
 
-	public abstract run(context: SubCommandEntry.RunContext<ArgType, CommandType>): unknown;
+	public abstract messageRun(context: SubCommandEntry.MessageRunContext<ArgType, CommandType>): unknown;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -42,15 +42,15 @@ export namespace SubCommandEntry {
 	 * ```
 	 */
 	export interface Options<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>> {
-		input: string | ((context: RunContext<ArgType, CommandType>) => Awaitable<string>);
+		input: string | ((context: MessageRunContext<ArgType, CommandType>) => Awaitable<string>);
 		output?: string;
 	}
 
 	/**
-	 * RunContext is passed to SubCommandManager.run() and to input (if it is a function)
+	 * MessageRunContext is passed to SubCommandManager.messageRun() and to input (if it is a function)
 	 * @see {@link SubCommandEntry.Options}
 	 */
-	export interface RunContext<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>> {
+	export interface MessageRunContext<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>> {
 		command: CommandType;
 		message: Message;
 		args: ArgType;
