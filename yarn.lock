@@ -2032,9 +2032,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/framework@npm:next":
-  version: 2.0.0-next.750c25c9.0
-  resolution: "@sapphire/framework@npm:2.0.0-next.750c25c9.0"
+"@sapphire/framework@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@sapphire/framework@npm:2.0.0"
   dependencies:
     "@sapphire/discord-utilities": ^2.2.1
     "@sapphire/discord.js-utilities": ^3.2.1
@@ -2043,7 +2043,7 @@ __metadata:
     "@sapphire/utilities": ^3.0.3
     lexure: ^0.17.0
     tslib: ^2.3.1
-  checksum: bd25a7e2fe805f2a51b1d350520fe7515ff3bebcc5f71b551a67af27dacefbfea492673fde1eb6232693107b2dc2cf778153e4d2b884441fb5645e6f78ff6931
+  checksum: f48bb05e53e3e7c44d80d255b1e29f1a436a7e075eea3850d4bb1183733623341851d18e05924eb954d79e8f9da17cbb72085aac36519e0926009649dcdabec9
   languageName: node
   linkType: hard
 
@@ -5172,11 +5172,11 @@ fsevents@^2.3.2:
   linkType: hard
 
 "i18next@npm:^21.0.1, i18next@npm:^21.3.1":
-  version: 21.3.1
-  resolution: "i18next@npm:21.3.1"
+  version: 21.3.2
+  resolution: "i18next@npm:21.3.2"
   dependencies:
     "@babel/runtime": ^7.12.0
-  checksum: b9be819155e4352aad96606bb72b7c27c48e9b2bbc693648a303ef1c45e40abad502a9b9d3e0dbba4906541dc034f3fccfe1f8f4687c25d5516286331b8c620c
+  checksum: 26903225af36a4c35c35f68d45eae74e29226e6f84417857598c156b5c69e0df4977491a85481641f851b9dbe93c0f00ff412f0b193a12973c488a3aad4e8e5d
   languageName: node
   linkType: hard
 
@@ -8438,7 +8438,7 @@ fsevents@^2.3.2:
     "@commitlint/config-conventional": ^13.2.0
     "@favware/npm-deprecate": ^1.0.4
     "@sapphire/eslint-config": ^4.0.0
-    "@sapphire/framework": next
+    "@sapphire/framework": ^2.0.0
     "@sapphire/pieces": ^3.0.1
     "@sapphire/prettier-config": ^1.2.2
     "@sapphire/ts-config": ^3.1.1
@@ -9268,8 +9268,8 @@ fsevents@^2.3.2:
   linkType: hard
 
 "ts-jest@npm:^27.0.6":
-  version: 27.0.6
-  resolution: "ts-jest@npm:27.0.6"
+  version: 27.0.7
+  resolution: "ts-jest@npm:27.0.7"
   dependencies:
     bs-logger: 0.x
     fast-json-stable-stringify: 2.x
@@ -9294,7 +9294,7 @@ fsevents@^2.3.2:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: bbca6486a632c99340f37f0e266335d3763a978274c9a0ece4bb2f451b2e243c5c210870d7092c453463c856d1329ec5ebbf1bdfa19303a9babd6ada5423aaf5
+  checksum: 3711361cb5ae54aac547b00f8ad118ec88333c391af4bff0420497e9faa296eace4e8272c627ecbf4be675af9f68c437e4c2ccc5693c6d744796ec7da6dda131
   languageName: node
   linkType: hard
 
