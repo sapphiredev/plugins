@@ -56,7 +56,7 @@ export class InternationalizationHandler {
 	public constructor(options?: InternationalizationOptions) {
 		this.options = options ?? { i18next: { ignoreJSONStructure: false } };
 		this.languagesDirectory =
-			this.options.defaultLanguageDirectory ?? join(container.client.options.baseUserDirectory ?? getRootData().root, 'languages');
+			this.options.defaultLanguageDirectory ?? join(container.client?.options?.baseUserDirectory ?? getRootData().root, 'languages');
 
 		this.backendOptions = {
 			loadPath: join(this.languagesDirectory, '{{lng}}', '{{ns}}.json'),
