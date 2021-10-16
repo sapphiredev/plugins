@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@1.3.7...@sapphire/plugin-i18next@2.0.0) (2021-10-16)
+
+### Bug Fixes
+
+-   **deps:** update all non-major dependencies ([#149](https://github.com/sapphiredev/plugins/issues/149)) ([1fe5598](https://github.com/sapphiredev/plugins/commit/1fe55980434b19bb024773a1878366320fa96004))
+-   **deps:** update dependency i18next to ^21.2.0 ([#146](https://github.com/sapphiredev/plugins/issues/146)) ([2509ee4](https://github.com/sapphiredev/plugins/commit/2509ee4c8d53cc8bf23f7b7b618d5a4be3f7c24b))
+-   **i18next:** change `Awaited` for `Awaitable` ([0e2e6ef](https://github.com/sapphiredev/plugins/commit/0e2e6ef104e66344608ca62f779829411122e84c))
+-   **i18next:** change how `fetchLanguage` is implemented ([#107](https://github.com/sapphiredev/plugins/issues/107)) ([30c8f7f](https://github.com/sapphiredev/plugins/commit/30c8f7f2ea4911c79ecb241e182500516e958fc5))
+-   **i18next:** remove @sapphire/pieces from install instructions ([7c17a92](https://github.com/sapphiredev/plugins/commit/7c17a925b7c66fdd5422d75a3674e420ddc474ce))
+-   **plugin-i18next:** re-added support for guild target ([#103](https://github.com/sapphiredev/plugins/issues/103)) ([a7152a8](https://github.com/sapphiredev/plugins/commit/a7152a8ba3baf0a5bee10e80bc7c33e11b03d4d3))
+
+### Code Refactoring
+
+-   **plugin-i18next:** updated for discord.js@13 and framework@2 ([e041864](https://github.com/sapphiredev/plugins/commit/e04186461071179b96b918294b3f3085c328ede6))
+
+### Features
+
+-   bump to discordjs v13.2.0 ([3d0e484](https://github.com/sapphiredev/plugins/commit/3d0e484eb9a5adb7fef3bb642e304e27072ed2b1))
+-   **i18next:** add `baseUserDirectory` as alternative path for the `languages` directory (takes precedence over root scan) ([#159](https://github.com/sapphiredev/plugins/issues/159)) ([f8621b0](https://github.com/sapphiredev/plugins/commit/f8621b088f0382221968dfefe4a48092c83cd73f))
+-   **i18next:** bump i18next dependency to v20 ([#125](https://github.com/sapphiredev/plugins/issues/125)) ([0023809](https://github.com/sapphiredev/plugins/commit/0023809ee73fd2cee6828d30a782d67a44e31bbf))
+-   **i18next:** update i18next dependency ([#129](https://github.com/sapphiredev/plugins/issues/129)) ([96519de](https://github.com/sapphiredev/plugins/commit/96519de5de253db390ed9a76ed073ffe1eabd187))
+-   **plugin-editable-commands:** added first version ([#106](https://github.com/sapphiredev/plugins/issues/106)) ([9af3e85](https://github.com/sapphiredev/plugins/commit/9af3e85a8641f852eaf114679ceed1e71034d16c))
+-   **subcommands:** migrate `Command#run` to `Command#messageRun` ([#157](https://github.com/sapphiredev/plugins/issues/157)) ([2960711](https://github.com/sapphiredev/plugins/commit/29607111c4e4f61ece463e10854982f205879996))
+
+### BREAKING CHANGES
+
+-   **i18next:** i18next has been updated to v21.0.1. Please also seee the breaking changes for i18next [here](https://github.com/i18next/i18next/blob/master/CHANGELOG.md#2100) and their migration guide [here](https://www.i18next.com/misc/migration-guide#v-20-x-x-to-v-21-0-0)
+
+-   chore: activate renovate
+-   **i18next:** i18next dependency has been bumped to v20.x. As opposed to what the library does, this plugin will default the new option `ignoreJSONStructure` to `false`
+-   **i18next:** `fetchLanguage` has been moved from `ClientOptions` to `ClientOptions.i18n`
+-   **plugin-i18next:** Changed `InternationalizationHandler#options` to not be optional.
+-   **plugin-i18next:** Increase `@sapphire/framework` requirement to v2.
+-   **plugin-i18next:** Increase `discord.js` requirement to v13.
+-   **plugin-i18next:** Removed `I18nextClient#fetchLanguage` in favor of `InternationalizationHandler#fetchLanguage`.
+-   **plugin-i18next:** Removed `I18nextClient#i18n` in favor of `Context#i18n`.
+-   **plugin-i18next:** Removed `I18nextClient`.
+-   **plugin-i18next:** Removed `Message#editLocalized` in favor of `editLocalized(message, options)`.
+-   **plugin-i18next:** Removed `Structure#fetchLanguage` in favor of `fetchLanguage(structure)`.
+-   **plugin-i18next:** Removed `Structure#fetchT` in favor of `fetchT(structure)`.
+-   **plugin-i18next:** Removed `Structure#resolveKey` in favor of `resolveKey(structure, keys, options)`.
+-   **plugin-i18next:** Removed `Structure#sendLocalized` in favor of `sendLocalized(structure, options)`.
+-   **plugin-i18next:** Renamed `I18nextClientOptions` to `InternationalizationClientOptions`.
+-   **plugin-i18next:** Renamed `I18nextHandler` to `InternationalizationHandler`.
+-   **plugin-i18next:** Renamed `InternationalizationHandler.fetchLocale` to `format`.
+-   **plugin-i18next:** Renamed `InternationalizationHandler.fetchT` to `getT`.
+-   **plugin-i18next:** Require `discord.js` in `/register`.
+-   **plugin-i18next:** Simplified `editLocalized`'s overloads.
+-   **plugin-i18next:** Simplified `sendLocalized`'s overloads.
+
 ## [1.3.7](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@1.3.6...@sapphire/plugin-i18next@1.3.7) (2021-06-19)
 
 ### Bug Fixes

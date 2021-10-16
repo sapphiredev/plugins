@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@2.2.0...@sapphire/plugin-api@3.0.0) (2021-10-16)
+
+### Bug Fixes
+
+-   **api:** remove @sapphire/pieces from install instructions ([44e514c](https://github.com/sapphiredev/plugins/commit/44e514c7a755b13b316e875d3be7ed055bd33baf))
+-   **api:** update to Discord API v9 ([#124](https://github.com/sapphiredev/plugins/issues/124)) ([b194fe6](https://github.com/sapphiredev/plugins/commit/b194fe613ec04f327a2aa5ae8d051c400ed105c8))
+-   **plugin-api:** resolved augmentation bugs ([#102](https://github.com/sapphiredev/plugins/issues/102)) ([e21fd4a](https://github.com/sapphiredev/plugins/commit/e21fd4a6b0b36b2351c388b57d9c454734627a8b))
+
+### Code Refactoring
+
+-   **plugin-api:** updated for discord.js@13 and framework@2 ([856cd6f](https://github.com/sapphiredev/plugins/commit/856cd6f6f409ebb7fc156a64b0f7503154d2a38e))
+
+### Features
+
+-   **i18next:** update i18next dependency ([#129](https://github.com/sapphiredev/plugins/issues/129)) ([96519de](https://github.com/sapphiredev/plugins/commit/96519de5de253db390ed9a76ed073ffe1eabd187))
+-   rename `Awaited` to `Awaitable` ([#152](https://github.com/sapphiredev/plugins/issues/152)) ([e8aabab](https://github.com/sapphiredev/plugins/commit/e8aababca760125fd3752a807ef26da16103dd65))
+
+### BREAKING CHANGES
+
+-   **i18next:** i18next has been updated to v21.0.1. Please also seee the breaking changes for i18next [here](https://github.com/i18next/i18next/blob/master/CHANGELOG.md#2100) and their migration guide [here](https://www.i18next.com/misc/migration-guide#v-20-x-x-to-v-21-0-0)
+
+-   chore: activate renovate
+-   **plugin-api:** Increase `@sapphire/framework` requirement to v2.
+
 # [2.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@2.1.4...@sapphire/plugin-api@2.2.0) (2021-06-19)
 
 ### Bug Fixes

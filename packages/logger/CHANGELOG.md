@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@1.0.13...@sapphire/plugin-logger@2.0.0) (2021-10-16)
+
+### Bug Fixes
+
+-   **api:** update to Discord API v9 ([#124](https://github.com/sapphiredev/plugins/issues/124)) ([b194fe6](https://github.com/sapphiredev/plugins/commit/b194fe613ec04f327a2aa5ae8d051c400ed105c8))
+-   **deps:** update dependency colorette to v2 ([#142](https://github.com/sapphiredev/plugins/issues/142)) ([5ee876b](https://github.com/sapphiredev/plugins/commit/5ee876b3c43c688861168063b92fb343ba184fc9))
+
+### Features
+
+-   **i18next:** update i18next dependency ([#129](https://github.com/sapphiredev/plugins/issues/129)) ([96519de](https://github.com/sapphiredev/plugins/commit/96519de5de253db390ed9a76ed073ffe1eabd187))
+-   **subcommands:** migrate `Command#run` to `Command#messageRun` ([#157](https://github.com/sapphiredev/plugins/issues/157)) ([2960711](https://github.com/sapphiredev/plugins/commit/29607111c4e4f61ece463e10854982f205879996))
+
+### BREAKING CHANGES
+
+-   **i18next:** i18next has been updated to v21.0.1. Please also seee the breaking changes for i18next [here](https://github.com/i18next/i18next/blob/master/CHANGELOG.md#2100) and their migration guide [here](https://www.i18next.com/misc/migration-guide#v-20-x-x-to-v-21-0-0)
+
+-   chore: activate renovate
+
 ## [1.0.13](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@1.0.12...@sapphire/plugin-logger@1.0.13) (2021-06-19)
 
 ### Bug Fixes
