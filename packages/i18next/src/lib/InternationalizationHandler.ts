@@ -1,4 +1,4 @@
-import { getRootData } from '@sapphire/pieces';
+import { container, getRootData } from '@sapphire/pieces';
 import { Awaitable, isFunction, NonNullObject } from '@sapphire/utilities';
 import { opendir } from 'fs/promises';
 import i18next, { StringMap, TFunction, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
@@ -55,7 +55,8 @@ export class InternationalizationHandler {
 	 */
 	public constructor(options?: InternationalizationOptions) {
 		this.options = options ?? { i18next: { ignoreJSONStructure: false } };
-		this.languagesDirectory = this.options.defaultLanguageDirectory ?? join(getRootData().root, 'languages');
+		this.languagesDirectory =
+			this.options.defaultLanguageDirectory ?? join(container.client?.options?.baseUserDirectory ?? getRootData().root, 'languages');
 
 		this.backendOptions = {
 			loadPath: join(this.languagesDirectory, '{{lng}}', '{{ns}}.json'),
