@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@2.0.0...@sapphire/plugin-logger@2.0.1) (2021-10-17)
+
+### Bug Fixes
+
+-   allow more node & npm versions in engines field ([ce5b12f](https://github.com/sapphiredev/plugins/commit/ce5b12f8142297bceda49b85574a95a3cf9112ab))
+
 # [2.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@1.0.13...@sapphire/plugin-logger@2.0.0) (2021-10-16)
 
 ### Bug Fixes
