@@ -34,7 +34,7 @@
 		"@typescript-eslint/eslint-plugin": "^5.0.0",
 		"@typescript-eslint/parser": "^5.0.0",
 		"cz-conventional-changelog": "^3.3.0",
-		"discord-api-types": "^0.23.1",
+		"discord-api-types": "0.23.1",
 		"discord.js": "^13.2.0",
 		"eslint": "^8.0.1",
 		"eslint-config-prettier": "^8.3.0",
@@ -58,7 +58,8 @@
 		"url": "git+https://github.com/sapphiredev/plugins.git"
 	},
 	"engines": {
-		"node": ">=v14.18.0"
+		"node": ">=v14.0.0",
+		"npm": ">=7.0.0"
 	},
 	"commitlint": {
 		"extends": [
