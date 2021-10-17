@@ -2008,18 +2008,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/eslint-config@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@sapphire/eslint-config@npm:4.0.0"
+"@sapphire/eslint-config@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@sapphire/eslint-config@npm:4.0.1"
   dependencies:
     "@typescript-eslint/eslint-plugin": ^5.0.0
     "@typescript-eslint/parser": ^5.0.0
-    eslint: ^8.0.0
+    eslint: ^8.0.1
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     prettier: ^2.4.1
-    typescript: ^4.4.3
-  checksum: 8620a7015f101b0d2a54e4ac4a7f84a6670bd79c97b636834b4f2d7199b1a52f0c9ba9046feda5be22454cd145b8c66cddb1a004351e94f3fe6af480f8549649
+    typescript: ^4.4.4
+  checksum: baee715bcdc841aed7d5f3e0ebc2e8aa5960848970cca9670f5606b7191a9dd74eff4371487f60eca5b8b098e37968192f3d93654b36d27068e125c29387ae8f
   languageName: node
   linkType: hard
 
@@ -2084,9 +2084,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-i18next@workspace:packages/i18next"
   dependencies:
-    "@sapphire/utilities": ^3.0.3
+    "@sapphire/utilities": ^3.0.4
     "@types/i18next-fs-backend": ^1.1.2
-    i18next: ^21.3.1
+    i18next: ^21.3.2
     i18next-fs-backend: ^1.1.1
     tslib: ^2.3.1
   languageName: unknown
@@ -2096,7 +2096,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-logger@workspace:packages/logger"
   dependencies:
-    "@sapphire/time-utilities": ^1.4.3
+    "@sapphire/time-utilities": ^1.4.4
     colorette: ^2.0.16
     tslib: ^2.3.1
   languageName: unknown
@@ -2110,12 +2110,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/prettier-config@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "@sapphire/prettier-config@npm:1.2.2"
+"@sapphire/prettier-config@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "@sapphire/prettier-config@npm:1.2.3"
   dependencies:
     prettier: ^2.4.1
-  checksum: cf95e119e9b3a96a00be469ade2fb2d36e5a09cf39c8c9f07ed6020137f63a1b71ddeff92776e7bd97d74f6a18789d29adee3d7356ada3df5ccc13a083852491
+  checksum: 6bc48802044f2cb413d8b4e705334bb999b39541eb1bd8110f21c4644816db0538bd8113dc7d44ba0b85d8e7d3dd3c86a4c97f1ad757361147335fe9714743ce
   languageName: node
   linkType: hard
 
@@ -2137,13 +2137,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/ts-config@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "@sapphire/ts-config@npm:3.1.1"
+"@sapphire/time-utilities@npm:^1.4.4":
+  version: 1.4.4
+  resolution: "@sapphire/time-utilities@npm:1.4.4"
+  dependencies:
+    "@sapphire/utilities": ^3.0.4
+  checksum: 0c3e72f2fb084d7a7fece0ce6aa3fba553e0de1c84bb7985dcf666488582ae1e65910fa260ff0df68f15c27276551feb1b7857f5ca8fa336755ef432904118f0
+  languageName: node
+  linkType: hard
+
+"@sapphire/ts-config@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "@sapphire/ts-config@npm:3.1.2"
   dependencies:
     tslib: ^2.3.1
-    typescript: ^4.4.3
-  checksum: c7debadf916d7a1a5de4f6c48f4b03d3d353784c047f5073c4faeab228c29c6981aa53c55934e15ce02015a73ff0af5fcfd0bc1e25404ed2937c060df0e66438
+    typescript: ^4.4.4
+  checksum: 18f3437a41a5b43f4f481bcb6e7663c0bea7b1229f53d662ff39342740cc3045c404b92e1c4a6cf15f975bf3fd00e06af9a456bf146f1f27150d734a0f7fa2b4
   languageName: node
   linkType: hard
 
@@ -2151,6 +2160,13 @@ __metadata:
   version: 3.0.3
   resolution: "@sapphire/utilities@npm:3.0.3"
   checksum: 21fca640a8e0de16f00b0d1f057683aed9e8a03e56320295d410aa5bcf74a9f873c45622bfcdda42092975b858565709c52eac93a0298b14d109d77a84d96736
+  languageName: node
+  linkType: hard
+
+"@sapphire/utilities@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "@sapphire/utilities@npm:3.0.4"
+  checksum: 3a0026b3888c655f26f0616fe899573d3864b49fa032e019f15c79e837c639779b547e25386cbd5244008b910009e84a202dd97b64877c72382cb39563c75dba
   languageName: node
   linkType: hard
 
@@ -2346,10 +2362,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^16.11.0":
+"@types/node@npm:*":
   version: 16.11.0
   resolution: "@types/node@npm:16.11.0"
   checksum: 194ae80ec72f664e15e03c33f116be96aa1e85b167a19e31003c53ddfc36dabd65744e9a76c1d46b7ce2e5981d2ccb8e84a85c3ec9ac89f1471daaa885bdcfd0
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^16.11.1":
+  version: 16.11.1
+  resolution: "@types/node@npm:16.11.1"
+  checksum: 22cea470b89292810733b8b9fc1b6a1873bc3ed4d4cdf2f25e777dc607994bd7c12e64166d1a66dd5924734192b0a891b6aeb6813aa935f731345f4086234375
   languageName: node
   linkType: hard
 
@@ -4155,7 +4178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.0.1, eslint@npm:^8.0.0, eslint@npm:^8.0.1":
+"eslint@npm:8.0.1, eslint@npm:^8.0.1":
   version: 8.0.1
   resolution: "eslint@npm:8.0.1"
   dependencies:
@@ -5171,7 +5194,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"i18next@npm:^21.0.1, i18next@npm:^21.3.1":
+"i18next@npm:^21.0.1, i18next@npm:^21.3.2":
   version: 21.3.2
   resolution: "i18next@npm:21.3.2"
   dependencies:
@@ -8437,14 +8460,14 @@ fsevents@^2.3.2:
     "@commitlint/cli": ^13.2.1
     "@commitlint/config-conventional": ^13.2.0
     "@favware/npm-deprecate": ^1.0.4
-    "@sapphire/eslint-config": ^4.0.0
+    "@sapphire/eslint-config": ^4.0.1
     "@sapphire/framework": ^2.1.0
     "@sapphire/pieces": ^3.1.0
-    "@sapphire/prettier-config": ^1.2.2
-    "@sapphire/ts-config": ^3.1.1
-    "@sapphire/utilities": ^3.0.3
+    "@sapphire/prettier-config": ^1.2.3
+    "@sapphire/ts-config": ^3.1.2
+    "@sapphire/utilities": ^3.0.4
     "@types/jest": ^27.0.2
-    "@types/node": ^16.11.0
+    "@types/node": ^16.11.1
     "@types/node-fetch": ^2.5.12
     "@types/ws": ^8.2.0
     "@typescript-eslint/eslint-plugin": ^5.0.0
@@ -8464,7 +8487,7 @@ fsevents@^2.3.2:
     prettier: ^2.4.1
     pretty-quick: ^3.1.1
     rimraf: ^3.0.2
-    ts-jest: ^27.0.6
+    ts-jest: ^27.0.7
     ts-node: ^10.3.0
     typedoc: ^0.22.5
     typescript: ^4.4.4
@@ -9267,7 +9290,7 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^27.0.6":
+"ts-jest@npm:^27.0.7":
   version: 27.0.7
   resolution: "ts-jest@npm:27.0.7"
   dependencies:
