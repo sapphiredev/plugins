@@ -56,7 +56,7 @@ import type { Message } from 'discord.js';
 })
 // Extend `SubCommandPluginCommand` instead of `Command`
 export class UserCommand extends SubCommandPluginCommand {
-	// Do not include a `run` method, each method name should match with the subcommand names
+	// Do not include a `messageRun` method, each method name should match with the subcommand names
 	public async add(message: Message, args: Args) {}
 
 	public async remove(message: Message, args: Args) {}
@@ -83,7 +83,7 @@ module.exports = class UserCommand extends SubCommandPluginCommand {
 		});
 	}
 
-	// Do not include a `run` method, each method name should match with the subcommand names
+	// Do not include a `messageRun` method, each method name should match with the subcommand names
 	async add(message, args) {}
 
 	async remove(message, args) {}

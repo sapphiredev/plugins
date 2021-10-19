@@ -76,7 +76,7 @@ export class PingCommand extends Command {
 		});
 	}
 
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		this.container.logger.warn('warning message');
 	}
 }
