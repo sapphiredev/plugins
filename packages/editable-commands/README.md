@@ -63,7 +63,7 @@ module.exports = class UserCommand extends Command {
 		});
 	}
 
-	run(message) {
+	messageRun(message) {
 		const embed = new MessageEmbed()
 			.setURL('https://github.com/skyra-project/editable-commands')
 			.setColor('#7586D8')
@@ -96,7 +96,7 @@ import { send } from '@sapphire/plugin-editable-commands';
 	requiredClientPermissions: ['EMBED_LINKS']
 })
 export class UserCommand extends Command {
-	public run(message: Message) {
+	public messageRun(message: Message) {
 		const embed = new MessageEmbed()
 			.setURL('https://github.com/sapphiredev/plugins')
 			.setColor('#7586D8')

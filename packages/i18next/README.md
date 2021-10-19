@@ -76,7 +76,7 @@ export class PingCommand extends Command {
 		});
 	}
 
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		await message.channel.send(await resolveKey('commands/ping:success'));
 	}
 }
@@ -98,7 +98,7 @@ export class PingCommand extends Command {
 		});
 	}
 
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		await sendLocalized(message, 'commands/ping:success');
 	}
 }
@@ -120,7 +120,7 @@ export class PingCommand extends Command {
 		});
 	}
 
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		await editLocalized(message, 'commands/ping:success_args', { latency: ws.ping });
 	}
 }
@@ -142,7 +142,7 @@ export class PingCommand extends Command {
 		});
 	}
 
-	public async run(message: Message) {
+	public async messageRun(message: Message) {
 		return message.channel.send(await fetchLanguage(message));
 		// ===> en-US
 	}
