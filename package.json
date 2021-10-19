@@ -1,5 +1,5 @@
 {
-	"name": "root",
+	"name": "root-plugins",
 	"private": true,
 	"workspaces": [
 		"packages/*"

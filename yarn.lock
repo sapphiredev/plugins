@@ -8453,9 +8453,9 @@ fsevents@^2.3.2:
   languageName: node
   linkType: hard
 
-"root@workspace:.":
+"root-plugins@workspace:.":
   version: 0.0.0-use.local
-  resolution: "root@workspace:."
+  resolution: "root-plugins@workspace:."
   dependencies:
     "@commitlint/cli": ^13.2.1
     "@commitlint/config-conventional": ^13.2.0
