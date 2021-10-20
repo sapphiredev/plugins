@@ -36,7 +36,7 @@ export interface InternationalizationOptions {
 
 	/**
 	 * The directory in which "i18next-fs-backend" should search for files.
-	 * Defaults to "<rootDirectory>/languages".
+	 * @default `rootDirectory/language`
 	 * @since 1.0.0
 	 */
 	defaultLanguageDirectory?: string;
