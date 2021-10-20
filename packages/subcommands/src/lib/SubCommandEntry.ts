@@ -34,7 +34,7 @@ export namespace SubCommandEntry {
 	 * @property input Input represents the subcommand that the user will type in.
 	 * @property output Output represents the method/command called for the subcommand.
 	 * @example
-	 * ```ts
+	 * ```typescript
 	 * subCommands: [{
 	 * 	input: ({ message }) => message.resolveKey('subcommands:set'),
 	 * 	output: 'set'

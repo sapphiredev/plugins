@@ -5,7 +5,7 @@ import { SubCommandEntry } from './SubCommandEntry';
  * SubCommandEntryMethods support method names as subcommand functions. All methods must be on the **same** class.
  * For splitting sub-commands into different commands, see {@link SubCommandEntryCommand}
  * @example
- * ```ts
+ * ```typescript
  * export class extends SubCommandPluginCommand {
  *  	public constructor(context: PieceContext) {
  * 			super(context, {

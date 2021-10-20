@@ -53,7 +53,7 @@ require('@sapphire/plugin-api/register');
 
 **TypeScript**
 
-```ts
+```typescript
 import '@sapphire/plugin-api/register';
 ```
 

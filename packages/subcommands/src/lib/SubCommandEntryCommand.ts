@@ -4,7 +4,7 @@ import { SubCommandEntry } from './SubCommandEntry';
 /**
  * SubCommandEntryCommand uses other commands as the caller function for subcommands.
  * @example
- * ```ts
+ * ```typescript
  * // here, using `command set` would call the command `modify-settings`.
  * subCommands: [{
  * 	input: 'set',
