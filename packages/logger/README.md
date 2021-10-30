@@ -93,10 +93,6 @@ export class PingCommand extends Command {
 
 > Example: `container.logger.debug('log debug message');`
 
-## Logger Documentation
-
-For the full @sapphire/plugin-logger documentation please refer to the TypeDoc generated [documentation](https://sapphiredev.github.io/plugins/modules/_sapphire_plugin_logger.html).
-
 ## Buy us some doughnuts
 
 Sapphire Community is and always will be open source, even if we don't get donations. That being said, we know there are amazing people who may still want to donate just to show their appreciation. Thank you very much in advance!
