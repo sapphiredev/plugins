@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@1.0.1...@sapphire/plugin-editable-commands@1.0.2) (2021-11-06)
+
+### Bug Fixes
+
+-   **docs:** replace command usage of `run` to `messageRun` ([#160](https://github.com/sapphiredev/plugins/issues/160)) ([415adb8](https://github.com/sapphiredev/plugins/commit/415adb85b884da5d0f1f2ce07a9d46134f2bcb12))
+
 ## [1.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@1.0.0...@sapphire/plugin-editable-commands@1.0.1) (2021-10-17)
 
 ### Bug Fixes
