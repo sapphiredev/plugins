@@ -141,6 +141,11 @@ export class InternationalizationHandler {
 			this.languages.set(item, i18next.getFixedT(item));
 		}
 		this.languagesLoaded = true;
+
+		const formatters = this.options.formatters ?? [];
+		for (const { name, format } of formatters) {
+			i18next.services.formatter!.add(name, format);
+		}
 	}
 
 	/**
