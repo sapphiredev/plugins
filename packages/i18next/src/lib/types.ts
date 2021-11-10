@@ -54,6 +54,15 @@ export interface InternationalizationOptions {
 	 * @since 1.0.0
 	 */
 	defaultNS?: string;
+
+	/**
+	 * Array of formatters to add to i18n.
+	 *
+	 * @since 2.0.0
+	 * @default []
+	 */
+	formatters?: I18nextFormatters[];
+
 	/**
 	 * A function that is to be used to retrieve the language for the current context.
 	 * Context exists of a {@link Guild `guild`}, a {@link DiscordChannel `channel`} and a {@link User `user`}.
@@ -82,4 +91,9 @@ export interface InternationalizationContext {
 
 export interface InternationalizationClientOptions {
 	i18n?: InternationalizationOptions;
+}
+
+export interface I18nextFormatters {
+	name: string;
+	format(value: any, lng: string | undefined, options: any): string;
 }
