@@ -6,7 +6,7 @@ import type { ChannelTarget, InternationalizationContext, LocalizedMessageOption
 
 /**
  * Retrieves the language name for a specific target, using {@link InternationalizationHandler.fetchLanguage}.
- * If {@link InternationalizationHandler.fetchLanguage} is not defined, or returns a nullish value,
+ * If {@link InternationalizationHandler.fetchLanguage} is not defined or if this function returns a nullish value,
  * then there will be a series of fallback attempts in the following descending order:
  * 1. Returns {@link Guild.preferredLocale}.
  * 2. Returns {@link InternationalizationOptions.defaultName} if no guild was provided.
