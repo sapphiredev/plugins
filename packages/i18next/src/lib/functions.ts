@@ -1,16 +1,16 @@
 import { container } from '@sapphire/pieces';
 import { isObject, NonNullObject } from '@sapphire/utilities';
-import { Guild, Message, MessageOptions } from 'discord.js';
+import { Guild, Message } from 'discord.js';
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
-import type { DiscordChannel, InternationalizationContext, TextBasedDiscordChannel } from './types';
-
-export type ChannelTarget = Message | DiscordChannel;
-export type Target = ChannelTarget | Guild;
+import type { ChannelTarget, InternationalizationContext, LocalizedMessageOptions, Target, TextBasedDiscordChannel } from './types';
 
 /**
- * Retrieves the language name for a specific target, using {@link InternationalizationHandler.fetchLanguage}, and if it
- * returns a nullish value, then it falls back to {@link Guild.preferredLocale}, then
- * {@link InternationalizationOptions.defaultName} if no guild was provided, and finally 'en-US' if none was set.
+ * Retrieves the language name for a specific target, using {@link InternationalizationHandler.fetchLanguage}.
+ * If {@link InternationalizationHandler.fetchLanguage} is not defined or this function returns a nullish value,
+ * then there will be a series of fallback attempts in the following descending order:
+ * 1. Returns {@link Guild.preferredLocale}.
+ * 2. Returns {@link InternationalizationOptions.defaultName} if no guild was provided.
+ * 3. Returns `'en-US'` if nothing else was found.
  * @since 2.0.0
  * @param target The target to fetch the language from.
  * @see {@link resolveLanguage}
@@ -62,20 +62,11 @@ export async function resolveKey<
 	return container.i18n.format(await fetchLanguage(target), key, options);
 }
 
-export interface LocalizedMessageOptions<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>
-	extends PartialLocalizedMessageOptions<TInterpolationMap> {
-	keys: TKeys | TKeys[];
-}
-
-export interface PartialLocalizedMessageOptions<TInterpolationMap extends NonNullObject = StringMap> extends Omit<MessageOptions, 'content'> {
-	formatOptions?: TOptions<TInterpolationMap>;
-}
-
 /**
- * Send a localized message using `key`an objects option.
+ * Send a localized message using the language `keys` from your i18next language setup.
  * @since 2.0.0
  * @param target The target to send the message to.
- * @param options The options to be sent, requiring at least `keys` to be passed.
+ * @param keys The language keys to be sent.
  * @example
  * ```typescript
  * await sendLocalized(message, 'commands/ping:loading');
@@ -84,7 +75,7 @@ export interface PartialLocalizedMessageOptions<TInterpolationMap extends NonNul
  */
 export async function sendLocalized<TKeys extends TFunctionKeys = string>(target: ChannelTarget, keys: TKeys | TKeys[]): Promise<Message>;
 /**
- * Send a localized message using an objects option.
+ * Send a localized message using an object of {@link LocalizedMessageOptions}.
  * @since 2.0.0
  * @param target The target to send the message to.
  * @param options The options to be sent, requiring at least `keys` to be passed.
@@ -117,10 +108,54 @@ export async function sendLocalized<TKeys extends TFunctionKeys = string, TInter
 }
 
 /**
- * Edits a message using the language key only.
+ * Replies to another message using the language `keys` from your i18next language setup.
  * @since 2.0.0
- * @param target The target to send the message to.
+ * @param target The message to reply to.
+ * @param keys The language keys to be sent.
+ * @example
+ * ```typescript
+ * await replyLocalized(message, 'commands/ping:loading');
+ * // ➡ "Pinging..."
+ * ```
+ */
+export async function replyLocalized<TKeys extends TFunctionKeys = string>(target: Message, keys: TKeys | TKeys[]): Promise<Message>;
+/**
+ * Replies to another message using an object of {@link LocalizedMessageOptions}.
+ * @since 2.0.0
+ * @param target The message to reply to.
  * @param options The options to be sent, requiring at least `keys` to be passed.
+ * @example
+ * ```typescript
+ * await replyLocalized(message, { keys: 'commands/ping:loading' });
+ * // ➡ "Pinging..."
+ * ```
+ * @example
+ * ```typescript
+ * const latency = 42;
+ *
+ * await replyLocalized(message, {
+ * 	keys: 'commands/ping:loading',
+ * 	formatOptions: { latency }
+ * });
+ * // ➡ "Pinging... current latency is 42ms."
+ * ```
+ */
+export async function replyLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
+	target: Message,
+	options: LocalizedMessageOptions<TKeys, TInterpolationMap>
+): Promise<Message>;
+export async function replyLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
+	target: Message,
+	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap>
+): Promise<Message> {
+	return target.reply(await resolveOverloads(target, options));
+}
+
+/**
+ * Edits a message using the language `keys` from your i18next language setup.
+ * @since 2.0.0
+ * @param target The message to edit.
+ * @param keys The language keys to be sent.
  * @example
  * ```typescript
  * await editLocalized(message, 'commands/ping:success');
@@ -131,7 +166,7 @@ export async function editLocalized<TKeys extends TFunctionKeys = string>(target
 /**
  * Edits a message using an objects option.
  * @since 2.0.0
- * @param target The target to send the message to.
+ * @param target The message to edit.
  * @param options The options to be sent, requiring at least `keys` to be passed.
  * @example
  * ```typescript
@@ -162,7 +197,7 @@ export async function editLocalized<TKeys extends TFunctionKeys = string, TInter
 }
 
 /**
- * @private
+ * @internal
  */
 async function resolveLanguage(context: InternationalizationContext): Promise<string> {
 	const lang = await container.i18n.fetchLanguage(context);
@@ -170,7 +205,7 @@ async function resolveLanguage(context: InternationalizationContext): Promise<st
 }
 
 /**
- * @private
+ * @internal
  */
 function resolveTextChannel(target: ChannelTarget): TextBasedDiscordChannel {
 	if (target instanceof Message) return target.channel;
@@ -179,7 +214,7 @@ function resolveTextChannel(target: ChannelTarget): TextBasedDiscordChannel {
 }
 
 /**
- * @private
+ * @internal
  */
 async function resolveOverloads<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
 	target: Target,

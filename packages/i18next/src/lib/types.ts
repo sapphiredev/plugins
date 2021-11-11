@@ -1,6 +1,6 @@
-import type { Awaitable } from '@sapphire/utilities';
-import type { Guild, Message, StageChannel, StoreChannel, User, VoiceChannel } from 'discord.js';
-import type { InitOptions } from 'i18next';
+import type { Awaitable, NonNullObject } from '@sapphire/utilities';
+import type { Guild, Message, MessageOptions, StageChannel, StoreChannel, User, VoiceChannel } from 'discord.js';
+import type { InitOptions, StringMap, TFunctionKeys, TOptions } from 'i18next';
 import type { i18nextFsBackend } from 'i18next-fs-backend';
 
 /**
@@ -97,3 +97,15 @@ export interface I18nextFormatters {
 	name: string;
 	format(value: any, lng: string | undefined, options: any): string;
 }
+
+export interface LocalizedMessageOptions<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>
+	extends PartialLocalizedMessageOptions<TInterpolationMap> {
+	keys: TKeys | TKeys[];
+}
+
+export interface PartialLocalizedMessageOptions<TInterpolationMap extends NonNullObject = StringMap> extends Omit<MessageOptions, 'content'> {
+	formatOptions?: TOptions<TInterpolationMap>;
+}
+
+export type ChannelTarget = Message | DiscordChannel;
+export type Target = ChannelTarget | Guild;
