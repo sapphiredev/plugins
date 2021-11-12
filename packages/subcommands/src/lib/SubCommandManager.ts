@@ -53,7 +53,6 @@ export class SubCommandManager<ArgType extends Args = Args, CommandType extends 
 	]);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace SubCommandManager {
 	export type Type = 'command' | 'method';
 	export interface Entry<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>>

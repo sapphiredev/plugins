@@ -27,7 +27,6 @@ export abstract class SubCommandEntry<ArgType extends Args = Args, CommandType e
 	public abstract messageRun(context: SubCommandEntry.MessageRunContext<ArgType, CommandType>): unknown;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace SubCommandEntry {
 	/**
 	 * The options for a SubCommandEntry.
