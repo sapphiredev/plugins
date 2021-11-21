@@ -1,10 +1,10 @@
-import { Listener, PieceContext } from '@sapphire/framework';
+import { Listener } from '@sapphire/framework';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../lib/structures/api/ApiResponse';
 import { ServerEvents } from '../lib/structures/http/Server';
 
 export class PluginListener extends Listener {
-	public constructor(context: PieceContext) {
+	public constructor(context: Listener.Context) {
 		super(context, { emitter: 'server', event: ServerEvents.Request });
 	}
 

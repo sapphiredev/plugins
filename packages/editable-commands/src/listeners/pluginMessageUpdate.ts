@@ -1,8 +1,8 @@
-import { Events, Listener, PieceContext } from '@sapphire/framework';
+import { Events, Listener } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 export class PluginListener extends Listener<typeof Events.MessageUpdate> {
-	public constructor(context: PieceContext) {
+	public constructor(context: Listener.Context) {
 		super(context, { event: Events.MessageUpdate });
 	}
 

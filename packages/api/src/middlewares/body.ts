@@ -1,4 +1,3 @@
-import type { PieceContext } from '@sapphire/pieces';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../lib/structures/api/ApiResponse';
 import { HttpCodes } from '../lib/structures/http/HttpCodes';
@@ -8,7 +7,7 @@ import type { Route } from '../lib/structures/Route';
 
 export class PluginMiddleware extends Middleware {
 	private readonly mediaParsers: MediaParserStore;
-	public constructor(context: PieceContext) {
+	public constructor(context: Middleware.Context) {
 		super(context, { position: 20 });
 		this.mediaParsers = this.container.server.mediaParsers;
 	}

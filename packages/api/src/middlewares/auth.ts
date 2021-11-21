@@ -1,11 +1,10 @@
-import type { PieceContext } from '@sapphire/pieces';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../lib/structures/api/ApiResponse';
 import { Middleware } from '../lib/structures/Middleware';
 
 export class PluginMiddleware extends Middleware {
 	private readonly cookieName: string;
-	public constructor(context: PieceContext) {
+	public constructor(context: Middleware.Context) {
 		super(context, { position: 40 });
 
 		const { server } = this.container;

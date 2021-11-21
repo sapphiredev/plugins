@@ -1,9 +1,9 @@
-import { Listener, PieceContext } from '@sapphire/framework';
+import { Listener } from '@sapphire/framework';
 import { HttpCodes } from '../lib/structures/http/HttpCodes';
 import { MiddlewareErrorContext, ServerEvents } from '../lib/structures/http/Server';
 
 export class PluginListener extends Listener {
-	public constructor(context: PieceContext) {
+	public constructor(context: Listener.Context) {
 		super(context, { emitter: 'server', event: ServerEvents.RouteError });
 	}
 

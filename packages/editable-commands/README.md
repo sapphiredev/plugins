@@ -87,11 +87,11 @@ Then use `send` or `reply` from the package, as shown below:
 
 ```typescript
 import { ApplyOptions } from '@sapphire/decorators';
-import { Command, CommandOptions } from '@sapphire/framework';
+import { Command } from '@sapphire/framework';
 import { Message, MessageEmbed } from 'discord.js';
 import { send } from '@sapphire/plugin-editable-commands';
 
-@ApplyOptions<CommandOptions>({
+@ApplyOptions<Command.Options>({
 	description: 'A very cool command',
 	requiredClientPermissions: ['EMBED_LINKS']
 })
