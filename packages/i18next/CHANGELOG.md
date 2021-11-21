@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.0.2...@sapphire/plugin-i18next@2.1.0) (2021-11-21)
+
+### Features
+
+-   expose and use namespaces for options, context, etc ([#176](https://github.com/sapphiredev/plugins/issues/176)) ([33452da](https://github.com/sapphiredev/plugins/commit/33452da808d91313a5d3bf680e11b5208ac67442))
+-   **i18n:** add `replyLocalized` ([#168](https://github.com/sapphiredev/plugins/issues/168)) ([4c51f52](https://github.com/sapphiredev/plugins/commit/4c51f52411d3a4f368db912dd840504622e4a373))
+-   **plugin-i18n:** add new syntax for formatters in i18next ([#167](https://github.com/sapphiredev/plugins/issues/167)) ([d0f01d9](https://github.com/sapphiredev/plugins/commit/d0f01d99a8e25929a819ae0d210596afdd208b62))
+
 ## [2.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.0.1...@sapphire/plugin-i18next@2.0.2) (2021-11-06)
 
 ### Bug Fixes

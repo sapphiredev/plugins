@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@2.0.2...@sapphire/plugin-logger@2.1.0) (2021-11-21)
+
+### Features
+
+-   expose and use namespaces for options, context, etc ([#176](https://github.com/sapphiredev/plugins/issues/176)) ([33452da](https://github.com/sapphiredev/plugins/commit/33452da808d91313a5d3bf680e11b5208ac67442))
+
 ## [2.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@2.0.1...@sapphire/plugin-logger@2.0.2) (2021-11-06)
 
 ### Bug Fixes

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.0.2...@sapphire/plugin-api@3.1.0) (2021-11-21)
+
+### Bug Fixes
+
+-   **deps:** update all non-major dependencies ([4c796f8](https://github.com/sapphiredev/plugins/commit/4c796f8ea424c0fe37cda949afac0d5900cc2ff2))
+
+### Features
+
+-   expose and use namespaces for options, context, etc ([#176](https://github.com/sapphiredev/plugins/issues/176)) ([33452da](https://github.com/sapphiredev/plugins/commit/33452da808d91313a5d3bf680e11b5208ac67442))
+
 ## [3.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.0.1...@sapphire/plugin-api@3.0.2) (2021-11-06)
 
 **Note:** Version bump only for package @sapphire/plugin-api
