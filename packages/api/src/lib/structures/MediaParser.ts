@@ -102,3 +102,7 @@ export abstract class MediaParser extends Piece {
 		return null;
 	}
 }
+
+export namespace MediaParser {
+	export type Context = Piece.Context;
+}

@@ -65,11 +65,11 @@ The `resolveKey` function can be used anywhere to get translated text by its key
 
 ```typescript
 import { resolveKey } from '@sapphire/plugin-i18next';
-import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import { Command } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 export class PingCommand extends Command {
-	public constructor(context: PieceContext, options: CommandOptions) {
+	public constructor(context: Command.Context, options: Command.Options) {
 		super(context, {
 			...options,
 			description: 'ping pong'
@@ -86,12 +86,12 @@ export class PingCommand extends Command {
 
 ```typescript
 import { sendLocalized } from '@sapphire/plugin-i18next';
-import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import { Command } from '@sapphire/framework';
 
 import type { Message } from 'discord.js';
 
 export class PingCommand extends Command {
-	public constructor(context: PieceContext, options: CommandOptions) {
+	public constructor(context: Command.Context, options: Command.Options) {
 		super(context, {
 			...options,
 			description: 'ping pong'
@@ -108,12 +108,12 @@ export class PingCommand extends Command {
 
 ```typescript
 import { editLocalized } from '@sapphire/plugin-i18next';
-import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import { Command } from '@sapphire/framework';
 
 import type { Message } from 'discord.js';
 
 export class PingCommand extends Command {
-	public constructor(context: PieceContext, options: CommandOptions) {
+	public constructor(context: Command.Context, options: Command.Options) {
 		super(context, {
 			...options,
 			description: 'ping pong'
@@ -130,12 +130,12 @@ export class PingCommand extends Command {
 
 ```typescript
 import { fetchLanguage } from '@sapphire/plugin-i18next';
-import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import { Command } from '@sapphire/framework';
 
 import type { Message } from 'discord.js';
 
 export class PingCommand extends Command {
-	public constructor(context: PieceContext, options: CommandOptions) {
+	public constructor(context: Command.Context, options: Command.Options) {
 		super(context, {
 			...options,
 			description: 'ping pong'

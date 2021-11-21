@@ -1,4 +1,3 @@
-import type { PieceContext } from '@sapphire/pieces';
 import { OAuth2Routes } from 'discord-api-types/v9';
 import fetch from 'node-fetch';
 import { stringify } from 'querystring';
@@ -12,7 +11,7 @@ import { Route } from '../../lib/structures/Route';
 const sleep = promisify(setTimeout);
 
 export class PluginRoute extends Route {
-	public constructor(context: PieceContext) {
+	public constructor(context: Route.Context) {
 		super(context, { route: 'oauth/logout' });
 		this.enabled = this.container.server.auth !== null;
 	}

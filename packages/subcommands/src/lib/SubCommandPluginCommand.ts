@@ -1,4 +1,4 @@
-import { Args, Awaitable, Command, CommandContext, CommandOptions, PieceContext } from '@sapphire/framework';
+import { Args, Awaitable, Command, PieceContext } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 import { SubCommandManager } from './SubCommandManager';
 
@@ -11,14 +11,14 @@ export class SubCommandPluginCommand<ArgType extends Args = Args, CommandType ex
 		this.subCommands = options.subCommands ? new SubCommandManager(options.subCommands) : null;
 	}
 
-	public messageRun(message: Message, args: ArgType, context: CommandContext): Awaitable<unknown> {
+	public messageRun(message: Message, args: ArgType, context: Command.Context): Awaitable<unknown> {
 		if (!this.subCommands) throw new Error(`The command ${this.name} does not have a 'messageRun' method and does not support sub-commands.`);
 		return this.subCommands.messageRun({ message, args, context, command: this as unknown as CommandType });
 	}
 }
 
 export interface SubCommandPluginCommandOptions<ArgType extends Args = Args, CommandType extends Command<ArgType> = Command<ArgType>>
-	extends CommandOptions {
+	extends Command.Options {
 	subCommands?: SubCommandManager.RawEntries<ArgType, CommandType>;
 }
 

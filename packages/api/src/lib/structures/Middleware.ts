@@ -1,4 +1,4 @@
-import { Piece, PieceContext, PieceOptions } from '@sapphire/pieces';
+import { Piece } from '@sapphire/pieces';
 import type { Awaitable } from '@sapphire/utilities';
 import type { ApiRequest } from './api/ApiRequest';
 import type { ApiResponse } from './api/ApiResponse';
@@ -20,7 +20,7 @@ export abstract class Middleware extends Piece {
 	 */
 	public readonly position: number;
 
-	public constructor(context: PieceContext, options: MiddlewareOptions = {}) {
+	public constructor(context: Piece.Context, options: Middleware.Options = {}) {
 		super(context, options);
 		this.position = options.position ?? 1000;
 	}
@@ -37,11 +37,16 @@ export abstract class Middleware extends Piece {
 /**
  * The options for all middlewares.
  */
-export interface MiddlewareOptions extends PieceOptions {
+export interface MiddlewareOptions extends Piece.Options {
 	/**
 	 * The position to insert the middleware at.
 	 * @see Middleware#position
 	 * @default 1000
 	 */
 	position?: number;
+}
+
+export namespace Middleware {
+	export type Context = Piece.Context;
+	export type Options = MiddlewareOptions;
 }

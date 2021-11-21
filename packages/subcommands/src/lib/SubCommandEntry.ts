@@ -1,4 +1,4 @@
-import { Args, Awaitable, Command, CommandContext, container } from '@sapphire/framework';
+import { Args, Awaitable, Command, container } from '@sapphire/framework';
 import { isFunction } from '@sapphire/utilities';
 import type { Message } from 'discord.js';
 
@@ -53,6 +53,6 @@ export namespace SubCommandEntry {
 		command: CommandType;
 		message: Message;
 		args: ArgType;
-		context: CommandContext;
+		context: Command.Context;
 	}
 }

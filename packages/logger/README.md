@@ -65,11 +65,11 @@ Here is an example ping command, demonstrating the use of `this.container.logger
 ```typescript
 // ping command
 
-import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import { Command } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 export class PingCommand extends Command {
-	public constructor(context: PieceContext, options: CommandOptions) {
+	public constructor(context: Command.Context, options: Command.Options) {
 		super(context, {
 			...options,
 			description: 'ping pong'

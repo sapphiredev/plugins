@@ -1,4 +1,4 @@
-import { Piece, PieceContext, PieceOptions } from '@sapphire/pieces';
+import { Piece } from '@sapphire/pieces';
 import type { Awaitable } from '@sapphire/utilities';
 import { Collection } from 'discord.js';
 import { RouteData } from '../utils/RouteData';
@@ -30,7 +30,7 @@ export abstract class Route extends Piece {
 	 */
 	public readonly methods = new Collection<Methods, MethodCallback>();
 
-	public constructor(context: PieceContext, options: RouteOptions = {}) {
+	public constructor(context: Piece.Context, options: Route.Options = {}) {
 		super(context, options);
 
 		const api = this.container.server.options;
@@ -74,7 +74,7 @@ export abstract class Route extends Piece {
 	}
 }
 
-export interface RouteOptions extends PieceOptions {
+export interface RouteOptions extends Piece.Options {
 	/**
 	 * The route the piece should represent.
 	 * @since 1.0.0
@@ -105,4 +105,9 @@ export interface RouteOptions extends PieceOptions {
 	 * @default this.context.server.options.acceptedContentMimeTypes ?? null
 	 */
 	acceptedContentMimeTypes?: MimeTypeWithoutParameters[] | null;
+}
+
+export namespace Route {
+	export type Context = Piece.Context;
+	export type Options = RouteOptions;
 }
