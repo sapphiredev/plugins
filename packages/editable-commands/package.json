@@ -32,7 +32,7 @@
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"@skyra/editable-commands": "^2.1.0",
+		"@skyra/editable-commands": "^2.1.1",
 		"tslib": "^2.3.1"
 	},
 	"repository": {
