@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@1.1.0...@sapphire/plugin-editable-commands@1.1.1) (2021-11-25)
+
+### Bug Fixes
+
+-   **editable-commands:** bump @skyra/editable-commands dependency to fix an issue in latest DJS ([478833b](https://github.com/sapphiredev/plugins/commit/478833b2d7d6f17a6e735e494618786c90b96926))
+
 # [1.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@1.0.2...@sapphire/plugin-editable-commands@1.1.0) (2021-11-21)
 
 ### Features
