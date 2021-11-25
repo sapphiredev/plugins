@@ -2076,7 +2076,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-editable-commands@workspace:packages/editable-commands"
   dependencies:
-    "@skyra/editable-commands": ^2.1.0
+    "@skyra/editable-commands": ^2.1.1
     tslib: ^2.3.1
   languageName: unknown
   linkType: soft
@@ -2087,7 +2087,7 @@ __metadata:
   dependencies:
     "@sapphire/utilities": ^3.1.0
     "@types/i18next-fs-backend": ^1.1.2
-    i18next: ^21.5.2
+    i18next: ^21.5.3
     i18next-fs-backend: ^1.1.4
     tslib: ^2.3.1
   languageName: unknown
@@ -2180,10 +2180,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@skyra/editable-commands@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@skyra/editable-commands@npm:2.1.0"
-  checksum: 7ee12074a56207291fd6f57c1b96cf7ebd965dbaa72827e944595cd2c35fd61c8765745fa95a043490118ec5938d31e8618029134f7a1e8ac01c0d091f0c1d57
+"@skyra/editable-commands@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "@skyra/editable-commands@npm:2.1.1"
+  checksum: 08ab1adc5438195da253245ecca5ecb4032ad27f645530412a130216fae9b75208e3e90abf99bba9adef918b259335dc96f7034162a8e64fc8a6a7cd30deca6a
   languageName: node
   linkType: hard
 
@@ -2347,10 +2347,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^16.11.9":
+"@types/node@npm:*":
   version: 16.11.9
   resolution: "@types/node@npm:16.11.9"
   checksum: baec2e6471ee58fd1e9874e6f47ab95a918a0f46b42424392e4c13e3e07f078f8b72b6b48073b0b14f710ed66c5f1b2e497df43f28151000f11f5f299382cfe2
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^16.11.10":
+  version: 16.11.10
+  resolution: "@types/node@npm:16.11.10"
+  checksum: 9c79419c5c3d92d5825bffa30f3668533f598d8b63a73ea7fc24e47f162bdbed92b0f8e4f4261cc3314b39cee050e303366d2aa154abc95c63a572a110b8c160
   languageName: node
   linkType: hard
 
@@ -5191,12 +5198,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^21.0.1, i18next@npm:^21.5.2":
+"i18next@npm:^21.0.1":
   version: 21.5.2
   resolution: "i18next@npm:21.5.2"
   dependencies:
     "@babel/runtime": ^7.12.0
   checksum: 1968c334acee1167a7efb80304c273d425bdd6d5bb0018949e93f8f2af86d0712362f4486e825fd94ccc5a947a2839d2970ade99c56e772683708486bf1f3a07
+  languageName: node
+  linkType: hard
+
+"i18next@npm:^21.5.3":
+  version: 21.5.3
+  resolution: "i18next@npm:21.5.3"
+  dependencies:
+    "@babel/runtime": ^7.12.0
+  checksum: f08b25fd9d029da759b25c4c436ea90c0cca49784de516d699f1e6ba4a4f0fb515b0f65c57e41b0306ab200aefaca4f822d39e51938f08f13151ea6b06a24b04
   languageName: node
   linkType: hard
 
@@ -6486,8 +6502,8 @@ __metadata:
   linkType: hard
 
 "lint-staged@npm:^12.1.1":
-  version: 12.1.1
-  resolution: "lint-staged@npm:12.1.1"
+  version: 12.1.2
+  resolution: "lint-staged@npm:12.1.2"
   dependencies:
     cli-truncate: ^3.1.0
     colorette: ^2.0.16
@@ -6505,7 +6521,7 @@ __metadata:
     yaml: ^1.10.2
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 1c4ec4cbccac7040b7d676f0e4f99d9e8d69360ec99d69cbfb12b6c27708ba8a076741712f1b45e67099fc640b1049a27cba8866a85a299a6048ab39d8e4faa7
+  checksum: ec84ce4f74d0d8fe314bd0b62fb5e0be64af692d1876f68c457116faef61b4b3b79d72df7819c248bfbb20c46e88fbe994128e7351e84bec7048263e00199925
   languageName: node
   linkType: hard
 
@@ -7940,6 +7956,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "prettier@npm:2.5.0"
+  bin:
+    prettier: bin-prettier.js
+  checksum: aad1b35b73e7c14596d389d90977a83dad0db689ba5802a0ef319c357b7867f55b885db197972aa6a56c30f53088c9f8e0d7f7930ae074c275a4e9cbe091d21d
+  languageName: node
+  linkType: hard
+
 "pretty-format@npm:^27.0.0, pretty-format@npm:^27.3.1":
   version: 27.3.1
   resolution: "pretty-format@npm:27.3.1"
@@ -8467,7 +8492,7 @@ __metadata:
     "@sapphire/ts-config": ^3.1.4
     "@sapphire/utilities": ^3.1.0
     "@types/jest": ^27.0.3
-    "@types/node": ^16.11.9
+    "@types/node": ^16.11.10
     "@types/node-fetch": ^2.5.12
     "@types/ws": ^8.2.0
     "@typescript-eslint/eslint-plugin": ^5.4.0
@@ -8484,12 +8509,12 @@ __metadata:
     jest-circus: ^27.3.1
     lerna: ^4.0.0
     lint-staged: ^12.1.1
-    prettier: ^2.4.1
+    prettier: ^2.5.0
     pretty-quick: ^3.1.2
     rimraf: ^3.0.2
     ts-jest: ^27.0.7
     ts-node: ^10.4.0
-    typedoc: ^0.22.9
+    typedoc: ^0.22.10
     typedoc-plugin-djs-links: ^1.0.0
     typedoc-plugin-mdn-links: ^1.0.4
     typescript: ^4.5.2
@@ -9569,9 +9594,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.22.9":
-  version: 0.22.9
-  resolution: "typedoc@npm:0.22.9"
+"typedoc@npm:^0.22.10":
+  version: 0.22.10
+  resolution: "typedoc@npm:0.22.10"
   dependencies:
     glob: ^7.2.0
     lunr: ^2.3.9
@@ -9579,10 +9604,10 @@ __metadata:
     minimatch: ^3.0.4
     shiki: ^0.9.12
   peerDependencies:
-    typescript: 4.0.x || 4.1.x || 4.2.x || 4.3.x || 4.4.x
+    typescript: 4.0.x || 4.1.x || 4.2.x || 4.3.x || 4.4.x || 4.5.x
   bin:
     typedoc: bin/typedoc
-  checksum: a9728074a357fd48fdcbd661ced298f37e2f5b366e5eb921cf06767eabf87fada30ffe791059272e2336cb1d02f1034116a72ca6f159df811906eb82e03071e3
+  checksum: 404932ae8e62d1507209d50b635d9d5cefead344e7e84e2d21fc84741fb739e011dcffcf335d6d4e2a31fe45910757b27f11678f6ae5b89514d2f291fe41884e
   languageName: node
   linkType: hard
 
