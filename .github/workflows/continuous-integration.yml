@@ -80,8 +80,7 @@ jobs:
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
         run: yarn --immutable
       - name: Compile Projects
-        run: |
-          yarn tsc -b packages/api
+        run: yarn build
 
   Upload_Coverage_Report:
     name: Upload coverage report to codecov
