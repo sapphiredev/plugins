@@ -23,6 +23,15 @@ export interface SubCommandPluginCommandOptions<ArgType extends Args = Args, Com
 }
 
 export namespace SubCommandPluginCommand {
+	/** Re-export of {@link Command.Context} */
+	export type Context = Command.Context;
+
+	/** Re-export of {@link Command.JSON} */
+	export type JSON = Command.JSON;
+
+	/** Re-export of {@link Command.RunInTypes} */
+	export type RunInTypes = Command.RunInTypes;
+
 	/**
 	 * The SubCommandPluginCommand Options
 	 */
