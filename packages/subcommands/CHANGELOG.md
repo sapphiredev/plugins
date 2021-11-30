@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@2.1.0...@sapphire/plugin-subcommands@2.1.1) (2021-11-30)
+
+### Bug Fixes
+
+-   expose `Context`, `JSON` and `RunInTypes` in the `SubCommandPluginCommand` namespace ([9af2b57](https://github.com/sapphiredev/plugins/commit/9af2b57f8b1cf6bc483a75a5d7b80de0dbb0dbdb))
+
 # [2.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@2.0.2...@sapphire/plugin-subcommands@2.1.0) (2021-11-21)
 
 ### Features
