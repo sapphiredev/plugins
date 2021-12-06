@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@2.1.0...@sapphire/plugin-logger@2.1.1) (2021-12-06)
+
+### Bug Fixes
+
+-   **deps:** update dependency @sapphire/time-utilities to ^1.5.0 ([d4cf912](https://github.com/sapphiredev/plugins/commit/d4cf912f1e77ad4ce74e9caa4ed427e60ad4b889))
+
 # [2.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@2.0.2...@sapphire/plugin-logger@2.1.0) (2021-11-21)
 
 ### Features
