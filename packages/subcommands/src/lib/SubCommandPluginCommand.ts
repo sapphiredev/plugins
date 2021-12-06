@@ -11,7 +11,7 @@ export class SubCommandPluginCommand<ArgType extends Args = Args, CommandType ex
 		this.subCommands = options.subCommands ? new SubCommandManager(options.subCommands) : null;
 	}
 
-	public messageRun(message: Message, args: ArgType, context: Command.Context): Awaitable<unknown> {
+	public messageRun(message: Message, args: ArgType, context: Command.RunContext): Awaitable<unknown> {
 		if (!this.subCommands) throw new Error(`The command ${this.name} does not have a 'messageRun' method and does not support sub-commands.`);
 		return this.subCommands.messageRun({ message, args, context, command: this as unknown as CommandType });
 	}
@@ -25,6 +25,9 @@ export interface SubCommandPluginCommandOptions<ArgType extends Args = Args, Com
 export namespace SubCommandPluginCommand {
 	/** Re-export of {@link Command.Context} */
 	export type Context = Command.Context;
+
+	/** Re-export of {@link Command.RunContext} */
+	export type RunContext = Command.RunContext;
 
 	/** Re-export of {@link Command.JSON} */
 	export type JSON = Command.JSON;

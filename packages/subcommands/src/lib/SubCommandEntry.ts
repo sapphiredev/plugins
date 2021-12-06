@@ -53,6 +53,6 @@ export namespace SubCommandEntry {
 		command: CommandType;
 		message: Message;
 		args: ArgType;
-		context: Command.Context;
+		context: Command.RunContext;
 	}
 }
