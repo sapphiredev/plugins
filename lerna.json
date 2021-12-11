@@ -6,7 +6,9 @@
 	"command": {
 		"publish": {
 			"conventionalCommits": true,
-			"push": true
+			"push": true,
+			"ignoreChanges": ["**/*.md", "**/tests/**"],
+			"registry": "https://registry.npmjs.org/"
 		},
 		"version": {
 			"allowBranch": "main",

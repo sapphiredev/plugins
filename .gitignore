@@ -28,18 +28,6 @@ test_out/
 *.7z
 *.rar
 
-# Ignore JavaScript files
-**/*.js
-**/*.mjs
-**/*.js.map
-**/*.d.ts
-**/*.d.ts.map
-**/*.tsbuildinfo
-!packages/**/src/**/*.d.ts
-!packages/**/register*
-!jest.config.ts
-!**/scripts/*.mjs
-
 # Ignore heapsnapshot and log files
 *.heapsnapshot
 *.log
@@ -49,8 +37,5 @@ docs/
 # Ignore package locks
 package-lock.json
 
-# Ignore the GH cli downloaded by workflows
-gh
-
-# Ignore the "wiki" folder so we can checkout the wiki inside the same folder
-wiki/
+# Ignore Turbo caching
+.turbo

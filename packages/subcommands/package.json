@@ -17,7 +17,7 @@
 	"sideEffects": false,
 	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/subcommands",
 	"scripts": {
-		"lint": "eslint src tests --ext ts --fix",
+		"lint": "eslint src --ext ts --fix",
 		"build": "tsc -b src && yarn esm:default",
 		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
 		"prepublishOnly": "yarn build"
