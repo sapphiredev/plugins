@@ -43,7 +43,6 @@ export class Auth {
 
 	public domainOverwrite: string | null = null;
 
-	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
 	#secret: string;
 
 	private constructor(options: ServerOptionsAuth) {
