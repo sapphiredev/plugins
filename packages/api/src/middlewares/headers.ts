@@ -28,7 +28,7 @@ export class PluginMiddleware extends Middleware {
 	 * **RFC 7231 4.3.7.**
 	 * > This method allows a client to determine the options and/or requirements associated with a
 	 * > resource, or the capabilities of a server, without implying a resource action.
-	 
+	 *
 	 * This method ensures that the request is exited early in case required
 	 * The conditions in which an early exit is required are:
 	 * 1. If the request method is 'OPTIONS'. In this case the request is returned with status code 200
