@@ -31,10 +31,19 @@ export class RouteStore extends Store<Route> {
 
 	public match(request: ApiRequest): RouteMatch | null {
 		const { method } = request;
-		if (typeof method === 'undefined') return null;
 
+		// If there is no method, we can't match a route so return null
+		if (typeof method === 'undefined') {
+			return null;
+		}
+
+		// We get all the methods that are tied to the provided method to have a smaller list to filter through
 		const methodTable = this.table.get(method as Methods);
-		if (typeof methodTable === 'undefined') return null;
+
+		// If there are no methods of the provided type then we won't find any route so we return null
+		if (typeof methodTable === 'undefined') {
+			return null;
+		}
 
 		const { splits, querystring } = this.parseURL(request.url);
 

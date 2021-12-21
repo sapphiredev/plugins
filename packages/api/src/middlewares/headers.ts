@@ -1,6 +1,7 @@
 import { METHODS } from 'http';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../lib/structures/api/ApiResponse';
+import { HttpCodes } from '../lib/structures/http/HttpCodes';
 import { Middleware } from '../lib/structures/Middleware';
 import type { Route } from '../lib/structures/Route';
 
@@ -20,13 +21,29 @@ export class PluginMiddleware extends Middleware {
 		response.setHeader('Access-Control-Allow-Headers', 'Authorization, User-Agent, Content-Type');
 		response.setHeader('Access-Control-Allow-Methods', this.methods);
 
-		// RFC 7231 4.3.7.
-		// > This method allows a client to determine the options and/or requirements associated with a
-		// > resource, or the capabilities of a server, without implying a resource action.
-		//
-		// Due to this method's nature, it is recommended to end the request after setting pre-flight CORS headers.
-		if (request.method === 'OPTIONS') response.end();
-		// If there is no route, there is no reason to continue matching other middlewares.
-		else if (route === null) response.end();
+		this.ensurePotentialEarlyExit(request, response, route);
+	}
+
+	/**
+	 * **RFC 7231 4.3.7.**
+	 * > This method allows a client to determine the options and/or requirements associated with a
+	 * > resource, or the capabilities of a server, without implying a resource action.
+	 *
+	 * This method ensures that the request is exited early in case required
+	 * The conditions in which an early exit is required are:
+	 * 1. If the request method is 'OPTIONS'. In this case the request is returned with status code 200
+	 * 2. If the requested route isn't matched with any existing route in the RouteStore.
+	 * In this case the request is returned with a status code 404.
+	 *
+	 * @param request The API Request coming in
+	 * @param response The API response that will go out
+	 * @param route The route being requested by the request
+	 */
+	private ensurePotentialEarlyExit(request: ApiRequest, response: ApiResponse, route: Route | null) {
+		if (request.method === 'OPTIONS') {
+			response.end();
+		} else if (route === null) {
+			response.status(HttpCodes.NotFound).end();
+		}
 	}
 }
