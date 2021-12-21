@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.1.1...@sapphire/plugin-api@3.1.2) (2021-12-21)
+
+### Bug Fixes
+
+-   **routes:** ensure that unmatched routes return 404 instead of 200 ([#193](https://github.com/sapphiredev/plugins/issues/193)) ([19e1be9](https://github.com/sapphiredev/plugins/commit/19e1be98d9c8ef4493fd76a517d33b3bf7577ba8))
+
 ## [3.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.1.0...@sapphire/plugin-api@3.1.1) (2021-12-06)
 
 **Note:** Version bump only for package @sapphire/plugin-api
