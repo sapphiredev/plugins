@@ -1,5 +1,5 @@
-import type { Awaitable, Message } from 'discord.js';
 import { Args, Command } from '@sapphire/framework';
+import type { Awaitable, Message } from 'discord.js';
 
 export abstract class PatternCommand extends Command<Args, PatternCommand.Options> {
 	public readonly chance: number;

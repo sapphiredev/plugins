@@ -46,31 +46,34 @@ npm install @sapphire/plugin-pattern-commands @sapphire/framework @sapphire/util
 
 ## Usage
 
-- Paste this in your Bot.ts (or where you initiate your client)
+-   Paste this in your Bot.ts (or where you initiate your client)
+
 ```typescript
 import '@sapphire/plugin-pattern-commands/register';
 ```
-- Create a new `pattern-commands` directory under `/src`
-- Make your first pattern command:
+
+-   Create a new `pattern-commands` directory under `/src`
+-   Make your first pattern command:
 
 ```typescript
-import type { Message } from "discord.js";
-import { PatternCommand } from '@sapphire/plugin-pattern-commands'
-import { ApplyOptions } from "@sapphire/decorators";
+import type { Message } from 'discord.js';
+import { PatternCommand } from '@sapphire/plugin-pattern-commands';
+import { ApplyOptions } from '@sapphire/decorators';
 
 @ApplyOptions<PatternCommand.Options>({
-    aliases: ['cat', 'postman'],
+	aliases: ['cat', 'postman'],
 	chance: 85
 })
 export class AwooCommand extends PatternCommand {
-	public messageRun(message: Message){
+	public messageRun(message: Message) {
 		message.reply('Woof!');
 	}
 }
 ```
+
 In this example there's a 85% chance when your bot will bark at someone who says cat or postman.
 The matcher is case-insensitive and can match at substrings as well (so in the example above the word catnip also can trigger your bot)
-For aliases you can use regexp as well, but you have to encapsulate them as a string. For example: 
+For aliases you can use regexp as well, but you have to encapsulate them as a string. For example:
 
 ```typescript
 @ApplyOptions<PatternCommand.Options>({

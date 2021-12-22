@@ -60,7 +60,7 @@ export class MessageParseListener extends Listener<typeof Events.PreMessageParse
 			return false;
 		});
 
-		if (command) {
+		if (command && usedAlias !== undefined) {
 			client.emit(PatternCommandEvents.PreCommandRun, { message, command, alias: usedAlias });
 		}
 	}
