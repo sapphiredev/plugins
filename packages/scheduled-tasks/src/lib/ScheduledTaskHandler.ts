@@ -56,7 +56,7 @@ export class ScheduledTaskHandler {
 	}
 
 	private get store(): ScheduledTaskStore {
-		const scheduledTasksStore: ScheduledTaskStore = container.client.stores.get(ScheduledTaskStore.name)!;
+		const scheduledTasksStore: ScheduledTaskStore = container.client.stores.get('scheduled-tasks')!;
 		if (!scheduledTasksStore) {
 			throw new Error(`${ScheduledTaskStore.name} store is not present.`);
 		}
