@@ -4,4 +4,5 @@ package:
   - '@sapphire/plugin-editable-commands'
   - '@sapphire/plugin-i18next'
   - '@sapphire/plugin-logger'
+  - '@sapphire/plugin-scheduled-tasks'
   - '@sapphire/plugin-subcommands'
