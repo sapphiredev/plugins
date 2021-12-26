@@ -1,5 +1,4 @@
 import { container } from '@sapphire/framework';
-import type { SQS } from 'aws-sdk';
 import { randomBytes } from 'crypto';
 import { Consumer, ConsumerOptions } from 'sqs-consumer';
 import { Producer } from 'sqs-producer';
@@ -25,20 +24,14 @@ export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 	public connect() {
 		const consumer = Consumer.create({
 			...this.options,
-			// handleMessage requires a promise method as value. But we don't need to..
-			// eslint-disable-next-line @typescript-eslint/require-await
-			handleMessage: async (message) => void this.handleMessage(message),
-			// eslint-disable-next-line @typescript-eslint/require-await
-			handleMessageBatch: async (messages) => void this.handleBatch(messages)
+			handleMessage: this.handleMessage.bind(this),
+			handleMessageBatch: this.handleBatch.bind(this)
 		});
+
 		consumer.start();
 	}
 
 	public create(task: string, payload?: unknown, options?: ScheduledTasksTaskOptions) {
-		if (!this.producer) {
-			return;
-		}
-
 		if (options?.cron) {
 			throw new Error('SQS does not support cron notation.');
 		}
@@ -69,18 +62,20 @@ export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 		return container.tasks.run(task, payload);
 	}
 
-	private async handleMessage(message: SQS.Message) {
+	private async handleMessage(
+		message: Parameters<Required<ConsumerOptions>['handleMessage']>[0]
+	): ReturnType<Required<ConsumerOptions>['handleMessage']> {
 		const data = JSON.parse(message.Body!) as ScheduledTaskSQSStrategyMessageBody;
-		const result = await this.run(data.task, data.payload);
+		await this.run(data.task, data.payload);
 
 		if (data.options.type === 'repeated') {
 			await this.create(data.task, data.payload, data.options);
 		}
-
-		return result;
 	}
 
-	private async handleBatch(messages: SQS.Message[]) {
+	private async handleBatch(
+		messages: Parameters<Required<ConsumerOptions>['handleMessageBatch']>[0]
+	): ReturnType<Required<ConsumerOptions>['handleMessageBatch']> {
 		for (const message of messages) {
 			await this.handleMessage(message);
 		}

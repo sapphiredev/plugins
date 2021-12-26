@@ -1,7 +1,7 @@
 import { container } from '@sapphire/framework';
 import type { Awaitable } from '@sapphire/utilities';
 import { ScheduledTaskRedisStrategy } from './strategies/ScheduledTaskRedisStrategy';
-import { ScheduledTaskStore } from './structures/ScheduledTaskStore';
+import type { ScheduledTaskStore } from './structures/ScheduledTaskStore';
 import type { ScheduledTaskBaseStrategy, ScheduledTasksOptions, ScheduledTasksTaskOptions } from './types';
 
 export class ScheduledTaskHandler {
@@ -45,23 +45,12 @@ export class ScheduledTaskHandler {
 	}
 
 	public run(task: string, payload: unknown): Awaitable<unknown> {
-		const { store } = this;
-		const piece = store.get(task);
+		const piece = this.store.get(task);
 
-		if (!piece) {
-			return;
-		}
-
-		return piece.run(payload);
+		return piece?.run(payload);
 	}
 
 	private get store(): ScheduledTaskStore {
-		const scheduledTasksStore = container.client.stores.get('scheduled-tasks');
-
-		if (!scheduledTasksStore) {
-			throw new Error(`${ScheduledTaskStore.name} store is not present.`);
-		}
-
-		return scheduledTasksStore;
+		return container.client.stores.get('scheduled-tasks');
 	}
 }

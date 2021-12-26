@@ -29,9 +29,11 @@ Many bots have features that need to run periodically, such as uploading analyti
 -   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
 
 In case you want to use bull as your provider:
+
 -   [`bull`](https://www.npmjs.com/package/bull)
 
 In case you want to use sqs as your provider:
+
 -   [`sqs-consumer`](https://www.npmjs.com/package/sqs-consumer)
 -   [`sqs-producer`](https://www.npmjs.com/package/sqs-producer)
 
@@ -61,9 +63,11 @@ Then, you can pass the imported Strategy into the configuration options in your 
 ```typescript
 {
 	tasks: {
-		strategy: new ScheduledTaskRedisStrategy()
+		strategy: new ScheduledTaskRedisStrategy();
 		//or with sqs
-		strategy: new ScheduledTaskSQSStrategy({/* you can add your SQS options here */}) 
+		strategy: new ScheduledTaskSQSStrategy({
+			/* you can add your SQS options here */
+		});
 	}
 }
 ```
