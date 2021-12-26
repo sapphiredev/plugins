@@ -37,8 +37,8 @@
 		}
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^15.0.0",
-		"@commitlint/config-conventional": "^15.0.0",
+		"@commitlint/cli": "^16.0.0",
+		"@commitlint/config-conventional": "^16.0.0",
 		"@favware/npm-deprecate": "^1.0.4",
 		"@sapphire/eslint-config": "^4.0.8",
 		"@sapphire/framework": "^2.2.1",
