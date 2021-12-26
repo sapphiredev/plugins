@@ -62,13 +62,13 @@ Then, you can pass the imported Strategy into the configuration options in your 
 
 ```typescript
 const options = {
-	...otherClientOptionsGoHere
+	...otherClientOptionsGoHere,
 	tasks: {
-		strategy: new ScheduledTaskRedisStrategy()
+		strategy: new ScheduledTaskRedisStrategy(),
 		// or with sqs
 		strategy: new ScheduledTaskSQSStrategy({
 			/* you can add your SQS options here */
-		});
+		})
 	}
 };
 ```
