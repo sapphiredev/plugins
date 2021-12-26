@@ -15,15 +15,14 @@ export interface ScheduledTaskSQSStrategyMessageBody {
 export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 	public readonly options: ConsumerOptions;
 
-	private producer!: Producer;
+	private producer: Producer;
 
 	public constructor(options: ConsumerOptions) {
 		this.options = options;
+		this.producer = Producer.create(this.options);
 	}
 
 	public connect() {
-		this.producer = Producer.create(this.options);
-
 		const consumer = Consumer.create({
 			...this.options,
 			// handleMessage requires a promise method as value. But we don't need to..

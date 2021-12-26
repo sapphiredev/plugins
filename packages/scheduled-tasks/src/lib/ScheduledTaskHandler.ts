@@ -36,7 +36,7 @@ export class ScheduledTaskHandler {
 					type: 'repeated',
 					...(piece.interval
 						? {
-								interval: piece.interval!
+								interval: piece.interval
 						  }
 						: { cron: piece.cron! })
 				}
@@ -56,7 +56,8 @@ export class ScheduledTaskHandler {
 	}
 
 	private get store(): ScheduledTaskStore {
-		const scheduledTasksStore: ScheduledTaskStore = container.client.stores.get('scheduled-tasks')!;
+		const scheduledTasksStore = container.client.stores.get('scheduled-tasks');
+
 		if (!scheduledTasksStore) {
 			throw new Error(`${ScheduledTaskStore.name} store is not present.`);
 		}
