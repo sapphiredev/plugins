@@ -61,15 +61,16 @@ import { ScheduledTaskSQSStrategy } from '@sapphire/plugin-scheduled-tasks/regis
 Then, you can pass the imported Strategy into the configuration options in your SapphireClient extension class or initializer. This will either be located in your new SapphireClient constructor call, or super in your constructor method if you use an extension class.
 
 ```typescript
-{
+const options = {
+	...otherClientOptionsGoHere
 	tasks: {
-		strategy: new ScheduledTaskRedisStrategy();
-		//or with sqs
+		strategy: new ScheduledTaskRedisStrategy()
+		// or with sqs
 		strategy: new ScheduledTaskSQSStrategy({
 			/* you can add your SQS options here */
 		});
 	}
-}
+};
 ```
 
 In order to use the scheduled tasks anywhere other than a piece (commands, arguments, preconditions, etc.), you must first import the `container` property of `@sapphire/framework`. For pieces, you can simply use `this.container.tasks` to access this plugin's methods.
