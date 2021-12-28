@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.1.3...@sapphire/plugin-i18next@2.1.4) (2021-12-28)
+
+### Bug Fixes
+
+-   **i18next:** bump i18next dependency ([ebc32b0](https://github.com/sapphiredev/plugins/commit/ebc32b03288260359744810d8905b77fd7fc458c))
+
 ## [2.1.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.1.2...@sapphire/plugin-i18next@2.1.3) (2021-12-21)
 
 **Note:** Version bump only for package @sapphire/plugin-i18next

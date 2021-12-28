@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@1.1.2...@sapphire/plugin-editable-commands@1.1.3) (2021-12-28)
+
+### Bug Fixes
+
+-   **editable-commands:** bump `@skyra/editable-commands` to remove dependency on `message.deleted` ([8909612](https://github.com/sapphiredev/plugins/commit/890961274e040db29ff6caeb3da5c9caf7187c32))
+
 ## [1.1.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@1.1.1...@sapphire/plugin-editable-commands@1.1.2) (2021-12-21)
 
 **Note:** Version bump only for package @sapphire/plugin-editable-commands
