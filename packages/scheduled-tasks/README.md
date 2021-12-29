@@ -37,7 +37,7 @@ In case you want to use sqs as your provider:
 -   [`sqs-consumer`](https://www.npmjs.com/package/sqs-consumer)
 -   [`sqs-producer`](https://www.npmjs.com/package/sqs-producer)
 
-You can use the following command to install this package with bull, or replace `npm install` with your package manager of choice.
+You can use the following command to install this package along with bull, or replace `npm install` with your package manager of choice.
 
 ```sh
 npm install @sapphire/plugin-scheduled-tasks @sapphire/framework bull
@@ -64,10 +64,21 @@ Then, you can pass the imported Strategy into the configuration options in your 
 const options = {
 	...otherClientOptionsGoHere,
 	tasks: {
-		strategy: new ScheduledTaskRedisStrategy(),
-		// or with sqs
+		// Using bull (redis)
+		strategy: new ScheduledTaskRedisStrategy({
+			/* You can add your Bull options here, for example we can configure custom Redis connection options: */
+			bull: {
+				redis: {
+					port: 8888, // Defaults to 6379, but if your Redis server runs on another port configure it here
+					password: 'very-strong-password', // If your Redis server requires a password configure it here
+					host: 'localhost', // The host at which the redis server is found
+					db: 2 // Redis database number, defaults to 0 but can be any value between 0 and 15
+				}
+			}
+		}),
+		// Or with SQS
 		strategy: new ScheduledTaskSQSStrategy({
-			/* you can add your SQS options here */
+			/* You can add your SQS options here */
 		})
 	}
 };
