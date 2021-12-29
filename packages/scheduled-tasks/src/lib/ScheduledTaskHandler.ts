@@ -1,8 +1,8 @@
-import { container } from '@sapphire/framework';
-import type { Awaitable } from '@sapphire/utilities';
+import { container, fromAsync, isErr } from '@sapphire/framework';
 import { ScheduledTaskRedisStrategy } from './strategies/ScheduledTaskRedisStrategy';
 import type { ScheduledTaskStore } from './structures/ScheduledTaskStore';
 import type { ScheduledTaskBaseStrategy, ScheduledTasksOptions, ScheduledTasksTaskOptions } from './types';
+import { ScheduledTaskEvents } from './types/ScheduledTaskEvents';
 
 export class ScheduledTaskHandler {
 	public readonly strategy: ScheduledTaskBaseStrategy;
@@ -44,10 +44,27 @@ export class ScheduledTaskHandler {
 		);
 	}
 
-	public run(task: string, payload: unknown): Awaitable<unknown> {
+	public async run(task: string, payload: unknown): Promise<unknown> {
 		const piece = this.store.get(task);
 
-		return piece?.run(payload);
+		if (!piece) {
+			container.client.emit(ScheduledTaskEvents.ScheduledTaskNotFound, task, payload);
+			return;
+		}
+
+		const result = await fromAsync(async () => {
+			container.client.emit(ScheduledTaskEvents.ScheduledTaskRun, task, payload);
+			const result = await piece.run(payload);
+			container.client.emit(ScheduledTaskEvents.ScheduledTaskSuccess, task, payload, result);
+		});
+
+		if (isErr(result)) {
+			container.client.emit(ScheduledTaskEvents.ScheduledTaskError, result.error, task, payload);
+		}
+
+		container.client.emit(ScheduledTaskEvents.ScheduledTaskFinished, task, payload);
+
+		return result;
 	}
 
 	private get store(): ScheduledTaskStore {
