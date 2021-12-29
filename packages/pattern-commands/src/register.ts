@@ -1,6 +1,7 @@
 import { Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
 import { join } from 'path';
+import './index';
 import { PatternCommandStore } from './lib/structures/PaternCommandStore';
 
 /**
