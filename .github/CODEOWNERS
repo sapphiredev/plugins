@@ -2,4 +2,5 @@
 /packages/editable-commands/**/*.ts @favna @kyranet
 /packages/i18next/**/*.ts @nytelife26 @favna @kyranet
 /packages/logger/**/*.ts @kyranet
+/packages/pattern-commands/**/*.ts @feralheart
 /packages/subcommands/**/*.ts @kyranet
