@@ -69,6 +69,7 @@ export async function resolveKey<
  * @param keys The language keys to be sent.
  * @example
  * ```typescript
+ * // Using a string to specify the key to send
  * await sendLocalized(message, 'commands/ping:loading');
  * // ➡ "Pinging..."
  * ```
@@ -81,11 +82,13 @@ export async function sendLocalized<TKeys extends TFunctionKeys = string>(target
  * @param options The options to be sent, requiring at least `keys` to be passed.
  * @example
  * ```typescript
+ * // Using an object to specify the key to send
  * await sendLocalized(message, { keys: 'commands/ping:loading' });
  * // ➡ "Pinging..."
  * ```
  * @example
  * ```typescript
+ * // Passing interpolation options into i18next
  * const latency = 42;
  *
  * await sendLocalized(message, {
@@ -114,6 +117,7 @@ export async function sendLocalized<TKeys extends TFunctionKeys = string, TInter
  * @param keys The language keys to be sent.
  * @example
  * ```typescript
+ * // Using an object to specify the key to send
  * await replyLocalized(message, 'commands/ping:loading');
  * // ➡ "Pinging..."
  * ```
@@ -126,11 +130,13 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string>(targe
  * @param options The options to be sent, requiring at least `keys` to be passed.
  * @example
  * ```typescript
+ * // Using an object to specify the key to send
  * await replyLocalized(message, { keys: 'commands/ping:loading' });
  * // ➡ "Pinging..."
  * ```
  * @example
  * ```typescript
+ * // Passing interpolation options into i18next
  * const latency = 42;
  *
  * await replyLocalized(message, {
@@ -158,7 +164,8 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string, TInte
  * @param keys The language keys to be sent.
  * @example
  * ```typescript
- * await editLocalized(message, 'commands/ping:success');
+ * // Using a string to specify the key to send
+ * await editLocalized(message, 'commands/ping:fail');
  * // ➡ "Pong!"
  * ```
  */
@@ -170,11 +177,13 @@ export async function editLocalized<TKeys extends TFunctionKeys = string>(target
  * @param options The options to be sent, requiring at least `keys` to be passed.
  * @example
  * ```typescript
- * await editLocalized(message, { keys: 'commands/ping:success' });
+ * // Using an object to specify the key to send
+ * await editLocalized(message, { keys: 'commands/ping:fail' });
  * // ➡ "Pong!"
  * ```
  * @example
  * ```typescript
+ * // Passing interpolation options into i18next
  * const latency = 42;
  * const took = 96;
  *
