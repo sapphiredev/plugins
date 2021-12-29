@@ -37,7 +37,7 @@ In case you want to use sqs as your provider:
 -   [`sqs-consumer`](https://www.npmjs.com/package/sqs-consumer)
 -   [`sqs-producer`](https://www.npmjs.com/package/sqs-producer)
 
-You can use the following command to install this package with bull, or replace `npm install` with your package manager of choice.
+You can use the following command to install this package along with bull, or replace `npm install` with your package manager of choice.
 
 ```sh
 npm install @sapphire/plugin-scheduled-tasks @sapphire/framework bull
