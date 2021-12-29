@@ -1,6 +1,6 @@
 {
 	"name": "@sapphire/plugin-scheduled-tasks",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "Plugin for @sapphire/framework to have scheduled tasks",
 	"author": "@sapphire",
 	"license": "MIT",
