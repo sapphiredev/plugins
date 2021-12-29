@@ -9,10 +9,7 @@ export class ScheduledTaskHandler {
 
 	public constructor(options: ScheduledTasksOptions | undefined) {
 		this.strategy = options?.strategy ?? new ScheduledTaskRedisStrategy();
-	}
-
-	public async connect() {
-		await this.strategy.connect();
+		this.strategy.connect();
 	}
 
 	public create(task: string, payload: unknown, options?: ScheduledTasksTaskOptions | number) {

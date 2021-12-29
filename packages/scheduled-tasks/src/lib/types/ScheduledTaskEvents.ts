@@ -3,5 +3,6 @@ export enum ScheduledTaskEvents {
 	ScheduledTaskRun = 'scheduledTaskRun',
 	ScheduledTaskError = 'scheduledTaskError',
 	ScheduledTaskSuccess = 'scheduledTaskSuccess',
-	ScheduledTaskFinished = 'scheduledTaskFinished'
+	ScheduledTaskFinished = 'scheduledTaskFinished',
+	ScheduledTaskStrategyConnectError = 'scheduledTaskStrategyConnectError'
 }
