@@ -24,9 +24,9 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		this.options = options?.bull ?? {};
 	}
 
-	public async connect() {
+	public connect() {
 		this.bullClient = new Bull(this.queue, this.options);
-		await this.bullClient.process((job: Job<ScheduledTaskRedisStrategyJob>) => this.run(job?.data?.task, job?.data?.payload));
+		void this.bullClient.process((job: Job<ScheduledTaskRedisStrategyJob>) => this.run(job?.data?.task, job?.data?.payload));
 	}
 
 	public create(task: string, payload?: unknown, options?: ScheduledTasksTaskOptions) {
