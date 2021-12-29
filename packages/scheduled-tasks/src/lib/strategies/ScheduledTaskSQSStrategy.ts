@@ -1,9 +1,10 @@
-import { container } from '@sapphire/framework';
+import { container, from, isErr } from '@sapphire/framework';
 import { randomBytes } from 'crypto';
 import { Consumer, ConsumerOptions } from 'sqs-consumer';
 import { Producer } from 'sqs-producer';
 import type { ScheduledTaskCreateRepeatedTask, ScheduledTasksTaskOptions } from '../types';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
+import { ScheduledTaskEvents } from '../types/ScheduledTaskEvents';
 
 export interface ScheduledTaskSQSStrategyMessageBody {
 	task: string;
@@ -22,13 +23,19 @@ export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 	}
 
 	public connect() {
-		const consumer = Consumer.create({
-			...this.options,
-			handleMessage: this.handleMessage.bind(this),
-			handleMessageBatch: this.handleBatch.bind(this)
+		const connectResult = from(() => {
+			const consumer = Consumer.create({
+				...this.options,
+				handleMessage: this.handleMessage.bind(this),
+				handleMessageBatch: this.handleBatch.bind(this)
+			});
+
+			consumer.start();
 		});
 
-		consumer.start();
+		if (isErr(connectResult)) {
+			container.client.emit(ScheduledTaskEvents.ScheduledTaskStrategyConnectError, connectResult.error);
+		}
 	}
 
 	public create(task: string, payload?: unknown, options?: ScheduledTasksTaskOptions) {
