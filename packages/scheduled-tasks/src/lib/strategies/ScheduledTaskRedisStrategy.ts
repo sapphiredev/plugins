@@ -14,11 +14,13 @@ export interface ScheduledTaskRedisStrategyJob {
 	payload?: unknown;
 }
 
-export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy<Queue<ScheduledTaskRedisStrategyJob>> {
+export type Client = Queue<ScheduledTaskRedisStrategyJob>;
+
+export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy<Client> {
 	public readonly options: QueueOptions;
 	public readonly queue: string;
 
-	private bullClient!: Queue<ScheduledTaskRedisStrategyJob>;
+	private bullClient!: Client;
 
 	public constructor(options?: ScheduledTaskRedisStrategyOptions) {
 		this.queue = options?.queue ?? 'scheduled-tasks';

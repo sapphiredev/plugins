@@ -12,6 +12,8 @@ export interface ScheduledTaskSQSStrategyMessageBody {
 	options: ScheduledTasksTaskOptions;
 }
 
+export type Client = Producer;
+
 export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy<Producer> {
 	public readonly options: ConsumerOptions;
 
