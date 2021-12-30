@@ -1,6 +1,6 @@
 import { container, from, isErr } from '@sapphire/framework';
 import { randomBytes } from 'crypto';
-import { Consumer, ConsumerOptions } from 'sqs-consumer';
+import { Consumer, type ConsumerOptions } from 'sqs-consumer';
 import { Producer } from 'sqs-producer';
 import type { ScheduledTaskCreateRepeatedTask, ScheduledTasksTaskOptions } from '../types';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
@@ -12,14 +12,18 @@ export interface ScheduledTaskSQSStrategyMessageBody {
 	options: ScheduledTasksTaskOptions;
 }
 
-export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
+export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy<Producer> {
 	public readonly options: ConsumerOptions;
 
-	private producer: Producer;
+	public producer: Producer;
 
 	public constructor(options: ConsumerOptions) {
 		this.options = options;
 		this.producer = Producer.create(this.options);
+	}
+
+	public get client() {
+		return this.producer;
 	}
 
 	public connect() {
