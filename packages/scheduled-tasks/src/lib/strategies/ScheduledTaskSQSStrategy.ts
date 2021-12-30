@@ -15,7 +15,7 @@ export interface ScheduledTaskSQSStrategyMessageBody {
 export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy<Producer> {
 	public readonly options: ConsumerOptions;
 
-	public producer: Producer;
+	private producer: Producer;
 
 	public constructor(options: ConsumerOptions) {
 		this.options = options;
