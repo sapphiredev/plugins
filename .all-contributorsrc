@@ -15,7 +15,7 @@
 	"commitConvention": "angular",
 	"contributors": [
 		{
-			"login": "Favna",
+			"login": "favna",
 			"name": "Jeroen Claassens",
 			"avatar_url": "https://avatars3.githubusercontent.com/u/4019718?v=4",
 			"profile": "https://favware.tech/",
@@ -125,6 +125,13 @@
 			"avatar_url": "https://avatars.githubusercontent.com/u/5418114?v=4",
 			"profile": "https://jurien.dev/",
 			"contributions": ["code"]
+		},
+		{
+			"login": "renovate[bot]",
+			"name": "renovate[bot]",
+			"avatar_url": "https://avatars.githubusercontent.com/in/2740?v=4",
+			"profile": "https://github.com/apps/renovate",
+			"contributions": ["maintenance"]
 		}
 	],
 	"contributorsPerLine": 7,
