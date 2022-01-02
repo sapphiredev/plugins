@@ -49,6 +49,11 @@ export class ScheduledTaskHandler {
 			return;
 		}
 
+		if (!piece.shouldRun(payload)) {
+			container.client.emit(ScheduledTaskEvents.ScheduledTaskShouldntRun, task, payload);
+			return;
+		}
+
 		const result = await fromAsync(async () => {
 			container.client.emit(ScheduledTaskEvents.ScheduledTaskRun, task, payload);
 			const result = await piece.run(payload);

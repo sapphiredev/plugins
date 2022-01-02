@@ -12,6 +12,10 @@ export abstract class ScheduledTask extends Piece {
 	}
 
 	public abstract run(payload: unknown): Awaitable<unknown>;
+
+	public shouldRun(_payload: unknown): boolean {
+		return true;
+	}
 }
 
 export interface ScheduledTasks {}
