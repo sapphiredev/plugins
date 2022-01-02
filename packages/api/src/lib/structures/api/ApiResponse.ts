@@ -15,7 +15,7 @@ export class ApiResponse extends ServerResponse {
 	/**
 	 * @since 1.0.0
 	 */
-	public ok(data: unknown = STATUS_CODES[HttpCodes.OK]) {
+	public ok(data: unknown = STATUS_CODES[HttpCodes.OK]): void {
 		this.status(HttpCodes.OK);
 		return this.respond(data);
 	}
@@ -23,7 +23,7 @@ export class ApiResponse extends ServerResponse {
 	/**
 	 * @since 1.0.0
 	 */
-	public created(data: unknown = STATUS_CODES[HttpCodes.Created]) {
+	public created(data: unknown = STATUS_CODES[HttpCodes.Created]): void {
 		this.status(HttpCodes.Created);
 		return this.respond(data);
 	}
@@ -31,7 +31,7 @@ export class ApiResponse extends ServerResponse {
 	/**
 	 * @since 1.0.0
 	 */
-	public noContent(data: unknown = STATUS_CODES[HttpCodes.NoContent]) {
+	public noContent(data: unknown = STATUS_CODES[HttpCodes.NoContent]): void {
 		this.status(HttpCodes.NoContent);
 		return this.respond(data);
 	}
@@ -39,28 +39,28 @@ export class ApiResponse extends ServerResponse {
 	/**
 	 * @since 1.0.0
 	 */
-	public badRequest(data?: unknown) {
+	public badRequest(data?: unknown): void {
 		return this.error(HttpCodes.BadRequest, data);
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
-	public unauthorized(data?: unknown) {
+	public unauthorized(data?: unknown): void {
 		return this.error(HttpCodes.Unauthorized, data);
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
-	public forbidden(data?: unknown) {
+	public forbidden(data?: unknown): void {
 		return this.error(HttpCodes.Forbidden, data);
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
-	public notFound(data?: unknown) {
+	public notFound(data?: unknown): void {
 		return this.error(HttpCodes.NotFound, data);
 	}
 
@@ -85,7 +85,7 @@ export class ApiResponse extends ServerResponse {
 	/**
 	 * @since 1.0.0
 	 */
-	public respond(data: unknown) {
+	public respond(data: unknown): void {
 		return typeof data === 'string' ? this.text(data) : this.json(data);
 	}
 
@@ -101,20 +101,20 @@ export class ApiResponse extends ServerResponse {
 	 * @since 1.0.0
 	 */
 	public json(data: any): void {
-		return this.setContentType(MimeTypes.ApplicationJson).end(JSON.stringify(data));
+		this.setContentType(MimeTypes.ApplicationJson).end(JSON.stringify(data));
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
 	public text(data: string): void {
-		return this.setContentType(MimeTypes.TextPlain).end(data);
+		this.setContentType(MimeTypes.TextPlain).end(data);
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
-	public setContentType(contentType: MimeTypes) {
+	public setContentType(contentType: MimeTypes): this {
 		this.setHeader('Content-Type', contentType);
 		return this;
 	}
