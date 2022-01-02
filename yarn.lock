@@ -2321,13 +2321,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^27.0.3":
-  version: 27.0.3
-  resolution: "@types/jest@npm:27.0.3"
+"@types/jest@npm:^27.4.0":
+  version: 27.4.0
+  resolution: "@types/jest@npm:27.4.0"
   dependencies:
     jest-diff: ^27.0.0
     pretty-format: ^27.0.0
-  checksum: 3683a9945821966f6dccddf337219a5d682633687c9d30df859223db553589f63e9b2c34e69f0cc845c86ffcf115742f25c12ea03c8d33d2244890fdc0af61e2
+  checksum: d2350267f954f9a2e4a15e5f02fbf19a77abfb9fd9e57a954de1fb0e9a0d3d5f8d3646ac7d9c42aeb4b4d828d2e70624ec149c85bb50a48634a54eed8429e1f8
   languageName: node
   linkType: hard
 
@@ -2573,7 +2573,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.6.0":
+"acorn@npm:^8.7.0":
   version: 8.7.0
   resolution: "acorn@npm:8.7.0"
   bin:
@@ -4020,7 +4020,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord.js@npm:^13.4.0":
+"discord-api-types@npm:^0.26.1":
+  version: 0.26.1
+  resolution: "discord-api-types@npm:0.26.1"
+  checksum: e53bfa7589b24108e6b403dbe213da34c4592f72e2b8fde6800dcb6c703065887ecbd644e1cdf694e4c7796954bc51462ced868f26ec45dc1e0dc4fa8d3c723c
+  languageName: node
+  linkType: hard
+
+"discord.js@npm:^13.5.0":
   version: 13.5.0
   resolution: "discord.js@npm:13.5.0"
   dependencies:
@@ -4306,7 +4313,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.4.1, eslint@npm:^8.5.0":
+"eslint@npm:^8.4.1":
   version: 8.5.0
   resolution: "eslint@npm:8.5.0"
   dependencies:
@@ -4354,6 +4361,54 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint@npm:^8.6.0":
+  version: 8.6.0
+  resolution: "eslint@npm:8.6.0"
+  dependencies:
+    "@eslint/eslintrc": ^1.0.5
+    "@humanwhocodes/config-array": ^0.9.2
+    ajv: ^6.10.0
+    chalk: ^4.0.0
+    cross-spawn: ^7.0.2
+    debug: ^4.3.2
+    doctrine: ^3.0.0
+    enquirer: ^2.3.5
+    escape-string-regexp: ^4.0.0
+    eslint-scope: ^7.1.0
+    eslint-utils: ^3.0.0
+    eslint-visitor-keys: ^3.1.0
+    espree: ^9.3.0
+    esquery: ^1.4.0
+    esutils: ^2.0.2
+    fast-deep-equal: ^3.1.3
+    file-entry-cache: ^6.0.1
+    functional-red-black-tree: ^1.0.1
+    glob-parent: ^6.0.1
+    globals: ^13.6.0
+    ignore: ^4.0.6
+    import-fresh: ^3.0.0
+    imurmurhash: ^0.1.4
+    is-glob: ^4.0.0
+    js-yaml: ^4.1.0
+    json-stable-stringify-without-jsonify: ^1.0.1
+    levn: ^0.4.1
+    lodash.merge: ^4.6.2
+    minimatch: ^3.0.4
+    natural-compare: ^1.4.0
+    optionator: ^0.9.1
+    progress: ^2.0.0
+    regexpp: ^3.2.0
+    semver: ^7.2.1
+    strip-ansi: ^6.0.1
+    strip-json-comments: ^3.1.0
+    text-table: ^0.2.0
+    v8-compile-cache: ^2.0.3
+  bin:
+    eslint: bin/eslint.js
+  checksum: 19ed82fa872ebb45d0f10c2514975b85ab37e78e9b562a5aa3abdbe7802111d65f7d5a8563e394a975337b403163b40624c2cc8bfa585a061e8c7dc55def39b5
+  languageName: node
+  linkType: hard
+
 "espree@npm:^9.2.0":
   version: 9.2.0
   resolution: "espree@npm:9.2.0"
@@ -4362,6 +4417,17 @@ __metadata:
     acorn-jsx: ^5.3.1
     eslint-visitor-keys: ^3.1.0
   checksum: ae533a058036e3efeeac43a0ee39c74ab347e2a73bbe2946fba33cc0d84aca657e675bc317ed9afd95338f79d5d5a862afec2f717d2539ae13fa9f1638371761
+  languageName: node
+  linkType: hard
+
+"espree@npm:^9.3.0":
+  version: 9.3.0
+  resolution: "espree@npm:9.3.0"
+  dependencies:
+    acorn: ^8.7.0
+    acorn-jsx: ^5.3.1
+    eslint-visitor-keys: ^3.1.0
+  checksum: c0f1885c4eab652f9be08eb9228cea0df046b559b29d4aed8d6590ea9bd60177d4cb245d204a6f737a79a096861bb4ab8e480aeb8c1dbafef5beec1157353ce4
   languageName: node
   linkType: hard
 
@@ -8721,16 +8787,16 @@ __metadata:
     "@sapphire/prettier-config": ^1.2.7
     "@sapphire/ts-config": ^3.1.6
     "@sapphire/utilities": ^3.1.0
-    "@types/jest": ^27.0.3
+    "@types/jest": ^27.4.0
     "@types/node": ^17.0.5
     "@types/node-fetch": ^2.5.12
     "@types/ws": ^8.2.2
     "@typescript-eslint/eslint-plugin": ^5.8.1
     "@typescript-eslint/parser": ^5.8.1
     cz-conventional-changelog: ^3.3.0
-    discord-api-types: ^0.26.0
-    discord.js: ^13.4.0
-    eslint: ^8.5.0
+    discord-api-types: ^0.26.1
+    discord.js: ^13.5.0
+    eslint: ^8.6.0
     eslint-config-prettier: ^8.3.0
     eslint-plugin-prettier: ^4.0.0
     gen-esm-wrapper: ^1.1.3
@@ -8744,7 +8810,7 @@ __metadata:
     rimraf: ^3.0.2
     ts-jest: ^27.1.2
     ts-node: ^10.4.0
-    turbo: ^1.0.23
+    turbo: ^1.0.24
     typedoc: ^0.22.10
     typedoc-plugin-djs-links: ^1.0.3
     typedoc-plugin-mdn-links: ^1.0.4
@@ -9728,106 +9794,106 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.0.23":
-  version: 1.0.23
-  resolution: "turbo-darwin-64@npm:1.0.23"
+"turbo-darwin-64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-darwin-64@npm:1.0.24"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.0.23":
-  version: 1.0.23
-  resolution: "turbo-darwin-arm64@npm:1.0.23"
+"turbo-darwin-arm64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-darwin-arm64@npm:1.0.24"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-freebsd-64@npm:1.0.23":
-  version: 1.0.23
-  resolution: "turbo-freebsd-64@npm:1.0.23"
+"turbo-freebsd-64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-freebsd-64@npm:1.0.24"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-freebsd-arm64@npm:1.0.23":
-  version: 1.0.23
-  resolution: "turbo-freebsd-arm64@npm:1.0.23"
+"turbo-freebsd-arm64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-freebsd-arm64@npm:1.0.24"
   conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-32@npm:1.0.23":
-  version: 1.0.23
-  resolution: "turbo-linux-32@npm:1.0.23"
+"turbo-linux-32@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-linux-32@npm:1.0.24"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.0.23":
-  version: 1.0.23
-  resolution: "turbo-linux-64@npm:1.0.23"
+"turbo-linux-64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-linux-64@npm:1.0.24"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.0.23":
-  version: 1.0.23
-  resolution: "turbo-linux-arm64@npm:1.0.23"
+"turbo-linux-arm64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-linux-arm64@npm:1.0.24"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm@npm:1.0.23":
-  version: 1.0.23
-  resolution: "turbo-linux-arm@npm:1.0.23"
+"turbo-linux-arm@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-linux-arm@npm:1.0.24"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"turbo-linux-mips64le@npm:1.0.23":
-  version: 1.0.23
-  resolution: "turbo-linux-mips64le@npm:1.0.23"
+"turbo-linux-mips64le@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-linux-mips64le@npm:1.0.24"
   conditions: os=linux & cpu=mips64el
   languageName: node
   linkType: hard
 
-"turbo-linux-ppc64le@npm:1.0.23":
-  version: 1.0.23
-  resolution: "turbo-linux-ppc64le@npm:1.0.23"
+"turbo-linux-ppc64le@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-linux-ppc64le@npm:1.0.24"
   conditions: os=linux & cpu=ppc64
   languageName: node
   linkType: hard
 
-"turbo-windows-32@npm:1.0.23":
-  version: 1.0.23
-  resolution: "turbo-windows-32@npm:1.0.23"
+"turbo-windows-32@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-windows-32@npm:1.0.24"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.0.23":
-  version: 1.0.23
-  resolution: "turbo-windows-64@npm:1.0.23"
+"turbo-windows-64@npm:1.0.24":
+  version: 1.0.24
+  resolution: "turbo-windows-64@npm:1.0.24"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo@npm:^1.0.23":
-  version: 1.0.23
-  resolution: "turbo@npm:1.0.23"
+"turbo@npm:^1.0.24":
+  version: 1.0.24
+  resolution: "turbo@npm:1.0.24"
   dependencies:
-    turbo-darwin-64: 1.0.23
-    turbo-darwin-arm64: 1.0.23
-    turbo-freebsd-64: 1.0.23
-    turbo-freebsd-arm64: 1.0.23
-    turbo-linux-32: 1.0.23
-    turbo-linux-64: 1.0.23
-    turbo-linux-arm: 1.0.23
-    turbo-linux-arm64: 1.0.23
-    turbo-linux-mips64le: 1.0.23
-    turbo-linux-ppc64le: 1.0.23
-    turbo-windows-32: 1.0.23
-    turbo-windows-64: 1.0.23
+    turbo-darwin-64: 1.0.24
+    turbo-darwin-arm64: 1.0.24
+    turbo-freebsd-64: 1.0.24
+    turbo-freebsd-arm64: 1.0.24
+    turbo-linux-32: 1.0.24
+    turbo-linux-64: 1.0.24
+    turbo-linux-arm: 1.0.24
+    turbo-linux-arm64: 1.0.24
+    turbo-linux-mips64le: 1.0.24
+    turbo-linux-ppc64le: 1.0.24
+    turbo-windows-32: 1.0.24
+    turbo-windows-64: 1.0.24
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -9855,7 +9921,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: b19054a406108212b50db9d439100358f5b05e7fe333bb41196435d49e3f7d15034e9cbcb5b8eb1fc7ed0c7fe6591a3bd225bacdd4f60d689d06ba2896cfda22
+  checksum: 64a5b926191c77fb6b6f11ee7fedb17779094ad9664066b7e80f1337b526975bf881fe020bd32d61b9dde242f9072b7c640958aac4cc9bd3ff5f57057068c51b
   languageName: node
   linkType: hard
 
