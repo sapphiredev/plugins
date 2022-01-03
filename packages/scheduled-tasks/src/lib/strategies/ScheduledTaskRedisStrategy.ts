@@ -87,6 +87,22 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		return this.bullClient.getJobs(types, start, end, asc);
 	}
 
+	public listRepeated(start?: number, end?: number, asc?: boolean) {
+		if (!this.bullClient) {
+			return;
+		}
+
+		return this.bullClient.getRepeatableJobs(start, end, asc);
+	}
+
+	public get(id: JobId) {
+		if (!this.bullClient) {
+			return;
+		}
+
+		return this.bullClient.getJob(id);
+	}
+
 	public run(task: string, payload: unknown) {
 		return container.tasks.run(task, payload);
 	}
