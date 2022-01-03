@@ -14,6 +14,16 @@ export interface ScheduledTaskRedisStrategyJob {
 	payload?: unknown;
 }
 
+export interface ScheduledTaskRedisStrategyListRepeatedOptions {
+	start?: number;
+	end?: number;
+	asc?: boolean;
+}
+
+export interface ScheduledTaskRedisStrategyListOptions extends ScheduledTaskRedisStrategyListRepeatedOptions {
+	types: JobStatus[];
+}
+
 export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 	public readonly options: QueueOptions;
 	public readonly queue: string;
@@ -79,7 +89,8 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		return job?.remove();
 	}
 
-	public list(types: JobStatus[], start?: number, end?: number, asc?: boolean) {
+	public list(options: ScheduledTaskRedisStrategyListOptions) {
+		const { types, start, end, asc } = options;
 		if (!this.bullClient) {
 			return;
 		}
@@ -87,7 +98,8 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		return this.bullClient.getJobs(types, start, end, asc);
 	}
 
-	public listRepeated(start?: number, end?: number, asc?: boolean) {
+	public listRepeated(options: ScheduledTaskRedisStrategyListRepeatedOptions) {
+		const { start, end, asc } = options;
 		if (!this.bullClient) {
 			return;
 		}
@@ -95,12 +107,12 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		return this.bullClient.getRepeatableJobs(start, end, asc);
 	}
 
-	public get(id: JobId) {
+	public get(id: JobId): undefined | Promise<Job> {
 		if (!this.bullClient) {
 			return;
 		}
 
-		return this.bullClient.getJob(id);
+		return this.get(id);
 	}
 
 	public run(task: string, payload: unknown) {
