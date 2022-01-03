@@ -1,5 +1,5 @@
 import { container, from, isErr } from '@sapphire/framework';
-import Bull, { Job, JobOptions, Queue, QueueOptions } from 'bull';
+import Bull, { Job, JobOptions, Queue, QueueOptions, JobStatus, JobId } from 'bull';
 import type { ScheduledTaskCreateRepeatedTask, ScheduledTasksTaskOptions } from '../types';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
 import { ScheduledTaskEvents } from '../types/ScheduledTaskEvents';
@@ -68,6 +68,23 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		for (const task of tasks) {
 			await this.create(task.name, null, task.options);
 		}
+	}
+
+	public async delete(id: JobId) {
+		if (!this.bullClient) {
+			return;
+		}
+
+		const job = await this.bullClient.getJob(id);
+		return job?.remove();
+	}
+
+	public list(types: JobStatus[], start?: number, end?: number, asc?: boolean) {
+		if (!this.bullClient) {
+			return;
+		}
+
+		return this.bullClient.getJobs(types, start, end, asc);
 	}
 
 	public run(task: string, payload: unknown) {
