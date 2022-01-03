@@ -85,7 +85,7 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 			return;
 		}
 
-		const job = await this.bullClient.getJob(id);
+		const job = await this.get(id);
 		return job?.remove();
 	}
 
@@ -107,12 +107,12 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		return this.bullClient.getRepeatableJobs(start, end, asc);
 	}
 
-	public get(id: JobId): undefined | Promise<Job> {
+	public get(id: JobId) {
 		if (!this.bullClient) {
 			return;
 		}
 
-		return this.get(id);
+		return this.bullClient.getJob(id);
 	}
 
 	public run(task: string, payload: unknown) {
