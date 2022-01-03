@@ -65,6 +65,22 @@ export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 		}
 	}
 
+	public delete() {
+		throw new Error('SQS does not support deleting tasks.');
+	}
+
+	public list() {
+		throw new Error('SQS does not support listing tasks.');
+	}
+
+	public listRepeated() {
+		throw new Error('SQS does not support listing tasks.');
+	}
+
+	public get() {
+		throw new Error('SQS does not support getting tasks.');
+	}
+
 	public run(task: string, payload: unknown) {
 		return container.tasks.run(task, payload);
 	}

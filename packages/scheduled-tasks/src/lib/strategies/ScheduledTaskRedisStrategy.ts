@@ -1,5 +1,5 @@
 import { container, from, isErr } from '@sapphire/framework';
-import Bull, { Job, JobOptions, Queue, QueueOptions } from 'bull';
+import Bull, { Job, JobOptions, Queue, QueueOptions, JobStatus, JobId } from 'bull';
 import type { ScheduledTaskCreateRepeatedTask, ScheduledTasksTaskOptions } from '../types';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
 import { ScheduledTaskEvents } from '../types/ScheduledTaskEvents';
@@ -12,6 +12,16 @@ export interface ScheduledTaskRedisStrategyOptions {
 export interface ScheduledTaskRedisStrategyJob {
 	task: string;
 	payload?: unknown;
+}
+
+export interface ScheduledTaskRedisStrategyListRepeatedOptions {
+	start?: number;
+	end?: number;
+	asc?: boolean;
+}
+
+export interface ScheduledTaskRedisStrategyListOptions extends ScheduledTaskRedisStrategyListRepeatedOptions {
+	types: JobStatus[];
 }
 
 export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
@@ -68,6 +78,41 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		for (const task of tasks) {
 			await this.create(task.name, null, task.options);
 		}
+	}
+
+	public async delete(id: JobId) {
+		if (!this.bullClient) {
+			return;
+		}
+
+		const job = await this.get(id);
+		return job?.remove();
+	}
+
+	public list(options: ScheduledTaskRedisStrategyListOptions) {
+		const { types, start, end, asc } = options;
+		if (!this.bullClient) {
+			return;
+		}
+
+		return this.bullClient.getJobs(types, start, end, asc);
+	}
+
+	public listRepeated(options: ScheduledTaskRedisStrategyListRepeatedOptions) {
+		const { start, end, asc } = options;
+		if (!this.bullClient) {
+			return;
+		}
+
+		return this.bullClient.getRepeatableJobs(start, end, asc);
+	}
+
+	public get(id: JobId) {
+		if (!this.bullClient) {
+			return;
+		}
+
+		return this.bullClient.getJob(id);
 	}
 
 	public run(task: string, payload: unknown) {

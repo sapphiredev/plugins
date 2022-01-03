@@ -41,6 +41,22 @@ export class ScheduledTaskHandler {
 		);
 	}
 
+	public delete(id?: unknown) {
+		return this.strategy.delete(id);
+	}
+
+	public list(options?: unknown) {
+		return this.strategy.list(options);
+	}
+
+	public listRepeated(options?: unknown) {
+		return this.strategy.listRepeated(options);
+	}
+
+	public get(id: unknown) {
+		return this.strategy.get(id);
+	}
+
 	public async run(task: string, payload: unknown): Promise<unknown> {
 		const piece = this.store.get(task);
 
