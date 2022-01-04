@@ -1,6 +1,6 @@
 import { ILogger, Piece, Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
 import chokidar from 'chokidar';
-import { basename } from 'path';
+import { basename, join } from 'path';
 
 /**
  * @since 1.0.0
@@ -13,7 +13,11 @@ export class HmrPlugin extends Plugin {
 		if (process.env.NODE_ENV === 'development') {
 			this.logger.info('HMR is enabled!');
 
-			chokidar.watch('.').on('change', (path, _stats) => {
+			const watcher = chokidar.watch('.', {
+				ignoreInitial: true
+			});
+
+			watcher.on('change', (path, _stats) => {
 				const fileName = basename(path);
 
 				const commands = this.stores.get('commands').values();
@@ -24,6 +28,17 @@ export class HmrPlugin extends Plugin {
 
 				const preconditions = this.stores.get('preconditions').values();
 				reloadPieceList(preconditions, this.logger, fileName);
+
+				if (path.endsWith('.js')) {
+					const absolute_path = join(process.cwd(), path);
+					import(absolute_path)
+						.then((module) => {
+							for (const [key, value] of Object.entries(module)) {
+								this.logger.debug(`${key} - ${value}`);
+							}
+						})
+						.catch((err) => this.logger.error(err));
+				}
 			});
 		}
 	}
