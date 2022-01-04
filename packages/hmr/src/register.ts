@@ -14,10 +14,16 @@ export class HmrPlugin extends Plugin {
 			this.logger.info('HMR is enabled!');
 
 			chokidar.watch('.').on('change', (path, _stats) => {
-				const filePureName = basename(path);
+				const fileName = basename(path);
 
 				const commands = this.stores.get('commands').values();
-				reloadPieceList(commands, this.logger, filePureName);
+				reloadPieceList(commands, this.logger, fileName);
+
+				const listeners = this.stores.get('listeners').values();
+				reloadPieceList(listeners, this.logger, fileName);
+
+				const preconditions = this.stores.get('preconditions').values();
+				reloadPieceList(preconditions, this.logger, fileName);
 			});
 		}
 	}
