@@ -31,7 +31,7 @@ container.logger = {
 if (process.env.NODE_ENV === 'development') {
 	container.logger.info('HMR is enabled!');
 
-	chokidar.watch('.').on('change', (_event, path) => {
+	chokidar.watch('.').on('change', (path, _stats) => {
 		container.logger.info(`File ${path} has been changed.`);
 		container.logger.info('Reloading...');
 	});
