@@ -12,15 +12,16 @@ export class HmrPlugin extends Plugin {
 		if (process.env.NODE_ENV === 'development') {
 			this.logger.info('HMR is enabled!');
 
-			chokidar.watch('.').on('change', async (path, _stats) => {
+			chokidar.watch('.').on('change', (path, _stats) => {
 				this.logger.info(`File ${path} has been changed.`);
 				this.logger.info('Reloading...');
-				const cache = this.stores.get('commands');
-				if (cache) {
-					for (const [commandName, command] of cache) {
-						this.logger.debug(`Reloading command ${commandName}`);
-						await command.reload();
-					}
+				const commands = this.stores.get('commands');
+				this.logger.info(`Cached commands: ${commands.size}`);
+				for (const command of commands.values()) {
+					command
+						.reload()
+						.then(() => this.logger.info(`Reloaded command ${command.name}`))
+						.catch((err) => this.logger.error(err));
 				}
 			});
 		}
