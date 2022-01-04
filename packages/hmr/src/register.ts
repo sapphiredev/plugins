@@ -1,4 +1,4 @@
-import { Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
+import { ILogger, Piece, Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
 import chokidar from 'chokidar';
 import { basename } from 'path';
 
@@ -16,18 +16,22 @@ export class HmrPlugin extends Plugin {
 			chokidar.watch('.').on('change', (path, _stats) => {
 				const filePureName = basename(path);
 
-				const commands = this.stores.get('commands');
-				for (const command of commands.values()) {
-					const filePath = command.location.name;
-					if (filePath !== filePureName) continue;
-
-					command
-						.reload()
-						.then(() => this.logger.info(`Reloaded command ${command.name}`))
-						.catch((err) => this.logger.error(err));
-				}
+				const commands = this.stores.get('commands').values();
+				reloadPieceList(commands, this.logger, filePureName);
 			});
 		}
+	}
+}
+
+function reloadPieceList<T extends Piece>(list: IterableIterator<T>, logger: ILogger, fileName: string): void {
+	for (const piece of list) {
+		const filePath = piece.location.name;
+		if (filePath !== fileName) continue;
+
+		piece
+			.reload()
+			.then(() => logger.info(`Reloaded command ${piece.name}`))
+			.catch((err) => logger.error(err));
 	}
 }
 
