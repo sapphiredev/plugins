@@ -36,7 +36,7 @@ function reloadPieceList<T extends Piece>(list: IterableIterator<T>, logger: ILo
 
 		piece
 			.reload()
-			.then(() => logger.info(`Reloaded command ${piece.name}`))
+			.then(() => logger.info(`Reloaded piece ${piece.name}`))
 			.catch((err) => logger.error(err));
 	}
 }
