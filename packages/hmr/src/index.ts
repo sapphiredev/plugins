@@ -1,1 +1,1 @@
-console.log('Hello from hmr');
+console.log('Hello from hmr!');

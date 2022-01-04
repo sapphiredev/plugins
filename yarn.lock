@@ -2023,15 +2023,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/hmr@workspace:packages/hmr":
-  version: 0.0.0-use.local
-  resolution: "@sapphire/hmr@workspace:packages/hmr"
-  dependencies:
-    chokidar: ^3.5.2
-    tslib: ^2.3.1
-  languageName: unknown
-  linkType: soft
-
 "@sapphire/pieces@npm:^3.2.0":
   version: 3.2.0
   resolution: "@sapphire/pieces@npm:3.2.0"
@@ -2061,6 +2052,15 @@ __metadata:
   resolution: "@sapphire/plugin-editable-commands@workspace:packages/editable-commands"
   dependencies:
     "@skyra/editable-commands": ^2.1.2
+    tslib: ^2.3.1
+  languageName: unknown
+  linkType: soft
+
+"@sapphire/plugin-hmr@workspace:packages/hmr":
+  version: 0.0.0-use.local
+  resolution: "@sapphire/plugin-hmr@workspace:packages/hmr"
+  dependencies:
+    chokidar: ^3.5.2
     tslib: ^2.3.1
   languageName: unknown
   linkType: soft
