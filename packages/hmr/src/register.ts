@@ -28,7 +28,7 @@ container.logger = {
 	}
 };
 
-if (container.logger && process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'development') {
 	container.logger.info('HMR is enabled!');
 
 	chokidar.watch('.').on('change', (_event, path) => {
