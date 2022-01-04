@@ -1,6 +1,6 @@
 {
 	"name": "@sapphire/plugin-hmr",
-	"version": "1.0.0",
+	"version": "0.0.1",
 	"description": "Plugin for @sapphire/framework for hot module replacement with commands, listeners and more",
 	"author": "@sapphire",
 	"license": "MIT",
