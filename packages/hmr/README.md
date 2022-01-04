@@ -2,37 +2,37 @@
 
 ![Sapphire Logo](https://cdn.skyra.pw/gh-assets/sapphire-banner.png)
 
-# @sapphire/plugin-editable-commands
+# @sapphire/plugin-hmr
 
-**Plugin for <a href="https://github.com/sapphiredev/framework">@sapphire/framework</a> to have editable commands.**
+**Plugin for <a href="https://github.com/sapphiredev/framework">@sapphire/framework</a> for command HMR.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/plugins)](https://github.com/sapphiredev/plugins/blob/main/LICENSE.md)
 [![codecov](https://codecov.io/gh/sapphiredev/plugins/branch/main/graph/badge.svg?token=QWL8FB16BR)](https://codecov.io/gh/sapphiredev/plugins)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/plugin-editable_commands?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/plugin-editable-commands)
-[![npm](https://img.shields.io/npm/v/@sapphire/plugin-editable-commands?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/plugin-editable-commands)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/plugin-hmr?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/plugin-hmr)
+[![npm](https://img.shields.io/npm/v/@sapphire/plugin-hmr?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/plugin-hmr)
 
 </div>
 
 ## Description
 
-A lightweight wrapper on top of [`@skyra/editable-commands`](https://www.npmjs.com/package/@skyra/editable-commands) that re-exports everything and registers an event to make commands also run on message edit.
+TODO
 
 ## Features
 
 -   Fully ready for TypeScript!
 -   Includes ESM ready entrypoint
--   Full editable commands, attachments included!
+-  	No restarts required! 
 
 ## Installation
 
-`@sapphire/plugin-editable-commands` depends on the following packages. Be sure to install these along with this package!
+`@sapphire/plugin-hmr` depends on the following packages. Be sure to install these along with this package!
 
 -   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
 
 You can use the following command to install this package, or replace `npm install` with your package manager of choice.
 
 ```sh
-npm install @sapphire/plugin-editable-commands @sapphire/framework
+npm install @sapphire/plugin-hmr @sapphire/framework
 ```
 
 ---
@@ -41,72 +41,11 @@ npm install @sapphire/plugin-editable-commands @sapphire/framework
 
 ### JavaScript
 
-In your main or setup file, register the plugin:
-
-```javascript
-require('@sapphire/plugin-editable-commands/register');
-```
-
-Then use `send` or `reply` from the package, as shown below:
-
-```javascript
-const { Command } = require('@sapphire/framework');
-const { MessageEmbed } = require('discord.js');
-const { send } = require('@sapphire/plugin-editable-commands');
-
-module.exports = class UserCommand extends Command {
-	constructor(context, options) {
-		super(context, {
-			...options,
-			description: 'A very cool command',
-			requiredClientPermissions: ['EMBED_LINKS']
-		});
-	}
-
-	messageRun(message) {
-		const embed = new MessageEmbed()
-			.setURL('https://github.com/skyra-project/editable-commands')
-			.setColor('#7586D8')
-			.setDescription('Example description')
-			.setTimestamp();
-
-		return send(message, { embeds: [embed] });
-	}
-};
-```
+TODO
 
 ### TypeScript
 
-In your main or setup file, register the plugin:
-
-```typescript
-import '@sapphire/plugin-editable-commands/register';
-```
-
-Then use `send` or `reply` from the package, as shown below:
-
-```typescript
-import { ApplyOptions } from '@sapphire/decorators';
-import { Command } from '@sapphire/framework';
-import { Message, MessageEmbed } from 'discord.js';
-import { send } from '@sapphire/plugin-editable-commands';
-
-@ApplyOptions<Command.Options>({
-	description: 'A very cool command',
-	requiredClientPermissions: ['EMBED_LINKS']
-})
-export class UserCommand extends Command {
-	public messageRun(message: Message) {
-		const embed = new MessageEmbed()
-			.setURL('https://github.com/sapphiredev/plugins')
-			.setColor('#7586D8')
-			.setDescription('Example description')
-			.setTimestamp();
-
-		return send(message, { embeds: [embed] });
-	}
-}
-```
+TODO
 
 ## Buy us some doughnuts
 
