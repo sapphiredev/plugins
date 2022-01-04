@@ -1,38 +1,30 @@
-import { container, LogLevel } from '@sapphire/framework';
+import { Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
 import chokidar from 'chokidar';
 
-container.logger = {
-	debug(...args: readonly unknown[]) {
-		console.log('[DEBUG]', args);
-	},
-	error(...args: readonly unknown[]) {
-		console.error('[ERROR]', args);
-	},
-	info(...args: readonly unknown[]) {
-		console.info('[INFO]', args);
-	},
-	has(_level: LogLevel) {
-		return true;
-	},
-	write(level: LogLevel, ...args: readonly unknown[]) {
-		console.log(`[${level}]`, args);
-	},
-	fatal(...args: readonly unknown[]) {
-		console.error('[FATAL]', args);
-	},
-	trace(...args: readonly unknown[]) {
-		console.log('[TRACE]', args);
-	},
-	warn(...args: readonly unknown[]) {
-		console.warn('[WARN]', args);
+/**
+ * @since 1.0.0
+ */
+export class HmrPlugin extends Plugin {
+	/**
+	 * @since 1.0.0
+	 */
+	public static [postInitialization](this: SapphireClient): void {
+		if (process.env.NODE_ENV === 'development') {
+			this.logger.info('HMR is enabled!');
+
+			chokidar.watch('.').on('change', async (path, _stats) => {
+				this.logger.info(`File ${path} has been changed.`);
+				this.logger.info('Reloading...');
+				const cache = this.stores.get('commands');
+				if (cache) {
+					for (const [commandName, command] of cache) {
+						this.logger.debug(`Reloading command ${commandName}`);
+						await command.reload();
+					}
+				}
+			});
+		}
 	}
-};
-
-if (process.env.NODE_ENV === 'development') {
-	container.logger.info('HMR is enabled!');
-
-	chokidar.watch('.').on('change', (path, _stats) => {
-		container.logger.info(`File ${path} has been changed.`);
-		container.logger.info('Reloading...');
-	});
 }
+
+SapphireClient.plugins.registerPostInitializationHook(HmrPlugin[postInitialization], 'HmrCommands-PostInitialization');
