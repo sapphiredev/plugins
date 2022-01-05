@@ -4,7 +4,7 @@
 
 # @sapphire/plugin-hmr
 
-**Plugin for <a href="https://github.com/sapphiredev/framework">@sapphire/framework</a> for command HMR.**
+**Plugin for <a href="https://github.com/sapphiredev/framework">@sapphire/framework</a> for super-speed HMR.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/plugins)](https://github.com/sapphiredev/plugins/blob/main/LICENSE.md)
 [![codecov](https://codecov.io/gh/sapphiredev/plugins/branch/main/graph/badge.svg?token=QWL8FB16BR)](https://codecov.io/gh/sapphiredev/plugins)
@@ -15,19 +15,22 @@
 
 ## Description
 
-TODO
+This plugin provides a HMR (Hot Module Replacement) feature for @sapphire/framework. This allows you to add, delete, and
+update commands, listeners, and more without having to restart your bot. This allows for rapid iteration and prototyping
+without your bot slowing you down.
 
 ## Features
 
--   Fully ready for TypeScript!
--   Includes ESM ready entrypoint
--  	No restarts required! 
+- Fully ready for TypeScript!
+- Includes ESM ready entrypoint
+- FAST!
+- Super easy to use
 
 ## Installation
 
 `@sapphire/plugin-hmr` depends on the following packages. Be sure to install these along with this package!
 
--   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
+- [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
 
 You can use the following command to install this package, or replace `npm install` with your package manager of choice.
 
@@ -41,17 +44,39 @@ npm install @sapphire/plugin-hmr @sapphire/framework
 
 ### JavaScript
 
-TODO
+in your main or setup file, register the plugin:
+
+```javascript
+require('@sapphire/plugin-hmr/register');
+```
+
+and make sure your node environment is set to `development`(this is the default):
+
+```env
+NODE_ENV=development
+```
 
 ### TypeScript
 
-TODO
+in your main or setup file, register the plugin:
+
+```typescript
+import('@sapphire/plugin-hmr/register');
+```
+
+and make sure your node environment is set to `development`(this is the default):
+
+```env
+NODE_ENV=development
+```
 
 ## Buy us some doughnuts
 
-Sapphire Community is and always will be open source, even if we don't get donations. That being said, we know there are amazing people who may still want to donate just to show their appreciation. Thank you very much in advance!
+Sapphire Community is and always will be open source, even if we don't get donations. That being said, we know there are
+amazing people who may still want to donate just to show their appreciation. Thank you very much in advance!
 
-We accept donations through Open Collective, Ko-fi, Paypal, Patreon and GitHub Sponsorships. You can use the buttons below to donate through your method of choice.
+We accept donations through Open Collective, Ko-fi, Paypal, Patreon and GitHub Sponsorships. You can use the buttons
+below to donate through your method of choice.
 
 |   Donate With   |                       Address                       |
 | :-------------: | :-------------------------------------------------: |
@@ -102,4 +127,5 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification.
+Contributions of any kind welcome!

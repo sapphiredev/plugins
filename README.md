@@ -18,14 +18,17 @@
 [![npm](https://img.shields.io/npm/v/@sapphire/plugin-subcommands?color=crimson&logo=npm&style=flat-square&label=@sapphire/plugin-subcommands)](https://www.npmjs.com/package/@sapphire/plugin-subcommands)
 [![npm](https://img.shields.io/npm/v/@sapphire/plugin-scheduled-tasks?color=crimson&logo=npm&style=flat-square&label=@sapphire/plugin-scheduled-tasks)](https://www.npmjs.com/package/@sapphire/plugin-scheduled-tasks)
 [![npm](https://img.shields.io/npm/v/@sapphire/plugin-pattern-commands?color=crimson&logo=npm&style=flat-square&label=@sapphire/plugin-pattern-commands)](https://www.npmjs.com/package/@sapphire/plugin-pattern-commands)
+[![npm](https://img.shields.io/npm/v/@sapphire/plugin-hmr?color=crimson&logo=npm&style=flat-square&label=@sapphire/plugin-hmr)](https://www.npmjs.com/package/@sapphire/plugin-hmr)
 
 </div>
 
 ## Buy us some doughnuts
 
-Sapphire Community is and always will be open source, even if we don't get donations. That being said, we know there are amazing people who may still want to donate just to show their appreciation. Thank you very much in advance!
+Sapphire Community is and always will be open source, even if we don't get donations. That being said, we know there are
+amazing people who may still want to donate just to show their appreciation. Thank you very much in advance!
 
-We accept donations through Open Collective, Ko-fi, Paypal, Patreon and GitHub Sponsorships. You can use the buttons below to donate through your method of choice.
+We accept donations through Open Collective, Ko-fi, Paypal, Patreon and GitHub Sponsorships. You can use the buttons
+below to donate through your method of choice.
 
 |   Donate With   |                       Address                       |
 | :-------------: | :-------------------------------------------------: |
@@ -76,4 +79,5 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification.
+Contributions of any kind welcome!
