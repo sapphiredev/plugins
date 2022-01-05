@@ -55,7 +55,16 @@ if you want to make sure its only loaded in development, you can do this:
 ```javascript
 const { start } = require('@sapphire/hmr');
 
-if (process.env.NODE_ENV === 'development') start();
+const client = new SapphireClient({/* your bot options */})
+
+async function main() {
+	await client.login()
+
+	// this has to be called after you have logged into your bot
+	if (process.env.NODE_ENV === 'development') start();
+}
+
+main()
 ```
 
 ### TypeScript
@@ -69,10 +78,18 @@ import '@sapphire/plugin-hmr/register';
 if you want to make sure its only loaded in development, you can do this:
 
 ```typescript
-// at the top of your file
-import { start } from '@sapphire/plugin-hmr';
+import { start } from "@sapphire/plugin-hmr"
 
-if (process.env.NODE_ENV === 'development') start();
+const client = new SapphireClient({/* your bot options */})
+
+async function main() {
+	await client.login()
+
+	// this has to be called after you have logged into your bot
+	if (process.env.NODE_ENV === 'development') start();
+}
+
+void main()
 ```
 
 ## Buy us some doughnuts
