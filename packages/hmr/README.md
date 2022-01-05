@@ -50,11 +50,10 @@ in your main or setup file, register the plugin:
 require('@sapphire/plugin-hmr/register');
 ```
 
-and make sure your node environment is set to `development`(this is the default):
+if you want to make sure its only loaded in development, you can do this:
 
-```env
-# in your .env file
-NODE_ENV=development
+```typescript
+if (process.env.NODE_ENV === 'development') import('@sapphire/plugin-hmr/register');
 ```
 
 ### TypeScript
@@ -65,11 +64,10 @@ in your main or setup file, register the plugin:
 import('@sapphire/plugin-hmr/register');
 ```
 
-and make sure your node environment is set to `development`(this is the default):
+if you want to make sure its only loaded in development, you can do this:
 
-```env
-# in your .env file
-NODE_ENV=development
+```typescript
+if (process.env.NODE_ENV === 'development') import('@sapphire/plugin-hmr/register');
 ```
 
 ## Buy us some doughnuts
