@@ -6,7 +6,5 @@
 		"composite": true,
 		"tsBuildInfoFile": "./dist/.tsbuildinfo"
 	},
-	"include": [
-		"src"
-	]
+	"include": ["src"]
 }
