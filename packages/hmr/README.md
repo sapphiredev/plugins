@@ -21,16 +21,16 @@ without your bot slowing you down.
 
 ## Features
 
-- Fully ready for TypeScript!
-- Includes ESM ready entrypoint
-- FAST!
-- Super easy to use
+-   Fully ready for TypeScript!
+-   Includes ESM ready entrypoint
+-   FAST!
+-   Super easy to use
 
 ## Installation
 
 `@sapphire/plugin-hmr` depends on the following packages. Be sure to install these along with this package!
 
-- [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
+-   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
 
 You can use the following command to install this package, or replace `npm install` with your package manager of choice.
 
@@ -55,16 +55,18 @@ if you want to make sure its only loaded in development, you can do this:
 ```javascript
 const { start } = require('@sapphire/hmr');
 
-const client = new SapphireClient({/* your bot options */})
+const client = new SapphireClient({
+	/* your bot options */
+});
 
 async function main() {
-	await client.login()
+	await client.login();
 
 	// this has to be called after you have logged into your bot
 	if (process.env.NODE_ENV === 'development') start();
 }
 
-main()
+main();
 ```
 
 ### TypeScript
@@ -80,16 +82,18 @@ if you want to make sure its only loaded in development, you can do this:
 ```typescript
 import { start } from '@sapphire/plugin-hmr';
 
-const client = new SapphireClient({/* your bot options */})
+const client = new SapphireClient({
+	/* your bot options */
+});
 
 async function main() {
-	await client.login()
+	await client.login();
 
 	// this has to be called after you have logged into your bot
 	if (process.env.NODE_ENV === 'development') start();
 }
 
-void main()
+void main();
 ```
 
 ## Buy us some doughnuts
