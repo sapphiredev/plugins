@@ -53,6 +53,7 @@ require('@sapphire/plugin-hmr/register');
 and make sure your node environment is set to `development`(this is the default):
 
 ```env
+# in your .env file
 NODE_ENV=development
 ```
 
@@ -67,6 +68,7 @@ import('@sapphire/plugin-hmr/register');
 and make sure your node environment is set to `development`(this is the default):
 
 ```env
+# in your .env file
 NODE_ENV=development
 ```
 
