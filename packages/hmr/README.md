@@ -78,7 +78,7 @@ import '@sapphire/plugin-hmr/register';
 if you want to make sure its only loaded in development, you can do this:
 
 ```typescript
-import { start } from "@sapphire/plugin-hmr"
+import { start } from '@sapphire/plugin-hmr';
 
 const client = new SapphireClient({/* your bot options */})
 
