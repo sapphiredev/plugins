@@ -3,8 +3,8 @@ import { watch } from 'chokidar';
 import { relative } from 'path';
 
 export function start() {
-	container.client.logger.info('HMR is enabled!');
-	for (const store of container.client.stores.values()) {
+	container.logger.info('HMR is enabled!');
+	for (const store of container.stores.values()) {
 		const deleteCb = handlePiecePathDelete.bind(null, store);
 		const updateCb = handlePiecePathUpdate.bind(null, store);
 

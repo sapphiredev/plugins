@@ -63,14 +63,14 @@ if (process.env.NODE_ENV === 'development') start();
 in your main or setup file, register the plugin:
 
 ```typescript
-import "@sapphire/plugin-hmr/register";
+import '@sapphire/plugin-hmr/register';
 ```
 
 if you want to make sure its only loaded in development, you can do this:
 
 ```typescript
 // at the top of your file
-import { start } from "@sapphire/plugin-hmr";
+import { start } from '@sapphire/plugin-hmr';
 
 if (process.env.NODE_ENV === 'development') start();
 ```
