@@ -1,4 +1,4 @@
-import { ILogger, Piece, Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
+import { ILogger, Piece, Plugin, postInitialization, SapphireClient, Store } from '@sapphire/framework';
 import chokidar from 'chokidar';
 import { basename, join } from 'path';
 
@@ -18,16 +18,15 @@ export class HmrPlugin extends Plugin {
 			});
 
 			watcher.on('change', (path, _stats) => {
-				const fileName = basename(path);
+				const fullPath = join(process.cwd(), path);
+				const commands = this.stores.get('commands');
+				reloadPieceList(commands, this.logger, fullPath);
 
-				const commands = this.stores.get('commands').values();
-				reloadPieceList(commands, this.logger, fileName);
+				const listeners = this.stores.get('listeners');
+				reloadPieceList(listeners, this.logger, fullPath);
 
-				const listeners = this.stores.get('listeners').values();
-				reloadPieceList(listeners, this.logger, fileName);
-
-				const preconditions = this.stores.get('preconditions').values();
-				reloadPieceList(preconditions, this.logger, fileName);
+				const preconditions = this.stores.get('preconditions');
+				reloadPieceList(preconditions, this.logger, fullPath);
 
 				if (path.endsWith('.js')) {
 					const absolute_path = join(process.cwd(), path);
@@ -44,16 +43,19 @@ export class HmrPlugin extends Plugin {
 	}
 }
 
-function reloadPieceList<T extends Piece>(list: IterableIterator<T>, logger: ILogger, fileName: string): void {
-	for (const piece of list) {
-		const filePath = piece.location.name;
-		if (filePath !== fileName) continue;
+function reloadPieceList<T extends Piece>(list: Store<T>, logger: ILogger, fullLocation: string): void {
+	const piece = list.find((piece) => piece.location.full === fullLocation);
 
-		piece
-			.reload()
-			.then(() => logger.info(`Reloaded piece ${piece.name}`))
-			.catch((err) => logger.error(err));
-	}
+	if (!piece) return;
+
+	piece
+		.reload()
+		.then(() => {
+			logger.info(`Reloaded ${basename(fullLocation)}`);
+		})
+		.catch((err) => {
+			logger.error(err);
+		});
 }
 
 SapphireClient.plugins.registerPostInitializationHook(HmrPlugin[postInitialization], 'HmrCommands-PostInitialization');
