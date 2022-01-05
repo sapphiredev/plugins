@@ -52,8 +52,10 @@ require('@sapphire/plugin-hmr/register');
 
 if you want to make sure its only loaded in development, you can do this:
 
-```typescript
-if (process.env.NODE_ENV === 'development') import('@sapphire/plugin-hmr/register');
+```javascript
+const { start } = require('@sapphire/hmr');
+
+if (process.env.NODE_ENV === 'development') start();
 ```
 
 ### TypeScript
@@ -61,13 +63,16 @@ if (process.env.NODE_ENV === 'development') import('@sapphire/plugin-hmr/registe
 in your main or setup file, register the plugin:
 
 ```typescript
-import('@sapphire/plugin-hmr/register');
+import "@sapphire/plugin-hmr/register";
 ```
 
 if you want to make sure its only loaded in development, you can do this:
 
 ```typescript
-if (process.env.NODE_ENV === 'development') import('@sapphire/plugin-hmr/register');
+// at the top of your file
+import { start } from "@sapphire/plugin-hmr";
+
+if (process.env.NODE_ENV === 'development') start();
 ```
 
 ## Buy us some doughnuts
