@@ -96,6 +96,28 @@ async function main() {
 void main();
 ```
 
+In order for proper HMR, you will need to recompile your code, so you will need to edit your package.json:
+
+- replace the dev and start script 
+```json
+"scripts": {
+	"dev": "run-p watch:build start",
+	"start": "run-s build start:bot"
+}
+```
+
+- add a start:bot script
+```json
+"scripts": {
+	"start:bot": "node dist/index.js"
+}
+```
+
+then run your bot using the dev script. You can replace npm with your package manager of choice.
+```sh
+npm run start
+```
+
 ## Buy us some doughnuts
 
 Sapphire Community is and always will be open source, even if we don't get donations. That being said, we know there are
