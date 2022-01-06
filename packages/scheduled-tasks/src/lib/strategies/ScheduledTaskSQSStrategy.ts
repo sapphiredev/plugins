@@ -1,4 +1,5 @@
 import { container, from, isErr } from '@sapphire/framework';
+import type { SendMessageBatchResultEntryList } from 'aws-sdk/clients/sqs';
 import { randomBytes } from 'crypto';
 import { Consumer, ConsumerOptions } from 'sqs-consumer';
 import { Producer } from 'sqs-producer';
@@ -45,7 +46,7 @@ export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 		}
 	}
 
-	public create(task: string, payload?: unknown, options?: ScheduledTasksTaskOptions) {
+	public create(task: string, payload?: unknown, options?: ScheduledTasksTaskOptions): Promise<SendMessageBatchResultEntryList> {
 		if (options?.cron) {
 			throw new Error('SQS does not support cron notation.');
 		}
@@ -66,29 +67,29 @@ export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 		});
 	}
 
-	public async createRepeated(tasks: ScheduledTaskCreateRepeatedTask[]) {
+	public async createRepeated(tasks: ScheduledTaskCreateRepeatedTask[]): Promise<void> {
 		for (const task of tasks) {
 			await this.create(task.name, null, task.options);
 		}
 	}
 
-	public delete() {
+	public delete(): void {
 		throw new Error('SQS does not support deleting tasks.');
 	}
 
-	public list() {
+	public list(): void {
 		throw new Error('SQS does not support listing tasks.');
 	}
 
-	public listRepeated() {
+	public listRepeated(): void {
 		throw new Error('SQS does not support listing tasks.');
 	}
 
-	public get() {
+	public get(): void {
 		throw new Error('SQS does not support getting tasks.');
 	}
 
-	public run(task: string, payload: unknown) {
+	public run(task: string, payload: unknown): Promise<unknown> {
 		return container.tasks.run(task, payload);
 	}
 
