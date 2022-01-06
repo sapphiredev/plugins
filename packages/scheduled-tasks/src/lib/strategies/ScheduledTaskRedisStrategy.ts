@@ -9,9 +9,9 @@ export interface ScheduledTaskRedisStrategyOptions {
 	bull?: QueueOptions;
 }
 
-export interface ScheduledTaskRedisStrategyJob {
+export interface ScheduledTaskRedisStrategyJob<T = unknown> {
 	task: string;
-	payload?: unknown;
+	payload?: T;
 }
 
 export interface ScheduledTaskRedisStrategyListRepeatedOptions {
