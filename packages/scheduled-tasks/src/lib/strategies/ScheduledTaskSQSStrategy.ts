@@ -2,9 +2,10 @@ import { container, from, isErr } from '@sapphire/framework';
 import { randomBytes } from 'crypto';
 import { Consumer, ConsumerOptions } from 'sqs-consumer';
 import { Producer } from 'sqs-producer';
-import type { ScheduledTaskCreateRepeatedTask, ScheduledTasksTaskOptions } from '../types';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
+import type { ScheduledTaskCreateRepeatedTask } from '../types/ScheduledTaskCreateRepeatedTask';
 import { ScheduledTaskEvents } from '../types/ScheduledTaskEvents';
+import type { ScheduledTasksTaskOptions } from '../types/ScheduledTasksTaskOptions';
 
 export interface ScheduledTaskSQSStrategyMessageBody {
 	task: string;

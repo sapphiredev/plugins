@@ -1,8 +1,10 @@
 import { container, fromAsync, isErr } from '@sapphire/framework';
 import { ScheduledTaskRedisStrategy } from './strategies/ScheduledTaskRedisStrategy';
 import type { ScheduledTaskStore } from './structures/ScheduledTaskStore';
-import type { ScheduledTaskBaseStrategy, ScheduledTasksOptions, ScheduledTasksTaskOptions } from './types';
+import type { ScheduledTaskBaseStrategy } from './types/ScheduledTaskBaseStrategy';
 import { ScheduledTaskEvents } from './types/ScheduledTaskEvents';
+import type { ScheduledTasksOptions } from './types/ScheduledTasksOptions';
+import type { ScheduledTasksTaskOptions } from './types/ScheduledTasksTaskOptions';
 
 export class ScheduledTaskHandler {
 	public readonly strategy: ScheduledTaskBaseStrategy;
