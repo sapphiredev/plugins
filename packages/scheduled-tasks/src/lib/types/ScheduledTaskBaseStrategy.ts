@@ -5,11 +5,11 @@ import type { ScheduledTasksTaskOptions } from './ScheduledTasksTaskOptions';
 export interface ScheduledTaskBaseStrategy {
 	client: unknown;
 	connect(): void;
-	create(task: string, payload: unknown, options?: ScheduledTasksTaskOptions): void;
+	create(task: string, payload: unknown, options?: ScheduledTasksTaskOptions): Awaitable<unknown>;
 	createRepeated(tasks: ScheduledTaskCreateRepeatedTask[]): void;
-	delete(id: unknown): void;
-	list(options?: unknown): void;
-	listRepeated(options?: unknown): void;
-	get(id: unknown): void;
+	delete(id: unknown): unknown;
+	list(options?: unknown): unknown;
+	listRepeated(options?: unknown): unknown;
+	get(id: unknown): unknown;
 	run(task: string, payload: unknown): Awaitable<unknown>;
 }

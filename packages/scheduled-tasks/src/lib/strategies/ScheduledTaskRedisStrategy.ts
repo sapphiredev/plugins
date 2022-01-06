@@ -10,9 +10,9 @@ export interface ScheduledTaskRedisStrategyOptions {
 	bull?: QueueOptions;
 }
 
-export interface ScheduledTaskRedisStrategyJob {
+export interface ScheduledTaskRedisStrategyJob<T = unknown> {
 	task: string;
-	payload?: unknown;
+	payload?: T;
 }
 
 export interface ScheduledTaskRedisStrategyListRepeatedOptions {
@@ -42,7 +42,7 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		return this.bullClient;
 	}
 
-	public connect() {
+	public connect(): void {
 		const connectResult = from(() => {
 			this.bullClient = new Bull(this.queue, this.options);
 			void this.bullClient.process((job) => this.run(job?.data?.task, job?.data?.payload));
@@ -53,7 +53,11 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		}
 	}
 
-	public create(task: string, payload?: unknown, options?: ScheduledTasksTaskOptions) {
+	public create<T = unknown>(
+		task: string,
+		payload?: unknown,
+		options?: ScheduledTasksTaskOptions
+	): Promise<Bull.Job<ScheduledTaskRedisStrategyJob<T>>> | undefined {
 		if (!this.bullClient) {
 			return;
 		}
@@ -78,16 +82,16 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 				payload
 			},
 			bullOptions
-		);
+		) as Promise<Bull.Job<ScheduledTaskRedisStrategyJob<T>>> | undefined;
 	}
 
-	public async createRepeated(tasks: ScheduledTaskCreateRepeatedTask[]) {
+	public async createRepeated(tasks: ScheduledTaskCreateRepeatedTask[]): Promise<void> {
 		for (const task of tasks) {
 			await this.create(task.name, null, task.options);
 		}
 	}
 
-	public async delete(id: JobId) {
+	public async delete(id: JobId): Promise<void> {
 		if (!this.bullClient) {
 			return;
 		}
@@ -96,16 +100,16 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		return job?.remove();
 	}
 
-	public list(options: ScheduledTaskRedisStrategyListOptions) {
+	public list<T = unknown>(options: ScheduledTaskRedisStrategyListOptions): Promise<Bull.Job<ScheduledTaskRedisStrategyJob<T>>[]> | undefined {
 		const { types, start, end, asc } = options;
 		if (!this.bullClient) {
 			return;
 		}
 
-		return this.bullClient.getJobs(types, start, end, asc);
+		return this.bullClient.getJobs(types, start, end, asc) as Promise<Bull.Job<ScheduledTaskRedisStrategyJob<T>>[]> | undefined;
 	}
 
-	public listRepeated(options: ScheduledTaskRedisStrategyListRepeatedOptions) {
+	public listRepeated(options: ScheduledTaskRedisStrategyListRepeatedOptions): Promise<Bull.JobInformation[]> | undefined {
 		const { start, end, asc } = options;
 		if (!this.bullClient) {
 			return;
@@ -114,15 +118,15 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		return this.bullClient.getRepeatableJobs(start, end, asc);
 	}
 
-	public get(id: JobId) {
+	public get<T = unknown>(id: JobId): Promise<Bull.Job<ScheduledTaskRedisStrategyJob<T>> | null> | undefined {
 		if (!this.bullClient) {
 			return;
 		}
 
-		return this.bullClient.getJob(id);
+		return this.bullClient.getJob(id) as Promise<Bull.Job<ScheduledTaskRedisStrategyJob<T>> | null> | undefined;
 	}
 
-	public run(task: string, payload: unknown) {
+	public run(task: string, payload: unknown): Promise<unknown> {
 		return container.tasks.run(task, payload);
 	}
 }
