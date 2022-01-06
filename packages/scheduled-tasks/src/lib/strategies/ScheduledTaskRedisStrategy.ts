@@ -1,8 +1,9 @@
 import { container, from, isErr } from '@sapphire/framework';
-import Bull, { Job, JobOptions, Queue, QueueOptions, JobStatus, JobId } from 'bull';
-import type { ScheduledTaskCreateRepeatedTask, ScheduledTasksTaskOptions } from '../types';
+import Bull, { Job, JobId, JobOptions, JobStatus, Queue, QueueOptions } from 'bull';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
+import type { ScheduledTaskCreateRepeatedTask } from '../types/ScheduledTaskCreateRepeatedTask';
 import { ScheduledTaskEvents } from '../types/ScheduledTaskEvents';
+import type { ScheduledTasksTaskOptions } from '../types/ScheduledTasksTaskOptions';
 
 export interface ScheduledTaskRedisStrategyOptions {
 	queue?: string;
