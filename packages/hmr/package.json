@@ -1,7 +1,7 @@
 {
 	"name": "@sapphire/plugin-hmr",
 	"version": "0.0.1",
-	"description": "Plugin for @sapphire/framework for hot module replacement with commands, listeners and more",
+	"description": "Plugin for @sapphire/framework for hot module reloading for pieces",
 	"author": "@sapphire",
 	"license": "MIT",
 	"main": "dist/index.js",
@@ -23,7 +23,7 @@
 		"./register.js",
 		"./register.mjs"
 	],
-	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/hmr",
+	"homepage": "https://sapphirejs.dev",
 	"scripts": {
 		"lint": "eslint src --ext ts --fix",
 		"build": "tsc -b src && yarn esm:register && yarn esm:default",
@@ -33,7 +33,7 @@
 	},
 	"dependencies": {
 		"chokidar": "^3.5.2",
-		"tslib": "^2.3.1"
+		"tslib": "2.x"
 	},
 	"repository": {
 		"type": "git",
