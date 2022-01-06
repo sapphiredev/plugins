@@ -13,14 +13,20 @@ export interface ScheduledTaskSQSStrategyMessageBody {
 	options: ScheduledTasksTaskOptions;
 }
 
+export type SQSClient = Producer;
+
 export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 	public readonly options: ConsumerOptions;
 
-	private producer: Producer;
+	private producer: SQSClient;
 
 	public constructor(options: ConsumerOptions) {
 		this.options = options;
 		this.producer = Producer.create(this.options);
+	}
+
+	public get client(): SQSClient {
+		return this.producer;
 	}
 
 	public connect() {

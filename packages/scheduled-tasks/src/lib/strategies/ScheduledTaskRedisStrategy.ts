@@ -1,5 +1,5 @@
 import { container, from, isErr } from '@sapphire/framework';
-import Bull, { Job, JobId, JobOptions, JobStatus, Queue, QueueOptions } from 'bull';
+import Bull, { JobId, JobOptions, JobStatus, Queue, QueueOptions } from 'bull';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
 import type { ScheduledTaskCreateRepeatedTask } from '../types/ScheduledTaskCreateRepeatedTask';
 import { ScheduledTaskEvents } from '../types/ScheduledTaskEvents';
@@ -25,21 +25,27 @@ export interface ScheduledTaskRedisStrategyListOptions extends ScheduledTaskRedi
 	types: JobStatus[];
 }
 
+export type BullClient = Queue<ScheduledTaskRedisStrategyJob>;
+
 export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 	public readonly options: QueueOptions;
 	public readonly queue: string;
 
-	private bullClient!: Queue;
+	private bullClient!: BullClient;
 
 	public constructor(options?: ScheduledTaskRedisStrategyOptions) {
 		this.queue = options?.queue ?? 'scheduled-tasks';
 		this.options = options?.bull ?? {};
 	}
 
+	public get client(): BullClient {
+		return this.bullClient;
+	}
+
 	public connect() {
 		const connectResult = from(() => {
 			this.bullClient = new Bull(this.queue, this.options);
-			void this.bullClient.process((job: Job<ScheduledTaskRedisStrategyJob>) => this.run(job?.data?.task, job?.data?.payload));
+			void this.bullClient.process((job) => this.run(job?.data?.task, job?.data?.payload));
 		});
 
 		if (isErr(connectResult)) {
