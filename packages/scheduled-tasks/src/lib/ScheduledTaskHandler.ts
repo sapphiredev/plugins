@@ -14,6 +14,10 @@ export class ScheduledTaskHandler {
 		this.strategy.connect();
 	}
 
+	public get client(): ScheduledTaskBaseStrategy['client'] {
+		return this.strategy.client;
+	}
+
 	public create(task: string, payload: unknown, options?: ScheduledTasksTaskOptions | number) {
 		if (typeof options === 'number') {
 			options = {

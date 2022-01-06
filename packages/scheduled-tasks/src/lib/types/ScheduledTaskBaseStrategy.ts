@@ -3,6 +3,7 @@ import type { ScheduledTaskCreateRepeatedTask } from './ScheduledTaskCreateRepea
 import type { ScheduledTasksTaskOptions } from './ScheduledTasksTaskOptions';
 
 export interface ScheduledTaskBaseStrategy {
+	client: unknown;
 	connect(): void;
 	create(task: string, payload: unknown, options?: ScheduledTasksTaskOptions): void;
 	createRepeated(tasks: ScheduledTaskCreateRepeatedTask[]): void;
