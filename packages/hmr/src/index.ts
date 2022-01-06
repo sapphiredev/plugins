@@ -2,6 +2,9 @@ import { container, Piece, Store } from '@sapphire/framework';
 import { watch } from 'chokidar';
 import { relative } from 'path';
 
+/**
+ * Starts HMR for all registered {@link Store Stores} in {@link container.stores the main container}.
+ */
 export function start() {
 	container.logger.info('HMR is enabled!');
 	for (const store of container.stores.values()) {
