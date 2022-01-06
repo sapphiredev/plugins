@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.1.2...@sapphire/plugin-api@3.1.3) (2022-01-06)
+
+### Bug Fixes
+
+-   **api:** fixed return of `response.json` and `response.text` to actually return `void` ([add3ce5](https://github.com/sapphiredev/plugins/commit/add3ce55b2d49f9a605691d78baed13ef27844c7))
+
 ## [3.1.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.1.1...@sapphire/plugin-api@3.1.2) (2021-12-21)
 
 ### Bug Fixes
