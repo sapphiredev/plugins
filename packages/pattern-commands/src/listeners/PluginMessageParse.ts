@@ -43,7 +43,11 @@ export class MessageParseListener extends Listener<typeof Events.PreMessageParse
 				return true;
 			}
 
-			if (content.match(new RegExp(key, client.options.caseInsensitiveCommands ? 'i' : undefined))) {
+			if (
+				content.match(
+					new RegExp(patternCommand.isFullMatchName ? `\b${key}\b` : key, client.options.caseInsensitiveCommands ? 'i' : undefined)
+				)
+			) {
 				usedAlias = content;
 				return true;
 			}
