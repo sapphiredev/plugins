@@ -15,7 +15,7 @@ export class Phisherman {
 	 * @param domain The link to check
 	 * @since 1.0.0
 	 */
-	public async check(domain: string) {
+	public async check(domain: string): Promise<CheckReturnType> {
 		const result = await fromAsync(async () => {
 			const check = fetch<PhishermanReturnType>(`https://api.phisherman.gg/v2/domains/check/${domain}`, {
 				headers: {
@@ -26,7 +26,10 @@ export class Phisherman {
 			return check;
 		});
 		if (isErr(result)) throw result.error;
-		return result.value;
+		return {
+			isScam: result.value.classification === 'safe' ? false : true,
+			...result.value
+		};
 	}
 
 	/**
@@ -37,13 +40,16 @@ export class Phisherman {
 	public async report(domain: string) {
 		const result = await fromAsync(async () => {
 			const report = await fetch<PhishermanReportType>(
-				`https://api.phisherman.gg/v2/phish/report/${domain}`,
+				`https://api.phisherman.gg/v2/phish/report`,
 				{
 					method: FetchMethods.Put,
 					headers: {
 						'Content-Type': 'application/json',
 						Authorization: `Bearer ${this.options?.apiKey}`
-					}
+					},
+					body: JSON.stringify({
+						url: domain
+					})
 				},
 				FetchResultTypes.JSON
 			);
@@ -59,10 +65,13 @@ export interface PhishermanOptions {
 }
 
 export interface PhishermanReturnType {
-	isSafe: boolean;
 	verified: boolean;
-	classification: string;
+	classification: 'malicious' | 'suspicious' | 'safe';
 }
+
+export type CheckReturnType = PhishermanReturnType & {
+	isScam: boolean;
+};
 
 export interface PhishermanReportType {
 	success: boolean;
