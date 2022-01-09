@@ -3,7 +3,9 @@ import type { ClientOptions } from 'discord.js';
 import { Phisherman } from '.';
 
 export class PhishermanPlugin extends Plugin {
-	public [preGenericsInitialization](this: SapphireClient, options: ClientOptions) {
+	public static [preGenericsInitialization](this: SapphireClient, options: ClientOptions) {
 		container.phisherman = new Phisherman(options.phisherman);
 	}
 }
+
+SapphireClient.plugins.registerPreGenericsInitializationHook(PhishermanPlugin[preGenericsInitialization], 'Phisherman-PreGenericsInitialization');
