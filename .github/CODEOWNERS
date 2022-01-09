@@ -4,3 +4,4 @@
 /packages/logger/**/*.ts @kyranet
 /packages/pattern-commands/**/*.ts @feralheart
 /packages/subcommands/**/*.ts @kyranet
+/packages/phisherman/**/*.ts @undiedgamer

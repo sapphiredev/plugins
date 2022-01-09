@@ -7,3 +7,4 @@ package:
   - '@sapphire/plugin-pattern-commands'
   - '@sapphire/plugin-scheduled-tasks'
   - '@sapphire/plugin-subcommands'
+  - '@sapphire/plugin-phisherman'
