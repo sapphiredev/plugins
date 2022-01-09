@@ -1,5 +1,6 @@
 import { fromAsync, isErr, Listener } from '@sapphire/framework';
 import type { PieceContext } from '@sapphire/pieces';
+import { Stopwatch } from '@sapphire/stopwatch';
 import { PatternCommandEvents } from '../lib/utils/PaternCommandEvents';
 import type { PatternCommandAcceptedPayload } from '../lib/utils/PatternCommandInterfaces';
 
@@ -21,16 +22,18 @@ export class CommandAcceptedListener extends Listener<typeof PatternCommandEvent
 	public async runPatternCommand(payload: PatternCommandAcceptedPayload) {
 		const { message, command, alias } = payload;
 
+		const stopwatch = new Stopwatch();
 		const result = await fromAsync(async () => {
 			message.client.emit(PatternCommandEvents.CommandRun, message, command, alias);
 			const result = await command.messageRun(message);
 			message.client.emit(PatternCommandEvents.CommandSuccess, result, command, alias);
 		});
 
+		const { duration } = stopwatch.stop();
 		if (isErr(result)) {
-			message.client.emit(PatternCommandEvents.CommandError, result.error, command, payload);
+			message.client.emit(PatternCommandEvents.CommandError, result.error, command, duration, payload);
 		}
 
-		message.client.emit(PatternCommandEvents.CommandFinished, command, payload);
+		message.client.emit(PatternCommandEvents.CommandFinished, command, duration, payload);
 	}
 }
