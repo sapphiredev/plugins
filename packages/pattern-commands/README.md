@@ -34,12 +34,13 @@ With pattern commands you can define rulesets to which the bot may respond.
 
 -   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
 -   [`@sapphire/utilities`](https://www.npmjs.com/package/@sapphire/utilities)
+-   [`@sapphire/stopwatch`](https://www.npmjs.com/package/@sapphire/stopwatch)
 -   [`discord.js`](https://www.npmjs.com/package/discord.js)
 
 You can use the following command to install this package, or replace `npm install` with your package manager of choice.
 
 ```sh
-npm install @sapphire/plugin-pattern-commands @sapphire/framework @sapphire/utilities discord.js
+npm install @sapphire/plugin-pattern-commands @sapphire/framework @sapphire/utilities @sapphire/stopwatch discord.js
 ```
 
 ---
