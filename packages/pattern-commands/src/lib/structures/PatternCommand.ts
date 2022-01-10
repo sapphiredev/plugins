@@ -3,11 +3,11 @@ import type { Awaitable, Message } from 'discord.js';
 
 export abstract class PatternCommand extends Command<Args, PatternCommand.Options> {
 	public readonly chance: number;
-	public readonly isFullMatchName: boolean;
+	public readonly matchFullName: boolean;
 	public constructor(context: PatternCommand.Context, options: PatternCommand.Options) {
 		super(context, options);
 		this.chance = options.chance ?? 100;
-		this.isFullMatchName = options.isFullMatchName ?? false;
+		this.matchFullName = options.matchFullName ?? false;
 	}
 
 	/**
@@ -24,11 +24,11 @@ export interface PatternCommandOptions extends Command.Options {
 	 */
 	chance?: number;
 	/**
-	 * If true it will only trigger on full matches (explore won't trigger lore)
+	 * If true it will only trigger on full matches (for example, explore won't trigger lore)
 	 * Note: It will only change the behavior of the command's name and not for the command's aliasses
 	 * @default false
 	 */
-	isFullMatchName?: boolean;
+	matchFullName?: boolean;
 }
 
 export namespace PatternCommand {
