@@ -1,7 +1,7 @@
 {
-	"name": "@sapphire/plugin-phisherman",
+	"name": "@sapphire/phisherman",
 	"version": "0.0.1",
-	"description": "Plugin that integrates phisherman into @sapphire/framework",
+	"description": "Wrapper around phisherman to easily check and report domains",
 	"author": "@sapphire",
 	"license": "MIT",
 	"main": "dist/index.js",
@@ -9,41 +9,27 @@
 	"types": "dist/index.d.ts",
 	"typedocMain": "src/index.ts",
 	"exports": {
-		".": {
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.js"
-		},
-		"./register": {
-			"import": "./register.mjs",
-			"require": "./register.js"
-		}
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.js"
 	},
-	"sideEffects": [
-		"./dist/register.js",
-		"./register.js",
-		"./register.mjs"
-	],
-	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/phisherman",
+	"homepage": "https://github.com/sapphiredev/utilities/tree/main/packages/phisherman",
 	"scripts": {
 		"lint": "eslint src --ext ts --fix",
-		"build": "tsc -b src && yarn esm:register && yarn esm:default",
-		"esm:register": "gen-esm-wrapper dist/register.js dist/register.mjs",
+		"build": "tsc -b src && yarn esm:default",
 		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"@sapphire/fetch": "^2.0.3",
-		"tslib": "^2.3.1"
+		"@sapphire/fetch": "^2.0.3"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/sapphiredev/plugins.git",
+		"url": "git+https://github.com/sapphiredev/utilities.git",
 		"directory": "packages/phisherman"
 	},
 	"files": [
 		"dist",
-		"!dist/*.tsbuildinfo",
-		"register.*"
+		"!dist/*.tsbuildinfo"
 	],
 	"engines": {
 		"node": ">=16.6.0",
@@ -51,7 +37,6 @@
 	},
 	"keywords": [
 		"sapphiredev",
-		"plugin",
 		"bot",
 		"typescript",
 		"ts",
@@ -63,7 +48,7 @@
 		"detection"
 	],
 	"bugs": {
-		"url": "https://github.com/sapphiredev/plugins/issues"
+		"url": "https://github.com/sapphiredev/utilities/issues"
 	},
 	"publishConfig": {
 		"access": "public"
