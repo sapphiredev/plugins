@@ -27,6 +27,7 @@ Many bots have features that need to run periodically, such as uploading analyti
 `@sapphire/plugin-scheduled-tasks` depends on the following packages. Be sure to install these along with this package!
 
 -   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
+-   [`@sapphire/stopwatch`](https://www.npmjs.com/package/@sapphire/stopwatch)
 
 In case you want to use bull as your provider:
 
@@ -40,7 +41,7 @@ In case you want to use sqs as your provider:
 You can use the following command to install this package along with bull, or replace `npm install` with your package manager of choice.
 
 ```sh
-npm install @sapphire/plugin-scheduled-tasks @sapphire/framework bull
+npm install @sapphire/plugin-scheduled-tasks @sapphire/framework @sapphire/stopwatch bull
 ```
 
 ---
