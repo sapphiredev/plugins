@@ -400,7 +400,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:^16.0.1":
+"@commitlint/cli@npm:^16.0.2":
   version: 16.0.2
   resolution: "@commitlint/cli@npm:16.0.2"
   dependencies:
@@ -8783,7 +8783,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-plugins@workspace:."
   dependencies:
-    "@commitlint/cli": ^16.0.1
+    "@commitlint/cli": ^16.0.2
     "@commitlint/config-conventional": ^16.0.0
     "@favware/npm-deprecate": ^1.0.4
     "@sapphire/eslint-config": ^4.0.8

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@1.2.0...@sapphire/plugin-scheduled-tasks@1.2.1) (2022-01-09)
+
+### Bug Fixes
+
+-   **scheduled-task:** SQS type error when using Redis ([#217](https://github.com/sapphiredev/plugins/issues/217)) ([513aee6](https://github.com/sapphiredev/plugins/commit/513aee6520e6f6b322fb85e7cdd36a8ed40aed9d))
+
+### Features
+
+-   add HMR plugin ([#209](https://github.com/sapphiredev/plugins/issues/209)) ([4a18bb1](https://github.com/sapphiredev/plugins/commit/4a18bb1377a8d506fddc5bb991430503902d393b))
+
 # [1.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@1.1.1...@sapphire/plugin-scheduled-tasks@1.2.0) (2022-01-06)
 
 ### Bug Fixes
