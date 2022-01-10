@@ -4,7 +4,6 @@
 		"rootDir": "./",
 		"outDir": "../dist",
 		"composite": true,
-		"preserveConstEnums": true,
 		"tsBuildInfoFile": "../dist/.tsbuildinfo"
 	},
 	"include": ["."]

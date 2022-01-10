@@ -1,90 +1,111 @@
-import fetch, { Headers } from 'node-fetch';
-import { fromAsync, isErr } from '@sapphire/framework';
+import { fetch, FetchMethods, FetchResultTypes } from '@sapphire/fetch';
+import { container, fromAsync, isErr, isOk } from '@sapphire/framework';
+import { PhishermanEvents } from './PhishermanEvents';
+import type { PhishermanOptions, PhishermanReportType, PhishermanReturnType } from './PhishermanTypes';
 
 export class Phisherman {
 	/**
-	 * The options for phisherman
+	 * The options for this Phisherman instance
 	 */
-	public options;
-	public constructor(options: PhishermanOptions | undefined) {
+	public options: PhishermanOptions;
+
+	/**
+	 * Constructs a new instance of {@link Phisherman}
+	 * @param options The options for this Phisherman instance
+	 */
+	public constructor(options: PhishermanOptions) {
 		this.options = options;
-		void this.checkApiKey(this.options!.apiKey).then((res) => {
-			if (res) throw new Error('Invalid API key');
-		});
 	}
 
 	/**
-	 * Check if a link is scam
+	 * Initializes the {@link Phisherman} instance by checking the API key.
+	 */
+	public async init() {
+		container.client.emit(PhishermanEvents.PhishermanApiKeyValidate);
+
+		const checkApiResult = await fromAsync(async () => {
+			return fetch<Promise<{ success: boolean; message: string }>>(
+				`https://api.phisherman.gg/v2/domains/check/verified.test.phisherman.gg`,
+				{
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${this.options.apiKey}`
+					}
+				},
+				FetchResultTypes.JSON
+			);
+		});
+
+		if (isErr(checkApiResult) || (isOk(checkApiResult) && checkApiResult.value.message === 'missing permissions or invalid API key')) {
+			container.client.emit(PhishermanEvents.PhishermanConnectError, checkApiResult.error);
+			throw new Error('[PhishermanPlugin]: Invalid API key provided. Please check `clientOptions.phisherman.apiKey`');
+		}
+	}
+
+	/**
+	 * Checks if a link is detected as a scam or phishing link by phisherman.
 	 * @param domain The link to check
 	 * @since 1.0.0
 	 */
 	public async check(domain: string) {
 		const result = await fromAsync(async () => {
-			const check = fetch(`https://api.phisherman.gg/v2/domains/check/${domain}`, {
-				headers: new Headers({
-					'Content-Type': 'application/json',
-					Authorization: `Bearer ${this.options?.apiKey}`
-				})
-			}).then((body) => body.json());
-			return check as Promise<PhishermanReturnType>;
+			container.client.emit(PhishermanEvents.PhishermanRun, domain);
+
+			const result = fetch<PhishermanReturnType>(
+				`https://api.phisherman.gg/v2/domains/check/${domain}`,
+				{
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${this.options?.apiKey}`
+					}
+				},
+				FetchResultTypes.JSON
+			);
+
+			container.client.emit(PhishermanEvents.PhishermanSuccess, result);
+
+			return result;
 		});
+
+		if (isErr(result)) {
+			container.client.emit(PhishermanEvents.PhishermanError, result.error, domain);
+		}
+
+		container.client.emit(PhishermanEvents.PhishermanFinished, domain);
+
 		return {
-			isScam: result.value!.classification === 'safe' ? false : true,
+			isScam: result.value?.classification === 'safe' ? false : true,
 			...result.value
 		};
 	}
 
 	/**
-	 * Report a scam domain to phisherman
+	 * Report a domain that is confirmed to be a scam or phishing domain to phisherman, to enhance their API.
 	 * @param domain The domain to report
 	 * @since 1.0.0
 	 */
 	public async report(domain: string) {
 		const result = await fromAsync(async () => {
-			const report = await fetch(`https://api.phisherman.gg/v2/phish/report`, {
-				method: 'put',
-				headers: new Headers({
-					'Content-Type': 'application/json',
-					Authorization: `Bearer ${this.options?.apiKey}`
-				}),
-				body: JSON.stringify({
-					url: domain
-				})
-			}).then((body) => body.json());
-			return report as PhishermanReportType;
+			return fetch<PhishermanReportType>(
+				`https://api.phisherman.gg/v2/phish/report`,
+				{
+					method: FetchMethods.Put,
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${this.options?.apiKey}`
+					},
+					body: JSON.stringify({
+						url: domain
+					})
+				},
+				FetchResultTypes.JSON
+			);
 		});
-		if (isErr(result)) throw result.error;
+
+		if (isErr(result)) {
+			throw result.error;
+		}
+
 		return result.value;
 	}
-
-	private async checkApiKey(key: string) {
-		const result = await fromAsync(async () => {
-			const check = fetch(`https://api.phisherman.gg/v2/domains/check/verified.test.phisherman.gg`, {
-				headers: new Headers({
-					'Content-Type': 'application/json',
-					Authorization: `Bearer ${key}`
-				})
-			}).then((body) => body.json());
-			return check as Promise<{ success: boolean; message: string }>;
-		});
-		return result.value!.message === 'missing permissions or invalid API key';
-	}
-}
-
-export interface PhishermanOptions {
-	apiKey: string;
-}
-
-export interface PhishermanReturnType {
-	verifiedPhish: boolean;
-	classification: 'malicious' | 'suspicious' | 'safe';
-}
-
-export type CheckReturnType = PhishermanReturnType & {
-	isScam: boolean;
-};
-
-export interface PhishermanReportType {
-	success: boolean;
-	message: string;
 }

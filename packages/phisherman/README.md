@@ -4,7 +4,7 @@
 
 # @sapphire/plugin-phisherman
 
-**Plugin that integrates phisherman into [@sapphire/framework](https://github.com/sapphiredev/framework)**
+**Plugin that integrates [Phisherman](https://phisherman.gg) into [@sapphire/framework](https://github.com/sapphiredev/framework)**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/plugins)](https://github.com/sapphiredev/plugins/blob/main/LICENSE.md)
 [![codecov](https://codecov.io/gh/sapphiredev/plugins/branch/main/graph/badge.svg?token=QWL8FB16BR)](https://codecov.io/gh/sapphiredev/plugins)
@@ -15,7 +15,7 @@
 
 ## Description
 
-With plugin-phisherman, you can have out of box integration with [Phisherman](https://phisherman.gg).
+With plugin-phisherman, you can have an out of the box integration with [Phisherman](https://phisherman.gg).
 
 ## Features
 
@@ -39,32 +39,39 @@ npm install @sapphire/plugin-phisherman @sapphire/framework
 
 ## Usage
 
-Make sure to add this to your main file before doing anything.
+First of all you will need to register the plugin. You can do so by calling the `/register` file like so:
+
 ```javascript
 require('@sapphire/plugin-phisherman/register');
 ```
-or
-```javascript
+
+Or when using TypeScript or ESM use `import:
+
+```typescript
 import '@sapphire/plugin-phisherman/register';
 ```
 
-And then add your phisherman config to your sapphire client.
-```javascript
+Then add your phisherman config to your Sapphire client option. You will need to provide the API key to your phisherman account.
+
+```typescript
 const options = {
 	...otherClientOptionsGoHere,
 	phisherman: {
-		apiKey: '<your-phisherman-api-key>',
+		apiKey: '<your-phisherman-api-key>'
 	}
 };
 ```
 
-In order to use the phisherman anywhere other than a piece (commands, arguments, preconditions, etc.), you must first import the `container` property of `@sapphire/framework`. For pieces, you can simply use `this.container.phisherman` to access phisherman's methods.
+In order to use the phisherman anywhere other than in a piece (commands, arguments, preconditions, etc.), you must first import the `container` property of `@sapphire/framework`. For pieces, you can simply use `this.container.phisherman` to access phisherman's methods.
 
-This is how you check if a url is safe or not:
+The main use you will have for phisherman is checking whether an URL is safe or not. You can do so with:
+
 ```typescript
 await container.phisherman.check('some-domain');
 ```
-and here is how you report a caught domain to phisherman:
+
+If you have an URL that didn't pass the check, but you are sure is actually a phishing site, you can use the following to report it to phisherman:
+
 ```typescript
 await container.phisherman.report('some-domain');
 ```

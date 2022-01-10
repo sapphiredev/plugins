@@ -23,7 +23,7 @@
 		"./register.js",
 		"./register.mjs"
 	],
-	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/editable-commands",
+	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/phisherman",
 	"scripts": {
 		"lint": "eslint src --ext ts --fix",
 		"build": "tsc -b src && yarn esm:register && yarn esm:default",
@@ -38,7 +38,7 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/sapphiredev/plugins.git",
-		"directory": "packages/editable-commands"
+		"directory": "packages/phisherman"
 	},
 	"files": [
 		"dist",
@@ -57,7 +57,10 @@
 		"ts",
 		"yarn",
 		"discord",
-		"sapphire"
+		"sapphire",
+		"phisherman",
+		"scam",
+		"detection"
 	],
 	"bugs": {
 		"url": "https://github.com/sapphiredev/plugins/issues"
