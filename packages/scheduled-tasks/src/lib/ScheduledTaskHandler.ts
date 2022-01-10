@@ -75,6 +75,8 @@ export class ScheduledTaskHandler {
 			container.client.emit(ScheduledTaskEvents.ScheduledTaskRun, task, payload);
 			const result = await piece.run(payload);
 			container.client.emit(ScheduledTaskEvents.ScheduledTaskSuccess, task, payload, result);
+
+			return result;
 		});
 
 		if (isErr(result)) {
