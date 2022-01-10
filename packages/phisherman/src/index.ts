@@ -1,6 +1,6 @@
 export * from './lib/Phisherman';
 
-import type { Phisherman, PhishermanOptions } from './lib/Phisherman';
+import type { Phisherman, PhishermanOptions } from '.';
 
 declare module '@sapphire/pieces' {
 	interface Container {
