@@ -2134,6 +2134,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sapphire/stopwatch@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "@sapphire/stopwatch@npm:1.2.4"
+  dependencies:
+    tslib: ^2.3.1
+  checksum: 0841a5a728a06c556e85470d1d5bb57646829b266ef8ab3c46ac998665edad1dba4eca0aaf689716f91ed4abca58882a93cde2ca354ca51f9c05b568d9be1308
+  languageName: node
+  linkType: hard
+
 "@sapphire/time-utilities@npm:^1.5.0":
   version: 1.5.0
   resolution: "@sapphire/time-utilities@npm:1.5.0"
@@ -8781,6 +8790,7 @@ __metadata:
     "@sapphire/framework": ^2.3.0
     "@sapphire/pieces": ^3.2.0
     "@sapphire/prettier-config": ^1.2.7
+    "@sapphire/stopwatch": ^1.2.4
     "@sapphire/ts-config": ^3.1.6
     "@sapphire/utilities": ^3.1.0
     "@types/jest": ^27.4.0
