@@ -27,6 +27,8 @@ export class CommandAcceptedListener extends Listener<typeof PatternCommandEvent
 			message.client.emit(PatternCommandEvents.CommandRun, message, command, alias);
 			const result = await command.messageRun(message);
 			message.client.emit(PatternCommandEvents.CommandSuccess, result, command, alias);
+
+			return result;
 		});
 
 		const { duration } = stopwatch.stop();
