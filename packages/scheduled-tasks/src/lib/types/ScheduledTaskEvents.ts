@@ -14,7 +14,7 @@ export enum ScheduledTaskEvents {
 	 */
 	ScheduledTaskRun = 'scheduledTaskRun',
 	/** Event that is emitted when a task's "run" method throws an error
-	 * @param error The error what occured during the run
+	 * @param error The error what occurred during the run
 	 * @param task The name of the task what tried to run
 	 * @param duration The duration what indicates how long running the task took
 	 * @param payload The payload of the task
@@ -26,14 +26,14 @@ export enum ScheduledTaskEvents {
 	 * @param result The result of the run
 	 */
 	ScheduledTaskSuccess = 'scheduledTaskSuccess',
-	/** Event that is emitted when a task's "run" method finishes, regardless of whether an error occurred or not 
+	/** Event that is emitted when a task's "run" method finishes, regardless of whether an error occurred or not
 	 * @param task The name of the task what tried to run
 	 * @param duration The duration what indicates how long running the task took
 	 * @param payload The payload of the task
 	 */
 	ScheduledTaskFinished = 'scheduledTaskFinished',
 	/** Event that is emitted when the scheduler fails to connect to the server (i.e. redis or sqs)
-	 * @param error The error occured the connection
+	 * @param error The error occurred the connection
 	 */
 	ScheduledTaskStrategyConnectError = 'scheduledTaskStrategyConnectError'
 }
