@@ -32,11 +32,11 @@ async function handlePiecePathDelete(store: Store<Piece>, path: string) {
 
 	const result = await fromAsync(async () => {
 		await pieceToDelete.unload();
-		container.logger.info(`[HMR-Plugin]: Unloaded piece ${pieceToDelete.name} from ${pieceToDelete.store.name} store.`);
+		container.logger.info(`[HMR-Plugin]: Unloaded ${pieceToDelete.name} piece from ${pieceToDelete.store.name} store.`);
 	});
 
 	if (isErr(result)) {
-		container.logger.error(`[HMR-Plugin]: Failed to unload piece ${pieceToDelete.name} from ${pieceToDelete.store.name} store.`, error);
+		container.logger.error(`[HMR-Plugin]: Failed to unload ${pieceToDelete.name} piece from ${pieceToDelete.store.name} store.`, error);
 	}
 }
 
@@ -48,7 +48,7 @@ async function handlePiecePathUpdate(store: Store<Piece>, path: string) {
 	const result = await fromAsync(async () => {
 		if (pieceToUpdate) {
 			await pieceToUpdate.reload();
-			container.logger.info(`[HMR-Plugin]: reloaded piece ${pieceToUpdate.name} from ${pieceToUpdate.store.name} store.`);
+			container.logger.info(`[HMR-Plugin]: reloaded ${pieceToUpdate.name} piece from ${pieceToUpdate.store.name} store.`);
 		} else {
 			const rootPath = [...store.paths].find((storePath) => path.startsWith(storePath));
 			if (!rootPath) throw new Error(`[HMR-Plugin]: Could not find root path for ${path}.`);
