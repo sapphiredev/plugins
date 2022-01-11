@@ -1,19 +1,24 @@
 import { container, fromAsync, isErr, Piece, Store } from '@sapphire/framework';
-import { watch } from 'chokidar';
+import { watch, WatchOptions } from 'chokidar';
 import { error } from 'console';
 import { relative } from 'path';
+
+export interface HMROptions extends WatchOptions {
+	enabled?: boolean;
+}
 
 /**
  * Starts HMR for all registered {@link Store Stores} in {@link container.stores the main container}.
  */
-export function start() {
-	container.logger.info('HMR-Plugin: Enabled.');
+export function start(options: HMROptions = {}) {
+	if (!options.enabled) return;
+	container.logger.info('[HMR-Plugin]: Enabled. Watching for piece changes.');
 
 	for (const store of container.stores.values()) {
 		const deleteCb = handlePiecePathDelete.bind(null, store);
 		const updateCb = handlePiecePathUpdate.bind(null, store);
 
-		watch([...store.paths])
+		watch([...store.paths], options)
 			.on('change', updateCb)
 			.on('unlink', deleteCb);
 	}
