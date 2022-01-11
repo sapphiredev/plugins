@@ -4,5 +4,7 @@ export enum PatternCommandEvents {
 	CommandAccepted = 'patternCommandAccepted',
 	CommandDenied = 'patternCommandDenied',
 	CommandRun = 'patternCommandRun',
-	CommandSuccess = 'patternCommandSuccess'
+	CommandSuccess = 'patternCommandSuccess',
+	CommandError = 'patternCommandError',
+	CommandFinished = 'patternCommandFinished'
 }

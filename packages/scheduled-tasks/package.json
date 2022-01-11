@@ -1,6 +1,6 @@
 {
 	"name": "@sapphire/plugin-scheduled-tasks",
-	"version": "1.2.0",
+	"version": "2.0.0",
 	"description": "Plugin for @sapphire/framework to have scheduled tasks",
 	"author": "@sapphire",
 	"license": "MIT",
@@ -20,6 +20,14 @@
 		"./register-sqs": {
 			"import": "./register-sqs.mjs",
 			"require": "./register-sqs.js"
+		},
+		"./types-redis": {
+			"import": "./dist/types-redis.mjs",
+			"require": "./dist/types-redis.js"
+		},
+		"./types-sqs": {
+			"import": "./dist/types-redis.mjs",
+			"require": "./dist/types-redis.js"
 		}
 	},
 	"sideEffects": [
@@ -59,7 +67,9 @@
 		"dist",
 		"!dist/*.tsbuildinfo",
 		"register-redis.*",
-		"register-sqs.*"
+		"register-sqs.*",
+		"types-redis.*",
+		"types-sqs.*"
 	],
 	"engines": {
 		"node": ">=v14.18.0",
