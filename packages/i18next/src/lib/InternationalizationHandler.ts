@@ -220,7 +220,7 @@ export class InternationalizationHandler {
 	public async reloadResources() {
 		const result = await fromAsync(async () => {
 			const { namespaces, languages } = await this.walkLanguageDirectory(this.languagesDirectory);
-			await i18next.reloadResources(this.options.hmr?.langs ?? languages, this.options.hmr?.namespaces ?? namespaces);
+			await i18next.reloadResources(this.options.hmr?.languages ?? languages, this.options.hmr?.namespaces ?? namespaces);
 			container.logger.info('[i18next-Plugin] Reloaded language resources.');
 		});
 
