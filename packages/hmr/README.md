@@ -51,19 +51,17 @@ require('@sapphire/plugin-hmr/register');
 Or if you want to make sure the plugin is only loaded in development, you can register it dynamically like so:
 
 ```javascript
-const { start } = require('@sapphire/hmr');
+require('@sapphire/plugin-hmr/register');
 
 const client = new SapphireClient({
 	/* your bot options */
+	hmr: {
+		enabled: process.env.NODE_ENV === 'development'
+	}
 });
 
 async function main() {
 	await client.login();
-
-	// this has to be called after you have logged into your bot
-	if (process.env.NODE_ENV === 'development') {
-		start();
-	}
 }
 
 void main();
@@ -80,19 +78,17 @@ import '@sapphire/plugin-hmr/register';
 Or if you want to make sure the plugin is only loaded in development, you can register it dynamically like so:
 
 ```typescript
-import { start } from '@sapphire/plugin-hmr';
+import '@sapphire/plugin-hmr/register';
 
 const client = new SapphireClient({
 	/* your bot options */
+	hmr: {
+		enabled: process.env.NODE_ENV === 'development'
+	}
 });
 
 async function main() {
 	await client.login();
-
-	// this has to be called after you have logged into your bot
-	if (process.env.NODE_ENV === 'development') {
-		start();
-	}
 }
 
 void main();
