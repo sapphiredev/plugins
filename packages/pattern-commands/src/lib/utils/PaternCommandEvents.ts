@@ -4,55 +4,55 @@
  */
 export enum PatternCommandEvents {
 	/**
-	 * Event that is emmitted when the RNG doesn't love the command
+	 * Event that is emited when the RNG doesn't love the command
 	 * @param message The message where the command was triggered
 	 * @param command The command's piece
 	 * @param alias The alias what triggered the command
 	 */
 	CommandNoLuck = 'patternCommandNoLuck',
 	/**
-	 * Event that is emmitted when an alias triggered the command but before parsing the preconditions
-	 * @param payload PatternCommandRunPayload what contains message, command and alias
+	 * Event that is emited when an alias triggered the command but before parsing the preconditions
+	 * @param payload PatternCommandRunPayload which contains message, command and alias
 	 */
 	PreCommandRun = 'patternCommandPreRun',
 	/**
-	 * Event that is emmitted after the preconditions if none of them catched the command
-	 * @param payload PatternCommandAcceptedPayload what contains parameters, context, message, command and alias
+	 * Event that is emited after the preconditions if none of them denied the command
+	 * @param payload PatternCommandAcceptedPayload which contains parameters, context, message, command and alias
 	 */
 	CommandAccepted = 'patternCommandAccepted',
 	/**
-	 * Event that is emmitted after the preconditions if at least one of them catched the command
-	 * @param error The error of the precondition what cached the command
-	 * @param payload PatternCommandDeniedPayload what contains parameters, context, message, command and alias
+	 * Event that is emited after the preconditions if at least one of them denied the command
+	 * @param error The error of the precondition which debued the command
+	 * @param payload PatternCommandDeniedPayload which contains parameters, context, message, command and alias
 	 */
 	CommandDenied = 'patternCommandDenied',
 	/**
-	 * Event that is emmitted just before the command run
+	 * Event that is emitted just before the command is ran
 	 * @param message The message where the command was triggered
 	 * @param command The command's piece
-	 * @param alias The alias what triggered the command
+	 * @param alias The alias that triggered the command
 	 */
 	CommandRun = 'patternCommandRun',
 	/**
-	 * Event that is emmitted if there's no error while running the command
+	 * Event that is emited if there's no error while running the command
 	 * @param result The result of command's run
 	 * @param command The command's piece
-	 * @param alias The alias what triggered
+	 * @param alias The alias that triggered the command
 	 */
 	CommandSuccess = 'patternCommandSuccess',
 	/**
-	 * Event that is emmitted if there's an error while running the command
-	 * @param error The error message what happened while the command was running
+	 * Event that is emited if there's an error while running the command
+	 * @param error The error message which happened while the command was running
 	 * @param command The command's piece
-	 * @param duration The duration what indicates how long running the command took
-	 * @param payload PatternCommandAcceptedPayload what contains parameters, context, message, command and alias
+	 * @param duration The duration which indicates how long it took the command to run
+	 * @param payload PatternCommandAcceptedPayload which contains parameters, context, message, command and alias
 	 */
 	CommandError = 'patternCommandError',
 	/**
-	 * Event that is emmitted if the command is finished (whether is there an error or not)
+	 * Event that is emitted if the command has finished, regardless of whether an error occurred or not
 	 * @param command The command's piece
-	 * @param duration The duration what indicates how long running the command took
-	 * @param payload PatternCommandAcceptedPayload what contains parameters, context, message, command and alias
+	 * @param duration The duration which indicates how long it took the command to run
+	 * @param payload PatternCommandAcceptedPayload which contains parameters, context, message, command and alias
 	 */
 	CommandFinished = 'patternCommandFinished'
 }
