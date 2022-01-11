@@ -17,7 +17,7 @@ export interface HMROptions {
 	/**
 	 * Languages that will be reloaded when updating the languages directory.
 	 */
-	langs?: string | string[];
+	languages?: string | string[];
 
 	/**
 	 * Namespaces that will be reloaded when updating the languages directory.
