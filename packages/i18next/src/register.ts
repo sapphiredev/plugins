@@ -16,7 +16,7 @@ export class I18nextPlugin extends Plugin {
 	public static [postLogin](this: SapphireClient): void {
 		if (this.options.i18n?.hmr?.enabled) {
 			container.logger.info('[i18next-Plugin]: HMR enabled. Watching for languages changes.');
-			const hmr = watch(container.i18n.languagesDirectory, this.options.i18n.hmr);
+			const hmr = watch(container.i18n.languagesDirectory, this.options.i18n.hmr.options);
 
 			for (const event of ['add', 'change', 'unlink']) hmr.on(event, () => container.i18n.reloadResources());
 		}

@@ -8,9 +8,9 @@ import type { i18nextFsBackend } from 'i18next-fs-backend';
  * This option is used to set the HMR options.
  * @since 2.1.6
  */
-export interface HMROptions extends WatchOptions {
+export interface HMROptions {
 	/**
-	 * HMR mode status for the i18next plugin.
+	 * HMR status for the i18next plugin.
 	 */
 	enabled?: boolean;
 
@@ -23,6 +23,11 @@ export interface HMROptions extends WatchOptions {
 	 * Namespaces that will be reloaded when updating the languages directory.
 	 */
 	namespaces?: string | string[];
+
+	/**
+	 * HMR options
+	 */
+	options?: WatchOptions;
 }
 
 /**
