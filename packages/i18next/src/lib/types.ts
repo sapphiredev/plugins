@@ -1,7 +1,29 @@
 import type { Awaitable, NonNullObject } from '@sapphire/utilities';
+import type { WatchOptions } from 'chokidar';
 import type { Guild, Message, MessageOptions, StageChannel, StoreChannel, User, VoiceChannel } from 'discord.js';
 import type { InitOptions, StringMap, TFunctionKeys, TOptions } from 'i18next';
 import type { i18nextFsBackend } from 'i18next-fs-backend';
+
+/**
+ * This option is used to set the HMR options.
+ * @since 2.1.6
+ */
+export interface HMROptions extends WatchOptions {
+	/**
+	 * HMR mode status for the i18next plugin.
+	 */
+	enabled?: boolean;
+
+	/**
+	 * Languages that will be reloaded when updating the languages directory.
+	 */
+	langs?: string | string[];
+
+	/**
+	 * Namespaces that will be reloaded when updating the languages directory.
+	 */
+	namespaces?: string | string[];
+}
 
 /**
  * Used to dynamically add options based on found languages in {@link InternationalizationHandler#init}.
@@ -62,6 +84,13 @@ export interface InternationalizationOptions {
 	 * @default []
 	 */
 	formatters?: I18nextFormatters[];
+
+	/**
+	 * Reload languages and namespaces when updating the languages directory.
+	 *
+	 * @since 2.0.0
+	 */
+	hmr?: HMROptions;
 
 	/**
 	 * A function that is to be used to retrieve the language for the current context.

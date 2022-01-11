@@ -1,5 +1,7 @@
-import { container, Plugin, preGenericsInitialization, preLogin, SapphireClient } from '@sapphire/framework';
+import { container, Plugin, preGenericsInitialization, preLogin, postLogin, SapphireClient } from '@sapphire/framework';
+import { watch } from 'chokidar';
 import type { ClientOptions } from 'discord.js';
+
 import { InternationalizationClientOptions, InternationalizationHandler } from './index';
 
 export class I18nextPlugin extends Plugin {
@@ -9,6 +11,15 @@ export class I18nextPlugin extends Plugin {
 
 	public static async [preLogin](this: SapphireClient): Promise<void> {
 		await container.i18n.init();
+	}
+
+	public static [postLogin](this: SapphireClient): void {
+		if (this.options.i18n?.hmr?.enabled) {
+			container.logger.info('[i18next-Plugin]: HMR enabled. Watching for languages changes.');
+			const hmr = watch(container.i18n.languagesDirectory, this.options.i18n.hmr);
+
+			for (const event of ['add', 'change', 'unlink']) hmr.on(event, () => container.i18n.reloadResources());
+		}
 	}
 }
 

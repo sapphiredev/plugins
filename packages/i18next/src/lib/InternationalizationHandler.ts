@@ -1,9 +1,11 @@
+import { fromAsync, isErr } from '@sapphire/framework';
 import { container, getRootData } from '@sapphire/pieces';
 import { Awaitable, isFunction, NonNullObject } from '@sapphire/utilities';
 import { opendir } from 'fs/promises';
 import i18next, { StringMap, TFunction, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
 import Backend, { i18nextFsBackend } from 'i18next-fs-backend';
 import { join } from 'path';
+import { error } from 'console';
 import type { InternationalizationContext, InternationalizationOptions } from './types';
 
 /**
@@ -213,5 +215,17 @@ export class InternationalizationHandler {
 		}
 
 		return { namespaces: [...new Set(namespaces)], languages };
+	}
+
+	public async reloadResources() {
+		const result = await fromAsync(async () => {
+			const { namespaces, languages } = await this.walkLanguageDirectory(this.languagesDirectory);
+			await i18next.reloadResources(this.options.hmr?.langs ?? languages, this.options.hmr?.namespaces ?? namespaces);
+			container.logger.info('[i18next-Plugin] Reloaded language resources.');
+		});
+
+		if (isErr(result)) {
+			container.logger.error('[i18next-Plugin]: Failed to reload language resources.', error);
+		}
 	}
 }
