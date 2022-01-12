@@ -5,22 +5,25 @@ import type { InitOptions, StringMap, TFunctionKeys, TOptions } from 'i18next';
 import type { i18nextFsBackend } from 'i18next-fs-backend';
 
 /**
- * This option is used to set the HMR options.
- * @since 2.1.6
+ * Configure whether to use Hot-Module-Replacement (HMR) for your i18next resources using these options. The minimum config to enable HMR is to set `enabled` to true. Any other properties are optional.
+ * @since 2.2.0
  */
 export interface HMROptions {
 	/**
 	 * HMR status for the i18next plugin.
+	 * @default false
 	 */
-	enabled?: boolean;
+	enabled: boolean;
 
 	/**
 	 * Languages that will be reloaded when updating the languages directory.
+	 * @default All languages that are automatically resolved from your folder setup
 	 */
 	languages?: string | string[];
 
 	/**
 	 * Namespaces that will be reloaded when updating the languages directory.
+	 * @default All namespaces that are automatically resolved from your languages folder setup
 	 */
 	namespaces?: string | string[];
 
@@ -93,7 +96,7 @@ export interface InternationalizationOptions {
 	/**
 	 * Reload languages and namespaces when updating the languages directory.
 	 *
-	 * @since 2.0.0
+	 * @since 2.2.0
 	 */
 	hmr?: HMROptions;
 

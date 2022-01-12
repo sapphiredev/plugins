@@ -5,7 +5,6 @@ import { opendir } from 'fs/promises';
 import i18next, { StringMap, TFunction, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
 import Backend, { i18nextFsBackend } from 'i18next-fs-backend';
 import { join } from 'path';
-import { error } from 'console';
 import type { InternationalizationContext, InternationalizationOptions } from './types';
 
 /**
@@ -219,13 +218,20 @@ export class InternationalizationHandler {
 
 	public async reloadResources() {
 		const result = await fromAsync(async () => {
-			const { namespaces, languages } = await this.walkLanguageDirectory(this.languagesDirectory);
-			await i18next.reloadResources(this.options.hmr?.languages ?? languages, this.options.hmr?.namespaces ?? namespaces);
+			let languages = this.options.hmr?.languages;
+			let namespaces = this.options.hmr?.namespaces;
+			if (!languages || !namespaces) {
+				const languageDirectoryResult = await this.walkLanguageDirectory(this.languagesDirectory);
+				languages ??= languageDirectoryResult.languages;
+				namespaces ??= languageDirectoryResult.namespaces;
+			}
+
+			await i18next.reloadResources(languages, namespaces);
 			container.logger.info('[i18next-Plugin] Reloaded language resources.');
 		});
 
 		if (isErr(result)) {
-			container.logger.error('[i18next-Plugin]: Failed to reload language resources.', error);
+			container.logger.error('[i18next-Plugin]: Failed to reload language resources.', result.error);
 		}
 	}
 }
