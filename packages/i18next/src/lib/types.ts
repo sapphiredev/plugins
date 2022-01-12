@@ -1,7 +1,37 @@
 import type { Awaitable, NonNullObject } from '@sapphire/utilities';
+import type { WatchOptions } from 'chokidar';
 import type { Guild, Message, MessageOptions, StageChannel, StoreChannel, User, VoiceChannel } from 'discord.js';
 import type { InitOptions, StringMap, TFunctionKeys, TOptions } from 'i18next';
 import type { i18nextFsBackend } from 'i18next-fs-backend';
+
+/**
+ * Configure whether to use Hot-Module-Replacement (HMR) for your i18next resources using these options. The minimum config to enable HMR is to set `enabled` to true. Any other properties are optional.
+ * @since 2.2.0
+ */
+export interface HMROptions {
+	/**
+	 * HMR status for the i18next plugin.
+	 * @default false
+	 */
+	enabled: boolean;
+
+	/**
+	 * Languages that will be reloaded when updating the languages directory.
+	 * @default All languages that are automatically resolved from your folder setup
+	 */
+	languages?: string | string[];
+
+	/**
+	 * Namespaces that will be reloaded when updating the languages directory.
+	 * @default All namespaces that are automatically resolved from your languages folder setup
+	 */
+	namespaces?: string | string[];
+
+	/**
+	 * HMR options
+	 */
+	options?: WatchOptions;
+}
 
 /**
  * Used to dynamically add options based on found languages in {@link InternationalizationHandler#init}.
@@ -62,6 +92,13 @@ export interface InternationalizationOptions {
 	 * @default []
 	 */
 	formatters?: I18nextFormatters[];
+
+	/**
+	 * Reload languages and namespaces when updating the languages directory.
+	 *
+	 * @since 2.2.0
+	 */
+	hmr?: HMROptions;
 
 	/**
 	 * A function that is to be used to retrieve the language for the current context.

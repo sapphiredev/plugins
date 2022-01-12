@@ -1,3 +1,4 @@
+import { fromAsync, isErr } from '@sapphire/framework';
 import { container, getRootData } from '@sapphire/pieces';
 import { Awaitable, isFunction, NonNullObject } from '@sapphire/utilities';
 import { opendir } from 'fs/promises';
@@ -213,5 +214,24 @@ export class InternationalizationHandler {
 		}
 
 		return { namespaces: [...new Set(namespaces)], languages };
+	}
+
+	public async reloadResources() {
+		const result = await fromAsync(async () => {
+			let languages = this.options.hmr?.languages;
+			let namespaces = this.options.hmr?.namespaces;
+			if (!languages || !namespaces) {
+				const languageDirectoryResult = await this.walkLanguageDirectory(this.languagesDirectory);
+				languages ??= languageDirectoryResult.languages;
+				namespaces ??= languageDirectoryResult.namespaces;
+			}
+
+			await i18next.reloadResources(languages, namespaces);
+			container.logger.info('[i18next-Plugin] Reloaded language resources.');
+		});
+
+		if (isErr(result)) {
+			container.logger.error('[i18next-Plugin]: Failed to reload language resources.', result.error);
+		}
 	}
 }
