@@ -38,6 +38,7 @@ export enum PatternCommandEvents {
 	 * @param result The result of command's run
 	 * @param command The command's piece
 	 * @param alias The alias that triggered the command
+	 * @param duration The duration which indicates how long it took the command to run
 	 */
 	CommandSuccess = 'patternCommandSuccess',
 	/**

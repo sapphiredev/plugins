@@ -24,6 +24,7 @@ export enum ScheduledTaskEvents {
 	 * @param task The name of the task what tried to run
 	 * @param payload The payload of the task
 	 * @param result The result of the run
+	 * @param duration The duration what indicates how long running the task took
 	 */
 	ScheduledTaskSuccess = 'scheduledTaskSuccess',
 	/** Event that is emitted when a task's "run" method finishes, regardless of whether an error occurred or not
