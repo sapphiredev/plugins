@@ -72,16 +72,17 @@ export class ScheduledTaskHandler {
 			return;
 		}
 
-		const stopwatch = new Stopwatch();
 		const result = await fromAsync(async () => {
 			container.client.emit(ScheduledTaskEvents.ScheduledTaskRun, task, payload);
+			const stopwatch = new Stopwatch();
 			const result = await piece.run(payload);
-			container.client.emit(ScheduledTaskEvents.ScheduledTaskSuccess, task, payload, result);
+			const { duration } = stopwatch.stop();
+			container.client.emit(ScheduledTaskEvents.ScheduledTaskSuccess, task, payload, result, duration);
 
-			return result;
+			return { result, duration };
 		});
 
-		const { duration } = stopwatch.stop();
+		const { duration } = result.value!;
 
 		if (isErr(result)) {
 			container.client.emit(ScheduledTaskEvents.ScheduledTaskError, result.error, task, duration, payload);
