@@ -33,7 +33,7 @@
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"@sapphire/time-utilities": "^1.5.0",
+		"@sapphire/time-utilities": "^1.5.1",
 		"colorette": "^2.0.16",
 		"tslib": "^2.3.1"
 	},

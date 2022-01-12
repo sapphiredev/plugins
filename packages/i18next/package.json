@@ -34,10 +34,10 @@
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^3.1.0",
+		"@sapphire/utilities": "^3.2.0",
 		"@types/i18next-fs-backend": "^1.1.2",
 		"chokidar": "^3.5.2",
-		"i18next": "^21.6.5",
+		"i18next": "^21.6.6",
 		"i18next-fs-backend": "^1.1.4",
 		"tslib": "^2.3.1"
 	},
