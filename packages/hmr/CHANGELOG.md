@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-hmr@1.0.1...@sapphire/plugin-hmr@1.1.0) (2022-01-13)
+
+### Features
+
+-   **hmr:** make it possible set the chokidar watch options ([#223](https://github.com/sapphiredev/plugins/issues/223)) ([3fe7e48](https://github.com/sapphiredev/plugins/commit/3fe7e48a3577df6d9addc613cae74ccb07e41639))
+
 ## [1.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-hmr@1.0.0...@sapphire/plugin-hmr@1.0.1) (2022-01-08)
 
 ### Bug Fixes

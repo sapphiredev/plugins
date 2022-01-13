@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.1.6...@sapphire/plugin-i18next@2.2.0) (2022-01-13)
+
+### Features
+
+-   **i18next:** add hot-module-replacement to reload i18next resources ([#224](https://github.com/sapphiredev/plugins/issues/224)) ([26a8c41](https://github.com/sapphiredev/plugins/commit/26a8c41bfcee9a2be9fc319df2ec8e542d8cb370))
+
 ## [2.1.6](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.1.5...@sapphire/plugin-i18next@2.1.6) (2022-01-09)
 
 **Note:** Version bump only for package @sapphire/plugin-i18next
