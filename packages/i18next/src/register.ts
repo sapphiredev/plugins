@@ -25,6 +25,7 @@ export class I18nextPlugin extends Plugin {
 
 SapphireClient.plugins.registerPostInitializationHook(I18nextPlugin[preGenericsInitialization], 'I18next-PreGenericsInitialization');
 SapphireClient.plugins.registerPreLoginHook(I18nextPlugin[preLogin], 'I18next-PreLogin');
+SapphireClient.plugins.registerPostLoginHook(I18nextPlugin[postLogin], 'I18next-PostLogin');
 
 declare module '@sapphire/pieces' {
 	interface Container {
