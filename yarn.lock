@@ -2914,8 +2914,8 @@ __metadata:
   linkType: hard
 
 "aws-sdk@npm:^2.673.0":
-  version: 2.1055.0
-  resolution: "aws-sdk@npm:2.1055.0"
+  version: 2.1056.0
+  resolution: "aws-sdk@npm:2.1056.0"
   dependencies:
     buffer: 4.9.2
     events: 1.1.1
@@ -2926,7 +2926,7 @@ __metadata:
     url: 0.10.3
     uuid: 3.3.2
     xml2js: 0.4.19
-  checksum: a54b0435352aad9b704955262e10034948f46396048adcaffd740fa146ad71aedc8b34f6fd0b77c80f7903953e67ba4752ad6c90dfb755fbf85e138158eb818f
+  checksum: 5809a6eb4116e25621e15aa61094797d87fbe8bbcaf2ec7ac45659a1d6345556ff0cfc50aa3c1a8821cbb6506e57f3e82f2fc90425b2dc705aca9a2c22bfcb48
   languageName: node
   linkType: hard
 
@@ -4151,9 +4151,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.17":
-  version: 1.4.43
-  resolution: "electron-to-chromium@npm:1.4.43"
-  checksum: c096a42ec6af0c22736f7151d1386e6597b125ad9a6379a747e67d33d03b3b2923336dbe17edad0037299e7aa1daa0f3feb726d797375e652b6918c1a467b39a
+  version: 1.4.44
+  resolution: "electron-to-chromium@npm:1.4.44"
+  checksum: 76b0c723cf4fa3f542e4e34add8c559d5c3668192d1f359d24b45546b34791dff716e9fd905fbcddd6875cb849b72106c6f5edd682bba2f78c1c2eb6bccd647d
   languageName: node
   linkType: hard
 
@@ -10028,11 +10028,9 @@ __metadata:
   linkType: hard
 
 "typedoc-plugin-djs-links@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "typedoc-plugin-djs-links@npm:1.0.3"
-  dependencies:
-    tslib: ^2.3.1
-  checksum: 1a8a2818d7b1fe9908e12b85c1c5661828d70f16e9acf57bb3e499b9692781a404e16dfdd2611f0f7afe7090500aca3c8e61e84dccf4ded1973ea7953285d9bf
+  version: 1.0.4
+  resolution: "typedoc-plugin-djs-links@npm:1.0.4"
+  checksum: 9db409c50400f4b9f15d24dd7b7a32a5672f61bd2840a0533661f42c92fbad0a5496ad898e08acb2a25a9e36a7ebbc698d3a36e8eb77ad5f471628d13f496d8d
   languageName: node
   linkType: hard
 
