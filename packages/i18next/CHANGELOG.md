@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.2.0...@sapphire/plugin-i18next@2.2.1) (2022-01-14)
+
+### Bug Fixes
+
+-   **i18next:** postLogin hook register ([#228](https://github.com/sapphiredev/plugins/issues/228)) ([c67035e](https://github.com/sapphiredev/plugins/commit/c67035ef457ff390edfb30b8e2a664d4daeb7d9d))
+
 # [2.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.1.6...@sapphire/plugin-i18next@2.2.0) (2022-01-13)
 
 ### Features
