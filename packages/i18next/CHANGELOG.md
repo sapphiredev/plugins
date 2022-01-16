@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.2.1...@sapphire/plugin-i18next@2.2.2) (2022-01-16)
+
+### Performance Improvements
+
+-   **i18next:** "add" event is not necessary in chokidar ([#229](https://github.com/sapphiredev/plugins/issues/229)) ([138764c](https://github.com/sapphiredev/plugins/commit/138764cc140f74d2f2b3745ed838cac63ea97e4c))
+
 ## [2.2.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.2.0...@sapphire/plugin-i18next@2.2.1) (2022-01-14)
 
 ### Bug Fixes
