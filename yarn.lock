@@ -1999,7 +1999,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/fetch@npm:^2.0.0":
+"@sapphire/fetch@npm:^2.0.0, @sapphire/fetch@npm:^2.0.4":
   version: 2.0.4
   resolution: "@sapphire/fetch@npm:2.0.4"
   dependencies:
@@ -2106,6 +2106,16 @@ __metadata:
     sqs-consumer: ^5.6.0
     sqs-producer: ^2.1.0
     tslib: ^2.3.1
+  languageName: unknown
+  linkType: soft
+
+"@sapphire/plugin-statcord@workspace:packages/statcord":
+  version: 0.0.0-use.local
+  resolution: "@sapphire/plugin-statcord@workspace:packages/statcord"
+  dependencies:
+    "@sapphire/fetch": ^2.0.4
+    systeminformation: ^5.10.5
+    tslib: 2.x
   languageName: unknown
   linkType: soft
 
@@ -9526,6 +9536,16 @@ __metadata:
   version: 1.0.0
   resolution: "supports-preserve-symlinks-flag@npm:1.0.0"
   checksum: 53b1e247e68e05db7b3808b99b892bd36fb096e6fba213a06da7fab22045e97597db425c724f2bbd6c99a3c295e1e73f3e4de78592289f38431049e1277ca0ae
+  languageName: node
+  linkType: hard
+
+"systeminformation@npm:^5.10.5":
+  version: 5.10.5
+  resolution: "systeminformation@npm:5.10.5"
+  bin:
+    systeminformation: lib/cli.js
+  checksum: db8d42b6051ee5137b356793d9af98469b750fa6145d3be21348dda504108161aed6122d16ced44521124c90d8ec638b6aca4bb0e735ea1e65ebc2f08f2cd081
+  conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard
 

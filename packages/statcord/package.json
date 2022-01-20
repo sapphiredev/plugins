@@ -1,0 +1,69 @@
+{
+	"name": "@sapphire/plugin-statcord",
+	"version": "1.0.0",
+	"description": "Plugin for @sapphire/framework to send and manage bot stats with statcord.",
+	"author": "@sapphire",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"typedocMain": "src/index.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js"
+		},
+		"./register": {
+			"import": "./register.mjs",
+			"require": "./register.js"
+		}
+	},
+	"sideEffects": [
+		"./dist/register.js",
+		"./register.js",
+		"./register.mjs"
+	],
+	"homepage": "https://sapphirejs.dev",
+	"scripts": {
+		"lint": "eslint src --ext ts --fix",
+		"build": "tsc -b src && yarn esm:register && yarn esm:default",
+		"esm:register": "gen-esm-wrapper dist/register.js dist/register.mjs",
+		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
+		"prepublishOnly": "yarn build"
+	},
+	"dependencies": {
+		"@sapphire/fetch": "^2.0.4",
+		"systeminformation": "^5.10.5",
+		"tslib": "2.x"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sapphiredev/plugins.git",
+		"directory": "packages/hmr"
+	},
+	"files": [
+		"dist",
+		"!dist/*.tsbuildinfo",
+		"register.*"
+	],
+	"engines": {
+		"node": ">=16.6.0",
+		"npm": ">=7.0.0"
+	},
+	"keywords": [
+		"sapphiredev",
+		"plugin",
+		"bot",
+		"typescript",
+		"ts",
+		"yarn",
+		"discord",
+		"sapphire"
+	],
+	"bugs": {
+		"url": "https://github.com/sapphiredev/plugins/issues"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
