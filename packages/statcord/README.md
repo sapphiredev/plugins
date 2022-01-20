@@ -114,8 +114,8 @@ const { container } = require('@sapphire/framework');
 
 class MyAwesomeServicePostStats {
 	public postBandwidth() {
-		const bandWitchUsage = getBandwidthUsage(); // Use your method to get this data.
-		container.statcord.setBandwidthUsage(bandWitchUsage);
+		const bandwidthUsage = getBandwidthUsage(); // Use your method to get this data.
+		container.statcord.setBandwidthUsage(bandwidthUsage);
 	}
 }
 
@@ -129,8 +129,8 @@ import { container } from '@sapphire/framework';
 
 export class MyAwesomeServicePostStats {
 	public postBandwidth() {
-		const bandWitchUsage = getBandwidthUsage(); // Use your method to get this data.
-		container.statcord.setBandwidthUsage(bandWitchUsage);
+		const bandwidthUsage = getBandwidthUsage(); // Use your method to get this data.
+		container.statcord.setBandwidthUsage(bandwidthUsage);
 	}
 }
 ```
