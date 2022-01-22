@@ -4,8 +4,7 @@ import type { Awaitable } from '@sapphire/utilities';
 export abstract class ScheduledTask extends Piece {
 	public readonly interval: number | null;
 	public readonly cron: string | null;
-	public readonly removeOnComplete?: boolean | number | undefined;
-	public readonly removeOnFail?: boolean | number | undefined;
+	public readonly bullJobOptions?: unknown;
 
 	public constructor(context: Piece.Context, options: ScheduledTaskOptions) {
 		super(context, options);
@@ -13,10 +12,7 @@ export abstract class ScheduledTask extends Piece {
 		this.cron = options.cron ?? null;
 
 		// @ts-expect-error For redis strategy this property will actually be defined
-		this.removeOnComplete = options.removeOnComplete ?? false;
-
-		// @ts-expect-error For redis strategy this property will actually be defined
-		this.removeOnFail = options.removeOnFail ?? false;
+		this.bullJobOptions = options.bullJobOptions;
 	}
 
 	public abstract run(payload: unknown): Awaitable<unknown>;

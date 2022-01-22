@@ -41,13 +41,11 @@ export class ScheduledTaskHandler {
 					...(piece.interval
 						? {
 								interval: piece.interval,
-								removeOnComplete: piece.removeOnComplete,
-								removeOnFail: piece.removeOnFail
+								bullJobOptions: piece.bullJobOptions
 						  }
 						: {
 								cron: piece.cron!,
-								removeOnComplete: piece.removeOnComplete,
-								removeOnFail: piece.removeOnFail
+								bullJobOptions: piece.bullJobOptions
 						  })
 				}
 			}))

@@ -73,8 +73,7 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 					: {
 							cron: options.cron!
 					  },
-				removeOnFail: options.removeOnFail ?? false,
-				removeOnComplete: options.removeOnComplete ?? false
+				...options.bullJobOptions
 			};
 		}
 
