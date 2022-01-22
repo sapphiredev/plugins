@@ -74,23 +74,25 @@ export class ScheduledTaskHandler {
 
 		const result = await fromAsync(async () => {
 			container.client.emit(ScheduledTaskEvents.ScheduledTaskRun, task, payload);
-			const stopwatch = new Stopwatch();
-			const result = await piece.run(payload);
-			const { duration } = stopwatch.stop();
-			container.client.emit(ScheduledTaskEvents.ScheduledTaskSuccess, task, payload, result, duration);
 
-			return { result, duration };
+			const stopwatch = new Stopwatch();
+
+			const taskRunResult = await piece.run(payload);
+
+			const { duration } = stopwatch.stop();
+
+			container.client.emit(ScheduledTaskEvents.ScheduledTaskSuccess, task, payload, taskRunResult, duration);
+
+			return duration;
 		});
 
-		const { duration } = result.value!;
-
 		if (isErr(result)) {
-			container.client.emit(ScheduledTaskEvents.ScheduledTaskError, result.error, task, duration, payload);
+			container.client.emit(ScheduledTaskEvents.ScheduledTaskError, result.error, task, payload);
 		}
 
-		container.client.emit(ScheduledTaskEvents.ScheduledTaskFinished, task, duration, payload);
+		container.client.emit(ScheduledTaskEvents.ScheduledTaskFinished, task, result.value, payload);
 
-		return result;
+		return result.value;
 	}
 
 	private get store(): ScheduledTaskStore {
