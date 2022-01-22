@@ -72,7 +72,8 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 					  }
 					: {
 							cron: options.cron!
-					  }
+					  },
+				...options.bullJobOptions
 			};
 		}
 
