@@ -45,7 +45,6 @@ export enum PatternCommandEvents {
 	 * Event that is emitted if there's an error while running the command
 	 * @param error The error message which happened while the command was running
 	 * @param command The command's piece
-	 * @param duration The duration which indicates how long it took the command to run
 	 * @param payload PatternCommandAcceptedPayload which contains parameters, context, message, command and alias
 	 */
 	CommandError = 'patternCommandError',
