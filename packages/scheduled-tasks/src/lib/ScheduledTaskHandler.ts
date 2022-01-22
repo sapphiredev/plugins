@@ -80,9 +80,7 @@ export class ScheduledTaskHandler {
 			container.client.emit(ScheduledTaskEvents.ScheduledTaskRun, task, payload);
 
 			const stopwatch = new Stopwatch();
-
 			const taskRunResult = await piece.run(payload);
-
 			const { duration } = stopwatch.stop();
 
 			container.client.emit(ScheduledTaskEvents.ScheduledTaskSuccess, task, payload, taskRunResult, duration);
