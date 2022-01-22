@@ -40,9 +40,15 @@ export class ScheduledTaskHandler {
 					type: 'repeated',
 					...(piece.interval
 						? {
-								interval: piece.interval
+								interval: piece.interval,
+								removeOnComplete: piece.removeOnComplete,
+								removeOnFail: piece.removeOnFail
 						  }
-						: { cron: piece.cron! })
+						: {
+								cron: piece.cron!,
+								removeOnComplete: piece.removeOnComplete,
+								removeOnFail: piece.removeOnFail
+						  })
 				}
 			}))
 		);
