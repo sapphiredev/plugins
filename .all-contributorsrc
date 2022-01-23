@@ -171,6 +171,13 @@
 			"avatar_url": "https://avatars.githubusercontent.com/u/45307955?v=4",
 			"profile": "https://github.com/Suyashtnt",
 			"contributions": ["code"]
+		},
+		{
+			"login": "newtykins",
+			"name": "newt :D",
+			"avatar_url": "https://avatars.githubusercontent.com/u/19301186?v=4",
+			"profile": "https://newtt.me/",
+			"contributions": ["code"]
 		}
 	],
 	"contributorsPerLine": 7,
