@@ -164,6 +164,13 @@
 			"avatar_url": "https://avatars.githubusercontent.com/u/68158483?v=4",
 			"profile": "https://fc5570.me/",
 			"contributions": ["code"]
+		},
+		{
+			"login": "Suyashtnt",
+			"name": "Just a Badly Drawn TABS Dude",
+			"avatar_url": "https://avatars.githubusercontent.com/u/45307955?v=4",
+			"profile": "https://github.com/Suyashtnt",
+			"contributions": ["code"]
 		}
 	],
 	"contributorsPerLine": 7,
