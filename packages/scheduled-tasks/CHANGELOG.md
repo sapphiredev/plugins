@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@2.1.0...@sapphire/plugin-scheduled-tasks@2.2.0) (2022-01-23)
+
+### Bug Fixes
+
+-   **scheduled-tasks:** fix the flow of running repeated tasks ([b614a9a](https://github.com/sapphiredev/plugins/commit/b614a9a5664482fae79148162dac4eed9afe0e5a))
+
+### Features
+
+-   **scheduled-tasks:** make it possible to configure additional Job options when using Redis strategy ([#232](https://github.com/sapphiredev/plugins/issues/232)) ([cb90edc](https://github.com/sapphiredev/plugins/commit/cb90edce16dbff9280e88f6f18a4adf91cef28af))
+
 # [2.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@2.0.0...@sapphire/plugin-scheduled-tasks@2.1.0) (2022-01-13)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.1.3...@sapphire/plugin-api@3.1.4) (2022-01-23)
+
+### Bug Fixes
+
+-   **deps:** update dependency node-fetch to v2.6.7 [security] ([743c9a6](https://github.com/sapphiredev/plugins/commit/743c9a606cd8d03cc91666cb86953ba302ccfb65))
+
 ## [3.1.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.1.2...@sapphire/plugin-api@3.1.3) (2022-01-06)
 
 ### Bug Fixes

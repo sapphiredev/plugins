@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.2.2...@sapphire/plugin-i18next@2.2.3) (2022-01-23)
+
+**Note:** Version bump only for package @sapphire/plugin-i18next
+
 ## [2.2.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.2.1...@sapphire/plugin-i18next@2.2.2) (2022-01-16)
 
 ### Performance Improvements

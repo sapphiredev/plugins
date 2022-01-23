@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-hmr@1.1.0...@sapphire/plugin-hmr@1.1.1) (2022-01-23)
+
+**Note:** Version bump only for package @sapphire/plugin-hmr
+
 # [1.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-hmr@1.0.1...@sapphire/plugin-hmr@1.1.0) (2022-01-13)
 
 ### Features
