@@ -2157,7 +2157,7 @@ __metadata:
   dependencies:
     "@sapphire/time-utilities": ^1.6.0
     "@types/bull": ^3.15.7
-    bull: ^4.5.0
+    bull: ^4.5.1
     sqs-consumer: ^5.6.0
     sqs-producer: ^2.1.0
     tslib: ^2.3.1
@@ -3197,9 +3197,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bull@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "bull@npm:4.5.0"
+"bull@npm:^4.5.1":
+  version: 4.5.1
+  resolution: "bull@npm:4.5.1"
   dependencies:
     cron-parser: ^4.2.1
     debuglog: ^1.0.0
@@ -3210,7 +3210,7 @@ __metadata:
     p-timeout: ^3.2.0
     semver: ^7.3.2
     uuid: ^8.3.0
-  checksum: 2367396970b8eeb0ecc828a00e8b7fb6d5f8266d5fa64cd93450e89786fb6268bf83a92ee28294cbb9b4190c1b77a95c6ae71f0d153233f194cd8ceb36954645
+  checksum: aeaabc4880586d4abe7ecebf0a6eece09ef931d94748b737ecba0f2eceee6aafa89c81d0019cebd6e2afe63a46cb67962cfdd90bc1d924f196952afdcef3458f
   languageName: node
   linkType: hard
 
