@@ -54,7 +54,7 @@
 	},
 	"devDependencies": {
 		"@types/bull": "^3.15.7",
-		"bull": "^4.4.0",
+		"bull": "^4.5.0",
 		"sqs-consumer": "^5.6.0",
 		"sqs-producer": "^2.1.0"
 	},
