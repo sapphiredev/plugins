@@ -222,7 +222,7 @@ export interface ServerOptions {
 
 	/**
 	 * Whether the server should connect upon being when the plugin is loaded.
-	 * @since 3.1.4
+	 * @since 3.2.0
 	 * @default true
 	 */
 	automaticallyConnect?: boolean;
