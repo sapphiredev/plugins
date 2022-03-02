@@ -219,13 +219,6 @@ export interface ServerOptions {
 	 * @default {}
 	 */
 	auth?: ServerOptionsAuth;
-
-	/**
-	 * Should the server automatically connect when the plugin is loaded.
-	 * @since 3.1.4
-	 * @default true
-	 */
-	automaticallyConnect?: boolean;
 }
 
 /**
