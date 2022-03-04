@@ -11,23 +11,28 @@
 	"exports": {
 		".": {
 			"import": "./dist/index.mjs",
-			"require": "./dist/index.js"
+			"require": "./dist/index.js",
+			"types": "./dist/index.d.ts"
 		},
 		"./register-redis": {
 			"import": "./register-redis.mjs",
-			"require": "./register-redis.js"
+			"require": "./register-redis.js",
+			"types": "./register-redis.d.ts"
 		},
 		"./register-sqs": {
 			"import": "./register-sqs.mjs",
-			"require": "./register-sqs.js"
+			"require": "./register-sqs.js",
+			"types": "./register-sqs.d.ts"
 		},
 		"./types-redis": {
 			"import": "./dist/types-redis.mjs",
-			"require": "./dist/types-redis.js"
+			"require": "./dist/types-redis.js",
+			"types": "./dist/types-redis.d.ts"
 		},
 		"./types-sqs": {
-			"import": "./dist/types-redis.mjs",
-			"require": "./dist/types-redis.js"
+			"import": "./dist/types-sqs.mjs",
+			"require": "./dist/types-sqs.js",
+			"types": "./dist/types-sqs.d.ts"
 		}
 	},
 	"sideEffects": [
