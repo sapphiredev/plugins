@@ -28,6 +28,10 @@ export class Api extends Plugin {
 	 * @since 1.0.0
 	 */
 	public static async [preLogin](this: SapphireClient): Promise<void> {
+		if (!(this.server.options.automaticallyConnect ?? true)) {
+			return;
+		}
+
 		await this.server.connect();
 	}
 }
