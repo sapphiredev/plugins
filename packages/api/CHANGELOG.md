@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.1.4...@sapphire/plugin-api@3.2.0) (2022-03-06)
+
+### Bug Fixes
+
+-   **deps:** update all non-major dependencies ([2016134](https://github.com/sapphiredev/plugins/commit/201613418babe93748e74064cf66d4ea0582725c))
+
+### Features
+
+-   allow module: NodeNext ([#251](https://github.com/sapphiredev/plugins/issues/251)) ([31bab09](https://github.com/sapphiredev/plugins/commit/31bab09834ebc1bc646e4a2849dbd24c65f08c0e))
+-   **api:** Add automatically connect option ([#250](https://github.com/sapphiredev/plugins/issues/250)) ([6bf3626](https://github.com/sapphiredev/plugins/commit/6bf3626364264a6450a4d97e7dc3f6ada538269a))
+
 ## [3.1.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.1.3...@sapphire/plugin-api@3.1.4) (2022-01-23)
 
 ### Bug Fixes

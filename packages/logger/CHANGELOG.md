@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@2.1.3...@sapphire/plugin-logger@2.2.0) (2022-03-06)
+
+### Features
+
+-   allow module: NodeNext ([#251](https://github.com/sapphiredev/plugins/issues/251)) ([31bab09](https://github.com/sapphiredev/plugins/commit/31bab09834ebc1bc646e4a2849dbd24c65f08c0e))
+
 ## [2.1.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@2.1.2...@sapphire/plugin-logger@2.1.3) (2022-01-23)
 
 **Note:** Version bump only for package @sapphire/plugin-logger

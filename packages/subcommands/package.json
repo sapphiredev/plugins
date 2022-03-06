@@ -1,6 +1,6 @@
 {
 	"name": "@sapphire/plugin-subcommands",
-	"version": "2.1.3",
+	"version": "2.2.0",
 	"description": "Plugin for @sapphire/framework that adds support for subcommands.",
 	"author": "@sapphire",
 	"license": "MIT",
