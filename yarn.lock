@@ -2018,7 +2018,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/eslint-config@npm:^4.2.2":
+"@sapphire/eslint-config@npm:^4.3.0":
   version: 4.3.0
   resolution: "@sapphire/eslint-config@npm:4.3.0"
   dependencies:
@@ -2057,7 +2057,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/pieces@npm:^3.2.0":
+"@sapphire/pieces@npm:^3.2.0, @sapphire/pieces@npm:^3.3.0":
   version: 3.3.0
   resolution: "@sapphire/pieces@npm:3.3.0"
   dependencies:
@@ -2103,7 +2103,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-i18next@workspace:packages/i18next"
   dependencies:
-    "@sapphire/utilities": ^3.3.0
+    "@sapphire/utilities": ^3.5.0
     "@types/i18next-fs-backend": ^1.1.2
     chokidar: ^3.5.3
     i18next: ^21.6.13
@@ -2116,7 +2116,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-logger@workspace:packages/logger"
   dependencies:
-    "@sapphire/time-utilities": ^1.6.0
+    "@sapphire/time-utilities": ^1.7.1
     colorette: ^2.0.16
     tslib: ^2.3.1
   languageName: unknown
@@ -2134,7 +2134,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-scheduled-tasks@workspace:packages/scheduled-tasks"
   dependencies:
-    "@sapphire/time-utilities": ^1.6.0
+    "@sapphire/time-utilities": ^1.7.1
     "@types/bull": ^3.15.8
     bull: ^4.7.0
     sqs-consumer: ^5.6.0
@@ -2151,7 +2151,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/prettier-config@npm:^1.3.0":
+"@sapphire/prettier-config@npm:^1.4.0":
   version: 1.4.0
   resolution: "@sapphire/prettier-config@npm:1.4.0"
   dependencies:
@@ -2169,7 +2169,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/stopwatch@npm:^1.3.0":
+"@sapphire/stopwatch@npm:^1.4.0":
   version: 1.4.0
   resolution: "@sapphire/stopwatch@npm:1.4.0"
   dependencies:
@@ -2178,7 +2178,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/time-utilities@npm:^1.6.0, @sapphire/time-utilities@npm:^1.7.0":
+"@sapphire/time-utilities@npm:^1.7.0":
   version: 1.7.0
   resolution: "@sapphire/time-utilities@npm:1.7.0"
   dependencies:
@@ -2187,7 +2187,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/ts-config@npm:^3.3.1":
+"@sapphire/time-utilities@npm:^1.7.1":
+  version: 1.7.1
+  resolution: "@sapphire/time-utilities@npm:1.7.1"
+  dependencies:
+    "@sapphire/utilities": ^3.5.0
+  checksum: 0a6a3b0bd5fcd58bd8801430615a0f79ba918e2e938a10e4f08f4be05103d42a30f735554170f598930e924315963b8baa9bcb6327bcaf094b647f44c701b20b
+  languageName: node
+  linkType: hard
+
+"@sapphire/ts-config@npm:^3.3.2":
   version: 3.3.2
   resolution: "@sapphire/ts-config@npm:3.3.2"
   dependencies:
@@ -2201,6 +2210,13 @@ __metadata:
   version: 3.4.0
   resolution: "@sapphire/utilities@npm:3.4.0"
   checksum: b17a172a9e277da3437a2994cfcefd298a4e9c7cfc9c6dbaa1cc00050ca991446de9bca231da46d62e6d8c0e7e4c2350d32308e0961a2260de9dfd33b965ae42
+  languageName: node
+  linkType: hard
+
+"@sapphire/utilities@npm:^3.5.0":
+  version: 3.5.0
+  resolution: "@sapphire/utilities@npm:3.5.0"
+  checksum: 6c2de9b69d17b565e1a206c10093843fc024dd036874fe058a41abeb752fd5cc786a1768402879c7f174d94f3b0b5a725647a571a6a534b9a2ae244b5260162e
   languageName: node
   linkType: hard
 
@@ -8889,13 +8905,13 @@ __metadata:
     "@commitlint/cli": ^16.2.1
     "@commitlint/config-conventional": ^16.2.1
     "@favware/npm-deprecate": ^1.0.4
-    "@sapphire/eslint-config": ^4.2.2
+    "@sapphire/eslint-config": ^4.3.0
     "@sapphire/framework": ^2.4.1
-    "@sapphire/pieces": ^3.2.0
-    "@sapphire/prettier-config": ^1.3.0
-    "@sapphire/stopwatch": ^1.3.0
-    "@sapphire/ts-config": ^3.3.1
-    "@sapphire/utilities": ^3.3.0
+    "@sapphire/pieces": ^3.3.0
+    "@sapphire/prettier-config": ^1.4.0
+    "@sapphire/stopwatch": ^1.4.0
+    "@sapphire/ts-config": ^3.3.2
+    "@sapphire/utilities": ^3.5.0
     "@types/jest": ^27.4.1
     "@types/node": ^17.0.15
     "@types/node-fetch": ^2.6.1
