@@ -6,7 +6,7 @@ import { MediaParser } from './MediaParser';
  */
 export class MediaParserStore extends Store<MediaParser> {
 	public constructor() {
-		super(MediaParser as any, { name: 'mediaParsers' });
+		super(MediaParser, { name: 'mediaParsers' });
 	}
 
 	/**

@@ -1,4 +1,4 @@
-import { container, fromAsync, isErr } from '@sapphire/framework';
+import { container, Result } from '@sapphire/framework';
 import { Stopwatch } from '@sapphire/stopwatch';
 import { ScheduledTaskRedisStrategy } from './strategies/ScheduledTaskRedisStrategy';
 import type { ScheduledTaskStore } from './structures/ScheduledTaskStore';
@@ -76,7 +76,7 @@ export class ScheduledTaskHandler {
 			return;
 		}
 
-		const result = await fromAsync(async () => {
+		const result = await Result.fromAsync(async () => {
 			container.client.emit(ScheduledTaskEvents.ScheduledTaskRun, task, payload);
 
 			const stopwatch = new Stopwatch();
@@ -88,13 +88,13 @@ export class ScheduledTaskHandler {
 			return duration;
 		});
 
-		if (isErr(result)) {
-			container.client.emit(ScheduledTaskEvents.ScheduledTaskError, result.error, task, payload);
-		}
+		result.inspectErr((error) => container.client.emit(ScheduledTaskEvents.ScheduledTaskError, error, task, payload));
 
-		container.client.emit(ScheduledTaskEvents.ScheduledTaskFinished, task, result.value, payload);
+		const value = result.unwrapOr(null);
 
-		return result.value;
+		container.client.emit(ScheduledTaskEvents.ScheduledTaskFinished, task, value, payload);
+
+		return value;
 	}
 
 	private get store(): ScheduledTaskStore {

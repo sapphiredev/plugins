@@ -1,4 +1,4 @@
-import { container, from, isErr } from '@sapphire/framework';
+import { container, Result } from '@sapphire/framework';
 import type { SendMessageBatchResultEntryList } from 'aws-sdk/clients/sqs';
 import { randomBytes } from 'crypto';
 import { Consumer, ConsumerOptions } from 'sqs-consumer';
@@ -31,7 +31,7 @@ export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 	}
 
 	public connect() {
-		const connectResult = from(() => {
+		const connectResult = Result.from(() => {
 			const consumer = Consumer.create({
 				...this.options,
 				handleMessage: this.handleMessage.bind(this),
@@ -41,9 +41,7 @@ export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 			consumer.start();
 		});
 
-		if (isErr(connectResult)) {
-			container.client.emit(ScheduledTaskEvents.ScheduledTaskStrategyConnectError, connectResult.error);
-		}
+		connectResult.inspectErr((error) => container.client.emit(ScheduledTaskEvents.ScheduledTaskStrategyConnectError, error));
 	}
 
 	public create(task: string, payload?: unknown, options?: ScheduledTasksTaskOptions): Promise<SendMessageBatchResultEntryList> {

@@ -45,56 +45,92 @@ npm install @sapphire/plugin-subcommands @sapphire/framework @sapphire/utilities
 _With TypeScript:_
 
 ```typescript
-import { SubCommandPluginCommand } from '@sapphire/plugin-subcommands';
+import { Subcommand } from '@sapphire/plugin-subcommands';
 import { ApplyOptions } from '@sapphire/decorators';
 import type { Args } from '@sapphire/framework';
-import type { Message } from 'discord.js';
+import type { Message, CommandInteraction } from 'discord.js';
 
 // Using ApplyOptions decorator makes it easy to configure
-@ApplyOptions<SubCommandPluginCommand.Options>({
-	subCommands: ['add', 'remove', 'list', 'reset', { input: 'show', default: true }]
+@ApplyOptions<Subcommand.Options>({
+	subcommands: [
+		{
+			name: 'add',
+			messageRun: 'messageAdd',
+			chatInputRun: 'chatInputAdd'
+		},
+		{
+			name: 'remove',
+			messageRun: 'messageRemove',
+			chatInputRun: 'chatInputRemove'
+		},
+		{
+			name: 'list',
+			messageRun: 'messageList',
+			chatInputRun: 'chatInputList'
+		}
+	]
 })
-// Extend `SubCommandPluginCommand` instead of `Command`
-export class UserCommand extends SubCommandPluginCommand {
-	// Do not include a `messageRun` method, each method name should match with the subcommand names
-	public async add(message: Message, args: Args) {}
+// Extend `Subcommand` instead of `Command`
+export class UserCommand extends Subcommand {
+	public async messageAdd(message: Message, args: Args) {}
 
-	public async remove(message: Message, args: Args) {}
+	public async messageRemove(message: Message, args: Args) {}
 
-	public async list(message: Message, args: Args) {}
+	public async messageList(message: Message, args: Args) {}
 
-	public async reset(message: Message, args: Args) {}
+	public async chatInputAdd(interaction: Subcommand.ChatInputInteraction) {}
 
-	public async show(message: Message, args: Args) {}
+	public async chatInputRemove(interaction: Subcommand.ChatInputInteraction) {}
+
+	public async chatInputList(interaction: Subcommand.ChatInputInteraction) {}
 }
 ```
 
 _With JavaScript:_
 
 ```javascript
-const { SubCommandPluginCommand } = require('@sapphire/plugin-subcommands');
+const { Subcommand } = require('@sapphire/plugin-subcommands');
 
-// Extend `SubCommandPluginCommand` instead of `Command`
-module.exports = class UserCommand extends SubCommandPluginCommand {
+// Extend `Subcommand` instead of `Command`
+module.exports = class UserCommand extends Subcommand {
 	constructor(context, options) {
 		super(context, {
 			...options,
-			subCommands: ['add', 'remove', 'list', 'reset', { input: 'show', default: true }]
+			subcommands: [
+				{
+					name: 'add',
+					messageRun: 'messageAdd',
+					chatInputRun: 'chatInputAdd'
+				},
+				{
+					name: 'remove',
+					messageRun: 'messageRemove',
+					chatInputRun: 'chatInputRemove'
+				},
+				{
+					name: 'list',
+					messageRun: 'messageList',
+					chatInputRun: 'chatInputList'
+				}
+			]
 		});
 	}
 
-	// Do not include a `messageRun` method, each method name should match with the subcommand names
-	async add(message, args) {}
+	async messageAdd(message, args) {}
 
-	async remove(message, args) {}
+	async messageRemove(message, args) {}
 
-	async list(message, args) {}
+	async messageList(message, args) {}
 
-	async reset(message, args) {}
+	async chatInputAdd(interaction) {}
 
-	async show(message, args) {}
+	async chatInputRemove(interaction) {}
+
+	async chatInputList(interaction) {}
 };
 ```
+
+For more documentation please refer to [guide](https://www.sapphirejs.dev/docs/Guide/plugins/Subcommands/getting-started)
 
 ## Buy us some doughnuts
 

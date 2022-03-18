@@ -1,4 +1,4 @@
-import { fromAsync, isErr } from '@sapphire/framework';
+import { Result } from '@sapphire/framework';
 import { container, getRootData } from '@sapphire/pieces';
 import { Awaitable, isFunction, NonNullObject } from '@sapphire/utilities';
 import { Backend, PathResolvable } from '@skyra/i18next-backend';
@@ -220,7 +220,7 @@ export class InternationalizationHandler {
 	}
 
 	public async reloadResources() {
-		const result = await fromAsync(async () => {
+		const result = await Result.fromAsync(async () => {
 			let languages = this.options.hmr?.languages;
 			let namespaces = this.options.hmr?.namespaces;
 			if (!languages || !namespaces) {
@@ -233,9 +233,7 @@ export class InternationalizationHandler {
 			container.logger.info('[i18next-Plugin] Reloaded language resources.');
 		});
 
-		if (isErr(result)) {
-			container.logger.error('[i18next-Plugin]: Failed to reload language resources.', result.error);
-		}
+		result.inspectErr((error) => container.logger.error('[i18next-Plugin]: Failed to reload language resources.', error));
 	}
 
 	/**

@@ -1,4 +1,4 @@
-import { container, from, isErr } from '@sapphire/framework';
+import { container, Result } from '@sapphire/framework';
 import { EntryId, JobState, Queue, QueueOptions, Job, JobInformation3, Worker, QueueScheduler, JobsOptions } from 'bullmq';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
 import type { ScheduledTaskCreateRepeatedTask } from '../types/ScheduledTaskCreateRepeatedTask';
@@ -39,15 +39,13 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 	}
 
 	public connect(): void {
-		const connectResult = from(() => {
+		const connectResult = Result.from(() => {
 			this.queueClient = new Queue(this.queue, this.options);
 			new QueueScheduler(this.queue, { connection: this.options.connection });
 			new Worker(this.queue, async (job) => this.run(job?.name, job?.data), { connection: this.options.connection });
 		});
 
-		if (isErr(connectResult)) {
-			container.client.emit(ScheduledTaskEvents.ScheduledTaskStrategyConnectError, connectResult.error);
-		}
+		connectResult.inspectErr((error) => container.client.emit(ScheduledTaskEvents.ScheduledTaskStrategyConnectError, error));
 	}
 
 	public create<T = unknown>(
