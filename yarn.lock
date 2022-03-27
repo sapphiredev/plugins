@@ -2037,18 +2037,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/eslint-config@npm:^4.3.1":
-  version: 4.3.1
-  resolution: "@sapphire/eslint-config@npm:4.3.1"
+"@sapphire/eslint-config@npm:^4.3.2":
+  version: 4.3.2
+  resolution: "@sapphire/eslint-config@npm:4.3.2"
   dependencies:
-    "@typescript-eslint/eslint-plugin": ^5.14.0
-    "@typescript-eslint/parser": ^5.14.0
+    "@typescript-eslint/eslint-plugin": ^5.15.0
+    "@typescript-eslint/parser": ^5.15.0
     eslint: ^8.11.0
     eslint-config-prettier: ^8.5.0
     eslint-plugin-prettier: ^4.0.0
-    prettier: ^2.5.1
+    prettier: ^2.6.0
     typescript: ^4.6.2
-  checksum: a0b50c0e0523c3d7f448507ee3e5a62771af5611d995dcdeea3afee390d6f58e7e643a4446ff2172dc64d8c1232e20ea5ab8fedfd6a21edff41f3f54596c7d03
+  checksum: 068602377d19b77d7b44af68b303de294c868f761e63b8f0d5f6fafbd50110a93f7b78c817f69f0218e80d81437518bc63c1b3574465632f0900f3d4af116df0
   languageName: node
   linkType: hard
 
@@ -2122,7 +2122,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-i18next@workspace:packages/i18next"
   dependencies:
-    "@sapphire/utilities": ^3.6.0
+    "@sapphire/utilities": ^3.6.1
     "@types/i18next-fs-backend": ^1.1.2
     chokidar: ^3.5.3
     i18next: ^21.6.14
@@ -2135,7 +2135,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-logger@workspace:packages/logger"
   dependencies:
-    "@sapphire/time-utilities": ^1.7.2
+    "@sapphire/time-utilities": ^1.7.3
     colorette: ^2.0.16
     tslib: ^2.3.1
   languageName: unknown
@@ -2153,7 +2153,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-scheduled-tasks@workspace:packages/scheduled-tasks"
   dependencies:
-    "@sapphire/time-utilities": ^1.7.2
+    "@sapphire/time-utilities": ^1.7.3
     "@types/bull": ^3.15.8
     bull: ^4.8.0
     sqs-consumer: ^5.6.0
@@ -2170,12 +2170,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@sapphire/prettier-config@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@sapphire/prettier-config@npm:1.4.0"
+"@sapphire/prettier-config@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "@sapphire/prettier-config@npm:1.4.1"
   dependencies:
-    prettier: ^2.5.1
-  checksum: 4d8e1ac5435562a75f2a247e2fd0156139d56693d42bd30315ab3e8e34a31410557ffdf993b2769b678542b8878cc1e591c2e5cccb96d747fd08c04797d73796
+    prettier: ^2.6.0
+  checksum: 62f6aede80568e5ff482d6edc9052a29089f6a88f9e905dec18a3ed412ca449a113450ba2a722d3598739673dda848da5e35430a9b38d93bddfdb46221ab61c7
   languageName: node
   linkType: hard
 
@@ -2206,22 +2206,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/time-utilities@npm:^1.7.2":
-  version: 1.7.2
-  resolution: "@sapphire/time-utilities@npm:1.7.2"
+"@sapphire/time-utilities@npm:^1.7.3":
+  version: 1.7.3
+  resolution: "@sapphire/time-utilities@npm:1.7.3"
   dependencies:
-    "@sapphire/utilities": ^3.6.0
-  checksum: 32194be1fa521e76b8fff4d0db6e93573efe8fdcfc4e935fe64f41ec6c0abbcf22a864be1204111c7741a4fe5becf2e772170bcc8613f0589dbefeb886b9dac2
+    "@sapphire/utilities": ^3.6.1
+  checksum: 691ae63089e0fdd451dadb740b6a5a5e05eb853f7144f5c389c2a2ade2c74952d25029485323e69d1db6ca89239a344b9a8b6e089c8d8281ae0d3b256ecc1c06
   languageName: node
   linkType: hard
 
-"@sapphire/ts-config@npm:^3.3.2":
-  version: 3.3.2
-  resolution: "@sapphire/ts-config@npm:3.3.2"
+"@sapphire/ts-config@npm:^3.3.3":
+  version: 3.3.3
+  resolution: "@sapphire/ts-config@npm:3.3.3"
   dependencies:
     tslib: ^2.3.1
     typescript: ^4.6.2
-  checksum: c826552b627204035714bae75fc68ccf4c1bdd07b87933df093de48d7c82a794474d18756ad2e3022d0eec894973dfc246419ef34f1288105e3f193085bf19ce
+  checksum: e4a5ed72791629b225b815537ddc040981559cceca87c01559359a5cb58e836182a838b44d7c0988de7b0dc32b8d1fc27390ad0062f8fbf865417baf666170a1
   languageName: node
   linkType: hard
 
@@ -2232,10 +2232,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/utilities@npm:^3.6.0":
-  version: 3.6.0
-  resolution: "@sapphire/utilities@npm:3.6.0"
-  checksum: bb46f3590f8e609ca1aa492d2347a99fe79e75768a6592f47b4915dcdc93e0d933026d3ad4e872d75d84ba45a3afe27c940149f11931b299e8dc228b5f7e87ab
+"@sapphire/utilities@npm:^3.6.1":
+  version: 3.6.1
+  resolution: "@sapphire/utilities@npm:3.6.1"
+  checksum: 0a1479c7cb3f10455906d91a43e9457aec97155f5821d00d572920c0ee25e7842310e8af3ed0e2c967b8adc256016f38b4c3bf8f17843613bcb6754dbe5d9599
   languageName: node
   linkType: hard
 
@@ -2542,7 +2542,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^5.14.0, @typescript-eslint/eslint-plugin@npm:^5.15.0":
+"@typescript-eslint/eslint-plugin@npm:^5.15.0":
   version: 5.15.0
   resolution: "@typescript-eslint/eslint-plugin@npm:5.15.0"
   dependencies:
@@ -2565,7 +2565,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^5.14.0, @typescript-eslint/parser@npm:^5.15.0":
+"@typescript-eslint/parser@npm:^5.15.0":
   version: 5.15.0
   resolution: "@typescript-eslint/parser@npm:5.15.0"
   dependencies:
@@ -8383,15 +8383,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.5.1":
-  version: 2.5.1
-  resolution: "prettier@npm:2.5.1"
-  bin:
-    prettier: bin-prettier.js
-  checksum: 21b9408476ea1c544b0e45d51ceb94a84789ff92095abb710942d780c862d0daebdb29972d47f6b4d0f7ebbfb0ffbf56cc2cfa3e3e9d1cca54864af185b15b66
-  languageName: node
-  linkType: hard
-
 "prettier@npm:^2.6.0":
   version: 2.6.0
   resolution: "prettier@npm:2.6.0"
@@ -8972,13 +8963,13 @@ __metadata:
     "@commitlint/cli": ^16.2.3
     "@commitlint/config-conventional": ^16.2.1
     "@favware/npm-deprecate": ^1.0.4
-    "@sapphire/eslint-config": ^4.3.1
+    "@sapphire/eslint-config": ^4.3.2
     "@sapphire/framework": ^2.4.1
     "@sapphire/pieces": ^3.3.0
-    "@sapphire/prettier-config": ^1.4.0
+    "@sapphire/prettier-config": ^1.4.1
     "@sapphire/stopwatch": ^1.4.0
-    "@sapphire/ts-config": ^3.3.2
-    "@sapphire/utilities": ^3.6.0
+    "@sapphire/ts-config": ^3.3.3
+    "@sapphire/utilities": ^3.6.1
     "@types/jest": ^27.4.1
     "@types/node": ^17.0.15
     "@types/node-fetch": ^2.6.1
