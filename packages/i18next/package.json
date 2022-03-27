@@ -36,7 +36,7 @@
 		"prepublishOnly": "yarn build"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^3.6.0",
+		"@sapphire/utilities": "^3.6.1",
 		"@types/i18next-fs-backend": "^1.1.2",
 		"chokidar": "^3.5.3",
 		"i18next": "^21.6.14",
