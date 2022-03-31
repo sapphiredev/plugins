@@ -77,13 +77,7 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 			};
 		}
 
-		return this.bullClient.add(
-			{
-				task,
-				payload
-			},
-			bullOptions
-		) as Promise<Bull.Job<ScheduledTaskRedisStrategyJob<T>>> | undefined;
+		return this.bullClient.add(task, payload as any, bullOptions) as Promise<Bull.Job<ScheduledTaskRedisStrategyJob<T>>> | undefined;
 	}
 
 	public async createRepeated(tasks: ScheduledTaskCreateRepeatedTask[]): Promise<void> {
