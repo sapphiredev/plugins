@@ -45,7 +45,7 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 	public connect(): void {
 		const connectResult = from(() => {
 			this.bullClient = new Bull(this.queue, this.options);
-			void this.bullClient.process((job) => this.run(job?.data?.task, job?.data?.payload));
+			void this.bullClient.process('*', (job) => this.run(job?.data?.task, job?.data?.payload));
 		});
 
 		if (isErr(connectResult)) {
