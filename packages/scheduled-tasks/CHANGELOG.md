@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@2.3.1...@sapphire/plugin-scheduled-tasks@2.3.2) (2022-04-02)
+
+### Bug Fixes
+
+-   **schedules-tasks:** processor name on bull ([#264](https://github.com/sapphiredev/plugins/issues/264)) ([d0f7d5b](https://github.com/sapphiredev/plugins/commit/d0f7d5ba57131b68216f7c9d2964c49c81ca09d6))
+
 ## [2.3.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@2.3.0...@sapphire/plugin-scheduled-tasks@2.3.1) (2022-04-01)
 
 ### Bug Fixes
