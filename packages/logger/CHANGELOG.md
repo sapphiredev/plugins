@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@2.2.0...@sapphire/plugin-logger@2.2.1) (2022-04-01)
+
+**Note:** Version bump only for package @sapphire/plugin-logger
+
 # [2.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@2.1.3...@sapphire/plugin-logger@2.2.0) (2022-03-06)
 
 ### Features

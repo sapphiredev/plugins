@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@2.3.0...@sapphire/plugin-scheduled-tasks@2.3.1) (2022-04-01)
+
+### Bug Fixes
+
+-   **schedules-tasks:** create cron scheduled tasks with unique names to avoid name conflicts, causing tasks to be ignored ([#263](https://github.com/sapphiredev/plugins/issues/263)) ([44c4b94](https://github.com/sapphiredev/plugins/commit/44c4b94b88ad945771df81d1dbb514081606459c))
+
 # [2.3.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@2.2.0...@sapphire/plugin-scheduled-tasks@2.3.0) (2022-03-06)
 
 ### Bug Fixes
