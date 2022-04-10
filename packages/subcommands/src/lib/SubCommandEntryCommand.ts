@@ -1,4 +1,4 @@
-import { Args, Command, container } from '@sapphire/framework';
+import { Args, Command, container, type CommandStore } from '@sapphire/framework';
 import { SubCommandEntry } from './SubCommandEntry';
 
 /**
@@ -17,7 +17,7 @@ export class SubCommandEntryCommand<ArgType extends Args = Args, CommandType ext
 	CommandType
 > {
 	public messageRun(context: SubCommandEntry.MessageRunContext<ArgType, CommandType>): unknown {
-		const command = container.stores.get('commands').get(this.output);
+		const command = (container.stores.get('commands') as unknown as CommandStore).get(this.output);
 		if (command) return command.messageRun(context.message, context.args, context.context);
 		throw new ReferenceError(`The command '${this.input}' does not exist.`);
 	}

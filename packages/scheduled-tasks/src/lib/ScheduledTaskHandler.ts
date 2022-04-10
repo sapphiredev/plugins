@@ -98,6 +98,6 @@ export class ScheduledTaskHandler {
 	}
 
 	private get store(): ScheduledTaskStore {
-		return container.client.stores.get('scheduled-tasks');
+		return container.client.stores.get('scheduled-tasks') as unknown as ScheduledTaskStore;
 	}
 }
