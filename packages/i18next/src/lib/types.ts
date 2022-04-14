@@ -1,6 +1,6 @@
 import type { Awaitable, NonNullObject } from '@sapphire/utilities';
 import type { WatchOptions } from 'chokidar';
-import type { Guild, Message, MessageOptions, StageChannel, StoreChannel, User, VoiceChannel } from 'discord.js';
+import type { CommandInteraction, Guild, Message, MessageOptions, StageChannel, StoreChannel, User, VoiceChannel } from 'discord.js';
 import type { InitOptions, StringMap, TFunctionKeys, TOptions } from 'i18next';
 import type { i18nextFsBackend } from 'i18next-fs-backend';
 
@@ -123,7 +123,7 @@ export type DiscordChannel = TextBasedDiscordChannel | StoreChannel | StageChann
 export interface InternationalizationContext {
 	guild: Guild | null;
 	channel: DiscordChannel | null;
-	author: User | null;
+	user: User | null;
 }
 
 export interface InternationalizationClientOptions {
@@ -145,4 +145,4 @@ export interface PartialLocalizedMessageOptions<TInterpolationMap extends NonNul
 }
 
 export type ChannelTarget = Message | DiscordChannel;
-export type Target = ChannelTarget | Guild;
+export type Target = ChannelTarget | CommandInteraction | Guild;

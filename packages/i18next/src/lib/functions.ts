@@ -1,6 +1,6 @@
 import { container } from '@sapphire/pieces';
 import { isObject, NonNullObject } from '@sapphire/utilities';
-import { Guild, Message } from 'discord.js';
+import { Guild, Message, CommandInteraction } from 'discord.js';
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
 import type { ChannelTarget, InternationalizationContext, LocalizedMessageOptions, Target, TextBasedDiscordChannel } from './types';
 
@@ -17,23 +17,28 @@ import type { ChannelTarget, InternationalizationContext, LocalizedMessageOption
  * @returns The name of the language key.
  */
 export function fetchLanguage(target: Target): Promise<string> {
+	// Handle CommandInteraction:
+	if (target instanceof CommandInteraction) {
+		return resolveLanguage({ user: target.user, channel: target.channel, guild: target.guild });
+	}
+
 	// Handle Message:
 	if (target instanceof Message) {
-		return resolveLanguage({ author: target.author, channel: target.channel, guild: target.guild });
+		return resolveLanguage({ user: target.author, channel: target.channel, guild: target.guild });
 	}
 
 	// Handle Guild:
 	if (target instanceof Guild) {
-		return resolveLanguage({ author: null, channel: null, guild: target });
+		return resolveLanguage({ user: null, channel: null, guild: target });
 	}
 
 	// Handle DMChannel:
 	if (target.type === 'DM') {
-		return resolveLanguage({ author: null, channel: target, guild: null });
+		return resolveLanguage({ user: null, channel: target, guild: null });
 	}
 
 	// Handle any other channel:
-	return resolveLanguage({ author: null, channel: target, guild: target.guild });
+	return resolveLanguage({ user: null, channel: target, guild: target.guild });
 }
 
 /**
