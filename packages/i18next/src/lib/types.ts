@@ -129,7 +129,7 @@ export interface InternationalizationContext {
 	 * @deprecated use {@link InternationalizationContext.user} instead. Will be removed in next major version.
 	 * The user for which the language should be fetched.
 	 */
-	author: User | null;
+	author?: User | null;
 	/** The user for which the language should be fetched. */
 	user: User | null;
 }
