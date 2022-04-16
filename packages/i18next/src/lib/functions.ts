@@ -1,6 +1,6 @@
 import { container } from '@sapphire/pieces';
 import { isObject, NonNullObject } from '@sapphire/utilities';
-import { CommandInteraction, Guild, Message } from 'discord.js';
+import { BaseCommandInteraction, Guild, Message, MessageComponentInteraction } from 'discord.js';
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
 import type {
 	ChannelTarget,
@@ -24,28 +24,28 @@ import type {
  * @returns The name of the language key.
  */
 export function fetchLanguage(target: Target): Promise<string> {
-	// Handle CommandInteraction:
-	if (target instanceof CommandInteraction) {
-		return resolveLanguage({ user: target.user, channel: target.channel, guild: target.guild });
+	// Handle Interactions:
+	if (target instanceof BaseCommandInteraction || target instanceof MessageComponentInteraction) {
+		return resolveLanguage({ channel: target.channel, guild: target.guild, user: target.user });
 	}
 
 	// Handle Message:
 	if (target instanceof Message) {
-		return resolveLanguage({ user: target.author, channel: target.channel, guild: target.guild });
+		return resolveLanguage({ channel: target.channel, guild: target.guild, user: target.author });
 	}
 
 	// Handle Guild:
 	if (target instanceof Guild) {
-		return resolveLanguage({ user: null, channel: null, guild: target });
+		return resolveLanguage({ channel: null, guild: target, user: null });
 	}
 
 	// Handle DMChannel:
 	if (target.type === 'DM') {
-		return resolveLanguage({ user: null, channel: target, guild: null });
+		return resolveLanguage({ channel: target, guild: null, user: null });
 	}
 
 	// Handle any other channel:
-	return resolveLanguage({ user: null, channel: target, guild: target.guild });
+	return resolveLanguage({ channel: target, guild: target.guild, user: null });
 }
 
 /**
@@ -175,9 +175,9 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string, TInte
  * ```
  */
 export async function replyLocalized<TKeys extends TFunctionKeys = string>(
-	target: CommandInteraction,
+	target: BaseCommandInteraction | MessageComponentInteraction,
 	keys: TKeys | TKeys[]
-): Promise<ReturnType<CommandInteraction['reply']>>;
+): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
 /**
  * Replies to the interaction using an object of {@link LocalizedInteractionReplyOptions}.
  * @since 2.0.0
@@ -202,13 +202,19 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string>(
  * ```
  */
 export async function replyLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: CommandInteraction,
+	target: BaseCommandInteraction | MessageComponentInteraction,
 	options: LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
-): Promise<ReturnType<CommandInteraction['reply']>>;
+): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
 export async function replyLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: CommandInteraction | Message,
+	target: BaseCommandInteraction | Message | MessageComponentInteraction,
 	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
-): Promise<ReturnType<CommandInteraction['reply']> | Message> {
+): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']> | Message> {
+	// Handle Interactions:
+	if (target instanceof BaseCommandInteraction || target instanceof MessageComponentInteraction) {
+		return target.reply(await resolveOverloads(target, options))!;
+	}
+
+	// Handle Message:
 	return target.reply(await resolveOverloads(target, options))!;
 }
 
@@ -255,7 +261,7 @@ export async function editLocalized<TKeys extends TFunctionKeys = string, TInter
 ): Promise<Message>;
 /**
  * Edits a deferred/replied interaction using the language `keys` from your i18next language setup.
- * @since
+ * @since 2.0.0
  * @param target The interaction to editReply.
  * @param options The language keys to be sent.
  * @example
@@ -266,12 +272,12 @@ export async function editLocalized<TKeys extends TFunctionKeys = string, TInter
  * ```
  */
 export async function editLocalized<TKeys extends TFunctionKeys = string>(
-	target: CommandInteraction,
+	target: BaseCommandInteraction | MessageComponentInteraction,
 	keys: TKeys | TKeys[]
-): Promise<ReturnType<CommandInteraction['editReply']>>;
+): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['editReply']>>;
 /**
  * Edits a deferred/replied interaction using an objects option.
- * @since
+ * @since 2.0.0
  * @param target The interaction to editReply.
  * @param options The options to be sent, requiring at least `keys` to be passed.
  * @example
@@ -294,15 +300,15 @@ export async function editLocalized<TKeys extends TFunctionKeys = string>(
  * ```
  */
 export async function editLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: CommandInteraction,
+	target: BaseCommandInteraction | MessageComponentInteraction,
 	options: LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
-): Promise<ReturnType<CommandInteraction['editReply']>>;
+): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['editReply']>>;
 export async function editLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: CommandInteraction | Message,
+	target: BaseCommandInteraction | Message | MessageComponentInteraction,
 	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
-): Promise<ReturnType<CommandInteraction['editReply']> | Message> {
-	// Handle CommandInteraction:
-	if (target instanceof CommandInteraction) {
+): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['editReply']> | Message> {
+	// Handle Interactions:
+	if (target instanceof BaseCommandInteraction || target instanceof MessageComponentInteraction) {
 		return target.editReply(await resolveOverloads(target, options));
 	}
 
@@ -314,6 +320,16 @@ export async function editLocalized<TKeys extends TFunctionKeys = string, TInter
  * @internal
  */
 async function resolveLanguage(context: InternationalizationContext): Promise<string> {
+	Object.defineProperty(context, 'author', {
+		get: () => {
+			process.emitWarning(
+				"InternationalizationContext's `author` property is deprecated and will be removed in the next major version. Please use `InternationalizationContext.user` instead.",
+				'DeprecationWarning'
+			);
+			return context.user;
+		}
+	});
+
 	const lang = await container.i18n.fetchLanguage(context);
 	return lang ?? context.guild?.preferredLocale ?? container.i18n.options.defaultName ?? 'en-US';
 }

@@ -1,10 +1,11 @@
 import type { Awaitable, NonNullObject } from '@sapphire/utilities';
 import type { WatchOptions } from 'chokidar';
 import type {
-	CommandInteraction,
+	BaseCommandInteraction,
 	Guild,
 	InteractionReplyOptions,
 	Message,
+	MessageComponentInteraction,
 	MessageOptions,
 	StageChannel,
 	StoreChannel,
@@ -173,4 +174,4 @@ export interface PartialLocalizedMessageOptions<TInterpolationMap extends NonNul
 }
 
 export type ChannelTarget = Message | DiscordChannel;
-export type Target = ChannelTarget | CommandInteraction | Guild;
+export type Target = BaseCommandInteraction | ChannelTarget | Guild | MessageComponentInteraction;
