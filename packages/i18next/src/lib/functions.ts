@@ -179,7 +179,7 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string>(
 	keys: TKeys | TKeys[]
 ): Promise<ReturnType<CommandInteraction['reply']>>;
 /**
- * Replies to the interaction using an object of {@link LocalizedMessageOptions}.
+ * Replies to the interaction using an object of {@link LocalizedInteractionReplyOptions}.
  * @since 2.0.0
  * @param target The interaction to reply to.
  * @param options The options to be sent, requiring at least `keys` to be passed.
