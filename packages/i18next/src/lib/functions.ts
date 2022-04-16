@@ -1,8 +1,17 @@
+import { CommandInteraction, Guild, Message } from 'discord.js';
+
 import { container } from '@sapphire/pieces';
 import { isObject, NonNullObject } from '@sapphire/utilities';
-import { CommandInteraction, Guild, Message } from 'discord.js';
+
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
-import type { ChannelTarget, InternationalizationContext, LocalizedMessageOptions, Target, TextBasedDiscordChannel } from './types';
+import type {
+	ChannelTarget,
+	InternationalizationContext,
+	LocalizedInteractionReplyOptions,
+	LocalizedMessageOptions,
+	Target,
+	TextBasedDiscordChannel
+} from './types';
 
 /**
  * Retrieves the language name for a specific target, using {@link InternationalizationHandler.fetchLanguage}.
@@ -155,11 +164,54 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string, TInte
 	target: Message,
 	options: LocalizedMessageOptions<TKeys, TInterpolationMap>
 ): Promise<Message>;
+/**
+ * Replies to the interaction using the language `keys` from your i18next language setup.
+ * @since 2.0.0
+ * @param target The interaction to reply to.
+ * @param keys The language keys to be sent.
+ * @example
+ * ```typescript
+ * // Using an object to specify the key to send
+ * await replyLocalized(interaction, 'commands/ping:loading');
+ * // ➡ "Pinging..."
+ * ```
+ */
+export async function replyLocalized<TKeys extends TFunctionKeys = string>(
+	target: CommandInteraction,
+	keys: TKeys | TKeys[]
+): Promise<ReturnType<CommandInteraction['reply']>>;
+/**
+ * Replies to the interaction using an object of {@link LocalizedMessageOptions}.
+ * @since 2.0.0
+ * @param target The interaction to reply to.
+ * @param options The options to be sent, requiring at least `keys` to be passed.
+ * @example
+ * ```typescript
+ * // Using an object to specify the key to send
+ * await replyLocalized(interaction, { keys: 'commands/ping:loading' });
+ * // ➡ "Pinging..."
+ * ```
+ * @example
+ * ```typescript
+ * // Passing interpolation options into i18next
+ * const latency = 42;
+ *
+ * await replyLocalized(interaction, {
+ * 	keys: 'commands/ping:loading',
+ * 	formatOptions: { latency }
+ * });
+ * // ➡ "Pinging... current latency is 42ms."
+ * ```
+ */
 export async function replyLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: Message,
-	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap>
-): Promise<Message> {
-	return target.reply(await resolveOverloads(target, options));
+	target: CommandInteraction,
+	options: LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
+): Promise<ReturnType<CommandInteraction['reply']>>;
+export async function replyLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
+	target: CommandInteraction | Message,
+	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
+): Promise<ReturnType<CommandInteraction['reply']> | Message> {
+	return target.reply(await resolveOverloads(target, options))!;
 }
 
 /**
@@ -203,10 +255,60 @@ export async function editLocalized<TKeys extends TFunctionKeys = string, TInter
 	target: Message,
 	options: LocalizedMessageOptions<TKeys, TInterpolationMap>
 ): Promise<Message>;
+/**
+ * Edits a deferred/replied interaction using the language `keys` from your i18next language setup.
+ * @since
+ * @param target The interaction to editReply.
+ * @param options The language keys to be sent.
+ * @example
+ * ```typescript
+ * // Using a string to specify the key to send
+ * await editLocalized(interaction, 'commands/ping:fail');
+ * // ➡ "Pong!"
+ * ```
+ */
+export async function editLocalized<TKeys extends TFunctionKeys = string>(
+	target: CommandInteraction,
+	keys: TKeys | TKeys[]
+): Promise<ReturnType<CommandInteraction['editReply']>>;
+/**
+ * Edits a deferred/replied interaction using an objects option.
+ * @since
+ * @param target The interaction to editReply.
+ * @param options The options to be sent, requiring at least `keys` to be passed.
+ * @example
+ * ```typescript
+ * // Using an object to specify the key to send
+ * await editLocalized(interaction, { keys: 'commands/ping:fail' });
+ * // ➡ "Pong!"
+ * ```
+ * @example
+ * ```typescript
+ * // Passing interpolation options into i18next
+ * const latency = 42;
+ * const took = 96;
+ *
+ * await editLocalized(interaction, {
+ * 	keys: 'commands/ping:success',
+ * 	formatOptions: { latency, took }
+ * });
+ * // ➡ "Pong! Took me 96ms to reply, and my heart took 42ms to beat!"
+ * ```
+ */
 export async function editLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: Message,
-	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap>
-): Promise<Message> {
+	target: CommandInteraction,
+	options: LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
+): Promise<ReturnType<CommandInteraction['editReply']>>;
+export async function editLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
+	target: CommandInteraction | Message,
+	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
+): Promise<ReturnType<CommandInteraction['editReply']> | Message> {
+	// Handle CommandInteraction:
+	if (target instanceof CommandInteraction) {
+		return target.editReply(await resolveOverloads(target, options));
+	}
+
+	// Handle Message:
 	return target.edit(await resolveOverloads(target, options));
 }
 
@@ -232,10 +334,10 @@ function resolveTextChannel(target: ChannelTarget): TextBasedDiscordChannel {
  */
 async function resolveOverloads<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
 	target: Target,
-	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap>
+	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
 ) {
 	if (isObject(options)) {
-		const casted = options as LocalizedMessageOptions<TKeys, TInterpolationMap>;
+		const casted = options as LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>;
 		return { ...options, content: await resolveKey(target, casted.keys, casted.formatOptions) };
 	}
 

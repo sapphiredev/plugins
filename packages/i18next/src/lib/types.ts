@@ -1,6 +1,16 @@
 import type { Awaitable, NonNullObject } from '@sapphire/utilities';
 import type { WatchOptions } from 'chokidar';
-import type { CommandInteraction, Guild, Message, MessageOptions, StageChannel, StoreChannel, User, VoiceChannel } from 'discord.js';
+import type {
+	CommandInteraction,
+	Guild,
+	InteractionReplyOptions,
+	Message,
+	MessageOptions,
+	StageChannel,
+	StoreChannel,
+	User,
+	VoiceChannel
+} from 'discord.js';
 import type { InitOptions, StringMap, TFunctionKeys, TOptions } from 'i18next';
 import type { i18nextFsBackend } from 'i18next-fs-backend';
 
@@ -143,9 +153,19 @@ export interface I18nextFormatters {
 	format(value: any, lng: string | undefined, options: any): string;
 }
 
+export interface LocalizedInteractionReplyOptions<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>
+	extends PartialLocalizedInteractionReplyOptions<TInterpolationMap> {
+	keys: TKeys | TKeys[];
+}
+
 export interface LocalizedMessageOptions<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>
 	extends PartialLocalizedMessageOptions<TInterpolationMap> {
 	keys: TKeys | TKeys[];
+}
+
+export interface PartialLocalizedInteractionReplyOptions<TInterpolationMap extends NonNullObject = StringMap>
+	extends Omit<InteractionReplyOptions, 'content'> {
+	formatOptions?: TOptions<TInterpolationMap>;
 }
 
 export interface PartialLocalizedMessageOptions<TInterpolationMap extends NonNullObject = StringMap> extends Omit<MessageOptions, 'content'> {
