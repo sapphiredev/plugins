@@ -1,8 +1,6 @@
-import { CommandInteraction, Guild, Message } from 'discord.js';
-
 import { container } from '@sapphire/pieces';
 import { isObject, NonNullObject } from '@sapphire/utilities';
-
+import { CommandInteraction, Guild, Message } from 'discord.js';
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
 import type {
 	ChannelTarget,
