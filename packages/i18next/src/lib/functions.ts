@@ -97,11 +97,10 @@ export async function resolveKey<
  */
 export async function sendLocalized<TKeys extends TFunctionKeys = string>(target: ChannelTarget, keys: TKeys | TKeys[]): Promise<Message>;
 /**
- * Send a localized message using an object of valid options.
+ * Send a localized message using {@link LocalizedMessageOptions}.
  * @since 2.0.0
  * @param target The target to send the message to.
- * @param options An object of valid options, requiring at least a `keys` field.
- * @see {@link LocalizedMessageOptions}
+ * @param options A {@link LocalizedMessageOptions} object, requiring at least a `keys` field.
  * @example
  * ```typescript
  * // Using an object to specify the key to send
@@ -133,7 +132,7 @@ export async function sendLocalized<TKeys extends TFunctionKeys = string, TInter
 }
 
 /**
- * Replies to another message using the language `keys` from your i18next language setup.
+ * Replies to a message using the language `keys` from your i18next language setup.
  * @since 2.0.0
  * @param target The message to reply to.
  * @param keys The language keys to be sent.
@@ -146,11 +145,10 @@ export async function sendLocalized<TKeys extends TFunctionKeys = string, TInter
  */
 export async function replyLocalized<TKeys extends TFunctionKeys = string>(target: Message, keys: TKeys | TKeys[]): Promise<Message>;
 /**
- * Replies to another message using an object of valid options.
+ * Replies to a message using {@link LocalizedMessageOptions}.
  * @since 2.0.0
  * @param target The message to reply to.
- * @param options An object of valid options, requiring at least a `keys` field.
- * @see {@link LocalizedMessageOptions}
+ * @param options A {@link LocalizedMessageOptions} object, requiring at least a `keys` field.
  * @example
  * ```typescript
  * // Using an object to specify the key to send
@@ -194,11 +192,10 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string>(
 	keys: TKeys | TKeys[]
 ): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
 /**
- * Replies to the interaction using an object of valid options.
+ * Replies to the interaction using {@link LocalizedInteractionReplyOptions}.
  * @since 2.4.0
  * @param target The interaction to reply to.
- * @param options An object of valid options, requiring at least a `keys` field.
- * @see {@link LocalizedInteractionReplyOptions}
+ * @param options A {@link LocalizedInteractionReplyOptions} object, requiring at least a `keys` field.
  * @example
  * ```typescript
  * // Using an object to specify the key to send
@@ -250,11 +247,10 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string, TInte
  */
 export async function editLocalized<TKeys extends TFunctionKeys = string>(target: Message, keys: TKeys | TKeys[]): Promise<Message>;
 /**
- * Edits a message using an object of valid options.
+ * Edits a message using {@link LocalizedMessageOptions}.
  * @since 2.0.0
  * @param target The message to edit.
- * @param options An object of valid options, requiring at least a `keys` field.
- * @see {@link LocalizedMessageOptions}
+ * @param options A {@link LocalizedMessageOptions} object, requiring at least a `keys` field.
  * @example
  * ```typescript
  * // Using an object to specify the key to send
@@ -295,11 +291,10 @@ export async function editLocalized<TKeys extends TFunctionKeys = string>(
 	keys: TKeys | TKeys[]
 ): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['editReply']>>;
 /**
- * Edits a reply to an interaction, optionally deferred, using an object of valid options.
+ * Edits a reply to an interaction, optionally deferred, using {@link LocalizedInteractionReplyOptions}.
  * @since 2.4.0
  * @param target The interaction to editReply.
- * @param options An object of valid options, requiring at least a `keys` field.
- * @see {@link LocalizedInteractionReplyOptions}
+ * @param options A {@link LocalizedInteractionReplyOptions} object, requiring at least a `keys` field.
  * @example
  * ```typescript
  * // Using an object to specify the key to send
