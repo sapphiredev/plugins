@@ -132,16 +132,16 @@ export type DiscordChannel = TextBasedDiscordChannel | StoreChannel | StageChann
  * This context enables implementation of per-guild, per-channel, and per-user localization.
  */
 export interface InternationalizationContext {
-	/** The {@link Guild} object for which the language should be fetched, or `null` if the language is to be fetched in a DM. */
+	/** The {@link Guild} object to fetch the preferred language for, or `null` if the language is to be fetched in a DM. */
 	guild: Guild | null;
-	/** The {@link DiscordChannel} object for which the language should be fetched. */
+	/** The {@link DiscordChannel} object to fetch the preferred language for. */
 	channel: DiscordChannel | null;
 	/**
-	 * @deprecated use {@link InternationalizationContext.user} instead. Will be removed in next major version.
-	 * The user for which the language should be fetched.
+	 * @deprecated Use {@link InternationalizationContext.user} instead; this will be removed in the next major version.
+	 * The user to fetch the preferred language for.
 	 */
 	author?: User | null;
-	/** The user for which the language should be fetched. */
+	/** The user to fetch the preferred language for. */
 	user: User | null;
 }
 
