@@ -164,7 +164,7 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string, TInte
 ): Promise<Message>;
 /**
  * Replies to the interaction using the language `keys` from your i18next language setup.
- * @since 2.0.0
+ * @since 2.4.0
  * @param target The interaction to reply to.
  * @param keys The language keys to be sent.
  * @example
@@ -180,7 +180,7 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string>(
 ): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
 /**
  * Replies to the interaction using an object of {@link LocalizedInteractionReplyOptions}.
- * @since 2.0.0
+ * @since 2.4.0
  * @param target The interaction to reply to.
  * @param options The options to be sent, requiring at least `keys` to be passed.
  * @example
@@ -261,7 +261,7 @@ export async function editLocalized<TKeys extends TFunctionKeys = string, TInter
 ): Promise<Message>;
 /**
  * Edits a deferred/replied interaction using the language `keys` from your i18next language setup.
- * @since 2.0.0
+ * @since 2.4.0
  * @param target The interaction to editReply.
  * @param options The language keys to be sent.
  * @example
@@ -277,7 +277,7 @@ export async function editLocalized<TKeys extends TFunctionKeys = string>(
 ): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['editReply']>>;
 /**
  * Edits a deferred/replied interaction using an objects option.
- * @since 2.0.0
+ * @since 2.4.0
  * @param target The interaction to editReply.
  * @param options The options to be sent, requiring at least `keys` to be passed.
  * @example
