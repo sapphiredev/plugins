@@ -1,6 +1,14 @@
 import { container } from '@sapphire/pieces';
 import { isObject, NonNullObject } from '@sapphire/utilities';
-import { BaseCommandInteraction, Guild, Message, MessageComponentInteraction } from 'discord.js';
+import {
+	BaseCommandInteraction,
+	Guild,
+	InteractionReplyOptions,
+	Message,
+	MessageComponentInteraction,
+	MessagePayload,
+	ReplyMessageOptions
+} from 'discord.js';
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
 import type {
 	ChannelTarget,
@@ -175,7 +183,11 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string, TInte
  * ```
  */
 export async function replyLocalized<TKeys extends TFunctionKeys = string>(
-	target: BaseCommandInteraction | MessageComponentInteraction,
+	target: (BaseCommandInteraction | MessageComponentInteraction) & {
+		reply: (
+			options: InteractionReplyOptions | MessagePayload | string
+		) => Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
+	},
 	keys: TKeys | TKeys[]
 ): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
 /**
@@ -202,20 +214,22 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string>(
  * ```
  */
 export async function replyLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: BaseCommandInteraction | MessageComponentInteraction,
+	target: (BaseCommandInteraction | MessageComponentInteraction) & {
+		reply: (
+			options: InteractionReplyOptions | MessagePayload | string
+		) => Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
+	},
 	options: LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
 ): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
 export async function replyLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: BaseCommandInteraction | Message | MessageComponentInteraction,
+	target: (BaseCommandInteraction | Message | MessageComponentInteraction) & {
+		reply: (
+			options: InteractionReplyOptions | MessagePayload | ReplyMessageOptions | string
+		) => Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']> | Message>;
+	},
 	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
 ): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']> | Message> {
-	// Handle Interactions:
-	if (target instanceof BaseCommandInteraction || target instanceof MessageComponentInteraction) {
-		return target.reply(await resolveOverloads(target, options))!;
-	}
-
-	// Handle Message:
-	return target.reply(await resolveOverloads(target, options))!;
+	return target.reply(await resolveOverloads(target, options));
 }
 
 /**
