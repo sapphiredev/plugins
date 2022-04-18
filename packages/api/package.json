@@ -49,8 +49,9 @@
 		"directory": "packages/api"
 	},
 	"files": [
-		"dist",
-		"!dist/*.tsbuildinfo",
+		"dist/**/*.js*",
+		"dist/**/*.mjs*",
+		"dist/**/*.d*",
 		"register.*"
 	],
 	"engines": {

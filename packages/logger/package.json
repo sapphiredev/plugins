@@ -46,8 +46,9 @@
 		"directory": "packages/logger"
 	},
 	"files": [
-		"dist",
-		"!dist/*.tsbuildinfo",
+		"dist/**/*.js*",
+		"dist/**/*.mjs*",
+		"dist/**/*.d*",
 		"register.*"
 	],
 	"engines": {

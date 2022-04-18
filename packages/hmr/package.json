@@ -44,8 +44,9 @@
 		"directory": "packages/hmr"
 	},
 	"files": [
-		"dist",
-		"!dist/*.tsbuildinfo",
+		"dist/**/*.js*",
+		"dist/**/*.mjs*",
+		"dist/**/*.d*",
 		"register.*"
 	],
 	"engines": {

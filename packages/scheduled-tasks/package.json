@@ -72,8 +72,9 @@
 		"directory": "packages/scheduled-tasks"
 	},
 	"files": [
-		"dist",
-		"!dist/*.tsbuildinfo",
+		"dist/**/*.js*",
+		"dist/**/*.mjs*",
+		"dist/**/*.d*",
 		"register-redis.*",
 		"register-sqs.*",
 		"types-redis.*",
