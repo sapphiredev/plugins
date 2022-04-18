@@ -1,8 +1,24 @@
 import { container } from '@sapphire/pieces';
 import { isObject, NonNullObject } from '@sapphire/utilities';
-import { Guild, Message } from 'discord.js';
+import {
+	BaseCommandInteraction,
+	Guild,
+	InteractionReplyOptions,
+	Message,
+	MessageComponentInteraction,
+	MessagePayload,
+	ReplyMessageOptions
+} from 'discord.js';
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
-import type { ChannelTarget, InternationalizationContext, LocalizedMessageOptions, Target, TextBasedDiscordChannel } from './types';
+import { deprecate } from 'node:util';
+import type {
+	ChannelTarget,
+	InternationalizationContext,
+	LocalizedInteractionReplyOptions,
+	LocalizedMessageOptions,
+	Target,
+	TextBasedDiscordChannel
+} from './types';
 
 /**
  * Retrieves the language name for a specific target, using {@link InternationalizationHandler.fetchLanguage}.
@@ -17,23 +33,28 @@ import type { ChannelTarget, InternationalizationContext, LocalizedMessageOption
  * @returns The name of the language key.
  */
 export function fetchLanguage(target: Target): Promise<string> {
+	// Handle Interactions:
+	if (target instanceof BaseCommandInteraction || target instanceof MessageComponentInteraction) {
+		return resolveLanguage({ user: target.user, channel: target.channel, guild: target.guild });
+	}
+
 	// Handle Message:
 	if (target instanceof Message) {
-		return resolveLanguage({ author: target.author, channel: target.channel, guild: target.guild });
+		return resolveLanguage({ user: target.author, channel: target.channel, guild: target.guild });
 	}
 
 	// Handle Guild:
 	if (target instanceof Guild) {
-		return resolveLanguage({ author: null, channel: null, guild: target });
+		return resolveLanguage({ user: null, channel: null, guild: target });
 	}
 
 	// Handle DMChannel:
 	if (target.type === 'DM') {
-		return resolveLanguage({ author: null, channel: target, guild: null });
+		return resolveLanguage({ user: null, channel: target, guild: null });
 	}
 
 	// Handle any other channel:
-	return resolveLanguage({ author: null, channel: target, guild: target.guild });
+	return resolveLanguage({ user: null, channel: target, guild: target.guild });
 }
 
 /**
@@ -76,10 +97,10 @@ export async function resolveKey<
  */
 export async function sendLocalized<TKeys extends TFunctionKeys = string>(target: ChannelTarget, keys: TKeys | TKeys[]): Promise<Message>;
 /**
- * Send a localized message using an object of {@link LocalizedMessageOptions}.
+ * Send a localized message using {@link LocalizedMessageOptions}.
  * @since 2.0.0
  * @param target The target to send the message to.
- * @param options The options to be sent, requiring at least `keys` to be passed.
+ * @param options A {@link LocalizedMessageOptions} object, requiring at least a `keys` field.
  * @example
  * ```typescript
  * // Using an object to specify the key to send
@@ -111,7 +132,7 @@ export async function sendLocalized<TKeys extends TFunctionKeys = string, TInter
 }
 
 /**
- * Replies to another message using the language `keys` from your i18next language setup.
+ * Replies to a message using the language `keys` from your i18next language setup.
  * @since 2.0.0
  * @param target The message to reply to.
  * @param keys The language keys to be sent.
@@ -124,10 +145,10 @@ export async function sendLocalized<TKeys extends TFunctionKeys = string, TInter
  */
 export async function replyLocalized<TKeys extends TFunctionKeys = string>(target: Message, keys: TKeys | TKeys[]): Promise<Message>;
 /**
- * Replies to another message using an object of {@link LocalizedMessageOptions}.
+ * Replies to a message using {@link LocalizedMessageOptions}.
  * @since 2.0.0
  * @param target The message to reply to.
- * @param options The options to be sent, requiring at least `keys` to be passed.
+ * @param options A {@link LocalizedMessageOptions} object, requiring at least a `keys` field.
  * @example
  * ```typescript
  * // Using an object to specify the key to send
@@ -150,10 +171,65 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string, TInte
 	target: Message,
 	options: LocalizedMessageOptions<TKeys, TInterpolationMap>
 ): Promise<Message>;
+/**
+ * Replies to the interaction using the language `keys` from your i18next language setup.
+ * @since 2.4.0
+ * @param target The interaction to reply to.
+ * @param keys The language keys to be sent.
+ * @example
+ * ```typescript
+ * // Using an object to specify the key to send
+ * await replyLocalized(interaction, 'commands/ping:loading');
+ * // ➡ "Pinging..."
+ * ```
+ */
+export async function replyLocalized<TKeys extends TFunctionKeys = string>(
+	target: (BaseCommandInteraction | MessageComponentInteraction) & {
+		reply: (
+			options: InteractionReplyOptions | MessagePayload | string
+		) => Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
+	},
+	keys: TKeys | TKeys[]
+): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
+/**
+ * Replies to the interaction using {@link LocalizedInteractionReplyOptions}.
+ * @since 2.4.0
+ * @param target The interaction to reply to.
+ * @param options A {@link LocalizedInteractionReplyOptions} object, requiring at least a `keys` field.
+ * @example
+ * ```typescript
+ * // Using an object to specify the key to send
+ * await replyLocalized(interaction, { keys: 'commands/ping:loading' });
+ * // ➡ "Pinging..."
+ * ```
+ * @example
+ * ```typescript
+ * // Passing interpolation options into i18next
+ * const latency = 42;
+ *
+ * await replyLocalized(interaction, {
+ * 	keys: 'commands/ping:loading',
+ * 	formatOptions: { latency }
+ * });
+ * // ➡ "Pinging... current latency is 42ms."
+ * ```
+ */
 export async function replyLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: Message,
-	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap>
-): Promise<Message> {
+	target: (BaseCommandInteraction | MessageComponentInteraction) & {
+		reply: (
+			options: InteractionReplyOptions | MessagePayload | string
+		) => Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
+	},
+	options: LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
+): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
+export async function replyLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
+	target: (BaseCommandInteraction | Message | MessageComponentInteraction) & {
+		reply: (
+			options: InteractionReplyOptions | MessagePayload | ReplyMessageOptions | string
+		) => Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']> | Message>;
+	},
+	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
+): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']> | Message> {
 	return target.reply(await resolveOverloads(target, options));
 }
 
@@ -171,10 +247,10 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string, TInte
  */
 export async function editLocalized<TKeys extends TFunctionKeys = string>(target: Message, keys: TKeys | TKeys[]): Promise<Message>;
 /**
- * Edits a message using an objects option.
+ * Edits a message using {@link LocalizedMessageOptions}.
  * @since 2.0.0
  * @param target The message to edit.
- * @param options The options to be sent, requiring at least `keys` to be passed.
+ * @param options A {@link LocalizedMessageOptions} object, requiring at least a `keys` field.
  * @example
  * ```typescript
  * // Using an object to specify the key to send
@@ -198,10 +274,58 @@ export async function editLocalized<TKeys extends TFunctionKeys = string, TInter
 	target: Message,
 	options: LocalizedMessageOptions<TKeys, TInterpolationMap>
 ): Promise<Message>;
+/**
+ * Edits a reply to an interaction, optionally deferred, using the given language.
+ * @since 2.4.0
+ * @param target The interaction to editReply.
+ * @param options The language keys that will resolve to the new interaction content.
+ * @example
+ * ```typescript
+ * // Using a string to specify the key to send
+ * await editLocalized(interaction, 'commands/ping:fail');
+ * // ➡ "Pong!"
+ * ```
+ */
+export async function editLocalized<TKeys extends TFunctionKeys = string>(
+	target: BaseCommandInteraction | MessageComponentInteraction,
+	keys: TKeys | TKeys[]
+): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['editReply']>>;
+/**
+ * Edits a reply to an interaction, optionally deferred, using {@link LocalizedInteractionReplyOptions}.
+ * @since 2.4.0
+ * @param target The interaction to editReply.
+ * @param options A {@link LocalizedInteractionReplyOptions} object, requiring at least a `keys` field.
+ * @example
+ * ```typescript
+ * // Using an object to specify the key to send
+ * await editLocalized(interaction, { keys: 'commands/ping:fail' });
+ * // ➡ "Pong!"
+ * ```
+ * @example
+ * ```typescript
+ * // Passing interpolation options into i18next
+ * const latency = 42;
+ * const took = 96;
+ *
+ * await editLocalized(interaction, {
+ * 	keys: 'commands/ping:success',
+ * 	formatOptions: { latency, took }
+ * });
+ * // ➡ "Pong! Took me 96ms to reply, and my heart took 42ms to beat!"
+ * ```
+ */
 export async function editLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: Message,
-	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap>
-): Promise<Message> {
+	target: BaseCommandInteraction | MessageComponentInteraction,
+	options: LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
+): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['editReply']>>;
+export async function editLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
+	target: BaseCommandInteraction | Message | MessageComponentInteraction,
+	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
+): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['editReply']> | Message> {
+	if (target instanceof BaseCommandInteraction || target instanceof MessageComponentInteraction) {
+		return target.editReply(await resolveOverloads(target, options));
+	}
+
 	return target.edit(await resolveOverloads(target, options));
 }
 
@@ -209,6 +333,23 @@ export async function editLocalized<TKeys extends TFunctionKeys = string, TInter
  * @internal
  */
 async function resolveLanguage(context: InternationalizationContext): Promise<string> {
+	Object.defineProperty(context, 'author', {
+		get: deprecate(
+			() => {
+				return context.user;
+			},
+			"InternationalizationContext's `author` property is deprecated and will be removed in the next major version. Please use `InternationalizationContext.user` instead.",
+			'DeprecationWarning'
+		),
+		set: deprecate(
+			(val: InternationalizationContext['user']) => {
+				context.user = val;
+			},
+			"InternationalizationContext's `author` property is deprecated and will be removed in the next major version. Please use `InternationalizationContext.user` instead.",
+			'DeprecationWarning'
+		)
+	});
+
 	const lang = await container.i18n.fetchLanguage(context);
 	return lang ?? context.guild?.preferredLocale ?? container.i18n.options.defaultName ?? 'en-US';
 }
@@ -227,10 +368,10 @@ function resolveTextChannel(target: ChannelTarget): TextBasedDiscordChannel {
  */
 async function resolveOverloads<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
 	target: Target,
-	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap>
+	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
 ) {
 	if (isObject(options)) {
-		const casted = options as LocalizedMessageOptions<TKeys, TInterpolationMap>;
+		const casted = options as LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>;
 		return { ...options, content: await resolveKey(target, casted.keys, casted.formatOptions) };
 	}
 
