@@ -36,18 +36,27 @@ jobs:
         with:
           node-version: 16
           cache: yarn
-          registry-url: https://registry.npmjs.org/
+          registry-url: https://registry.yarnpkg.com/
       - name: Install Dependencies
         run: yarn --immutable
       - name: Build all packages
         run: yarn build
-      - name: Bump Version & Publish
+      - name: Bump Versions & Publish
         run: |
           # Resolve the tag to be used. "next" for push events, "pr-{prNumber}" for dispatch events.
           TAG=$([[ ${{ github.event_name }} == 'push' ]] && echo 'next' || echo 'pr-${{ github.event.inputs.prNumber }}')
-          BRANCH=$(echo '${{ github.event.inputs.ref || 'main' }}')
 
-          # Bump and publish
-          yarn lerna publish --yes --conventional-prerelease --ignore-scripts --no-verify-access --no-git-tag-version --no-push --pre-dist-tag ${TAG} --preid "${TAG}.$(git rev-parse --verify --short HEAD)" --allow-branch ${BRANCH}
+          yarn config set npmAuthToken ${NODE_AUTH_TOKEN}
+          yarn config set npmPublishRegistry "https://registry.yarnpkg.com"
+
+          yarn turbo run bump --concurrency=1 -- --preid "${TAG}.$(git rev-parse --verify --short HEAD)"
+
+          for d in packages/*; do
+            pushd $d
+
+            yarn npm publish --tag ${TAG}
+
+            popd
+          done
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}

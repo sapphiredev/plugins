@@ -1,0 +1,3 @@
+name: plugin-scheduled-tasks
+org: sapphire
+packagePath: packages/scheduled-tasks

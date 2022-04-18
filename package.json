@@ -11,14 +11,14 @@
 		"test": "turbo run test",
 		"build": "turbo run build",
 		"docs": "typedoc",
-		"commit": "git-cz",
-		"cz": "git-cz",
 		"update": "yarn upgrade-interactive",
-		"prepare": "husky install .github/husky"
+		"prepare": "husky install .github/husky",
+		"check-update": "turbo run check-update"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^16.2.3",
 		"@commitlint/config-conventional": "^16.2.1",
+		"@favware/cliff-jumper": "^1.1.2",
 		"@favware/npm-deprecate": "^1.0.4",
 		"@sapphire/eslint-config": "^4.3.3",
 		"@sapphire/framework": "^2.4.1",
@@ -43,7 +43,6 @@
 		"husky": "^7.0.4",
 		"jest": "^27.5.1",
 		"jest-circus": "^27.5.1",
-		"lerna": "^4.0.0",
 		"lint-staged": "^12.3.8",
 		"prettier": "^2.6.2",
 		"pretty-quick": "^3.1.3",

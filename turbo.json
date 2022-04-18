@@ -11,6 +11,14 @@
 		"test": {
 			"dependsOn": [],
 			"outputs": []
+		},
+		"bump": {
+			"dependsOn": [],
+			"outputs": ["CHANGELOG.md"]
+		},
+		"check-update": {
+			"dependsOn": [],
+			"outputs": []
 		}
 	}
 }
