@@ -46,7 +46,7 @@
 		"dist/**/*.js*",
 		"dist/**/*.mjs*",
 		"dist/**/*.d*",
-		"register.*"
+		"./register.*"
 	],
 	"engines": {
 		"node": ">=v14.0.0",

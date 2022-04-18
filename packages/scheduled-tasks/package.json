@@ -75,10 +75,10 @@
 		"dist/**/*.js*",
 		"dist/**/*.mjs*",
 		"dist/**/*.d*",
-		"register-redis.*",
-		"register-sqs.*",
-		"types-redis.*",
-		"types-sqs.*"
+		"./register-redis.*",
+		"./register-sqs.*",
+		"./types-redis.*",
+		"./types-sqs.*"
 	],
 	"engines": {
 		"node": ">=v14.18.0",
