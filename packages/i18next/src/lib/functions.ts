@@ -10,7 +10,7 @@ import {
 	ReplyMessageOptions
 } from 'discord.js';
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
-import { deprecate } from 'util';
+import { deprecate } from 'node:util';
 import type {
 	ChannelTarget,
 	InternationalizationContext,
