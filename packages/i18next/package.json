@@ -50,8 +50,9 @@
 		"directory": "packages/i18next"
 	},
 	"files": [
-		"dist",
-		"!dist/*.tsbuildinfo",
+		"dist/**/*.js*",
+		"dist/**/*.mjs*",
+		"dist/**/*.d*",
 		"register.*"
 	],
 	"engines": {
