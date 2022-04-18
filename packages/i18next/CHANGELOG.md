@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@2.4.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.4.0...@sapphire/plugin-i18next@2.4.1) - (2022-04-18)
+
+## Bug Fixes
+
+- Fixed files array ([1e13a35](https://github.com/sapphiredev/plugins/commit/1e13a3502b9d909ba9c349ab078a763d2bee0c58))
+
 # [@sapphire/plugin-i18next@2.4.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.3.1...@sapphire/plugin-i18next@2.4.0) - (2022-04-18)
 
 ## Bug Fixes
