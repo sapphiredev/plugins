@@ -1,5 +1,5 @@
 import { container } from '@sapphire/pieces';
-import { isObject, NonNullObject } from '@sapphire/utilities';
+import { cast, isObject, NonNullObject } from '@sapphire/utilities';
 import {
 	BaseCommandInteraction,
 	Guild,
@@ -35,7 +35,13 @@ import type {
 export function fetchLanguage(target: Target): Promise<string> {
 	// Handle Interactions:
 	if (target instanceof BaseCommandInteraction || target instanceof MessageComponentInteraction) {
-		return resolveLanguage({ user: target.user, channel: target.channel, guild: target.guild });
+		return resolveLanguage({
+			user: target.user,
+			channel: target.channel,
+			guild: target.guild,
+			interactionGuildLocale: target.guildLocale,
+			interactionLocale: target.locale
+		});
 	}
 
 	// Handle Message:
@@ -371,7 +377,7 @@ async function resolveOverloads<TKeys extends TFunctionKeys = string, TInterpola
 	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
 ) {
 	if (isObject(options)) {
-		const casted = options as LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>;
+		const casted = cast<LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>>(options);
 		return { ...options, content: await resolveKey(target, casted.keys, casted.formatOptions) };
 	}
 
