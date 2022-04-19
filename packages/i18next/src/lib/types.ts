@@ -3,6 +3,7 @@ import type { WatchOptions } from 'chokidar';
 import type {
 	BaseCommandInteraction,
 	Guild,
+	Interaction,
 	InteractionReplyOptions,
 	Message,
 	MessageComponentInteraction,
@@ -143,6 +144,8 @@ export interface InternationalizationContext {
 	author?: User | null;
 	/** The user to fetch the preferred language for. */
 	user: User | null;
+	interactionGuildLocale?: Interaction['guildLocale'];
+	interactionLocale?: Interaction['locale'];
 }
 
 export interface InternationalizationClientOptions {
