@@ -235,7 +235,15 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string, TInte
 		) => Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']> | Message>;
 	},
 	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
-): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']> | Message> {
+): Promise<
+	ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']> | ReturnType<MessageComponentInteraction['update']> | Message
+> {
+	if (target instanceof BaseCommandInteraction || target instanceof MessageComponentInteraction) {
+		if (target.deferred || target.replied) {
+			return target.editReply(await resolveOverloads(target, options)) as Promise<Message<boolean>>;
+		}
+	}
+
 	return target.reply(await resolveOverloads(target, options));
 }
 
