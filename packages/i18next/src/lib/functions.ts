@@ -327,9 +327,17 @@ export async function editLocalized<TKeys extends TFunctionKeys = string, TInter
 export async function editLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
 	target: BaseCommandInteraction | Message | MessageComponentInteraction,
 	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
-): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['editReply']> | Message> {
+): Promise<
+	| ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['editReply']>
+	| ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>
+	| Message
+> {
 	if (target instanceof BaseCommandInteraction || target instanceof MessageComponentInteraction) {
-		return target.editReply(await resolveOverloads(target, options));
+		if (target.deferred || target.replied) {
+			return target.editReply(await resolveOverloads(target, options));
+		}
+
+		return target.reply(await resolveOverloads(target, options));
 	}
 
 	return target.edit(await resolveOverloads(target, options));
