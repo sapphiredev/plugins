@@ -59,22 +59,25 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 			return;
 		}
 
-		let bullOptions: JobOptions = { delay: options?.delay };
+		let bullOptions: JobOptions = {
+			delay: options?.delay,
+			...options?.bullJobOptions
+		};
 
 		if (options?.type === 'repeated') {
 			bullOptions = {
+				...bullOptions,
 				repeat: options?.interval
 					? {
 							every: options.interval!
 					  }
 					: {
 							cron: options.cron!
-					  },
-				...options.bullJobOptions
+					  }
 			};
 		}
 
-		return this.bullClient.add(task, payload ?? null, { ...bullOptions, ...options.bullJobOptions }) as Promise<Bull.Job<T>> | undefined;
+		return this.bullClient.add(task, payload ?? null, bullOptions) as Promise<Bull.Job<T>> | undefined;
 	}
 
 	public async createRepeated(tasks: ScheduledTaskCreateRepeatedTask[]): Promise<void> {
