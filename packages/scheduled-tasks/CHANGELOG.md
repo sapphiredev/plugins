@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@2.3.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@2.3.2...@sapphire/plugin-scheduled-tasks@2.3.3) - (2022-04-24)
+
+## Bug Fixes
+
+- **ScheduledTaskRedisStrategy:** Bull job options not being passed when adding task (#279) ([9f3dc42](https://github.com/sapphiredev/plugins/commit/9f3dc42a42c528b65ca04906add6db08a7b99227))
+
+## Documentation
+
+- Update typedoc setup ([5c855bd](https://github.com/sapphiredev/plugins/commit/5c855bd8341f155a41c9b85738541f1f47ac837a))
+
 ## [2.3.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@2.3.1...@sapphire/plugin-scheduled-tasks@2.3.2) (2022-04-02)
 
 ### Bug Fixes
