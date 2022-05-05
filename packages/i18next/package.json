@@ -38,10 +38,9 @@
 	},
 	"dependencies": {
 		"@sapphire/utilities": "^3.6.2",
-		"@types/i18next-fs-backend": "^1.1.2",
+		"@skyra/i18next-backend": "^1.0.0",
 		"chokidar": "^3.5.3",
-		"i18next": "^21.6.16",
-		"i18next-fs-backend": "^1.1.4",
+		"i18next": "^21.7.1",
 		"tslib": "^2.4.0"
 	},
 	"repository": {
@@ -56,8 +55,8 @@
 		"./register.*"
 	],
 	"engines": {
-		"node": ">=v14.0.0",
-		"npm": ">=7.0.0"
+		"node": ">=v14",
+		"npm": ">=7"
 	},
 	"keywords": [
 		"sapphiredev",

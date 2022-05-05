@@ -3,12 +3,12 @@
 	"include": [
 		"packages/**/*.ts",
 		"packages/**/*.mjs",
-		"packages/**/jest.config.ts",
+		"packages/**/jest.config.mjs",
 		"packages/**/tests/*.js",
 		"packages/**/register*.js",
 		"packages/**/register*.mjs",
 		"packages/**/types*.js",
 		"packages/**/types*.mjs",
-		"./jest.config.ts"
+		"./jest.config.mjs"
 	]
 }

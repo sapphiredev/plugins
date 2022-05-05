@@ -1,4 +1,5 @@
 import type { Awaitable, NonNullObject } from '@sapphire/utilities';
+import type { Backend } from '@skyra/i18next-backend';
 import type { WatchOptions } from 'chokidar';
 import type {
 	BaseCommandInteraction,
@@ -14,7 +15,6 @@ import type {
 	VoiceChannel
 } from 'discord.js';
 import type { InitOptions, StringMap, TFunctionKeys, TOptions } from 'i18next';
-import type { i18nextFsBackend } from 'i18next-fs-backend';
 
 /**
  * Configure whether to use Hot-Module-Replacement (HMR) for your i18next resources using these options. The minimum config to enable HMR is to set `enabled` to true. Any other properties are optional.
@@ -68,7 +68,7 @@ export interface InternationalizationOptions {
 	 * The options passed to `backend` in `i18next.init`.
 	 * @since 1.0.0
 	 */
-	backend?: i18nextFsBackend.i18nextFsBackendOptions;
+	backend?: Backend.Options;
 
 	/**
 	 * The options passed to `i18next.init`.

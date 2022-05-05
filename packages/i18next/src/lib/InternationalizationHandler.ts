@@ -1,10 +1,10 @@
 import { fromAsync, isErr } from '@sapphire/framework';
 import { container, getRootData } from '@sapphire/pieces';
 import { Awaitable, isFunction, NonNullObject } from '@sapphire/utilities';
-import { opendir } from 'fs/promises';
+import { Backend, PathResolvable } from '@skyra/i18next-backend';
 import i18next, { StringMap, TFunction, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
-import Backend, { i18nextFsBackend } from 'i18next-fs-backend';
-import { join } from 'path';
+import { opendir } from 'node:fs/promises';
+import { join } from 'node:path';
 import type { InternationalizationContext, InternationalizationOptions } from './types';
 
 /**
@@ -47,7 +47,7 @@ export class InternationalizationHandler {
 	 * The backend options for `i18next-fs-backend` used by `i18next`.
 	 * @since 1.0.0
 	 */
-	protected readonly backendOptions: i18nextFsBackend.i18nextFsBackendOptions;
+	protected readonly backendOptions: Backend.Options;
 
 	/**
 	 * @param options The options that `i18next`, `i18next-fs-backend`, and {@link InternationalizationHandler} should use.
@@ -59,9 +59,13 @@ export class InternationalizationHandler {
 		this.languagesDirectory =
 			this.options.defaultLanguageDirectory ?? join(container.client?.options?.baseUserDirectory ?? getRootData().root, 'languages');
 
+		const languagePaths = new Set<PathResolvable>([
+			join(this.languagesDirectory, '{{lng}}', '{{ns}}.json'), //
+			...(options?.backend?.paths ?? [])
+		]);
+
 		this.backendOptions = {
-			loadPath: join(this.languagesDirectory, '{{lng}}', '{{ns}}.json'),
-			addPath: this.languagesDirectory,
+			paths: [...languagePaths],
 			...this.options.backend
 		};
 
