@@ -85,7 +85,16 @@ export async function resolveKey<
 	TResult extends TFunctionResult = string,
 	TKeys extends TFunctionKeys = string,
 	TInterpolationMap extends NonNullObject = StringMap
->(target: Target, key: TKeys | TKeys[], options?: TOptions<TInterpolationMap>): Promise<TResult> {
+>(target: Target, key: TKeys | TKeys[], options?: TOptions<TInterpolationMap>): Promise<TResult>;
+export async function resolveKey<
+	TResult extends TFunctionResult = string,
+	TKeys extends TFunctionKeys = string,
+	TInterpolationMap extends NonNullObject = StringMap
+>(target: Target, key: TKeys | TKeys[], options?: TOptions<TInterpolationMap> | (TOptions<TInterpolationMap> & { lng: string })): Promise<TResult> {
+	if (typeof options?.lng === 'string') {
+		return container.i18n.format(options.lng, key, options);
+	}
+
 	return container.i18n.format(await fetchLanguage(target), key, options);
 }
 
