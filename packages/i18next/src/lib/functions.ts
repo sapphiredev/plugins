@@ -86,11 +86,7 @@ export async function resolveKey<
 	TKeys extends TFunctionKeys = string,
 	TInterpolationMap extends NonNullObject = StringMap
 >(target: Target, key: TKeys | TKeys[], options?: TOptions<TInterpolationMap>): Promise<TResult> {
-	if (typeof options?.lng === 'string') {
-		return container.i18n.format(options.lng, key, options);
-	}
-
-	return container.i18n.format(await fetchLanguage(target), key, options);
+	return container.i18n.format(typeof options?.lng === 'string' ? options.lng : await fetchLanguage(target), key, options);
 }
 
 /**
