@@ -44,7 +44,6 @@
 	],
 	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/scheduled-tasks",
 	"scripts": {
-		"test": "jest",
 		"lint": "eslint src --ext ts --fix",
 		"build": "tsc -b src && yarn esm:register-redis && yarn esm:register-sqs && yarn esm:default",
 		"esm:register-redis": "gen-esm-wrapper dist/register-redis.js dist/register-redis.mjs",
