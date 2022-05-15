@@ -192,7 +192,7 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string, TInte
 export async function replyLocalized<TKeys extends TFunctionKeys = string>(
 	target: (BaseCommandInteraction | MessageComponentInteraction) & {
 		reply: (
-			options: InteractionReplyOptions | MessagePayload | string
+			options: InteractionReplyOptions | MessagePayload | ReplyMessageOptions | string
 		) => Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
 	},
 	keys: TKeys | TKeys[]
@@ -223,17 +223,19 @@ export async function replyLocalized<TKeys extends TFunctionKeys = string>(
 export async function replyLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
 	target: (BaseCommandInteraction | MessageComponentInteraction) & {
 		reply: (
-			options: InteractionReplyOptions | MessagePayload | string
+			options: InteractionReplyOptions | MessagePayload | ReplyMessageOptions | string
 		) => Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
 	},
 	options: LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
 ): Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']>>;
 export async function replyLocalized<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
-	target: (BaseCommandInteraction | Message | MessageComponentInteraction) & {
-		reply: (
-			options: InteractionReplyOptions | MessagePayload | ReplyMessageOptions | string
-		) => Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']> | Message>;
-	},
+	target:
+		| ((BaseCommandInteraction | Message | MessageComponentInteraction) & {
+				reply: (
+					options: InteractionReplyOptions | MessagePayload | ReplyMessageOptions | string
+				) => Promise<ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']> | Message>;
+		  })
+		| Message,
 	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
 ): Promise<
 	ReturnType<(BaseCommandInteraction | MessageComponentInteraction)['reply']> | ReturnType<MessageComponentInteraction['update']> | Message
@@ -391,7 +393,7 @@ function resolveTextChannel(target: ChannelTarget): TextBasedDiscordChannel {
 async function resolveOverloads<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>(
 	target: Target,
 	options: TKeys | TKeys[] | LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>
-) {
+): Promise<Pick<Message, 'content'>> {
 	if (isObject(options)) {
 		const casted = cast<LocalizedMessageOptions<TKeys, TInterpolationMap> | LocalizedInteractionReplyOptions<TKeys, TInterpolationMap>>(options);
 		return { ...options, content: await resolveKey(target, casted.keys, casted.formatOptions) };
