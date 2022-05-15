@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@2.5.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.5.0...@sapphire/plugin-i18next@2.5.1) - (2022-05-15)
+
+## 🏃 Performance
+
+- **i18next:** Switch to new backend library ([21cd166](https://github.com/sapphiredev/plugins/commit/21cd1665c3bcba9c3dbc9711e9d57153ad768276))
+- **i18next:** Skip fetch language if locale is provided (#284) ([3bc645f](https://github.com/sapphiredev/plugins/commit/3bc645f02a7d8cb6fbfef7577ba0eb1ffd6a61db))
+
 # [@sapphire/plugin-i18next@2.5.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.4.2...@sapphire/plugin-i18next@2.5.0) - (2022-04-19)
 
 ## Bug Fixes
