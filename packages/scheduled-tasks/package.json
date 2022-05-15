@@ -49,7 +49,7 @@
 		"esm:register-redis": "gen-esm-wrapper dist/register-redis.js dist/register-redis.mjs",
 		"esm:register-sqs": "gen-esm-wrapper dist/register-sqs.js dist/register-sqs.mjs",
 		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
-		"prepublish": "yarn build",
+		"prepack": "yarn build",
 		"bump": "cliff-jumper",
 		"check-update": "cliff-jumper --dry-run"
 	},

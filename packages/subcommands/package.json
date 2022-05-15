@@ -20,7 +20,7 @@
 		"lint": "eslint src --ext ts --fix",
 		"build": "tsc -b src && yarn esm:default",
 		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
-		"prepublish": "yarn build",
+		"prepack": "yarn build",
 		"bump": "cliff-jumper",
 		"check-update": "cliff-jumper --dry-run"
 	},
