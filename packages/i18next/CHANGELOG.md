@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@2.5.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.5.1...@sapphire/plugin-i18next@2.5.2) - (2022-05-18)
+
+## 🏠 Refactor
+
+- **i18next:** Improve language discovery (#291) ([ece5a46](https://github.com/sapphiredev/plugins/commit/ece5a467d212da318558898f251a2dd6a821e0ac))
+
 # [@sapphire/plugin-i18next@2.5.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.5.0...@sapphire/plugin-i18next@2.5.1) - (2022-05-15)
 
 ## 🏃 Performance
