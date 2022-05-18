@@ -3,6 +3,7 @@ import { container, getRootData } from '@sapphire/pieces';
 import { Awaitable, isFunction, NonNullObject } from '@sapphire/utilities';
 import { Backend, PathResolvable } from '@skyra/i18next-backend';
 import i18next, { StringMap, TFunction, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
+import type { PathLike } from 'node:fs';
 import { opendir } from 'node:fs/promises';
 import { join } from 'node:path';
 import type { InternationalizationContext, InternationalizationOptions } from './types';
@@ -37,20 +38,20 @@ export class InternationalizationHandler {
 	public readonly options: InternationalizationOptions;
 
 	/**
-	 * The director passed to `i18next-fs-backend`.
+	 * The director passed to `@skyra/i18next-backend`.
 	 * Also used in {@link InternationalizationHandler.walkLanguageDirectory}.
 	 * @since 1.2.0
 	 */
 	public readonly languagesDirectory: string;
 
 	/**
-	 * The backend options for `i18next-fs-backend` used by `i18next`.
+	 * The backend options for `@skyra/i18next-backend` used by `i18next`.
 	 * @since 1.0.0
 	 */
 	protected readonly backendOptions: Backend.Options;
 
 	/**
-	 * @param options The options that `i18next`, `i18next-fs-backend`, and {@link InternationalizationHandler} should use.
+	 * @param options The options that `i18next`, `@skyra/i18next-backend`, and {@link InternationalizationHandler} should use.
 	 * @since 1.0.0
 	 * @constructor
 	 */
@@ -118,7 +119,7 @@ export class InternationalizationHandler {
 	 * @since 1.0.0
 	 */
 	public async init() {
-		const { namespaces, languages } = await this.walkLanguageDirectory(this.languagesDirectory);
+		const { namespaces, languages } = await this.walkRootDirectory(this.languagesDirectory);
 		const userOptions = isFunction(this.options.i18next) ? this.options.i18next(namespaces, languages) : this.options.i18next;
 		const ignoreJSONStructure = userOptions?.ignoreJSONStructure ?? false;
 		const skipOnVariables = userOptions?.interpolation?.skipOnVariables ?? false;
@@ -193,31 +194,27 @@ export class InternationalizationHandler {
 	}
 
 	/**
-	 * @description Skips any files that don't end with `.json`.
-	 * @param dir The directory that should be walked.
-	 * @param namespaces The currently known namespaces.
-	 * @param current The directory currently being traversed.
-	 * @since 1.0.0
+	 * @param directory The directory that should be walked.
+	 * @since 3.0.0
 	 */
-	public async walkLanguageDirectory(dir: string, namespaces: string[] = [], current = '') {
-		const directory = await opendir(dir);
+	public async walkRootDirectory(directory: PathLike) {
+		const languages = new Set<string>();
+		const namespaces = new Set<string>();
 
-		const languages: string[] = [];
-		for await (const entry of directory) {
-			const fn = entry.name;
-			if (entry.isDirectory()) {
-				// This structure may very well be changed in future.
-				// See i18next/i18next-fs-backend#13
-				const isLanguage = fn.includes('-');
-				if (isLanguage) languages.push(fn);
+		const dir = await opendir(directory);
+		for await (const entry of dir) {
+			// If the entry is not a directory, skip:
+			if (!entry.isDirectory()) continue;
 
-				({ namespaces } = await this.walkLanguageDirectory(join(dir, fn), namespaces, isLanguage ? '' : `${fn}/`));
-			} else if (entry.name.endsWith('.json')) {
-				namespaces.push(`${current}${fn.substr(0, fn.length - 5)}`);
+			// Load the directory:
+			languages.add(entry.name);
+
+			for await (const namespace of this.walkLocaleDirectory(join(dir.path, entry.name), '')) {
+				namespaces.add(namespace);
 			}
 		}
 
-		return { namespaces: [...new Set(namespaces)], languages };
+		return { namespaces: [...namespaces], languages: [...languages] };
 	}
 
 	public async reloadResources() {
@@ -225,7 +222,7 @@ export class InternationalizationHandler {
 			let languages = this.options.hmr?.languages;
 			let namespaces = this.options.hmr?.namespaces;
 			if (!languages || !namespaces) {
-				const languageDirectoryResult = await this.walkLanguageDirectory(this.languagesDirectory);
+				const languageDirectoryResult = await this.walkRootDirectory(this.languagesDirectory);
 				languages ??= languageDirectoryResult.languages;
 				namespaces ??= languageDirectoryResult.namespaces;
 			}
@@ -236,6 +233,23 @@ export class InternationalizationHandler {
 
 		if (isErr(result)) {
 			container.logger.error('[i18next-Plugin]: Failed to reload language resources.', result.error);
+		}
+	}
+
+	/**
+	 * @description Skips any files that don't end with `.json`.
+	 * @param directory The directory that should be walked.
+	 * @param ns The current namespace.
+	 * @since 3.0.0
+	 */
+	private async *walkLocaleDirectory(directory: string, ns: string): AsyncGenerator<string> {
+		const dir = await opendir(directory);
+		for await (const entry of dir) {
+			if (entry.isDirectory()) {
+				yield* this.walkLocaleDirectory(join(dir.path, entry.name), `${ns}${entry.name}/`);
+			} else if (entry.isFile() && entry.name.endsWith('.json')) {
+				yield `${ns}${entry.name.slice(0, -5)}`;
+			}
 		}
 	}
 }
