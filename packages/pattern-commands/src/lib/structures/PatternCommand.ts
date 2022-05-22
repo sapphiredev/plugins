@@ -1,4 +1,4 @@
-import { Args, Command } from '@sapphire/framework';
+import { Args, Command, MessageCommand } from '@sapphire/framework';
 import type { Awaitable, Message } from 'discord.js';
 
 export abstract class PatternCommand extends Command<Args, PatternCommand.Options> {
@@ -36,7 +36,7 @@ export namespace PatternCommand {
 	export type Context = Command.Context;
 
 	/** Re-export of {@link Command.RunContext} */
-	export type RunContext = Command.RunContext;
+	export type RunContext = MessageCommand.RunContext;
 
 	/** Re-export of {@link Command.JSON} */
 	export type JSON = Command.JSON;
