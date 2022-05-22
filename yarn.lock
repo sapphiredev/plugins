@@ -1072,6 +1072,48 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@msgpackr-extract/msgpackr-extract-darwin-arm64@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@msgpackr-extract/msgpackr-extract-darwin-arm64@npm:2.0.2"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-darwin-x64@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@msgpackr-extract/msgpackr-extract-darwin-x64@npm:2.0.2"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-linux-arm64@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@msgpackr-extract/msgpackr-extract-linux-arm64@npm:2.0.2"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-linux-arm@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@msgpackr-extract/msgpackr-extract-linux-arm@npm:2.0.2"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-linux-x64@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@msgpackr-extract/msgpackr-extract-linux-x64@npm:2.0.2"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-win32-x64@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@msgpackr-extract/msgpackr-extract-win32-x64@npm:2.0.2"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -1155,6 +1197,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sapphire/discord-utilities@npm:^2.11.0":
+  version: 2.11.0
+  resolution: "@sapphire/discord-utilities@npm:2.11.0"
+  dependencies:
+    twemoji-parser: ^14.0.0
+  checksum: 46eca9521ccf13a05968769840c103910941258b184c23ca603cef8c4ce45ce19ff76328e239537d0626cc661a0fcd9a21846ebe257aa9bfc6e939dbff29ccbc
+  languageName: node
+  linkType: hard
+
 "@sapphire/discord.js-utilities@npm:^4.11.0":
   version: 4.11.0
   resolution: "@sapphire/discord.js-utilities@npm:4.11.0"
@@ -1191,18 +1242,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/framework@npm:^2.5.0":
-  version: 2.5.0
-  resolution: "@sapphire/framework@npm:2.5.0"
+"@sapphire/framework@npm:next":
+  version: 3.0.0-next.4cada3b.0
+  resolution: "@sapphire/framework@npm:3.0.0-next.4cada3b.0"
   dependencies:
-    "@sapphire/discord-utilities": ^2.10.3
+    "@sapphire/discord-utilities": ^2.11.0
     "@sapphire/discord.js-utilities": ^4.11.0
     "@sapphire/pieces": ^3.3.3
     "@sapphire/ratelimits": ^2.4.4
+    "@sapphire/result": ^1.1.1
+    "@sapphire/stopwatch": ^1.4.1
     "@sapphire/utilities": ^3.6.2
     lexure: ^0.17.0
     tslib: ^2.4.0
-  checksum: 692c1625c4e1bf802dc1937d6e7c74be346e4a875b52d39f84df30fdcb781878bf9d14d5d7a74b2574a7750a018bf03dd061d410bbb406b389af14ef37ae8086
+  checksum: 20c9049d5721b71f12cb2b04149cc61d7b466b784aef76563088781f3487feaf0ec7bef559b4b489b714e64ab63f5fe840a53608ba910ff5f2dd3af2d497b606
   languageName: node
   linkType: hard
 
@@ -5707,86 +5760,44 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msgpackr-extract-darwin-arm64@npm:1.1.0":
-  version: 1.1.0
-  resolution: "msgpackr-extract-darwin-arm64@npm:1.1.0"
-  conditions: os=darwin & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"msgpackr-extract-darwin-x64@npm:1.1.0":
-  version: 1.1.0
-  resolution: "msgpackr-extract-darwin-x64@npm:1.1.0"
-  conditions: os=darwin & cpu=x64
-  languageName: node
-  linkType: hard
-
-"msgpackr-extract-linux-arm64@npm:1.1.0":
-  version: 1.1.0
-  resolution: "msgpackr-extract-linux-arm64@npm:1.1.0"
-  conditions: os=linux & cpu=arm64
-  languageName: node
-  linkType: hard
-
-"msgpackr-extract-linux-arm@npm:1.1.0":
-  version: 1.1.0
-  resolution: "msgpackr-extract-linux-arm@npm:1.1.0"
-  conditions: os=linux & cpu=arm
-  languageName: node
-  linkType: hard
-
-"msgpackr-extract-linux-x64@npm:1.1.0":
-  version: 1.1.0
-  resolution: "msgpackr-extract-linux-x64@npm:1.1.0"
-  conditions: os=linux & cpu=x64
-  languageName: node
-  linkType: hard
-
-"msgpackr-extract-win32-x64@npm:1.1.0":
-  version: 1.1.0
-  resolution: "msgpackr-extract-win32-x64@npm:1.1.0"
-  conditions: os=win32 & cpu=x64
-  languageName: node
-  linkType: hard
-
-"msgpackr-extract@npm:^1.1.4":
-  version: 1.1.4
-  resolution: "msgpackr-extract@npm:1.1.4"
+"msgpackr-extract@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "msgpackr-extract@npm:2.0.2"
   dependencies:
-    msgpackr-extract-darwin-arm64: 1.1.0
-    msgpackr-extract-darwin-x64: 1.1.0
-    msgpackr-extract-linux-arm: 1.1.0
-    msgpackr-extract-linux-arm64: 1.1.0
-    msgpackr-extract-linux-x64: 1.1.0
-    msgpackr-extract-win32-x64: 1.1.0
+    "@msgpackr-extract/msgpackr-extract-darwin-arm64": 2.0.2
+    "@msgpackr-extract/msgpackr-extract-darwin-x64": 2.0.2
+    "@msgpackr-extract/msgpackr-extract-linux-arm": 2.0.2
+    "@msgpackr-extract/msgpackr-extract-linux-arm64": 2.0.2
+    "@msgpackr-extract/msgpackr-extract-linux-x64": 2.0.2
+    "@msgpackr-extract/msgpackr-extract-win32-x64": 2.0.2
     node-gyp: latest
-    node-gyp-build-optional-packages: ^4.3.2
+    node-gyp-build-optional-packages: 5.0.2
   dependenciesMeta:
-    msgpackr-extract-darwin-arm64:
+    "@msgpackr-extract/msgpackr-extract-darwin-arm64":
       optional: true
-    msgpackr-extract-darwin-x64:
+    "@msgpackr-extract/msgpackr-extract-darwin-x64":
       optional: true
-    msgpackr-extract-linux-arm:
+    "@msgpackr-extract/msgpackr-extract-linux-arm":
       optional: true
-    msgpackr-extract-linux-arm64:
+    "@msgpackr-extract/msgpackr-extract-linux-arm64":
       optional: true
-    msgpackr-extract-linux-x64:
+    "@msgpackr-extract/msgpackr-extract-linux-x64":
       optional: true
-    msgpackr-extract-win32-x64:
+    "@msgpackr-extract/msgpackr-extract-win32-x64":
       optional: true
-  checksum: ae4b3507f6cebcb0462267f93bbcb8a50b78f0dcad0ea482eef10bd2d4403228b8de57a1675d94e1ec07b3b012e1db6486d600435df5d307939cd2c252735db5
+  checksum: 6b24c0e89eae881012484787082a50290f78d2dc69df28c28838c65f9cda3f585272c73b9ebbf386f9958c16a9956f0cabddf2ccfc1229ee612a6b88e9519c68
   languageName: node
   linkType: hard
 
 "msgpackr@npm:^1.5.2":
-  version: 1.5.7
-  resolution: "msgpackr@npm:1.5.7"
+  version: 1.6.0
+  resolution: "msgpackr@npm:1.6.0"
   dependencies:
-    msgpackr-extract: ^1.1.4
+    msgpackr-extract: ^2.0.2
   dependenciesMeta:
     msgpackr-extract:
       optional: true
-  checksum: 7509784a6fbd457a0f0d32c7c04713fc626c2f23270c2800f90af3dc8ab2352af66896378eec8e37f6550196a13bee7a507bcf9a0f99d05afca5b2c60bfeaab7
+  checksum: 7f94acbe93d4ba10fd05a8a88523a2c90c5385ab1ebb7feff25903c6d465255e52f6c0b64b70a93f08e2ba190a490b62d1396b0f392c8ecc3707871acc0115f7
   languageName: node
   linkType: hard
 
@@ -5838,14 +5849,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-gyp-build-optional-packages@npm:^4.3.2":
-  version: 4.3.2
-  resolution: "node-gyp-build-optional-packages@npm:4.3.2"
+"node-gyp-build-optional-packages@npm:5.0.2":
+  version: 5.0.2
+  resolution: "node-gyp-build-optional-packages@npm:5.0.2"
   bin:
     node-gyp-build-optional: optional.js
     node-gyp-build-optional-packages: bin.js
     node-gyp-build-test: build-test.js
-  checksum: 4e4eef22b48edd2fafae1aa8ef64e0272e7996ed030a91f524f5a3caac92f73fadd3a92fe5f349a2bcf682a2f8450415a76fbc928cba7feebf8453e0d729019d
+  checksum: 6fca33cd1e297a446dead8a9bc7a48988be30098c219e75e8466d0218dea6b03bf5da092fe20301cb8b72218356c656422f1a64520c37ebc30eb596b012d1ad9
   languageName: node
   linkType: hard
 
@@ -6609,7 +6620,7 @@ __metadata:
     "@favware/cliff-jumper": ^1.8.0
     "@favware/npm-deprecate": ^1.0.4
     "@sapphire/eslint-config": ^4.3.5
-    "@sapphire/framework": ^2.5.0
+    "@sapphire/framework": next
     "@sapphire/pieces": ^3.3.3
     "@sapphire/prettier-config": ^1.4.3
     "@sapphire/stopwatch": ^1.4.1

@@ -21,7 +21,7 @@
 		"@favware/cliff-jumper": "^1.8.0",
 		"@favware/npm-deprecate": "^1.0.4",
 		"@sapphire/eslint-config": "^4.3.5",
-		"@sapphire/framework": "^2.5.0",
+		"@sapphire/framework": "next",
 		"@sapphire/pieces": "^3.3.3",
 		"@sapphire/prettier-config": "^1.4.3",
 		"@sapphire/stopwatch": "^1.4.1",
