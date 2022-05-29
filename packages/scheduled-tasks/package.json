@@ -63,7 +63,7 @@
 		"gen-esm-wrapper": "^1.1.3",
 		"sqs-consumer": "^5.7.0",
 		"sqs-producer": "^2.1.0",
-		"typescript": "^4.6.4"
+		"typescript": "^4.7.2"
 	},
 	"repository": {
 		"type": "git",
