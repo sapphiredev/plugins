@@ -21,3 +21,13 @@ export interface PatternCommandAcceptedPayload extends PatternCommandPayload {
 	parameters: string;
 	context: PatternCommand.RunContext;
 }
+
+export interface PatternCommandSuccessPayload extends PatternCommandFinishedPayload {
+	result: unknown;
+}
+
+export interface PatternCommandFinishedPayload extends PatternCommandAcceptedPayload {
+	duration: number;
+}
+
+export interface PatternCommandErrorPayload extends PatternCommandFinishedPayload {}
