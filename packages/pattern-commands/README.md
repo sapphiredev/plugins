@@ -19,7 +19,7 @@ With pattern commands you can define rulesets to which the bot may respond.
 
 ## Important notes
 
--   Starting April 2022 this plugin will only work with Message Intent. This is because this plugin relies on scanning messages, which is impossible without the intent.
+-   Starting August 31, 2022 this plugin will only work with Message Intent. This is because this plugin relies on scanning messages, which is impossible without the intent.
 
 ## Features
 
