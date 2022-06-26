@@ -24,7 +24,7 @@ jobs:
       - name: Install Dependencies
         run: yarn --immutable
       - name: Run ESLint
-        run: yarn lint -- --fix=false
+        run: yarn lint --fix=false
 
   Testing:
     name: Unit Tests
