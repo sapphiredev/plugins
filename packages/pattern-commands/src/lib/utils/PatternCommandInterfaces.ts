@@ -28,6 +28,7 @@ export interface PatternCommandSuccessPayload extends PatternCommandFinishedPayl
 
 export interface PatternCommandFinishedPayload extends PatternCommandAcceptedPayload {
 	duration: number;
+	success: boolean;
 }
 
 export interface PatternCommandErrorPayload extends PatternCommandFinishedPayload {}
