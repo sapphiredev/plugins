@@ -38,6 +38,10 @@ export class CommandAcceptedListener extends Listener<typeof PatternCommandEvent
 			message.client.emit(PatternCommandEvents.CommandError, result.error, { ...payload, duration: result.value ?? -1 });
 		}
 
-		message.client.emit(PatternCommandEvents.CommandFinished, message, command, { ...payload, duration: result.value ?? -1 });
+		message.client.emit(PatternCommandEvents.CommandFinished, message, command, {
+			...payload,
+			success: !isErr(result),
+			duration: result.value ?? -1
+		});
 	}
 }
