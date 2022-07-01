@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-pattern-commands@3.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@3.0.0...@sapphire/plugin-pattern-commands@3.1.0) - (2022-06-29)
+
+## 📝 Documentation
+
+- **pattern-commands:** Update message intent deadline (#310) ([28f2bf1](https://github.com/sapphiredev/plugins/commit/28f2bf1d3236196b252d84bd83e16a794e29fbcc))
+
+## 🚀 Features
+
+- **plugin-pattern-commands:** Add success property to finished payload (#314) ([3c3e7ca](https://github.com/sapphiredev/plugins/commit/3c3e7ca8379d29ea902b8bb14574d73e85f5fa66))
+
 # [@sapphire/plugin-pattern-commands@3.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@2.2.0...@sapphire/plugin-pattern-commands@3.0.0) - (2022-06-13)
 
 ## 📝 Documentation
