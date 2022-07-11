@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-editable-commands@1.2.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@1.2.0...@sapphire/plugin-editable-commands@1.2.2) - (2022-07-11)
+
+## 🐛 Bug Fixes
+
+- Manually set version ([117d5a6](https://github.com/sapphiredev/plugins/commit/117d5a6256af7e01b420b28f95abec36f3feb0af))
+- Bump editable-commands ([4ed71c1](https://github.com/sapphiredev/plugins/commit/4ed71c127b10acdf3919f4b04ecbd6f3b73043c9))
+
+## 📝 Documentation
+
+- Update typedoc setup ([5c855bd](https://github.com/sapphiredev/plugins/commit/5c855bd8341f155a41c9b85738541f1f47ac837a))
+
 # [1.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@1.1.3...@sapphire/plugin-editable-commands@1.2.0) (2022-03-06)
 
 ### Features
