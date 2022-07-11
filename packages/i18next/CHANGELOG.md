@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@2.5.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.5.2...@sapphire/plugin-i18next@2.5.4) - (2022-07-11)
+
+## 🐛 Bug Fixes
+
+- Manually set version ([117d5a6](https://github.com/sapphiredev/plugins/commit/117d5a6256af7e01b420b28f95abec36f3feb0af))
+- **deps:** Update dependency @sapphire/utilities to ^3.7.0 ([6ec8b75](https://github.com/sapphiredev/plugins/commit/6ec8b75dbd09d70f1015f1a032eb105a42b9e0f4))
+- **deps:** Update dependency i18next to ^21.8.5 (#301) ([be8f6ed](https://github.com/sapphiredev/plugins/commit/be8f6ed3ef3aada738531ca26d44d61e023c1b64))
+
 # [@sapphire/plugin-i18next@2.5.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.5.1...@sapphire/plugin-i18next@2.5.2) - (2022-05-18)
 
 ## 🏠 Refactor
