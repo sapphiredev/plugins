@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@2.3.5](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@2.3.3...@sapphire/plugin-scheduled-tasks@2.3.5) - (2022-07-11)
+
+## 🏃 Performance
+
+- **i18next:** Switch to new backend library ([21cd166](https://github.com/sapphiredev/plugins/commit/21cd1665c3bcba9c3dbc9711e9d57153ad768276))
+
+## 🐛 Bug Fixes
+
+- Manually set version ([117d5a6](https://github.com/sapphiredev/plugins/commit/117d5a6256af7e01b420b28f95abec36f3feb0af))
+
 # [@sapphire/plugin-scheduled-tasks@2.3.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@2.3.2...@sapphire/plugin-scheduled-tasks@2.3.3) - (2022-04-24)
 
 ## Bug Fixes
