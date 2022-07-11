@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-logger@2.2.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@2.2.1...@sapphire/plugin-logger@2.2.3) - (2022-07-11)
+
+## 🏃 Performance
+
+- **i18next:** Switch to new backend library ([21cd166](https://github.com/sapphiredev/plugins/commit/21cd1665c3bcba9c3dbc9711e9d57153ad768276))
+
+## 🐛 Bug Fixes
+
+- Manually set version ([117d5a6](https://github.com/sapphiredev/plugins/commit/117d5a6256af7e01b420b28f95abec36f3feb0af))
+
+## 📝 Documentation
+
+- Update typedoc setup ([5c855bd](https://github.com/sapphiredev/plugins/commit/5c855bd8341f155a41c9b85738541f1f47ac837a))
+
 ## [2.2.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@2.2.0...@sapphire/plugin-logger@2.2.1) (2022-04-01)
 
 **Note:** Version bump only for package @sapphire/plugin-logger
