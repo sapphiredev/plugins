@@ -1294,7 +1294,7 @@ __metadata:
   resolution: "@sapphire/plugin-logger@workspace:packages/logger"
   dependencies:
     "@favware/cliff-jumper": ^1.8.5
-    "@sapphire/time-utilities": ^1.7.4
+    "@sapphire/time-utilities": ^1.7.5
     colorette: ^2.0.19
     gen-esm-wrapper: ^1.1.3
     tslib: ^2.4.0
@@ -1318,7 +1318,7 @@ __metadata:
   resolution: "@sapphire/plugin-scheduled-tasks@workspace:packages/scheduled-tasks"
   dependencies:
     "@favware/cliff-jumper": ^1.8.5
-    "@sapphire/time-utilities": ^1.7.4
+    "@sapphire/time-utilities": ^1.7.5
     "@types/bull": ^3.15.8
     bull: ^4.8.4
     gen-esm-wrapper: ^1.1.3
@@ -1390,6 +1390,15 @@ __metadata:
   dependencies:
     "@sapphire/utilities": ^3.6.2
   checksum: fb4a32d81fd99966297912cd41c751a8bb792f401e92d538c2611922c535da79683d1918ed897e7daf0880f7c139a03100922fb128ca27a596163e6c5bcead8c
+  languageName: node
+  linkType: hard
+
+"@sapphire/time-utilities@npm:^1.7.5":
+  version: 1.7.5
+  resolution: "@sapphire/time-utilities@npm:1.7.5"
+  dependencies:
+    "@sapphire/utilities": ^3.7.0
+  checksum: a83f505ff0e5eac7b8b316c7fa207f52ae2c07dd223f651d7dcb3f9a3e61b86b6168dac746455d1d1a2a4732d4865ab7526332f3f463db31048d8b1e5ba9d6cb
   languageName: node
   linkType: hard
 
