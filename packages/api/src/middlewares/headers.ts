@@ -41,7 +41,9 @@ export class PluginMiddleware extends Middleware {
 	 */
 	private ensurePotentialEarlyExit(request: ApiRequest, response: ApiResponse, route: Route | null) {
 		if (request.method === 'OPTIONS') {
-			response.end();
+			if (!route || !route.methods.has('OPTIONS')) {
+				response.end();
+			}
 		} else if (route === null) {
 			response.status(HttpCodes.NotFound).end();
 		}
