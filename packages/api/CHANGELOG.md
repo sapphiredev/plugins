@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@3.2.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.2.3...@sapphire/plugin-api@3.2.4) - (2022-07-18)
+
+## 🐛 Bug Fixes
+
+- End response only if options route handler is not present (#325) ([058d088](https://github.com/sapphiredev/plugins/commit/058d0881d1b542e669052d816939dde16f33877b))
+
 # [@sapphire/plugin-api@3.2.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.2.1...@sapphire/plugin-api@3.2.3) - (2022-07-11)
 
 ## 🏃 Performance
