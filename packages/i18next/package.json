@@ -38,7 +38,7 @@
 	},
 	"dependencies": {
 		"@sapphire/utilities": "^3.7.0",
-		"@skyra/i18next-backend": "^1.0.1",
+		"@skyra/i18next-backend": "^1.0.2",
 		"chokidar": "^3.5.3",
 		"i18next": "^21.8.14",
 		"tslib": "^2.4.0"
