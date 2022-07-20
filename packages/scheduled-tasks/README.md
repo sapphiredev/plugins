@@ -29,19 +29,19 @@ Many bots have features that need to run periodically, such as uploading analyti
 -   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
 -   [`@sapphire/stopwatch`](https://www.npmjs.com/package/@sapphire/stopwatch)
 
-In case you want to use bull as your provider:
+In case you want to use bullmq as your provider:
 
--   [`bull`](https://www.npmjs.com/package/bull)
+-   [`bullmq`](https://www.npmjs.com/package/bullmq)
 
 In case you want to use sqs as your provider:
 
 -   [`sqs-consumer`](https://www.npmjs.com/package/sqs-consumer)
 -   [`sqs-producer`](https://www.npmjs.com/package/sqs-producer)
 
-You can use the following command to install this package along with bull, or replace `npm install` with your package manager of choice.
+You can use the following command to install this package along with bullmq, or replace `npm install` with your package manager of choice.
 
 ```sh
-npm install @sapphire/plugin-scheduled-tasks @sapphire/framework @sapphire/stopwatch bull
+npm install @sapphire/plugin-scheduled-tasks @sapphire/framework @sapphire/stopwatch bullmq
 ```
 
 ---
@@ -65,7 +65,7 @@ Then, you can pass the imported Strategy into the configuration options in your 
 const options = {
 	...otherClientOptionsGoHere,
 	tasks: {
-		// Using bull (redis)
+		// Using bullmq (redis)
 		strategy: new ScheduledTaskRedisStrategy({
 			/* You can add your Bull options here, for example we can configure custom Redis connection options: */
 			bull: {
