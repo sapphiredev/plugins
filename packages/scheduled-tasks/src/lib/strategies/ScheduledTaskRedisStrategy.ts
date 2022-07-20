@@ -1,5 +1,5 @@
 import { container, from, isErr } from '@sapphire/framework';
-import Bull, { JobId, JobOptions, JobStatus, Queue, QueueOptions } from 'bull';
+import { EntryId, JobsOptions, JobState, Queue, QueueOptions, Job, JobInformation3, Worker } from 'bullmq';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
 import type { ScheduledTaskCreateRepeatedTask } from '../types/ScheduledTaskCreateRepeatedTask';
 import { ScheduledTaskEvents } from '../types/ScheduledTaskEvents';
@@ -19,7 +19,7 @@ export interface ScheduledTaskRedisStrategyListRepeatedOptions {
 }
 
 export interface ScheduledTaskRedisStrategyListOptions extends ScheduledTaskRedisStrategyListRepeatedOptions {
-	types: JobStatus[];
+	types: JobState[];
 }
 
 export type BullClient = Queue<ScheduledTaskRedisStrategyJob | null>;
@@ -27,8 +27,7 @@ export type BullClient = Queue<ScheduledTaskRedisStrategyJob | null>;
 export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 	public readonly options: QueueOptions;
 	public readonly queue: string;
-
-	private bullClient!: BullClient;
+	private queueClient!: BullClient;
 
 	public constructor(options?: ScheduledTaskRedisStrategyOptions) {
 		this.queue = options?.queue ?? 'scheduled-tasks';
@@ -36,13 +35,13 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 	}
 
 	public get client(): BullClient {
-		return this.bullClient;
+		return this.queueClient;
 	}
 
 	public connect(): void {
 		const connectResult = from(() => {
-			this.bullClient = new Bull(this.queue, this.options);
-			void this.bullClient.process('*', (job) => this.run(job?.name, job?.data));
+			this.queueClient = new Queue(this.queue, this.options);
+			new Worker(this.queue, async (job) => this.run(job?.name, job?.data));
 		});
 
 		if (isErr(connectResult)) {
@@ -54,14 +53,14 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		task: string,
 		payload?: ScheduledTaskRedisStrategyJob | null,
 		options?: ScheduledTasksTaskOptions
-	): Promise<Bull.Job<T>> | undefined {
-		if (!this.bullClient) {
+	): Promise<Job<T>> | undefined {
+		if (!this.queueClient) {
 			return;
 		}
 
-		let bullOptions: JobOptions = {
+		let bullOptions: JobsOptions = {
 			delay: options?.delay,
-			...options?.bullJobOptions
+			...options?.bullJobsOptions
 		};
 
 		if (options?.type === 'repeated') {
@@ -77,7 +76,7 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 			};
 		}
 
-		return this.bullClient.add(task, payload ?? null, bullOptions) as Promise<Bull.Job<T>> | undefined;
+		return this.queueClient.add(task, payload ?? null, bullOptions) as Promise<Job<T>> | undefined;
 	}
 
 	public async createRepeated(tasks: ScheduledTaskCreateRepeatedTask[]): Promise<void> {
@@ -86,8 +85,8 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		}
 	}
 
-	public async delete(id: JobId): Promise<void> {
-		if (!this.bullClient) {
+	public async delete(id: EntryId): Promise<void> {
+		if (!this.queueClient) {
 			return;
 		}
 
@@ -95,30 +94,30 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		return job?.remove();
 	}
 
-	public list<T = unknown>(options: ScheduledTaskRedisStrategyListOptions): Promise<Bull.Job<T>[]> | undefined {
+	public list<T = unknown>(options: ScheduledTaskRedisStrategyListOptions): Promise<Job<T>[]> | undefined {
 		const { types, start, end, asc } = options;
-		if (!this.bullClient) {
+		if (!this.queueClient) {
 			return;
 		}
 
-		return this.bullClient.getJobs(types, start, end, asc) as Promise<Bull.Job<T>[]> | undefined;
+		return this.queueClient.getJobs(types, start, end, asc) as Promise<Job<T>[]> | undefined;
 	}
 
-	public listRepeated(options: ScheduledTaskRedisStrategyListRepeatedOptions): Promise<Bull.JobInformation[]> | undefined {
+	public listRepeated(options: ScheduledTaskRedisStrategyListRepeatedOptions): Promise<JobInformation3[]> | undefined {
 		const { start, end, asc } = options;
-		if (!this.bullClient) {
+		if (!this.queueClient) {
 			return;
 		}
 
-		return this.bullClient.getRepeatableJobs(start, end, asc);
+		return this.queueClient.getRepeatableJobs(start, end, asc);
 	}
 
-	public get<T = unknown>(id: JobId): Promise<Bull.Job<T> | null> | undefined {
-		if (!this.bullClient) {
+	public get<T = unknown>(id: EntryId): Promise<Job<T> | null> | undefined {
+		if (!this.queueClient) {
 			return;
 		}
 
-		return this.bullClient.getJob(id) as Promise<Bull.Job<T> | null> | undefined;
+		return this.queueClient.getJob(id) as Promise<Job<T> | null> | undefined;
 	}
 
 	public run(task: string, payload: unknown): Promise<unknown> {

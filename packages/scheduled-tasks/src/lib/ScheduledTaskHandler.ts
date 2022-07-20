@@ -41,11 +41,11 @@ export class ScheduledTaskHandler {
 					...(piece.interval
 						? {
 								interval: piece.interval,
-								bullJobOptions: piece.bullJobOptions
+								bullJobsOptions: piece.bullJobsOptions
 						  }
 						: {
 								cron: piece.cron!,
-								bullJobOptions: piece.bullJobOptions
+								bullJobsOptions: piece.bullJobsOptions
 						  })
 				}
 			}))
