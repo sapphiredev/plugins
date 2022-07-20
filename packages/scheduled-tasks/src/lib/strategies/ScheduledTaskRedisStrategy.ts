@@ -1,5 +1,5 @@
 import { container, from, isErr } from '@sapphire/framework';
-import { EntryId, JobsOptions, JobState, Queue, QueueOptions, Job, JobInformation3, Worker } from 'bullmq';
+import { EntryId, JobState, Queue, QueueOptions, Job, JobInformation3, Worker, QueueScheduler, JobsOptions } from 'bullmq';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
 import type { ScheduledTaskCreateRepeatedTask } from '../types/ScheduledTaskCreateRepeatedTask';
 import { ScheduledTaskEvents } from '../types/ScheduledTaskEvents';
@@ -41,7 +41,8 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 	public connect(): void {
 		const connectResult = from(() => {
 			this.queueClient = new Queue(this.queue, this.options);
-			new Worker(this.queue, async (job) => this.run(job?.name, job?.data));
+			new QueueScheduler(this.queue, { connection: this.options.connection });
+			new Worker(this.queue, async (job) => this.run(job?.name, job?.data), { connection: this.options.connection });
 		});
 
 		if (isErr(connectResult)) {
@@ -58,14 +59,14 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 			return;
 		}
 
-		let bullOptions: JobsOptions = {
+		let jobOptions: JobsOptions = {
 			delay: options?.delay,
-			...options?.bullJobsOptions
+			...options?.customJobOptions
 		};
 
-		if (options?.type === 'repeated') {
-			bullOptions = {
-				...bullOptions,
+		if (options?.repeated) {
+			jobOptions = {
+				...jobOptions,
 				repeat: options?.interval
 					? {
 							every: options.interval!
@@ -76,7 +77,7 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 			};
 		}
 
-		return this.queueClient.add(task, payload ?? null, bullOptions) as Promise<Job<T>> | undefined;
+		return this.queueClient.add(task, payload ?? null, jobOptions) as Promise<Job<T>> | undefined;
 	}
 
 	public async createRepeated(tasks: ScheduledTaskCreateRepeatedTask[]): Promise<void> {

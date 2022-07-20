@@ -52,7 +52,7 @@ export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 		}
 
 		let delay = (options?.delay ?? 0) / 1000;
-		if (options?.type === 'repeated') {
+		if (options?.repeated) {
 			delay = options.interval! / 1000;
 		}
 
@@ -99,7 +99,7 @@ export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 		const data = JSON.parse(message.Body!) as ScheduledTaskSQSStrategyMessageBody;
 		await this.run(data.task, data.payload);
 
-		if (data.options.type === 'repeated') {
+		if (data.options.repeated) {
 			await this.create(data.task, data.payload, data.options);
 		}
 	}

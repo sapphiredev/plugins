@@ -2,7 +2,7 @@ import { container, fromAsync, isErr } from '@sapphire/framework';
 import { Stopwatch } from '@sapphire/stopwatch';
 import { ScheduledTaskRedisStrategy } from './strategies/ScheduledTaskRedisStrategy';
 import type { ScheduledTaskStore } from './structures/ScheduledTaskStore';
-import type { ScheduledTaskBaseStrategy } from './types/ScheduledTaskBaseStrategy';
+import type { ScheduledTaskBaseStrategy, ScheduledTasks } from './types/ScheduledTaskBaseStrategy';
 import { ScheduledTaskEvents } from './types/ScheduledTaskEvents';
 import type { ScheduledTasksOptions } from './types/ScheduledTasksOptions';
 import type { ScheduledTasksTaskOptions } from './types/ScheduledTasksTaskOptions';
@@ -19,10 +19,10 @@ export class ScheduledTaskHandler {
 		return this.strategy.client;
 	}
 
-	public create(task: string, payload: unknown, options?: ScheduledTasksTaskOptions | number) {
+	public create(task: keyof ScheduledTasks, payload: unknown, options?: ScheduledTasksTaskOptions | number) {
 		if (typeof options === 'number') {
 			options = {
-				type: 'default',
+				repeated: false,
 				delay: options
 			};
 		}
@@ -37,7 +37,7 @@ export class ScheduledTaskHandler {
 			store.repeatedTasks.map((piece) => ({
 				name: piece.name,
 				options: {
-					type: 'repeated',
+					repeated: true,
 					...(piece.interval
 						? {
 								interval: piece.interval,

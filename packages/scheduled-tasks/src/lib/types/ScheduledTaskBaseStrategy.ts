@@ -5,7 +5,7 @@ import type { ScheduledTasksTaskOptions } from './ScheduledTasksTaskOptions';
 export interface ScheduledTaskBaseStrategy {
 	client: unknown;
 	connect(): void;
-	create(task: string, payload: unknown, options?: ScheduledTasksTaskOptions): Awaitable<unknown>;
+	create(task: keyof ScheduledTasks, payload: unknown, options?: ScheduledTasksTaskOptions): Awaitable<unknown>;
 	createRepeated(tasks: ScheduledTaskCreateRepeatedTask[]): void;
 	delete(id: unknown): unknown;
 	list(options?: unknown): unknown;
@@ -13,3 +13,5 @@ export interface ScheduledTaskBaseStrategy {
 	get(id: unknown): unknown;
 	run(task: string, payload: unknown): Awaitable<unknown>;
 }
+
+export interface ScheduledTasks {}
