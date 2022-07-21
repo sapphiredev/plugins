@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@3.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@2.3.5...@sapphire/plugin-scheduled-tasks@3.0.0) - (2022-07-21)
+
+## 🏠 Refactor
+
+- **scheduled-task:** Migrate from bull to bullmq (#326) ([c6a09d9](https://github.com/sapphiredev/plugins/commit/c6a09d946f2b33eb07adac4e3aec3050cf4dd6a3))
+  - 💥 **BREAKING CHANGE:** `bull` optional dependency has been changed for `bullmq`
+  - 💥 **BREAKING CHANGE:** The interface for the options parameter for a new `ScheduledTask` piece has been changed to have a key of `bullJobsOptions` instead of the old `bullJobOptions`. The same rename has also been applied to the public property on the `ScheduledTask` class.
+  - 💥 **BREAKING CHANGE:** When creating a new scheduled task the third argument (`options`) the required interface has changed. See the following changes for details.
+  - 💥 **BREAKING CHANGE:** `ScheduledTasksTaskOptions.type` has been renamed to `ScheduledTasksTaskOptions.repeated`. `type: 'default'` is equal to `repeated: false` and `type: 'repeated'` is equal to `repeated: true`
+  - 💥 **BREAKING CHANGE:** `bullJobOptions` has been renamed to `customJobOptions`
+  - 💥 **BREAKING CHANGE:** The private property of `ScheduledTaskRedisStrategy.bullClient` is now `ScheduledTaskRedisStrategy.queueClient` (note: the public getter `client` is unchanged).
+
+## 🐛 Bug Fixes
+
+- **deps:** Update dependency @sapphire/time-utilities to ^1.7.5 ([e43644d](https://github.com/sapphiredev/plugins/commit/e43644d22dc5440c6c5dede05211fd648b07cf99))
+
 # [@sapphire/plugin-scheduled-tasks@2.3.5](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@2.3.3...@sapphire/plugin-scheduled-tasks@2.3.5) - (2022-07-11)
 
 ## 🏃 Performance
