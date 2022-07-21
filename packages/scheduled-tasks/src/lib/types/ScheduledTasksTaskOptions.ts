@@ -1,7 +1,7 @@
 export type ScheduledTasksTaskOptions = {
-	type: 'default' | 'repeated';
+	repeated: boolean;
 } & (
-	| { delay: number; interval?: never; cron?: never; bullJobOptions?: any }
-	| { delay?: never; interval: number; cron?: never; bullJobOptions?: any }
-	| { delay?: never; interval?: never; cron: string; bullJobOptions?: any }
+	| { delay: number; interval?: never; cron?: never; customJobOptions?: any }
+	| { delay?: never; interval: number; cron?: never; customJobOptions?: any }
+	| { delay?: never; interval?: never; cron: string; customJobOptions?: any }
 );

@@ -29,19 +29,28 @@ Many bots have features that need to run periodically, such as uploading analyti
 -   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
 -   [`@sapphire/stopwatch`](https://www.npmjs.com/package/@sapphire/stopwatch)
 
-In case you want to use bull as your provider:
+In case you want to use bullmq as your provider:
 
--   [`bull`](https://www.npmjs.com/package/bull)
+-   [`bullmq`](https://www.npmjs.com/package/bullmq)
 
 In case you want to use sqs as your provider:
 
 -   [`sqs-consumer`](https://www.npmjs.com/package/sqs-consumer)
 -   [`sqs-producer`](https://www.npmjs.com/package/sqs-producer)
 
-You can use the following command to install this package along with bull, or replace `npm install` with your package manager of choice.
+You can use the following command to install this package along with `bullmq`, or replace `npm install` with your package manager of choice.
 
 ```sh
-npm install @sapphire/plugin-scheduled-tasks @sapphire/framework @sapphire/stopwatch bull
+npm install @sapphire/plugin-scheduled-tasks @sapphire/framework @sapphire/stopwatch bullmq
+
+// If you are using TypeScript, you need to install the @types/ioredis types
+npm install @types/ioredis --save-dev
+```
+
+or with `sqs`
+
+```sh
+npm install @sapphire/plugin-scheduled-tasks @sapphire/framework @sapphire/stopwatch sqs-consumer sqs-producer
 ```
 
 ---
@@ -65,11 +74,11 @@ Then, you can pass the imported Strategy into the configuration options in your 
 const options = {
 	...otherClientOptionsGoHere,
 	tasks: {
-		// Using bull (redis)
+		// Using bullmq (redis)
 		strategy: new ScheduledTaskRedisStrategy({
 			/* You can add your Bull options here, for example we can configure custom Redis connection options: */
 			bull: {
-				redis: {
+				connection: {
 					port: 8888, // Defaults to 6379, but if your Redis server runs on another port configure it here
 					password: 'very-strong-password', // If your Redis server requires a password configure it here
 					host: 'localhost', // The host at which the redis server is found
@@ -116,7 +125,7 @@ export class MuteCommand extends Command {
 
 	public async run(message: Message) {
 		// create a task to unmute the user in 1 minute
-		this.container.tasks.create('unmute', { authorId: message.author.id }, 60000);
+		this.container.tasks.create('unmute', { authorId: message.author.id }, 60_000);
 	}
 }
 ```
@@ -130,12 +139,11 @@ Scheduled tasks use their own store, like other types of pieces. You can create 
 ##### Creating the Piece:
 
 ```typescript
-import type { PieceContext } from '@sapphire/framework';
 import { ScheduledTask } from '@sapphire/plugin-scheduled-tasks';
 
 export class ManualTask extends ScheduledTask {
-	public constructor(context: PieceContext) {
-		super(context);
+	public constructor(context: ScheduledTask.Context, options: ScheduledTask.Options) {
+		super(context, options);
 	}
 
 	public async run(payload: unknown) {
@@ -143,7 +151,7 @@ export class ManualTask extends ScheduledTask {
 	}
 }
 
-declare module '@sapphire/framework' {
+declare module '@sapphire/plugin-scheduled-tasks' {
 	interface ScheduledTasks {
 		manual: never;
 	}
@@ -163,12 +171,12 @@ Cron jobs are currently only supported by the Redis strategy.
 ##### Creating the Piece:
 
 ```typescript
-import type { PieceContext } from '@sapphire/framework';
 import { ScheduledTask } from '@sapphire/plugin-scheduled-tasks';
 
 export class CronTask extends ScheduledTask {
-	public constructor(context: PieceContext) {
+	public constructor(context: ScheduledTask.Context, options: ScheduledTask.Options) {
 		super(context, {
+			...options,
 			cron: '0 * * * *'
 		});
 	}
@@ -178,7 +186,7 @@ export class CronTask extends ScheduledTask {
 	}
 }
 
-declare module '@sapphire/framework' {
+declare module '@sapphire/plugin-scheduled-tasks' {
 	interface ScheduledTasks {
 		cron: never;
 	}
@@ -194,13 +202,13 @@ Cron & Interval tasks are loaded automatically.
 ##### Creating the Piece:
 
 ```typescript
-import type { PieceContext } from '@sapphire/framework';
 import { ScheduledTask } from '@sapphire/plugin-scheduled-tasks';
 
 export class IntervalTask extends ScheduledTask {
-	public constructor(context: PieceContext) {
+	public constructor(context: ScheduledTask.Context, options: ScheduledTask.Options) {
 		super(context, {
-			interval: 60 * 1000 // 60 seconds
+			...options,
+			interval: 60_000 // 60 seconds
 		});
 	}
 
@@ -209,7 +217,7 @@ export class IntervalTask extends ScheduledTask {
 	}
 }
 
-declare module '@sapphire/framework' {
+declare module '@sapphire/plugin-scheduled-tasks' {
 	interface ScheduledTasks {
 		interval: never;
 	}
