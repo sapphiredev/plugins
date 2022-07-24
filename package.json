@@ -35,7 +35,7 @@
 		"@typescript-eslint/parser": "^5.30.7",
 		"cz-conventional-changelog": "^3.3.0",
 		"discord-api-types": "^0.33.5",
-		"discord.js": "^13.9.0",
+		"discord.js": "^13.9.1",
 		"eslint": "^8.20.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-prettier": "^4.2.1",
@@ -75,10 +75,10 @@
 		}
 	},
 	"resolutions": {
-		"acorn": "^8.7.1",
+		"acorn": "^8.8.0",
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.6"
 	},
 	"prettier": "@sapphire/prettier-config",
-	"packageManager": "yarn@3.2.1"
+	"packageManager": "yarn@3.2.2"
 }
