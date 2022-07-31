@@ -630,6 +630,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@discordjs/collection@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "@discordjs/collection@npm:1.0.1"
+  checksum: 6477ae9870f3c069b190f673a6b34467930b409a6d763f1b0d4f6169051b8499d03de7b0e7e4c3697222845aea6d94283573ad6a488b50516764df675915ff44
+  languageName: node
+  linkType: hard
+
 "@eslint/eslintrc@npm:^1.3.0":
   version: 1.3.0
   resolution: "@eslint/eslintrc@npm:1.3.0"
@@ -1190,6 +1197,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@sapphire/pieces@npm:^3.3.5":
+  version: 3.3.5
+  resolution: "@sapphire/pieces@npm:3.3.5"
+  dependencies:
+    "@discordjs/collection": ^1.0.0
+    "@sapphire/utilities": ^3.7.0
+    tslib: ^2.4.0
+  checksum: fb86ab91a002dc85033cf160d0f4429930e4cc580323888c2e2032aedb7ca599ec69743071fd08baef228e9497930b8afff7d9c4d43427b47da1ba3a537666ab
+  languageName: node
+  linkType: hard
+
 "@sapphire/plugin-api@workspace:packages/api":
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-api@workspace:packages/api"
@@ -1235,7 +1253,7 @@ __metadata:
   resolution: "@sapphire/plugin-i18next@workspace:packages/i18next"
   dependencies:
     "@favware/cliff-jumper": ^1.8.6
-    "@sapphire/utilities": ^3.7.0
+    "@sapphire/utilities": ^3.8.0
     "@skyra/i18next-backend": ^1.0.2
     chokidar: ^3.5.3
     gen-esm-wrapper: ^1.1.3
@@ -6764,11 +6782,11 @@ __metadata:
     "@favware/npm-deprecate": ^1.0.5
     "@sapphire/eslint-config": ^4.3.7
     "@sapphire/framework": ^2.5.1
-    "@sapphire/pieces": ^3.3.4
+    "@sapphire/pieces": ^3.3.5
     "@sapphire/prettier-config": ^1.4.3
     "@sapphire/stopwatch": ^1.4.1
     "@sapphire/ts-config": ^3.3.4
-    "@sapphire/utilities": ^3.7.0
+    "@sapphire/utilities": ^3.8.0
     "@types/jest": ^28.1.6
     "@types/node": ^18.0.6
     "@types/node-fetch": ^2.6.2
