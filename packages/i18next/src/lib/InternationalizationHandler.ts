@@ -58,7 +58,9 @@ export class InternationalizationHandler {
 	public constructor(options?: InternationalizationOptions) {
 		this.options = options ?? { i18next: { ignoreJSONStructure: false } };
 		this.languagesDirectory =
-			this.options.defaultLanguageDirectory ?? join(container.client?.options?.baseUserDirectory ?? getRootData().root, 'languages');
+			this.options.defaultLanguageDirectory ??
+			// FIXME: This is a bypass until this plugin is updated for Sapphire v3 because during building docs it already considers `baseUserDirectory` as potentially an `URL`
+			join((container.client?.options?.baseUserDirectory as string | null | undefined) ?? (getRootData().root as string), 'languages');
 
 		const languagePaths = new Set<PathResolvable>([
 			join(this.languagesDirectory, '{{lng}}', '{{ns}}.json'), //
