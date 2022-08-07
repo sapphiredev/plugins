@@ -22,7 +22,7 @@
 		"@favware/npm-deprecate": "^1.0.5",
 		"@sapphire/eslint-config": "^4.3.7",
 		"@sapphire/framework": "^2.5.1",
-		"@sapphire/pieces": "^3.4.1",
+		"@sapphire/pieces": "^3.5.0",
 		"@sapphire/prettier-config": "^1.4.3",
 		"@sapphire/stopwatch": "^1.4.1",
 		"@sapphire/ts-config": "^3.3.4",
