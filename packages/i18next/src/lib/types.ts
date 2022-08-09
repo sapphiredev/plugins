@@ -1,20 +1,18 @@
-import type { Awaitable, NonNullObject } from '@sapphire/utilities';
+import type { Awaitable } from '@sapphire/utilities';
 import type { Backend } from '@skyra/i18next-backend';
 import type { WatchOptions } from 'chokidar';
 import type {
 	BaseCommandInteraction,
 	Guild,
 	Interaction,
-	InteractionReplyOptions,
 	Message,
 	MessageComponentInteraction,
-	MessageOptions,
 	StageChannel,
 	StoreChannel,
 	User,
 	VoiceChannel
 } from 'discord.js';
-import type { InitOptions, StringMap, TFunctionKeys, TOptions } from 'i18next';
+import type { InitOptions } from 'i18next';
 
 /**
  * Configure whether to use Hot-Module-Replacement (HMR) for your i18next resources using these options. The minimum config to enable HMR is to set `enabled` to true. Any other properties are optional.
@@ -137,11 +135,6 @@ export interface InternationalizationContext {
 	guild: Guild | null;
 	/** The {@link DiscordChannel} object to fetch the preferred language for. */
 	channel: DiscordChannel | null;
-	/**
-	 * @deprecated Use {@link InternationalizationContext.user} instead; this will be removed in the next major version.
-	 * The user to fetch the preferred language for.
-	 */
-	author?: User | null;
 	/** The user to fetch the preferred language for. */
 	user: User | null;
 	interactionGuildLocale?: Interaction['guildLocale'];
@@ -155,25 +148,6 @@ export interface InternationalizationClientOptions {
 export interface I18nextFormatters {
 	name: string;
 	format(value: any, lng: string | undefined, options: any): string;
-}
-
-export interface LocalizedInteractionReplyOptions<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>
-	extends PartialLocalizedInteractionReplyOptions<TInterpolationMap> {
-	keys: TKeys | TKeys[];
-}
-
-export interface LocalizedMessageOptions<TKeys extends TFunctionKeys = string, TInterpolationMap extends NonNullObject = StringMap>
-	extends PartialLocalizedMessageOptions<TInterpolationMap> {
-	keys: TKeys | TKeys[];
-}
-
-export interface PartialLocalizedInteractionReplyOptions<TInterpolationMap extends NonNullObject = StringMap>
-	extends Omit<InteractionReplyOptions, 'content'> {
-	formatOptions?: TOptions<TInterpolationMap>;
-}
-
-export interface PartialLocalizedMessageOptions<TInterpolationMap extends NonNullObject = StringMap> extends Omit<MessageOptions, 'content'> {
-	formatOptions?: TOptions<TInterpolationMap>;
 }
 
 export type ChannelTarget = Message | DiscordChannel;
