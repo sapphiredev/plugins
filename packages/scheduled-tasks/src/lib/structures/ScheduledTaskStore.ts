@@ -5,7 +5,7 @@ export class ScheduledTaskStore extends Store<ScheduledTask> {
 	public readonly repeatedTasks: ScheduledTask[] = [];
 
 	public constructor() {
-		super(ScheduledTask as any, { name: 'scheduled-tasks' });
+		super(ScheduledTask, { name: 'scheduled-tasks' });
 	}
 
 	public set(key: string, value: ScheduledTask): this {

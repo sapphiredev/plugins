@@ -1,11 +1,3 @@
-export * from './lib/SubCommandEntry';
-export * from './lib/SubCommandEntryCommand';
-export * from './lib/SubCommandEntryMethod';
-export * from './lib/SubCommandManager';
-export * from './lib/SubCommandPluginCommand';
-
-declare module '@sapphire/framework' {
-	const enum Identifiers {
-		SubCommandNoMatch = 'subCommandNoMatch'
-	}
-}
+export * from './lib/Subcommand';
+export * from './lib/SubcommandMappings';
+export * from './lib/types/Events';

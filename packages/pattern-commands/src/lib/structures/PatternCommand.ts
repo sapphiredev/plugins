@@ -1,4 +1,4 @@
-import { Args, Command } from '@sapphire/framework';
+import { Args, Command, MessageCommand } from '@sapphire/framework';
 import type { Awaitable, Message } from 'discord.js';
 
 export abstract class PatternCommand extends Command<Args, PatternCommand.Options> {
@@ -17,7 +17,7 @@ export abstract class PatternCommand extends Command<Args, PatternCommand.Option
 	public abstract messageRun(message: Message): Awaitable<unknown>;
 }
 
-export interface PatternCommandOptions extends Command.Options {
+export interface PatternCommandOptions extends MessageCommand.Options {
 	/**
 	 * The chance that the pattern command is triggered.
 	 * @default 100
@@ -32,17 +32,17 @@ export interface PatternCommandOptions extends Command.Options {
 }
 
 export namespace PatternCommand {
-	/** Re-export of {@link Command.Context} */
-	export type Context = Command.Context;
+	/** Re-export of {@link MessageCommand.Context} */
+	export type Context = MessageCommand.Context;
 
-	/** Re-export of {@link Command.RunContext} */
-	export type RunContext = Command.RunContext;
+	/** Re-export of {@link MessageCommand.RunContext} */
+	export type RunContext = MessageCommand.RunContext;
 
-	/** Re-export of {@link Command.JSON} */
-	export type JSON = Command.JSON;
+	/** Re-export of {@link MessageCommand.JSON} */
+	export type JSON = MessageCommand.JSON;
 
-	/** Re-export of {@link Command.RunInTypes} */
-	export type RunInTypes = Command.RunInTypes;
+	/** Re-export of {@link MessageCommand.RunInTypes} */
+	export type RunInTypes = MessageCommand.RunInTypes;
 
 	/**
 	 * The PatternCommand Options

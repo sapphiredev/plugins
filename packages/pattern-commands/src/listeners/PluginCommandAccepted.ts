@@ -1,4 +1,4 @@
-import { fromAsync, isErr, Listener } from '@sapphire/framework';
+import { Result, Listener } from '@sapphire/framework';
 import type { PieceContext } from '@sapphire/pieces';
 import { Stopwatch } from '@sapphire/stopwatch';
 import { PatternCommandEvents } from '../lib/utils/PaternCommandEvents';
@@ -22,7 +22,7 @@ export class CommandAcceptedListener extends Listener<typeof PatternCommandEvent
 	public async runPatternCommand(payload: PatternCommandAcceptedPayload) {
 		const { message, command } = payload;
 
-		const result = await fromAsync(async () => {
+		const result = await Result.fromAsync(async () => {
 			message.client.emit(PatternCommandEvents.CommandRun, message, command, payload);
 
 			const stopwatch = new Stopwatch();
@@ -34,14 +34,12 @@ export class CommandAcceptedListener extends Listener<typeof PatternCommandEvent
 			return duration;
 		});
 
-		if (isErr(result)) {
-			message.client.emit(PatternCommandEvents.CommandError, result.error, { ...payload, duration: result.value ?? -1 });
-		}
+		result.inspectErr((error) => message.client.emit(PatternCommandEvents.CommandError, error, { ...payload, duration: -1 }));
 
 		message.client.emit(PatternCommandEvents.CommandFinished, message, command, {
 			...payload,
-			success: !isErr(result),
-			duration: result.value ?? -1
+			success: result.isOk(),
+			duration: result.unwrapOr(-1)
 		});
 	}
 }

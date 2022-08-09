@@ -24,7 +24,7 @@ export class RouteStore extends Store<Route> {
 	public readonly table = new Collection<Methods, Collection<Route, MethodCallback>>();
 
 	public constructor() {
-		super(Route as any, { name: 'routes' });
+		super(Route, { name: 'routes' });
 
 		for (const [method] of methodEntries) this.table.set(method, new Collection());
 	}

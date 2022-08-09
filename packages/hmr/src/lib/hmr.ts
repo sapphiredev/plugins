@@ -1,4 +1,4 @@
-import { container, fromAsync, isErr, Piece, Store } from '@sapphire/framework';
+import { container, Result, Piece, Store } from '@sapphire/framework';
 import { watch, WatchOptions } from 'chokidar';
 import { relative } from 'node:path';
 
@@ -36,14 +36,14 @@ async function handlePiecePathDelete(store: Store<Piece>, path: string, silent: 
 	const pieceToDelete = store.find((piece) => piece.location.full === path);
 	if (!pieceToDelete) return;
 
-	const result = await fromAsync(async () => {
+	const result = await Result.fromAsync(async () => {
 		await pieceToDelete.unload();
 		if (!silent) container.logger.info(`[HMR-Plugin]: Unloaded ${pieceToDelete.name} piece from ${pieceToDelete.store.name} store.`);
 	});
 
-	if (isErr(result)) {
-		container.logger.error(`[HMR-Plugin]: Failed to unload ${pieceToDelete.name} piece from ${pieceToDelete.store.name} store.`, result.error);
-	}
+	result.inspectErr((error) =>
+		container.logger.error(`[HMR-Plugin]: Failed to unload ${pieceToDelete.name} piece from ${pieceToDelete.store.name} store.`, error)
+	);
 }
 
 async function handlePiecePathUpdate(store: Store<Piece>, path: string, silent: boolean) {
@@ -51,7 +51,7 @@ async function handlePiecePathUpdate(store: Store<Piece>, path: string, silent: 
 
 	const pieceToUpdate = store.find((piece) => piece.location.full === path);
 
-	const result = await fromAsync(async () => {
+	const result = await Result.fromAsync(async () => {
 		if (pieceToUpdate) {
 			await pieceToUpdate.reload();
 			if (!silent) container.logger.info(`[HMR-Plugin]: reloaded ${pieceToUpdate.name} piece from ${pieceToUpdate.store.name} store.`);
@@ -69,7 +69,5 @@ async function handlePiecePathUpdate(store: Store<Piece>, path: string, silent: 
 		}
 	});
 
-	if (isErr(result)) {
-		container.logger.error(`[HMR-Plugin]: Failed to load pieces from ${path}.`, result.error);
-	}
+	result.inspectErr((error) => container.logger.error(`[HMR-Plugin]: Failed to load pieces from ${path}.`, error));
 }
