@@ -213,6 +213,13 @@
 			"avatar_url": "https://avatars.githubusercontent.com/u/74945038?v=4",
 			"profile": "https://github.com/imranbarbhuiya",
 			"contributions": ["code"]
+		},
+		{
+			"login": "ricardooow",
+			"name": "ricardooow",
+			"avatar_url": "https://avatars.githubusercontent.com/u/28981399?v=4",
+			"profile": "https://github.com/ricardooow",
+			"contributions": ["code"]
 		}
 	],
 	"contributorsPerLine": 7,
