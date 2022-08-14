@@ -192,6 +192,13 @@
 			"avatar_url": "https://avatars.githubusercontent.com/u/66224939?v=4",
 			"profile": "https://github.com/MajesticString",
 			"contributions": ["code"]
+		},
+		{
+			"login": "jczstudios",
+			"name": "Julian",
+			"avatar_url": "https://avatars.githubusercontent.com/u/17862924?v=4",
+			"profile": "https://github.com/jczstudios",
+			"contributions": ["code"]
 		}
 	],
 	"contributorsPerLine": 7,
