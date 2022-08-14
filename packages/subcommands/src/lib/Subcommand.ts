@@ -23,14 +23,19 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 
 		const clientOptions = this.container.client.options;
 		if (clientOptions.caseInsensitiveCommands) {
-			// Because slash commands must be lowercase anyways, blanketing all commands to lowercase is safe.
-			this.parsedSubcommandMappings.forEach((cmd) => cmd.name.toLowerCase());
 			this.caseInsensitiveSubCommands = true;
+
+			// Because slash commands must be lowercase anyway, we can transform all to lowercase.
+			for (const cmd of this.parsedSubcommandMappings) {
+				cmd.name = cmd.name.toLowerCase();
+			}
 		}
 
 		if (options.generateDashLessAliases) {
 			for (const mapping of this.parsedSubcommandMappings) {
-				if (!('messageRun' in mapping)) {
+				if (!Reflect.has(mapping, 'messageRun') || (Reflect.has(mapping, 'messageRun') && Reflect.has(mapping, 'chatInputRun'))) {
+					continue;
+				}
 					continue;
 				}
 
@@ -41,12 +46,12 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				}
 
 				// For every dashless alias, push a new subcommand with the lowercase alias
-				dashLessAliases.forEach((alias) => {
+				for (const alias of dashLessAliases) {
 					this.parsedSubcommandMappings.push({
 						...mapping,
 						name: alias
 					});
-				});
+				}
 			}
 		}
 	}
