@@ -199,6 +199,13 @@
 			"avatar_url": "https://avatars.githubusercontent.com/u/17862924?v=4",
 			"profile": "https://github.com/jczstudios",
 			"contributions": ["code"]
+		},
+		{
+			"login": "KrishAgarwal2811",
+			"name": "Krish",
+			"avatar_url": "https://avatars.githubusercontent.com/u/68506145?v=4",
+			"profile": "https://github.com/KrishAgarwal2811",
+			"contributions": ["code"]
 		}
 	],
 	"contributorsPerLine": 7,
