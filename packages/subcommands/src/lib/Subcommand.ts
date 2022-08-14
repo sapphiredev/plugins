@@ -36,8 +36,6 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				if (!Reflect.has(mapping, 'messageRun') || (Reflect.has(mapping, 'messageRun') && Reflect.has(mapping, 'chatInputRun'))) {
 					continue;
 				}
-					continue;
-				}
 
 				const dashLessAliases: string[] = [];
 
