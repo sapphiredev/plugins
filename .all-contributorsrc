@@ -178,6 +178,13 @@
 			"avatar_url": "https://avatars.githubusercontent.com/u/19301186?v=4",
 			"profile": "https://newtt.me/",
 			"contributions": ["code"]
+		},
+		{
+			"login": "Mzato0001",
+			"name": "Mzato",
+			"avatar_url": "https://avatars.githubusercontent.com/u/62367547?v=4",
+			"profile": "https://linktr.ee/mzato0001",
+			"contributions": ["code"]
 		}
 	],
 	"contributorsPerLine": 7,

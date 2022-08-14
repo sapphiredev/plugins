@@ -166,6 +166,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/Suyashtnt"><img src="https://avatars.githubusercontent.com/u/45307955?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Just a Badly Drawn TABS Dude</b></sub></a><br /><a href="https://github.com/sapphiredev/plugins/commits?author=Suyashtnt" title="Code">💻</a></td>
     <td align="center"><a href="https://newtt.me/"><img src="https://avatars.githubusercontent.com/u/19301186?v=4?s=100" width="100px;" alt=""/><br /><sub><b>newt :D</b></sub></a><br /><a href="https://github.com/sapphiredev/plugins/commits?author=newtykins" title="Code">💻</a></td>
+    <td align="center"><a href="https://linktr.ee/mzato0001"><img src="https://avatars.githubusercontent.com/u/62367547?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mzato</b></sub></a><br /><a href="https://github.com/sapphiredev/plugins/commits?author=Mzato0001" title="Code">💻</a></td>
   </tr>
 </table>
 
