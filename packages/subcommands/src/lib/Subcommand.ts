@@ -15,7 +15,7 @@ import {
 
 export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand.Options = Subcommand.Options> extends Command<PreParseReturn, O> {
 	public parsedSubcommandMappings: SubcommandMappingArray;
-	private caseInsensitiveSubCommands = false;
+	public caseInsensitiveSubCommands = false;
 
 	public constructor(context: PieceContext, options: O) {
 		super(context, options);
@@ -40,10 +40,10 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				const dashLessAliases: string[] = [];
 
 				if (this.name.includes('-')) {
-					dashLessAliases.push(mapping.name.replace(/-/g, ''));
+					dashLessAliases.push(mapping.name.replaceAll('-', ''));
 				}
 
-				// For every dashless alias, push a new subcommand with the lowercase alias
+				// For every dashless alias, push a new subcommand with the new dashless alias
 				for (const alias of dashLessAliases) {
 					this.parsedSubcommandMappings.push({
 						...mapping,
