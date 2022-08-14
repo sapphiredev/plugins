@@ -45,13 +45,13 @@ export interface SubcommandMappingMethod extends SubcommandMappingBase {
 	 *
 	 * @example
 	 * ```typescript
-	 * chatInputRun: 'runAdminConfig'
+	 * messageRun: 'runAdminConfig'
 	 * ```
 	 *
 	 * @example
 	 * ```typescript
-	 * chatInputRun(interaction: Subcommand.Interaction) {
-	 *    return interaction.reply(`${interaction.user} has been granted admin`);
+	 * messageRun(message: Message) {
+	 *    return message.reply(`${message.user} has been granted admin`);
 	 * }
 	 * ```
 	 */
