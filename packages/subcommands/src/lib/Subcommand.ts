@@ -59,7 +59,9 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 						}
 					}
 
-					mapping.entries = clonedMappingEntries;
+					if (hasChangedValues) {
+						mapping.entries = clonedMappingEntries;
+					}
 
 					if (mapping.name.includes('-')) {
 						hasChangedValues = true;
