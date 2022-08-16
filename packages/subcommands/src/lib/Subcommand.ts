@@ -33,6 +33,10 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 
 		if (options.generateDashLessAliases) {
 			for (const mapping of this.parsedSubcommandMappings) {
+				if (!Reflect.has(mapping, 'messageRun')) {
+					continue;
+				}
+
 				const dashLessAliases: string[] = [];
 
 				if (this.name.includes('-')) {
@@ -262,7 +266,7 @@ export interface SubcommandOptions extends Command.Options {
 	/**
 	 * Whether to add aliases for subcommands with dashes in them
 	 *
-	 * Enabling this option will add aliases for both **message** subcommands *and* **chat input** subcommands
+	 * When this option is enabled *and* the subcommand implements `messageRun`, dashless aliases will be added.
 	 *
 	 * @since 3.0.0
 	 * @default false
