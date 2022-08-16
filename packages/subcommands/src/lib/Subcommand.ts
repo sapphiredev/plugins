@@ -22,12 +22,18 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		this.parsedSubcommandMappings = options.subcommands ?? [];
 
 		const clientOptions = this.container.client.options;
+
 		if (clientOptions.caseInsensitiveCommands) {
 			this.caseInsensitiveSubCommands = true;
 
 			// Because slash commands must be lowercase anyway, we can transform all to lowercase.
 			for (const cmd of this.parsedSubcommandMappings) {
 				cmd.name = cmd.name.toLowerCase();
+				if (cmd.type === 'group') {
+					for (const groupCommand of cmd.entries) {
+						groupCommand.name = groupCommand.name.toLowerCase();
+					}
+				}
 			}
 		}
 
@@ -37,18 +43,42 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 					continue;
 				}
 
-				const dashLessAliases: string[] = [];
+				const dashLessMappings: SubcommandMappingArray = [];
 
-				if (this.name.includes('-')) {
-					dashLessAliases.push(mapping.name.replaceAll('-', ''));
+				if (mapping.type === 'group') {
+					let hasChangedValues = false;
+					const clonedMappingEntries = [...mapping.entries];
+
+					for (const groupCommand of mapping.entries) {
+						if (groupCommand.name.includes('-')) {
+							hasChangedValues = true;
+							clonedMappingEntries.push({
+								...groupCommand,
+								name: groupCommand.name.replaceAll('-', '')
+							});
+						}
+					}
+
+					mapping.entries = clonedMappingEntries;
+
+					if (mapping.name.includes('-')) {
+						hasChangedValues = true;
+						mapping.name = mapping.name.replaceAll('-', '');
+					}
+
+					if (hasChangedValues) {
+						dashLessMappings.push(mapping);
+					}
+				} else if (mapping.name.includes('-')) {
+					dashLessMappings.push({
+						...mapping,
+						name: mapping.name.replaceAll('-', '')
+					});
 				}
 
-				// For every dashless alias, push a new subcommand with the new dashless alias
-				for (const alias of dashLessAliases) {
-					this.parsedSubcommandMappings.push({
-						...mapping,
-						name: alias
-					});
+				// For every dashless mapping, push a new subcommand
+				for (const dashlessMapping of dashLessMappings) {
+					this.parsedSubcommandMappings.push(dashlessMapping);
 				}
 			}
 		}
@@ -267,6 +297,8 @@ export interface SubcommandOptions extends Command.Options {
 	 * Whether to add aliases for subcommands with dashes in them
 	 *
 	 * When this option is enabled *and* the subcommand implements `messageRun`, dashless aliases will be added.
+	 *
+	 * For subcommands groups both the group itself and all subcommands within the group will have dashless aliases added.
 	 *
 	 * @since 3.0.0
 	 * @default false
