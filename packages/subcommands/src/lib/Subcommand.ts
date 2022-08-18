@@ -112,7 +112,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 					defaultCommand = mapping;
 				}
 
-				if (subcommandOrGroup.isSomeAnd((value) => mapping.name === (this.caseInsensitiveSubCommands ? value : value.toLowerCase()))) {
+				if (subcommandOrGroup.isSomeAnd((value) => mapping.name === (this.caseInsensitiveSubCommands ? value.toLowerCase() : value))) {
 					actualSubcommandToRun = mapping;
 					// Exit early
 					break;
@@ -126,7 +126,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				// We know a group was passed in here
 				if (mapping.name === value) {
 					// Find the actual subcommand to run
-					const findResult = this.#findSubcommand(mapping.entries, this.caseInsensitiveSubCommands ? value : value.toLowerCase());
+					const findResult = this.#findSubcommand(mapping.entries, this.caseInsensitiveSubCommands ? value.toLowerCase() : value);
 
 					if (findResult.defaultMatch) {
 						defaultCommand = findResult.mapping;
