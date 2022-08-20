@@ -1,4 +1,5 @@
 import { Command, Result, UserError, type Args, type ChatInputCommand, type MessageCommand, type PieceContext } from '@sapphire/framework';
+import { deepClone } from '@sapphire/utilities';
 import type { CacheType, Message } from 'discord.js';
 import type {
 	ChatInputCommandSubcommandMappingMethod,
@@ -15,10 +16,93 @@ import {
 
 export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand.Options = Subcommand.Options> extends Command<PreParseReturn, O> {
 	public parsedSubcommandMappings: SubcommandMappingArray;
+	public caseInsensitiveSubcommands = false;
 
 	public constructor(context: PieceContext, options: O) {
 		super(context, options);
 		this.parsedSubcommandMappings = options.subcommands ?? [];
+
+		const clientOptions = this.container.client.options;
+
+		if (clientOptions.caseInsensitiveCommands) {
+			this.caseInsensitiveSubcommands = true;
+
+			// Because slash commands must be lowercase anyway, we can transform all to lowercase.
+			for (const cmd of this.parsedSubcommandMappings) {
+				cmd.name = cmd.name.toLowerCase();
+				if (cmd.type === 'group') {
+					for (const groupCommand of cmd.entries) {
+						groupCommand.name = groupCommand.name.toLowerCase();
+					}
+				}
+			}
+		}
+
+		if (options.generateDashLessAliases) {
+			for (const mapping of this.parsedSubcommandMappings) {
+				if (!Reflect.has(mapping, 'messageRun')) {
+					continue;
+				}
+
+				const dashLessMappings: SubcommandMappingArray = [];
+
+				if (mapping.type === 'group') {
+					// Keep track of whether we have changed entries or not, so we don't need to do expensive object comparison later.
+					let hasChangedEntries: boolean | null = null;
+
+					// Deeply clone the entire mapping to avoid mutating the original.
+					const clonedMapping = deepClone(mapping);
+
+					// Loop through the group's subcommands and add a dash-less alias for each, if applicable.
+					for (const groupCommand of mapping.entries) {
+						if (groupCommand.name.includes('-')) {
+							// If we are inside this if statement then we flip `hasChangedEntries` to true to be able to read it later.
+							hasChangedEntries ??= true;
+
+							clonedMapping.entries.push({
+								...groupCommand,
+								name: groupCommand.name.replaceAll('-', '')
+							});
+						}
+					}
+
+					/**
+					 * If any of the entries in the group had a dash then `hasChangedEntries` was flipped to true
+					 * and so we want to register a mapping with the base name and all dash-less entries
+					 * in the group.
+					 */
+					if (hasChangedEntries) {
+						dashLessMappings.push({
+							...mapping,
+							entries: clonedMapping.entries
+						});
+					}
+
+					/**
+					 * If the group name itself has a dash then register a dash-less copy of it.
+					 * If the entries in the group didn't have any dashes then `clonedMapping.entries` is still
+					 * the same original array, so it can be safely overwritten.
+					 *
+					 * If the entries in the group did have any dashes then `clonedMapping.entries` has
+					 * all entries both with and without dashes.
+					 */
+					if (clonedMapping.name.includes('-')) {
+						clonedMapping.name = clonedMapping.name.replaceAll('-', '');
+						dashLessMappings.push(clonedMapping);
+					}
+				} else if (mapping.name.includes('-')) {
+					dashLessMappings.push({
+						...mapping,
+						name: mapping.name.replaceAll('-', '')
+					});
+				}
+
+				// For every dash-less mapping, push a new subcommand
+				for (const dashLessMapping of dashLessMappings) {
+					this.parsedSubcommandMappings.push(dashLessMapping);
+				}
+			}
+		}
 	}
 
 	public onLoad() {
@@ -47,7 +131,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 					defaultCommand = mapping;
 				}
 
-				if (subcommandOrGroup.isSomeAnd((value) => mapping.name === value)) {
+				if (subcommandOrGroup.isSomeAnd((value) => mapping.name === (this.caseInsensitiveSubcommands ? value.toLowerCase() : value))) {
 					actualSubcommandToRun = mapping;
 					// Exit early
 					break;
@@ -61,7 +145,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				// We know a group was passed in here
 				if (mapping.name === value) {
 					// Find the actual subcommand to run
-					const findResult = this.#findSubcommand(mapping.entries, value);
+					const findResult = this.#findSubcommand(mapping.entries, this.caseInsensitiveSubcommands ? value.toLowerCase() : value);
 
 					if (findResult.defaultMatch) {
 						defaultCommand = findResult.mapping;
@@ -230,6 +314,17 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 
 export interface SubcommandOptions extends Command.Options {
 	subcommands?: SubcommandMappingArray;
+	/**
+	 * Whether to add aliases for subcommands with dashes in them
+	 *
+	 * When this option is enabled *and* the subcommand implements `messageRun`, dashless aliases will be added.
+	 *
+	 * For subcommands groups both the group itself and all subcommands within the group will have dashless aliases added.
+	 *
+	 * @since 3.0.0
+	 * @default false
+	 */
+	generateDashLessAliases?: boolean;
 }
 
 export namespace Subcommand {
