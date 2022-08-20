@@ -48,7 +48,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 
 				if (mapping.type === 'group') {
 					// Keep track of whether we have changed entries or not, so we don't need to do expensive object comparison later.
-					let hasChangedEntries = false;
+					let hasChangedEntries: boolean | null = null;
 
 					// Deeply clone the entire mapping to avoid mutating the original.
 					const clonedMapping = deepClone(mapping);
@@ -57,7 +57,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 					for (const groupCommand of mapping.entries) {
 						if (groupCommand.name.includes('-')) {
 							// If we are inside this if statement then we flip `hasChangedEntries` to true to be able to read it later.
-							hasChangedEntries = true;
+							hasChangedEntries ??= true;
 
 							clonedMapping.entries.push({
 								...groupCommand,
@@ -86,10 +86,9 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 					 * If the entries in the group did have any dashes then `clonedMapping.entries` has
 					 * all entries both with and without dashes.
 					 */
-					if (mapping.name.includes('-')) {
-						mapping.name = mapping.name.replaceAll('-', '');
-						mapping.entries = clonedMapping.entries;
-						dashLessMappings.push(mapping);
+					if (clonedMapping.name.includes('-')) {
+						clonedMapping.name = clonedMapping.name.replaceAll('-', '');
+						dashLessMappings.push(clonedMapping);
 					}
 				} else if (mapping.name.includes('-')) {
 					dashLessMappings.push({
