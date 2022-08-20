@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@3.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.5.4...@sapphire/plugin-i18next@3.0.0) - (2022-08-20)
+
+## 🏠 Refactor
+
+- **i18next:** Remove `sendLocalized`, `replyLocalized`, and `editLocalized` (#335) ([e53558f](https://github.com/sapphiredev/plugins/commit/e53558f4982d1afad74dd3239d078f0013855242))
+  - 💥 **BREAKING CHANGE:** `sendLocalized`, `replyLocalized`, and `editLocalized` have been removed as these methods never properly supported all i18next and DiscordJS options and were extremely hard to maintain. The replacement is using either `fetchT` or `resolveKey` and implementing your own `message.channel.send` / `interaction.reply`
+  - 💥 **BREAKING CHANGE:** `InternationalizationContext.author` has been removed as per the deprecation notice in the previous version. Please switch to `InternationalizationContext.user`.
+
+## 🐛 Bug Fixes
+
+- **i18next:** Fixed replyLocalized types (#334) ([d55295f](https://github.com/sapphiredev/plugins/commit/d55295f1364265ac9777d117df301cd663868272))
+- **i18next:** Bump sapphire utilities ([41237ec](https://github.com/sapphiredev/plugins/commit/41237ec5fda671166e1fc0cee908521a0460a85d))
+
+## 📝 Documentation
+
+- Add @ricardooow as a contributor ([15d7f9b](https://github.com/sapphiredev/plugins/commit/15d7f9b0d7428559441550aba1918d068565baa6))
+- Add @imranbarbhuiya as a contributor ([e3d8fdc](https://github.com/sapphiredev/plugins/commit/e3d8fdc433a6c89389b2e1c574245e8140d1c47a))
+- Add @KrishAgarwal2811 as a contributor ([875dda0](https://github.com/sapphiredev/plugins/commit/875dda0756f1b5302e77993e44a1ac9ab1a065d0))
+- Add @jczstudios as a contributor ([c9126bc](https://github.com/sapphiredev/plugins/commit/c9126bc2bb454989c006864293ef99a47369dc38))
+- Add @MajesticString as a contributor ([2743c8d](https://github.com/sapphiredev/plugins/commit/2743c8d5b9abe1b554ac7d776cb827d6a1e9db7b))
+- Add @Mzato0001 as a contributor ([06626cd](https://github.com/sapphiredev/plugins/commit/06626cd7ff94d3bc8ce75da6383e1b77b6109a3d))
+- Type cast `baseUserDirectory` ([c76b008](https://github.com/sapphiredev/plugins/commit/c76b0087aa99d3643109e1399bef94d7e94c0cb8))
+
+## 🚀 Features
+
+- **subcommands:** Lowercase subcommands and dashless aliases (#337) ([31ea70c](https://github.com/sapphiredev/plugins/commit/31ea70caae38988ca395dd3e934822c26e6df4f6))
+- ***:** Subcommands v3 & update plugins to Sapphire Result v2 (#271) ([1cfc32a](https://github.com/sapphiredev/plugins/commit/1cfc32a9cb568d1031a35c5e0628a67bc082ff21))
+  - 💥 **BREAKING CHANGE:** @sapphire/plugin-subcommands has been completely rewritten from scratch for version 3. Please refer to the [README](https://github.com/sapphiredev/plugins/blob/main/packages/subcommands/README.md) or [the website](https://www.sapphirejs.dev/docs/Guide/plugins/Subcommands/getting-started) for updated usage.
+  - 💥 **BREAKING CHANGE:** @sapphire/plugin-hmr has been updated to use @sapphire/result v2 and @sapphire/framework v3
+  - 💥 **BREAKING CHANGE:** @sapphire/plugin-pattern-commands has been updated to use @sapphire/result v2 and @sapphire/framework v3
+  - 💥 **BREAKING CHANGE:** @sapphire/plugin-i18next has been updated to use @sapphire/result v2 and @sapphire/framework v3
+  - 💥 **BREAKING CHANGE:** @sapphire/plugin-scheduled-tasks has been updated to use @sapphire/result v2 and @sapphire/framework v3
+
 # [@sapphire/plugin-i18next@2.5.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.5.2...@sapphire/plugin-i18next@2.5.4) - (2022-07-11)
 
 ## 🐛 Bug Fixes
