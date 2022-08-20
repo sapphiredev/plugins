@@ -51,7 +51,7 @@ export interface SubcommandMappingMethod extends SubcommandMappingBase {
 	 * @example
 	 * ```typescript
 	 * messageRun(message: Message) {
-	 *    return message.reply(`${message.user} has been granted admin`);
+	 *    return message.reply(`<@${message.author.id}> has been granted admin`);
 	 * }
 	 * ```
 	 */
@@ -72,7 +72,7 @@ export interface SubcommandMappingMethod extends SubcommandMappingBase {
 	 * @example
 	 * ```typescript
 	 * chatInputRun(interaction: Subcommand.Interaction) {
-	 *    return interaction.reply(`${interaction.user} has been granted moderator`);
+	 *    return interaction.reply(`<@${interaction.user.id}> has been granted moderator`);
 	 * }
 	 * ```
 	 */
