@@ -2,7 +2,6 @@ import { container } from '@sapphire/pieces';
 import type { NonNullObject } from '@sapphire/utilities';
 import { BaseCommandInteraction, Guild, Message, MessageComponentInteraction } from 'discord.js';
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
-import type { InternationalizationHandler } from './InternationalizationHandler';
 import type { InternationalizationContext, Target } from './types';
 
 /**
