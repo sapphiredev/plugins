@@ -233,11 +233,21 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		}
 
 		// No match and no subcommand, return an err:
-		throw new UserError({ identifier: SubcommandPluginIdentifiers.ChatInputSubcommandNoMatch, context });
+		throw new UserError({
+			identifier: SubcommandPluginIdentifiers.ChatInputSubcommandNoMatch,
+			message: 'No subcommand was matched with the provided command.',
+			context
+		});
 	}
 
 	async #handleMessageRun(message: Message, args: Args, context: MessageCommand.RunContext, subcommand: SubcommandMappingMethod) {
-		const payload: MessageSubcommandAcceptedPayload = { message, command: this, context };
+		const payload: MessageSubcommandAcceptedPayload = {
+			message,
+			command: this,
+			context,
+			matchedSubcommandMapping: subcommand
+		};
+
 		const result = await Result.fromAsync(async () => {
 			if (subcommand.messageRun) {
 				const casted = subcommand as MessageSubcommandMappingMethod;
@@ -274,7 +284,13 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		context: ChatInputCommand.RunContext,
 		subcommand: SubcommandMappingMethod
 	) {
-		const payload: ChatInputSubcommandAcceptedPayload = { command: this, context, interaction };
+		const payload: ChatInputSubcommandAcceptedPayload = {
+			command: this,
+			context,
+			interaction,
+			matchedSubcommandMapping: subcommand
+		};
+
 		const result = await Result.fromAsync(async () => {
 			if (subcommand.chatInputRun) {
 				const casted = subcommand as ChatInputCommandSubcommandMappingMethod;
