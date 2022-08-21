@@ -139,13 +139,17 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 			}
 
 			// We expect a group mapping
-			if (mapping.type === 'group' && subcommandName.isSome()) {
-				const value = subcommandName.unwrap();
+			if (mapping.type === 'group' && subcommandOrGroup.isSome() && subcommandName.isSome()) {
+				const unwrappedSubcommandGroupName = subcommandOrGroup.unwrap();
+				const unwrappedSubcommandName = subcommandName.unwrap();
 
 				// We know a group was passed in here
-				if (mapping.name === value) {
+				if (mapping.name === unwrappedSubcommandGroupName) {
 					// Find the actual subcommand to run
-					const findResult = this.#findSubcommand(mapping.entries, this.caseInsensitiveSubcommands ? value.toLowerCase() : value);
+					const findResult = this.#findSubcommand(
+						mapping.entries,
+						this.caseInsensitiveSubcommands ? unwrappedSubcommandName.toLowerCase() : unwrappedSubcommandName
+					);
 
 					if (findResult.defaultMatch) {
 						defaultCommand = findResult.mapping;
