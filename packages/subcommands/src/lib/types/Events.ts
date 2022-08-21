@@ -36,6 +36,7 @@ export interface IMessageSubcommandPayload {
 
 export interface MessageSubcommandAcceptedPayload extends IMessageSubcommandPayload {
 	context: MessageCommand.RunContext;
+	matchedSubcommandMapping: SubcommandMappingMethod;
 }
 
 export interface MessageSubcommandRunPayload extends MessageSubcommandAcceptedPayload {}
@@ -53,6 +54,7 @@ export interface IChatInputSubcommandPayload {
 
 export interface ChatInputSubcommandAcceptedPayload extends IChatInputSubcommandPayload {
 	context: ChatInputCommand.RunContext;
+	matchedSubcommandMapping: SubcommandMappingMethod;
 }
 
 export interface ChatInputSubcommandRunPayload extends ChatInputSubcommandAcceptedPayload {}
