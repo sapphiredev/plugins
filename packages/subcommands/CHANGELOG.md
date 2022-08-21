@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@3.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@3.1.0...@sapphire/plugin-subcommands@3.1.1) - (2022-08-21)
+
+## 🐛 Bug Fixes
+
+- Fixed arg parsing (#340) ([80c35c9](https://github.com/sapphiredev/plugins/commit/80c35c97f3d0a0663382accb61efd1530c9849ee))
+
 # [@sapphire/plugin-subcommands@3.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@3.0.0...@sapphire/plugin-subcommands@3.1.0) - (2022-08-21)
 
 ## 🐛 Bug Fixes
