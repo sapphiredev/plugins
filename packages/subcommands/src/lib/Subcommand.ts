@@ -122,17 +122,20 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		const subcommandName = args.nextMaybe();
 		let defaultCommand: SubcommandMappingMethod | null = null;
 		let actualSubcommandToRun: SubcommandMappingMethod | null = null;
+		let matchedWithGroupedSubcommand = false;
 
 		for (const mapping of this.parsedSubcommandMappings) {
 			mapping.type ??= 'method';
 
 			if (mapping.type === 'method') {
 				if (mapping.default) {
+					matchedWithGroupedSubcommand = false;
 					defaultCommand = mapping;
 				}
 
 				if (subcommandOrGroup.isSomeAnd((value) => mapping.name === (this.caseInsensitiveSubcommands ? value.toLowerCase() : value))) {
 					actualSubcommandToRun = mapping;
+					matchedWithGroupedSubcommand = false;
 					// Exit early
 					break;
 				}
@@ -153,8 +156,10 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 
 					if (findResult.defaultMatch) {
 						defaultCommand = findResult.mapping;
+						matchedWithGroupedSubcommand = true;
 					} else {
 						actualSubcommandToRun = findResult.mapping;
+						matchedWithGroupedSubcommand = true;
 						// Exit early
 						break;
 					}
@@ -169,8 +174,8 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 			// Skip over the subcommandOrGroup
 			args.next();
 
-			// We might've matched a group subcommand
-			if (subcommandOrGroup.isSomeAnd((value) => actualSubcommandToRun!.name === value)) {
+			// If we matched with a subcommand in a group we need to skip 1 more arg
+			if (matchedWithGroupedSubcommand) {
 				args.next();
 			}
 
@@ -183,8 +188,8 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				args.next();
 			}
 
-			// We might've ran `!example group subcm` but the default subcommand is `subcmd` instead, we should strip that out
-			if (subcommandName.isSome()) {
+			// If we matched with a subcommand in a group we need to skip 1 more arg
+			if (matchedWithGroupedSubcommand) {
 				args.next();
 			}
 
