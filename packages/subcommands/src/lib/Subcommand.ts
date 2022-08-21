@@ -194,6 +194,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		// No match and no subcommand, return an err:
 		throw new UserError({
 			identifier: SubcommandPluginIdentifiers.MessageSubcommandNoMatch,
+			message: 'No subcommand was matched with the provided arguments.',
 			context: {
 				...context,
 				possibleSubcommandName: subcommandName.unwrapOr(null),
@@ -246,7 +247,13 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 
 				if (typeof subcommand.messageRun === 'string') {
 					const method: this['messageRun'] | undefined = Reflect.get(this, subcommand.messageRun);
-					if (!method) throw new UserError({ identifier: SubcommandPluginIdentifiers.SubcommandNotFound, context: { ...payload } });
+					if (!method) {
+						throw new UserError({
+							identifier: SubcommandPluginIdentifiers.SubcommandNotFound,
+							message: `The method configured at "messageRun" for the subcommand ${subcommand.name} was not implemented in the class.`,
+							context: { ...payload }
+						});
+					}
 
 					result = await Reflect.apply(method, this, [message, args, context]);
 				} else {
@@ -277,7 +284,14 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 
 				if (typeof subcommand.chatInputRun === 'string') {
 					const method: this['chatInputRun'] | undefined = Reflect.get(this, subcommand.chatInputRun);
-					if (!method) throw new UserError({ identifier: SubcommandPluginIdentifiers.SubcommandNotFound, context: { ...payload } });
+					if (!method) {
+						throw new UserError({
+							identifier: SubcommandPluginIdentifiers.SubcommandNotFound,
+							message: `The method configured at "chatInputRun" for the subcommand ${subcommand.name} was not implemented in the class.`,
+							context: { ...payload }
+						});
+					}
+
 					result = await Reflect.apply(method, this, [interaction, context]);
 				} else {
 					result = await subcommand.chatInputRun(interaction, context);
