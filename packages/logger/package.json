@@ -26,7 +26,7 @@
 	],
 	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/logger",
 	"scripts": {
-		"test": "jest",
+		"test": "vitest run",
 		"lint": "eslint src tests --ext ts --fix",
 		"build": "tsc -b src && yarn esm:register && yarn esm:default",
 		"esm:register": "gen-esm-wrapper dist/register.js dist/register.mjs",

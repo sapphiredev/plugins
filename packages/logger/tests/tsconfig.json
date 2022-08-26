@@ -3,7 +3,8 @@
 	"compilerOptions": {
 		"rootDir": "./",
 		"noEmit": true,
-		"incremental": false
+		"incremental": false,
+		"types": ["vitest/globals"]
 	},
 	"include": ["."],
 	"references": [{ "path": "../src" }]

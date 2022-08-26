@@ -8,10 +8,6 @@
 			"dependsOn": [],
 			"outputs": []
 		},
-		"test": {
-			"dependsOn": [],
-			"outputs": []
-		},
 		"bump": {
 			"dependsOn": [],
 			"outputs": ["CHANGELOG.md"]
