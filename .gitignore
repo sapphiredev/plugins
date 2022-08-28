@@ -27,6 +27,7 @@ test_out/
 *.tar.gz
 *.7z
 *.rar
+*.tgz
 
 # Ignore heapsnapshot and log files
 *.heapsnapshot
