@@ -11,9 +11,7 @@ export class SubcommandsPlugin extends Plugin {
 	 * @since 3.1.2
 	 */
 	public static [postInitialization](this: SapphireClient, options: ClientOptions): void {
-		console.log('registering plugin');
 		if (options.loadSubcommandErrorListeners !== false) {
-			console.log('loading listeners');
 			this.stores.get('listeners').registerPath(join(__dirname, 'listeners'));
 		}
 	}
