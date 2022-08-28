@@ -42,6 +42,21 @@ npm install @sapphire/plugin-subcommands @sapphire/framework @sapphire/utilities
 
 ## Usage
 
+Start by importing the registration file in your project to use the plugins error loggers:
+
+**JavaScript**
+
+```js
+require('@sapphire/plugin-subcommands/register');
+```
+
+**TypeScript**
+
+```typescript
+import '@sapphire/plugin-subcommands/register';
+```
+
+Then, you can create new subcommands by extending the Subcommand class.
 _With TypeScript:_
 
 ```typescript
