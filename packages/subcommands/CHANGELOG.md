@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@3.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@3.1.1...@sapphire/plugin-subcommands@3.2.0) - (2022-08-29)
+
+## 🚀 Features
+
+- **subcommands:** Add default error listeners (#343) ([7f36686](https://github.com/sapphiredev/plugins/commit/7f3668689e5c7e664bca16e3cd6a36ea803b6a9c))
+
 # [@sapphire/plugin-subcommands@3.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@3.1.0...@sapphire/plugin-subcommands@3.1.1) - (2022-08-21)
 
 ## 🐛 Bug Fixes
