@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-editable-commands@2.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@2.0.0...@sapphire/plugin-editable-commands@2.0.1) - (2022-08-26)
+
+## 🐛 Bug Fixes
+
+- **editable-commands:** Update `@skyra/editable-commands` ([777ea13](https://github.com/sapphiredev/plugins/commit/777ea1390a3b1aa000f5446bfa64bd3496bba8e5))
+
 # [@sapphire/plugin-editable-commands@2.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@1.2.2...@sapphire/plugin-editable-commands@2.0.0) - (2022-08-20)
 
 ## 🐛 Bug Fixes
