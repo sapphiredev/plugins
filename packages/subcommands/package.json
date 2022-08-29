@@ -12,9 +12,18 @@
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.js",
 			"types": "./dist/index.d.ts"
+		},
+		"./register": {
+			"import": "./register.mjs",
+			"require": "./register.js",
+			"types": "./register.d.ts"
 		}
 	},
-	"sideEffects": false,
+	"sideEffects": [
+		"./dist/register.js",
+		"./register.js",
+		"./register.mjs"
+	],
 	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/subcommands",
 	"scripts": {
 		"lint": "eslint src --ext ts --fix",
@@ -36,7 +45,8 @@
 	"files": [
 		"dist/**/*.js*",
 		"dist/**/*.mjs*",
-		"dist/**/*.d*"
+		"dist/**/*.d*",
+		"./register.*"
 	],
 	"engines": {
 		"node": ">=v14.0.0",
