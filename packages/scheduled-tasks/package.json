@@ -49,6 +49,7 @@
 		"esm:register-redis": "gen-esm-wrapper dist/register-redis.js dist/register-redis.mjs",
 		"esm:register-sqs": "gen-esm-wrapper dist/register-sqs.js dist/register-sqs.mjs",
 		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
+		"docs": "typedoc-json-parser",
 		"prepack": "yarn build",
 		"bump": "cliff-jumper",
 		"check-update": "cliff-jumper --dry-run"
@@ -64,6 +65,8 @@
 		"gen-esm-wrapper": "^1.1.3",
 		"sqs-consumer": "^5.7.0",
 		"sqs-producer": "^2.1.0",
+		"typedoc": "^0.23.11",
+		"typedoc-json-parser": "^2.3.2",
 		"typescript": "^4.8.2"
 	},
 	"repository": {
