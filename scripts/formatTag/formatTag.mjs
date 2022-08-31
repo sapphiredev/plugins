@@ -3,7 +3,7 @@ export function formatTag(tag) {
 
 	if (parsed?.groups) {
 		return {
-			package: parsed.groups.package.replace(/plugin-/, ''),
+			package: parsed.groups.package.replace('plugin-', ''),
 			semver: parsed.groups.semver
 		};
 	}
