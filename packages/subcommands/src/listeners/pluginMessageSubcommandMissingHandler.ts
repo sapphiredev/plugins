@@ -1,14 +1,15 @@
-import { ChatInputCommand, Listener } from '@sapphire/framework';
+import { Listener } from '@sapphire/framework';
+import type { Message } from 'discord.js';
 import type { SubcommandMappingMethod } from '../lib/SubcommandMappings';
-import { ChatInputSubcommandErrorPayload, SubcommandPluginEvents } from '../lib/types/Events';
+import { MessageSubcommandErrorPayload, SubcommandPluginEvents } from '../lib/types/Events';
 
-export class PluginListener extends Listener<typeof SubcommandPluginEvents.SubcommandMappingIsMissingChatInputCommandHandler> {
+export class PluginListener extends Listener<typeof SubcommandPluginEvents.SubcommandMappingIsMissingMessageCommandHandler> {
 	public constructor(context: Listener.Context) {
-		super(context, { event: SubcommandPluginEvents.SubcommandMappingIsMissingChatInputCommandHandler });
+		super(context, { event: SubcommandPluginEvents.SubcommandMappingIsMissingMessageCommandHandler });
 	}
 
-	public run(_: ChatInputCommand.Interaction, subcommand: SubcommandMappingMethod, context: ChatInputSubcommandErrorPayload) {
+	public run(_: Message, subcommand: SubcommandMappingMethod, context: MessageSubcommandErrorPayload) {
 		const { name, location } = context.command;
-		this.container.logger.error(`Encountered a missing mapping on chat input subcommand "${name}" at "${location.full}"`, subcommand);
+		this.container.logger.error(`Encountered a missing mapping on message subcommand "${name}" at "${location.full}"`, subcommand);
 	}
 }
