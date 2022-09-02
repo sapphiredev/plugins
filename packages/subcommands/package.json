@@ -27,7 +27,8 @@
 	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/subcommands",
 	"scripts": {
 		"lint": "eslint src --ext ts --fix",
-		"build": "tsc -b src && yarn esm:default",
+		"build": "tsc -b src && yarn esm:register && yarn esm:default",
+		"esm:register": "gen-esm-wrapper dist/register.js dist/register.mjs",
 		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
 		"docs": "typedoc-json-parser",
 		"prepack": "yarn build",
