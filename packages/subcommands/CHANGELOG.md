@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@3.2.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@3.2.0...@sapphire/plugin-subcommands@3.2.1) - (2022-09-02)
+
+## 🐛 Bug Fixes
+
+- Subcommands script (#346) ([4f5f06a](https://github.com/sapphiredev/plugins/commit/4f5f06a3b7df35c18d71d196bcda5abdb2b499b7))
+- **subcommands:** Fixed mismatch in `*SubcommandMissingHandler` built in errors (#345) ([4ab92be](https://github.com/sapphiredev/plugins/commit/4ab92bef58fbe81e3874740834ce7f592e7bde1e))
+
 # [@sapphire/plugin-subcommands@3.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@3.1.1...@sapphire/plugin-subcommands@3.2.0) - (2022-08-29)
 
 ## 🚀 Features
