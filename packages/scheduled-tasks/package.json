@@ -64,7 +64,8 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@sapphire/time-utilities": "^1.7.6",
+		"@sapphire/stopwatch": "^1.4.1",
+		"@sapphire/utilities": "^3.9.3",
 		"tslib": "^2.4.0"
 	},
 	"devDependencies": {
