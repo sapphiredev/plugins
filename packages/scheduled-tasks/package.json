@@ -13,6 +13,11 @@
 			"require": "./dist/index.js",
 			"types": "./dist/index.d.ts"
 		},
+		"./register": {
+			"import": "./register.mjs",
+			"require": "./register.js",
+			"types": "./register.d.ts"
+		},
 		"./register-redis": {
 			"import": "./register-redis.mjs",
 			"require": "./register-redis.js",
@@ -35,8 +40,11 @@
 		}
 	},
 	"sideEffects": [
+		"./dist/register.js",
 		"./dist/register-redis.js",
 		"./dist/register-sqs.js",
+		"./register.js",
+		"./register.mjs",
 		"./register-redis.js",
 		"./register-redis.mjs",
 		"./register-sqs.js",
@@ -45,7 +53,8 @@
 	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/scheduled-tasks",
 	"scripts": {
 		"lint": "eslint src --ext ts --fix",
-		"build": "tsc -b src && yarn esm:register-redis && yarn esm:register-sqs && yarn esm:default",
+		"build": "tsc -b src && yarn esm:register && yarn esm:register-redis && yarn esm:register-sqs && yarn esm:default",
+		"esm:register": "gen-esm-wrapper dist/register.js dist/register.mjs",
 		"esm:register-redis": "gen-esm-wrapper dist/register-redis.js dist/register-redis.mjs",
 		"esm:register-sqs": "gen-esm-wrapper dist/register-sqs.js dist/register-sqs.mjs",
 		"esm:default": "gen-esm-wrapper dist/index.js dist/index.mjs",
@@ -77,6 +86,7 @@
 		"dist/**/*.js*",
 		"dist/**/*.mjs*",
 		"dist/**/*.d*",
+		"./register.*",
 		"./register-redis.*",
 		"./register-sqs.*",
 		"./types-redis.*",

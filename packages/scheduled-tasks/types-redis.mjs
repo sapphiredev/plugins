@@ -1,1 +1,1 @@
-export * from './dist/types-sqs.mjs';
+export * from './dist/types-redis.mjs';
