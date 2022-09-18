@@ -71,9 +71,7 @@ export class Server extends EventEmitter {
 
 		this.options = options;
 		this.server = httpCreateServer({
-			// eslint-disable-next-line @typescript-eslint/naming-convention
 			IncomingMessage: ApiRequest,
-			// eslint-disable-next-line @typescript-eslint/naming-convention
 			ServerResponse: ApiResponse,
 			...(options.server ?? {})
 		});
