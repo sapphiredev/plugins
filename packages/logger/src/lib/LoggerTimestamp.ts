@@ -1,4 +1,4 @@
-import { Timestamp } from '@sapphire/time-utilities';
+import { Timestamp } from '@sapphire/timestamp';
 import { LoggerStyle, LoggerStyleResolvable } from './LoggerStyle';
 
 /**
