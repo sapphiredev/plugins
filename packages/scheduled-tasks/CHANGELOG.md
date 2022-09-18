@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@4.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@4.0.0...@sapphire/plugin-scheduled-tasks@4.0.1) - (2022-09-18)
+
+## 🏠 Refactor
+
+- **scheduled-task:** Remove `@types/ioredis`, require ioredis v5, and bump bullmq (#359) ([50fa969](https://github.com/sapphiredev/plugins/commit/50fa9699a0f9d0cbb676efd0eb02c4253413c558))
+
+## 🐛 Bug Fixes
+
+- **scheduled-tasks:** Fix dependencies ([738fb7f](https://github.com/sapphiredev/plugins/commit/738fb7f18bca305725fde7b7b8c3c1ad92f45e7c))
+- **scheduled-tasks:** Various register fixes (#355) ([9ab3cc6](https://github.com/sapphiredev/plugins/commit/9ab3cc67669684f79f788dc3825bb8c04b39f96b))
+
 # [@sapphire/plugin-scheduled-tasks@4.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@3.0.0...@sapphire/plugin-scheduled-tasks@4.0.0) - (2022-08-20)
 
 ## 📝 Documentation
