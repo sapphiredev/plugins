@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-logger@3.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@3.0.0...@sapphire/plugin-logger@3.0.1) - (2022-09-18)
+
+## 🏠 Refactor
+
+- **logger:** Switch from time-utilities to timestamp package ([345769b](https://github.com/sapphiredev/plugins/commit/345769b34fe7c3397d5f6cecbe2ab64cf89be600))
+
+## 🧪 Testing
+
+- Migrate to vitest ([94a182e](https://github.com/sapphiredev/plugins/commit/94a182ea0d03f79616c66983695caf64e93cb6c3))
+
 # [@sapphire/plugin-logger@3.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@2.2.3...@sapphire/plugin-logger@3.0.0) - (2022-08-20)
 
 ## 🐛 Bug Fixes
