@@ -42,9 +42,6 @@ You can use the following command to install this package along with `bullmq`, o
 
 ```sh
 npm install @sapphire/plugin-scheduled-tasks @sapphire/framework @sapphire/stopwatch bullmq
-
-// If you are using TypeScript, you need to install the @types/ioredis types
-npm install @types/ioredis --save-dev
 ```
 
 or with `sqs`
