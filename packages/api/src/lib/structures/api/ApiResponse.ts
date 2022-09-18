@@ -1,4 +1,4 @@
-import { ServerResponse, STATUS_CODES } from 'http';
+import { IncomingMessage, ServerResponse, STATUS_CODES } from 'http';
 import { MimeTypes } from '../../utils/MimeTypes';
 import { HttpCodes } from '../http/HttpCodes';
 import type { CookieStore } from './CookieStore';
@@ -6,7 +6,7 @@ import type { CookieStore } from './CookieStore';
 /**
  * @since 1.0.0
  */
-export class ApiResponse extends ServerResponse {
+export class ApiResponse<Request extends IncomingMessage = IncomingMessage> extends ServerResponse<Request> {
 	/**
 	 * @since 1.0.0
 	 */
