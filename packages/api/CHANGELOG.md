@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@4.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@4.0.0...@sapphire/plugin-api@4.0.1) - (2022-09-18)
+
+## 🐛 Bug Fixes
+
+- **api:** Compatibility with latest @types/node ([8c80780](https://github.com/sapphiredev/plugins/commit/8c807807bbeb979fb4344b1c7a342d72aceee83c))
+
+## 🧪 Testing
+
+- Migrate to vitest ([94a182e](https://github.com/sapphiredev/plugins/commit/94a182ea0d03f79616c66983695caf64e93cb6c3))
+
 # [@sapphire/plugin-api@4.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@3.2.4...@sapphire/plugin-api@4.0.0) - (2022-08-20)
 
 ## 📝 Documentation
