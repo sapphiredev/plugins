@@ -1,5 +1,5 @@
 import { container, Result } from '@sapphire/framework';
-import { EntryId, JobState, Queue, QueueOptions, Job, JobInformation3, Worker, QueueScheduler, JobsOptions } from 'bullmq';
+import { EntryId, Job, JobsOptions, JobState, Queue, QueueOptions, Worker } from 'bullmq';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
 import type { ScheduledTaskCreateRepeatedTask } from '../types/ScheduledTaskCreateRepeatedTask';
 import { ScheduledTaskEvents } from '../types/ScheduledTaskEvents';
@@ -24,6 +24,8 @@ export interface ScheduledTaskRedisStrategyListOptions extends ScheduledTaskRedi
 
 export type BullClient = Queue<ScheduledTaskRedisStrategyJob | null>;
 
+export type ScheduledTaskRedisListRepeatedReturnType = ReturnType<BullClient['getRepeatableJobs']> extends Promise<infer U> ? U : never;
+
 export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 	public readonly options: QueueOptions;
 	public readonly queue: string;
@@ -41,7 +43,6 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 	public connect(): void {
 		const connectResult = Result.from(() => {
 			this.queueClient = new Queue(this.queue, this.options);
-			new QueueScheduler(this.queue, { connection: this.options.connection });
 			new Worker(this.queue, async (job) => this.run(job?.name, job?.data), { connection: this.options.connection });
 		});
 
@@ -102,7 +103,7 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 		return this.queueClient.getJobs(types, start, end, asc) as Promise<Job<T>[]> | undefined;
 	}
 
-	public listRepeated(options: ScheduledTaskRedisStrategyListRepeatedOptions): Promise<JobInformation3[]> | undefined {
+	public listRepeated(options: ScheduledTaskRedisStrategyListRepeatedOptions): Promise<ScheduledTaskRedisListRepeatedReturnType> | undefined {
 		const { start, end, asc } = options;
 		if (!this.queueClient) {
 			return;

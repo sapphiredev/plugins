@@ -1,5 +1,6 @@
 export type {
 	BullClient,
+	ScheduledTaskRedisListRepeatedReturnType,
 	ScheduledTaskRedisStrategy,
 	ScheduledTaskRedisStrategyJob,
 	ScheduledTaskRedisStrategyListOptions,
