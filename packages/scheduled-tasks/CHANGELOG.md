@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@5.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@4.0.1...@sapphire/plugin-scheduled-tasks@5.0.0) - (2022-09-25)
+
+## 🚀 Features
+
+- **scheduled-tasks:** Update dependency bullmq to v2 (#363) ([8e27891](https://github.com/sapphiredev/plugins/commit/8e2789132829eeeab3b52529d4ecefedbbc78ace))
+  - 💥 **BREAKING CHANGE:** scheduled-tasks plugin now depends on BullMQ v2, please update your dependency.
+
 # [@sapphire/plugin-scheduled-tasks@4.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@4.0.0...@sapphire/plugin-scheduled-tasks@4.0.1) - (2022-09-18)
 
 ## 🏠 Refactor
