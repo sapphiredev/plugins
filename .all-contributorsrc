@@ -234,6 +234,13 @@
 			"avatar_url": "https://avatars.githubusercontent.com/u/75909450?v=4",
 			"profile": "https://github.com/yuansheng1549",
 			"contributions": ["code"]
+		},
+		{
+			"login": "BenSegal855",
+			"name": "Ben",
+			"avatar_url": "https://avatars.githubusercontent.com/u/34194692?v=4",
+			"profile": "https://github.com/BenSegal855",
+			"contributions": ["code"]
 		}
 	],
 	"contributorsPerLine": 7,
