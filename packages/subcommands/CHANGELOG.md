@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@3.2.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@3.2.1...@sapphire/plugin-subcommands@3.2.2) - (2022-10-02)
+
+## 🐛 Bug Fixes
+
+- **subcommands:** Bump dependencies ([1142524](https://github.com/sapphiredev/plugins/commit/1142524d89cec3a527867cf0527434bc5c38c39c))
+
+## 📝 Documentation
+
+- Add @r-priyam as a contributor ([2d97019](https://github.com/sapphiredev/plugins/commit/2d970198717285c0f1652340ce87b1a4780179f3))
+- Add @BenSegal855 as a contributor ([66553df](https://github.com/sapphiredev/plugins/commit/66553dfbb4bc7332c295277ffa4a8f720401bc89))
+- Add @yuansheng1549 as a contributor ([c36ac65](https://github.com/sapphiredev/plugins/commit/c36ac65cd0a1a3e266a8a3679a58404177e0bb6b))
+- Add @RealShadowNova as a contributor ([6cfa76f](https://github.com/sapphiredev/plugins/commit/6cfa76f793a16c6d11aa057e66e3fb41a9f4fb6d))
+
 # [@sapphire/plugin-subcommands@3.2.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@3.2.0...@sapphire/plugin-subcommands@3.2.1) - (2022-09-02)
 
 ## 🐛 Bug Fixes
