@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@3.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@3.0.0...@sapphire/plugin-i18next@3.0.1) - (2022-10-02)
+
+## 🐛 Bug Fixes
+
+- **i18next:** Bump dependencies ([666b0f4](https://github.com/sapphiredev/plugins/commit/666b0f4418ead5f29ea124bb61c4c5550c33cf1d))
+
+## 📝 Documentation
+
+- Add @r-priyam as a contributor ([2d97019](https://github.com/sapphiredev/plugins/commit/2d970198717285c0f1652340ce87b1a4780179f3))
+- Add @BenSegal855 as a contributor ([66553df](https://github.com/sapphiredev/plugins/commit/66553dfbb4bc7332c295277ffa4a8f720401bc89))
+- Add @yuansheng1549 as a contributor ([c36ac65](https://github.com/sapphiredev/plugins/commit/c36ac65cd0a1a3e266a8a3679a58404177e0bb6b))
+- Add @RealShadowNova as a contributor ([6cfa76f](https://github.com/sapphiredev/plugins/commit/6cfa76f793a16c6d11aa057e66e3fb41a9f4fb6d))
+
+## 🧪 Testing
+
+- Migrate to vitest ([94a182e](https://github.com/sapphiredev/plugins/commit/94a182ea0d03f79616c66983695caf64e93cb6c3))
+
 # [@sapphire/plugin-i18next@3.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@2.5.4...@sapphire/plugin-i18next@3.0.0) - (2022-08-20)
 
 ## 🏠 Refactor
