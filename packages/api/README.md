@@ -150,6 +150,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/ricardooow"><img src="https://avatars.githubusercontent.com/u/28981399?v=4?s=100" width="100px;" alt=""/><br /><sub><b>ricardooow</b></sub></a><br /><a href="https://github.com/sapphiredev/plugins/commits?author=ricardooow" title="Code">💻</a></td>
     <td align="center"><a href="https://shadownova.dev/"><img src="https://avatars.githubusercontent.com/u/46537907?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Hezekiah Hendry</b></sub></a><br /><a href="#tool-RealShadowNova" title="Tools">🔧</a></td>
+    <td align="center"><a href="https://github.com/yuansheng1549"><img src="https://avatars.githubusercontent.com/u/75909450?v=4?s=100" width="100px;" alt=""/><br /><sub><b>yuansheng1549</b></sub></a><br /><a href="https://github.com/sapphiredev/plugins/commits?author=yuansheng1549" title="Code">💻</a></td>
   </tr>
 </table>
 
