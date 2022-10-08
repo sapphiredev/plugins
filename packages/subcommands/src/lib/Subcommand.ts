@@ -128,7 +128,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 			mapping.type ??= 'method';
 
 			if (mapping.type === 'method') {
-				if (mapping.default) {
+				if (mapping.default && !defaultCommand) {
 					matchedWithGroupedSubcommand = false;
 					defaultCommand = mapping;
 				}
@@ -184,11 +184,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 
 		// No subcommand matched, let's try to run default, if any:
 		if (defaultCommand) {
-			if (subcommandOrGroup.isSome()) {
-				args.next();
-			}
-
-			// If we matched with a subcommand in a group we need to skip 1 more arg
+			// If we matched with a subcommand in a group we need to skip 1 the group name
 			if (matchedWithGroupedSubcommand) {
 				args.next();
 			}
