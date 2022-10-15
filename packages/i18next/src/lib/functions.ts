@@ -1,6 +1,6 @@
 import { container } from '@sapphire/pieces';
 import { lazy, type NonNullObject } from '@sapphire/utilities';
-import { Locale, type LocaleString, type LocalizationMap } from 'discord-api-types/v10';
+import { Locale, type LocaleString } from 'discord-api-types/v10';
 import { BaseCommandInteraction, Guild, Message, MessageComponentInteraction } from 'discord.js';
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
 import type {
@@ -96,6 +96,7 @@ function isSupportedDiscordLocale(language: string): language is LocaleString {
 
 const getLocales = lazy(() => {
 	const locales = new Map(container.i18n.languages);
+
 	for (const [locale] of locales) {
 		if (!isSupportedDiscordLocale(locale)) {
 			process.emitWarning('Unsupported Discord locale', {
@@ -104,16 +105,26 @@ const getLocales = lazy(() => {
 			});
 			locales.delete(locale);
 		}
+
 		continue;
 	}
+
 	return locales;
 });
+
 const getDefaultT = lazy(() => {
 	const defaultLocale = container.i18n.options.defaultName ?? 'en-US';
-	if (!isSupportedDiscordLocale(defaultLocale))
+
+	if (!isSupportedDiscordLocale(defaultLocale)) {
 		throw new TypeError(`Unsupported Discord locale\n'${defaultLocale}' is not assignable to type LocaleString`);
+	}
+
 	const defaultT = getLocales().get(defaultLocale);
-	if (defaultT) return defaultT;
+
+	if (defaultT) {
+		return defaultT;
+	}
+
 	throw new TypeError(`Could not find ${defaultLocale}`);
 });
 
@@ -158,11 +169,54 @@ export function applyDescriptionLocalizedBuilder<T extends BuilderWithDescriptio
 /**
  * Applies the localized names and descriptions on the builder, calling {@link applyNameLocalizedBuilder} and
  * {@link applyDescriptionLocalizedBuilder}.
+ *
  * @param builder The builder to apply the localizations to.
+ *
  * @param params The root key or the key for the name and description keys.
- * @returns The updated builder.
- * @remarks If only 2 parameters were passed, `name` will be defined as `${root}Name` and `description` as
- * `${root}Description`, being `root` the second parameter in the function, after `builder`.
+ * This needs to be either 1 or 2 parameters.
+ * See examples below for more information.
+ *
+ * @returns The updated builder. You can chain subsequent builder methods on this.
+ *
+ * @remarks If only 2 parameters were passed, then this function will automatically append `Name` and `Description`
+ *  to the root-key (wherein `root-key` is second parameter in the function, after `builder`)
+ * passed through the second parameter.
+ *
+ * For example given `applyLocalizedBuilder(builder, 'userinfo')` the localized options will use the i18next keys
+ * `userinfoName` and `userinfoDescription`.
+ *
+ * In the following example we provide all parameters and add a User Option
+ * `applyLocalizedBuilder` needs either
+ * @example
+ * ```typescript
+ * class UserInfoCommand extends Command {
+ *   public registerApplicationCommands(registry: ChatInputCommand.Registry) {
+ *     registry.registerChatInputCommand(
+ *       (builder) =>
+ *         applyLocalizedBuilder(builder, 'userinfo-command-name', 'userinfo-command-description')
+ *           .addUserOption(
+ *             (input) => applyLocalizedBuilder(input, 'userinfo-user-name', 'userinfo-user-description').setRequired(true)
+ *           )
+ *     );
+ *   }
+ * }
+ * ```
+ *
+ * In the following example we provide single root keys which means `Name` and `Description` get appended as mentioned above.
+ * @example
+ * ```typescript
+ * class UserInfoCommand extends Command {
+ *   public registerApplicationCommands(registry: ChatInputCommand.Registry) {
+ *     registry.registerChatInputCommand(
+ *       (builder) =>
+ *         applyLocalizedBuilder(builder, 'userinfo')
+ *           .addUserOption(
+ *             (input) => applyLocalizedBuilder(input, 'userinfoOption').setRequired(true)
+ *           )
+ *     );
+ *   }
+ * }
+ * ```
  */
 export function applyLocalizedBuilder<T extends BuilderWithNameAndDescription>(
 	builder: T,
@@ -173,21 +227,6 @@ export function applyLocalizedBuilder<T extends BuilderWithNameAndDescription>(
 
 	applyNameLocalizedBuilder(builder, localeName);
 	applyDescriptionLocalizedBuilder(builder, localeDescription);
+
 	return builder;
-}
-
-export function createSelectMenuChoiceName<V extends NonNullObject>(key: TFunctionKeys, value?: V): createSelectMenuChoiceName.Result<V> {
-	const result = getLocalizedData(key);
-	return {
-		...value,
-		name: result.value,
-		name_localizations: result.localizations
-	} as createSelectMenuChoiceName.Result<V>;
-}
-
-export namespace createSelectMenuChoiceName {
-	export type Result<V> = V & {
-		name: string;
-		name_localizations: LocalizationMap;
-	};
 }
