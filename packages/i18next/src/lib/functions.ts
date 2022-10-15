@@ -1,6 +1,6 @@
 import { container } from '@sapphire/pieces';
 import { lazy, type NonNullObject } from '@sapphire/utilities';
-import { Locale, type LocaleString } from 'discord-api-types/v10';
+import { APIApplicationCommandOptionChoice, Locale, type LocaleString } from 'discord-api-types/v10';
 import { BaseCommandInteraction, Guild, Message, MessageComponentInteraction } from 'discord.js';
 import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
 import type {
@@ -90,6 +90,7 @@ async function resolveLanguage(context: InternationalizationContext): Promise<st
 }
 
 const supportedLanguages = new Set(Object.values(Locale)) as ReadonlySet<LocaleString>;
+
 function isSupportedDiscordLocale(language: string): language is LocaleString {
 	return supportedLanguages.has(language as LocaleString);
 }
@@ -101,8 +102,9 @@ const getLocales = lazy(() => {
 		if (!isSupportedDiscordLocale(locale)) {
 			process.emitWarning('Unsupported Discord locale', {
 				code: 'UNSUPPORTED_LOCALE',
-				detail: `'${locale}' is not assignable to type LocaleString`
+				detail: `'${locale}' needs to be one of: ${[...locales.values()]}`
 			});
+
 			locales.delete(locale);
 		}
 
@@ -116,7 +118,7 @@ const getDefaultT = lazy(() => {
 	const defaultLocale = container.i18n.options.defaultName ?? 'en-US';
 
 	if (!isSupportedDiscordLocale(defaultLocale)) {
-		throw new TypeError(`Unsupported Discord locale\n'${defaultLocale}' is not assignable to type LocaleString`);
+		throw new TypeError(`Unsupported Discord locale found:\n'${defaultLocale}' is not within the list of ${[...supportedLanguages]}`);
 	}
 
 	const defaultT = getLocales().get(defaultLocale);
@@ -193,9 +195,9 @@ export function applyDescriptionLocalizedBuilder<T extends BuilderWithDescriptio
  *   public registerApplicationCommands(registry: ChatInputCommand.Registry) {
  *     registry.registerChatInputCommand(
  *       (builder) =>
- *         applyLocalizedBuilder(builder, 'userinfo-command-name', 'userinfo-command-description')
+ *         applyLocalizedBuilder(builder, 'commands/names:userinfo', 'commands/descriptions:userinfo')
  *           .addUserOption(
- *             (input) => applyLocalizedBuilder(input, 'userinfo-user-name', 'userinfo-user-description').setRequired(true)
+ *             (input) => applyLocalizedBuilder(input, 'commands/options:userinfo-name', 'commands/options:userinfo-description').setRequired(true)
  *           )
  *     );
  *   }
@@ -209,9 +211,9 @@ export function applyDescriptionLocalizedBuilder<T extends BuilderWithDescriptio
  *   public registerApplicationCommands(registry: ChatInputCommand.Registry) {
  *     registry.registerChatInputCommand(
  *       (builder) =>
- *         applyLocalizedBuilder(builder, 'userinfo')
+ *         applyLocalizedBuilder(builder, 'commands:userinfo')
  *           .addUserOption(
- *             (input) => applyLocalizedBuilder(input, 'userinfoOption').setRequired(true)
+ *             (input) => applyLocalizedBuilder(input, 'options:userinfo').setRequired(true)
  *           )
  *     );
  *   }
@@ -229,4 +231,44 @@ export function applyLocalizedBuilder<T extends BuilderWithNameAndDescription>(
 	applyDescriptionLocalizedBuilder(builder, localeDescription);
 
 	return builder;
+}
+
+/**
+ * Constructs an object that can be passed into `setChoices` for String or Number option with localized names.
+ *
+ * @param key The i18next key for the name of the select option name.
+ * @param options The additional Select Menu options. This should _at least_ include the `value` key.
+ * @returns An object with anything provided through {@link createLocalizedChoice.options} with `name` and `name_localizations` added.
+ *
+ * @example
+ * ```typescript
+ * export class TypeCommand extends Command {
+ *   public override registerApplicationCommands(registry: ChatInputCommand.Registry) {
+ *     registry.registerChatInputCommand((builder) =>
+ *       applyLocalizedBuilder(builder, 'commands/names:type').addStringOption((option) =>
+ *         applyLocalizedBuilder(option, 'commands/options:type')
+ *           .setRequired(true)
+ *           .setChoices(
+ *             createLocalizedChoice('selects/pokemon:type-grass', { value: 'grass' }),
+ *             createLocalizedChoice('selects/pokemon:type-water', { value: 'water' }),
+ *             createLocalizedChoice('selects/pokemon:type-fire', { value: 'fire' }),
+ *             createLocalizedChoice('selects/pokemon:type-electric', { value: 'electric' })
+ *           )
+ *       )
+ *     );
+ *   }
+ * }
+ * ```
+ */
+export function createLocalizedChoice<ValueType = string | number>(
+	key: TFunctionKeys,
+	options: Omit<APIApplicationCommandOptionChoice<ValueType>, 'name' | 'name_localizations'>
+): APIApplicationCommandOptionChoice<ValueType> {
+	const result = getLocalizedData(key);
+
+	return {
+		...options,
+		name: result.value,
+		name_localizations: result.localizations
+	};
 }
