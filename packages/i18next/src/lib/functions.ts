@@ -102,7 +102,7 @@ const getLocales = lazy(() => {
 		if (!isSupportedDiscordLocale(locale)) {
 			process.emitWarning('Unsupported Discord locale', {
 				code: 'UNSUPPORTED_LOCALE',
-				detail: `'${locale}' needs to be one of: ${[...locales.values()]}`
+				detail: `'${locale}' needs to be one of: ${[...locales.keys()]}`
 			});
 
 			locales.delete(locale);
