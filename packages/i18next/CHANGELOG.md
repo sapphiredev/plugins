@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@3.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@3.0.1...@sapphire/plugin-i18next@3.1.0) - (2022-10-16)
+
+## 🐛 Bug Fixes
+
+- **i18next:** Update dependencies ([98e3313](https://github.com/sapphiredev/plugins/commit/98e3313c6bdf279d8301a4d6705a4b40f6767929))
+
+## 🚀 Features
+
+- **plugin-i18next:** Add `applyLocalizedBuilder` and `createSelectMenuChoiceName` to help registering localized commands (#372) ([6deee87](https://github.com/sapphiredev/plugins/commit/6deee87c6dee3af2d5f7c02d39d9aa03b480d65f))
+
 # [@sapphire/plugin-i18next@3.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@3.0.0...@sapphire/plugin-i18next@3.0.1) - (2022-10-02)
 
 ## 🐛 Bug Fixes
