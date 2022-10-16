@@ -947,7 +947,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.8.3":
+"@types/node@npm:*":
   version: 18.8.3
   resolution: "@types/node@npm:18.8.3"
   checksum: 9201adc6dc389644c9f478f950ef8926a93e5827865dcd80d7d12fefacab665c96879c87cd6ec74d5eccdd998c4603d02e1e07a35d71a63fe4c20670a381f6ef
@@ -958,6 +958,13 @@ __metadata:
   version: 14.18.29
   resolution: "@types/node@npm:14.18.29"
   checksum: 43481c1c066dd01578ff137f437a8a901f8fcd3cdc068c36047c444861ab4aac8a62fb4eb6d03738df02006336c90619bfc7860d4e5b259916956942d2e68e88
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.11.0":
+  version: 18.11.0
+  resolution: "@types/node@npm:18.11.0"
+  checksum: f27f899ab428e5732f04fadadc9203f44bdf3abf56474540ee27da90e4f2ba133faf87263cada4d2271955f92ee6a142bd50683c86290fe5070c19aac44fd654
   languageName: node
   linkType: hard
 
@@ -5555,7 +5562,7 @@ __metadata:
     "@sapphire/stopwatch": ^1.5.0
     "@sapphire/ts-config": ^3.3.4
     "@sapphire/utilities": ^3.11.0
-    "@types/node": ^18.8.3
+    "@types/node": ^18.11.0
     "@types/node-fetch": ^2.6.2
     "@types/ws": ^8.5.3
     "@typescript-eslint/eslint-plugin": ^5.40.0

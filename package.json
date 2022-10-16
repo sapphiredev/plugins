@@ -28,7 +28,7 @@
 		"@sapphire/stopwatch": "^1.5.0",
 		"@sapphire/ts-config": "^3.3.4",
 		"@sapphire/utilities": "^3.11.0",
-		"@types/node": "^18.8.3",
+		"@types/node": "^18.11.0",
 		"@types/node-fetch": "^2.6.2",
 		"@types/ws": "^8.5.3",
 		"@typescript-eslint/eslint-plugin": "^5.40.0",
