@@ -1,6 +1,7 @@
 import type { Awaitable } from '@sapphire/utilities';
 import type { Backend } from '@skyra/i18next-backend';
 import type { WatchOptions } from 'chokidar';
+import type { LocalizationMap } from 'discord-api-types/v10';
 import type {
 	BaseCommandInteraction,
 	Guild,
@@ -150,5 +151,21 @@ export interface I18nextFormatters {
 	format(value: any, lng: string | undefined, options: any): string;
 }
 
+export interface LocalizedData {
+	value: string;
+	localizations: LocalizationMap;
+}
+
+export interface BuilderWithName {
+	setName(name: string): this;
+	setNameLocalizations(localizedNames: LocalizationMap | null): this;
+}
+
+export interface BuilderWithDescription {
+	setDescription(description: string): this;
+	setDescriptionLocalizations(localizedDescriptions: LocalizationMap | null): this;
+}
+
+export type BuilderWithNameAndDescription = BuilderWithName & BuilderWithDescription;
 export type ChannelTarget = Message | DiscordChannel;
 export type Target = BaseCommandInteraction | ChannelTarget | Guild | MessageComponentInteraction;
