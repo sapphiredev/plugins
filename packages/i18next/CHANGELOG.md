@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@4.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@3.1.0...@sapphire/plugin-i18next@4.0.0) - (2022-10-23)
+
+## 🐛 Bug Fixes
+
+- **i18next:** Update dependency i18next to v22 (#383) ([f958106](https://github.com/sapphiredev/plugins/commit/f95810618fbfbabe1ab342a6931bdda0e3121dc6))
+  - 💥 **BREAKING CHANGE:** This package now depends on i18next v22, please refer to https://github.com/i18next/i18next/blob/HEAD/CHANGELOG.md#2200 for further breaking changes
+
 # [@sapphire/plugin-i18next@3.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@3.0.1...@sapphire/plugin-i18next@3.1.0) - (2022-10-16)
 
 ## 🐛 Bug Fixes
