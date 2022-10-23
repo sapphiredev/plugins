@@ -2,11 +2,11 @@ import { Result } from '@sapphire/framework';
 import { container, getRootData } from '@sapphire/pieces';
 import { Awaitable, isFunction, NonNullObject } from '@sapphire/utilities';
 import { Backend, PathResolvable } from '@skyra/i18next-backend';
-import i18next, { StringMap, TFunction, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
+import i18next, { TFunction, TOptions } from 'i18next';
 import type { PathLike } from 'node:fs';
 import { opendir } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { InternationalizationContext, InternationalizationOptions } from './types';
+import type { InternationalizationContext, InternationalizationOptions, StringMap, TFunctionKeys, TFunctionResult } from './types';
 
 /**
  * A generalized class for handling `i18next` JSON files and their discovery.

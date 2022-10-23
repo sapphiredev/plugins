@@ -2,14 +2,17 @@ import { container } from '@sapphire/pieces';
 import { lazy, type NonNullObject } from '@sapphire/utilities';
 import { APIApplicationCommandOptionChoice, Locale, type LocaleString } from 'discord-api-types/v10';
 import { BaseCommandInteraction, Guild, Message, MessageComponentInteraction } from 'discord.js';
-import type { StringMap, TFunctionKeys, TFunctionResult, TOptions } from 'i18next';
+import type { TOptions } from 'i18next';
 import type {
 	BuilderWithDescription,
 	BuilderWithName,
 	BuilderWithNameAndDescription,
 	InternationalizationContext,
 	LocalizedData,
-	Target
+	StringMap,
+	Target,
+	TFunctionKeys,
+	TFunctionResult
 } from './types';
 
 /**

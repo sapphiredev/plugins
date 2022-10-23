@@ -13,7 +13,19 @@ import type {
 	User,
 	VoiceChannel
 } from 'discord.js';
-import type { InitOptions } from 'i18next';
+import type { DefaultTFuncReturn, InitOptions, Namespace, TFuncKey, TFuncReturn, TypeOptions } from 'i18next';
+
+export interface StringMap {
+	[key: string]: any;
+}
+
+export type TFunctionKeys = TFuncKey | TemplateStringsArray extends infer A ? A : never;
+export type TFunctionResult<N extends Namespace = TypeOptions['defaultNS'], TKPrefix = undefined> = TFuncReturn<
+	N,
+	TFunctionKeys,
+	DefaultTFuncReturn,
+	TKPrefix
+>;
 
 /**
  * Configure whether to use Hot-Module-Replacement (HMR) for your i18next resources using these options. The minimum config to enable HMR is to set `enabled` to true. Any other properties are optional.
