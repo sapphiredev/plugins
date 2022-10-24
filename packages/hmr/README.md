@@ -178,6 +178,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/yuansheng1549"><img src="https://avatars.githubusercontent.com/u/75909450?v=4?s=100" width="100px;" alt=""/><br /><sub><b>yuansheng1549</b></sub></a><br /><a href="https://github.com/sapphiredev/plugins/commits?author=yuansheng1549" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/BenSegal855"><img src="https://avatars.githubusercontent.com/u/34194692?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ben</b></sub></a><br /><a href="https://github.com/sapphiredev/plugins/commits?author=BenSegal855" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/r-priyam"><img src="https://avatars.githubusercontent.com/u/50884372?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Priyam</b></sub></a><br /><a href="https://github.com/sapphiredev/plugins/commits?author=r-priyam" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Arcadia148"><img src="https://avatars.githubusercontent.com/u/50211159?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Arcadia148</b></sub></a><br /><a href="https://github.com/sapphiredev/plugins/commits?author=Arcadia148" title="Code">💻</a></td>
   </tr>
 </table>
 
