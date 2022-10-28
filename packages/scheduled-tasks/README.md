@@ -40,7 +40,7 @@ In case you want to use sqs as your provider:
 You can use the following command to install this package along with `bullmq`, or replace `npm install` with your package manager of choice.
 
 ```sh
-npm install @sapphire/plugin-scheduled-tasks @sapphire/framework bullmq
+npm install @sapphire/plugin-scheduled-tasks @sapphire/framework bullmq@^2.4.0
 ```
 
 or with `sqs`
