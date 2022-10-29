@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@6.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@5.0.1...@sapphire/plugin-scheduled-tasks@6.0.0) - (2022-10-29)
+
+## 🏠 Refactor
+
+- **scheduled-tasks:** Support for bullmq v3 (#386) ([4b37938](https://github.com/sapphiredev/plugins/commit/4b37938b857260a9a34587c27c37ed2c204c10b3))
+  - 💥 **BREAKING CHANGE:** This plugin now depends on bullmq version 3.x. This means `cron` has been changed to `pattern`, see also https://github.com/taskforcesh/bullmq/pull/1456 and the full changelog https://github.com/taskforcesh/bullmq/blob/master/docs/gitbook/changelog.md#300-2022-10-25
+
+## 🐛 Bug Fixes
+
+- **scheduled-tasks:** Update dependencies ([0a6cabf](https://github.com/sapphiredev/plugins/commit/0a6cabf486618ee8092406a66e8501f981207cbb))
+
+## 📝 Documentation
+
+- Add @Arcadia148 as a contributor ([3a28c2f](https://github.com/sapphiredev/plugins/commit/3a28c2fc9a08be5e66026b7468a304c8b83203e6))
+
 # [@sapphire/plugin-scheduled-tasks@5.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@5.0.0...@sapphire/plugin-scheduled-tasks@5.0.1) - (2022-10-02)
 
 ## 🐛 Bug Fixes
