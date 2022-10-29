@@ -9,7 +9,7 @@ export class ScheduledTaskStore extends Store<ScheduledTask> {
 	}
 
 	public set(key: string, value: ScheduledTask): this {
-		if (value.interval !== null || value.cron !== null) {
+		if (value.interval !== null || value.pattern !== null) {
 			this.repeatedTasks.push(value);
 		}
 

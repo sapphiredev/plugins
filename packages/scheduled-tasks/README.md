@@ -160,20 +160,20 @@ declare module '@sapphire/plugin-scheduled-tasks' {
 container.tasks.create('manual', payload, 5000);
 ```
 
-#### Cron Task Example
+#### Pattern Task Example
 
-Cron jobs are currently only supported by the Redis strategy.
+Pattern jobs are currently only supported by the Redis strategy.
 
 ##### Creating the Piece:
 
 ```typescript
 import { ScheduledTask } from '@sapphire/plugin-scheduled-tasks';
 
-export class CronTask extends ScheduledTask {
+export class PatternTask extends ScheduledTask {
 	public constructor(context: ScheduledTask.Context, options: ScheduledTask.Options) {
 		super(context, {
 			...options,
-			cron: '0 * * * *'
+			pattern: '0 * * * *'
 		});
 	}
 
@@ -184,14 +184,14 @@ export class CronTask extends ScheduledTask {
 
 declare module '@sapphire/plugin-scheduled-tasks' {
 	interface ScheduledTasks {
-		cron: never;
+		pattern: never;
 	}
 }
 ```
 
-##### Using Cron tasks
+##### Using Pattern tasks
 
-Cron & Interval tasks are loaded automatically.
+Pattern & Interval tasks are loaded automatically.
 
 #### Interval task example
 
@@ -222,7 +222,7 @@ declare module '@sapphire/plugin-scheduled-tasks' {
 
 ##### Using Interval tasks
 
-Cron & Interval tasks are loaded automatically.
+Pattern & Interval tasks are loaded automatically.
 
 ## Buy us some doughnuts
 

@@ -45,8 +45,8 @@ export class ScheduledTaskSQSStrategy implements ScheduledTaskBaseStrategy {
 	}
 
 	public create(task: string, payload?: unknown, options?: ScheduledTasksTaskOptions): Promise<SendMessageBatchResultEntryList> {
-		if (options?.cron) {
-			throw new Error('SQS does not support cron notation.');
+		if (options?.pattern) {
+			throw new Error('SQS does not support pattern notation.');
 		}
 
 		let delay = (options?.delay ?? 0) / 1000;
