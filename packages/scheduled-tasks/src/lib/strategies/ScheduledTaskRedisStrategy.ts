@@ -71,7 +71,7 @@ export class ScheduledTaskRedisStrategy implements ScheduledTaskBaseStrategy {
 							every: options.interval!
 					  }
 					: {
-							cron: options.cron!
+							pattern: options.pattern!
 					  }
 			};
 		}

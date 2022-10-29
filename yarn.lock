@@ -742,7 +742,7 @@ __metadata:
     "@favware/cliff-jumper": ^1.8.8
     "@sapphire/stopwatch": ^1.5.0
     "@sapphire/utilities": ^3.11.0
-    bullmq: ^2.3.2
+    bullmq: ^3.0.0
     gen-esm-wrapper: ^1.1.3
     sqs-consumer: ^5.7.0
     sqs-producer: ^2.1.0
@@ -1502,9 +1502,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:^2.3.2":
-  version: 2.3.2
-  resolution: "bullmq@npm:2.3.2"
+"bullmq@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "bullmq@npm:3.0.0"
   dependencies:
     cron-parser: ^4.6.0
     glob: ^8.0.3
@@ -1514,7 +1514,7 @@ __metadata:
     semver: ^7.3.7
     tslib: ^2.0.0
     uuid: ^9.0.0
-  checksum: 2a5560a4624e72cad60620de5441eb3549498ad18595c3d9950c3245827462c14ef4d537a6cc900c0ed102c27f8bbe7d8a9e51a9ef8c739e813756e7c9ba9d9d
+  checksum: e94fbb830516a8aa648af3986ad7c85548dea0ef4f4d3c97a26210b46fb65a3ab082a6ff9959e563709c92c7a0d783ed35eea2e319b6e92b276ed209beffea8d
   languageName: node
   linkType: hard
 

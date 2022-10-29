@@ -44,7 +44,7 @@ export class ScheduledTaskHandler {
 								bullJobsOptions: piece.bullJobsOptions
 						  }
 						: {
-								cron: piece.cron!,
+								pattern: piece.pattern!,
 								bullJobsOptions: piece.bullJobsOptions
 						  })
 				}
