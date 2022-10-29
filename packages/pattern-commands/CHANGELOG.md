@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-pattern-commands@4.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@4.0.0...@sapphire/plugin-pattern-commands@4.0.1) - (2022-10-24)
+
+## 📝 Documentation
+
+- Add @Arcadia148 as a contributor ([3a28c2f](https://github.com/sapphiredev/plugins/commit/3a28c2fc9a08be5e66026b7468a304c8b83203e6))
+- Add @r-priyam as a contributor ([2d97019](https://github.com/sapphiredev/plugins/commit/2d970198717285c0f1652340ce87b1a4780179f3))
+- Add @BenSegal855 as a contributor ([66553df](https://github.com/sapphiredev/plugins/commit/66553dfbb4bc7332c295277ffa4a8f720401bc89))
+- Add @yuansheng1549 as a contributor ([c36ac65](https://github.com/sapphiredev/plugins/commit/c36ac65cd0a1a3e266a8a3679a58404177e0bb6b))
+- Add @RealShadowNova as a contributor ([6cfa76f](https://github.com/sapphiredev/plugins/commit/6cfa76f793a16c6d11aa057e66e3fb41a9f4fb6d))
+
 # [@sapphire/plugin-pattern-commands@4.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@3.1.1...@sapphire/plugin-pattern-commands@4.0.0) - (2022-08-20)
 
 ## 📝 Documentation
