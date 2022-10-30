@@ -78,7 +78,7 @@
 	"devDependencies": {
 		"@favware/cliff-jumper": "^1.8.8",
 		"gen-esm-wrapper": "^1.1.3",
-		"typedoc": "^0.23.17",
+		"typedoc": "^0.23.19",
 		"typedoc-json-parser": "^7.0.1",
 		"typescript": "^4.8.4"
 	}
