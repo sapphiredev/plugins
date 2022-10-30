@@ -13,7 +13,7 @@ import type {
 	User,
 	VoiceChannel
 } from 'discord.js';
-import type { DefaultTFuncReturn, InitOptions, Namespace, TFuncKey, TFuncReturn, TypeOptions } from 'i18next';
+import type { DefaultTFuncReturnWithObject, InitOptions, Namespace, TFuncKey, TFuncReturn, TypeOptions } from 'i18next';
 
 export interface StringMap {
 	[key: string]: any;
@@ -23,7 +23,7 @@ export type TFunctionKeys = TFuncKey | TemplateStringsArray extends infer A ? A 
 export type TFunctionResult<N extends Namespace = TypeOptions['defaultNS'], TKPrefix = undefined> = TFuncReturn<
 	N,
 	TFunctionKeys,
-	DefaultTFuncReturn,
+	DefaultTFuncReturnWithObject,
 	TKPrefix
 >;
 

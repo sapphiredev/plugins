@@ -192,7 +192,7 @@ export class InternationalizationHandler {
 			? { defaultValue: language(this.options.defaultMissingKey, { replace: { key } }) }
 			: undefined;
 
-		return language(key, { ...missingHandlers, ...options });
+		return language(key, { ...missingHandlers, ...options }) as TResult;
 	}
 
 	/**
