@@ -10,16 +10,6 @@ export class CommandAcceptedListener extends Listener<typeof PatternCommandEvent
 	}
 
 	public async run(payload: PatternCommandAcceptedPayload) {
-		const { message, command, alias } = payload;
-
-		if (command.chance >= Math.round(Math.random() * 99) + 1) {
-			await this.runPatternCommand(payload);
-		} else {
-			message.client.emit(PatternCommandEvents.CommandNoLuck, message, command, alias);
-		}
-	}
-
-	public async runPatternCommand(payload: PatternCommandAcceptedPayload) {
 		const { message, command } = payload;
 
 		const result = await Result.fromAsync(async () => {
@@ -34,7 +24,7 @@ export class CommandAcceptedListener extends Listener<typeof PatternCommandEvent
 			return duration;
 		});
 
-		result.inspectErr((error) => message.client.emit(PatternCommandEvents.CommandError, error, { ...payload, duration: -1 }));
+		result.inspectErr((error) => message.client.emit(PatternCommandEvents.CommandError, error, { ...payload, error, duration: -1 }));
 
 		message.client.emit(PatternCommandEvents.CommandFinished, message, command, {
 			...payload,

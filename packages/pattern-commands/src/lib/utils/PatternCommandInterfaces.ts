@@ -1,6 +1,11 @@
 import type { Message } from 'discord.js';
 import type { PatternCommand } from '../structures/PatternCommand';
 
+export interface PatternCommandPrePayload {
+	message: Message;
+	possibleCommands: PossiblePatternCommand[];
+}
+
 export interface PatternCommandPayload {
 	/** The message that triggered this PatternCommand */
 	message: Message;
@@ -32,3 +37,11 @@ export interface PatternCommandFinishedPayload extends PatternCommandAcceptedPay
 }
 
 export interface PatternCommandErrorPayload extends PatternCommandFinishedPayload {}
+
+export interface PatternCommandNoLuckPayload extends PatternCommandAcceptedPayload {}
+
+export interface PossiblePatternCommand {
+	command: PatternCommand;
+	alias: string;
+	weight: number;
+}

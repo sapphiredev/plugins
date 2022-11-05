@@ -4,6 +4,7 @@ import type { PieceContext } from '@sapphire/pieces';
 import { Message, Permissions } from 'discord.js';
 import type { PatternCommandStore } from '../lib/structures/PaternCommandStore';
 import { PatternCommandEvents } from '../lib/utils/PaternCommandEvents';
+import type { PossiblePatternCommand } from '../lib/utils/PatternCommandInterfaces';
 
 export class MessageParseListener extends Listener<typeof Events.PreMessageParsed> {
 	private readonly requiredPermissions = new Permissions(['VIEW_CHANNEL', 'SEND_MESSAGES']).freeze();
@@ -28,26 +29,38 @@ export class MessageParseListener extends Listener<typeof Events.PreMessageParse
 			content = content.toLowerCase();
 		}
 
-		let usedAlias: string | undefined;
+		const possiblePatternCommands: PossiblePatternCommand[] = [];
 
-		const command = patternCommandStore.find((patternCommand, key) => {
+		for (const [key, patternCommand] of patternCommandStore) {
 			if (content === key) {
-				usedAlias = key;
-				return true;
+				possiblePatternCommands.push({
+					command: patternCommand,
+					alias: key,
+					weight: patternCommand.weight
+				});
+				continue;
 			}
 
 			const aliasMatch = patternCommand.aliases.find((alias) => alias === content);
 
 			if (aliasMatch) {
-				usedAlias = aliasMatch;
-				return true;
+				possiblePatternCommands.push({
+					command: patternCommand,
+					alias: aliasMatch,
+					weight: patternCommand.weight
+				});
+				continue;
 			}
 
 			if (
 				content.match(new RegExp(patternCommand.matchFullName ? `\b${key}\b` : key, client.options.caseInsensitiveCommands ? 'i' : undefined))
 			) {
-				usedAlias = content;
-				return true;
+				possiblePatternCommands.push({
+					command: patternCommand,
+					alias: content,
+					weight: patternCommand.weight
+				});
+				continue;
 			}
 
 			const aliasRegexMatch = patternCommand.aliases.find((alias) =>
@@ -55,15 +68,21 @@ export class MessageParseListener extends Listener<typeof Events.PreMessageParse
 			);
 
 			if (aliasRegexMatch) {
-				usedAlias = aliasRegexMatch;
-				return true;
+				possiblePatternCommands.push({
+					command: patternCommand,
+					alias: aliasRegexMatch,
+					weight: patternCommand.weight
+				});
+				continue;
 			}
+		}
 
-			return false;
-		});
+		if (possiblePatternCommands.length > 0) {
+			const sortedPossiblePatternCommands = possiblePatternCommands.sort((first, second) => {
+				return second.weight - first.weight;
+			});
 
-		if (command && usedAlias !== undefined) {
-			client.emit(PatternCommandEvents.PreCommandRun, { message, command, alias: usedAlias });
+			client.emit(PatternCommandEvents.PreCommandRun, { message, possibleCommands: sortedPossiblePatternCommands });
 		}
 	}
 
