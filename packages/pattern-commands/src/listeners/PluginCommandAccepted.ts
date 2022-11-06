@@ -24,7 +24,7 @@ export class CommandAcceptedListener extends Listener<typeof PatternCommandEvent
 			return duration;
 		});
 
-		result.inspectErr((error) => message.client.emit(PatternCommandEvents.CommandError, error, { ...payload, error, duration: -1 }));
+		result.inspectErr((error) => message.client.emit(PatternCommandEvents.CommandError, error, { ...payload, duration: -1 }));
 
 		message.client.emit(PatternCommandEvents.CommandFinished, message, command, {
 			...payload,
