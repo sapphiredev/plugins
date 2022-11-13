@@ -41,7 +41,7 @@
 		"@sapphire/utilities": "^3.11.0",
 		"@skyra/i18next-backend": "^2.0.0",
 		"chokidar": "^3.5.3",
-		"i18next": "^22.0.4",
+		"i18next": "^22.0.5",
 		"tslib": "^2.4.1"
 	},
 	"repository": {
