@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-pattern-commands@4.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@4.0.1...@sapphire/plugin-pattern-commands@4.1.0) - (2022-11-19)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies (#387) ([e31f714](https://github.com/sapphiredev/plugins/commit/e31f7140c8bb7c34086540912eb595dd04adaef5))
+
+## 🚀 Features
+
+- **plugin-patterncommands:** Add command weight and allow to run another patternCommand if one was caught by a precondition (#389) ([a0c72f4](https://github.com/sapphiredev/plugins/commit/a0c72f48ea532fa423030c6288a17df6f289edcc))
+
 # [@sapphire/plugin-pattern-commands@4.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@4.0.0...@sapphire/plugin-pattern-commands@4.0.1) - (2022-10-24)
 
 ## 📝 Documentation
