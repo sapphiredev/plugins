@@ -549,7 +549,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/discord-utilities@npm:^2.11.6":
+"@sapphire/discord-utilities@npm:^2.12.0":
   version: 2.12.0
   resolution: "@sapphire/discord-utilities@npm:2.12.0"
   dependencies:
@@ -558,15 +558,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/discord.js-utilities@npm:^5.0.1":
-  version: 5.1.1
-  resolution: "@sapphire/discord.js-utilities@npm:5.1.1"
+"@sapphire/discord.js-utilities@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "@sapphire/discord.js-utilities@npm:5.1.2"
   dependencies:
-    "@sapphire/discord-utilities": ^2.11.6
+    "@sapphire/discord-utilities": ^2.12.0
     "@sapphire/duration": ^1.0.0
     "@sapphire/utilities": ^3.11.0
-    tslib: ^2.4.0
-  checksum: 9abe09dfd06af739fb103eef954a8c3c9516651612e72ad78f5573cc482b41871267f1780ca4437d55e42f25525f01093ef654809e501e7d887f392e0f9c0005
+    tslib: ^2.4.1
+  checksum: 60c02e2e62699df2c770ac6dae57222dc413b51784b463fffe4aa571493b63a1045c57d5d068cc3761f5cc20ff0b29d3611c34eba876a2092c926ba32973bea0
   languageName: node
   linkType: hard
 
@@ -601,25 +601,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/framework@npm:^3.1.3":
-  version: 3.1.3
-  resolution: "@sapphire/framework@npm:3.1.3"
+"@sapphire/framework@npm:^3.1.4":
+  version: 3.1.4
+  resolution: "@sapphire/framework@npm:3.1.4"
   dependencies:
     "@discordjs/builders": ^0.16.0
-    "@sapphire/discord-utilities": ^2.11.6
-    "@sapphire/discord.js-utilities": ^5.0.1
-    "@sapphire/lexure": ^1.1.1
-    "@sapphire/pieces": ^3.5.2
+    "@sapphire/discord-utilities": ^2.12.0
+    "@sapphire/discord.js-utilities": ^5.1.2
+    "@sapphire/lexure": ^1.1.2
+    "@sapphire/pieces": ^3.6.0
     "@sapphire/ratelimits": ^2.4.5
-    "@sapphire/result": ^2.5.0
+    "@sapphire/result": ^2.6.0
     "@sapphire/stopwatch": ^1.5.0
-    "@sapphire/utilities": ^3.10.0
-    tslib: ^2.4.0
-  checksum: 527728ff68f07d7324181b9669e4907208beae3327b4070705ab89c3b20d0fc7f1eb6038b8f2b7be50f24845863b6a3765a3365277c96eee0233cd1019126eb1
+    "@sapphire/utilities": ^3.11.0
+  checksum: 501ed2dfaae0fe6ffbbda165928506d174fb30053ba2241c8f695467aad725b2c9bf2f830969ef8cdeb00311511c17561d989204d6ef4a9cda8f380ffe359762
   languageName: node
   linkType: hard
 
-"@sapphire/lexure@npm:^1.1.1":
+"@sapphire/lexure@npm:^1.1.2":
   version: 1.1.2
   resolution: "@sapphire/lexure@npm:1.1.2"
   dependencies:
@@ -635,7 +634,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/pieces@npm:^3.5.2, @sapphire/pieces@npm:^3.6.0":
+"@sapphire/pieces@npm:^3.6.0":
   version: 3.6.0
   resolution: "@sapphire/pieces@npm:3.6.0"
   dependencies:
@@ -837,7 +836,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/utilities@npm:^3.10.0, @sapphire/utilities@npm:^3.11.0, @sapphire/utilities@npm:^3.8.0, @sapphire/utilities@npm:^3.9.3":
+"@sapphire/utilities@npm:^3.11.0, @sapphire/utilities@npm:^3.8.0, @sapphire/utilities@npm:^3.9.3":
   version: 3.11.0
   resolution: "@sapphire/utilities@npm:3.11.0"
   checksum: 3c8521038b8879524e8114f39eefc8b3b06cf825995f709684238b5cb14bd7df06d232a26a88f79160df290a66f9aa3133f5ce4ff8e2398033db9f301ad31e0d
@@ -5368,7 +5367,7 @@ __metadata:
     "@favware/cliff-jumper": ^1.8.8
     "@favware/npm-deprecate": ^1.0.5
     "@sapphire/eslint-config": ^4.3.8
-    "@sapphire/framework": ^3.1.3
+    "@sapphire/framework": ^3.1.4
     "@sapphire/pieces": ^3.6.0
     "@sapphire/prettier-config": ^1.4.4
     "@sapphire/stopwatch": ^1.5.0
