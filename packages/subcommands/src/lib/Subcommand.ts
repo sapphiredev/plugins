@@ -1,5 +1,5 @@
 import { Command, Result, UserError, type Args, type ChatInputCommand, type MessageCommand, type PieceContext } from '@sapphire/framework';
-import { deepClone } from '@sapphire/utilities';
+import { cast, deepClone } from '@sapphire/utilities';
 import type { CacheType, Message } from 'discord.js';
 import type {
 	ChatInputCommandSubcommandMappingMethod,
@@ -108,7 +108,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 	public onLoad() {
 		super.onLoad();
 
-		const externalMapping: SubcommandMappingArray | undefined = Reflect.get(this, 'subcommandMappings');
+		const externalMapping = Reflect.get(this, 'subcommandMappings');
 		if (externalMapping) {
 			const subcommands = Array.isArray(externalMapping) ? externalMapping : [];
 			this.parsedSubcommandMappings = subcommands;
@@ -257,7 +257,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				let result: unknown;
 
 				if (typeof subcommand.messageRun === 'string') {
-					const method: this['messageRun'] | undefined = Reflect.get(this, subcommand.messageRun);
+					const method = Reflect.get(this, subcommand.messageRun);
 					if (!method) {
 						throw new UserError({
 							identifier: SubcommandPluginIdentifiers.SubcommandNotFound,
@@ -266,7 +266,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 						});
 					}
 
-					result = await Reflect.apply(method, this, [message, args, context]);
+					result = await Reflect.apply(cast<this['messageRun']>(method), this, [message, args, context]);
 				} else {
 					result = await subcommand.messageRun(message, args, context);
 				}
@@ -300,7 +300,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				let result: unknown;
 
 				if (typeof subcommand.chatInputRun === 'string') {
-					const method: this['chatInputRun'] | undefined = Reflect.get(this, subcommand.chatInputRun);
+					const method = Reflect.get(this, subcommand.chatInputRun);
 					if (!method) {
 						throw new UserError({
 							identifier: SubcommandPluginIdentifiers.SubcommandNotFound,
@@ -309,7 +309,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 						});
 					}
 
-					result = await Reflect.apply(method, this, [interaction, context]);
+					result = await Reflect.apply(cast<this['chatInputRun']>(method), this, [interaction, context]);
 				} else {
 					result = await subcommand.chatInputRun(interaction, context);
 				}
