@@ -72,7 +72,7 @@
 		}
 	},
 	"resolutions": {
-		"@sapphire/shapeshift": "^3.7.0",
+		"@sapphire/shapeshift": "^3.7.1",
 		"acorn": "^8.8.1",
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.7"
