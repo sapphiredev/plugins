@@ -116,6 +116,14 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		}
 	}
 
+	public override supportsMessageCommands(): boolean {
+		return this.#supportsCommandType('messageRun');
+	}
+
+	public override supportsChatInputCommands(): this is ChatInputCommand {
+		return this.#supportsCommandType('chatInputRun');
+	}
+
 	public async messageRun(message: Message, args: PreParseReturn, context: MessageCommand.RunContext) {
 		args.save();
 		const subcommandOrGroup = args.nextMaybe();
@@ -344,6 +352,15 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		}
 
 		return { mapping: foundDefault, defaultMatch: true } as const;
+	}
+
+	#supportsCommandType(commandType: 'messageRun' | 'chatInputRun'): boolean {
+		return this.parsedSubcommandMappings.some((mapping) => {
+			if (mapping.type === 'group') {
+				return mapping.entries.some((groupCommand) => Reflect.has(groupCommand, commandType));
+			}
+			return Reflect.has(mapping, commandType);
+		});
 	}
 }
 
