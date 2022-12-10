@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@3.2.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@3.2.3...@sapphire/plugin-subcommands@3.2.4) - (2022-12-10)
+
+## 🐛 Bug Fixes
+
+- SupportsXCommands() methods now use SubcommandMappings (#398) ([3e7a45a](https://github.com/sapphiredev/plugins/commit/3e7a45a63899b9ff1ffa39afb7855e81515daceb))
+- **deps:** Update all non-major dependencies (#387) ([e31f714](https://github.com/sapphiredev/plugins/commit/e31f7140c8bb7c34086540912eb595dd04adaef5))
+
+## 📝 Documentation
+
+- Add @Arcadia148 as a contributor ([3a28c2f](https://github.com/sapphiredev/plugins/commit/3a28c2fc9a08be5e66026b7468a304c8b83203e6))
+
 # [@sapphire/plugin-subcommands@3.2.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@3.2.2...@sapphire/plugin-subcommands@3.2.3) - (2022-10-08)
 
 ## 🐛 Bug Fixes
