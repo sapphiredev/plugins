@@ -5,7 +5,7 @@
 	"npm": {
 		"packageRules": [
 			{
-				"matchPackagePatterns": ["discord-api-types"],
+				"matchPackagePatterns": ["discord-api-types", "sqs-consumer", "sqs-producer"],
 				"enabled": false
 			}
 		]
