@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@4.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@4.0.1...@sapphire/plugin-i18next@4.0.2) - (2022-12-11)
+
+## 🐛 Bug Fixes
+
+- **i18next:** Update dependencies to fix build issues with latest i18next ([cd1a792](https://github.com/sapphiredev/plugins/commit/cd1a7929a035edbc19b919f63213ae6b07d4e3f0))
+- **deps:** Update all non-major dependencies (#399) ([953d57b](https://github.com/sapphiredev/plugins/commit/953d57b06ea624baa89ba1d03131c5fb10cecbfb))
+
 # [@sapphire/plugin-i18next@4.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@4.0.0...@sapphire/plugin-i18next@4.0.1) - (2022-10-30)
 
 ## 🐛 Bug Fixes
