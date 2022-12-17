@@ -2,7 +2,7 @@ import { container } from '@sapphire/pieces';
 import { lazy, type NonNullObject } from '@sapphire/utilities';
 import { APIApplicationCommandOptionChoice, Locale, type LocaleString } from 'discord-api-types/v10';
 import { BaseCommandInteraction, Guild, Message, MessageComponentInteraction } from 'discord.js';
-import type { TOptions } from 'i18next';
+import type { TFuncKey, TOptions } from 'i18next';
 import type {
 	BuilderWithDescription,
 	BuilderWithName,
@@ -78,7 +78,7 @@ export async function fetchT(target: Target) {
  */
 export async function resolveKey<
 	TResult extends TFunctionResult = string,
-	TKeys extends TFunctionKeys = string,
+	TKeys extends TFuncKey = string,
 	TInterpolationMap extends NonNullObject = StringMap
 >(target: Target, key: TKeys | TKeys[], options?: TOptions<TInterpolationMap>): Promise<TResult> {
 	return container.i18n.format(typeof options?.lng === 'string' ? options.lng : await fetchLanguage(target), key, options);

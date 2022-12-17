@@ -2,11 +2,11 @@ import { Result } from '@sapphire/framework';
 import { container, getRootData } from '@sapphire/pieces';
 import { Awaitable, isFunction, NonNullObject } from '@sapphire/utilities';
 import { Backend, PathResolvable } from '@skyra/i18next-backend';
-import i18next, { TFunction, TOptions } from 'i18next';
+import i18next, { TFuncKey, TFunction, TOptions } from 'i18next';
 import type { PathLike } from 'node:fs';
 import { opendir } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { InternationalizationContext, InternationalizationOptions, StringMap, TFunctionKeys, TFunctionResult } from './types';
+import type { InternationalizationContext, InternationalizationOptions, StringMap, TFunctionResult } from './types';
 
 /**
  * A generalized class for handling `i18next` JSON files and their discovery.
@@ -178,11 +178,11 @@ export class InternationalizationHandler {
 	 * @see {@link https://www.i18next.com/overview/api#t}
 	 * @returns The localized content.
 	 */
-	public format<
-		TResult extends TFunctionResult = string,
-		TKeys extends TFunctionKeys = string,
-		TInterpolationMap extends NonNullObject = StringMap
-	>(locale: string, key: TKeys | TKeys[], options?: TOptions<TInterpolationMap>): TResult {
+	public format<TResult extends TFunctionResult = string, TKeys extends TFuncKey = string, TInterpolationMap extends NonNullObject = StringMap>(
+		locale: string,
+		key: TKeys | TKeys[],
+		options?: TOptions<TInterpolationMap>
+	): TResult {
 		if (!this.languagesLoaded) throw new Error('Cannot call this method until InternationalizationHandler#init has been called');
 
 		const language = this.languages.get(locale);
