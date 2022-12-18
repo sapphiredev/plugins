@@ -976,13 +976,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/shapeshift@npm:^3.7.1":
-  version: 3.8.0
-  resolution: "@sapphire/shapeshift@npm:3.8.0"
+"@sapphire/shapeshift@npm:^3.8.1":
+  version: 3.8.1
+  resolution: "@sapphire/shapeshift@npm:3.8.1"
   dependencies:
     fast-deep-equal: ^3.1.3
     lodash: ^4.17.21
-  checksum: 48335f7599c2f7b0fe49e42def542f12b896f9f594f34c8127d96d4dcd4700b85b28afe985bc56cc238bcf013e2b28bf442f2cc2b35a2e2ab02a5d2924429084
+  checksum: 2a5954c76ee9a91506ae269141ffd2d71e05891c7f1618d0acbf3670312f0b473e356f9c3dafe484d8dc89282d7554f1fd7d720a2a3b0e921fb4e969d09513ee
   languageName: node
   linkType: hard
 
