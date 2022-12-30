@@ -1,7 +1,7 @@
 import { container } from '@sapphire/pieces';
 import { lazy, type NonNullObject } from '@sapphire/utilities';
-import { APIApplicationCommandOptionChoice, Locale, type LocaleString } from 'discord-api-types/v10';
-import { BaseCommandInteraction, Guild, Message, MessageComponentInteraction } from 'discord.js';
+import { APIApplicationCommandOptionChoice, ChannelType, Locale, type LocaleString } from 'discord-api-types/v10';
+import { CommandInteraction, Guild, Message, MessageComponentInteraction } from 'discord.js';
 import type { TFuncKey, TOptions } from 'i18next';
 import type {
 	BuilderWithDescription,
@@ -29,7 +29,7 @@ import type {
  */
 export function fetchLanguage(target: Target): Promise<string> {
 	// Handle Interactions:
-	if (target instanceof BaseCommandInteraction || target instanceof MessageComponentInteraction) {
+	if (target instanceof CommandInteraction || target instanceof MessageComponentInteraction) {
 		return resolveLanguage({
 			user: target.user,
 			channel: target.channel,
@@ -50,7 +50,7 @@ export function fetchLanguage(target: Target): Promise<string> {
 	}
 
 	// Handle DMChannel:
-	if (target.type === 'DM') {
+	if (target.type === ChannelType.DM) {
 		return resolveLanguage({ user: null, channel: target, guild: null });
 	}
 
