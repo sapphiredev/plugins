@@ -1,13 +1,14 @@
 import { Awaitable, isThenable } from '@sapphire/utilities';
 import { createCipheriv, createDecipheriv, randomBytes } from 'crypto';
 import {
+	OAuth2Scopes,
 	RESTGetAPICurrentUserConnectionsResult,
 	RESTGetAPICurrentUserGuildsResult,
 	RESTGetAPICurrentUserResult,
-	Snowflake,
+	RouteBases,
 	Routes,
-	RouteBases
-} from 'discord-api-types/v9';
+	Snowflake
+} from 'discord.js';
 import fetch from 'node-fetch';
 
 export class Auth {
@@ -27,7 +28,7 @@ export class Auth {
 	 * The scopes defined at https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes.
 	 * @since 1.0.0
 	 */
-	public scopes: readonly string[];
+	public scopes: readonly OAuth2Scopes[];
 
 	/**
 	 * The redirect uri.
@@ -48,7 +49,7 @@ export class Auth {
 	private constructor(options: ServerOptionsAuth) {
 		this.id = options.id as Snowflake;
 		this.cookie = options.cookie ?? 'SAPPHIRE_AUTH';
-		this.scopes = options.scopes ?? ['identify'];
+		this.scopes = options.scopes ?? [OAuth2Scopes.Identify];
 		this.redirect = options.redirect;
 		this.#secret = options.secret;
 		this.transformers = options.transformers ?? [];
@@ -102,9 +103,13 @@ export class Auth {
 	public async fetchData(token: string): Promise<LoginData> {
 		// Fetch the information:
 		const [user, guilds, connections] = await Promise.all([
-			this.fetchInformation<RESTGetAPICurrentUserResult>('identify', token, `${RouteBases.api}${Routes.user()}`),
-			this.fetchInformation<RESTGetAPICurrentUserGuildsResult>('guilds', token, `${RouteBases.api}${Routes.userGuilds()}`),
-			this.fetchInformation<RESTGetAPICurrentUserConnectionsResult>('connections', token, `${RouteBases.api}${Routes.userConnections()}`)
+			this.fetchInformation<RESTGetAPICurrentUserResult>(OAuth2Scopes.Identify, token, `${RouteBases.api}${Routes.user()}`),
+			this.fetchInformation<RESTGetAPICurrentUserGuildsResult>(OAuth2Scopes.Guilds, token, `${RouteBases.api}${Routes.userGuilds()}`),
+			this.fetchInformation<RESTGetAPICurrentUserConnectionsResult>(
+				OAuth2Scopes.Connections,
+				token,
+				`${RouteBases.api}${Routes.userConnections()}`
+			)
 		]);
 
 		// Transform the information:
@@ -118,7 +123,7 @@ export class Auth {
 		return data;
 	}
 
-	private async fetchInformation<T>(scope: string, token: string, url: string): Promise<T | null | undefined> {
+	private async fetchInformation<T>(scope: OAuth2Scopes, token: string, url: string): Promise<T | null | undefined> {
 		if (!this.scopes.includes(scope)) return undefined;
 
 		const result = await fetch(url, {
@@ -193,9 +198,9 @@ export interface ServerOptionsAuth {
 	/**
 	 * The scopes defined at https://discord.com/developers/docs/topics/oauth2#shared-resources-oauth2-scopes.
 	 * @since 1.0.0
-	 * @default ['identify']
+	 * @default [OAuth2Scopes.Identify]
 	 */
-	scopes?: string[];
+	scopes?: OAuth2Scopes[];
 
 	/**
 	 * The redirect uri. This will default to {@link OAuth2BodyData.redirectUri} if missing.

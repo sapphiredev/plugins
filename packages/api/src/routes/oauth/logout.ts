@@ -1,4 +1,4 @@
-import { OAuth2Routes } from 'discord-api-types/v9';
+import { OAuth2Routes } from 'discord.js';
 import fetch from 'node-fetch';
 import { stringify } from 'querystring';
 import { promisify } from 'util';

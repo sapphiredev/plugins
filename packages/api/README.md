@@ -73,7 +73,7 @@ Then, you can use the following configuration options in your SapphireClient ext
 	// The URL that users should be redirected to after a successful authentication
     redirect: '',
 	// The scopes that should be given to the authentication.
-    scopes: ['identify'],
+    scopes: [OAuth2Scopes.Identify],
 	// Transformers to transform the raw data from Discord to a different structure.
     transformers: []
   },

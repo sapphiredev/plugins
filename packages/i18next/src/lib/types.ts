@@ -1,15 +1,14 @@
 import type { Awaitable } from '@sapphire/utilities';
 import type { Backend } from '@skyra/i18next-backend';
 import type { WatchOptions } from 'chokidar';
-import type { LocalizationMap } from 'discord-api-types/v10';
 import type {
-	BaseCommandInteraction,
+	CommandInteraction,
 	Guild,
 	Interaction,
+	LocalizationMap,
 	Message,
 	MessageComponentInteraction,
 	StageChannel,
-	StoreChannel,
 	User,
 	VoiceChannel
 } from 'discord.js';
@@ -137,7 +136,7 @@ export interface InternationalizationOptions {
 }
 
 export type TextBasedDiscordChannel = Message['channel'];
-export type DiscordChannel = TextBasedDiscordChannel | StoreChannel | StageChannel | VoiceChannel;
+export type DiscordChannel = TextBasedDiscordChannel | StageChannel | VoiceChannel;
 
 /**
  * Context for {@link InternationalizationHandler.fetchLanguage} functions.
@@ -180,4 +179,4 @@ export interface BuilderWithDescription {
 
 export type BuilderWithNameAndDescription = BuilderWithName & BuilderWithDescription;
 export type ChannelTarget = Message | DiscordChannel;
-export type Target = BaseCommandInteraction | ChannelTarget | Guild | MessageComponentInteraction;
+export type Target = CommandInteraction | ChannelTarget | Guild | MessageComponentInteraction;
