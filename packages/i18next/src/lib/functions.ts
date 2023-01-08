@@ -1,7 +1,15 @@
 import { container } from '@sapphire/pieces';
 import { lazy, type NonNullObject } from '@sapphire/utilities';
-import { APIApplicationCommandOptionChoice, ChannelType, Locale, type LocaleString } from 'discord-api-types/v10';
-import { CommandInteraction, Guild, Message, MessageComponentInteraction } from 'discord.js';
+import {
+	APIApplicationCommandOptionChoice,
+	ChannelType,
+	CommandInteraction,
+	Guild,
+	Locale,
+	Message,
+	MessageComponentInteraction,
+	type LocaleString
+} from 'discord.js';
 import type { TFuncKey, TOptions } from 'i18next';
 import type {
 	BuilderWithDescription,

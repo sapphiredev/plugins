@@ -1,8 +1,17 @@
 import type { Awaitable } from '@sapphire/utilities';
 import type { Backend } from '@skyra/i18next-backend';
 import type { WatchOptions } from 'chokidar';
-import type { LocalizationMap } from 'discord-api-types/v10';
-import type { CommandInteraction, Guild, Interaction, Message, MessageComponentInteraction, StageChannel, User, VoiceChannel } from 'discord.js';
+import type {
+	CommandInteraction,
+	Guild,
+	Interaction,
+	LocalizationMap,
+	Message,
+	MessageComponentInteraction,
+	StageChannel,
+	User,
+	VoiceChannel
+} from 'discord.js';
 import type { DefaultTFuncReturnWithObject, InitOptions, Namespace, TFuncKey, TFuncReturn, TypeOptions } from 'i18next';
 
 export interface StringMap {
