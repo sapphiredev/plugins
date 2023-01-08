@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-pattern-commands@5.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@4.1.0...@sapphire/plugin-pattern-commands@5.0.0) - (2023-01-08)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies (#399) ([953d57b](https://github.com/sapphiredev/plugins/commit/953d57b06ea624baa89ba1d03131c5fb10cecbfb))
+
+## 🚀 Features
+
+- **deps:** Support for djs v14 (#403) ([7674782](https://github.com/sapphiredev/plugins/commit/76747829f4b3ec152ab888e57a56a138e7d527f5))
+
 # [@sapphire/plugin-pattern-commands@4.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@4.0.1...@sapphire/plugin-pattern-commands@4.1.0) - (2022-11-19)
 
 ## 🐛 Bug Fixes
