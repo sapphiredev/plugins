@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@5.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@4.0.3...@sapphire/plugin-i18next@5.0.0) - (2023-01-08)
+
+## 🚀 Features
+
+- **deps:** Support for djs v14 (#403) ([7674782](https://github.com/sapphiredev/plugins/commit/76747829f4b3ec152ab888e57a56a138e7d527f5))
+
 # [@sapphire/plugin-i18next@4.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@4.0.2...@sapphire/plugin-i18next@4.0.3) - (2022-12-17)
 
 ## 🐛 Bug Fixes
