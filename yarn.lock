@@ -487,7 +487,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@favware/cliff-jumper@npm:^1.10.0, @favware/cliff-jumper@npm:^1.9.0":
+"@favware/cliff-jumper@npm:^1.10.0":
   version: 1.10.0
   resolution: "@favware/cliff-jumper@npm:1.10.0"
   dependencies:
@@ -830,7 +830,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-api@workspace:packages/api"
   dependencies:
-    "@favware/cliff-jumper": ^1.9.0
+    "@favware/cliff-jumper": ^1.10.0
     "@types/node-fetch": 2.6.2
     "@types/psl": ^1.1.0
     "@types/ws": ^8.5.4
@@ -862,7 +862,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-hmr@workspace:packages/hmr"
   dependencies:
-    "@favware/cliff-jumper": ^1.9.0
+    "@favware/cliff-jumper": ^1.10.0
     chokidar: ^3.5.3
     gen-esm-wrapper: ^1.1.3
     tslib: 2.x
@@ -876,7 +876,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-i18next@workspace:packages/i18next"
   dependencies:
-    "@favware/cliff-jumper": ^1.9.0
+    "@favware/cliff-jumper": ^1.10.0
     "@sapphire/utilities": ^3.11.0
     "@skyra/i18next-backend": ^2.0.1
     chokidar: ^3.5.3
@@ -893,7 +893,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-logger@workspace:packages/logger"
   dependencies:
-    "@favware/cliff-jumper": ^1.9.0
+    "@favware/cliff-jumper": ^1.10.0
     "@sapphire/timestamp": ^1.0.0
     colorette: ^2.0.19
     gen-esm-wrapper: ^1.1.3
@@ -908,7 +908,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-pattern-commands@workspace:packages/pattern-commands"
   dependencies:
-    "@favware/cliff-jumper": ^1.9.0
+    "@favware/cliff-jumper": ^1.10.0
     gen-esm-wrapper: ^1.1.3
     tslib: ^2.4.1
     typedoc: ^0.23.24
@@ -921,7 +921,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-scheduled-tasks@workspace:packages/scheduled-tasks"
   dependencies:
-    "@favware/cliff-jumper": ^1.9.0
+    "@favware/cliff-jumper": ^1.10.0
     "@sapphire/stopwatch": ^1.5.0
     "@sapphire/utilities": ^3.11.0
     bullmq: ^3.5.3
@@ -939,7 +939,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@sapphire/plugin-subcommands@workspace:packages/subcommands"
   dependencies:
-    "@favware/cliff-jumper": ^1.9.0
+    "@favware/cliff-jumper": ^1.10.0
     "@sapphire/utilities": ^3.11.0
     gen-esm-wrapper: ^1.1.3
     tslib: ^2.4.1
