@@ -1,7 +1,7 @@
 import type { PieceContext } from '@sapphire/pieces';
 import { OAuth2Routes, RESTPostOAuth2AccessTokenResult, RESTPostOAuth2AccessTokenURLEncodedData } from 'discord.js';
-import fetch from 'node-fetch';
 import { stringify } from 'querystring';
+import { fetch } from 'undici';
 import type { ApiRequest } from '../../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../../lib/structures/api/ApiResponse';
 import { HttpCodes } from '../../lib/structures/http/HttpCodes';

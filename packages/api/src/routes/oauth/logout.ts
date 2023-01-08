@@ -1,6 +1,6 @@
 import { OAuth2Routes } from 'discord.js';
-import fetch from 'node-fetch';
 import { stringify } from 'querystring';
+import { fetch } from 'undici';
 import { promisify } from 'util';
 import type { ApiRequest } from '../../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../../lib/structures/api/ApiResponse';

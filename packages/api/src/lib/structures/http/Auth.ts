@@ -9,7 +9,7 @@ import {
 	Routes,
 	Snowflake
 } from 'discord.js';
-import fetch from 'node-fetch';
+import { fetch } from 'undici';
 
 export class Auth {
 	/**

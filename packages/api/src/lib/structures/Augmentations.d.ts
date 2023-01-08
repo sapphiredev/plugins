@@ -4,7 +4,7 @@
  * ================================================
  */
 
-import type { RouteStore, MiddlewareStore } from '../..';
+import type { MiddlewareStore, RouteStore } from '../..';
 import type { Server, ServerOptions } from './http/Server';
 import type { MediaParserStore } from './MediaParserStore';
 
