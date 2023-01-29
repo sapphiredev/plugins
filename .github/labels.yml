@@ -54,6 +54,8 @@
   color: 'fbca04'
 - name: packages:subcommands
   color: 'fbca04'
+- name: packages:utilities-store
+  color: 'fbca04'
 - name: performance
   color: '80c042'
 - name: priority:critical

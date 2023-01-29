@@ -1,6 +1,7 @@
-/packages/api/**/*.ts @favna @kyranet
+/packages/api/**/*.ts @favna @kyranet @vladfrangu
 /packages/editable-commands/**/*.ts @favna @kyranet
-/packages/i18next/**/*.ts @nytelife26 @favna @kyranet
-/packages/logger/**/*.ts @kyranet
-/packages/pattern-commands/**/*.ts @feralheart
-/packages/subcommands/**/*.ts @kyranet
+/packages/i18next/**/*.ts @nytelife26 @favna @kyranet @vladfrangu
+/packages/logger/**/*.ts @favna @kyranet
+/packages/pattern-commands/**/*.ts @favna @vladfrangu @feralheart
+/packages/subcommands/**/*.ts @fanva @vladfrangu
+/packages/utilities-store/**/*.ts @favna
