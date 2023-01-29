@@ -20,7 +20,6 @@ This plugin provides an API endpoint for your bot that can be called from extern
 ## Features
 
 -   Fully ready for TypeScript!
--   Provides a Decorator-based API to make developing your routes easy!
 -   Follows common REST standards.
 -   Includes ESM ready entrypoint
 -   Premade OAuth 2.0 endpoints
