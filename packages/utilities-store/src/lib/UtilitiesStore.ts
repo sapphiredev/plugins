@@ -7,7 +7,5 @@ import { UtilityFunction } from './UtilityFunction';
 export class UtilitiesStore extends Store<UtilityFunction> {
 	public constructor() {
 		super(UtilityFunction, { name: 'utilities' });
-
-		// for (const [method] of methodEntries) this.table.set(method, new Collection());
 	}
 }
