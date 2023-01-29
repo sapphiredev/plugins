@@ -75,7 +75,7 @@ In order for TypeScript to know about your utility functions and their arguments
 
 ```typescript
 declare module '@sapphire/plugin-utilities-store' {
-	export interface UtilityStore {
+	export interface Utilities {
 		sum(numberOne: number, numberTwo: number): number;
 	}
 }
