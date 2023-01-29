@@ -39,7 +39,7 @@
 	"dependencies": {
 		"@sapphire/timestamp": "^1.0.0",
 		"colorette": "^2.0.19",
-		"tslib": "^2.4.1"
+		"tslib": "^2.5.0"
 	},
 	"repository": {
 		"type": "git",
