@@ -1,12 +1,11 @@
 import { container } from '@sapphire/pieces';
-import type { UtilitiesFunctions } from '../index';
 import { UtilitiesStore } from './UtilitiesStore';
 import type { UtilityFunction } from './UtilityFunction';
 
 /**
  * @since 1.0.0
  */
-export class Utilities implements UtilitiesFunctions {
+export class Utilities {
 	/**
 	 * The utilities this store holds.
 	 * @since 1.0.0
