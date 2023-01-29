@@ -1,6 +1,6 @@
+import './index';
 import { Plugin, postLogin, preInitialization, SapphireClient } from '@sapphire/framework';
 import { join } from 'path';
-import './index';
 import { Utilities } from './lib/Utilities';
 import { UtilitiesStore } from './lib/UtilitiesStore';
 
