@@ -22,10 +22,10 @@ export class UtilitiesPlugin extends Plugin {
 	 * @since 1.0.0
 	 */
 	public static [postLogin](this: SapphireClient): void {
-		const functions = this.utilities.store;
+		const pieces = this.utilities.store;
 
-		for (const [name, func] of functions.entries()) {
-			this.utilities.exposeFunction(name, func);
+		for (const [name, piece] of pieces.entries()) {
+			this.utilities.exposePiece(name, piece);
 		}
 	}
 }

@@ -1,6 +1,6 @@
 import { container } from '@sapphire/pieces';
 import { UtilitiesStore } from './UtilitiesStore';
-import type { UtilityFunction } from './UtilityFunction';
+import type { Utility } from './Utility';
 
 /**
  * @since 1.0.0
@@ -22,13 +22,12 @@ export class Utilities {
 	}
 
 	/**
-	 * Registers a function on this class.
-	 * @param name The name of the function to register on this class
-	 * @param func The function to register on this class
+	 * Registers a piece on this class.
+	 * @param name The name of the piece to register on this class
+	 * @param piece The piece to register on this class
 	 */
-	public exposeFunction(name: string, func: UtilityFunction) {
+	public exposePiece(name: string, piece: Utility) {
 		// @ts-expect-error Bypass TypeScript check for dynamic property assignment
-		// eslint-disable-next-line @typescript-eslint/unbound-method
-		this[name] = func.handle;
+		this[name] = piece;
 	}
 }

@@ -1,11 +1,11 @@
 import { Store } from '@sapphire/pieces';
-import { UtilityFunction } from './UtilityFunction';
+import { Utility } from './Utility';
 
 /**
  * @since 1.0.0
  */
-export class UtilitiesStore extends Store<UtilityFunction> {
+export class UtilitiesStore extends Store<Utility> {
 	public constructor() {
-		super(UtilityFunction, { name: 'utilities' });
+		super(Utility, { name: 'utilities' });
 	}
 }

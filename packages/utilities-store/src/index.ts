@@ -3,7 +3,7 @@ import type { UtilitiesStore } from './lib/UtilitiesStore';
 
 export * from './lib/Utilities';
 export * from './lib/UtilitiesStore';
-export * from './lib/UtilityFunction';
+export * from './lib/Utility';
 
 declare module 'discord.js' {
 	export interface Client {

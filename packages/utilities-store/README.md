@@ -39,7 +39,7 @@ Start by importing the registration file in your project to use the plugin:
 
 **JavaScript**
 
-```js
+```javascript
 require('@sapphire/plugin-utilities-store/register');
 ```
 
@@ -50,33 +50,37 @@ import '@sapphire/plugin-utilities-store/register';
 ```
 
 -   Create a new `utilities` directory under `/src`
--   Make your first utility function:
+-   Make your first utility piece:
 
 ```typescript
-import { UtilityFunction } from '@sapphire/plugin-utilities-store';
+import { Utility } from '@sapphire/plugin-utilities-store';
 
-export class SumUtility extends UtilityFunction {
-	public constructor(context: UtilityFunction.Context, options: UtilityFunction.Options) {
+export class SumUtility extends Utility {
+	public constructor(context: Utility.Context, options: Utility.Options) {
 		super(context, {
 			...options,
 			name: 'sum'
 		});
 	}
 
-	public handle(numberOne: number, numberTwo: number) {
+	public add(numberOne: number, numberTwo: number) {
 		return numberOne + numberTwo;
+	}
+
+	public subtract(numberOne: number, numberTwo: number) {
+		return numberOne - numberTwo;
 	}
 }
 ```
 
-In this example we simply sum two numbers. You can pass any arguments you wish to the utility function, and it will execute as written.
+In this example we simply add and subtract two numbers. You can pass any arguments you wish to the utility function, and it will execute as written.
 
-In order for TypeScript to know about your utility functions and their arguments you need to do some module augmentation:
+In order for TypeScript to know about your utility functions and their arguments you need to do leverage module augmentation. `SumUtility` here is the piece class as defined in the example above.
 
 ```typescript
 declare module '@sapphire/plugin-utilities-store' {
 	export interface Utilities {
-		sum(numberOne: number, numberTwo: number): number;
+		sum: SumUtility;
 	}
 }
 ```
