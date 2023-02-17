@@ -64,6 +64,7 @@ jobs:
           - pattern-commands
           - scheduled-tasks
           - subcommands
+          - utilities-store
 
     runs-on: ubuntu-latest
     env:

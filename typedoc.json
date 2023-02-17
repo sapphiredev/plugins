@@ -9,7 +9,8 @@
 		"packages/logger/src/index.ts",
 		"packages/pattern-commands/src/index.ts",
 		"packages/scheduled-tasks/src/index.ts",
-		"packages/subcommands/src/index.ts"
+		"packages/subcommands/src/index.ts",
+		"packages/utilities-store/src/index.ts"
 	],
 	"excludeExternals": true,
 	"externalPattern": ["node_modules/@types/**"],
