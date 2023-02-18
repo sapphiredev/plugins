@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@5.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@5.0.0...@sapphire/plugin-i18next@5.0.1) - (2023-02-18)
+
+## 🐛 Bug Fixes
+
+- **i18next:** Bump i18next patch version ([7fb11e7](https://github.com/sapphiredev/plugins/commit/7fb11e779b98e916cdbe88c0c75626b6d7fd292f))
+
 # [@sapphire/plugin-i18next@5.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@4.0.3...@sapphire/plugin-i18next@5.0.0) - (2023-01-08)
 
 ## 🚀 Features
