@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@5.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.0.0...@sapphire/plugin-api@5.0.1) - (2023-02-18)
+
+## 🐛 Bug Fixes
+
+- **api:** Bump undici dependency minor ([2038e60](https://github.com/sapphiredev/plugins/commit/2038e6053f42502e2642e4d85e5cf9d7a7c2bc3e))
+
+## 📝 Documentation
+
+- **api:** Update feature list ([c0d982b](https://github.com/sapphiredev/plugins/commit/c0d982b1a277bb5ec476f698a011b4cfff8ffea1))
+
 # [@sapphire/plugin-api@5.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@4.0.1...@sapphire/plugin-api@5.0.0) - (2023-01-08)
 
 ## 🏠 Refactor
