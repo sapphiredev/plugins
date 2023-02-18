@@ -27,7 +27,7 @@ export class Utilities {
 	 * @param piece The piece to register on this class
 	 */
 	public exposePiece(name: string, piece: Utility) {
-		// @ts-expect-error Bypass TypeScript check for dynamic property assignment
+		// @ts-ignore Bypass TypeScript check for dynamic property assignment
 		this[name] = piece;
 	}
 }
