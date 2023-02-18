@@ -740,15 +740,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/discord.js-utilities@npm:6.0.1":
-  version: 6.0.1
-  resolution: "@sapphire/discord.js-utilities@npm:6.0.1"
+"@sapphire/discord.js-utilities@npm:6.0.2":
+  version: 6.0.2
+  resolution: "@sapphire/discord.js-utilities@npm:6.0.2"
   dependencies:
     "@sapphire/discord-utilities": ^3.0.0
     "@sapphire/duration": ^1.0.0
     "@sapphire/utilities": ^3.11.0
-    tslib: ^2.4.1
-  checksum: e5d95c97f10cf2b4ed249d2e553831522618cc18078a1dfbbf4d18d874b5b34a80930e172ab36fdd4b3099788f2a116fe44b2025d16ab14975a3201f6646e22e
+    tslib: ^2.5.0
+  checksum: 985b15b9d5f7bb2bed5e919ab7fc8a69dca9ef5baa3a44443b64558dce3303560027b0ed21a72ff849179e9181524316ffdfed6eb267020e3c10378b361c2f07
   languageName: node
   linkType: hard
 
@@ -783,20 +783,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/framework@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "@sapphire/framework@npm:4.1.0"
+"@sapphire/framework@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "@sapphire/framework@npm:4.1.1"
   dependencies:
     "@discordjs/builders": ^1.4.0
     "@sapphire/discord-utilities": ^3.0.0
-    "@sapphire/discord.js-utilities": 6.0.1
+    "@sapphire/discord.js-utilities": 6.0.2
     "@sapphire/lexure": ^1.1.2
     "@sapphire/pieces": ^3.6.0
     "@sapphire/ratelimits": ^2.4.5
     "@sapphire/result": ^2.6.0
     "@sapphire/stopwatch": ^1.5.0
     "@sapphire/utilities": ^3.11.0
-  checksum: 3812018098c5a1fdba6468fecee5bbbd033c871214994e41dc8f241252933225e94479732eba7c8989a2a602cde88228cb5332175827a7fdd69f9b28c986afee
+  checksum: 40832cdd327bc5688535a647d3bda9c1ee9d1350c067805e9aa905c1d53a5916e66a29732cffb64ba17952385d3cd0342da239ebe20da9d2184623aa5c101178
   languageName: node
   linkType: hard
 
@@ -840,7 +840,7 @@ __metadata:
     typedoc: ^0.23.25
     typedoc-json-parser: ^7.1.0
     typescript: ^4.9.5
-    undici: ^5.19.1
+    undici: ^5.20.0
   languageName: unknown
   linkType: soft
 
@@ -956,9 +956,9 @@ __metadata:
     "@favware/cliff-jumper": ^1.10.0
     gen-esm-wrapper: ^1.1.3
     tslib: ^2.5.0
-    typedoc: ^0.23.24
+    typedoc: ^0.23.25
     typedoc-json-parser: ^7.1.0
-    typescript: ^4.9.4
+    typescript: ^4.9.5
   languageName: unknown
   linkType: soft
 
@@ -5542,7 +5542,7 @@ __metadata:
     "@favware/cliff-jumper": ^1.10.0
     "@favware/npm-deprecate": ^1.0.7
     "@sapphire/eslint-config": ^4.3.8
-    "@sapphire/framework": ^4.1.0
+    "@sapphire/framework": ^4.1.1
     "@sapphire/pieces": ^3.6.0
     "@sapphire/prettier-config": ^1.4.5
     "@sapphire/stopwatch": ^1.5.0
@@ -5565,7 +5565,7 @@ __metadata:
     prettier: ^2.8.4
     pretty-quick: ^3.1.3
     rimraf: ^4.1.2
-    turbo: ^1.8.0
+    turbo: ^1.8.1
     typescript: ^4.9.5
     vite: ^4.1.2
     vitest: ^0.28.5
@@ -6238,58 +6238,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.8.0":
-  version: 1.8.0
-  resolution: "turbo-darwin-64@npm:1.8.0"
+"turbo-darwin-64@npm:1.8.1":
+  version: 1.8.1
+  resolution: "turbo-darwin-64@npm:1.8.1"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.8.0":
-  version: 1.8.0
-  resolution: "turbo-darwin-arm64@npm:1.8.0"
+"turbo-darwin-arm64@npm:1.8.1":
+  version: 1.8.1
+  resolution: "turbo-darwin-arm64@npm:1.8.1"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.8.0":
-  version: 1.8.0
-  resolution: "turbo-linux-64@npm:1.8.0"
+"turbo-linux-64@npm:1.8.1":
+  version: 1.8.1
+  resolution: "turbo-linux-64@npm:1.8.1"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.8.0":
-  version: 1.8.0
-  resolution: "turbo-linux-arm64@npm:1.8.0"
+"turbo-linux-arm64@npm:1.8.1":
+  version: 1.8.1
+  resolution: "turbo-linux-arm64@npm:1.8.1"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.8.0":
-  version: 1.8.0
-  resolution: "turbo-windows-64@npm:1.8.0"
+"turbo-windows-64@npm:1.8.1":
+  version: 1.8.1
+  resolution: "turbo-windows-64@npm:1.8.1"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.8.0":
-  version: 1.8.0
-  resolution: "turbo-windows-arm64@npm:1.8.0"
+"turbo-windows-arm64@npm:1.8.1":
+  version: 1.8.1
+  resolution: "turbo-windows-arm64@npm:1.8.1"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:^1.8.0":
-  version: 1.8.0
-  resolution: "turbo@npm:1.8.0"
+"turbo@npm:^1.8.1":
+  version: 1.8.1
+  resolution: "turbo@npm:1.8.1"
   dependencies:
-    turbo-darwin-64: 1.8.0
-    turbo-darwin-arm64: 1.8.0
-    turbo-linux-64: 1.8.0
-    turbo-linux-arm64: 1.8.0
-    turbo-windows-64: 1.8.0
-    turbo-windows-arm64: 1.8.0
+    turbo-darwin-64: 1.8.1
+    turbo-darwin-arm64: 1.8.1
+    turbo-linux-64: 1.8.1
+    turbo-linux-arm64: 1.8.1
+    turbo-windows-64: 1.8.1
+    turbo-windows-arm64: 1.8.1
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -6305,7 +6305,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 7f97068d7f9a155e088d3575b1f9922e68fa3015aae0c92625238d44b4e6c275bec2a281907702dedb402fca29a6cd4690499e916cb334d7c24c98099bc3d8b0
+  checksum: d222bcf1995f39675d0d2c47f21ed9e72fb249bfb95c469f0729e97c80eedf921e22addfa994da961230a0e8b1d1c69b5037815c396cb4d7ac95708553dcaabb
   languageName: node
   linkType: hard
 
@@ -6384,7 +6384,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.23.23, typedoc@npm:^0.23.24, typedoc@npm:^0.23.25":
+"typedoc@npm:^0.23.23, typedoc@npm:^0.23.25":
   version: 0.23.25
   resolution: "typedoc@npm:0.23.25"
   dependencies:
@@ -6427,12 +6427,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^5.13.0, undici@npm:^5.19.1":
-  version: 5.19.1
-  resolution: "undici@npm:5.19.1"
+"undici@npm:^5.13.0, undici@npm:^5.20.0":
+  version: 5.20.0
+  resolution: "undici@npm:5.20.0"
   dependencies:
     busboy: ^1.6.0
-  checksum: 57ee94ee74d944faa41dbcb2faf4e0c90069708d3aaae860185884e51376b5d457728352a8396d69a3c9cb752b62ff99a19a664c5aacb7ee61cc488af499a01c
+  checksum: 25412a785b2bd0b12f0bb0ec47ef00aa7a611ca0e570cb7af97cffe6a42e0d78e4b15190363a43771e9002defc3c6647c1b2d52201b3f64e2196819db4d150d3
   languageName: node
   linkType: hard
 
