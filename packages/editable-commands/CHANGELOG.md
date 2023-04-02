@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-editable-commands@3.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@3.0.0...@sapphire/plugin-editable-commands@3.0.1) - (2023-04-02)
+
+## 🐛 Bug Fixes
+
+- **editable-commands:** Bump @skyra/editable-commands for DJS typings fix ([62fa8fd](https://github.com/sapphiredev/plugins/commit/62fa8fdec8ca49625eba81f2f9bd3f19cb84c809))
+
 # [@sapphire/plugin-editable-commands@3.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@2.0.1...@sapphire/plugin-editable-commands@3.0.0) - (2023-01-08)
 
 ## 🐛 Bug Fixes
