@@ -1,5 +1,5 @@
 import { container, Result } from '@sapphire/framework';
-import { EntryId, Job, JobsOptions, JobState, Queue, QueueOptions, Worker } from 'bullmq';
+import { Job, Queue, Worker, type EntryId, type JobsOptions, type JobState, type QueueOptions } from 'bullmq';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
 import type { ScheduledTaskCreateRepeatedTask } from '../types/ScheduledTaskCreateRepeatedTask';
 import { ScheduledTaskEvents } from '../types/ScheduledTaskEvents';

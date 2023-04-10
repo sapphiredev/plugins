@@ -1,7 +1,7 @@
 import { container, Result } from '@sapphire/framework';
 import type { SendMessageBatchResultEntryList } from 'aws-sdk/clients/sqs';
 import { randomBytes } from 'crypto';
-import { Consumer, ConsumerOptions } from 'sqs-consumer';
+import { Consumer, type ConsumerOptions } from 'sqs-consumer';
 import { Producer } from 'sqs-producer';
 import type { ScheduledTaskBaseStrategy } from '../types/ScheduledTaskBaseStrategy';
 import type { ScheduledTaskCreateRepeatedTask } from '../types/ScheduledTaskCreateRepeatedTask';
