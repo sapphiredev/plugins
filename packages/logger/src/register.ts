@@ -1,6 +1,6 @@
 import { Plugin, preGenericsInitialization, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
-import { Logger, LoggerOptions } from './lib/Logger';
+import { Logger, type LoggerOptions } from './lib/Logger';
 
 /**
  * @since 1.0.0

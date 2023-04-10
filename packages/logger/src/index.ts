@@ -1,3 +1,5 @@
+import 'tslib';
+
 import type { LoggerOptions } from './lib/Logger';
 
 export * from './lib/Logger';

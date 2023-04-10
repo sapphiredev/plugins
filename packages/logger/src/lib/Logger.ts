@@ -1,8 +1,8 @@
-import { Logger as BuiltinLogger, LogLevel, LogMethods } from '@sapphire/framework';
-import { bgRed, cyan, gray, magenta, isColorSupported, red, white, yellow, Color } from 'colorette';
+import { Logger as BuiltinLogger, LogLevel, type LogMethods } from '@sapphire/framework';
+import { bgRed, cyan, gray, isColorSupported, magenta, red, white, yellow, type Color } from 'colorette';
 import { Console } from 'console';
-import { inspect, InspectOptions } from 'util';
-import { LoggerLevel, LoggerLevelOptions } from './LoggerLevel';
+import { inspect, type InspectOptions } from 'util';
+import { LoggerLevel, type LoggerLevelOptions } from './LoggerLevel';
 
 /**
  * The logger class.
