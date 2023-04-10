@@ -1,5 +1,5 @@
-import { container, Result, Piece, Store } from '@sapphire/framework';
-import { watch, WatchOptions } from 'chokidar';
+import { Piece, Result, Store, container } from '@sapphire/framework';
+import { watch, type WatchOptions } from 'chokidar';
 import { relative } from 'node:path';
 
 export interface HMROptions extends WatchOptions {
