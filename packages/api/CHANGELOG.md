@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@5.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.0.2...@sapphire/plugin-api@5.0.3) - (2023-04-10)
+
+## 🐛 Bug Fixes
+
+- **api:** Explicitly import tslib ([d7921a4](https://github.com/sapphiredev/plugins/commit/d7921a4851b6197279d26e517aaf9e54a828c56c))
+- **api:** Fixed compatibility with TS 5.x ([dc843af](https://github.com/sapphiredev/plugins/commit/dc843afdfc614bb7fea61452621c4a6227518ad4))
+
 # [@sapphire/plugin-api@5.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.0.1...@sapphire/plugin-api@5.0.2) - (2023-04-02)
 
 ## 🐛 Bug Fixes
