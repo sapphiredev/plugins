@@ -1,4 +1,4 @@
-import { GuildBasedChannelTypes, isDMChannel } from '@sapphire/discord.js-utilities';
+import { isDMChannel, type GuildBasedChannelTypes } from '@sapphire/discord.js-utilities';
 import { Events, Listener } from '@sapphire/framework';
 import type { PieceContext } from '@sapphire/pieces';
 import { Message, PermissionFlagsBits, PermissionsBitField } from 'discord.js';

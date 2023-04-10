@@ -1,4 +1,4 @@
-import { Args, Command, MessageCommand } from '@sapphire/framework';
+import { Args, Command, type MessageCommand } from '@sapphire/framework';
 import type { Awaitable, Message } from 'discord.js';
 
 export abstract class PatternCommand extends Command<Args, PatternCommand.Options> {

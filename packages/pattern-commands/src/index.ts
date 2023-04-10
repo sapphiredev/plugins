@@ -1,3 +1,5 @@
+import 'tslib';
+
 import type { PatternCommandStore } from './lib/structures/PaternCommandStore';
 
 export * from './lib/structures/PaternCommandStore';
