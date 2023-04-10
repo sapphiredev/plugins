@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@5.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@5.0.2...@sapphire/plugin-i18next@5.0.3) - (2023-04-10)
+
+## 🐛 Bug Fixes
+
+- **i18next:** Fixed compatibility with TS 5.x ([957ca68](https://github.com/sapphiredev/plugins/commit/957ca6800999992f66c8a96201dca84285fa69e4))
+- **i18next:** Update dependencies ([c921515](https://github.com/sapphiredev/plugins/commit/c9215156faf411273788314099742f7d18f686d8))
+
 # [@sapphire/plugin-i18next@5.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@5.0.0...@sapphire/plugin-i18next@5.0.1) - (2023-02-18)
 
 ## 🐛 Bug Fixes
