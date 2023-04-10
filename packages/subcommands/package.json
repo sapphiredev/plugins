@@ -36,7 +36,7 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^3.11.0",
+		"@sapphire/utilities": "^3.11.1",
 		"tslib": "^2.5.0"
 	},
 	"repository": {
