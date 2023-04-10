@@ -1,13 +1,13 @@
 import { container } from '@sapphire/pieces';
 import { lazy, type NonNullObject } from '@sapphire/utilities';
 import {
-	APIApplicationCommandOptionChoice,
 	ChannelType,
 	CommandInteraction,
 	Guild,
 	Locale,
 	Message,
 	MessageComponentInteraction,
+	type APIApplicationCommandOptionChoice,
 	type LocaleString
 } from 'discord.js';
 import type { TFuncKey, TOptions } from 'i18next';

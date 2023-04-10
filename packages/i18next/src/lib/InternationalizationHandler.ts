@@ -1,8 +1,8 @@
 import { Result } from '@sapphire/framework';
 import { container, getRootData } from '@sapphire/pieces';
-import { Awaitable, isFunction, NonNullObject } from '@sapphire/utilities';
-import { Backend, PathResolvable } from '@skyra/i18next-backend';
-import i18next, { TFuncKey, TFunction, TOptions } from 'i18next';
+import { isFunction, type Awaitable, type NonNullObject } from '@sapphire/utilities';
+import { Backend, type PathResolvable } from '@skyra/i18next-backend';
+import i18next, { type TFuncKey, type TFunction, type TOptions } from 'i18next';
 import type { PathLike } from 'node:fs';
 import { opendir } from 'node:fs/promises';
 import { join } from 'node:path';

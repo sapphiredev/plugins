@@ -1,8 +1,8 @@
-import { container, Plugin, preGenericsInitialization, preLogin, postLogin, SapphireClient } from '@sapphire/framework';
+import { Plugin, SapphireClient, container, postLogin, preGenericsInitialization, preLogin } from '@sapphire/framework';
 import { watch } from 'chokidar';
 import type { ClientOptions } from 'discord.js';
 
-import { InternationalizationClientOptions, InternationalizationHandler } from './index';
+import { InternationalizationHandler, type InternationalizationClientOptions } from './index';
 
 export class I18nextPlugin extends Plugin {
 	public static [preGenericsInitialization](this: SapphireClient, options: ClientOptions): void {
