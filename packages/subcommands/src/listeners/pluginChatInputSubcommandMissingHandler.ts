@@ -1,6 +1,6 @@
-import { ChatInputCommand, Listener } from '@sapphire/framework';
+import { Listener, type ChatInputCommand } from '@sapphire/framework';
 import type { SubcommandMappingMethod } from '../lib/SubcommandMappings';
-import { ChatInputSubcommandErrorPayload, SubcommandPluginEvents } from '../lib/types/Events';
+import { SubcommandPluginEvents, type ChatInputSubcommandErrorPayload } from '../lib/types/Events';
 
 export class PluginListener extends Listener<typeof SubcommandPluginEvents.SubcommandMappingIsMissingChatInputCommandHandler> {
 	public constructor(context: Listener.Context) {

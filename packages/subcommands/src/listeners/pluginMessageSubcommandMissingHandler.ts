@@ -1,7 +1,7 @@
 import { Listener } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 import type { SubcommandMappingMethod } from '../lib/SubcommandMappings';
-import { MessageSubcommandErrorPayload, SubcommandPluginEvents } from '../lib/types/Events';
+import { SubcommandPluginEvents, type MessageSubcommandErrorPayload } from '../lib/types/Events';
 
 export class PluginListener extends Listener<typeof SubcommandPluginEvents.SubcommandMappingIsMissingMessageCommandHandler> {
 	public constructor(context: Listener.Context) {

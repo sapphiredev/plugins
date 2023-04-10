@@ -1,5 +1,5 @@
 import { Listener } from '@sapphire/framework';
-import { ChatInputSubcommandErrorPayload, SubcommandPluginEvents } from '../lib/types/Events';
+import { SubcommandPluginEvents, type ChatInputSubcommandErrorPayload } from '../lib/types/Events';
 
 export class PluginListener extends Listener<typeof SubcommandPluginEvents.ChatInputSubcommandError> {
 	public constructor(context: Listener.Context) {
