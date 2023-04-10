@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@6.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@6.0.0...@sapphire/plugin-scheduled-tasks@6.0.1) - (2023-04-10)
+
+## 🐛 Bug Fixes
+
+- **scheduled-tasks:** Fixed compatibility with TS 5.x ([ddb942e](https://github.com/sapphiredev/plugins/commit/ddb942e2ba1f1b0de39b7acd9b84395e5dec91fe))
+- **scheduled-tasks:** Update dependencies ([2fe31a0](https://github.com/sapphiredev/plugins/commit/2fe31a0cb821059215c098bab60a0ecc56518a3c))
+- **deps:** Update all non-major dependencies (#399) ([953d57b](https://github.com/sapphiredev/plugins/commit/953d57b06ea624baa89ba1d03131c5fb10cecbfb))
+- **deps:** Update all non-major dependencies (#387) ([e31f714](https://github.com/sapphiredev/plugins/commit/e31f7140c8bb7c34086540912eb595dd04adaef5))
+
 # [@sapphire/plugin-scheduled-tasks@6.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@5.0.1...@sapphire/plugin-scheduled-tasks@6.0.0) - (2022-10-29)
 
 ## 🏠 Refactor
