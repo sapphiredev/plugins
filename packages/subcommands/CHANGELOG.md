@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@4.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.0.0...@sapphire/plugin-subcommands@4.0.1) - (2023-04-10)
+
+## 🐛 Bug Fixes
+
+- **subcommands:** Fixed compatibility with TS 5.x ([3340544](https://github.com/sapphiredev/plugins/commit/3340544241e7546b23fe050e7a45d9e2f399af8c))
+- **subcommands:** Update dependencies ([249e9df](https://github.com/sapphiredev/plugins/commit/249e9df1fbb37bcfaf4192284dbd7b4734163854))
+
 # [@sapphire/plugin-subcommands@4.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@3.2.4...@sapphire/plugin-subcommands@4.0.0) - (2023-01-08)
 
 ## 🐛 Bug Fixes
