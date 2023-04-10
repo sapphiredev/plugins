@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-pattern-commands@5.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@5.0.0...@sapphire/plugin-pattern-commands@5.0.1) - (2023-04-10)
+
+## 🐛 Bug Fixes
+
+- **pattern-commands:** Fixed compatibility with TS 5.x ([71214ab](https://github.com/sapphiredev/plugins/commit/71214ab2320914eee7ff90d33a1f7db7361f5992))
+
 # [@sapphire/plugin-pattern-commands@5.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@4.1.0...@sapphire/plugin-pattern-commands@5.0.0) - (2023-01-08)
 
 ## 🐛 Bug Fixes
