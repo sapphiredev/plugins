@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-editable-commands@3.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@3.0.1...@sapphire/plugin-editable-commands@3.0.2) - (2023-04-10)
+
+## 🐛 Bug Fixes
+
+- **editable-commands:** Fixed compatibility with TS 5.x ([3b5bb71](https://github.com/sapphiredev/plugins/commit/3b5bb7171bb249fd2faec8e974d2d9df832bfef3))
+
 # [@sapphire/plugin-editable-commands@3.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@3.0.0...@sapphire/plugin-editable-commands@3.0.1) - (2023-04-02)
 
 ## 🐛 Bug Fixes
