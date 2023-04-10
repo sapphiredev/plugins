@@ -1,3 +1,5 @@
+import 'tslib';
+
 import type { Server, ServerOptions } from './lib/structures/http/Server';
 import type { MediaParserStore } from './lib/structures/MediaParserStore';
 import type { MiddlewareStore } from './lib/structures/MiddlewareStore';
