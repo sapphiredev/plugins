@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-logger@3.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@3.0.2...@sapphire/plugin-logger@3.0.3) - (2023-04-10)
+
+## 🐛 Bug Fixes
+
+- **logger:** Fixed compatibility with TS 5.x ([e6a8386](https://github.com/sapphiredev/plugins/commit/e6a8386912b310b4e3907f44d01861d8e3e4e4b5))
+
 # [@sapphire/plugin-logger@3.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@3.0.1...@sapphire/plugin-logger@3.0.2) - (2023-04-02)
 
 ## 🐛 Bug Fixes
