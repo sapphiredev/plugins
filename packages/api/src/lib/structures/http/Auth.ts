@@ -1,13 +1,13 @@
-import { Awaitable, isThenable } from '@sapphire/utilities';
+import { isThenable, type Awaitable } from '@sapphire/utilities';
 import { createCipheriv, createDecipheriv, randomBytes } from 'crypto';
 import {
 	OAuth2Scopes,
-	RESTGetAPICurrentUserConnectionsResult,
-	RESTGetAPICurrentUserGuildsResult,
-	RESTGetAPICurrentUserResult,
 	RouteBases,
 	Routes,
-	Snowflake
+	type RESTGetAPICurrentUserConnectionsResult,
+	type RESTGetAPICurrentUserGuildsResult,
+	type RESTGetAPICurrentUserResult,
+	type Snowflake
 } from 'discord.js';
 import { fetch } from 'undici';
 

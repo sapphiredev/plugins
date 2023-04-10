@@ -1,13 +1,13 @@
 import { container } from '@sapphire/pieces';
 import { EventEmitter } from 'events';
-import { createServer as httpCreateServer, Server as HttpServer, ServerOptions as HttpOptions } from 'http';
+import { Server as HttpServer, createServer as httpCreateServer, type ServerOptions as HttpOptions } from 'http';
 import type { ListenOptions } from 'net';
-import { ApiRequest } from '../api/ApiRequest';
-import { ApiResponse } from '../api/ApiResponse';
 import { MediaParserStore } from '../MediaParserStore';
 import { MiddlewareStore } from '../MiddlewareStore';
-import { RouteMatch, RouteStore } from '../RouteStore';
-import { Auth, ServerOptionsAuth } from './Auth';
+import { RouteStore, type RouteMatch } from '../RouteStore';
+import { ApiRequest } from '../api/ApiRequest';
+import { ApiResponse } from '../api/ApiResponse';
+import { Auth, type ServerOptionsAuth } from './Auth';
 
 export const enum ServerEvents {
 	Error = 'error',

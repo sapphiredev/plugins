@@ -1,12 +1,12 @@
 import type { PieceContext } from '@sapphire/pieces';
-import { OAuth2Routes, RESTPostOAuth2AccessTokenResult, RESTPostOAuth2AccessTokenURLEncodedData } from 'discord.js';
+import { OAuth2Routes, type RESTPostOAuth2AccessTokenResult, type RESTPostOAuth2AccessTokenURLEncodedData } from 'discord.js';
 import { stringify } from 'querystring';
 import { fetch } from 'undici';
+import { Route } from '../../lib/structures/Route';
 import type { ApiRequest } from '../../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../../lib/structures/api/ApiResponse';
 import { HttpCodes } from '../../lib/structures/http/HttpCodes';
 import { methods } from '../../lib/structures/http/HttpMethods';
-import { Route } from '../../lib/structures/Route';
 
 export class PluginRoute extends Route {
 	private readonly redirectUri: string | undefined;

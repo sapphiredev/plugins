@@ -2,7 +2,7 @@ import { Piece } from '@sapphire/pieces';
 import type { Awaitable } from '@sapphire/utilities';
 import { Collection } from 'discord.js';
 import { RouteData } from '../utils/RouteData';
-import { methodEntries, Methods } from './http/HttpMethods';
+import { methodEntries, type Methods } from './http/HttpMethods';
 import type { MimeTypeWithoutParameters } from './http/Server';
 import type { MethodCallback, RouteStore } from './RouteStore';
 

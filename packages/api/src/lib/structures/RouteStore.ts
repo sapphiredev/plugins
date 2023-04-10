@@ -3,7 +3,7 @@ import { Collection } from 'discord.js';
 import { URLSearchParams } from 'url';
 import type { ApiRequest } from './api/ApiRequest';
 import type { ApiResponse } from './api/ApiResponse';
-import { methodEntries, Methods } from './http/HttpMethods';
+import { methodEntries, type Methods } from './http/HttpMethods';
 import { Route } from './Route';
 
 const slash = '/'.charCodeAt(0);
