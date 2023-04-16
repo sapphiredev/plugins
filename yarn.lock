@@ -780,16 +780,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/discord-utilities@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@sapphire/discord-utilities@npm:3.0.1"
-  dependencies:
-    discord-api-types: ^0.37.36
-  checksum: 3c52ffca5677243ea3a8efbd86fbebcede4e2a9a8e69642f6ddae5ce4c4f24445e721fbf301210eeb73607caf66b2ca58fb3176f43fed1a30341176fcea449df
-  languageName: node
-  linkType: hard
-
-"@sapphire/discord-utilities@npm:^3.0.2":
+"@sapphire/discord-utilities@npm:^3.0.1, @sapphire/discord-utilities@npm:^3.0.2":
   version: 3.0.2
   resolution: "@sapphire/discord-utilities@npm:3.0.2"
   dependencies:
@@ -895,7 +886,7 @@ __metadata:
     gen-esm-wrapper: ^1.1.3
     psl: ^1.9.0
     tslib: ^2.5.0
-    typedoc: 0.23.28
+    typedoc: 0.24.2
     typedoc-json-parser: ^7.2.0
     typescript: ^5.0.4
     undici: ^5.21.2
@@ -910,7 +901,7 @@ __metadata:
     "@skyra/editable-commands": ^3.0.1
     gen-esm-wrapper: ^1.1.3
     tslib: ^2.5.0
-    typedoc: 0.23.28
+    typedoc: 0.24.2
     typedoc-json-parser: ^7.2.0
     typescript: ^5.0.4
   languageName: unknown
@@ -924,7 +915,7 @@ __metadata:
     chokidar: ^3.5.3
     gen-esm-wrapper: ^1.1.3
     tslib: 2.x
-    typedoc: 0.23.28
+    typedoc: 0.24.2
     typedoc-json-parser: ^7.2.0
     typescript: ^5.0.4
   languageName: unknown
@@ -941,7 +932,7 @@ __metadata:
     gen-esm-wrapper: ^1.1.3
     i18next: ^22.4.14
     tslib: ^2.5.0
-    typedoc: 0.23.28
+    typedoc: 0.24.2
     typedoc-json-parser: ^7.2.0
     typescript: ^5.0.4
   languageName: unknown
@@ -956,7 +947,7 @@ __metadata:
     colorette: ^2.0.19
     gen-esm-wrapper: ^1.1.3
     tslib: ^2.5.0
-    typedoc: 0.23.28
+    typedoc: 0.24.2
     typedoc-json-parser: ^7.2.0
     typescript: ^5.0.4
   languageName: unknown
@@ -969,7 +960,7 @@ __metadata:
     "@favware/cliff-jumper": ^2.0.0
     gen-esm-wrapper: ^1.1.3
     tslib: ^2.5.0
-    typedoc: 0.23.28
+    typedoc: 0.24.2
     typedoc-json-parser: ^7.2.0
     typescript: ^5.0.4
   languageName: unknown
@@ -987,7 +978,7 @@ __metadata:
     sqs-consumer: ^5.8.0
     sqs-producer: ^2.2.0
     tslib: ^2.5.0
-    typedoc: 0.23.28
+    typedoc: 0.24.2
     typedoc-json-parser: ^7.2.0
     typescript: ^5.0.4
   languageName: unknown
@@ -1001,7 +992,7 @@ __metadata:
     "@sapphire/utilities": ^3.11.1
     gen-esm-wrapper: ^1.1.3
     tslib: ^2.5.0
-    typedoc: 0.23.28
+    typedoc: 0.24.2
     typedoc-json-parser: ^7.2.0
     typescript: ^5.0.4
   languageName: unknown
@@ -1014,7 +1005,7 @@ __metadata:
     "@favware/cliff-jumper": ^2.0.0
     gen-esm-wrapper: ^1.1.3
     tslib: ^2.5.0
-    typedoc: 0.23.28
+    typedoc: 0.24.2
     typedoc-json-parser: ^7.2.0
     typescript: ^5.0.4
   languageName: unknown
@@ -2570,7 +2561,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-api-types@npm:^0.37.36, discord-api-types@npm:^0.37.37, discord-api-types@npm:^0.37.38":
+"discord-api-types@npm:^0.37.37, discord-api-types@npm:^0.37.38":
   version: 0.37.38
   resolution: "discord-api-types@npm:0.37.38"
   checksum: 58972778639234307ae6c0ce5b841a8a3a29c38116aa9f96051e65a88f6bbc4f1df671c5a985712d816764507308f8ebc97b1c98dad8de7bf756e05819db84ca
@@ -4577,7 +4568,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:^4.2.12":
+"marked@npm:^4.2.12, marked@npm:^4.3.0":
   version: 4.3.0
   resolution: "marked@npm:4.3.0"
   bin:
@@ -5881,7 +5872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.3.8, semver@npm:^7.0.0, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8":
+"semver@npm:7.3.8":
   version: 7.3.8
   resolution: "semver@npm:7.3.8"
   dependencies:
@@ -5901,7 +5892,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.3.2":
+"semver@npm:^7.0.0, semver@npm:^7.3.2, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.3.8":
   version: 7.4.0
   resolution: "semver@npm:7.4.0"
   dependencies:
@@ -6639,7 +6630,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:0.23.28, typedoc@npm:^0.23.26":
+"typedoc@npm:0.24.2":
+  version: 0.24.2
+  resolution: "typedoc@npm:0.24.2"
+  dependencies:
+    lunr: ^2.3.9
+    marked: ^4.3.0
+    minimatch: ^9.0.0
+    shiki: ^0.14.1
+  peerDependencies:
+    typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x
+  bin:
+    typedoc: bin/typedoc
+  checksum: ada472d51d4cd437a665d9d7545c8ceed7c1d27e56d3f9790aa4f6b3ad3c9957ea1e0c2648f28145f060f1988e290dd6a1733c8e550399cdacfb3f40d22718b4
+  languageName: node
+  linkType: hard
+
+"typedoc@npm:^0.23.26":
   version: 0.23.28
   resolution: "typedoc@npm:0.23.28"
   dependencies:
