@@ -5,7 +5,7 @@
 	"npm": {
 		"packageRules": [
 			{
-				"matchPackagePatterns": ["typedoc", "sqs-consumer", "sqs-producer"],
+				"matchPackagePatterns": ["sqs-consumer", "sqs-producer"],
 				"enabled": false
 			}
 		]
