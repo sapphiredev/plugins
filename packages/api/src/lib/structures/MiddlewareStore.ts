@@ -9,7 +9,7 @@ import type { Route } from './Route';
  */
 export class MiddlewareStore extends Store<Middleware> {
 	/**
-	 * The sorted middlewares, in ascending order of {@see Middleware#position}.
+	 * The sorted middlewares, in ascending order of see {@link Middleware.position}.
 	 */
 	public readonly sortedMiddlewares: Middleware[] = [];
 
