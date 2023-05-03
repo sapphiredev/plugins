@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@5.0.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.0.3...@sapphire/plugin-api@5.0.4) - (2023-05-03)
+
+## 🏠 Refactor
+
+- **api:** Switch from psl to tldts library (#436) ([1fde242](https://github.com/sapphiredev/plugins/commit/1fde242d2108edeca57a38d40bebcb303a9c1d71))
+
+## 🐛 Bug Fixes
+
+- **api:** Remove const enum for verbatimModuleSyntax ([daeb694](https://github.com/sapphiredev/plugins/commit/daeb69458c7a4fac666a963ef3ea0e9e820fbc06))
+
+## 📝 Documentation
+
+- **api:** Fix typedoc for MiddlewareStore#sortedMiddlewares ([f0c940e](https://github.com/sapphiredev/plugins/commit/f0c940e97a55b54d800aede26177dbf8e6cd88fd))
+
 # [@sapphire/plugin-api@5.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.0.2...@sapphire/plugin-api@5.0.3) - (2023-04-10)
 
 ## 🐛 Bug Fixes
