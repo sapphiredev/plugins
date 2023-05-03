@@ -1,4 +1,4 @@
-export const enum HttpCodes {
+export enum HttpCodes {
 	/**
 	 * Standard response for successful HTTP requests. The actual response will
 	 * depend on the request method used. In a GET request, the response will

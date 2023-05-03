@@ -9,7 +9,7 @@ import { ApiRequest } from '../api/ApiRequest';
 import { ApiResponse } from '../api/ApiResponse';
 import { Auth, type ServerOptionsAuth } from './Auth';
 
-export const enum ServerEvents {
+export enum ServerEvents {
 	Error = 'error',
 	Request = 'request',
 	Match = 'match',
