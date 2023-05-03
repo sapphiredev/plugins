@@ -1,3 +1,5 @@
+import './index';
+
 import { container, Plugin, postInitialization, postLogin, preGenericsInitialization, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
 import { ScheduledTaskHandler } from './lib/ScheduledTaskHandler';
@@ -26,7 +28,7 @@ export class ScheduledTasksPlugin extends Plugin {
 	 * @since 1.0.0
 	 */
 	public static [postLogin](this: SapphireClient): void {
-		container.tasks.createRepeated();
+		void container.tasks.createRepeated();
 	}
 }
 

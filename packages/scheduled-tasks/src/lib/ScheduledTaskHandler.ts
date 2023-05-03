@@ -1,25 +1,50 @@
 import { container, Result } from '@sapphire/framework';
 import { Stopwatch } from '@sapphire/stopwatch';
-import { ScheduledTaskRedisStrategy } from './strategies/ScheduledTaskRedisStrategy';
+import { Job, Queue, Worker, type EntryId, type JobsOptions, type QueueOptions } from 'bullmq';
 import type { ScheduledTaskStore } from './structures/ScheduledTaskStore';
-import type { ScheduledTaskBaseStrategy, ScheduledTasks } from './types/ScheduledTaskBaseStrategy';
 import { ScheduledTaskEvents } from './types/ScheduledTaskEvents';
-import type { ScheduledTasksOptions } from './types/ScheduledTasksOptions';
-import type { ScheduledTasksTaskOptions } from './types/ScheduledTasksTaskOptions';
+import type {
+	BullClient,
+	ScheduledTaskCreateRepeatedTask,
+	ScheduledTaskHandlerOptions,
+	ScheduledTaskJob,
+	ScheduledTaskListOptions,
+	ScheduledTaskListRepeatedOptions,
+	ScheduledTaskListRepeatedReturnType,
+	ScheduledTasks,
+	ScheduledTasksTaskOptions
+} from './types/ScheduledTaskTypes';
 
 export class ScheduledTaskHandler {
-	public readonly strategy: ScheduledTaskBaseStrategy;
+	public readonly options: QueueOptions;
+	public readonly queue: string;
+	#internalClient: BullClient | null = null;
 
-	public constructor(options: ScheduledTasksOptions | undefined) {
-		this.strategy = options?.strategy ?? new ScheduledTaskRedisStrategy();
-		this.strategy.connect();
+	public constructor(options?: ScheduledTaskHandlerOptions) {
+		this.queue = options?.queue ?? 'scheduled-tasks';
+		this.options = options?.bull ?? {};
+
+		const connectResult = Result.from(() => {
+			this.#internalClient = new Queue(this.queue, this.options);
+			new Worker(this.queue, async (job) => this.run(job?.name, job?.data), { connection: this.options.connection });
+		});
+
+		connectResult.inspectErr((error) => container.client.emit(ScheduledTaskEvents.ScheduledTaskStrategyConnectError, error));
 	}
 
-	public get client(): ScheduledTaskBaseStrategy['client'] {
-		return this.strategy.client;
+	public get client(): BullClient {
+		return this.#internalClient!;
 	}
 
-	public create(task: keyof ScheduledTasks, payload: unknown, options?: ScheduledTasksTaskOptions | number) {
+	public create<T = unknown>(
+		task: keyof ScheduledTasks,
+		payload?: ScheduledTaskJob | null,
+		options?: ScheduledTasksTaskOptions | number
+	): Promise<Job<T, any, string>> | undefined {
+		if (!this.#internalClient) {
+			return;
+		}
+
 		if (typeof options === 'number') {
 			options = {
 				repeated: false,
@@ -27,45 +52,84 @@ export class ScheduledTaskHandler {
 			};
 		}
 
-		return this.strategy.create(task, payload, options);
+		let jobOptions: JobsOptions = {
+			delay: options?.delay,
+			...options?.customJobOptions
+		};
+
+		if (options?.repeated) {
+			jobOptions = {
+				...jobOptions,
+				repeat: options?.interval
+					? {
+							every: options.interval!
+					  }
+					: {
+							pattern: options.pattern!
+					  }
+			};
+		}
+
+		return this.#internalClient.add(task, payload ?? null, jobOptions) as Promise<Job<T>> | undefined;
 	}
 
-	public createRepeated() {
+	public async createRepeated(tasks?: ScheduledTaskCreateRepeatedTask[]): Promise<void> {
 		const { store } = this;
 
-		return this.strategy.createRepeated(
-			store.repeatedTasks.map((piece) => ({
-				name: piece.name,
-				options: {
-					repeated: true,
-					...(piece.interval
-						? {
-								interval: piece.interval,
-								bullJobsOptions: piece.bullJobsOptions
-						  }
-						: {
-								pattern: piece.pattern!,
-								bullJobsOptions: piece.bullJobsOptions
-						  })
-				}
-			}))
-		);
+		tasks ??= store.repeatedTasks.map((piece) => ({
+			name: piece.name,
+			options: {
+				repeated: true,
+				...(piece.interval
+					? {
+							interval: piece.interval,
+							bullJobsOptions: piece.bullJobsOptions
+					  }
+					: {
+							pattern: piece.pattern!,
+							bullJobsOptions: piece.bullJobsOptions
+					  })
+			}
+		}));
+
+		for (const task of tasks) {
+			await this.create(task.name as keyof ScheduledTasks, null, task.options);
+		}
 	}
 
-	public delete(id?: unknown) {
-		return this.strategy.delete(id);
+	public async delete(id: EntryId): Promise<void> {
+		if (!this.#internalClient) {
+			return;
+		}
+
+		const job = await this.get(id);
+		return job?.remove();
 	}
 
-	public list(options?: unknown) {
-		return this.strategy.list(options);
+	public list<T = unknown>(options: ScheduledTaskListOptions): Promise<Job<T>[]> | undefined {
+		const { types, start, end, asc } = options;
+		if (!this.#internalClient) {
+			return;
+		}
+
+		return this.#internalClient.getJobs(types, start, end, asc) as Promise<Job<T>[]> | undefined;
 	}
 
-	public listRepeated(options?: unknown) {
-		return this.strategy.listRepeated(options);
+	public listRepeated(options: ScheduledTaskListRepeatedOptions): Promise<ScheduledTaskListRepeatedReturnType> | undefined {
+		const { start, end, asc } = options;
+		if (!this.#internalClient) {
+			return;
+		}
+
+		return this.#internalClient.getRepeatableJobs(start, end, asc);
 	}
 
-	public get(id: unknown) {
-		return this.strategy.get(id);
+	public get<T = unknown>(id: EntryId): Promise<Job<T> | null> | undefined {
+		if (!this.#internalClient) {
+			return;
+		}
+
+		return this.#internalClient.getJob(id) as Promise<Job<T> | null> | undefined;
 	}
 
 	public async run(task: string, payload: unknown): Promise<unknown> {

@@ -1,5 +1,6 @@
 import { Piece } from '@sapphire/pieces';
 import type { Awaitable } from '@sapphire/utilities';
+import type { JobsOptions } from 'bullmq';
 
 export abstract class ScheduledTask extends Piece {
 	public readonly interval: number | null;
@@ -10,8 +11,6 @@ export abstract class ScheduledTask extends Piece {
 		super(context, options);
 		this.interval = options.interval ?? null;
 		this.pattern = options.pattern ?? null;
-
-		// @ts-expect-error For redis strategy this property will actually be defined
 		this.bullJobsOptions = options.bullJobsOptions;
 	}
 
@@ -21,6 +20,7 @@ export abstract class ScheduledTask extends Piece {
 export interface ScheduledTaskOptions extends Piece.Options {
 	interval?: number | null;
 	pattern?: string | null;
+	bullJobsOptions?: Omit<JobsOptions, 'repeat'>;
 }
 
 export namespace ScheduledTask {

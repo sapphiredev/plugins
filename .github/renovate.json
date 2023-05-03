@@ -1,13 +1,4 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["github>sapphiredev/readme:sapphire-renovate"],
-	"labels": ["Meta: Dependencies"],
-	"npm": {
-		"packageRules": [
-			{
-				"matchPackagePatterns": ["sqs-consumer", "sqs-producer"],
-				"enabled": false
-			}
-		]
-	}
+	"extends": ["github>sapphiredev/readme:sapphire-renovate"]
 }
