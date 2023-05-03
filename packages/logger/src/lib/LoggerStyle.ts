@@ -69,7 +69,7 @@ export type LoggerStyleResolvable = Colorette.Color | LoggerStyleOptions;
  * The text styles.
  * @since 1.0.0
  */
-export const enum LoggerStyleEffect {
+export enum LoggerStyleEffect {
 	Reset = 'reset',
 	Bold = 'bold',
 	Dim = 'dim',
@@ -84,7 +84,7 @@ export const enum LoggerStyleEffect {
  * The text colors.
  * @since 1.0.0
  */
-export const enum LoggerStyleText {
+export enum LoggerStyleText {
 	Black = 'black',
 	Red = 'red',
 	Green = 'green',
@@ -108,7 +108,7 @@ export const enum LoggerStyleText {
  * The background colors.
  * @since 1.0.0
  */
-export const enum LoggerStyleBackground {
+export enum LoggerStyleBackground {
 	Black = 'bgBlack',
 	Red = 'bgRed',
 	Green = 'bgGreen',
