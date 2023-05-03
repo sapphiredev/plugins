@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-logger@3.0.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@3.0.3...@sapphire/plugin-logger@3.0.4) - (2023-05-03)
+
+## 🐛 Bug Fixes
+
+- **logger:** Remove const enum for verbatimModuleSyntax ([7a7e55d](https://github.com/sapphiredev/plugins/commit/7a7e55d68330ce8246a2c32cc22cdff678a8c700))
+
 # [@sapphire/plugin-logger@3.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@3.0.2...@sapphire/plugin-logger@3.0.3) - (2023-04-10)
 
 ## 🐛 Bug Fixes
