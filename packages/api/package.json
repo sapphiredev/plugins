@@ -37,9 +37,8 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@types/psl": "^1.1.0",
 		"@types/ws": "^8.5.4",
-		"psl": "^1.9.0",
+		"tldts": "^6.0.4",
 		"tslib": "^2.5.0",
 		"undici": "^5.22.0"
 	},
@@ -49,9 +48,8 @@
 		"directory": "packages/api"
 	},
 	"files": [
-		"dist/**/*.js*",
-		"dist/**/*.mjs*",
-		"dist/**/*.d*",
+		"dist/",
+		"!dist/.tsbuildinfo",
 		"./register.*"
 	],
 	"engines": {
