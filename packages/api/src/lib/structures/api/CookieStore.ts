@@ -1,7 +1,7 @@
 // Copyright (c) 2018 Stanislav Woodger. All rights reserved. MIT license.
 // Source: https://github.com/woodger/cookie-httponly
 
-import { parse as tldtsParse } from 'tldts';
+import { getDomain } from 'tldts';
 import type { ApiRequest } from './ApiRequest';
 import type { ApiResponse } from './ApiResponse';
 
@@ -112,13 +112,13 @@ export class CookieStore extends Map<string, string> {
 		const lowercaseHost = host.toLowerCase();
 
 		// Try parsing the host with tldts
-		const tldParsedInfo = tldtsParse(lowercaseHost);
+		const tldParsedInfo = getDomain(lowercaseHost);
 
-		// If the domain property is not defined then return the host in lowercase
-		if (!tldParsedInfo.domain) return lowercaseHost;
+		// If the domain is not defined then return the host in lowercase
+		if (!tldParsedInfo) return lowercaseHost;
 
 		// If the domain was found from parsing then prefix it with a . for a cookie that works with subdomains and return it
-		return `.${tldParsedInfo.domain}`;
+		return `.${tldParsedInfo}`;
 	}
 
 	// RFC 6265 4.1.1. Syntax
