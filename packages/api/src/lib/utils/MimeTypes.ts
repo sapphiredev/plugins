@@ -1,4 +1,4 @@
-export const enum MimeTypes {
+export enum MimeTypes {
 	ApplicationFormUrlEncoded = 'application/x-www-form-urlencoded',
 	ApplicationJson = 'application/json',
 	AudioOgg = 'audio/ogg',

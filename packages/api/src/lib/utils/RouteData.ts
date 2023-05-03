@@ -3,7 +3,7 @@ const [slash, colon]: [number, number] = [47, 58];
 /**
  * @since 1.0.0
  */
-export const enum TypeState {
+export enum TypeState {
 	/**
 	 * @since 1.0.0
 	 */
