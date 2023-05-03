@@ -75,7 +75,7 @@
 		"sqs-consumer": "^5.8.0",
 		"sqs-producer": "^2.2.0",
 		"typedoc": "^0.24.6",
-		"typedoc-json-parser": "^7.3.1",
+		"typedoc-json-parser": "^7.4.0",
 		"typescript": "^5.0.4"
 	},
 	"repository": {
