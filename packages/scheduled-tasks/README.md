@@ -4,7 +4,7 @@
 
 # @sapphire/plugin-scheduled-tasks
 
-**Plugin for <a href="https://github.com/sapphiredev/framework">@sapphire/framework</a> to add support for scheduled tasks.**
+**Plugin for <a href="https://github.com/sapphiredev/framework">@sapphire/framework</a> to add support for scheduled tasks using <a href="https://github.com/taskforcesh/bullmq">bullmq</a>.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/plugins)](https://github.com/sapphiredev/plugins/blob/main/LICENSE.md)
 [![codecov](https://codecov.io/gh/sapphiredev/plugins/branch/main/graph/badge.svg?token=QWL8FB16BR)](https://codecov.io/gh/sapphiredev/plugins)
@@ -15,7 +15,7 @@
 
 ## Description
 
-Many bots have features that need to run periodically, such as uploading analytics data, reminders for users, birthdays, scheduled giveaways, undoing moderation actions, and more. Several implemented solutions exist for this, but as with many time-based processing attempts, they are often flawed and unreliable. This plugin is our solution, enabling you to schedule tasks and save them in services like Redis and SQS with ease.
+Many bots have features that need to run periodically, such as uploading analytics data, reminders for users, birthdays, scheduled giveaways, undoing moderation actions, and more. Several implemented solutions exist for this, but as with many time-based processing attempts, they are often flawed and unreliable. This plugin is our solution, enabling you to schedule tasks and save them in Redis with ease.
 
 ## Features
 
@@ -28,25 +28,10 @@ Many bots have features that need to run periodically, such as uploading analyti
 
 -   [`@sapphire/framework`](https://www.npmjs.com/package/@sapphire/framework)
 
-In case you want to use bullmq as your provider:
-
--   [`bullmq`](https://www.npmjs.com/package/bullmq)
-
-In case you want to use sqs as your provider:
-
--   [`sqs-consumer`](https://www.npmjs.com/package/sqs-consumer)
--   [`sqs-producer`](https://www.npmjs.com/package/sqs-producer)
-
 You can use the following command to install this package along with `bullmq`, or replace `npm install` with your package manager of choice.
 
 ```sh
-npm install @sapphire/plugin-scheduled-tasks @sapphire/framework bullmq
-```
-
-or with `sqs`
-
-```sh
-npm install @sapphire/plugin-scheduled-tasks @sapphire/framework sqs-consumer sqs-producer
+npm install @sapphire/plugin-scheduled-tasks @sapphire/framework
 ```
 
 ---
@@ -58,34 +43,24 @@ This registers the necessary options and methods in the Sapphire client to be ab
 ```typescript
 // Main bot file
 // Be sure to register the plugin before instantiating the client.
-import { ScheduledTaskRedisStrategy } from '@sapphire/plugin-scheduled-tasks/register-redis';
-
-// Or if you want to use sqs
-import { ScheduledTaskSQSStrategy } from '@sapphire/plugin-scheduled-tasks/register-sqs';
+import '@sapphire/plugin-scheduled-tasks/register';
 ```
 
-Then, you can pass the imported Strategy into the configuration options in your SapphireClient extension class or initializer. This will either be located in your new SapphireClient constructor call, or super in your constructor method if you use an extension class.
+Then, you can configure the plugin in the configuration options in your SapphireClient extension class or initializer. This will either be located in your new SapphireClient constructor call, or super in your constructor method if you use an extension class.
 
 ```typescript
 const options = {
 	...otherClientOptionsGoHere,
 	tasks: {
-		// Using bullmq (redis)
-		strategy: new ScheduledTaskRedisStrategy({
-			/* You can add your Bull options here, for example we can configure custom Redis connection options: */
-			bull: {
-				connection: {
-					port: 8888, // Defaults to 6379, but if your Redis server runs on another port configure it here
-					password: 'very-strong-password', // If your Redis server requires a password configure it here
-					host: 'localhost', // The host at which the redis server is found
-					db: 2 // Redis database number, defaults to 0 but can be any value between 0 and 15
-				}
+		/* You can add your Bull options here, for example we can configure custom Redis connection options: */
+		bull: {
+			connection: {
+				port: 8888, // Defaults to 6379, but if your Redis server runs on another port configure it here
+				password: 'very-strong-password', // If your Redis server requires a password configure it here
+				host: 'localhost', // The host at which the redis server is found
+				db: 2 // Redis database number, defaults to 0 but can be any value between 0 and 15
 			}
-		}),
-		// Or with SQS
-		strategy: new ScheduledTaskSQSStrategy({
-			/* You can add your SQS options here */
-		})
+		}
 	}
 };
 ```
