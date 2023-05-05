@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@7.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@6.0.1...@sapphire/plugin-scheduled-tasks@7.0.0) - (2023-05-05)
+
+## 🏠 Refactor
+
+- **scheduled-tasks:** Remove sqs support (#437) ([332f25d](https://github.com/sapphiredev/plugins/commit/332f25db960ec4047ca7b6b97bbeb63a6ad7e991))
+  - 💥 **BREAKING CHANGE:** sqs support has been removed as it was no longer maintained and used version has been deprecated
+  - 💥 **BREAKING CHANGE:** redis strategy is now default and the naming scheme of all types and classes have been changed to match
+  - 💥 **BREAKING CHANGE:** The options passed to `clientOptions.tasks` can be flattened to remove the `new ScheduledTaskRedisStrategy` and just provide options directly.
+
 # [@sapphire/plugin-scheduled-tasks@6.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@6.0.0...@sapphire/plugin-scheduled-tasks@6.0.1) - (2023-04-10)
 
 ## 🐛 Bug Fixes
