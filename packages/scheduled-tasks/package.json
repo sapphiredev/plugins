@@ -38,7 +38,7 @@
 	"dependencies": {
 		"@sapphire/stopwatch": "^1.5.0",
 		"@sapphire/utilities": "^3.11.1",
-		"bullmq": "^3.12.0",
+		"bullmq": "^3.13.0",
 		"tslib": "^2.5.0"
 	},
 	"devDependencies": {
