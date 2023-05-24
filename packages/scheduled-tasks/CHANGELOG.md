@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@7.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@7.0.0...@sapphire/plugin-scheduled-tasks@7.1.0) - (2023-05-24)
+
+## 🐛 Bug Fixes
+
+- Update bullmq dependency ([5ccf732](https://github.com/sapphiredev/plugins/commit/5ccf732ef3a5a7ce1d8fb71a3e540b259589a9a8))
+- **deps:** Update all non-major dependencies ([9bb6627](https://github.com/sapphiredev/plugins/commit/9bb6627c20999d37130537fce58241c12a795046))
+- **scheduled-tasks:** Bump bullmq ([35fa66a](https://github.com/sapphiredev/plugins/commit/35fa66ad1dd6a275994834fc92b42a34ef17f31f))
+
+## 🚀 Features
+
+- **scheduled-tasks:** Add typings for listener events (#443) ([5ee1814](https://github.com/sapphiredev/plugins/commit/5ee18141634d40d6b211304f74c82a6f439cf980))
+
 # [@sapphire/plugin-scheduled-tasks@7.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@6.0.1...@sapphire/plugin-scheduled-tasks@7.0.0) - (2023-05-05)
 
 ## 🏠 Refactor
