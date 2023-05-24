@@ -22,7 +22,7 @@
 		"@favware/cliff-jumper": "^2.0.0",
 		"@favware/npm-deprecate": "^1.0.7",
 		"@sapphire/eslint-config": "^4.4.2",
-		"@sapphire/framework": "^4.4.3",
+		"@sapphire/framework": "^4.4.4",
 		"@sapphire/pieces": "^3.6.3",
 		"@sapphire/prettier-config": "^1.4.5",
 		"@sapphire/stopwatch": "^1.5.0",
