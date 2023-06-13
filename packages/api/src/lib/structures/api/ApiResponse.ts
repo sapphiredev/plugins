@@ -112,6 +112,13 @@ export class ApiResponse<Request extends IncomingMessage = IncomingMessage> exte
 	}
 
 	/**
+	 * @since 5.1.0
+	 */
+	public html(code: number, data: string): void {
+		this.setContentType(MimeTypes.TextHtml).status(code).end(data);
+	}
+
+	/**
 	 * @since 1.0.0
 	 */
 	public setContentType(contentType: MimeTypes): this {
