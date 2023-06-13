@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@5.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.0.4...@sapphire/plugin-api@5.1.0) - (2023-06-13)
+
+## 🚀 Features
+
+- **api:** Add `text/html` and `image/x-icon` mime types (#447) ([5f5332d](https://github.com/sapphiredev/plugins/commit/5f5332d5f359826eb4b1d8240b0b85f31cdd608a))
+
 # [@sapphire/plugin-api@5.0.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.0.3...@sapphire/plugin-api@5.0.4) - (2023-05-03)
 
 ## 🏠 Refactor
