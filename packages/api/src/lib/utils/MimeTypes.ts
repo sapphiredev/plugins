@@ -8,6 +8,7 @@ export enum MimeTypes {
 	ImageJpg = 'image/jpeg',
 	ImagePng = 'image/png',
 	ImageWebp = 'image/webp',
+	ImageXIcon = 'image/x-icon',
 	TextPlain = 'text/plain',
 	TextHtml = 'text/html',
 	VideoMp4 = 'video/mp4',
