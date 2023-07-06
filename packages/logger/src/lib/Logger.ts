@@ -106,18 +106,18 @@ export class Logger extends BuiltinLogger {
  */
 export interface LoggerOptions {
 	/**
-	 * The WriteStream for the output logs.
+	 * A writable stream for the output logs.
 	 * @since 1.0.0
 	 * @default process.stdout
 	 */
-	stdout?: NodeJS.WriteStream;
+	stdout?: NodeJS.WritableStream;
 
 	/**
-	 * A WriteStream for the error logs.
+	 * A writable stream for the error logs.
 	 * @since 1.0.0
 	 * @default process.stderr
 	 */
-	stderr?: NodeJS.WriteStream;
+	stderr?: NodeJS.WritableStream;
 
 	/**
 	 * The default options used to fill all the possible values for {@link LoggerOptions.format}.
