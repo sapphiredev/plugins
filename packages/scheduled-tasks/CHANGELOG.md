@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@7.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@7.1.0...@sapphire/plugin-scheduled-tasks@7.1.1) - (2023-07-21)
+
+## 🐛 Bug Fixes
+
+- **scheduled-tasks:** Bump transitive @sapphire/utilities and bullmq dependencies ([4497403](https://github.com/sapphiredev/plugins/commit/449740360e06caf98998c6f8b54e2f1750cb07b1))
+- **scheduled-tasks:** Bump bullmq transitive dependency ([7140c34](https://github.com/sapphiredev/plugins/commit/7140c3498de7ed3572c82c19cad9fbaa9584d7c1))
+
 # [@sapphire/plugin-scheduled-tasks@7.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@7.0.0...@sapphire/plugin-scheduled-tasks@7.1.0) - (2023-05-24)
 
 ## 🐛 Bug Fixes
