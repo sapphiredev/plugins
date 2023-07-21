@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@4.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.0.1...@sapphire/plugin-subcommands@4.0.2) - (2023-07-21)
+
+## 🐛 Bug Fixes
+
+- **subcommands:** Bump transitive @sapphire/utilities dependency ([bc57087](https://github.com/sapphiredev/plugins/commit/bc57087df4d52d691ab61332a987bfbe1bf34bfb))
+- **deps:** Update all non-major dependencies ([9bb6627](https://github.com/sapphiredev/plugins/commit/9bb6627c20999d37130537fce58241c12a795046))
+
 # [@sapphire/plugin-subcommands@4.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.0.0...@sapphire/plugin-subcommands@4.0.1) - (2023-04-10)
 
 ## 🐛 Bug Fixes
