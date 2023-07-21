@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-logger@3.0.5](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@3.0.4...@sapphire/plugin-logger@3.0.5) - (2023-07-21)
+
+## 🏠 Refactor
+
+- Generalize `stdout` and `stderr` types (#452) ([93d4e89](https://github.com/sapphiredev/plugins/commit/93d4e8945c46f33ef893c4e1f1aa05e3cbc02844))
+
 # [@sapphire/plugin-logger@3.0.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@3.0.3...@sapphire/plugin-logger@3.0.4) - (2023-05-03)
 
 ## 🐛 Bug Fixes
