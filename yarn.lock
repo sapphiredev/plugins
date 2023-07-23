@@ -951,7 +951,7 @@ __metadata:
     "@favware/cliff-jumper": ^2.1.1
     "@types/ws": ^8.5.5
     gen-esm-wrapper: ^1.1.3
-    tldts: ^6.0.11
+    tldts: ^6.0.12
     tslib: ^2.6.0
     typedoc: ^0.24.8
     typedoc-json-parser: ^8.2.0
@@ -1265,10 +1265,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.16.19":
-  version: 18.16.19
-  resolution: "@types/node@npm:18.16.19"
-  checksum: 63c31f09616508aa7135380a4c79470a897b75f9ff3a70eb069e534dfabdec3f32fb0f9df5939127f1086614d980ddea0fa5e8cc29a49103c4f74cd687618aaf
+"@types/node@npm:^18.17.0":
+  version: 18.17.0
+  resolution: "@types/node@npm:18.17.0"
+  checksum: 3a43c5c5541342751b514485144818a515fac5427f663066068eaacbe8a108cbe1207aae75ec89d34c3b32414c334aad84e9083cf7fcf3ebfd970adc871314a4
   languageName: node
   linkType: hard
 
@@ -5566,7 +5566,7 @@ __metadata:
     "@sapphire/stopwatch": ^1.5.0
     "@sapphire/ts-config": ^4.0.1
     "@sapphire/utilities": ^3.13.0
-    "@types/node": ^18.16.19
+    "@types/node": ^18.17.0
     "@types/ws": ^8.5.5
     "@typescript-eslint/eslint-plugin": ^6.1.0
     "@typescript-eslint/parser": ^6.1.0
@@ -6117,21 +6117,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.0.11":
-  version: 6.0.11
-  resolution: "tldts-core@npm:6.0.11"
-  checksum: cba8f2bca05b0fa08a7be2f83b89e47bb06e5d2556bbd776da29d033c2b8fbb4a0c6274eaac267b957b1edb2d3a668a681517b81798eb1a976fbc14fb19b4c31
+"tldts-core@npm:^6.0.12":
+  version: 6.0.12
+  resolution: "tldts-core@npm:6.0.12"
+  checksum: d5b415a7735bd0a6b5a5f81f77642e9f8e0946173058794e9a8adaa35c9ee4768f45454b2b9bc618f39a9d29d74c70df3e96ff03957b530c4882f41d1ff469c0
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.0.11":
-  version: 6.0.11
-  resolution: "tldts@npm:6.0.11"
+"tldts@npm:^6.0.12":
+  version: 6.0.12
+  resolution: "tldts@npm:6.0.12"
   dependencies:
-    tldts-core: ^6.0.11
+    tldts-core: ^6.0.12
   bin:
     tldts: bin/cli.js
-  checksum: 4c17b458ed8d176b6ecdbae73af472527e8effea673d89a63f7d162ebff8cc55badb56d61cd914b723db8e9703cf61f3f0e8a532d5d5632269319b803a79a42c
+  checksum: 83573125b4c24a64330767aa26eab864f398c30fcb1b361070105165fb030ba427b83347dad3047b8b48fd3f6eab7ef5b8a44ca33b53dd29ce4ed013c58bd0c3
   languageName: node
   linkType: hard
 
