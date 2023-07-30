@@ -37,7 +37,7 @@
 	},
 	"dependencies": {
 		"@skyra/editable-commands": "^3.0.1",
-		"tslib": "^2.6.0"
+		"tslib": "^2.6.1"
 	},
 	"repository": {
 		"type": "git",

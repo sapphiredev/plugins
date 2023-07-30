@@ -37,7 +37,7 @@
 	},
 	"dependencies": {
 		"@sapphire/utilities": "^3.13.0",
-		"tslib": "^2.6.0"
+		"tslib": "^2.6.1"
 	},
 	"repository": {
 		"type": "git",
