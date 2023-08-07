@@ -38,9 +38,9 @@
 	},
 	"dependencies": {
 		"@types/ws": "^8.5.5",
-		"tldts": "^6.0.12",
+		"tldts": "^6.0.13",
 		"tslib": "^2.6.1",
-		"undici": "^5.22.1"
+		"undici": "^5.23.0"
 	},
 	"repository": {
 		"type": "git",
