@@ -354,6 +354,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		const preconditionsForSubcommand = this.subcommandPreconditions.get(
 			subcommandGroupName ? `${subcommandGroupName}.${subcommand.name}` : subcommand.name
 		);
+
 		if (preconditionsForSubcommand) {
 			// Attempt to get the remaining parameters as string:
 			const messageParametersAsString = await this.#getMessageParametersAsString(args);
@@ -418,6 +419,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		const preconditionsForSubcommand = this.subcommandPreconditions.get(
 			subcommandGroupName ? `${subcommandGroupName}.${subcommand.name}` : subcommand.name
 		);
+
 		if (preconditionsForSubcommand) {
 			// Run the subcommand specific preconditions:
 			const localSubcommandResult = await preconditionsForSubcommand.chatInputRun(interaction, this, payload as any);
