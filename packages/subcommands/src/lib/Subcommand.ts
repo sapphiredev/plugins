@@ -38,7 +38,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 	 * The preconditions to be run for each specified subcommand.
 	 * @since 4.1.0
 	 */
-	public subcommandPreconditions = new Map<string, PreconditionContainerArray>();
+	public readonly subcommandPreconditions = new Map<string, PreconditionContainerArray>();
 
 	/**
 	 * The parsed subcommand mappings that were provided with the {@link Subcommand.Options.subcommands} option.
