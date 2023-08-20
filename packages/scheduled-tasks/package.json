@@ -39,7 +39,7 @@
 		"@sapphire/stopwatch": "^1.5.0",
 		"@sapphire/utilities": "^3.13.0",
 		"bullmq": "3.15.8",
-		"tslib": "^2.6.1"
+		"tslib": "^2.6.2"
 	},
 	"devDependencies": {
 		"@favware/cliff-jumper": "^2.1.1",
