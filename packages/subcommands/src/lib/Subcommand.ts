@@ -1,4 +1,14 @@
-import { Command, Result, UserError, type Args, type ChatInputCommand, type MessageCommand, type PieceContext } from '@sapphire/framework';
+import {
+	Command,
+	PreconditionContainerArray,
+	Result,
+	UserError,
+	type Args,
+	type ChatInputCommand,
+	type MessageCommand,
+	type MessageCommandDeniedPayload,
+	type PieceContext
+} from '@sapphire/framework';
 import { cast, deepClone } from '@sapphire/utilities';
 import type { CacheType, Message } from 'discord.js';
 import type {
@@ -14,8 +24,32 @@ import {
 	type MessageSubcommandAcceptedPayload
 } from './types/Events';
 
+/**
+ * The class to extends for commands that have subcommands.
+ * Specify the subcommands through the {@link Subcommand.Options.subcommands} option.
+ *
+ * Note that you should not make **all** your commands extend this class, _only_ the ones that have subcommands.
+ * The reason for this is that this class implements {@link Command.messageRun} and {@link Command.chatInputRun}
+ * which you wouldn't necessarily want to do for commands that don't have subcommands.
+ * Furthermore, it also just adds general unnecessary memory overhead.
+ */
 export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand.Options = Subcommand.Options> extends Command<PreParseReturn, O> {
+	/**
+	 * The preconditions to be run for each specified subcommand.
+	 * @since 4.1.0
+	 */
+	public readonly subcommandPreconditions = new Map<string, PreconditionContainerArray>();
+
+	/**
+	 * The parsed subcommand mappings that were provided with the {@link Subcommand.Options.subcommands} option.
+	 * This is built at construction time and is used to determine which subcommand to run.
+	 */
 	public parsedSubcommandMappings: SubcommandMappingArray;
+
+	/**
+	 * Whether to use case insensitive subcommands. This is only relevant for message-command styled commands as
+	 * chat input commands are always lowercase. This can be enabled through `clientOptions.caseInsensitiveCommands`.
+	 */
 	public caseInsensitiveSubcommands = false;
 
 	public constructor(context: PieceContext, options: O) {
@@ -103,9 +137,26 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				}
 			}
 		}
+
+		for (const subcommand of this.parsedSubcommandMappings) {
+			if (subcommand.type === 'method' && subcommand.preconditions?.length) {
+				this.subcommandPreconditions.set(subcommand.name, new PreconditionContainerArray(subcommand.preconditions));
+			}
+
+			if (subcommand.type === 'group') {
+				for (const groupedSubcommand of subcommand.entries) {
+					if (groupedSubcommand.preconditions?.length) {
+						this.subcommandPreconditions.set(
+							`${subcommand.name}.${groupedSubcommand.name}`,
+							new PreconditionContainerArray(groupedSubcommand.preconditions)
+						);
+					}
+				}
+			}
+		}
 	}
 
-	public onLoad() {
+	public override onLoad() {
 		super.onLoad();
 
 		const externalMapping = Reflect.get(this, 'subcommandMappings');
@@ -116,15 +167,28 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		}
 	}
 
+	/**
+	 * Whether this command has message-based subcommands or not
+	 * @returns `true` if this command has message-based subcommands, otherwise `false`
+	 */
 	public override supportsMessageCommands(): boolean {
 		return this.#supportsCommandType('messageRun');
 	}
 
+	/**
+	 * Whether this command has chat input subcommands or not
+	 * @returns `true` if this command has chat input subcommands, otherwise `false`
+	 */
 	public override supportsChatInputCommands(): this is ChatInputCommand {
 		return this.#supportsCommandType('chatInputRun');
 	}
 
-	public async messageRun(message: Message, args: PreParseReturn, context: MessageCommand.RunContext) {
+	/**
+	 * The method that is ran when a message-based subcommand is ran.
+	 *
+	 * **DO NOT** override this in your implementation of a subcommand!
+	 */
+	public override async messageRun(message: Message, args: PreParseReturn, context: MessageCommand.RunContext) {
 		args.save();
 		const subcommandOrGroup = args.nextMaybe();
 		const subcommandName = args.nextMaybe();
@@ -183,21 +247,25 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 			args.next();
 
 			// If we matched with a subcommand in a group we need to skip 1 more arg
+			let subcommandGroupName: string | undefined = undefined;
 			if (matchedWithGroupedSubcommand) {
+				subcommandGroupName = subcommandOrGroup.unwrap();
 				args.next();
 			}
 
-			return this.#handleMessageRun(message, args, context, actualSubcommandToRun);
+			return this.#handleMessageRun(message, args, context, actualSubcommandToRun, subcommandGroupName);
 		}
 
 		// No subcommand matched, let's try to run default, if any:
 		if (defaultCommand) {
 			// If we matched with a subcommand in a group we need to skip 1 the group name
+			let subcommandGroupName: string | undefined = undefined;
 			if (matchedWithGroupedSubcommand) {
+				subcommandGroupName = subcommandOrGroup.unwrap();
 				args.next();
 			}
 
-			return this.#handleMessageRun(message, args, context, defaultCommand);
+			return this.#handleMessageRun(message, args, context, defaultCommand, subcommandGroupName);
 		}
 
 		// No match and no subcommand, return an err:
@@ -212,7 +280,12 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		});
 	}
 
-	public async chatInputRun(interaction: ChatInputCommand.Interaction, context: ChatInputCommand.RunContext) {
+	/**
+	 * The method that is ran when a chat input based subcommand is ran.
+	 *
+	 * **DO NOT** override this in your implementation of a subcommand!
+	 */
+	public override async chatInputRun(interaction: ChatInputCommand.Interaction, context: ChatInputCommand.RunContext) {
 		const subcommandName = interaction.options.getSubcommand(false);
 		const subcommandGroupName = interaction.options.getSubcommandGroup(false);
 
@@ -228,7 +301,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 
 				// Only run if its not the "default" found command mapping, as interactions don't have that
 				if (!foundSubcommand.defaultMatch) {
-					return this.#handleChatInputInteractionRun(interaction, context, foundSubcommand.mapping);
+					return this.#handleChatInputInteractionRun(interaction, context, foundSubcommand.mapping, subcommandGroupName);
 				}
 
 				// Skip to the next entry
@@ -237,7 +310,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 
 			// If we have a direct subcommand, and no group, then run the mapping
 			if (mapping.type === 'method' && mapping.name === subcommandName) {
-				return this.#handleChatInputInteractionRun(interaction, context, mapping);
+				return this.#handleChatInputInteractionRun(interaction, context, mapping, undefined);
 			}
 		}
 
@@ -249,7 +322,27 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		});
 	}
 
-	async #handleMessageRun(message: Message, args: Args, context: MessageCommand.RunContext, subcommand: SubcommandMappingMethod) {
+	async #getMessageParametersAsString(args: Args): Promise<Partial<Pick<MessageCommandDeniedPayload, 'parameters'>>> {
+		args.save();
+		const parameters = await args.restResult('string');
+		args.restore();
+
+		const params: Partial<Pick<MessageCommandDeniedPayload, 'parameters'>> = {};
+
+		if (parameters.isOk()) {
+			params.parameters = parameters.unwrap();
+		}
+
+		return params;
+	}
+
+	async #handleMessageRun(
+		message: Message,
+		args: Args,
+		context: MessageCommand.RunContext,
+		subcommand: SubcommandMappingMethod,
+		subcommandGroupName: string | undefined
+	) {
 		const payload: MessageSubcommandAcceptedPayload = {
 			message,
 			command: this,
@@ -257,6 +350,27 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 			matchedSubcommandMapping: subcommand
 		};
 
+		// Check if any subcommand preconditions were defined for thus subcommand:
+		const preconditionsForSubcommand = this.subcommandPreconditions.get(
+			subcommandGroupName ? `${subcommandGroupName}.${subcommand.name}` : subcommand.name
+		);
+
+		if (preconditionsForSubcommand) {
+			// Attempt to get the remaining parameters as string:
+			const messageParametersAsString = await this.#getMessageParametersAsString(args);
+
+			// Build the precondition payload:
+			const preconditionPayload = { ...messageParametersAsString, ...payload };
+
+			// Run the subcommand specific preconditions:
+			const localSubcommandResult = await preconditionsForSubcommand.messageRun(message, this, preconditionPayload as any);
+			if (localSubcommandResult.isErr()) {
+				this.container.client.emit(SubcommandPluginEvents.MessageSubCommandDenied, localSubcommandResult.unwrapErr(), preconditionPayload);
+				return;
+			}
+		}
+
+		// If subcommand preconditions have passed then we run the actual subcommand:
 		const result = await Result.fromAsync(async () => {
 			if (subcommand.messageRun) {
 				const casted = subcommand as MessageSubcommandMappingMethod;
@@ -291,7 +405,8 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 	async #handleChatInputInteractionRun(
 		interaction: ChatInputCommand.Interaction,
 		context: ChatInputCommand.RunContext,
-		subcommand: SubcommandMappingMethod
+		subcommand: SubcommandMappingMethod,
+		subcommandGroupName: string | undefined
 	) {
 		const payload: ChatInputSubcommandAcceptedPayload = {
 			command: this,
@@ -299,6 +414,20 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 			interaction,
 			matchedSubcommandMapping: subcommand
 		};
+
+		// Check if any subcommand preconditions were defined for thus subcommand:
+		const preconditionsForSubcommand = this.subcommandPreconditions.get(
+			subcommandGroupName ? `${subcommandGroupName}.${subcommand.name}` : subcommand.name
+		);
+
+		if (preconditionsForSubcommand) {
+			// Run the subcommand specific preconditions:
+			const localSubcommandResult = await preconditionsForSubcommand.chatInputRun(interaction, this, payload as any);
+			if (localSubcommandResult.isErr()) {
+				this.container.client.emit(SubcommandPluginEvents.ChatInputSubCommandDenied, localSubcommandResult.unwrapErr(), payload);
+				return;
+			}
+		}
 
 		const result = await Result.fromAsync(async () => {
 			if (subcommand.chatInputRun) {

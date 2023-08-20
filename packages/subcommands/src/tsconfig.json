@@ -1,10 +1,9 @@
 {
-	"extends": "../../../tsconfig.base.json",
+	"extends": ["@sapphire/ts-config/extra-strict-without-decorators", "../../../tsconfig.base.json"],
 	"compilerOptions": {
 		"rootDir": "./",
 		"outDir": "../dist",
 		"composite": true,
-		"preserveConstEnums": true,
 		"tsBuildInfoFile": "../dist/.tsbuildinfo"
 	},
 	"include": ["."]
