@@ -39,7 +39,7 @@
 	"dependencies": {
 		"@types/ws": "^8.5.5",
 		"tldts": "^6.0.14",
-		"tslib": "^2.6.1",
+		"tslib": "^2.6.2",
 		"undici": "^5.23.0"
 	},
 	"repository": {
