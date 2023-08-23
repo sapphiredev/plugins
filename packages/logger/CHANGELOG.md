@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-logger@3.0.6](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@3.0.5...@sapphire/plugin-logger@3.0.6) - (2023-08-23)
+
+## 🏠 Refactor
+
+- ***:** Cleanup plugin registry files (#469) ([215b334](https://github.com/sapphiredev/plugins/commit/215b3348b30077238147dbc643769d960b856ba1))
+
 # [@sapphire/plugin-logger@3.0.5](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@3.0.4...@sapphire/plugin-logger@3.0.5) - (2023-07-21)
 
 ## 🏠 Refactor
