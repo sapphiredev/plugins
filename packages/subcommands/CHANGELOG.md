@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@4.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.1.0...@sapphire/plugin-subcommands@4.1.1) - (2023-08-23)
+
+## 🏠 Refactor
+
+- ***:** Cleanup plugin registry files (#469) ([215b334](https://github.com/sapphiredev/plugins/commit/215b3348b30077238147dbc643769d960b856ba1))
+
+## 🐛 Bug Fixes
+
+- **subcommands:** Ensure that `subcommand.type` always has a value ([6007a23](https://github.com/sapphiredev/plugins/commit/6007a23926cad34e15dd72d58fec90bb858ae6c1))
+
 # [@sapphire/plugin-subcommands@4.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.0.2...@sapphire/plugin-subcommands@4.1.0) - (2023-08-21)
 
 ## 🚀 Features
