@@ -9,7 +9,7 @@ export class CommandAcceptedListener extends Listener<typeof PatternCommandEvent
 		super(context, { event: PatternCommandEvents.CommandAccepted });
 	}
 
-	public async run(payload: PatternCommandAcceptedPayload) {
+	public override async run(payload: PatternCommandAcceptedPayload) {
 		const { message, command } = payload;
 
 		const result = await Result.fromAsync(async () => {

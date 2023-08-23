@@ -1,7 +1,3 @@
 {
-	"extends": "@sapphire/ts-config",
-	"compilerOptions": {
-		"importHelpers": true,
-		"noEmitHelpers": true
-	}
+	"extends": "@sapphire/ts-config/extra-strict-without-decorators"
 }

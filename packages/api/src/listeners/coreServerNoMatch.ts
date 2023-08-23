@@ -8,7 +8,7 @@ export class PluginListener extends Listener {
 		super(context, { emitter: 'server', event: ServerEvents.NoMatch });
 	}
 
-	public run(_: ApiRequest, response: ApiResponse) {
+	public override run(_: ApiRequest, response: ApiResponse) {
 		if (!response.writableEnded) response.notFound();
 	}
 }

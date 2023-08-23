@@ -6,7 +6,7 @@ export class PluginListener extends Listener<typeof SubcommandPluginEvents.Messa
 		super(context, { event: SubcommandPluginEvents.MessageSubcommandError });
 	}
 
-	public run(error: unknown, context: MessageSubcommandErrorPayload) {
+	public override run(error: unknown, context: MessageSubcommandErrorPayload) {
 		const { name, location } = context.command;
 		this.container.logger.error(`Encountered error on message subcommand "${name}" at path "${location.full}"`, error);
 	}

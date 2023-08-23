@@ -6,7 +6,7 @@ export class PluginListener extends Listener<typeof Events.MessageUpdate> {
 		super(context, { event: Events.MessageUpdate });
 	}
 
-	public run(old: Message, message: Message) {
+	public override run(old: Message, message: Message) {
 		// If the contents of both messages are the same, return:
 		if (old.content === message.content) return;
 
