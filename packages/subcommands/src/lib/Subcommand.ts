@@ -144,7 +144,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 
 			if (subcommand.type === 'method') {
 				const preconditionContainerArray = new PreconditionContainerArray(subcommand.preconditions);
-				const preconditionRunInTypes = super['resolveConstructorPreConditionsRunType'](subcommand.runIn);
+				const preconditionRunInTypes = super.resolveConstructorPreConditionsRunType(subcommand.runIn);
 				if (preconditionRunInTypes !== null) {
 					preconditionContainerArray.append({ name: CommandPreConditions.RunIn, context: { types: preconditionRunInTypes } });
 				}
@@ -155,7 +155,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 			if (subcommand.type === 'group') {
 				for (const groupedSubcommand of subcommand.entries) {
 					const preconditionContainerArray = new PreconditionContainerArray(groupedSubcommand.preconditions);
-					const preconditionRunInTypes = super['resolveConstructorPreConditionsRunType'](groupedSubcommand.runIn);
+					const preconditionRunInTypes = super.resolveConstructorPreConditionsRunType(groupedSubcommand.runIn);
 					if (preconditionRunInTypes !== null) {
 						preconditionContainerArray.append({ name: CommandPreConditions.RunIn, context: { types: preconditionRunInTypes } });
 					}

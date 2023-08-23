@@ -901,9 +901,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/framework@npm:^4.5.2":
-  version: 4.5.2
-  resolution: "@sapphire/framework@npm:4.5.2"
+"@sapphire/framework@npm:^4.5.3":
+  version: 4.5.3
+  resolution: "@sapphire/framework@npm:4.5.3"
   dependencies:
     "@discordjs/builders": ^1.6.5
     "@sapphire/discord-utilities": ^3.1.0
@@ -914,7 +914,7 @@ __metadata:
     "@sapphire/result": ^2.6.4
     "@sapphire/stopwatch": ^1.5.0
     "@sapphire/utilities": ^3.13.0
-  checksum: 2e5bec4afa7b1989cf2f4edf58355f6591898b47939fc5cad96577f19223707615aa8e78b8ca58e9e4d37865caec13b682ef6a40029e9623a53c735fdd452afe
+  checksum: 6e1ff4ec93c8581558e12d0dae8d6b37aac8564379ea8dd6ea683977cf4903dfd246b164afac87bb5dcb1c4b83a8a9e22a0f2716ff2bd83aee0eddcc46aba800
   languageName: node
   linkType: hard
 
@@ -5604,7 +5604,7 @@ __metadata:
     "@favware/cliff-jumper": ^2.1.1
     "@favware/npm-deprecate": ^1.0.7
     "@sapphire/eslint-config": ^5.0.1
-    "@sapphire/framework": ^4.5.2
+    "@sapphire/framework": ^4.5.3
     "@sapphire/pieces": ^3.7.0
     "@sapphire/prettier-config": ^2.0.0
     "@sapphire/stopwatch": ^1.5.0
@@ -5626,7 +5626,7 @@ __metadata:
     lint-staged: ^14.0.1
     prettier: ^3.0.2
     rimraf: ^5.0.1
-    turbo: ^1.10.12
+    turbo: ^1.10.13
     typescript: ^5.1.6
     vite: ^4.4.9
     vitest: ^0.34.2
@@ -6243,58 +6243,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.10.12":
-  version: 1.10.12
-  resolution: "turbo-darwin-64@npm:1.10.12"
+"turbo-darwin-64@npm:1.10.13":
+  version: 1.10.13
+  resolution: "turbo-darwin-64@npm:1.10.13"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.10.12":
-  version: 1.10.12
-  resolution: "turbo-darwin-arm64@npm:1.10.12"
+"turbo-darwin-arm64@npm:1.10.13":
+  version: 1.10.13
+  resolution: "turbo-darwin-arm64@npm:1.10.13"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.10.12":
-  version: 1.10.12
-  resolution: "turbo-linux-64@npm:1.10.12"
+"turbo-linux-64@npm:1.10.13":
+  version: 1.10.13
+  resolution: "turbo-linux-64@npm:1.10.13"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.10.12":
-  version: 1.10.12
-  resolution: "turbo-linux-arm64@npm:1.10.12"
+"turbo-linux-arm64@npm:1.10.13":
+  version: 1.10.13
+  resolution: "turbo-linux-arm64@npm:1.10.13"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.10.12":
-  version: 1.10.12
-  resolution: "turbo-windows-64@npm:1.10.12"
+"turbo-windows-64@npm:1.10.13":
+  version: 1.10.13
+  resolution: "turbo-windows-64@npm:1.10.13"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.10.12":
-  version: 1.10.12
-  resolution: "turbo-windows-arm64@npm:1.10.12"
+"turbo-windows-arm64@npm:1.10.13":
+  version: 1.10.13
+  resolution: "turbo-windows-arm64@npm:1.10.13"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:^1.10.12":
-  version: 1.10.12
-  resolution: "turbo@npm:1.10.12"
+"turbo@npm:^1.10.13":
+  version: 1.10.13
+  resolution: "turbo@npm:1.10.13"
   dependencies:
-    turbo-darwin-64: 1.10.12
-    turbo-darwin-arm64: 1.10.12
-    turbo-linux-64: 1.10.12
-    turbo-linux-arm64: 1.10.12
-    turbo-windows-64: 1.10.12
-    turbo-windows-arm64: 1.10.12
+    turbo-darwin-64: 1.10.13
+    turbo-darwin-arm64: 1.10.13
+    turbo-linux-64: 1.10.13
+    turbo-linux-arm64: 1.10.13
+    turbo-windows-64: 1.10.13
+    turbo-windows-arm64: 1.10.13
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -6310,7 +6310,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 266b70404e149b92cd64051fcdd03c56b474ed22f6bd11cf4cf1b70f55c72f9a2aaa90109b19b95e43d68e53a6be54485f0cc0135c8d5b505db09fd126a34052
+  checksum: 0c000c671534c8c80270c6d1fc77646df0e44164c0db561a85b3fefadd4bda6d5920626d067abb09af38613024e3984fb8d8bc5be922dae6236eda6aab9447a2
   languageName: node
   linkType: hard
 
