@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@5.0.5](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@5.0.4...@sapphire/plugin-i18next@5.0.5) - (2023-08-23)
+
+## 🏠 Refactor
+
+- ***:** Cleanup plugin registry files (#469) ([215b334](https://github.com/sapphiredev/plugins/commit/215b3348b30077238147dbc643769d960b856ba1))
+
 # [@sapphire/plugin-i18next@5.0.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@5.0.3...@sapphire/plugin-i18next@5.0.4) - (2023-07-21)
 
 ## 🐛 Bug Fixes
