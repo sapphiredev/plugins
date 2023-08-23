@@ -8,7 +8,7 @@ export class PluginListener extends Listener {
 		super(context, { emitter: 'server', event: ServerEvents.Request });
 	}
 
-	public async run(request: ApiRequest, response: ApiResponse) {
+	public override async run(request: ApiRequest, response: ApiResponse) {
 		const match = this.container.server.routes.match(request);
 
 		try {

@@ -16,7 +16,7 @@ export class PluginRoute extends Route {
 		this.enabled = this.container.server.auth !== null;
 	}
 
-	public async [methods.POST](request: ApiRequest, response: ApiResponse) {
+	public override async [methods.POST](request: ApiRequest, response: ApiResponse) {
 		if (!request.auth) return response.status(HttpCodes.Unauthorized).json({ error: 'Unauthorized.' });
 
 		const result = await this.revoke(request.auth.token);

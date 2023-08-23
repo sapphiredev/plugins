@@ -14,7 +14,7 @@ export class PluginMiddleware extends Middleware {
 		this.domainOverwrite = server.auth?.domainOverwrite ?? null;
 	}
 
-	public run(request: ApiRequest, response: ApiResponse) {
+	public override run(request: ApiRequest, response: ApiResponse) {
 		response.cookies = new CookieStore(request, response, this.production, this.domainOverwrite);
 	}
 }

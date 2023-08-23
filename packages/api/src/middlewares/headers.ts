@@ -14,7 +14,7 @@ export class PluginMiddleware extends Middleware {
 		this.origin = this.container.server.options.origin ?? '*';
 	}
 
-	public run(request: ApiRequest, response: ApiResponse, route: Route | null) {
+	public override run(request: ApiRequest, response: ApiResponse, route: Route | null) {
 		response.setHeader('Date', new Date().toUTCString());
 		response.setHeader('Access-Control-Allow-Credentials', 'true');
 		response.setHeader('Access-Control-Allow-Origin', this.origin);

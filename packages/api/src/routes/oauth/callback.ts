@@ -19,7 +19,7 @@ export class PluginRoute extends Route {
 		this.redirectUri = server.auth?.redirect;
 	}
 
-	public async [methods.POST](request: ApiRequest, response: ApiResponse) {
+	public override async [methods.POST](request: ApiRequest, response: ApiResponse) {
 		const body = request.body as OAuth2BodyData;
 		if (typeof body?.code !== 'string') {
 			return response.badRequest();

@@ -9,7 +9,7 @@ export class PluginListener extends Listener {
 		super(context, { emitter: 'server', event: ServerEvents.Match });
 	}
 
-	public run(request: ApiRequest, response: ApiResponse, match: RouteMatch) {
+	public override run(request: ApiRequest, response: ApiResponse, match: RouteMatch) {
 		this.container.server.emit(
 			response.writableEnded ? ServerEvents.MiddlewareFailure : ServerEvents.MiddlewareSuccess,
 			request,

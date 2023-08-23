@@ -47,7 +47,7 @@ export class Logger extends BuiltinLogger {
 	 * @param level The log level.
 	 * @param values The values to log.
 	 */
-	public write(level: LogLevel, ...values: readonly unknown[]): void {
+	public override write(level: LogLevel, ...values: readonly unknown[]): void {
 		if (level < this.level) return;
 
 		const method = this.levels.get(level) ?? 'log';

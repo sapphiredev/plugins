@@ -7,7 +7,7 @@ export class PluginListener extends Listener {
 		super(context, { emitter: 'server', event: ServerEvents.MiddlewareError });
 	}
 
-	public run(error: Error, { response }: MiddlewareErrorContext) {
+	public override run(error: Error, { response }: MiddlewareErrorContext) {
 		// Log the error to console:
 		this.container.logger.fatal(error);
 

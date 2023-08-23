@@ -12,7 +12,7 @@ export class PluginMiddleware extends Middleware {
 		this.enabled = server.auth !== null;
 	}
 
-	public run(request: ApiRequest, response: ApiResponse) {
+	public override run(request: ApiRequest, response: ApiResponse) {
 		// If there are no cookies, set auth as null:
 		const authorization = response.cookies.get(this.cookieName);
 		if (!authorization) {

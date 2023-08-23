@@ -1,5 +1,3 @@
-import 'tslib';
-
 import type { ScheduledTaskHandler } from './lib/ScheduledTaskHandler';
 import type { ScheduledTaskStore } from './lib/structures/ScheduledTaskStore';
 import type { ScheduledTaskHandlerOptions } from './lib/types/ScheduledTaskTypes';
