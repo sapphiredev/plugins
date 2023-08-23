@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@5.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.1.0...@sapphire/plugin-api@5.1.1) - (2023-08-23)
+
+## 🏠 Refactor
+
+- ***:** Cleanup plugin registry files (#469) ([215b334](https://github.com/sapphiredev/plugins/commit/215b3348b30077238147dbc643769d960b856ba1))
+
+## 🐛 Bug Fixes
+
+- **api:** Bump transitive dependencies ([79d7230](https://github.com/sapphiredev/plugins/commit/79d7230c84ad59338197d8109e6f3ba46a5c2158))
+- **api:** Update deps ([8729197](https://github.com/sapphiredev/plugins/commit/872919797bc23dec0ac9e58e4c945f7f475e20c6))
+
 # [@sapphire/plugin-api@5.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.0.4...@sapphire/plugin-api@5.1.0) - (2023-06-13)
 
 ## 🚀 Features
