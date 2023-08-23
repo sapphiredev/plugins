@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-editable-commands@3.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@3.0.2...@sapphire/plugin-editable-commands@3.0.3) - (2023-08-23)
+
+## 🏠 Refactor
+
+- ***:** Cleanup plugin registry files (#469) ([215b334](https://github.com/sapphiredev/plugins/commit/215b3348b30077238147dbc643769d960b856ba1))
+
 # [@sapphire/plugin-editable-commands@3.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@3.0.1...@sapphire/plugin-editable-commands@3.0.2) - (2023-04-10)
 
 ## 🐛 Bug Fixes
