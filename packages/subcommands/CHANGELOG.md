@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@4.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.1.1...@sapphire/plugin-subcommands@4.2.0) - (2023-08-23)
+
+## 🚀 Features
+
+- **subcommands:** Add runIn to match framework (#470) ([89cb5d9](https://github.com/sapphiredev/plugins/commit/89cb5d9937402140a28d10739ae9b911b22558f5))
+
 # [@sapphire/plugin-subcommands@4.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.1.0...@sapphire/plugin-subcommands@4.1.1) - (2023-08-23)
 
 ## 🏠 Refactor
