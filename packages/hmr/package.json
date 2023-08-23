@@ -35,8 +35,7 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"chokidar": "^3.5.3",
-		"tslib": "2.x"
+		"chokidar": "^3.5.3"
 	},
 	"repository": {
 		"type": "git",
