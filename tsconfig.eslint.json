@@ -6,8 +6,6 @@
 		"packages/**/*.mjs",
 		"packages/**/vitest.config.ts",
 		"packages/**/tests/*.js",
-		"packages/**/register*.js",
-		"packages/**/register*.mjs",
 		"packages/**/types*.js",
 		"packages/**/types*.mjs",
 		"./vitest.config.ts"

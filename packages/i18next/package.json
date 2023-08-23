@@ -9,21 +9,19 @@
 	"types": "dist/index.d.ts",
 	"exports": {
 		".": {
+			"types": "./dist/index.d.ts",
 			"import": "./dist/index.mjs",
-			"require": "./dist/index.js",
-			"types": "./dist/index.d.ts"
+			"require": "./dist/index.js"
 		},
 		"./register": {
-			"import": "./register.mjs",
-			"require": "./register.js",
-			"types": "./register.d.ts"
+			"types": "./dist/register.d.ts",
+			"import": "./dist/register.mjs",
+			"require": "./dist/register.js"
 		}
 	},
 	"sideEffects": [
 		"./dist/register.js",
-		"./dist/register.mjs",
-		"./register.js",
-		"./register.mjs"
+		"./dist/register.mjs"
 	],
 	"homepage": "https://github.com/sapphiredev/plugins/tree/main/packages/i18next",
 	"scripts": {
@@ -50,10 +48,8 @@
 		"directory": "packages/i18next"
 	},
 	"files": [
-		"dist/**/*.js*",
-		"dist/**/*.mjs*",
-		"dist/**/*.d*",
-		"./register.*"
+		"dist/",
+		"!dist/.tsbuildinfo"
 	],
 	"engines": {
 		"node": ">=v14",
