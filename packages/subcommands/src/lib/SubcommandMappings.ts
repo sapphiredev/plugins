@@ -1,4 +1,4 @@
-import type { Command, PreconditionEntryResolvable } from '@sapphire/framework';
+import type { Command } from '@sapphire/framework';
 
 export type SubcommandMapping = SubcommandMappingMethod | SubcommandMappingGroup;
 
@@ -22,7 +22,7 @@ interface SubcommandMappingBase {
 /**
  * Describes how a subcommand method maps to the actual implementation of that subcommand.
  */
-export interface SubcommandMappingMethod extends SubcommandMappingBase {
+export interface SubcommandMappingMethod extends SubcommandMappingBase, Pick<Command.Options, 'runIn' | 'preconditions'> {
 	/**
 	 * This subcommand mapping describes a subcommand method and can therefore only ever be `'method'`
 	 */
@@ -77,14 +77,6 @@ export interface SubcommandMappingMethod extends SubcommandMappingBase {
 	 * ```
 	 */
 	chatInputRun?: string | Command['chatInputRun'];
-
-	/**
-	 * The {@link Precondition}s to be run, accepts an array of their names.
-	 * @seealso {@link PreconditionContainerArray}
-	 * @since 4.1.0
-	 * @default []
-	 */
-	preconditions?: readonly PreconditionEntryResolvable[];
 }
 
 export interface SubcommandMappingGroup extends SubcommandMappingBase {

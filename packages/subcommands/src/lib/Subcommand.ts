@@ -1,5 +1,6 @@
 import {
 	Command,
+	CommandPreConditions,
 	PreconditionContainerArray,
 	Result,
 	UserError,
@@ -141,18 +142,25 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		for (const subcommand of this.parsedSubcommandMappings) {
 			subcommand.type ??= 'method';
 
-			if (subcommand.type === 'method' && subcommand.preconditions?.length) {
-				this.subcommandPreconditions.set(subcommand.name, new PreconditionContainerArray(subcommand.preconditions));
+			if (subcommand.type === 'method') {
+				const preconditionContainerArray = new PreconditionContainerArray(subcommand.preconditions);
+				const preconditionRunInTypes = super['resolveConstructorPreConditionsRunType'](subcommand.runIn);
+				if (preconditionRunInTypes !== null) {
+					preconditionContainerArray.append({ name: CommandPreConditions.RunIn, context: { types: preconditionRunInTypes } });
+				}
+
+				this.subcommandPreconditions.set(subcommand.name, preconditionContainerArray);
 			}
 
 			if (subcommand.type === 'group') {
 				for (const groupedSubcommand of subcommand.entries) {
-					if (groupedSubcommand.preconditions?.length) {
-						this.subcommandPreconditions.set(
-							`${subcommand.name}.${groupedSubcommand.name}`,
-							new PreconditionContainerArray(groupedSubcommand.preconditions)
-						);
+					const preconditionContainerArray = new PreconditionContainerArray(groupedSubcommand.preconditions);
+					const preconditionRunInTypes = super['resolveConstructorPreConditionsRunType'](groupedSubcommand.runIn);
+					if (preconditionRunInTypes !== null) {
+						preconditionContainerArray.append({ name: CommandPreConditions.RunIn, context: { types: preconditionRunInTypes } });
 					}
+
+					this.subcommandPreconditions.set(`${subcommand.name}.${groupedSubcommand.name}`, preconditionContainerArray);
 				}
 			}
 		}
