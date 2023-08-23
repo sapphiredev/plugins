@@ -139,6 +139,8 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 		}
 
 		for (const subcommand of this.parsedSubcommandMappings) {
+			subcommand.type ??= 'method';
+
 			if (subcommand.type === 'method' && subcommand.preconditions?.length) {
 				this.subcommandPreconditions.set(subcommand.name, new PreconditionContainerArray(subcommand.preconditions));
 			}
