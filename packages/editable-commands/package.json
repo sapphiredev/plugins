@@ -35,8 +35,7 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@skyra/editable-commands": "^3.0.1",
-		"tslib": "^2.6.2"
+		"@skyra/editable-commands": "^3.0.1"
 	},
 	"repository": {
 		"type": "git",
