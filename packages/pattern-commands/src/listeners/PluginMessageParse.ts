@@ -12,7 +12,7 @@ export class MessageParseListener extends Listener<typeof Events.PreMessageParse
 		super(context, { event: Events.PreMessageParsed });
 	}
 
-	public async run(message: Message) {
+	public override async run(message: Message) {
 		const canRun = await this.canRunInChannel(message);
 		if (!canRun) return;
 

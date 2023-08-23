@@ -1,9 +1,9 @@
 import { Piece } from '@sapphire/pieces';
 import type { Awaitable } from '@sapphire/utilities';
 import { createBrotliDecompress, createGunzip, createInflate } from 'zlib';
+import type { Route } from './Route';
 import type { ApiRequest } from './api/ApiRequest';
 import type { MimeTypeWithoutParameters } from './http/Server';
-import type { Route } from './Route';
 
 /**
  * A media parser

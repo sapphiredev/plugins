@@ -26,7 +26,7 @@ export abstract class PatternCommand extends Command<Args, PatternCommand.Option
 	 * Executes the pattern command's logic.
 	 * @param message The message that triggered the pattern command.
 	 */
-	public abstract messageRun(message: Message): Awaitable<unknown>;
+	public abstract override messageRun(message: Message): Awaitable<unknown>;
 }
 
 export interface PatternCommandOptions extends MessageCommand.Options {

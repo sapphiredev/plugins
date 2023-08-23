@@ -49,7 +49,7 @@ export abstract class Route extends Piece {
 	 * Per-piece listener that is called when the piece is loaded into the store.
 	 * Useful to set-up asynchronous initialization tasks.
 	 */
-	public onLoad(): Awaitable<unknown> {
+	public override onLoad(): Awaitable<unknown> {
 		const store = this.store as unknown as RouteStore;
 
 		for (const [method, cb] of this.methods) {
@@ -63,7 +63,7 @@ export abstract class Route extends Piece {
 	 * Per-piece listener that is called when the piece is unloaded from the store.
 	 * Useful to set-up clean-up tasks.
 	 */
-	public onUnload(): Awaitable<unknown> {
+	public override onUnload(): Awaitable<unknown> {
 		const store = this.store as unknown as RouteStore;
 
 		for (const [method] of this.methods) {

@@ -1,5 +1,3 @@
-import 'tslib';
-
 export * from './lib/hmr';
 
 import type { HMROptions } from './lib/hmr';

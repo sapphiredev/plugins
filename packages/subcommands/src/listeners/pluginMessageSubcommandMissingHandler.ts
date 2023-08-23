@@ -8,7 +8,7 @@ export class PluginListener extends Listener<typeof SubcommandPluginEvents.Subco
 		super(context, { event: SubcommandPluginEvents.SubcommandMappingIsMissingMessageCommandHandler });
 	}
 
-	public run(_: Message, subcommand: SubcommandMappingMethod, context: MessageSubcommandErrorPayload) {
+	public override run(_: Message, subcommand: SubcommandMappingMethod, context: MessageSubcommandErrorPayload) {
 		const { name, location } = context.command;
 		this.container.logger.error(`Encountered a missing mapping on message subcommand "${name}" at "${location.full}"`, subcommand);
 	}

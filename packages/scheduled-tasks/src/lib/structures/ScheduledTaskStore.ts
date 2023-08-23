@@ -8,7 +8,7 @@ export class ScheduledTaskStore extends Store<ScheduledTask> {
 		super(ScheduledTask, { name: 'scheduled-tasks' });
 	}
 
-	public set(key: string, value: ScheduledTask): this {
+	public override set(key: string, value: ScheduledTask): this {
 		if (value.interval !== null || value.pattern !== null) {
 			this.repeatedTasks.push(value);
 		}
@@ -16,7 +16,7 @@ export class ScheduledTaskStore extends Store<ScheduledTask> {
 		return super.set(key, value);
 	}
 
-	public delete(key: string): boolean {
+	public override delete(key: string): boolean {
 		const index = this.repeatedTasks.findIndex((task) => task.name === key);
 
 		// If the scheduled task was found, remove it
@@ -25,7 +25,7 @@ export class ScheduledTaskStore extends Store<ScheduledTask> {
 		return super.delete(key);
 	}
 
-	public clear(): void {
+	public override clear(): void {
 		this.repeatedTasks.length = 0;
 		return super.clear();
 	}

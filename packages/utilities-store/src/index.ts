@@ -1,5 +1,3 @@
-import 'tslib';
-
 import type { Utilities } from './lib/Utilities';
 import type { UtilitiesStore } from './lib/UtilitiesStore';
 

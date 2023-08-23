@@ -1,6 +1,6 @@
 import { URLSearchParams } from 'url';
-import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import { MediaParser } from '../lib/structures/MediaParser';
+import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import { MimeTypes } from '../lib/utils/MimeTypes';
 
 export class PluginMediaParser extends MediaParser {
@@ -8,7 +8,7 @@ export class PluginMediaParser extends MediaParser {
 		super(context, { name: MimeTypes.ApplicationFormUrlEncoded });
 	}
 
-	public async run(request: ApiRequest): Promise<unknown> {
+	public override async run(request: ApiRequest): Promise<unknown> {
 		const body = await this.readString(request);
 		return body.length === 0 ? null : Object.fromEntries(new URLSearchParams(body).entries());
 	}

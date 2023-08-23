@@ -12,7 +12,7 @@ export class PluginMiddleware extends Middleware {
 		this.mediaParsers = this.container.server.mediaParsers;
 	}
 
-	public async run(request: ApiRequest, response: ApiResponse, route: Route) {
+	public override async run(request: ApiRequest, response: ApiResponse, route: Route) {
 		// RFC 1341 4.
 		const contentType = request.headers['content-type'];
 		if (typeof contentType !== 'string') return;

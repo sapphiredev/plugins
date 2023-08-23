@@ -7,7 +7,7 @@ export class PluginMediaParser extends MediaParser {
 		super(context, { name: MimeTypes.TextPlain });
 	}
 
-	public async run(request: ApiRequest): Promise<unknown> {
+	public override async run(request: ApiRequest): Promise<unknown> {
 		const body = await this.readString(request);
 		return body.length === 0 ? null : body;
 	}

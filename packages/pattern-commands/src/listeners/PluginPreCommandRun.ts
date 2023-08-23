@@ -8,7 +8,7 @@ export class PreCommandRunListener extends Listener<typeof PatternCommandEvents.
 		super(context, { event: PatternCommandEvents.PreCommandRun });
 	}
 
-	public async run(payload: PatternCommandPrePayload) {
+	public override async run(payload: PatternCommandPrePayload) {
 		const { message, possibleCommands } = payload;
 
 		for (const possibleCommand of possibleCommands) {

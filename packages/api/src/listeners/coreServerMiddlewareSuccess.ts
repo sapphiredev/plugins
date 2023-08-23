@@ -1,15 +1,15 @@
 import { Listener } from '@sapphire/framework';
+import type { RouteMatch } from '../lib/structures/RouteStore';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../lib/structures/api/ApiResponse';
 import { ServerEvents } from '../lib/structures/http/Server';
-import type { RouteMatch } from '../lib/structures/RouteStore';
 
 export class PluginListener extends Listener {
 	public constructor(context: Listener.Context) {
 		super(context, { emitter: 'server', event: ServerEvents.MiddlewareSuccess });
 	}
 
-	public async run(request: ApiRequest, response: ApiResponse, match: RouteMatch) {
+	public override async run(request: ApiRequest, response: ApiResponse, match: RouteMatch) {
 		try {
 			await match.cb(request, response);
 		} catch (error) {
