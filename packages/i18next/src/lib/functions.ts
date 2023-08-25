@@ -7,6 +7,7 @@ import {
 	Locale,
 	Message,
 	MessageComponentInteraction,
+	ModalSubmitInteraction,
 	type APIApplicationCommandOptionChoice,
 	type LocaleString
 } from 'discord.js';
@@ -37,7 +38,7 @@ import type {
  */
 export function fetchLanguage(target: Target): Promise<string> {
 	// Handle Interactions:
-	if (target instanceof CommandInteraction || target instanceof MessageComponentInteraction) {
+	if (target instanceof CommandInteraction || target instanceof MessageComponentInteraction || target instanceof ModalSubmitInteraction) {
 		return resolveLanguage({
 			user: target.user,
 			channel: target.channel,

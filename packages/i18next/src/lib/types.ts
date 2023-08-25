@@ -8,6 +8,7 @@ import type {
 	LocalizationMap,
 	Message,
 	MessageComponentInteraction,
+	ModalSubmitInteraction,
 	StageChannel,
 	User,
 	VoiceChannel
@@ -179,4 +180,4 @@ export interface BuilderWithDescription {
 
 export type BuilderWithNameAndDescription = BuilderWithName & BuilderWithDescription;
 export type ChannelTarget = Message | DiscordChannel;
-export type Target = CommandInteraction | ChannelTarget | Guild | MessageComponentInteraction;
+export type Target = CommandInteraction | ChannelTarget | Guild | MessageComponentInteraction | ModalSubmitInteraction;
