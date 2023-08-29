@@ -1,17 +1,7 @@
 import type { Awaitable } from '@sapphire/utilities';
 import type { Backend } from '@skyra/i18next-backend';
 import type { WatchOptions } from 'chokidar';
-import type {
-	CommandInteraction,
-	Guild,
-	Interaction,
-	LocalizationMap,
-	Message,
-	MessageComponentInteraction,
-	StageChannel,
-	User,
-	VoiceChannel
-} from 'discord.js';
+import type { BaseInteraction, Guild, Interaction, LocalizationMap, Message, StageChannel, User, VoiceChannel } from 'discord.js';
 import type { DefaultTFuncReturnWithObject, InitOptions, Namespace, TFuncKey, TFuncReturn, TypeOptions } from 'i18next';
 
 export interface StringMap {
@@ -179,4 +169,4 @@ export interface BuilderWithDescription {
 
 export type BuilderWithNameAndDescription = BuilderWithName & BuilderWithDescription;
 export type ChannelTarget = Message | DiscordChannel;
-export type Target = CommandInteraction | ChannelTarget | Guild | MessageComponentInteraction;
+export type Target = BaseInteraction | ChannelTarget | Guild;
