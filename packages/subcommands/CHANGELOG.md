@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@4.2.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.2.0...@sapphire/plugin-subcommands@4.2.1) - (2023-08-29)
+
+## 🏠 Refactor
+
+- **subcommands:** Deprecate `SubcommandPluginEvents.ChatInputSubCommandDenied` in favour of `SubcommandPluginEvents.ChatInputSubcommandDenied` and `SubcommandPluginEvents.MessageSubCommandDenied` in favour of `SubcommandPluginEvents.MessageSubcommandDenied` ([ed845b4](https://github.com/sapphiredev/plugins/commit/ed845b4102925fb8b419a752f992298fa892a74d))
+
 # [@sapphire/plugin-subcommands@4.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.1.1...@sapphire/plugin-subcommands@4.2.0) - (2023-08-23)
 
 ## 🚀 Features
