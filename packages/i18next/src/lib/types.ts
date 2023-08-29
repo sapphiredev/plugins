@@ -2,19 +2,17 @@ import type { Awaitable } from '@sapphire/utilities';
 import type { Backend } from '@skyra/i18next-backend';
 import type { WatchOptions } from 'chokidar';
 import type { BaseInteraction, Guild, Interaction, LocalizationMap, Message, StageChannel, User, VoiceChannel } from 'discord.js';
-import type { DefaultTFuncReturnWithObject, InitOptions, Namespace, TFuncKey, TFuncReturn, TypeOptions } from 'i18next';
+import type { DefaultNamespace, InitOptions, ParseKeys, TOptions } from 'i18next';
 
 export interface StringMap {
 	[key: string]: any;
 }
 
-export type TFunctionKeys = TFuncKey | TemplateStringsArray extends infer A ? A : never;
-export type TFunctionResult<N extends Namespace = TypeOptions['defaultNS'], TKPrefix = undefined> = TFuncReturn<
-	N,
-	TFunctionKeys,
-	DefaultTFuncReturnWithObject,
-	TKPrefix
->;
+export interface $Dictionary<T = any> {
+	[key: string]: T;
+}
+
+export type TFunctionKeys<TOpt extends TOptions = TOptions> = ParseKeys<DefaultNamespace, TOpt, undefined> | TemplateStringsArray;
 
 /**
  * Configure whether to use Hot-Module-Replacement (HMR) for your i18next resources using these options. The minimum config to enable HMR is to set `enabled` to true. Any other properties are optional.

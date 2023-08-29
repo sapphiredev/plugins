@@ -1,12 +1,13 @@
 import { Result } from '@sapphire/framework';
 import { container, getRootData } from '@sapphire/pieces';
-import { isFunction, type Awaitable, type NonNullObject } from '@sapphire/utilities';
+import { isFunction, type Awaitable } from '@sapphire/utilities';
 import { Backend, type PathResolvable } from '@skyra/i18next-backend';
-import i18next, { type TFuncKey, type TFunction, type TOptions } from 'i18next';
+import i18next, { type TFunction, type TOptions } from 'i18next';
 import type { PathLike } from 'node:fs';
 import { opendir } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { InternationalizationContext, InternationalizationOptions, StringMap, TFunctionResult } from './types';
+import type { InternationalizationContext, InternationalizationOptions, StringMap, TFunctionKeys } from './types';
+import { URL, fileURLToPath } from 'node:url';
 
 /**
  * A generalized class for handling `i18next` JSON files and their discovery.
@@ -57,10 +58,13 @@ export class InternationalizationHandler {
 	 */
 	public constructor(options?: InternationalizationOptions) {
 		this.options = options ?? { i18next: { ignoreJSONStructure: false } };
-		this.languagesDirectory =
-			this.options.defaultLanguageDirectory ??
-			// FIXME: This is a bypass until this plugin is updated for Sapphire v3 because during building docs it already considers `baseUserDirectory` as potentially an `URL`
-			join((container.client?.options?.baseUserDirectory as string | null | undefined) ?? (getRootData().root as string), 'languages');
+
+		const baseUserDirectory =
+			container.client?.options?.baseUserDirectory instanceof URL
+				? fileURLToPath(container.client?.options?.baseUserDirectory)
+				: container.client?.options?.baseUserDirectory;
+
+		this.languagesDirectory = this.options.defaultLanguageDirectory ?? join(baseUserDirectory ?? getRootData().root, 'languages');
 
 		const languagePaths = new Set<PathResolvable>([
 			join(this.languagesDirectory, '{{lng}}', '{{ns}}.json'), //
@@ -178,11 +182,11 @@ export class InternationalizationHandler {
 	 * @see {@link https://www.i18next.com/overview/api#t}
 	 * @returns The localized content.
 	 */
-	public format<TResult extends TFunctionResult = string, TKeys extends TFuncKey = string, TInterpolationMap extends NonNullObject = StringMap>(
+	public format<const Key extends TFunctionKeys<TOpt>, const TOpt extends TOptions>(
 		locale: string,
-		key: TKeys | TKeys[],
-		options?: TOptions<TInterpolationMap>
-	): TResult {
+		key: Key | Key[],
+		options?: TOpt & StringMap & { defaultValue: string }
+	): string {
 		if (!this.languagesLoaded) throw new Error('Cannot call this method until InternationalizationHandler#init has been called');
 
 		const language = this.languages.get(locale);
@@ -192,7 +196,7 @@ export class InternationalizationHandler {
 			? { defaultValue: language(this.options.defaultMissingKey, { replace: { key } }) }
 			: undefined;
 
-		return language(key, { ...missingHandlers, ...options }) as TResult;
+		return language(key, { ...missingHandlers, ...options });
 	}
 
 	/**

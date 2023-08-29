@@ -1,7 +1,7 @@
 import { container } from '@sapphire/pieces';
-import { lazy, type NonNullObject } from '@sapphire/utilities';
+import { lazy } from '@sapphire/utilities';
 import { BaseInteraction, ChannelType, Guild, Locale, Message, type APIApplicationCommandOptionChoice, type LocaleString } from 'discord.js';
-import type { TFuncKey, TOptions } from 'i18next';
+import type { TOptions } from 'i18next';
 import type {
 	BuilderWithDescription,
 	BuilderWithName,
@@ -9,9 +9,8 @@ import type {
 	InternationalizationContext,
 	LocalizedData,
 	StringMap,
-	Target,
 	TFunctionKeys,
-	TFunctionResult
+	Target
 } from './types';
 
 /**
@@ -75,11 +74,11 @@ export async function fetchT(target: Target) {
  * @param options The options to be passed to TFunction.
  * @returns The data that `key` held, processed by i18next.
  */
-export async function resolveKey<
-	TResult extends TFunctionResult = string,
-	TKeys extends TFuncKey = string,
-	TInterpolationMap extends NonNullObject = StringMap
->(target: Target, key: TKeys | TKeys[], options?: TOptions<TInterpolationMap>): Promise<TResult> {
+export async function resolveKey<const Key extends TFunctionKeys<TOpt>, const TOpt extends TOptions>(
+	target: Target,
+	key: Key | Key[],
+	options?: TOpt & StringMap & { defaultValue: string }
+): Promise<string> {
 	return container.i18n.format(typeof options?.lng === 'string' ? options.lng : await fetchLanguage(target), key, options);
 }
 
