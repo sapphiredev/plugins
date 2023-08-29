@@ -1,16 +1,6 @@
 import { container } from '@sapphire/pieces';
 import { lazy, type NonNullObject } from '@sapphire/utilities';
-import {
-	ChannelType,
-	CommandInteraction,
-	Guild,
-	Locale,
-	Message,
-	MessageComponentInteraction,
-	ModalSubmitInteraction,
-	type APIApplicationCommandOptionChoice,
-	type LocaleString
-} from 'discord.js';
+import { BaseInteraction, ChannelType, Guild, Locale, Message, type APIApplicationCommandOptionChoice, type LocaleString } from 'discord.js';
 import type { TFuncKey, TOptions } from 'i18next';
 import type {
 	BuilderWithDescription,
@@ -38,7 +28,7 @@ import type {
  */
 export function fetchLanguage(target: Target): Promise<string> {
 	// Handle Interactions:
-	if (target instanceof CommandInteraction || target instanceof MessageComponentInteraction || target instanceof ModalSubmitInteraction) {
+	if (target instanceof BaseInteraction) {
 		return resolveLanguage({
 			user: target.user,
 			channel: target.channel,
