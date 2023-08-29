@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@5.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@5.0.5...@sapphire/plugin-i18next@5.1.0) - (2023-08-29)
+
+## 🚀 Features
+
+- **i18next:** Support ModalSubmitInteraction (#473) ([15e1712](https://github.com/sapphiredev/plugins/commit/15e1712cdb7083d6bdea8b01c500f7b191fd99ab))
+
 # [@sapphire/plugin-i18next@5.0.5](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@5.0.4...@sapphire/plugin-i18next@5.0.5) - (2023-08-23)
 
 ## 🏠 Refactor
