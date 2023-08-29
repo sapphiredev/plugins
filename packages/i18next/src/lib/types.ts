@@ -8,10 +8,6 @@ export interface StringMap {
 	[key: string]: any;
 }
 
-export interface $Dictionary<T = any> {
-	[key: string]: T;
-}
-
 export type TFunctionKeys<TOpt extends TOptions = TOptions> = ParseKeys<DefaultNamespace, TOpt, undefined> | TemplateStringsArray;
 
 /**
