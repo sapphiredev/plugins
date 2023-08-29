@@ -375,7 +375,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 			// Run the subcommand specific preconditions:
 			const localSubcommandResult = await preconditionsForSubcommand.messageRun(message, this, preconditionPayload as any);
 			if (localSubcommandResult.isErr()) {
-				this.container.client.emit(SubcommandPluginEvents.MessageSubCommandDenied, localSubcommandResult.unwrapErr(), preconditionPayload);
+				this.container.client.emit(SubcommandPluginEvents.MessageSubcommandDenied, localSubcommandResult.unwrapErr(), preconditionPayload);
 				return;
 			}
 		}

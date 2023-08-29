@@ -4,13 +4,19 @@ import type { Subcommand } from '../Subcommand';
 import type { ChatInputCommandSubcommandMappingMethod, MessageSubcommandMappingMethod, SubcommandMappingMethod } from '../SubcommandMappings';
 
 export const SubcommandPluginEvents = {
+	/** @deprecated use {@link SubcommandPluginEvents.ChatInputSubcommandDenied}  */
 	ChatInputSubCommandDenied: 'chatInputSubCommandDenied' as const,
+
+	ChatInputSubcommandDenied: 'chatInputSubcommandDenied' as const,
 	ChatInputSubcommandRun: 'chatInputSubcommandRun' as const,
 	ChatInputSubcommandSuccess: 'chatInputSubcommandSuccess' as const,
 	ChatInputSubcommandNotFound: 'chatInputSubcommandNotFound' as const,
 	ChatInputSubcommandError: 'chatInputSubcommandError' as const,
 
+	/** @deprecated use {@link SubcommandPluginEvents.MessageSubcommandDenied}  */
 	MessageSubCommandDenied: 'messageSubCommandDenied' as const,
+
+	MessageSubcommandDenied: 'messageSubcommandDenied' as const,
 	MessageSubcommandRun: 'messageSubcommandRun' as const,
 	MessageSubcommandSuccess: 'messageSubcommandSuccess' as const,
 	MessageSubcommandNotFound: 'messageSubcommandNotFound' as const,
@@ -77,7 +83,9 @@ export interface ChatInputSubcommandSuccessPayload extends ChatInputSubcommandRu
 
 declare module 'discord.js' {
 	interface ClientEvents {
+		/** @deprecated use {@link SubcommandPluginEvents.ChatInputSubcommandDenied}  */
 		[SubcommandPluginEvents.ChatInputSubCommandDenied]: [error: UserError, payload: ChatInputSubcommandDeniedPayload];
+		[SubcommandPluginEvents.ChatInputSubcommandDenied]: [error: UserError, payload: ChatInputSubcommandDeniedPayload];
 		[SubcommandPluginEvents.ChatInputSubcommandRun]: [
 			interaction: ChatInputCommand.Interaction,
 			subcommand: ChatInputCommandSubcommandMappingMethod,
@@ -95,7 +103,9 @@ declare module 'discord.js' {
 		];
 		[SubcommandPluginEvents.ChatInputSubcommandError]: [error: unknown, payload: ChatInputSubcommandErrorPayload];
 
+		/** @deprecated use {@link SubcommandPluginEvents.MessageSubcommandDenied}  */
 		[SubcommandPluginEvents.MessageSubCommandDenied]: [error: UserError, payload: MessageSubcommandDeniedPayload];
+		[SubcommandPluginEvents.MessageSubcommandDenied]: [error: UserError, payload: MessageSubcommandDeniedPayload];
 		[SubcommandPluginEvents.MessageSubcommandRun]: [
 			message: Message,
 			subcommand: MessageSubcommandMappingMethod,
