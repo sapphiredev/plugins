@@ -1,8 +1,8 @@
+import './index';
 import { Plugin, SapphireClient, container, postLogin, preGenericsInitialization, preLogin } from '@sapphire/framework';
 import { watch } from 'chokidar';
 import type { ClientOptions } from 'discord.js';
-
-import { InternationalizationHandler, type InternationalizationClientOptions } from './index';
+import { InternationalizationHandler } from './lib/InternationalizationHandler';
 
 export class I18nextPlugin extends Plugin {
 	public static [preGenericsInitialization](this: SapphireClient, options: ClientOptions): void {
@@ -26,13 +26,3 @@ export class I18nextPlugin extends Plugin {
 SapphireClient.plugins.registerPostInitializationHook(I18nextPlugin[preGenericsInitialization], 'I18next-PreGenericsInitialization');
 SapphireClient.plugins.registerPreLoginHook(I18nextPlugin[preLogin], 'I18next-PreLogin');
 SapphireClient.plugins.registerPostLoginHook(I18nextPlugin[postLogin], 'I18next-PostLogin');
-
-declare module '@sapphire/pieces' {
-	interface Container {
-		i18n: InternationalizationHandler;
-	}
-}
-
-declare module 'discord.js' {
-	export interface ClientOptions extends InternationalizationClientOptions {}
-}
