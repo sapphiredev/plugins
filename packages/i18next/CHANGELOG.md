@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@5.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@5.1.1...@sapphire/plugin-i18next@5.1.1) - (2023-09-06)
+
+## 🐛 Bug Fixes
+
+- **i18next:** Move module augmentations to `index` and import in `register` (#477) ([9c098d6](https://github.com/sapphiredev/plugins/commit/9c098d60bb3b2be116d44a547768e7e7c9054c00))
+
 # [@sapphire/plugin-i18next@5.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@5.0.5...@sapphire/plugin-i18next@5.1.0) - (2023-08-29)
 
 ## 🚀 Features
