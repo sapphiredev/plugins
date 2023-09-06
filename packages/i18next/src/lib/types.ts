@@ -16,7 +16,7 @@ export interface $Dictionary {
  * This is a re-exported type from i18next.
  * It is the returned type from `resolveKey` when `returnObjects` is `true` in the options.
  */
-export type $SpecialObject = object | Array<string | object>;
+export type $SpecialObject = $Dictionary | Array<string | $Dictionary>;
 
 /**
  * Configure whether to use Hot-Module-Replacement (HMR) for your i18next resources using these options. The minimum config to enable HMR is to set `enabled` to true. Any other properties are optional.
