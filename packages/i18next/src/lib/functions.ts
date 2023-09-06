@@ -1,15 +1,24 @@
 import { container } from '@sapphire/pieces';
 import { lazy } from '@sapphire/utilities';
 import { BaseInteraction, ChannelType, Guild, Locale, Message, type APIApplicationCommandOptionChoice, type LocaleString } from 'discord.js';
-import type { TOptions } from 'i18next';
 import type {
+	AppendKeyPrefix,
+	DefaultNamespace,
+	InterpolationMap,
+	Namespace,
+	ParseKeys,
+	TFunctionReturn,
+	TFunctionReturnOptionalDetails,
+	TOptions
+} from 'i18next';
+import type {
+	$Dictionary,
+	$SpecialObject,
 	BuilderWithDescription,
 	BuilderWithName,
 	BuilderWithNameAndDescription,
 	InternationalizationContext,
 	LocalizedData,
-	StringMap,
-	TFunctionKeys,
 	Target
 } from './types';
 
@@ -74,12 +83,27 @@ export async function fetchT(target: Target) {
  * @param options The options to be passed to TFunction.
  * @returns The data that `key` held, processed by i18next.
  */
-export async function resolveKey<const Key extends TFunctionKeys<TOpt>, const TOpt extends TOptions>(
+export async function resolveKey<
+	const Key extends ParseKeys<Ns, TOpt, undefined>,
+	const TOpt extends TOptions = TOptions,
+	Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt> = TOpt['returnObjects'] extends true ? $SpecialObject : string,
+	Ns extends Namespace = DefaultNamespace,
+	const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>
+>(
 	target: Target,
-	key: Key | Key[],
-	options?: TOpt & StringMap & { defaultValue: string }
-): Promise<string> {
-	return container.i18n.format(typeof options?.lng === 'string' ? options.lng : await fetchLanguage(target), key, options);
+	...[key, defaultValueOrOptions, optionsOrUndefined]:
+		| [key: Key | Key[], options?: ActualOptions]
+		| [key: string | string[], options: TOpt & $Dictionary & { defaultValue: string }]
+		| [key: string | string[], defaultValue: string, options?: TOpt & $Dictionary]
+): Promise<TFunctionReturnOptionalDetails<Ret, TOpt>> {
+	const parsedOptions = typeof defaultValueOrOptions === 'string' ? optionsOrUndefined : defaultValueOrOptions;
+	const language = typeof parsedOptions?.lng === 'string' ? parsedOptions.lng : await fetchLanguage(target);
+
+	if (typeof defaultValueOrOptions === 'string') {
+		return container.i18n.format<Key, TOpt, Ns, Ret, ActualOptions>(language, key, defaultValueOrOptions, optionsOrUndefined);
+	}
+
+	return container.i18n.format<Key, TOpt, Ns, Ret, ActualOptions>(language, key, undefined, optionsOrUndefined);
 }
 
 /**
@@ -137,7 +161,9 @@ const getDefaultT = lazy(() => {
  * @returns The retrieved data.
  * @remarks This should be called **strictly** after loading the locales.
  */
-export function getLocalizedData(key: TFunctionKeys): LocalizedData {
+export function getLocalizedData<const TOpt extends TOptions = TOptions, Ns extends Namespace = DefaultNamespace, KPrefix = undefined>(
+	key: ParseKeys<Ns, TOpt, KPrefix>
+): LocalizedData {
 	const locales = getLocales();
 	const defaultT = getDefaultT();
 
@@ -153,7 +179,12 @@ export function getLocalizedData(key: TFunctionKeys): LocalizedData {
  * @param key The key to get the localizations from.
  * @returns The updated builder.
  */
-export function applyNameLocalizedBuilder<T extends BuilderWithName>(builder: T, key: TFunctionKeys) {
+export function applyNameLocalizedBuilder<
+	T extends BuilderWithName,
+	const TOpt extends TOptions = TOptions,
+	Ns extends Namespace = DefaultNamespace,
+	KPrefix = undefined
+>(builder: T, key: ParseKeys<Ns, TOpt, KPrefix>) {
 	const result = getLocalizedData(key);
 	return builder.setName(result.value).setNameLocalizations(result.localizations);
 }
@@ -164,7 +195,12 @@ export function applyNameLocalizedBuilder<T extends BuilderWithName>(builder: T,
  * @param key The key to get the localizations from.
  * @returns The updated builder.
  */
-export function applyDescriptionLocalizedBuilder<T extends BuilderWithDescription>(builder: T, key: TFunctionKeys) {
+export function applyDescriptionLocalizedBuilder<
+	T extends BuilderWithDescription,
+	const TOpt extends TOptions = TOptions,
+	Ns extends Namespace = DefaultNamespace,
+	KPrefix = undefined
+>(builder: T, key: ParseKeys<Ns, TOpt, KPrefix>) {
 	const result = getLocalizedData(key);
 	return builder.setDescription(result.value).setDescriptionLocalizations(result.localizations);
 }
@@ -221,12 +257,16 @@ export function applyDescriptionLocalizedBuilder<T extends BuilderWithDescriptio
  * }
  * ```
  */
-export function applyLocalizedBuilder<T extends BuilderWithNameAndDescription>(
-	builder: T,
-	...params: [root: string] | [name: TFunctionKeys, description: TFunctionKeys]
-): T {
+export function applyLocalizedBuilder<
+	T extends BuilderWithNameAndDescription,
+	const TOpt extends TOptions = TOptions,
+	Ns extends Namespace = DefaultNamespace,
+	KPrefix = undefined
+>(builder: T, ...params: [root: string] | [name: ParseKeys<Ns, TOpt, KPrefix>, description: ParseKeys<Ns, TOpt, KPrefix>]): T {
+	type LocalKeysType = ParseKeys<Ns, TOpt, KPrefix>;
+
 	const [localeName, localeDescription] =
-		params.length === 1 ? [`${params[0]}Name` as TFunctionKeys, `${params[0]}Description` as TFunctionKeys] : params;
+		params.length === 1 ? [`${params[0]}Name` as LocalKeysType, `${params[0]}Description` as LocalKeysType] : params;
 
 	applyNameLocalizedBuilder(builder, localeName);
 	applyDescriptionLocalizedBuilder(builder, localeDescription);
@@ -261,8 +301,13 @@ export function applyLocalizedBuilder<T extends BuilderWithNameAndDescription>(
  * }
  * ```
  */
-export function createLocalizedChoice<ValueType = string | number>(
-	key: TFunctionKeys,
+export function createLocalizedChoice<
+	ValueType = string | number,
+	const TOpt extends TOptions = TOptions,
+	Ns extends Namespace = DefaultNamespace,
+	KPrefix = undefined
+>(
+	key: ParseKeys<Ns, TOpt, KPrefix>,
 	options: Omit<APIApplicationCommandOptionChoice<ValueType>, 'name' | 'name_localizations'>
 ): APIApplicationCommandOptionChoice<ValueType> {
 	const result = getLocalizedData(key);

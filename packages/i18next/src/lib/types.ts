@@ -2,13 +2,21 @@ import type { Awaitable } from '@sapphire/utilities';
 import type { Backend } from '@skyra/i18next-backend';
 import type { WatchOptions } from 'chokidar';
 import type { BaseInteraction, Guild, Interaction, LocalizationMap, Message, StageChannel, User, VoiceChannel } from 'discord.js';
-import type { DefaultNamespace, InitOptions, ParseKeys, TOptions } from 'i18next';
+import type { InitOptions } from 'i18next';
 
-export interface StringMap {
+/**
+ * This is a re-exported type from i18next.
+ * It is essentially an object of key-value pairs, where the key is a string and the value is any.
+ */
+export interface $Dictionary {
 	[key: string]: any;
 }
 
-export type TFunctionKeys<TOpt extends TOptions = TOptions> = ParseKeys<DefaultNamespace, TOpt, undefined> | TemplateStringsArray;
+/**
+ * This is a re-exported type from i18next.
+ * It is the returned type from `resolveKey` when `returnObjects` is `true` in the options.
+ */
+export type $SpecialObject = object | Array<string | object>;
 
 /**
  * Configure whether to use Hot-Module-Replacement (HMR) for your i18next resources using these options. The minimum config to enable HMR is to set `enabled` to true. Any other properties are optional.

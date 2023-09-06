@@ -2,12 +2,21 @@ import { Result } from '@sapphire/framework';
 import { container, getRootData } from '@sapphire/pieces';
 import { isFunction, type Awaitable } from '@sapphire/utilities';
 import { Backend, type PathResolvable } from '@skyra/i18next-backend';
-import i18next, { type TFunction, type TOptions } from 'i18next';
+import i18next, {
+	AppendKeyPrefix,
+	InterpolationMap,
+	Namespace,
+	ParseKeys,
+	TFunctionReturn,
+	TFunctionReturnOptionalDetails,
+	type TFunction,
+	type TOptions
+} from 'i18next';
 import type { PathLike } from 'node:fs';
 import { opendir } from 'node:fs/promises';
 import { join } from 'node:path';
-import type { InternationalizationContext, InternationalizationOptions, StringMap, TFunctionKeys } from './types';
 import { URL, fileURLToPath } from 'node:url';
+import type { $Dictionary, InternationalizationContext, InternationalizationOptions } from './types';
 
 /**
  * A generalized class for handling `i18next` JSON files and their discovery.
@@ -182,21 +191,32 @@ export class InternationalizationHandler {
 	 * @see {@link https://www.i18next.com/overview/api#t}
 	 * @returns The localized content.
 	 */
-	public format<const Key extends TFunctionKeys<TOpt>, const TOpt extends TOptions>(
+	public format<
+		const Key extends ParseKeys<Ns, TOpt, undefined>,
+		const TOpt extends TOptions,
+		Ns extends Namespace,
+		Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt>,
+		const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>
+	>(
 		locale: string,
-		key: Key | Key[],
-		options?: TOpt & StringMap & { defaultValue: string }
-	): string {
+		...[key, defaultValueOrOptions, optionsOrUndefined]:
+			| [key: Key | Key[], options?: ActualOptions]
+			| [key: string | string[], options: TOpt & $Dictionary & { defaultValue: string }]
+			| [key: string | string[], defaultValue: string | undefined, options?: TOpt & $Dictionary]
+	): TFunctionReturnOptionalDetails<Ret, TOpt> {
 		if (!this.languagesLoaded) throw new Error('Cannot call this method until InternationalizationHandler#init has been called');
 
 		const language = this.languages.get(locale);
 		if (!language) throw new ReferenceError('Invalid language provided');
 
-		const missingHandlers = this.options.defaultMissingKey
-			? { defaultValue: language(this.options.defaultMissingKey, { replace: { key } }) }
-			: undefined;
+		const defaultValue =
+			typeof defaultValueOrOptions === 'string'
+				? defaultValueOrOptions
+				: this.options.defaultMissingKey
+				? language(this.options.defaultMissingKey, { replace: { key } })
+				: '';
 
-		return language(key, { ...missingHandlers, ...options });
+		return language<Key, TOpt, Ret, ActualOptions>(key, defaultValue, optionsOrUndefined);
 	}
 
 	/**
