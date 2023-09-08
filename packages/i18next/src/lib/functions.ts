@@ -103,7 +103,7 @@ export async function resolveKey<
 		return container.i18n.format<Key, TOpt, Ns, Ret, ActualOptions>(language, key, defaultValueOrOptions, optionsOrUndefined);
 	}
 
-	return container.i18n.format<Key, TOpt, Ns, Ret, ActualOptions>(language, key, undefined, optionsOrUndefined);
+	return container.i18n.format<Key, TOpt, Ns, Ret, ActualOptions>(language, key, undefined, defaultValueOrOptions);
 }
 
 /**
