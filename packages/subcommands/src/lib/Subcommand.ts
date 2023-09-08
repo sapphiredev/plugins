@@ -10,7 +10,7 @@ import {
 	type MessageCommandDeniedPayload,
 	type PieceContext
 } from '@sapphire/framework';
-import { cast, deepClone } from '@sapphire/utilities';
+import { Awaitable, cast, deepClone } from '@sapphire/utilities';
 import type { CacheType, Message } from 'discord.js';
 import type {
 	ChatInputCommandSubcommandMappingMethod,
@@ -198,6 +198,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 	 *
 	 * **DO NOT** override this in your implementation of a subcommand!
 	 */
+	public override messageRun(message: Message, args: PreParseReturn, context: MessageCommand.RunContext): Awaitable<unknown>;
 	public override async messageRun(message: Message, args: PreParseReturn, context: MessageCommand.RunContext) {
 		args.save();
 		const subcommandOrGroup = args.nextMaybe();
@@ -295,6 +296,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 	 *
 	 * **DO NOT** override this in your implementation of a subcommand!
 	 */
+	public override chatInputRun(interaction: ChatInputCommand.Interaction, context: ChatInputCommand.RunContext): Awaitable<unknown>;
 	public override async chatInputRun(interaction: ChatInputCommand.Interaction, context: ChatInputCommand.RunContext) {
 		const subcommandName = interaction.options.getSubcommand(false);
 		const subcommandGroupName = interaction.options.getSubcommandGroup(false);
