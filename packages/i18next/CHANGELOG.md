@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@6.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@6.0.0...@sapphire/plugin-i18next@6.0.1) - (2023-09-09)
+
+## 🐛 Bug Fixes
+
+- **i18next:** Bump transitive i18next dependency ([c1e993f](https://github.com/sapphiredev/plugins/commit/c1e993ff57988bcdc93be2217f0329ff6e81663f))
+- **i18next:** Fixed `resolveKey` using incorrect paramater when no default value is passed through (#478) ([850691d](https://github.com/sapphiredev/plugins/commit/850691d3d32fbfedd1f296bf3ec822523399d420))
+
 # [@sapphire/plugin-i18next@6.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@6.0.0...@sapphire/plugin-i18next@6.0.0) - (2023-09-06)
 
 ## 🚀 Features
