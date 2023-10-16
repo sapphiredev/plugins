@@ -144,9 +144,28 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 
 			if (subcommand.type === 'method') {
 				const preconditionContainerArray = new PreconditionContainerArray(subcommand.preconditions);
-				const preconditionRunInTypes = super.resolveConstructorPreConditionsRunType(subcommand.runIn);
-				if (preconditionRunInTypes !== null) {
-					preconditionContainerArray.append({ name: CommandPreConditions.RunIn, context: { types: preconditionRunInTypes } });
+
+				if (Command.runInTypeIsSpecificsObject(subcommand.runIn)) {
+					const messageRunTypes = this.resolveConstructorPreConditionsRunType(subcommand.runIn.messageRun);
+					const chatInputRunTypes = this.resolveConstructorPreConditionsRunType(subcommand.runIn.chatInputRun);
+					const contextMenuRunTypes = this.resolveConstructorPreConditionsRunType(subcommand.runIn.contextMenuRun);
+					if (messageRunTypes !== null || chatInputRunTypes !== null || contextMenuRunTypes !== null) {
+						preconditionContainerArray.append({
+							name: CommandPreConditions.RunIn,
+							context: {
+								types: {
+									messageRun: messageRunTypes ?? [],
+									chatInputRun: chatInputRunTypes ?? [],
+									contextMenuRun: contextMenuRunTypes ?? []
+								}
+							}
+						});
+					}
+				} else {
+					const preconditionRunInTypes = super.resolveConstructorPreConditionsRunType(subcommand.runIn);
+					if (preconditionRunInTypes !== null) {
+						preconditionContainerArray.append({ name: CommandPreConditions.RunIn, context: { types: preconditionRunInTypes } });
+					}
 				}
 
 				this.subcommandPreconditions.set(subcommand.name, preconditionContainerArray);
@@ -155,9 +174,29 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 			if (subcommand.type === 'group') {
 				for (const groupedSubcommand of subcommand.entries) {
 					const preconditionContainerArray = new PreconditionContainerArray(groupedSubcommand.preconditions);
-					const preconditionRunInTypes = super.resolveConstructorPreConditionsRunType(groupedSubcommand.runIn);
-					if (preconditionRunInTypes !== null) {
-						preconditionContainerArray.append({ name: CommandPreConditions.RunIn, context: { types: preconditionRunInTypes } });
+
+					if (Command.runInTypeIsSpecificsObject(groupedSubcommand.runIn)) {
+						const messageRunTypes = this.resolveConstructorPreConditionsRunType(groupedSubcommand.runIn.messageRun);
+						const chatInputRunTypes = this.resolveConstructorPreConditionsRunType(groupedSubcommand.runIn.chatInputRun);
+						const contextMenuRunTypes = this.resolveConstructorPreConditionsRunType(groupedSubcommand.runIn.contextMenuRun);
+
+						if (messageRunTypes !== null || chatInputRunTypes !== null || contextMenuRunTypes !== null) {
+							preconditionContainerArray.append({
+								name: CommandPreConditions.RunIn,
+								context: {
+									types: {
+										messageRun: messageRunTypes ?? [],
+										chatInputRun: chatInputRunTypes ?? [],
+										contextMenuRun: contextMenuRunTypes ?? []
+									}
+								}
+							});
+						}
+					} else {
+						const preconditionRunInTypes = super.resolveConstructorPreConditionsRunType(groupedSubcommand.runIn);
+						if (preconditionRunInTypes !== null) {
+							preconditionContainerArray.append({ name: CommandPreConditions.RunIn, context: { types: preconditionRunInTypes } });
+						}
 					}
 
 					this.subcommandPreconditions.set(`${subcommand.name}.${groupedSubcommand.name}`, preconditionContainerArray);
