@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@4.2.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.2.2...@sapphire/plugin-subcommands@4.2.2) - (2023-10-16)
+
+## 🐛 Bug Fixes
+
+- **subcommands:** Ensure subcommands support fw 4.7.0 specific preconditions ([aef5949](https://github.com/sapphiredev/plugins/commit/aef59497b4a7fde0599603e8cba714b5b7a61c76))
+- Set `engines.node` to `>=v18` ([885a390](https://github.com/sapphiredev/plugins/commit/885a3908d59fd00f7214ef474f2c6a3c58e95af2))
+
 # [@sapphire/plugin-subcommands@4.2.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.2.0...@sapphire/plugin-subcommands@4.2.1) - (2023-08-29)
 
 ## 🏠 Refactor
