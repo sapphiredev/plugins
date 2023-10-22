@@ -36,10 +36,10 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@types/ws": "^8.5.7",
+		"@types/ws": "^8.5.8",
 		"tldts": "^6.0.16",
 		"tslib": "^2.6.2",
-		"undici": "^5.26.3"
+		"undici": "^5.26.4"
 	},
 	"repository": {
 		"type": "git",
