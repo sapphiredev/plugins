@@ -3,6 +3,7 @@ import {
 	PreconditionContainerArray,
 	Result,
 	UserError,
+	PreconditionResolvers,
 	type Args,
 	type ChatInputCommand,
 	type MessageCommand,
@@ -11,13 +12,6 @@ import {
 } from '@sapphire/framework';
 import { cast, deepClone } from '@sapphire/utilities';
 import type { CacheType, Message } from 'discord.js';
-import {
-	parseConstructorPreConditionsCooldown,
-	parseConstructorPreConditionsNsfw,
-	parseConstructorPreConditionsRequiredClientPermissions,
-	parseConstructorPreConditionsRequiredUserPermissions,
-	parseSubcommandMappingPreconditionsRunIn
-} from './preconditions';
 import {
 	SubcommandPluginEvents,
 	SubcommandPluginIdentifiers,
@@ -158,15 +152,28 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 			if (subcommand.type === 'method') {
 				const preconditionContainerArray = new PreconditionContainerArray(subcommand.preconditions);
 
-				parseSubcommandMappingPreconditionsRunIn(
-					subcommand,
+				PreconditionResolvers.parseConstructorPreConditionsRunIn(
+					subcommand.runIn,
 					this.resolveConstructorPreConditionsRunType.bind(this),
 					preconditionContainerArray
 				);
-				parseConstructorPreConditionsNsfw(subcommand, preconditionContainerArray);
-				parseConstructorPreConditionsRequiredClientPermissions(subcommand, preconditionContainerArray);
-				parseConstructorPreConditionsRequiredUserPermissions(subcommand, preconditionContainerArray);
-				parseConstructorPreConditionsCooldown(this, subcommand, preconditionContainerArray);
+				PreconditionResolvers.parseConstructorPreConditionsNsfw(subcommand.nsfw, preconditionContainerArray);
+				PreconditionResolvers.parseConstructorPreConditionsRequiredClientPermissions(
+					subcommand.requiredClientPermissions,
+					preconditionContainerArray
+				);
+				PreconditionResolvers.parseConstructorPreConditionsRequiredUserPermissions(
+					subcommand.requiredUserPermissions,
+					preconditionContainerArray
+				);
+				PreconditionResolvers.parseConstructorPreConditionsCooldown(
+					this,
+					subcommand.cooldownLimit,
+					subcommand.cooldownDelay,
+					subcommand.cooldownScope,
+					subcommand.cooldownFilteredUsers,
+					preconditionContainerArray
+				);
 
 				this.subcommandPreconditions.set(subcommand.name, preconditionContainerArray);
 			}
@@ -175,15 +182,28 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				for (const groupedSubcommand of subcommand.entries) {
 					const preconditionContainerArray = new PreconditionContainerArray(groupedSubcommand.preconditions);
 
-					parseSubcommandMappingPreconditionsRunIn(
-						groupedSubcommand,
+					PreconditionResolvers.parseConstructorPreConditionsRunIn(
+						groupedSubcommand.runIn,
 						this.resolveConstructorPreConditionsRunType.bind(this),
 						preconditionContainerArray
 					);
-					parseConstructorPreConditionsNsfw(groupedSubcommand, preconditionContainerArray);
-					parseConstructorPreConditionsRequiredClientPermissions(groupedSubcommand, preconditionContainerArray);
-					parseConstructorPreConditionsRequiredUserPermissions(groupedSubcommand, preconditionContainerArray);
-					parseConstructorPreConditionsCooldown(this, groupedSubcommand, preconditionContainerArray);
+					PreconditionResolvers.parseConstructorPreConditionsNsfw(groupedSubcommand.nsfw, preconditionContainerArray);
+					PreconditionResolvers.parseConstructorPreConditionsRequiredClientPermissions(
+						groupedSubcommand.requiredClientPermissions,
+						preconditionContainerArray
+					);
+					PreconditionResolvers.parseConstructorPreConditionsRequiredUserPermissions(
+						groupedSubcommand.requiredUserPermissions,
+						preconditionContainerArray
+					);
+					PreconditionResolvers.parseConstructorPreConditionsCooldown(
+						this,
+						groupedSubcommand.cooldownLimit,
+						groupedSubcommand.cooldownDelay,
+						groupedSubcommand.cooldownScope,
+						groupedSubcommand.cooldownFilteredUsers,
+						preconditionContainerArray
+					);
 
 					this.subcommandPreconditions.set(`${subcommand.name}.${groupedSubcommand.name}`, preconditionContainerArray);
 				}
