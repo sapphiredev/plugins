@@ -57,8 +57,8 @@
 		"!dist/.tsbuildinfo"
 	],
 	"engines": {
-		"node": ">=v14.18.0",
-		"npm": ">=7.24.1"
+		"node": ">=v18",
+		"npm": ">=7"
 	},
 	"keywords": [
 		"sapphiredev",
