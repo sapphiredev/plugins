@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@5.1.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.1.2...@sapphire/plugin-api@5.1.2) - (2023-10-23)
+
+## 🐛 Bug Fixes
+
+- **api:** Bump tldts and undici dependencies ([e559bee](https://github.com/sapphiredev/plugins/commit/e559beeeae4d3bc0097c428f29be083ebb0ad570))
+- Set `engines.node` to `>=v18` ([885a390](https://github.com/sapphiredev/plugins/commit/885a3908d59fd00f7214ef474f2c6a3c58e95af2))
+- **api:** Bump transitive undici dependency ([ea0ac5b](https://github.com/sapphiredev/plugins/commit/ea0ac5ba06b7499f0f3a3e5d92f70e282b667bfb))
+
 # [@sapphire/plugin-api@5.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.1.0...@sapphire/plugin-api@5.1.1) - (2023-08-23)
 
 ## 🏠 Refactor
