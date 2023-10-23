@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@4.3.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.3.0...@sapphire/plugin-subcommands@4.3.0) - (2023-10-23)
+
+## 🚀 Features
+
+- **subcommands:** Add support for all remaining precondition shortcuts (#491) ([6da37d6](https://github.com/sapphiredev/plugins/commit/6da37d6af22d75df40875dbd963b5122f15952ee))
+
 # [@sapphire/plugin-subcommands@4.2.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.2.2...@sapphire/plugin-subcommands@4.2.2) - (2023-10-16)
 
 ## 🐛 Bug Fixes
