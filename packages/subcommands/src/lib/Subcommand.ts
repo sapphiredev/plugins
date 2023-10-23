@@ -1,6 +1,5 @@
 import {
 	Command,
-	CommandPreConditions,
 	PreconditionContainerArray,
 	Result,
 	UserError,
@@ -12,18 +11,25 @@ import {
 } from '@sapphire/framework';
 import { cast, deepClone } from '@sapphire/utilities';
 import type { CacheType, Message } from 'discord.js';
-import type {
-	ChatInputCommandSubcommandMappingMethod,
-	MessageSubcommandMappingMethod,
-	SubcommandMappingArray,
-	SubcommandMappingMethod
-} from './SubcommandMappings';
+import {
+	parseConstructorPreConditionsCooldown,
+	parseConstructorPreConditionsNsfw,
+	parseConstructorPreConditionsRequiredClientPermissions,
+	parseConstructorPreConditionsRequiredUserPermissions,
+	parseSubcommandMappingPreconditionsRunIn
+} from './preconditions';
 import {
 	SubcommandPluginEvents,
 	SubcommandPluginIdentifiers,
 	type ChatInputSubcommandAcceptedPayload,
 	type MessageSubcommandAcceptedPayload
 } from './types/Events';
+import type {
+	ChatInputCommandSubcommandMappingMethod,
+	MessageSubcommandMappingMethod,
+	SubcommandMappingArray,
+	SubcommandMappingMethod
+} from './types/SubcommandMappings';
 
 /**
  * The class to extends for commands that have subcommands.
@@ -42,7 +48,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 	public readonly subcommandPreconditions = new Map<string, PreconditionContainerArray>();
 
 	/**
-	 * The parsed subcommand mappings that were provided with the {@link Subcommand.Options.subcommands} option.
+	 * The parsed subcommand mappings that were provided with the {@link SubcommandOptions.subcommands} option.
 	 * This is built at construction time and is used to determine which subcommand to run.
 	 */
 	public parsedSubcommandMappings: SubcommandMappingArray;
@@ -54,11 +60,14 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 	public caseInsensitiveSubcommands = false;
 
 	public constructor(context: PieceContext, options: O) {
+		// #region Base parsing
 		super(context, options);
 		this.parsedSubcommandMappings = options.subcommands ?? [];
 
 		const clientOptions = this.container.client.options;
+		// #endregion
 
+		// #region Case Insensitive Commands
 		if (clientOptions.caseInsensitiveCommands) {
 			this.caseInsensitiveSubcommands = true;
 
@@ -72,7 +81,9 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				}
 			}
 		}
+		// #endregion
 
+		// #region Generate Dashless Aliases
 		if (options.generateDashLessAliases) {
 			for (const mapping of this.parsedSubcommandMappings) {
 				if (!Reflect.has(mapping, 'messageRun')) {
@@ -138,35 +149,24 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				}
 			}
 		}
+		// #endregion
 
+		// #region Subcommand Preconditions
 		for (const subcommand of this.parsedSubcommandMappings) {
 			subcommand.type ??= 'method';
 
 			if (subcommand.type === 'method') {
 				const preconditionContainerArray = new PreconditionContainerArray(subcommand.preconditions);
 
-				if (Command.runInTypeIsSpecificsObject(subcommand.runIn)) {
-					const messageRunTypes = this.resolveConstructorPreConditionsRunType(subcommand.runIn.messageRun);
-					const chatInputRunTypes = this.resolveConstructorPreConditionsRunType(subcommand.runIn.chatInputRun);
-					const contextMenuRunTypes = this.resolveConstructorPreConditionsRunType(subcommand.runIn.contextMenuRun);
-					if (messageRunTypes !== null || chatInputRunTypes !== null || contextMenuRunTypes !== null) {
-						preconditionContainerArray.append({
-							name: CommandPreConditions.RunIn,
-							context: {
-								types: {
-									messageRun: messageRunTypes ?? [],
-									chatInputRun: chatInputRunTypes ?? [],
-									contextMenuRun: contextMenuRunTypes ?? []
-								}
-							}
-						});
-					}
-				} else {
-					const preconditionRunInTypes = super.resolveConstructorPreConditionsRunType(subcommand.runIn);
-					if (preconditionRunInTypes !== null) {
-						preconditionContainerArray.append({ name: CommandPreConditions.RunIn, context: { types: preconditionRunInTypes } });
-					}
-				}
+				parseSubcommandMappingPreconditionsRunIn(
+					subcommand,
+					this.resolveConstructorPreConditionsRunType.bind(this),
+					preconditionContainerArray
+				);
+				parseConstructorPreConditionsNsfw(subcommand, preconditionContainerArray);
+				parseConstructorPreConditionsRequiredClientPermissions(subcommand, preconditionContainerArray);
+				parseConstructorPreConditionsRequiredUserPermissions(subcommand, preconditionContainerArray);
+				parseConstructorPreConditionsCooldown(this, subcommand, preconditionContainerArray);
 
 				this.subcommandPreconditions.set(subcommand.name, preconditionContainerArray);
 			}
@@ -175,34 +175,21 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 				for (const groupedSubcommand of subcommand.entries) {
 					const preconditionContainerArray = new PreconditionContainerArray(groupedSubcommand.preconditions);
 
-					if (Command.runInTypeIsSpecificsObject(groupedSubcommand.runIn)) {
-						const messageRunTypes = this.resolveConstructorPreConditionsRunType(groupedSubcommand.runIn.messageRun);
-						const chatInputRunTypes = this.resolveConstructorPreConditionsRunType(groupedSubcommand.runIn.chatInputRun);
-						const contextMenuRunTypes = this.resolveConstructorPreConditionsRunType(groupedSubcommand.runIn.contextMenuRun);
-
-						if (messageRunTypes !== null || chatInputRunTypes !== null || contextMenuRunTypes !== null) {
-							preconditionContainerArray.append({
-								name: CommandPreConditions.RunIn,
-								context: {
-									types: {
-										messageRun: messageRunTypes ?? [],
-										chatInputRun: chatInputRunTypes ?? [],
-										contextMenuRun: contextMenuRunTypes ?? []
-									}
-								}
-							});
-						}
-					} else {
-						const preconditionRunInTypes = super.resolveConstructorPreConditionsRunType(groupedSubcommand.runIn);
-						if (preconditionRunInTypes !== null) {
-							preconditionContainerArray.append({ name: CommandPreConditions.RunIn, context: { types: preconditionRunInTypes } });
-						}
-					}
+					parseSubcommandMappingPreconditionsRunIn(
+						groupedSubcommand,
+						this.resolveConstructorPreConditionsRunType.bind(this),
+						preconditionContainerArray
+					);
+					parseConstructorPreConditionsNsfw(groupedSubcommand, preconditionContainerArray);
+					parseConstructorPreConditionsRequiredClientPermissions(groupedSubcommand, preconditionContainerArray);
+					parseConstructorPreConditionsRequiredUserPermissions(groupedSubcommand, preconditionContainerArray);
+					parseConstructorPreConditionsCooldown(this, groupedSubcommand, preconditionContainerArray);
 
 					this.subcommandPreconditions.set(`${subcommand.name}.${groupedSubcommand.name}`, preconditionContainerArray);
 				}
 			}
 		}
+		// #endregion
 	}
 
 	public override onLoad() {

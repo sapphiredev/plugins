@@ -1,6 +1,6 @@
 import { Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
-import { join } from 'path';
+import { join } from 'node:path';
 import './index';
 
 /**

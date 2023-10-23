@@ -22,7 +22,21 @@ interface SubcommandMappingBase {
 /**
  * Describes how a subcommand method maps to the actual implementation of that subcommand.
  */
-export interface SubcommandMappingMethod extends SubcommandMappingBase, Pick<Command.Options, 'runIn' | 'preconditions'> {
+export interface SubcommandMappingMethod
+	extends SubcommandMappingBase,
+		Pick<
+			Command.Options,
+			| 'preconditions'
+			// The following are shortcuts that expand to preconditions
+			| 'runIn'
+			| 'nsfw'
+			| 'cooldownLimit'
+			| 'cooldownDelay'
+			| 'cooldownScope'
+			| 'cooldownFilteredUsers'
+			| 'requiredClientPermissions'
+			| 'requiredUserPermissions'
+		> {
 	/**
 	 * This subcommand mapping describes a subcommand method and can therefore only ever be `'method'`
 	 */

@@ -1,7 +1,7 @@
 import type { ChatInputCommand, MessageCommand, MessageCommandDeniedPayload, UserError } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 import type { Subcommand } from '../Subcommand';
-import type { ChatInputCommandSubcommandMappingMethod, MessageSubcommandMappingMethod, SubcommandMappingMethod } from '../SubcommandMappings';
+import type { ChatInputCommandSubcommandMappingMethod, MessageSubcommandMappingMethod, SubcommandMappingMethod } from './SubcommandMappings';
 
 export const SubcommandPluginEvents = {
 	/** @deprecated use {@link SubcommandPluginEvents.ChatInputSubcommandDenied}  */
