@@ -937,12 +937,12 @@ __metadata:
     "@favware/cliff-jumper": ^2.2.0
     "@types/ws": ^8.5.8
     gen-esm-wrapper: ^1.1.3
-    tldts: ^6.0.16
+    tldts: ^6.0.17
     tslib: ^2.6.2
     typedoc: ^0.25.2
     typedoc-json-parser: ^9.0.1
     typescript: ^5.2.2
-    undici: ^5.26.4
+    undici: ^5.26.5
   languageName: unknown
   linkType: soft
 
@@ -2519,10 +2519,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord-api-types@npm:^0.37.55, discord-api-types@npm:^0.37.60":
+"discord-api-types@npm:^0.37.55":
   version: 0.37.60
   resolution: "discord-api-types@npm:0.37.60"
   checksum: d5361e37f1fa3b06964db476a4a150fbfdcfdfe0f2b46c7eb3d225caf7128a83c2c726d35aaddce93eba07ac1d819e329bd7fcb0f8988aa51b56a307119312c4
+  languageName: node
+  linkType: hard
+
+"discord-api-types@npm:^0.37.61":
+  version: 0.37.61
+  resolution: "discord-api-types@npm:0.37.61"
+  checksum: fe33d528e31a6de0bab2afb43d0e058957a6da6cfc4d797943fac83aeb8d07543dc0f85cad3c4e6789cbbac0c7ca49dae5ac465224b129c7acb716097fa0b081
   languageName: node
   linkType: hard
 
@@ -5551,7 +5558,7 @@ __metadata:
     "@typescript-eslint/parser": ^6.8.0
     "@vitest/coverage-v8": ^0.34.6
     cz-conventional-changelog: ^3.3.0
-    discord-api-types: ^0.37.60
+    discord-api-types: ^0.37.61
     discord.js: ^14.13.0
     eslint: ^8.52.0
     eslint-config-prettier: ^9.0.0
@@ -6057,21 +6064,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.0.16":
-  version: 6.0.16
-  resolution: "tldts-core@npm:6.0.16"
-  checksum: 77f5e0841a0bb5df0ebcc7470463d7bc0c48421ea44a34cba68f26a967107e18624f5dbba37ac79a26372566f3ad52189e3572b2db4d780dce2903e110e599fd
+"tldts-core@npm:^6.0.17":
+  version: 6.0.17
+  resolution: "tldts-core@npm:6.0.17"
+  checksum: 9d976fb84d7754d0fdd133d13484fe22b2e6b6ca4b5f73abb1943656e82d26214cb339a32c39114af219f0b791ff21733520376400bb4e750eb848bbdf6a631b
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.0.16":
-  version: 6.0.16
-  resolution: "tldts@npm:6.0.16"
+"tldts@npm:^6.0.17":
+  version: 6.0.17
+  resolution: "tldts@npm:6.0.17"
   dependencies:
-    tldts-core: ^6.0.16
+    tldts-core: ^6.0.17
   bin:
     tldts: bin/cli.js
-  checksum: 0fa7dbb76e1556ebcfda7a166094541e498900adbaf592fea83a723f999eef46086d990642ca1f5c1014b69adb2097c0772fff5a169dc8e9005ce223bce67ece
+  checksum: 97d59cb4b5ccd95e1d1e3665b390e004bffb58c5590e7badc1ffe97d718c8cd29bfd9ced1e9f4df0926a319ca378fad0ac807437a5eec065439b8a1b6d120a47
   languageName: node
   linkType: hard
 
@@ -6381,12 +6388,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^5.26.4":
-  version: 5.26.4
-  resolution: "undici@npm:5.26.4"
+"undici@npm:^5.26.5":
+  version: 5.26.5
+  resolution: "undici@npm:5.26.5"
   dependencies:
     "@fastify/busboy": ^2.0.0
-  checksum: 4d37f14ce56837d332ab1623be751f2a5b439069705671cc60b441133300b05bcb8803668132e7b3f98800db19cd6cb76b48831facbdbc2d73271b12383ab3cd
+  checksum: 79c95df5f22959ed578e90d853b31a741ac748fc3bf9a4af6af52de1d671a057eaaf7dcad6e1d261597a114bd56c7351cff7ce848befd9deb62ccec55cf92ac1
   languageName: node
   linkType: hard
 
