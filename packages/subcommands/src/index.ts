@@ -1,5 +1,4 @@
 export * from './lib/Subcommand';
-export * from './lib/preconditions';
 export * from './lib/types/Events';
 export * from './lib/types/SubcommandMappings';
 
