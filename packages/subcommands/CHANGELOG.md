@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@5.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@5.0.0...@sapphire/plugin-subcommands@5.0.0) - (2023-10-26)
+
+## 🐛 Bug Fixes
+
+- **subcommands:** Remove deprecated `SubcommandPluginEvents.MessageSubCommandDenied` ([99ccfb8](https://github.com/sapphiredev/plugins/commit/99ccfb82ccdaed7d517a84fe6f1d647db4a071d9))
+  - 💥 **BREAKING CHANGE:** `SubcommandPluginEvents.MessageSubCommandDenied` has been removed. Use `SubcommandPluginEvents.MessageSubcommandDenied` instead. If you previously named your listener file `messageSubCommandDenied.<ext>` then you will also need to rename it to `messageSubcommandDenied.<ext>`. Note the change in capital C in `Subcommand`.
+- **subcommands:** Remove deprecated `SubcommandPluginEvents.ChatInputSubCommandDenied` ([d14f023](https://github.com/sapphiredev/plugins/commit/d14f0234b98988eef13527de471b0dd12472b693))
+  - 💥 **BREAKING CHANGE:** `SubcommandPluginEvents.ChatInputSubCommandDenied` has been removed. Use `SubcommandPluginEvents.ChatInputSubcommandDenied` instead. If you previously named your listener file `chatInputSubCommandDenied.<ext>` then you will also need to rename it to `chatInputSubcommandDenied.<ext>`. Note the change in capital C in `Subcommand`.
+
 # [@sapphire/plugin-subcommands@4.3.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@4.3.0...@sapphire/plugin-subcommands@4.3.0) - (2023-10-23)
 
 ## 🚀 Features
