@@ -1,6 +1,9 @@
 import { Store } from '@sapphire/pieces';
 import { ScheduledTask } from './ScheduledTask';
 
+/**
+ * A store for managing scheduled tasks.
+ */
 export class ScheduledTaskStore extends Store<ScheduledTask> {
 	public readonly repeatedTasks: ScheduledTask[] = [];
 

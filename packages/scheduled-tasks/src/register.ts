@@ -6,6 +6,7 @@ import { ScheduledTaskHandler } from './lib/ScheduledTaskHandler';
 import { ScheduledTaskStore } from './lib/structures/ScheduledTaskStore';
 
 /**
+ * A plugin for scheduling tasks in a SapphireClient.
  * @since 1.0.0
  */
 export class ScheduledTasksPlugin extends Plugin {

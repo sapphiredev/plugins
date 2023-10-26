@@ -83,11 +83,11 @@ export class ScheduledTaskHandler {
 				...(piece.interval
 					? {
 							interval: piece.interval,
-							bullJobsOptions: piece.bullJobsOptions
+							customJobOptions: piece.customJobOptions
 					  }
 					: {
 							pattern: piece.pattern!,
-							bullJobsOptions: piece.bullJobsOptions
+							customJobOptions: piece.customJobOptions
 					  })
 			}
 		}));
