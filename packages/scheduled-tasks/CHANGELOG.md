@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@8.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@8.0.0...@sapphire/plugin-scheduled-tasks@8.0.0) - (2023-10-26)
+
+## 🐛 Bug Fixes
+
+- Fixed mismatch between `customJobOptions` and `bullJobsOptions` ([5bc7fbc](https://github.com/sapphiredev/plugins/commit/5bc7fbc2bc53fea3721e8d16d22e52eb59f04499))
+  - 💥 **BREAKING CHANGE:** `bullJobsOptions` has been removed. The 1:1 replacement is `customJobOptions`
+- **scheduled-tasks:** Set `engines.node` to `>=18` ([d0df8aa](https://github.com/sapphiredev/plugins/commit/d0df8aa0d97d68e7bbbad4c9ad808168dd5b11a2))
+
 # [@sapphire/plugin-scheduled-tasks@7.1.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@7.1.1...@sapphire/plugin-scheduled-tasks@7.1.2) - (2023-08-23)
 
 ## 🏠 Refactor
