@@ -480,7 +480,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 			// Run the subcommand specific preconditions:
 			const localSubcommandResult = await preconditionsForSubcommand.chatInputRun(interaction, this, payload as any);
 			if (localSubcommandResult.isErr()) {
-				this.container.client.emit(SubcommandPluginEvents.ChatInputSubCommandDenied, localSubcommandResult.unwrapErr(), payload);
+				this.container.client.emit(SubcommandPluginEvents.ChatInputSubcommandDenied, localSubcommandResult.unwrapErr(), payload);
 				return;
 			}
 		}

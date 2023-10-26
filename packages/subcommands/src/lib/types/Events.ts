@@ -4,9 +4,6 @@ import type { Subcommand } from '../Subcommand';
 import type { ChatInputCommandSubcommandMappingMethod, MessageSubcommandMappingMethod, SubcommandMappingMethod } from './SubcommandMappings';
 
 export const SubcommandPluginEvents = {
-	/** @deprecated use {@link SubcommandPluginEvents.ChatInputSubcommandDenied}  */
-	ChatInputSubCommandDenied: 'chatInputSubCommandDenied' as const,
-
 	ChatInputSubcommandDenied: 'chatInputSubcommandDenied' as const,
 	ChatInputSubcommandRun: 'chatInputSubcommandRun' as const,
 	ChatInputSubcommandSuccess: 'chatInputSubcommandSuccess' as const,
@@ -83,8 +80,6 @@ export interface ChatInputSubcommandSuccessPayload extends ChatInputSubcommandRu
 
 declare module 'discord.js' {
 	interface ClientEvents {
-		/** @deprecated use {@link SubcommandPluginEvents.ChatInputSubcommandDenied}  */
-		[SubcommandPluginEvents.ChatInputSubCommandDenied]: [error: UserError, payload: ChatInputSubcommandDeniedPayload];
 		[SubcommandPluginEvents.ChatInputSubcommandDenied]: [error: UserError, payload: ChatInputSubcommandDeniedPayload];
 		[SubcommandPluginEvents.ChatInputSubcommandRun]: [
 			interaction: ChatInputCommand.Interaction,
