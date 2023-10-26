@@ -10,9 +10,6 @@ export const SubcommandPluginEvents = {
 	ChatInputSubcommandNotFound: 'chatInputSubcommandNotFound' as const,
 	ChatInputSubcommandError: 'chatInputSubcommandError' as const,
 
-	/** @deprecated use {@link SubcommandPluginEvents.MessageSubcommandDenied}  */
-	MessageSubCommandDenied: 'messageSubCommandDenied' as const,
-
 	MessageSubcommandDenied: 'messageSubcommandDenied' as const,
 	MessageSubcommandRun: 'messageSubcommandRun' as const,
 	MessageSubcommandSuccess: 'messageSubcommandSuccess' as const,
@@ -98,8 +95,6 @@ declare module 'discord.js' {
 		];
 		[SubcommandPluginEvents.ChatInputSubcommandError]: [error: unknown, payload: ChatInputSubcommandErrorPayload];
 
-		/** @deprecated use {@link SubcommandPluginEvents.MessageSubcommandDenied}  */
-		[SubcommandPluginEvents.MessageSubCommandDenied]: [error: UserError, payload: MessageSubcommandDeniedPayload];
 		[SubcommandPluginEvents.MessageSubcommandDenied]: [error: UserError, payload: MessageSubcommandDeniedPayload];
 		[SubcommandPluginEvents.MessageSubcommandRun]: [
 			message: Message,
