@@ -39,7 +39,7 @@
 		"@types/ws": "^8.5.8",
 		"tldts": "^6.0.17",
 		"tslib": "^2.6.2",
-		"undici": "^5.26.5"
+		"undici": "^5.27.0"
 	},
 	"repository": {
 		"type": "git",
