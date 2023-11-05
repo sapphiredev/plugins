@@ -140,7 +140,7 @@ export type ContentTypeType = 'text' | 'multipart' | 'message' | 'image' | 'audi
  * - `parameter` = `attribute` "=" `value`
  * - `attribute` = `token`
  * - `value` = `token` / `quoted-string`
- * - `token` = 1*<any CHAR except `SPACE`, `CTLs`, or `tspecials`>
+ * - `token` = `1*<any CHAR except "SPACE", "CTLs", or "tspecials">`
  * - `tspecials` = `(` | `)` | `<` | `>` | `@` | `,` | `;` | `:` | `\` | `"` | `/` | `[` | `]` | `?` | `.` | `=`
  *
  * @note `tspecials` must be in quoted-string, to use within parameter values.
