@@ -1,7 +1,7 @@
 import type { InternationalizationHandler } from './lib/InternationalizationHandler';
 import type { InternationalizationClientOptions } from './lib/types';
 
-export type { TFunction, TOptions } from 'i18next';
+export { default as i18next, type TFunction, type TOptions } from 'i18next';
 export * from './lib/InternationalizationHandler';
 export * from './lib/functions';
 export * from './lib/types';
