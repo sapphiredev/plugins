@@ -36,8 +36,8 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@types/ws": "^8.5.8",
-		"tldts": "^6.0.18",
+		"@types/ws": "^8.5.9",
+		"tldts": "^6.0.19",
 		"tslib": "^2.6.2",
 		"undici": "^5.27.2"
 	},
