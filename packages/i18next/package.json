@@ -39,7 +39,7 @@
 		"@sapphire/utilities": "^3.13.0",
 		"@skyra/i18next-backend": "^2.0.4",
 		"chokidar": "^3.5.3",
-		"i18next": "^23.7.1"
+		"i18next": "^23.7.3"
 	},
 	"repository": {
 		"type": "git",
