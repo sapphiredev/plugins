@@ -4,7 +4,7 @@ import { container, Plugin, postInitialization, postLogin, preGenericsInitializa
 import type { ClientOptions } from 'discord.js';
 import { ScheduledTaskHandler } from './lib/ScheduledTaskHandler';
 import { ScheduledTaskStore } from './lib/structures/ScheduledTaskStore';
-import { join } from 'node:path';
+import { loadListeners } from './listeners/_load';
 
 /**
  * A plugin for scheduling tasks in a SapphireClient.
@@ -26,7 +26,7 @@ export class ScheduledTasksPlugin extends Plugin {
 		this.stores.register(new ScheduledTaskStore());
 
 		if (options.loadScheduledTaskErrorListeners === true) {
-			this.stores.get('listeners').registerPath(join(__dirname, 'listeners'));
+			loadListeners();
 		}
 	}
 

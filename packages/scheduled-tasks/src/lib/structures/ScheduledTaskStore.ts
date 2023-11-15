@@ -4,7 +4,7 @@ import { ScheduledTask } from './ScheduledTask';
 /**
  * A store for managing scheduled tasks.
  */
-export class ScheduledTaskStore extends Store<ScheduledTask> {
+export class ScheduledTaskStore extends Store<ScheduledTask, 'scheduled-tasks'> {
 	public readonly repeatedTasks: ScheduledTask[] = [];
 
 	public constructor() {
