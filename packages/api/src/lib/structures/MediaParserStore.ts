@@ -4,7 +4,7 @@ import { MediaParser } from './MediaParser';
 /**
  * @since 1.3.0
  */
-export class MediaParserStore extends Store<MediaParser> {
+export class MediaParserStore extends Store<MediaParser, 'mediaParsers'> {
 	public constructor() {
 		super(MediaParser, { name: 'mediaParsers' });
 	}

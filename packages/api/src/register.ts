@@ -1,8 +1,12 @@
 import './index';
+
 import { Plugin, postInitialization, preLogin, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
-import { join } from 'path';
 import { Server } from './lib/structures/http/Server';
+import { loadListeners } from './listeners/_load';
+import { loadMediaParsers } from './mediaParsers/_load';
+import { loadMiddlewares } from './middlewares/_load';
+import { loadRoutes } from './routes/_load';
 
 /**
  * @since 1.0.0
@@ -18,10 +22,10 @@ export class Api extends Plugin {
 			.register(this.server.mediaParsers)
 			.register(this.server.middlewares);
 
-		this.stores.get('listeners').registerPath(join(__dirname, 'listeners'));
-		this.server.routes.registerPath(join(__dirname, 'routes'));
-		this.server.middlewares.registerPath(join(__dirname, 'middlewares'));
-		this.server.mediaParsers.registerPath(join(__dirname, 'mediaParsers'));
+		loadListeners();
+		loadMediaParsers();
+		loadMiddlewares();
+		loadRoutes();
 	}
 
 	/**

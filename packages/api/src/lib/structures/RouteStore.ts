@@ -20,7 +20,7 @@ export interface RouteMatch {
 /**
  * @since 1.0.0
  */
-export class RouteStore extends Store<Route> {
+export class RouteStore extends Store<Route, 'middlewares'> {
 	public readonly table = new Collection<Methods, Collection<Route, MethodCallback>>();
 
 	public constructor() {
