@@ -7,7 +7,7 @@ import type { ApiResponse } from './api/ApiResponse';
 /**
  * @since 1.0.0
  */
-export class MiddlewareStore extends Store<Middleware> {
+export class MiddlewareStore extends Store<Middleware, 'middlewares'> {
 	/**
 	 * The sorted middlewares, in ascending order of see {@link Middleware.position}.
 	 */
