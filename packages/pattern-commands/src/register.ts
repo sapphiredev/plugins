@@ -1,8 +1,9 @@
+import './index';
+
 import { Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
-import { join } from 'path';
-import './index';
 import { PatternCommandStore } from './lib/structures/PaternCommandStore';
+import { loadListeners } from './listeners/_load';
 
 /**
  * @since 1.0.0
@@ -12,8 +13,8 @@ export class PatternCommandPlugin extends Plugin {
 	 * @since 1.0.0
 	 */
 	public static [postInitialization](this: SapphireClient, _options: ClientOptions): void {
-		this.stores.register(new PatternCommandStore().registerPath(join(__dirname, PatternCommandStore.name)));
-		this.stores.get('listeners').registerPath(join(__dirname, 'listeners'));
+		this.stores.register(new PatternCommandStore());
+		loadListeners();
 	}
 }
 
