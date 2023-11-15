@@ -1,7 +1,8 @@
+import './index';
+
 import { Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
-import { join } from 'node:path';
-import './index';
+import { loadListeners } from './listeners/_load';
 
 /**
  * @since 3.1.2
@@ -12,7 +13,7 @@ export class SubcommandsPlugin extends Plugin {
 	 */
 	public static [postInitialization](this: SapphireClient, options: ClientOptions): void {
 		if (options.loadSubcommandErrorListeners !== false) {
-			this.stores.get('listeners').registerPath(join(__dirname, 'listeners'));
+			loadListeners();
 		}
 	}
 }
