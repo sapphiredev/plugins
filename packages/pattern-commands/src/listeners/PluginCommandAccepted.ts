@@ -1,10 +1,10 @@
-import { Result, Listener } from '@sapphire/framework';
+import { Listener, Result } from '@sapphire/framework';
 import type { PieceContext } from '@sapphire/pieces';
 import { Stopwatch } from '@sapphire/stopwatch';
 import { PatternCommandEvents } from '../lib/utils/PaternCommandEvents';
 import type { PatternCommandAcceptedPayload } from '../lib/utils/PatternCommandInterfaces';
 
-export class CommandAcceptedListener extends Listener<typeof PatternCommandEvents.CommandAccepted> {
+export class PluginListener extends Listener<typeof PatternCommandEvents.CommandAccepted> {
 	public constructor(context: PieceContext) {
 		super(context, { event: PatternCommandEvents.CommandAccepted });
 	}

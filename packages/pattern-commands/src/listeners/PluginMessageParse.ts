@@ -6,7 +6,7 @@ import type { PatternCommandStore } from '../lib/structures/PaternCommandStore';
 import { PatternCommandEvents } from '../lib/utils/PaternCommandEvents';
 import type { PossiblePatternCommand } from '../lib/utils/PatternCommandInterfaces';
 
-export class MessageParseListener extends Listener<typeof Events.PreMessageParsed> {
+export class PluginListener extends Listener<typeof Events.PreMessageParsed> {
 	private readonly requiredPermissions = new PermissionsBitField([PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]).freeze();
 	public constructor(context: PieceContext) {
 		super(context, { event: Events.PreMessageParsed });

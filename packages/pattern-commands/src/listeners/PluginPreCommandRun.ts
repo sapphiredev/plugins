@@ -3,7 +3,7 @@ import type { PieceContext } from '@sapphire/pieces';
 import { PatternCommandEvents } from '../lib/utils/PaternCommandEvents';
 import type { PatternCommandPayload, PatternCommandPrePayload } from '../lib/utils/PatternCommandInterfaces';
 
-export class PreCommandRunListener extends Listener<typeof PatternCommandEvents.PreCommandRun> {
+export class PluginListener extends Listener<typeof PatternCommandEvents.PreCommandRun> {
 	public constructor(context: PieceContext) {
 		super(context, { event: PatternCommandEvents.PreCommandRun });
 	}
