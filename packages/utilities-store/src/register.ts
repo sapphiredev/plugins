@@ -1,8 +1,7 @@
 import './index';
+
 import { Plugin, postLogin, preInitialization, SapphireClient } from '@sapphire/framework';
-import { join } from 'path';
 import { Utilities } from './lib/Utilities';
-import { UtilitiesStore } from './lib/UtilitiesStore';
 
 /**
  * @since 1.0.0
@@ -14,8 +13,6 @@ export class UtilitiesPlugin extends Plugin {
 	public static [preInitialization](this: SapphireClient): void {
 		this.utilities = new Utilities();
 		this.stores.register(this.utilities.store);
-
-		this.utilities.store.registerPath(join(__dirname, UtilitiesStore.name));
 	}
 
 	/**
