@@ -12,6 +12,8 @@ export class SubcommandsPlugin extends Plugin {
 	 * @since 3.1.2
 	 */
 	public static [postInitialization](this: SapphireClient, options: ClientOptions): void {
+		this.stores.get('preconditions').registerPath(join(__dirname, 'preconditions'));
+
 		if (options.loadSubcommandErrorListeners !== false) {
 			loadListeners();
 		}
