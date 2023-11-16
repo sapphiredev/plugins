@@ -1,14 +1,13 @@
 import {
 	Command,
 	PreconditionContainerArray,
+	PreconditionResolvers,
 	Result,
 	UserError,
-	PreconditionResolvers,
 	type Args,
 	type ChatInputCommand,
 	type MessageCommand,
-	type MessageCommandDeniedPayload,
-	type PieceContext
+	type MessageCommandDeniedPayload
 } from '@sapphire/framework';
 import { cast, deepClone } from '@sapphire/utilities';
 import type { CacheType, Message } from 'discord.js';
@@ -34,7 +33,10 @@ import type {
  * which you wouldn't necessarily want to do for commands that don't have subcommands.
  * Furthermore, it also just adds general unnecessary memory overhead.
  */
-export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand.Options = Subcommand.Options> extends Command<PreParseReturn, O> {
+export class Subcommand<PreParseReturn extends Args = Args, Options extends Subcommand.Options = Subcommand.Options> extends Command<
+	PreParseReturn,
+	Options
+> {
 	/**
 	 * The preconditions to be run for each specified subcommand.
 	 * @since 4.1.0
@@ -53,7 +55,7 @@ export class Subcommand<PreParseReturn extends Args = Args, O extends Subcommand
 	 */
 	public caseInsensitiveSubcommands = false;
 
-	public constructor(context: PieceContext, options: O) {
+	public constructor(context: Command.LoaderContext, options: Options) {
 		// #region Base parsing
 		super(context, options);
 		this.parsedSubcommandMappings = options.subcommands ?? [];
@@ -567,7 +569,9 @@ export interface SubcommandOptions extends Command.Options {
 export namespace Subcommand {
 	export type Options = SubcommandOptions;
 	export type JSON = Command.JSON;
-	export type Context = Command.Context;
+	/** @deprecated Use {@linkcode LoaderContext} instead. */
+	export type Context = LoaderContext;
+	export type LoaderContext = Command.LoaderContext;
 	export type RunInTypes = Command.RunInTypes;
 	export type ChatInputCommandInteraction<Cached extends CacheType = CacheType> = Command.ChatInputCommandInteraction<Cached>;
 	export type ContextMenuCommandInteraction<Cached extends CacheType = CacheType> = Command.ContextMenuCommandInteraction<Cached>;

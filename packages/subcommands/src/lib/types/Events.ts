@@ -91,7 +91,7 @@ declare module 'discord.js' {
 		[SubcommandPluginEvents.ChatInputSubcommandNotFound]: [
 			interaction: ChatInputCommand.Interaction,
 			subcommand: ChatInputCommandSubcommandMappingMethod,
-			context: ChatInputCommand.Context
+			context: ChatInputCommand.RunContext
 		];
 		[SubcommandPluginEvents.ChatInputSubcommandError]: [error: unknown, payload: ChatInputSubcommandErrorPayload];
 
@@ -109,7 +109,7 @@ declare module 'discord.js' {
 		[SubcommandPluginEvents.MessageSubcommandNotFound]: [
 			message: Message,
 			subcommand: MessageSubcommandMappingMethod,
-			context: ChatInputCommand.Context
+			context: ChatInputCommand.RunContext
 		];
 		[SubcommandPluginEvents.MessageSubcommandError]: [error: unknown, payload: MessageSubcommandErrorPayload];
 

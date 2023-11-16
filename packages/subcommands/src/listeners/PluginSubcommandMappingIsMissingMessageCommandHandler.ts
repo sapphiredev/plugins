@@ -4,7 +4,7 @@ import { SubcommandPluginEvents, type MessageSubcommandErrorPayload } from '../l
 import type { SubcommandMappingMethod } from '../lib/types/SubcommandMappings';
 
 export class PluginListener extends Listener<typeof SubcommandPluginEvents.SubcommandMappingIsMissingMessageCommandHandler> {
-	public constructor(context: Listener.Context) {
+	public constructor(context: Listener.LoaderContext) {
 		super(context, { event: SubcommandPluginEvents.SubcommandMappingIsMissingMessageCommandHandler });
 	}
 

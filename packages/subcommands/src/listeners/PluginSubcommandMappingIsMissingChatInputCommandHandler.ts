@@ -3,7 +3,7 @@ import { SubcommandPluginEvents, type ChatInputSubcommandErrorPayload } from '..
 import type { SubcommandMappingMethod } from '../lib/types/SubcommandMappings';
 
 export class PluginListener extends Listener<typeof SubcommandPluginEvents.SubcommandMappingIsMissingChatInputCommandHandler> {
-	public constructor(context: Listener.Context) {
+	public constructor(context: Listener.LoaderContext) {
 		super(context, { event: SubcommandPluginEvents.SubcommandMappingIsMissingChatInputCommandHandler });
 	}
 
