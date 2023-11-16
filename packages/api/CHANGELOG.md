@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@5.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.2.0...@sapphire/plugin-api@5.2.0) - (2023-11-16)
+
+## 🏠 Refactor
+
+- Support latest /framework ([0b1010d](https://github.com/sapphiredev/plugins/commit/0b1010d59933b0e22108cbafd61c619e8126967d))
+
+## 🐛 Bug Fixes
+
+- **api:** Update transitive tldts dependency ([9678be8](https://github.com/sapphiredev/plugins/commit/9678be82f56920cc31da6020f83461b6a06e463b))
+- **api:** Update transitive dependencies ([3aa68f7](https://github.com/sapphiredev/plugins/commit/3aa68f71b6c625753d70ebee663c754d8846ebbd))
+
+## 📝 Documentation
+
+- **api:** Improve typedoc ([95fe74c](https://github.com/sapphiredev/plugins/commit/95fe74c44ccae490710923cb4d25d45b13ff4030))
+
+## 🚀 Features
+
+- Make all pieces virtual ([608c5fa](https://github.com/sapphiredev/plugins/commit/608c5facab8b3b75d8b9de1c16d00df642f842e7))
+
 # [@sapphire/plugin-api@5.1.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@5.1.2...@sapphire/plugin-api@5.1.2) - (2023-10-23)
 
 ## 🐛 Bug Fixes
