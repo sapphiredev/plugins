@@ -5,7 +5,7 @@ import type { ApiResponse } from '../lib/structures/api/ApiResponse';
 import { ServerEvents } from '../lib/structures/http/Server';
 
 export class PluginListener extends Listener {
-	public constructor(context: Listener.Context) {
+	public constructor(context: Listener.LoaderContext) {
 		super(context, { emitter: 'server', event: ServerEvents.MiddlewareSuccess });
 	}
 

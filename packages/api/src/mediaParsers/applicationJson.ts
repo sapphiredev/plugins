@@ -1,10 +1,9 @@
-import type { PieceContext } from '@sapphire/pieces';
-import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import { MediaParser } from '../lib/structures/MediaParser';
+import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import { MimeTypes } from '../lib/utils/MimeTypes';
 
 export class PluginMediaParser extends MediaParser {
-	public constructor(context: PieceContext) {
+	public constructor(context: MediaParser.LoaderContext) {
 		super(context, { name: MimeTypes.ApplicationJson });
 	}
 

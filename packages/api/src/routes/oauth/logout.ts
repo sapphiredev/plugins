@@ -2,16 +2,16 @@ import { OAuth2Routes } from 'discord.js';
 import { stringify } from 'querystring';
 import { fetch } from 'undici';
 import { promisify } from 'util';
+import { Route } from '../../lib/structures/Route';
 import type { ApiRequest } from '../../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../../lib/structures/api/ApiResponse';
 import { HttpCodes } from '../../lib/structures/http/HttpCodes';
 import { methods } from '../../lib/structures/http/HttpMethods';
-import { Route } from '../../lib/structures/Route';
 
 const sleep = promisify(setTimeout);
 
 export class PluginRoute extends Route {
-	public constructor(context: Route.Context) {
+	public constructor(context: Route.LoaderContext) {
 		super(context, { route: 'oauth/logout' });
 		this.enabled = this.container.server.auth !== null;
 	}

@@ -1,13 +1,13 @@
-import type { PieceContext } from '@sapphire/pieces';
+import { Middleware } from '../lib/structures/Middleware';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../lib/structures/api/ApiResponse';
 import { CookieStore } from '../lib/structures/api/CookieStore';
-import { Middleware } from '../lib/structures/Middleware';
 
 export class PluginMiddleware extends Middleware {
 	private readonly production: boolean = process.env.NODE_ENV === 'production';
 	private domainOverwrite: string | null = null;
-	public constructor(context: PieceContext) {
+
+	public constructor(context: Middleware.LoaderContext) {
 		super(context, { position: 30 });
 
 		const { server } = this.container;

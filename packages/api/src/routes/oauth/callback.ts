@@ -1,4 +1,3 @@
-import type { PieceContext } from '@sapphire/pieces';
 import { OAuth2Routes, type RESTPostOAuth2AccessTokenResult, type RESTPostOAuth2AccessTokenURLEncodedData } from 'discord.js';
 import { stringify } from 'querystring';
 import { fetch } from 'undici';
@@ -11,7 +10,7 @@ import { methods } from '../../lib/structures/http/HttpMethods';
 export class PluginRoute extends Route {
 	private readonly redirectUri: string | undefined;
 
-	public constructor(context: PieceContext) {
+	public constructor(context: Route.LoaderContext) {
 		super(context, { route: 'oauth/callback' });
 
 		const { server } = this.container;

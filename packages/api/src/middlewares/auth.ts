@@ -4,7 +4,8 @@ import { Middleware } from '../lib/structures/Middleware';
 
 export class PluginMiddleware extends Middleware {
 	private readonly cookieName: string;
-	public constructor(context: Middleware.Context) {
+
+	public constructor(context: Middleware.LoaderContext) {
 		super(context, { position: 40 });
 
 		const { server } = this.container;
