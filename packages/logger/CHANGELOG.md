@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-logger@3.0.7](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@3.0.7...@sapphire/plugin-logger@3.0.7) - (2023-11-16)
+
+## 🐛 Bug Fixes
+
+- Set `engines.node` to `>=v18` ([885a390](https://github.com/sapphiredev/plugins/commit/885a3908d59fd00f7214ef474f2c6a3c58e95af2))
+
+## 📝 Documentation
+
+- Reference updated types in README ([cc963c4](https://github.com/sapphiredev/plugins/commit/cc963c4b7877ad5822d062241f9053181063e993))
+
 # [@sapphire/plugin-logger@3.0.6](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@3.0.5...@sapphire/plugin-logger@3.0.6) - (2023-08-23)
 
 ## 🏠 Refactor
