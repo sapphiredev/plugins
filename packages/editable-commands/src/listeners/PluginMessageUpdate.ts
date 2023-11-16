@@ -2,7 +2,7 @@ import { Events, Listener } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 export class PluginListener extends Listener<typeof Events.MessageUpdate> {
-	public constructor(context: Listener.Context) {
+	public constructor(context: Listener.LoaderContext) {
 		super(context, { event: Events.MessageUpdate });
 	}
 
