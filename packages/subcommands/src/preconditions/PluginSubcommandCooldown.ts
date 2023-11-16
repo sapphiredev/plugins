@@ -6,7 +6,7 @@ import { SubcommandIdentifiers } from '../lib/types/Enums';
 
 /**
  * The context for the subcommand cooldown precondition
- * @since 5.0.1
+ * @since 5.1.0
  */
 export interface SubcommandCooldownPreconditionContext extends CorePreconditions.CooldownContext {
 	/** The name of the subcommand */
@@ -18,7 +18,7 @@ export interface SubcommandCooldownPreconditionContext extends CorePreconditions
 /**
  * The subcommand cooldown precondition. This differs from the cooldown precondition in framework by using a separate
  * bucket as well as resolving the id differently to ensure it is specific to a subcommand.
- * @since 5.0.1
+ * @since 5.1.0
  */
 export class PluginPrecondition extends AllFlowsPrecondition {
 	public subcommandBuckets = new WeakMap<Subcommand, RateLimitManager<string>>();

@@ -8,7 +8,7 @@ export enum SubcommandCommandPreConditions {
 
 /**
  * The available subcommand pre-conditions.
- * @since 5.0.1
+ * @since 5.1.0
  */
 export enum SubcommandIdentifiers {
 	/** The identifier for the subcommand cooldown precondition */

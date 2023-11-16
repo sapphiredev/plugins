@@ -21,7 +21,7 @@ declare module 'discord.js' {
 		 * @remark Note that for the `filteredCommands` option you have to provide it as
 		 * - For a subcommand without a group: `commandName.subcommandName` (e.g. `config.show`).
 		 * - For a subcommand with a group: `commandName.groupName.subcommandName` (e.g. `config.set.prefix`).
-		 * @since 5.0.1
+		 * @since 5.1.0
 		 * @default "No cooldown options"
 		 */
 		subcommandDefaultCooldown?: CooldownOptions;
@@ -36,7 +36,7 @@ declare module '@sapphire/framework' {
 
 /**
  * The preconditions specific to subcommands
- * @since 5.0.1
+ * @since 5.1.0
  */
 export const SubcommandPreconditions = {
 	SubcommandCooldown
@@ -44,7 +44,7 @@ export const SubcommandPreconditions = {
 
 /**
  * The preconditions specific to subcommands
- * @since 5.0.1
+ * @since 5.1.0
  */
 export namespace SubcommandPreconditions {
 	/** The context for the subcommand cooldown precondition */
