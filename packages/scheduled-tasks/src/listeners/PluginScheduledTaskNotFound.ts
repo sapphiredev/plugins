@@ -2,7 +2,7 @@ import { Listener } from '@sapphire/framework';
 import { ScheduledTaskEvents } from '../lib/types/ScheduledTaskEvents';
 
 export class PluginListener extends Listener<typeof ScheduledTaskEvents.ScheduledTaskNotFound> {
-	public constructor(context: Listener.Context) {
+	public constructor(context: Listener.LoaderContext) {
 		super(context, {
 			name: ScheduledTaskEvents.ScheduledTaskNotFound,
 			event: ScheduledTaskEvents.ScheduledTaskNotFound
