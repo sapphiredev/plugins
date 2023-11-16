@@ -11,6 +11,7 @@ import {
 } from '@sapphire/framework';
 import { cast, deepClone } from '@sapphire/utilities';
 import type { CacheType, Message } from 'discord.js';
+import { SubcommandPreconditionResolvers } from '../index';
 import {
 	SubcommandPluginEvents,
 	SubcommandPluginIdentifiers,
@@ -55,7 +56,7 @@ export class Subcommand<PreParseReturn extends Args = Args, Options extends Subc
 	 */
 	public caseInsensitiveSubcommands = false;
 
-	public constructor(context: Command.LoaderContext, options: Options) {
+	public constructor(context: Subcommand.LoaderContext, options: Options) {
 		// #region Base parsing
 		super(context, options);
 		this.parsedSubcommandMappings = options.subcommands ?? [];
@@ -168,14 +169,15 @@ export class Subcommand<PreParseReturn extends Args = Args, Options extends Subc
 					subcommand.requiredUserPermissions,
 					preconditionContainerArray
 				);
-				PreconditionResolvers.parseConstructorPreConditionsCooldown(
-					this,
-					subcommand.cooldownLimit,
-					subcommand.cooldownDelay,
-					subcommand.cooldownScope,
-					subcommand.cooldownFilteredUsers,
+				SubcommandPreconditionResolvers.parseSubcommandConstructorPreConditionsCooldown({
+					subcommand: this,
+					cooldownDelay: subcommand.cooldownDelay,
+					cooldownFilteredUsers: subcommand.cooldownFilteredUsers,
+					cooldownLimit: subcommand.cooldownLimit,
+					cooldownScope: subcommand.cooldownScope,
+					subcommandMethodName: subcommand.name,
 					preconditionContainerArray
-				);
+				});
 
 				this.subcommandPreconditions.set(subcommand.name, preconditionContainerArray);
 			}
@@ -198,14 +200,16 @@ export class Subcommand<PreParseReturn extends Args = Args, Options extends Subc
 						groupedSubcommand.requiredUserPermissions,
 						preconditionContainerArray
 					);
-					PreconditionResolvers.parseConstructorPreConditionsCooldown(
-						this,
-						groupedSubcommand.cooldownLimit,
-						groupedSubcommand.cooldownDelay,
-						groupedSubcommand.cooldownScope,
-						groupedSubcommand.cooldownFilteredUsers,
+					SubcommandPreconditionResolvers.parseSubcommandConstructorPreConditionsCooldown({
+						subcommand: this,
+						cooldownDelay: groupedSubcommand.cooldownDelay,
+						cooldownFilteredUsers: groupedSubcommand.cooldownFilteredUsers,
+						cooldownLimit: groupedSubcommand.cooldownLimit,
+						cooldownScope: groupedSubcommand.cooldownScope,
+						subcommandGroupName: subcommand.name,
+						subcommandMethodName: groupedSubcommand.name,
 						preconditionContainerArray
-					);
+					});
 
 					this.subcommandPreconditions.set(`${subcommand.name}.${groupedSubcommand.name}`, preconditionContainerArray);
 				}
