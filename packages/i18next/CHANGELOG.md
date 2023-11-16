@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@6.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@6.1.0...@sapphire/plugin-i18next@6.1.0) - (2023-11-16)
+
+## 🐛 Bug Fixes
+
+- **i18next:** Update i18next dependency ([3230518](https://github.com/sapphiredev/plugins/commit/3230518c869d3f69a9d14e66e93d2328515e82b0))
+- **deps:** Update all non-major dependencies ([98df6c7](https://github.com/sapphiredev/plugins/commit/98df6c7ccb5d312af2e25522225e84798d3e7ac5))
+- **i18next:** Update transitive dependencies ([6e804d4](https://github.com/sapphiredev/plugins/commit/6e804d4017e153b0bca32332b1c4f1b7288dc12d))
+- **i18next:** Set `engines.node` to `>=18` ([924bf71](https://github.com/sapphiredev/plugins/commit/924bf71107b5702b581509d8a9a8afe9a208e5e2))
+
+## 📝 Documentation
+
+- Reference updated types in README ([dde535e](https://github.com/sapphiredev/plugins/commit/dde535ee79062d2e9076a27d04099c8902d5e577))
+
+## 🚀 Features
+
+- Re-export `i18next` instance (#500) ([d849ee0](https://github.com/sapphiredev/plugins/commit/d849ee046b22470768e46c1431207b24a6e1710c))
+
 # [@sapphire/plugin-i18next@6.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@6.0.0...@sapphire/plugin-i18next@6.0.1) - (2023-09-09)
 
 ## 🐛 Bug Fixes
