@@ -1,6 +1,13 @@
 import { AllFlowsPrecondition, BucketScope, Command, CorePreconditions } from '@sapphire/framework';
 import { RateLimitManager } from '@sapphire/ratelimits';
-import type { ChatInputCommandInteraction, CommandInteraction, ContextMenuCommandInteraction, Message } from 'discord.js';
+import {
+	TimestampStyles,
+	time,
+	type ChatInputCommandInteraction,
+	type CommandInteraction,
+	type ContextMenuCommandInteraction,
+	type Message
+} from 'discord.js';
 import { Subcommand } from '../lib/Subcommand';
 import { SubcommandIdentifiers } from '../lib/types/Enums';
 
@@ -74,11 +81,10 @@ export class PluginPrecondition extends AllFlowsPrecondition {
 		if (rateLimit.limited) {
 			const remaining = rateLimit.remainingTime;
 
+			const nextAvailable = time(Math.floor(rateLimit.expires / 1000), TimestampStyles.RelativeTime);
 			return this.error({
 				identifier: SubcommandIdentifiers.SubcommandPreconditionCooldown,
-				message: `There is a cooldown in effect for this ${commandType} subcommand. It'll be available at ${new Date(
-					rateLimit.expires
-				).toISOString()}.`,
+				message: `There is a cooldown in effect for this ${commandType} subcommand. It'll be available ${nextAvailable}.`,
 				context: { remaining }
 			});
 		}

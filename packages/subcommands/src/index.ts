@@ -2,7 +2,7 @@ import { CooldownOptions } from '@sapphire/framework';
 import { PluginPrecondition as SubcommandCooldown, type SubcommandCooldownPreconditionContext } from './preconditions/PluginSubcommandCooldown';
 
 export * from './lib/Subcommand';
-export * as SubcommandPreconditionResolvers from './lib/precondition-resolvers/index';
+export * as SubcommandPreconditionResolvers from './lib/precondition-resolvers/subcommandCooldown';
 export * from './lib/types/Enums';
 export * from './lib/types/Events';
 export * from './lib/types/SubcommandMappings';

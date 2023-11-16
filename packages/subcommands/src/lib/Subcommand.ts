@@ -574,7 +574,7 @@ export namespace Subcommand {
 	export type Options = SubcommandOptions;
 	export type JSON = Command.JSON;
 	/** @deprecated Use {@linkcode LoaderContext} instead. */
-	export type Context = Command.LoaderContext;
+	export type Context = LoaderContext;
 	export type LoaderContext = Command.LoaderContext;
 	export type RunInTypes = Command.RunInTypes;
 	export type ChatInputCommandInteraction<Cached extends CacheType = CacheType> = Command.ChatInputCommandInteraction<Cached>;
