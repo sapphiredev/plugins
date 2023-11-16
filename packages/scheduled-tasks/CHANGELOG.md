@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@8.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@8.1.0...@sapphire/plugin-scheduled-tasks@8.1.0) - (2023-11-16)
+
+## 🏠 Refactor
+
+- Support latest /framework ([0625d4d](https://github.com/sapphiredev/plugins/commit/0625d4db01573ae02d05fe5b4dfcf679c25a94ba))
+
+## 🚀 Features
+
+- Make all pieces virtual ([847288b](https://github.com/sapphiredev/plugins/commit/847288b3f5149dc8f0abf0263104e635079f2f8f))
+- **scheduled-tasks:** Add error listeners (#499) ([ccbe75e](https://github.com/sapphiredev/plugins/commit/ccbe75e6eb30f5918773c4daccc7ce013666b35e))
+
 # [@sapphire/plugin-scheduled-tasks@8.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@8.0.0...@sapphire/plugin-scheduled-tasks@8.0.0) - (2023-10-26)
 
 ## 🐛 Bug Fixes
