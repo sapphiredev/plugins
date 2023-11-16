@@ -1,5 +1,4 @@
 import { CooldownOptions } from '@sapphire/framework';
-import { SubcommandCommandPreConditions } from './lib/types/Enums';
 import { SubcommandPrecondition as SubcommandCooldown, type SubcommandCooldownPreconditionContext } from './preconditions/SubcommandCooldown';
 
 export * from './lib/Subcommand';
@@ -31,7 +30,7 @@ declare module 'discord.js' {
 
 declare module '@sapphire/framework' {
 	interface Preconditions {
-		[SubcommandCommandPreConditions.SubcommandCooldown]: SubcommandPreconditions.SubcommandCooldownContext;
+		SubcommandCooldown: SubcommandPreconditions.SubcommandCooldownContext;
 	}
 }
 
