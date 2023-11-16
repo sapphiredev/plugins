@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-utilities-store@1.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-utilities-store@1.0.3...@sapphire/plugin-utilities-store@1.0.3) - (2023-11-16)
+
+## 🏠 Refactor
+
+- Support latest /framework ([3ac929f](https://github.com/sapphiredev/plugins/commit/3ac929f1c38c2edbf00fa68d5ffef055d697e602))
+- Remove useless `registerPath` call ([8cfecaf](https://github.com/sapphiredev/plugins/commit/8cfecaf51e0fbf9f92c9f63415a8c10889b11b70))
+
+## 🐛 Bug Fixes
+
+- Set `engines.node` to `>=v18` ([885a390](https://github.com/sapphiredev/plugins/commit/885a3908d59fd00f7214ef474f2c6a3c58e95af2))
+
 # [@sapphire/plugin-utilities-store@1.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-utilities-store@1.0.1...@sapphire/plugin-utilities-store@1.0.2) - (2023-08-23)
 
 ## 🏠 Refactor
