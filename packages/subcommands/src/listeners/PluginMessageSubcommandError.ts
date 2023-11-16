@@ -2,7 +2,7 @@ import { Listener } from '@sapphire/framework';
 import { SubcommandPluginEvents, type MessageSubcommandErrorPayload } from '../lib/types/Events';
 
 export class PluginListener extends Listener<typeof SubcommandPluginEvents.MessageSubcommandError> {
-	public constructor(context: Listener.Context) {
+	public constructor(context: Listener.LoaderContext) {
 		super(context, { event: SubcommandPluginEvents.MessageSubcommandError });
 	}
 
