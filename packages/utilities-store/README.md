@@ -56,7 +56,7 @@ import '@sapphire/plugin-utilities-store/register';
 import { Utility } from '@sapphire/plugin-utilities-store';
 
 export class SumUtility extends Utility {
-	public constructor(context: Utility.Context, options: Utility.Options) {
+	public constructor(context: Utility.LoaderContext, options: Utility.Options) {
 		super(context, {
 			...options,
 			name: 'sum'
