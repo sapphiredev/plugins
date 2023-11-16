@@ -3,7 +3,7 @@ import { HttpCodes } from '../lib/structures/http/HttpCodes';
 import { ServerEvents, type MiddlewareErrorContext } from '../lib/structures/http/Server';
 
 export class PluginListener extends Listener {
-	public constructor(context: Listener.Context) {
+	public constructor(context: Listener.LoaderContext) {
 		super(context, { emitter: 'server', event: ServerEvents.RouteError });
 	}
 

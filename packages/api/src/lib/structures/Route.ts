@@ -9,7 +9,7 @@ import type { MethodCallback, RouteStore } from './RouteStore';
 /**
  * @since 1.0.0
  */
-export abstract class Route extends Piece {
+export abstract class Route<Options extends Route.Options = Route.Options> extends Piece<Options, 'routes'> {
 	/**
 	 * (RFC 7230 3.3.2) The maximum decimal number of octets.
 	 */
@@ -30,7 +30,7 @@ export abstract class Route extends Piece {
 	 */
 	public readonly methods = new Collection<Methods, MethodCallback>();
 
-	public constructor(context: Piece.Context, options: Route.Options = {}) {
+	public constructor(context: Route.LoaderContext, options: Options = {} as Options) {
 		super(context, options);
 
 		const api = this.container.server.options;
@@ -108,6 +108,10 @@ export interface RouteOptions extends Piece.Options {
 }
 
 export namespace Route {
-	export type Context = Piece.Context;
+	/** @deprecated Use {@linkcode LoaderContext} instead. */
+	export type Context = LoaderContext;
+	export type LoaderContext = Piece.LoaderContext<'routes'>;
 	export type Options = RouteOptions;
+	export type JSON = Piece.JSON;
+	export type LocationJSON = Piece.LocationJSON;
 }

@@ -1,13 +1,13 @@
 import { Piece } from '@sapphire/pieces';
 import type { Awaitable } from '@sapphire/utilities';
+import type { Route } from './Route';
 import type { ApiRequest } from './api/ApiRequest';
 import type { ApiResponse } from './api/ApiResponse';
-import type { Route } from './Route';
 
 /**
  * @since 1.0.0
  */
-export abstract class Middleware extends Piece {
+export abstract class Middleware<Options extends Middleware.Options = Middleware.Options> extends Piece<Options, 'middlewares'> {
 	/**
 	 * The position the middleware has. The {@link MiddlewareStore} will run all middlewares with lower position than
 	 * this one.
@@ -20,7 +20,7 @@ export abstract class Middleware extends Piece {
 	 */
 	public readonly position: number;
 
-	public constructor(context: Piece.Context, options: Middleware.Options = {}) {
+	public constructor(context: Middleware.LoaderContext, options: Options = {} as Options) {
 		super(context, options);
 		this.position = options.position ?? 1000;
 	}
@@ -47,6 +47,10 @@ export interface MiddlewareOptions extends Piece.Options {
 }
 
 export namespace Middleware {
-	export type Context = Piece.Context;
+	/** @deprecated Use {@linkcode LoaderContext} instead. */
+	export type Context = LoaderContext;
+	export type LoaderContext = Piece.LoaderContext<'middlewares'>;
 	export type Options = MiddlewareOptions;
+	export type JSON = Piece.JSON;
+	export type LocationJSON = Piece.LocationJSON;
 }

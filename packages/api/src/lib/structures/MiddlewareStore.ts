@@ -14,7 +14,7 @@ export class MiddlewareStore extends Store<Middleware, 'middlewares'> {
 	public readonly sortedMiddlewares: Middleware[] = [];
 
 	public constructor() {
-		super(Middleware as any, { name: 'middlewares' });
+		super(Middleware, { name: 'middlewares' });
 	}
 
 	public async run(request: ApiRequest, response: ApiResponse, route: Route | null): Promise<void> {

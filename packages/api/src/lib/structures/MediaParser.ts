@@ -9,7 +9,11 @@ import type { MimeTypeWithoutParameters } from './http/Server';
  * A media parser
  * @since 1.3.0
  */
-export abstract class MediaParser extends Piece {
+export abstract class MediaParser<Options extends MediaParser.Options = MediaParser.Options> extends Piece<Options, 'mediaParsers'> {
+	public constructor(context: MediaParser.LoaderContext, options: Options = {} as Options) {
+		super(context, options);
+	}
+
 	/**
 	 * Parses the body data from an API request.
 	 * @since 1.3.0
@@ -104,5 +108,10 @@ export abstract class MediaParser extends Piece {
 }
 
 export namespace MediaParser {
-	export type Context = Piece.Context;
+	/** @deprecated Use {@linkcode LoaderContext} instead. */
+	export type Context = LoaderContext;
+	export type LoaderContext = Piece.LoaderContext<'mediaParsers'>;
+	export type Options = Piece.Options;
+	export type JSON = Piece.JSON;
+	export type LocationJSON = Piece.LocationJSON;
 }

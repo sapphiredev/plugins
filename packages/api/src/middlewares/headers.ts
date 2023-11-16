@@ -1,15 +1,15 @@
 import { METHODS } from 'http';
+import { Middleware } from '../lib/structures/Middleware';
+import type { Route } from '../lib/structures/Route';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import type { ApiResponse } from '../lib/structures/api/ApiResponse';
 import { HttpCodes } from '../lib/structures/http/HttpCodes';
-import { Middleware } from '../lib/structures/Middleware';
-import type { Route } from '../lib/structures/Route';
 
 export class PluginMiddleware extends Middleware {
 	private readonly origin: string;
 	private readonly methods: string = METHODS.join(', ');
 
-	public constructor(context: Middleware.Context) {
+	public constructor(context: Middleware.LoaderContext) {
 		super(context, { position: 10 });
 		this.origin = this.container.server.options.origin ?? '*';
 	}

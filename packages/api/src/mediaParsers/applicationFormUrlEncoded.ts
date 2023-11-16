@@ -4,7 +4,7 @@ import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import { MimeTypes } from '../lib/utils/MimeTypes';
 
 export class PluginMediaParser extends MediaParser {
-	public constructor(context: MediaParser.Context) {
+	public constructor(context: MediaParser.LoaderContext) {
 		super(context, { name: MimeTypes.ApplicationFormUrlEncoded });
 	}
 

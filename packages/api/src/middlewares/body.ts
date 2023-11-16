@@ -7,7 +7,8 @@ import type { Route } from '../lib/structures/Route';
 
 export class PluginMiddleware extends Middleware {
 	private readonly mediaParsers: MediaParserStore;
-	public constructor(context: Middleware.Context) {
+
+	public constructor(context: Middleware.LoaderContext) {
 		super(context, { position: 20 });
 		this.mediaParsers = this.container.server.mediaParsers;
 	}
