@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@5.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@5.1.0...@sapphire/plugin-subcommands@5.1.0) - (2023-11-16)
+
+## 🏠 Refactor
+
+- Support latest /framework ([3a186ca](https://github.com/sapphiredev/plugins/commit/3a186cae353394bec461b08c3ccd7f422e2cc343))
+
+## 🐛 Bug Fixes
+
+- **subcommands:** Add subcommand specific cooldown (#504) ([b7bca79](https://github.com/sapphiredev/plugins/commit/b7bca79effddf638ba1cef8d42684fe24471e0c9))
+- **subcommands:** Remove unused events `ChatInputSubcommandNotFound` and `MessageSubcommandNotFound`. If you previously had listeners for these, just remove them (#506) ([ee92625](https://github.com/sapphiredev/plugins/commit/ee9262500f706857b1ca05959007c5040ad22151))
+
+## 🚀 Features
+
+- Make all pieces virtual ([65bd0db](https://github.com/sapphiredev/plugins/commit/65bd0db1804a4b0cf32815a70e91fb837e92829e))
+
 # [@sapphire/plugin-subcommands@5.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@5.0.0...@sapphire/plugin-subcommands@5.0.0) - (2023-10-26)
 
 ## 🐛 Bug Fixes
