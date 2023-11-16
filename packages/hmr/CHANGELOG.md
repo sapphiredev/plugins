@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-hmr@2.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-hmr@2.0.3...@sapphire/plugin-hmr@2.0.3) - (2023-11-16)
+
+## 🐛 Bug Fixes
+
+- **hmr:** Set `engines.node` to `>=18` ([dd4d7cd](https://github.com/sapphiredev/plugins/commit/dd4d7cd0ec01bf25f100ed6245209391f4f1f07e))
+- Set `engines.node` to `>=v18` ([885a390](https://github.com/sapphiredev/plugins/commit/885a3908d59fd00f7214ef474f2c6a3c58e95af2))
+
 # [@sapphire/plugin-hmr@2.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-hmr@2.0.1...@sapphire/plugin-hmr@2.0.2) - (2023-08-23)
 
 ## 🏠 Refactor

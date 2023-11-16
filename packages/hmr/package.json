@@ -1,6 +1,6 @@
 {
 	"name": "@sapphire/plugin-hmr",
-	"version": "2.0.2",
+	"version": "2.0.3",
 	"description": "Plugin for @sapphire/framework for hot module reloading for pieces",
 	"author": "@sapphire",
 	"license": "MIT",
