@@ -1,5 +1,5 @@
 import { CooldownOptions } from '@sapphire/framework';
-import { SubcommandPrecondition as SubcommandCooldown, type SubcommandCooldownPreconditionContext } from './preconditions/SubcommandCooldown';
+import { PluginPrecondition as SubcommandCooldown, type SubcommandCooldownPreconditionContext } from './preconditions/PluginSubcommandCooldown';
 
 export * from './lib/Subcommand';
 export * as SubcommandPreconditionResolvers from './lib/precondition-resolvers/index';

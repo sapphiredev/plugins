@@ -20,7 +20,7 @@ export interface SubcommandCooldownPreconditionContext extends CorePreconditions
  * bucket as well as resolving the id differently to ensure it is specific to a subcommand.
  * @since 5.0.1
  */
-export class SubcommandPrecondition extends AllFlowsPrecondition {
+export class PluginPrecondition extends AllFlowsPrecondition {
 	public subcommandBuckets = new WeakMap<Subcommand, RateLimitManager<string>>();
 
 	public override messageRun(

@@ -56,7 +56,7 @@ export class Subcommand<PreParseReturn extends Args = Args, Options extends Subc
 	 */
 	public caseInsensitiveSubcommands = false;
 
-	public constructor(context: Command.LoaderContext, options: Options) {
+	public constructor(context: Subcommand.LoaderContext, options: Options) {
 		// #region Base parsing
 		super(context, options);
 		this.parsedSubcommandMappings = options.subcommands ?? [];
@@ -574,7 +574,7 @@ export namespace Subcommand {
 	export type Options = SubcommandOptions;
 	export type JSON = Command.JSON;
 	/** @deprecated Use {@linkcode LoaderContext} instead. */
-	export type Context = LoaderContext;
+	export type Context = Command.LoaderContext;
 	export type LoaderContext = Command.LoaderContext;
 	export type RunInTypes = Command.RunInTypes;
 	export type ChatInputCommandInteraction<Cached extends CacheType = CacheType> = Command.ChatInputCommandInteraction<Cached>;
