@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-editable-commands@3.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@3.1.0...@sapphire/plugin-editable-commands@3.1.0) - (2023-11-16)
+
+## 🐛 Bug Fixes
+
+- **editable-commands:** Set `engines.node` to `>=18` ([96bbd43](https://github.com/sapphiredev/plugins/commit/96bbd430887b61ba42ae8026a94596f6ad19ffb8))
+- Set `engines.node` to `>=v18` ([885a390](https://github.com/sapphiredev/plugins/commit/885a3908d59fd00f7214ef474f2c6a3c58e95af2))
+
+## 🚀 Features
+
+- Make all pieces virtual ([61b4d66](https://github.com/sapphiredev/plugins/commit/61b4d660f0c32b4c76458e40d9f57cb905560d92))
+
 # [@sapphire/plugin-editable-commands@3.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@3.0.2...@sapphire/plugin-editable-commands@3.0.3) - (2023-08-23)
 
 ## 🏠 Refactor
