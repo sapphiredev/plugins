@@ -84,11 +84,11 @@ Here is an example mute command, demonstrating the use of `this.container.tasks`
 ```typescript
 // mute command
 
-import { Command, CommandOptions, PieceContext } from '@sapphire/framework';
+import { Command, CommandOptions } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 
 export class MuteCommand extends Command {
-	public constructor(context: PieceContext) {
+	public constructor(context: Command.LoaderContext) {
 		super(context, {
 			description: 'Mute a user'
 		});
@@ -113,7 +113,7 @@ Scheduled tasks use their own store, like other types of pieces. You can create 
 import { ScheduledTask } from '@sapphire/plugin-scheduled-tasks';
 
 export class ManualTask extends ScheduledTask {
-	public constructor(context: ScheduledTask.Context, options: ScheduledTask.Options) {
+	public constructor(context: ScheduledTask.LoaderContext, options: ScheduledTask.Options) {
 		super(context, options);
 	}
 
@@ -145,7 +145,7 @@ Pattern jobs are currently only supported by the Redis strategy.
 import { ScheduledTask } from '@sapphire/plugin-scheduled-tasks';
 
 export class PatternTask extends ScheduledTask {
-	public constructor(context: ScheduledTask.Context, options: ScheduledTask.Options) {
+	public constructor(context: ScheduledTask.LoaderContext, options: ScheduledTask.Options) {
 		super(context, {
 			...options,
 			pattern: '0 * * * *'
@@ -176,7 +176,7 @@ Pattern & Interval tasks are loaded automatically.
 import { ScheduledTask } from '@sapphire/plugin-scheduled-tasks';
 
 export class IntervalTask extends ScheduledTask {
-	public constructor(context: ScheduledTask.Context, options: ScheduledTask.Options) {
+	public constructor(context: ScheduledTask.LoaderContext, options: ScheduledTask.Options) {
 		super(context, {
 			...options,
 			interval: 60_000 // 60 seconds

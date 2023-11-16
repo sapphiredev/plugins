@@ -6,12 +6,12 @@ import type { JobsOptions } from 'bullmq';
  * Represents a scheduled task that can be run at a specified interval or pattern.
  * @abstract
  */
-export abstract class ScheduledTask extends Piece {
+export abstract class ScheduledTask<Options extends ScheduledTask.Options = ScheduledTask.Options> extends Piece<Options, 'scheduled-tasks'> {
 	public readonly interval: number | null;
 	public readonly pattern: string | null;
 	public readonly customJobOptions?: ScheduledTaskCustomJobOptions;
 
-	public constructor(context: Piece.Context, options: ScheduledTaskOptions) {
+	public constructor(context: ScheduledTask.LoaderContext, options: ScheduledTaskOptions) {
 		super(context, options);
 		this.interval = options.interval ?? null;
 		this.pattern = options.pattern ?? null;
@@ -55,6 +55,10 @@ export namespace ScheduledTask {
 
 	/**
 	 * The context for a {@link ScheduledTask}.
+	 * @deprecated Use {@linkcode LoaderContext} instead.
 	 */
-	export type Context = Piece.Context;
+	export type Context = LoaderContext;
+	export type LoaderContext = Piece.LoaderContext<'scheduled-tasks'>;
+	export type JSON = Piece.JSON;
+	export type LocationJSON = Piece.LocationJSON;
 }
