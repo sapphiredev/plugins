@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-pattern-commands@5.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@5.1.0...@sapphire/plugin-pattern-commands@5.1.0) - (2023-11-16)
+
+## 🏠 Refactor
+
+- Support latest /framework ([9715b38](https://github.com/sapphiredev/plugins/commit/9715b385477960ed6c935d37408beb4e2f2308a1))
+
+## 🐛 Bug Fixes
+
+- Set `engines.node` to `>=v18` ([885a390](https://github.com/sapphiredev/plugins/commit/885a3908d59fd00f7214ef474f2c6a3c58e95af2))
+
+## 🚀 Features
+
+- Make all pieces virtual and remove useless `registerPath` call ([6781ec2](https://github.com/sapphiredev/plugins/commit/6781ec23c643c8f41f2b6b54e71a7ec442eea884))
+
 # [@sapphire/plugin-pattern-commands@5.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@5.0.1...@sapphire/plugin-pattern-commands@5.0.2) - (2023-08-23)
 
 ## 🏠 Refactor
