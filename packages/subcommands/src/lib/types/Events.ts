@@ -7,13 +7,11 @@ export const SubcommandPluginEvents = {
 	ChatInputSubcommandDenied: 'chatInputSubcommandDenied' as const,
 	ChatInputSubcommandRun: 'chatInputSubcommandRun' as const,
 	ChatInputSubcommandSuccess: 'chatInputSubcommandSuccess' as const,
-	ChatInputSubcommandNotFound: 'chatInputSubcommandNotFound' as const,
 	ChatInputSubcommandError: 'chatInputSubcommandError' as const,
 
 	MessageSubcommandDenied: 'messageSubcommandDenied' as const,
 	MessageSubcommandRun: 'messageSubcommandRun' as const,
 	MessageSubcommandSuccess: 'messageSubcommandSuccess' as const,
-	MessageSubcommandNotFound: 'messageSubcommandNotFound' as const,
 	MessageSubcommandError: 'messageSubcommandError' as const,
 
 	SubcommandMappingIsMissingMessageCommandHandler: 'subcommandMappingIsMissingMessageCommandHandler' as const,
@@ -88,11 +86,6 @@ declare module 'discord.js' {
 			subcommand: ChatInputCommandSubcommandMappingMethod,
 			payload: ChatInputSubcommandSuccessPayload
 		];
-		[SubcommandPluginEvents.ChatInputSubcommandNotFound]: [
-			interaction: ChatInputCommand.Interaction,
-			subcommand: ChatInputCommandSubcommandMappingMethod,
-			context: ChatInputCommand.RunContext
-		];
 		[SubcommandPluginEvents.ChatInputSubcommandError]: [error: unknown, payload: ChatInputSubcommandErrorPayload];
 
 		[SubcommandPluginEvents.MessageSubcommandDenied]: [error: UserError, payload: MessageSubcommandDeniedPayload];
@@ -105,11 +98,6 @@ declare module 'discord.js' {
 			message: Message,
 			subcommand: MessageSubcommandMappingMethod,
 			payload: MessageSubcommandSuccessPayload
-		];
-		[SubcommandPluginEvents.MessageSubcommandNotFound]: [
-			message: Message,
-			subcommand: MessageSubcommandMappingMethod,
-			context: ChatInputCommand.RunContext
 		];
 		[SubcommandPluginEvents.MessageSubcommandError]: [error: unknown, payload: MessageSubcommandErrorPayload];
 
