@@ -1,6 +1,5 @@
 import { isDMChannel, type GuildBasedChannelTypes } from '@sapphire/discord.js-utilities';
 import { Events, Listener } from '@sapphire/framework';
-import type { PieceContext } from '@sapphire/pieces';
 import { Message, PermissionFlagsBits, PermissionsBitField } from 'discord.js';
 import type { PatternCommandStore } from '../lib/structures/PaternCommandStore';
 import { PatternCommandEvents } from '../lib/utils/PaternCommandEvents';
@@ -8,7 +7,7 @@ import type { PossiblePatternCommand } from '../lib/utils/PatternCommandInterfac
 
 export class PluginListener extends Listener<typeof Events.PreMessageParsed> {
 	private readonly requiredPermissions = new PermissionsBitField([PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages]).freeze();
-	public constructor(context: PieceContext) {
+	public constructor(context: Listener.LoaderContext) {
 		super(context, { event: Events.PreMessageParsed });
 	}
 

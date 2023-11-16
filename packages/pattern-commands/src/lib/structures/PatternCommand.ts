@@ -5,7 +5,7 @@ export abstract class PatternCommand extends Command<Args, PatternCommand.Option
 	public readonly chance: number;
 	public readonly weight: number;
 	public readonly matchFullName: boolean;
-	public constructor(context: PatternCommand.Context, options: PatternCommand.Options) {
+	public constructor(context: PatternCommand.LoaderContext, options: PatternCommand.Options) {
 		super(context, options);
 		this.chance = options.chance ?? 100;
 		if (options.weight) {
@@ -49,8 +49,12 @@ export interface PatternCommandOptions extends MessageCommand.Options {
 }
 
 export namespace PatternCommand {
-	/** Re-export of {@link MessageCommand.Context} */
-	export type Context = MessageCommand.Context;
+	/**
+	 * Re-export of {@link MessageCommand.LoaderContext}
+	 * @deprecated Use {@linkcode LoaderContext} instead.
+	 */
+	export type Context = LoaderContext;
+	export type LoaderContext = MessageCommand.LoaderContext;
 
 	/** Re-export of {@link MessageCommand.RunContext} */
 	export type RunContext = MessageCommand.RunContext;

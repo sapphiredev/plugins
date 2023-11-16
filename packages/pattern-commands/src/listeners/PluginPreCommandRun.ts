@@ -1,10 +1,9 @@
 import { Listener, type PreconditionStore } from '@sapphire/framework';
-import type { PieceContext } from '@sapphire/pieces';
 import { PatternCommandEvents } from '../lib/utils/PaternCommandEvents';
 import type { PatternCommandPayload, PatternCommandPrePayload } from '../lib/utils/PatternCommandInterfaces';
 
 export class PluginListener extends Listener<typeof PatternCommandEvents.PreCommandRun> {
-	public constructor(context: PieceContext) {
+	public constructor(context: Listener.LoaderContext) {
 		super(context, { event: PatternCommandEvents.PreCommandRun });
 	}
 
