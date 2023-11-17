@@ -872,9 +872,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/framework@npm:^4.8.1":
-  version: 4.8.1
-  resolution: "@sapphire/framework@npm:4.8.1"
+"@sapphire/framework@npm:^4.8.2":
+  version: 4.8.2
+  resolution: "@sapphire/framework@npm:4.8.2"
   dependencies:
     "@discordjs/builders": "npm:^1.7.0"
     "@sapphire/discord-utilities": "npm:^3.2.0"
@@ -885,7 +885,7 @@ __metadata:
     "@sapphire/result": "npm:^2.6.4"
     "@sapphire/stopwatch": "npm:^1.5.0"
     "@sapphire/utilities": "npm:^3.13.0"
-  checksum: e594dfaa2c527be44e4816bf2c9baf3a9f9e28f65d0df3c432f574f2d688366af256928de58a3fc789bba05bc085d9320649462b21fb518ac84c065f7135d7d0
+  checksum: cbeee0fc1b7055a61af079b450e7830d90b076c68b20f4e30451a872444b292e67314eafe69f3f2958892dd2d81a816bcbde11ab5736265854e6619a387b3111
   languageName: node
   linkType: hard
 
@@ -5470,7 +5470,7 @@ __metadata:
     "@favware/cliff-jumper": "npm:^2.2.3"
     "@favware/npm-deprecate": "npm:^1.0.7"
     "@sapphire/eslint-config": "npm:^5.0.2"
-    "@sapphire/framework": "npm:^4.8.1"
+    "@sapphire/framework": "npm:^4.8.2"
     "@sapphire/pieces": "npm:^3.10.0"
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/stopwatch": "npm:^1.5.0"
