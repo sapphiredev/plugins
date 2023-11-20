@@ -1,3 +1,5 @@
+import { ScheduledTask } from '../structures/ScheduledTask';
+
 /**
  * Events emitted during the process setting up the scheduler and running a task.
  * You can use these events to trace the progress for debugging purposes.
@@ -26,7 +28,11 @@ export const ScheduledTaskEvents = {
 	/**
 	 * Event that is emitted when the scheduler fails to connect to the server (i.e. redis)
 	 */
-	ScheduledTaskStrategyConnectError: 'scheduledTaskStrategyConnectError' as const
+	ScheduledTaskStrategyConnectError: 'scheduledTaskStrategyConnectError' as const,
+	/**
+	 * Event that is emitted when the scheduled task handler encounters an error.
+	 */
+	ScheduledTaskStrategyHandlerError: 'scheduledTaskStrategyHandlerError' as const
 };
 
 declare module 'discord.js' {
@@ -36,25 +42,26 @@ declare module 'discord.js' {
 			payload: unknown
 		];
 		[ScheduledTaskEvents.ScheduledTaskRun]: [
-			task: string, //
+			task: ScheduledTask, //
 			payload: unknown
 		];
 		[ScheduledTaskEvents.ScheduledTaskError]: [
 			error: unknown, //
-			task: string,
+			task: ScheduledTask,
 			payload: unknown
 		];
 		[ScheduledTaskEvents.ScheduledTaskSuccess]: [
-			task: string, //
+			task: ScheduledTask, //
 			payload: unknown,
 			result: unknown,
 			duration: number
 		];
 		[ScheduledTaskEvents.ScheduledTaskFinished]: [
-			task: string, //
+			task: ScheduledTask, //
 			duration: number | null,
 			payload: unknown
 		];
 		[ScheduledTaskEvents.ScheduledTaskStrategyConnectError]: [error: unknown];
+		[ScheduledTaskEvents.ScheduledTaskStrategyHandlerError]: [error: unknown];
 	}
 }

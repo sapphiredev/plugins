@@ -23,7 +23,7 @@ export class ScheduledTasksPlugin extends Plugin {
 	public static [postInitialization](this: SapphireClient, options: ClientOptions): void {
 		this.stores.register(new ScheduledTaskStore());
 
-		if (options.loadScheduledTaskErrorListeners === true) {
+		if (options.loadScheduledTaskErrorListeners !== false) {
 			loadListeners();
 		}
 	}

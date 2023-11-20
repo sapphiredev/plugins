@@ -1,12 +1,16 @@
 import { Piece } from '@sapphire/pieces';
 import type { Awaitable } from '@sapphire/utilities';
 import type { JobsOptions } from 'bullmq';
+import type { ScheduledTasksKeys, ScheduledTasksPayload } from '../types/ScheduledTaskTypes';
 
 /**
  * Represents a scheduled task that can be run at a specified interval or pattern.
  * @abstract
  */
-export abstract class ScheduledTask<Options extends ScheduledTask.Options = ScheduledTask.Options> extends Piece<Options, 'scheduled-tasks'> {
+export abstract class ScheduledTask<
+	Task extends ScheduledTasksKeys | string = '',
+	Options extends ScheduledTask.Options = ScheduledTask.Options
+> extends Piece<Options, 'scheduled-tasks'> {
 	public readonly interval: number | null;
 	public readonly pattern: string | null;
 	public readonly timezone: string;
@@ -20,7 +24,7 @@ export abstract class ScheduledTask<Options extends ScheduledTask.Options = Sche
 		this.timezone = options.timezone ?? 'UTC';
 	}
 
-	public abstract run(payload: unknown): Awaitable<unknown>;
+	public abstract run(payload: ScheduledTasksPayload<Task>): Awaitable<unknown>;
 }
 
 /**

@@ -28,7 +28,7 @@ export interface ScheduledTaskListOptions extends ScheduledTaskListRepeatedOptio
 /**
  * A Bull queue client that can be used to schedule and manage scheduled tasks.
  */
-export type BullClient = Queue<ScheduledTaskJob | null>;
+export type BullClient = Queue<unknown>;
 
 /**
  * The return type of the `getRepeatableJobs` method of a Bull client.
@@ -55,6 +55,42 @@ export interface ScheduledTaskCreateRepeatedTask {
 	options: ScheduledTasksTaskOptions;
 }
 
-export interface ScheduledTaskJob {}
-
+/**
+ * The registered tasks and their payload types. When registering new ones, it is recommended to use
+ * [module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation) so
+ * custom ones are registered.
+ *
+ * If a key's value is `never`, that means that there is no payload associated with that task.
+ *
+ * @example
+ * ```typescript
+ * declare module '@sapphire/plugin-scheduled-tasks' {
+ *   interface ScheduledTasks {
+ *     // A task named `Mute` which requires no payload:
+ *     Mute: never;
+ *
+ *     // A task named `Unmute` which requires a payload with a `userId` property:
+ *     Unmute: {
+ *       userId: string;
+ *     };
+ *   }
+ * }
+ * ```
+ */
 export interface ScheduledTasks {}
+
+/**
+ * The keys of {@link ScheduledTasks}.
+ */
+export type ScheduledTasksKeys = keyof ScheduledTasks extends never ? string : keyof ScheduledTasks;
+
+/**
+ * The inferred payload type for a given key of {@link ScheduledTasks}.
+ *
+ * @remarks If the key is not in {@link ScheduledTasks}, the payload type will be `unknown`.
+ */
+export type ScheduledTasksPayload<K extends ScheduledTasksKeys | string = ''> = K extends keyof ScheduledTasks
+	? ScheduledTasks[K] extends never // A value of `never` implies there is no payload. Otherwise, we return the payload type.
+		? undefined
+		: ScheduledTasks[K]
+	: unknown; // If the key is not in `ScheduledTasks` we return `unknown`.
