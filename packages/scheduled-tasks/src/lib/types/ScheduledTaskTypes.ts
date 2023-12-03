@@ -1,5 +1,5 @@
 import { Queue, type JobState, type QueueOptions } from 'bullmq';
-import { ScheduledTaskCustomJobOptions } from '../structures/ScheduledTask';
+import type { ScheduledTaskCustomJobOptions } from '../structures/ScheduledTask';
 
 /**
  * Options for a scheduled task handler.

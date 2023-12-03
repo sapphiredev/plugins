@@ -1,9 +1,9 @@
 import { Piece } from '@sapphire/pieces';
 import type { Awaitable } from '@sapphire/utilities';
-import { createBrotliDecompress, createGunzip, createInflate } from 'zlib';
-import type { Route } from './Route';
+import { createBrotliDecompress, createGunzip, createInflate, type Gunzip } from 'zlib';
 import type { ApiRequest } from './api/ApiRequest';
 import type { MimeTypeWithoutParameters } from './http/Server';
+import type { Route } from './Route';
 
 /**
  * A media parser
@@ -64,7 +64,7 @@ export abstract class MediaParser<Options extends MediaParser.Options = MediaPar
 	 * @since 1.3.0
 	 * @param request The request to read the body from.
 	 */
-	protected contentStream(request: ApiRequest) {
+	protected contentStream(request: ApiRequest): ApiRequest | Gunzip | null {
 		switch ((request.headers['content-encoding'] ?? 'identity').toLowerCase()) {
 			// RFC 7230 4.2.2:
 			//

@@ -1,7 +1,7 @@
 import { container } from '@sapphire/pieces';
-import { EventEmitter } from 'events';
-import { Server as HttpServer, createServer as httpCreateServer, type ServerOptions as HttpOptions } from 'http';
-import type { ListenOptions } from 'net';
+import { EventEmitter } from 'node:events';
+import { Server as HttpServer, createServer as httpCreateServer, type ServerOptions as HttpOptions } from 'node:http';
+import type { ListenOptions } from 'node:net';
 import { MediaParserStore } from '../MediaParserStore';
 import { MiddlewareStore } from '../MiddlewareStore';
 import { RouteStore, type RouteMatch } from '../RouteStore';

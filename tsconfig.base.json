@@ -1,3 +1,7 @@
 {
-	"extends": ["@sapphire/ts-config", "@sapphire/ts-config/extra-strict"]
+	"extends": ["@sapphire/ts-config", "@sapphire/ts-config/extra-strict", "@sapphire/ts-config/verbatim", "@sapphire/ts-config/bundler"],
+	"compilerOptions": {
+		"noEmit": true,
+		"incremental": false
+	}
 }

@@ -3,13 +3,13 @@ import { container, getRootData } from '@sapphire/pieces';
 import { isFunction, type Awaitable } from '@sapphire/utilities';
 import { Backend, type PathResolvable } from '@skyra/i18next-backend';
 import i18next, {
-	AppendKeyPrefix,
-	InterpolationMap,
-	Namespace,
-	ParseKeys,
-	TFunctionReturn,
-	TFunctionReturnOptionalDetails,
+	type AppendKeyPrefix,
+	type InterpolationMap,
+	type Namespace,
+	type ParseKeys,
 	type TFunction,
+	type TFunctionReturn,
+	type TFunctionReturnOptionalDetails,
 	type TOptions
 } from 'i18next';
 import type { PathLike } from 'node:fs';

@@ -1,4 +1,4 @@
-import { IncomingMessage, ServerResponse, STATUS_CODES } from 'http';
+import { IncomingMessage, ServerResponse, STATUS_CODES } from 'node:http';
 import { MimeTypes } from '../../utils/MimeTypes';
 import { HttpCodes } from '../http/HttpCodes';
 import type { CookieStore } from './CookieStore';
