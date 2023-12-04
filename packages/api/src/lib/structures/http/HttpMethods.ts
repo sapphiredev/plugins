@@ -1,4 +1,4 @@
-import { METHODS } from 'http';
+import { METHODS } from 'node:http';
 
 export type Methods =
 	| 'ACL'

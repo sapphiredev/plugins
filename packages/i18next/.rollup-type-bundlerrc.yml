@@ -1,0 +1,6 @@
+external:
+  - node:fs
+onlyBundle: true
+excludeFromClean:
+  - dist/esm/register.d.mts
+  - dist/cjs/register.d.ts

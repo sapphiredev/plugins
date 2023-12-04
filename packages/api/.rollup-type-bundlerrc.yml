@@ -1,0 +1,9 @@
+external:
+  - node:http
+  - node:net
+  - node:events
+  - zlib
+onlyBundle: true
+excludeFromClean:
+  - dist/esm/register.d.mts
+  - dist/cjs/register.d.ts

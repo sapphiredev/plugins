@@ -1,4 +1,4 @@
-import { METHODS } from 'http';
+import { METHODS } from 'node:http';
 import { Middleware } from '../lib/structures/Middleware';
 import type { Route } from '../lib/structures/Route';
 import type { ApiRequest } from '../lib/structures/api/ApiRequest';
