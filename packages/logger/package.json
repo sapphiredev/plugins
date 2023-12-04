@@ -49,7 +49,7 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@sapphire/timestamp": "^1.0.1",
+		"@sapphire/timestamp": "^1.0.2",
 		"colorette": "^2.0.20"
 	},
 	"repository": {
