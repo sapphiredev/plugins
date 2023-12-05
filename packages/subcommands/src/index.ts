@@ -7,6 +7,9 @@ export * from './lib/types/Enums';
 export * from './lib/types/Events';
 export * from './lib/types/SubcommandMappings';
 
+export { loadListeners } from './listeners/_load';
+export { loadPreconditions } from './preconditions/_load';
+
 declare module 'discord.js' {
 	interface ClientOptions {
 		/**
