@@ -3,7 +3,7 @@ import './index';
 import { Plugin, SapphireClient, container, postLogin, preGenericsInitialization, preLogin } from '@sapphire/framework';
 import { watch } from 'chokidar';
 import type { ClientOptions } from 'discord.js';
-import { InternationalizationHandler } from './lib/InternationalizationHandler';
+import { InternationalizationHandler } from './index';
 
 export class I18nextPlugin extends Plugin {
 	public static [preGenericsInitialization](this: SapphireClient, options: ClientOptions): void {
