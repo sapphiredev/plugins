@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-editable-commands@4.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@4.0.0...@sapphire/plugin-editable-commands@4.0.0) - (2023-12-05)
+
+## 🐛 Bug Fixes
+
+- **editable-commands:** Expose `load*` methods on the `index` level in case register isn't used ([01c5113](https://github.com/sapphiredev/plugins/commit/01c51135400da03ff1f5368d8997ead0166dbde4))
+
+## 🚀 Features
+
+- Split ESM and CJS bundles for proper ESM and CJS loading (#512) ([d9aa006](https://github.com/sapphiredev/plugins/commit/d9aa006ff8c7f78a613dcca605d3353b992b7a46))
+  - 💥 **BREAKING CHANGE:** This ensures that the plugins will properly load the
+either only ESM or only CJS files. This is done by outputting
+dist/cjs and dist/esm folders. This requires @sapphire/framework v5.x!
+
 # [@sapphire/plugin-editable-commands@3.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@3.1.0...@sapphire/plugin-editable-commands@3.1.0) - (2023-11-16)
 
 ## 🐛 Bug Fixes
