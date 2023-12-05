@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-hmr@3.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-hmr@3.0.0...@sapphire/plugin-hmr@3.0.0) - (2023-12-05)
+
+## ↩️ Revert
+
+- "refactor(register): cleanup unnecessary side effect imports of index" ([c2af242](https://github.com/sapphiredev/plugins/commit/c2af24269956132237988d94e4d94719b2cd442c))
+
+## 🏠 Refactor
+
+- **register:** Cleanup unnecessary side effect imports of index ([dede596](https://github.com/sapphiredev/plugins/commit/dede596ae22ceec2700dd860287a1260f092b502))
+
+## 🚀 Features
+
+- Split ESM and CJS bundles for proper ESM and CJS loading (#512) ([d9aa006](https://github.com/sapphiredev/plugins/commit/d9aa006ff8c7f78a613dcca605d3353b992b7a46))
+  - 💥 **BREAKING CHANGE:** This ensures that the plugins will properly load the
+either only ESM or only CJS files. This is done by outputting
+dist/cjs and dist/esm folders. This requires @sapphire/framework v5.x!
+
 # [@sapphire/plugin-hmr@2.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-hmr@2.0.3...@sapphire/plugin-hmr@2.0.3) - (2023-11-16)
 
 ## 🐛 Bug Fixes
