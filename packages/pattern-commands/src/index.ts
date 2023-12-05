@@ -8,6 +8,8 @@ export { PluginListener as PluginPatternCommandsCommandAcceptedListener } from '
 export { PluginListener as PluginPatternCommandsMessageParseListener } from './listeners/PluginMessageParse';
 export { PluginListener as PluginPatternCommandsPreCommandRunListener } from './listeners/PluginPreCommandRun';
 
+export { loadListeners } from './listeners/_load';
+
 declare module '@sapphire/pieces' {
 	interface StoreRegistryEntries {
 		'pattern-commands': PatternCommandStore;
