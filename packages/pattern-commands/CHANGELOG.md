@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-pattern-commands@6.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@6.0.0...@sapphire/plugin-pattern-commands@6.0.0) - (2023-12-05)
+
+## 🏠 Refactor
+
+- **register:** Cleanup unnecessary side effect imports of index ([dede596](https://github.com/sapphiredev/plugins/commit/dede596ae22ceec2700dd860287a1260f092b502))
+
+## 🐛 Bug Fixes
+
+- **pattern-commands:** Expose `load*` methods on the `index` level in case register isn't used ([b26d849](https://github.com/sapphiredev/plugins/commit/b26d84970d07e4fafd5d4b6d1f526a66d4b3cb3a))
+- **pattern-commands:** Fixed typo in file names and relative imports ([f4f1ed5](https://github.com/sapphiredev/plugins/commit/f4f1ed52cb7dd978bd9e6f9888c2db4404c5cb19))
+
+## 🚀 Features
+
+- Split ESM and CJS bundles for proper ESM and CJS loading (#512) ([d9aa006](https://github.com/sapphiredev/plugins/commit/d9aa006ff8c7f78a613dcca605d3353b992b7a46))
+  - 💥 **BREAKING CHANGE:** This ensures that the plugins will properly load the
+either only ESM or only CJS files. This is done by outputting
+dist/cjs and dist/esm folders. This requires @sapphire/framework v5.x!
+
 # [@sapphire/plugin-pattern-commands@5.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@5.1.0...@sapphire/plugin-pattern-commands@5.1.0) - (2023-11-16)
 
 ## 🏠 Refactor
