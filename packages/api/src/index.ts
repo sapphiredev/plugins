@@ -19,6 +19,11 @@ export * from './lib/structures/RouteStore';
 export * from './lib/utils/MimeTypes';
 export * from './lib/utils/RouteData';
 
+export { loadListeners } from './listeners/_load';
+export { loadMediaParsers } from './mediaParsers/_load';
+export { loadMiddlewares } from './middlewares/_load';
+export { loadRoutes } from './routes/_load';
+
 declare module 'discord.js' {
 	interface Client {
 		server: Server;
