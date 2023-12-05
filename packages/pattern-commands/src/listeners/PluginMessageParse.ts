@@ -1,8 +1,8 @@
 import { isDMChannel, type GuildBasedChannelTypes } from '@sapphire/discord.js-utilities';
 import { Events, Listener } from '@sapphire/framework';
 import { Message, PermissionFlagsBits, PermissionsBitField } from 'discord.js';
-import type { PatternCommandStore } from '../lib/structures/PaternCommandStore';
-import { PatternCommandEvents } from '../lib/utils/PaternCommandEvents';
+import type { PatternCommandStore } from '../lib/structures/PatternCommandStore';
+import { PatternCommandEvents } from '../lib/utils/PatternCommandEvents';
 import type { PossiblePatternCommand } from '../lib/utils/PatternCommandInterfaces';
 
 export class PluginListener extends Listener<typeof Events.PreMessageParsed> {

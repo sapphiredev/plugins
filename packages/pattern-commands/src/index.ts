@@ -1,8 +1,8 @@
-import type { PatternCommandStore } from './lib/structures/PaternCommandStore';
+import type { PatternCommandStore } from './lib/structures/PatternCommandStore';
 
-export * from './lib/structures/PaternCommandStore';
+export * from './lib/structures/PatternCommandStore';
 export * from './lib/structures/PatternCommand';
-export * from './lib/utils/PaternCommandEvents';
+export * from './lib/utils/PatternCommandEvents';
 export * from './lib/utils/PatternCommandInterfaces';
 export { PluginListener as PluginPatternCommandsCommandAcceptedListener } from './listeners/PluginCommandAccepted';
 export { PluginListener as PluginPatternCommandsMessageParseListener } from './listeners/PluginMessageParse';

@@ -1,6 +1,6 @@
 import { Listener, Result } from '@sapphire/framework';
 import { Stopwatch } from '@sapphire/stopwatch';
-import { PatternCommandEvents } from '../lib/utils/PaternCommandEvents';
+import { PatternCommandEvents } from '../lib/utils/PatternCommandEvents';
 import type { PatternCommandAcceptedPayload } from '../lib/utils/PatternCommandInterfaces';
 
 export class PluginListener extends Listener<typeof PatternCommandEvents.CommandAccepted> {
