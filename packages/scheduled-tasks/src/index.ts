@@ -8,6 +8,8 @@ export * from './lib/structures/ScheduledTaskStore';
 export * from './lib/types/ScheduledTaskEvents';
 export * from './lib/types/ScheduledTaskTypes';
 
+export { loadListeners } from './listeners/_load';
+
 declare module '@sapphire/pieces' {
 	interface Container {
 		tasks: ScheduledTaskHandler;
