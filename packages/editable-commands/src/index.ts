@@ -1,5 +1,7 @@
 export * from '@skyra/editable-commands';
 
+export { loadListeners } from './listeners/_load';
+
 /**
  * The [@sapphire/plugin-editable-commands](https://github.com/sapphiredev/plugins/blob/main/packages/editable-commands)
  * version that you are currently using.

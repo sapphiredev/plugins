@@ -1,5 +1,5 @@
 import { Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
-import { loadListeners } from './listeners/_load';
+import { loadListeners } from './index';
 
 /**
  * @since 1.0.0
