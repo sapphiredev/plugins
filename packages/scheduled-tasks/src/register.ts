@@ -2,9 +2,7 @@ import './index';
 
 import { container, Plugin, postInitialization, postLogin, preGenericsInitialization, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
-import { ScheduledTaskHandler } from './lib/ScheduledTaskHandler';
-import { ScheduledTaskStore } from './lib/structures/ScheduledTaskStore';
-import { loadListeners } from './listeners/_load';
+import { loadListeners, ScheduledTaskHandler, ScheduledTaskStore } from './index';
 
 /**
  * A plugin for scheduling tasks in a SapphireClient.
