@@ -21,7 +21,7 @@
 		"@commitlint/config-conventional": "^18.4.3",
 		"@favware/cliff-jumper": "^2.2.3",
 		"@favware/npm-deprecate": "^1.0.7",
-		"@favware/rollup-type-bundler": "^3.2.0",
+		"@favware/rollup-type-bundler": "^3.2.1",
 		"@sapphire/eslint-config": "^5.0.3",
 		"@sapphire/framework": "^5.0.1",
 		"@sapphire/pieces": "^4.0.1",
