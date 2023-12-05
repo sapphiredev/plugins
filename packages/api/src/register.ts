@@ -1,3 +1,5 @@
+import './index';
+
 import { Plugin, postInitialization, preLogin, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
 import { loadListeners, loadMediaParsers, loadMiddlewares, loadRoutes, Server } from './index';

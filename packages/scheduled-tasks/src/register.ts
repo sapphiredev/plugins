@@ -1,3 +1,5 @@
+import './index';
+
 import { container, Plugin, postInitialization, postLogin, preGenericsInitialization, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
 import { loadListeners, ScheduledTaskHandler, ScheduledTaskStore } from './index';

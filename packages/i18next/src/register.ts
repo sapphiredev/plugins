@@ -1,3 +1,5 @@
+import './index';
+
 import { Plugin, SapphireClient, container, postLogin, preGenericsInitialization, preLogin } from '@sapphire/framework';
 import { watch } from 'chokidar';
 import type { ClientOptions } from 'discord.js';

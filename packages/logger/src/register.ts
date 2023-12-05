@@ -1,3 +1,5 @@
+import './index';
+
 import { Plugin, preGenericsInitialization, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
 import { Logger } from './index';
