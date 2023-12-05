@@ -57,8 +57,7 @@
 		"directory": "packages/subcommands"
 	},
 	"files": [
-		"dist/",
-		"!dist/.tsbuildinfo"
+		"dist/"
 	],
 	"engines": {
 		"node": ">=v18",

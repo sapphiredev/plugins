@@ -56,8 +56,7 @@
 		"directory": "packages/hmr"
 	},
 	"files": [
-		"dist/",
-		"!dist/.tsbuildinfo"
+		"dist/"
 	],
 	"engines": {
 		"node": ">=v18",

@@ -60,8 +60,7 @@
 		"directory": "packages/i18next"
 	},
 	"files": [
-		"dist/",
-		"!dist/.tsbuildinfo"
+		"dist/"
 	],
 	"engines": {
 		"node": ">=v18",
