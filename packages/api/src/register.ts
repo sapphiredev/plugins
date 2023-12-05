@@ -2,11 +2,7 @@ import './index';
 
 import { Plugin, postInitialization, preLogin, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
-import { Server } from './lib/structures/http/Server';
-import { loadListeners } from './listeners/_load';
-import { loadMediaParsers } from './mediaParsers/_load';
-import { loadMiddlewares } from './middlewares/_load';
-import { loadRoutes } from './routes/_load';
+import { loadListeners, loadMediaParsers, loadMiddlewares, loadRoutes, Server } from './index';
 
 /**
  * @since 1.0.0
