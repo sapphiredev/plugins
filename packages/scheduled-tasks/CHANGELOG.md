@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@9.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@9.0.0...@sapphire/plugin-scheduled-tasks@9.0.0) - (2023-12-05)
+
+## 🏠 Refactor
+
+- **register:** Cleanup unnecessary side effect imports of index ([dede596](https://github.com/sapphiredev/plugins/commit/dede596ae22ceec2700dd860287a1260f092b502))
+
+## 🐛 Bug Fixes
+
+- **scheduled-tasks:** Expose `load*` methods on the `index` level in case register isn't used ([d7f380b](https://github.com/sapphiredev/plugins/commit/d7f380b9126f48616de3657f949ac583c63a3f34))
+- Update transitive dependencies ([9fd4cfa](https://github.com/sapphiredev/plugins/commit/9fd4cfae031b20044aad8ae1051ade3dd29c69dd))
+
+## 🚀 Features
+
+- Split ESM and CJS bundles for proper ESM and CJS loading (#512) ([d9aa006](https://github.com/sapphiredev/plugins/commit/d9aa006ff8c7f78a613dcca605d3353b992b7a46))
+  - 💥 **BREAKING CHANGE:** This ensures that the plugins will properly load the
+either only ESM or only CJS files. This is done by outputting
+dist/cjs and dist/esm folders. This requires @sapphire/framework v5.x!
+
 # [@sapphire/plugin-scheduled-tasks@8.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@8.1.0...@sapphire/plugin-scheduled-tasks@8.1.0) - (2023-11-16)
 
 ## 🏠 Refactor
