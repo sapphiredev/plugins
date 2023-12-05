@@ -1,7 +1,7 @@
 import './index';
 
 import { Plugin, postLogin, preInitialization, SapphireClient } from '@sapphire/framework';
-import { Utilities } from './lib/Utilities';
+import { Utilities } from './index';
 
 /**
  * @since 1.0.0
