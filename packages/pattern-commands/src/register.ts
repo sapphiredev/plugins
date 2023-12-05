@@ -2,8 +2,7 @@ import './index';
 
 import { Plugin, postInitialization, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
-import { PatternCommandStore } from './lib/structures/PaternCommandStore';
-import { loadListeners } from './listeners/_load';
+import { loadListeners, PatternCommandStore } from './index';
 
 /**
  * @since 1.0.0
