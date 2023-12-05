@@ -1,5 +1,3 @@
-import './index';
-
 import { Plugin, postLogin, SapphireClient } from '@sapphire/framework';
 import { start } from './index';
 
