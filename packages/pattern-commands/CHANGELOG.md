@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-pattern-commands@6.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@6.0.1...@sapphire/plugin-pattern-commands@6.0.1) - (2023-12-05)
+
+## ↩️ Revert
+
+- "refactor(register): cleanup unnecessary side effect imports of index" ([c2af242](https://github.com/sapphiredev/plugins/commit/c2af24269956132237988d94e4d94719b2cd442c))
+
 # [@sapphire/plugin-pattern-commands@6.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-pattern-commands@6.0.0...@sapphire/plugin-pattern-commands@6.0.0) - (2023-12-05)
 
 ## 🏠 Refactor
