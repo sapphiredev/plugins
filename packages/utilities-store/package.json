@@ -53,8 +53,7 @@
 		"directory": "packages/utilities-store"
 	},
 	"files": [
-		"dist/",
-		"!dist/.tsbuildinfo"
+		"dist/"
 	],
 	"engines": {
 		"node": ">=v18",

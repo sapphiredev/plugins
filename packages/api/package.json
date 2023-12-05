@@ -60,8 +60,7 @@
 		"directory": "packages/api"
 	},
 	"files": [
-		"dist/",
-		"!dist/.tsbuildinfo"
+		"dist/"
 	],
 	"engines": {
 		"node": ">=v18",
