@@ -1,6 +1,7 @@
-import { Plugin, postLogin, SapphireClient } from '@sapphire/framework';
 import './index';
-import { start } from './lib/hmr';
+
+import { Plugin, postLogin, SapphireClient } from '@sapphire/framework';
+import { start } from './index';
 
 /**
  * @since 1.0.0
