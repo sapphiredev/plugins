@@ -213,8 +213,8 @@ export class InternationalizationHandler {
 			typeof defaultValueOrOptions === 'string'
 				? defaultValueOrOptions
 				: this.options.defaultMissingKey
-				  ? language(this.options.defaultMissingKey, { replace: { key } })
-				  : '';
+					? language(this.options.defaultMissingKey, { replace: { key } })
+					: '';
 
 		return language<Key, TOpt, Ret, ActualOptions>(key, defaultValue, optionsOrUndefined);
 	}

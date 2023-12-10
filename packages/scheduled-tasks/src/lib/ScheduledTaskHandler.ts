@@ -63,10 +63,10 @@ export class ScheduledTaskHandler {
 				repeat: options?.interval
 					? {
 							every: options.interval!
-					  }
+						}
 					: {
 							pattern: options.pattern!
-					  }
+						}
 			};
 		}
 
@@ -84,11 +84,11 @@ export class ScheduledTaskHandler {
 					? {
 							interval: piece.interval,
 							customJobOptions: piece.customJobOptions
-					  }
+						}
 					: {
 							pattern: piece.pattern!,
 							customJobOptions: piece.customJobOptions
-					  })
+						})
 			}
 		}));
 
