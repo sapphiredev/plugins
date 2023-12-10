@@ -1272,7 +1272,7 @@ __metadata:
     "@favware/cliff-jumper": "npm:^2.2.3"
     "@favware/rollup-type-bundler": "npm:^3.2.1"
     "@sapphire/utilities": "npm:^3.14.0"
-    "@skyra/i18next-backend": "npm:^2.0.4"
+    "@skyra/i18next-backend": "npm:^2.0.5"
     chokidar: "npm:^3.5.3"
     concurrently: "npm:^8.2.2"
     i18next: "npm:^23.7.8"
@@ -1461,12 +1461,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@skyra/i18next-backend@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "@skyra/i18next-backend@npm:2.0.4"
+"@skyra/i18next-backend@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "@skyra/i18next-backend@npm:2.0.5"
   dependencies:
     tslib: "npm:^2.6.2"
-  checksum: 58172fcd2f3c7e54af2e4add953d9c50ecf26c481fbeb7516ff2d294289ad92f4954685efa788e400cc90c2a7d7d7984db4556f5d256056ae8151bb9fb594dee
+  checksum: b07e267d5d08e19455a7202520a9dd001f2f47ffc120458efea78e5c2a10c97d928a333d376f984f4cbd55e111b70edaac1649c542836b9856d50a6a3aee0705
   languageName: node
   linkType: hard
 
