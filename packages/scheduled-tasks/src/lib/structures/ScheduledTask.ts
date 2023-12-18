@@ -9,6 +9,7 @@ import type { JobsOptions } from 'bullmq';
 export abstract class ScheduledTask<Options extends ScheduledTask.Options = ScheduledTask.Options> extends Piece<Options, 'scheduled-tasks'> {
 	public readonly interval: number | null;
 	public readonly pattern: string | null;
+	public readonly timezone: string;
 	public readonly customJobOptions?: ScheduledTaskCustomJobOptions;
 
 	public constructor(context: ScheduledTask.LoaderContext, options: ScheduledTaskOptions) {
@@ -16,6 +17,7 @@ export abstract class ScheduledTask<Options extends ScheduledTask.Options = Sche
 		this.interval = options.interval ?? null;
 		this.pattern = options.pattern ?? null;
 		this.customJobOptions = options.customJobOptions;
+		this.timezone = options.timezone ?? 'UTC';
 	}
 
 	public abstract run(payload: unknown): Awaitable<unknown>;
@@ -37,6 +39,12 @@ export interface ScheduledTaskOptions extends Piece.Options {
 	 * Custom options to pass to the job scheduler.
 	 */
 	customJobOptions?: ScheduledTaskCustomJobOptions;
+
+	/**
+	 * The timezone to use for the task.
+	 * @default 'UTC'
+	 */
+	timezone?: string | null;
 }
 
 /**

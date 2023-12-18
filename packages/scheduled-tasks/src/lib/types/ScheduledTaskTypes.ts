@@ -42,9 +42,9 @@ export type ScheduledTaskListRepeatedReturnType = ReturnType<BullClient['getRepe
 export type ScheduledTasksTaskOptions = {
 	repeated: boolean;
 } & (
-	| { delay: number; interval?: never; pattern?: never; customJobOptions?: ScheduledTaskCustomJobOptions }
-	| { delay?: never; interval: number; pattern?: never; customJobOptions?: ScheduledTaskCustomJobOptions }
-	| { delay?: never; interval?: never; pattern: string; customJobOptions?: ScheduledTaskCustomJobOptions }
+	| { delay: number; interval?: never; pattern?: never; timezone?: never; customJobOptions?: ScheduledTaskCustomJobOptions }
+	| { delay?: never; interval: number; pattern?: never; timezone?: never; customJobOptions?: ScheduledTaskCustomJobOptions }
+	| { delay?: never; interval?: never; pattern: string; timezone: string; customJobOptions?: ScheduledTaskCustomJobOptions }
 );
 
 /**

@@ -65,7 +65,8 @@ export class ScheduledTaskHandler {
 							every: options.interval!
 						}
 					: {
-							pattern: options.pattern!
+							pattern: options.pattern!,
+							tz: options.timezone
 						}
 			};
 		}
@@ -87,6 +88,7 @@ export class ScheduledTaskHandler {
 						}
 					: {
 							pattern: piece.pattern!,
+							timezone: piece.timezone,
 							customJobOptions: piece.customJobOptions
 						})
 			}
