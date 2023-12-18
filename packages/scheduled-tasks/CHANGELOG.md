@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@9.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@9.1.0...@sapphire/plugin-scheduled-tasks@9.1.0) - (2023-12-18)
+
+## 🚀 Features
+
+- **scheduled-tasks:** Add timezone for tasks with pattern (#518) ([f3396a1](https://github.com/sapphiredev/plugins/commit/f3396a170f2b3cb921652360264a201a1075e57a))
+
 # [@sapphire/plugin-scheduled-tasks@9.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@9.0.1...@sapphire/plugin-scheduled-tasks@9.0.1) - (2023-12-05)
 
 ## ↩️ Revert
