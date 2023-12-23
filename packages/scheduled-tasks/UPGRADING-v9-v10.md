@@ -63,4 +63,4 @@ The internal BullMQ client does not actually throw any errors, it just emits the
 
 ### Error payload types
 
-The error listeners previously only returned the name of the task when an error was emitted, but now the event will not emit the associated Piece.
+The error listeners previously only returned the name of the task when an error was emitted, but now the event will provide the associated Piece.
