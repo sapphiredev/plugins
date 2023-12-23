@@ -78,7 +78,7 @@ export class ScheduledTaskHandler {
 	 */
 	public async create<T extends ScheduledTasksKeys | string = ''>(
 		task: T,
-		payload?: ScheduledTasksPayload<T>,
+		payload: ScheduledTasksPayload<T>,
 		options?: ScheduledTasksTaskOptions | number
 	): Promise<Job<ScheduledTasksPayload<T>>> {
 		if (isNullish(options)) {
@@ -190,7 +190,7 @@ export class ScheduledTaskHandler {
 	 *
 	 * @remarks `undefined` will be returned if the task was not found.
 	 */
-	public async run<T extends ScheduledTasksKeys | string = ''>(task: T, payload?: ScheduledTasksPayload<T>): Promise<number | null | undefined> {
+	public async run<T extends ScheduledTasksKeys | string = ''>(task: T, payload: ScheduledTasksPayload<T>): Promise<number | null | undefined> {
 		const piece = this.store.get(task);
 
 		if (!piece) {
