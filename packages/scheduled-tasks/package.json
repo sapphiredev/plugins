@@ -69,7 +69,8 @@
 		"directory": "packages/scheduled-tasks"
 	},
 	"files": [
-		"dist/"
+		"dist/",
+		"UPGRADING-*.md"
 	],
 	"engines": {
 		"node": ">=v18",
