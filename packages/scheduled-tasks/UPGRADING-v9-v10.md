@@ -2,9 +2,9 @@
 
 ## Typed payloads
 
-You can now use module augmentation to enforce scheduled task payloads to be a specific type.
+The `ScheduledTaskJob` interface has been removed in favor of defining types on `ScheduledTasks`.
 
-If the value of the entry is set to `never` in the interface, then the payload will be typed as `unknown`. Otherise, it will enforce the provided type for that task.
+You can define a payload type for a task by using module augmentation on `ScheduledTasks`. If the value of the entry is set to `never` in the interface, then the payload will be typed as `unknown`. Otherise, it will enforce the provided type for that task. Below are some examples.
 
 Example: the task is defined
 
@@ -52,6 +52,12 @@ await container.tasks.create('another_example', 1);
 
 await container.tasks.create('another_example', 'string');
 ```
+
+## Task handler
+
+### Internal client
+
+Due to the removal of `ScheduledTaskJob`, the `BullClient` will now be typed as `unknown` since the Job types in the Queue can not _really_ be known. So you will need to do validation when interacting directly with the client.
 
 ## Error listeners
 
