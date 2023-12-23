@@ -1,6 +1,8 @@
 # Migration guide for @sapphire/plugin-scheduled-tasks v9.x to v10.x
 
-## Typed payloads
+## Task payloads
+
+### Enforcing types
 
 The `ScheduledTaskJob` interface has been removed in favor of defining types on `ScheduledTasks`.
 
@@ -33,8 +35,6 @@ await container.tasks.create(ExampleTasks.One, false);
 /** ExampleTasks.Two */
 
 // Good
-await container.tasks.create(ExampleTasks.Two);
-
 await container.tasks.create(ExampleTasks.Two, undefined);
 
 await container.tasks.create(ExampleTasks.Two, true);
@@ -51,6 +51,22 @@ await container.tasks.create('another_example', undefined);
 await container.tasks.create('another_example', 1);
 
 await container.tasks.create('another_example', 'string');
+```
+
+### Required payloads
+
+Since types can now be enforced on payloads, this will also means that the payload argument can not be optional. Keeping payloads optional would allow `undefined` to be passed where an object may be required.
+
+Before:
+
+```ts
+await container.tasks.create('task_name');
+```
+
+After:
+
+```ts
+await container.tasks.create('task_name', undefined);
 ```
 
 ## Task handler
