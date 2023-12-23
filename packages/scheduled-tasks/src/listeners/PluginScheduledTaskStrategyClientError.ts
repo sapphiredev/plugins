@@ -1,11 +1,11 @@
 import { Listener } from '@sapphire/framework';
 import { ScheduledTaskEvents } from '../lib/types/ScheduledTaskEvents';
 
-export class PluginListener extends Listener<typeof ScheduledTaskEvents.ScheduledTaskStrategyHandlerError> {
+export class PluginListener extends Listener<typeof ScheduledTaskEvents.ScheduledTaskStrategyClientError> {
 	public constructor(context: Listener.LoaderContext) {
 		super(context, {
-			name: ScheduledTaskEvents.ScheduledTaskStrategyHandlerError,
-			event: ScheduledTaskEvents.ScheduledTaskStrategyHandlerError
+			name: ScheduledTaskEvents.ScheduledTaskStrategyClientError,
+			event: ScheduledTaskEvents.ScheduledTaskStrategyClientError
 		});
 	}
 

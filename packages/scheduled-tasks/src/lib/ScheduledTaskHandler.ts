@@ -39,8 +39,20 @@ export class ScheduledTaskHandler {
 			connection: this.options.connection
 		});
 
-		this.#client.on('error', this.handleError.bind(this));
-		this.#worker.on('error', this.handleError.bind(this));
+		this.#client.on('error', (error) => {
+			if (isNotConnectionError(error)) {
+				container.client.emit(ScheduledTaskEvents.ScheduledTaskStrategyClientError, error);
+			} else {
+				container.client.emit(ScheduledTaskEvents.ScheduledTaskStrategyConnectError, error);
+			}
+		});
+		this.#worker.on('error', (error) => {
+			if (isNotConnectionError(error)) {
+				container.client.emit(ScheduledTaskEvents.ScheduledTaskStrategyWorkerError, error);
+			} else {
+				container.client.emit(ScheduledTaskEvents.ScheduledTaskStrategyConnectError, error);
+			}
+		});
 	}
 
 	public get client(): BullClient {
@@ -209,13 +221,5 @@ export class ScheduledTaskHandler {
 
 	private get store(): ScheduledTaskStore {
 		return container.client.stores.get('scheduled-tasks');
-	}
-
-	private handleError(error: Error) {
-		if (isNotConnectionError(error)) {
-			container.client.emit(ScheduledTaskEvents.ScheduledTaskStrategyHandlerError, error);
-		} else {
-			container.client.emit(ScheduledTaskEvents.ScheduledTaskStrategyConnectError, error);
-		}
 	}
 }

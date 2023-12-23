@@ -30,9 +30,13 @@ export const ScheduledTaskEvents = {
 	 */
 	ScheduledTaskStrategyConnectError: 'scheduledTaskStrategyConnectError' as const,
 	/**
-	 * Event that is emitted when the scheduled task handler encounters an error.
+	 * Event that is emitted when the scheduled task client encounters an error.
 	 */
-	ScheduledTaskStrategyHandlerError: 'scheduledTaskStrategyHandlerError' as const
+	ScheduledTaskStrategyClientError: 'scheduledTaskStrategyClientError' as const,
+	/**
+	 * Event that is emitted when the scheduled task worker encounters an error.
+	 */
+	ScheduledTaskStrategyWorkerError: 'scheduledTaskStrategyWorkerError' as const
 };
 
 declare module 'discord.js' {
@@ -62,6 +66,7 @@ declare module 'discord.js' {
 			payload: unknown
 		];
 		[ScheduledTaskEvents.ScheduledTaskStrategyConnectError]: [error: unknown];
-		[ScheduledTaskEvents.ScheduledTaskStrategyHandlerError]: [error: unknown];
+		[ScheduledTaskEvents.ScheduledTaskStrategyClientError]: [error: unknown];
+		[ScheduledTaskEvents.ScheduledTaskStrategyWorkerError]: [error: unknown];
 	}
 }

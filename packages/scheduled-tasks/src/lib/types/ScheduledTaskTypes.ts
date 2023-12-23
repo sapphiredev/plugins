@@ -90,7 +90,7 @@ export type ScheduledTasksKeys = keyof ScheduledTasks extends never ? string : k
  * @remarks If the key is not in {@link ScheduledTasks}, the payload type will be `unknown`.
  */
 export type ScheduledTasksPayload<K extends ScheduledTasksKeys | string = ''> = K extends keyof ScheduledTasks
-	? ScheduledTasks[K] extends never // A value of `never` implies there is no payload. Otherwise, we return the payload type.
-		? undefined
+	? ScheduledTasks[K] extends never // A value of `never` means it should not be enforced.
+		? unknown
 		: ScheduledTasks[K]
 	: unknown; // If the key is not in `ScheduledTasks` we return `unknown`.
