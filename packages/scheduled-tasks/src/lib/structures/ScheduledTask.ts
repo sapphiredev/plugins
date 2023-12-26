@@ -8,7 +8,7 @@ import type { ScheduledTasksKeys, ScheduledTasksPayload } from '../types/Schedul
  * @abstract
  */
 export abstract class ScheduledTask<
-	Task extends ScheduledTasksKeys | string = '',
+	Task extends ScheduledTasksKeys = ScheduledTasksKeys, //
 	Options extends ScheduledTask.Options = ScheduledTask.Options
 > extends Piece<Options, 'scheduled-tasks'> {
 	public readonly interval: number | null;

@@ -10,9 +10,13 @@ import type {
 	ScheduledTaskListOptions,
 	ScheduledTaskListRepeatedOptions,
 	ScheduledTaskListRepeatedReturnType,
+	ScheduledTasksResolvable,
 	ScheduledTasksKeys,
-	ScheduledTasksPayload,
-	ScheduledTasksTaskOptions
+	ScheduledTasksTaskOptions,
+	ScheduledTasksKeysNoPayload,
+	ScheduledTasksJob,
+	ScheduledTasksResolvablePayload,
+	ScheduledTasksPayload
 } from './types/ScheduledTaskTypes';
 import { isNullish } from '@sapphire/utilities';
 
@@ -35,9 +39,11 @@ export class ScheduledTaskHandler {
 		this.options = options?.bull ?? {};
 
 		this.#client = new Queue(this.queue, this.options);
-		this.#worker = new Worker(this.queue, async (job) => this.run(job.name, job.data), {
-			connection: this.options.connection
-		});
+		this.#worker = new Worker(
+			this.queue, //
+			async (job) => this.run({ name: job.name as ScheduledTasksKeys, payload: job.data }),
+			{ connection: this.options.connection }
+		);
 
 		this.#client.on('error', (error) => {
 			if (isNotConnectionError(error)) {
@@ -76,13 +82,14 @@ export class ScheduledTaskHandler {
 	 * @param payload - The payload for the task.
 	 * @param options - The options for the task.
 	 */
-	public async create<T extends ScheduledTasksKeys | string = ''>(
-		task: T,
-		payload: ScheduledTasksPayload<T>,
+	public async create<T extends ScheduledTasksResolvable>(
+		task: T, //
 		options?: ScheduledTasksTaskOptions | number
-	): Promise<Job<ScheduledTasksPayload<T>>> {
+	): Promise<ScheduledTasksJob<T>> {
+		const { name: taskName, payload } = this.resolveTask(task);
+
 		if (isNullish(options)) {
-			return this.#client.add(task, payload) as Promise<Job<ScheduledTasksPayload<T>>>;
+			return this.#client.add(taskName, payload) as Promise<ScheduledTasksJob<T>>;
 		}
 
 		if (typeof options === 'number') {
@@ -107,7 +114,7 @@ export class ScheduledTaskHandler {
 			};
 		}
 
-		return this.#client.add(task, payload, jobOptions) as Promise<Job<ScheduledTasksPayload<T>>>;
+		return this.#client.add(taskName, payload, jobOptions) as Promise<ScheduledTasksJob<T>>;
 	}
 
 	/**
@@ -116,25 +123,29 @@ export class ScheduledTaskHandler {
 	 * @param tasks - An optional array of tasks to create. If not provided, it will create tasks based on the stored repeated tasks.
 	 */
 	public async createRepeated(tasks?: ScheduledTaskCreateRepeatedTask[]): Promise<void> {
-		tasks ??= this.store.repeatedTasks.map((piece) => ({
-			name: piece.name,
-			options: {
-				repeated: true,
-				...(piece.interval
-					? {
-							interval: piece.interval,
-							customJobOptions: piece.customJobOptions
-						}
-					: {
-							pattern: piece.pattern!,
-							timezone: piece.timezone,
-							customJobOptions: piece.customJobOptions
-						})
-			}
-		}));
+		if (tasks === undefined) {
+			const repeatedTasks: ScheduledTaskCreateRepeatedTask[] = this.store.repeatedTasks.map((piece) => ({
+				name: piece.name as ScheduledTasksKeysNoPayload,
+				options: {
+					repeated: true,
+					...(piece.interval
+						? {
+								interval: piece.interval,
+								customJobOptions: piece.customJobOptions
+							}
+						: {
+								pattern: piece.pattern!,
+								timezone: piece.timezone,
+								customJobOptions: piece.customJobOptions
+							})
+				}
+			}));
+
+			tasks = repeatedTasks;
+		}
 
 		for (const task of tasks) {
-			await this.create(task.name, undefined, task.options);
+			await this.create(task.name, task.options);
 		}
 	}
 
@@ -144,7 +155,7 @@ export class ScheduledTaskHandler {
 	 * @param id - The ID of the task to delete.
 	 */
 	public async delete(id: string): Promise<void> {
-		const job = await this.get(id);
+		const job = (await this.get(id as ScheduledTasksKeys)) as unknown as Job<unknown> | undefined;
 		return job?.remove();
 	}
 
@@ -175,7 +186,7 @@ export class ScheduledTaskHandler {
 	 *
 	 * @param id - The ID of the scheduled task to retrieve.
 	 */
-	public async get<T extends ScheduledTasksKeys | string = ''>(id: T): Promise<Job<ScheduledTasksPayload<T>> | undefined> {
+	public async get<T extends ScheduledTasksKeys>(id: T): Promise<Job<ScheduledTasksPayload<T>> | undefined> {
 		const job = await this.#client.getJob(id);
 		if (isNullish(job)) return undefined;
 
@@ -190,11 +201,13 @@ export class ScheduledTaskHandler {
 	 *
 	 * @remarks `undefined` will be returned if the task was not found.
 	 */
-	public async run<T extends ScheduledTasksKeys | string = ''>(task: T, payload: ScheduledTasksPayload<T>): Promise<number | null | undefined> {
-		const piece = this.store.get(task);
+	public async run(task: ScheduledTasksResolvable): Promise<number | null | undefined> {
+		const { name: taskName, payload } = this.resolveTask(task);
+		const piece = this.store.get(task.name);
 
 		if (!piece) {
-			container.client.emit(ScheduledTaskEvents.ScheduledTaskNotFound, task, payload);
+			container.client.emit(ScheduledTaskEvents.ScheduledTaskNotFound, taskName, payload);
+
 			return undefined;
 		}
 
@@ -221,5 +234,17 @@ export class ScheduledTaskHandler {
 
 	private get store(): ScheduledTaskStore {
 		return container.client.stores.get('scheduled-tasks');
+	}
+
+	private resolveTask(task: ScheduledTasksResolvable): ScheduledTasksResolvablePayload {
+		if (typeof task === 'string') {
+			return { name: task, payload: undefined };
+		}
+
+		if ('payload' in task) {
+			return { name: task.name, payload: task.payload };
+		}
+
+		return { name: task.name, payload: undefined };
 	}
 }

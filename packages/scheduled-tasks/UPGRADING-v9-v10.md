@@ -6,67 +6,47 @@
 
 The `ScheduledTaskJob` interface has been removed in favor of defining types on `ScheduledTasks`.
 
-You can define a payload type for a task by using module augmentation on `ScheduledTasks`. If the value of the entry is set to `never` in the interface, then the payload will be typed as `unknown`. Otherise, it will enforce the provided type for that task. Below are some examples.
-
-Example: the task is defined
+You can define a payload type for a task by using module augmentation on `ScheduledTasks`. If the value of the entry is set to `never` or `undefined` in the interface, then there is no payload required for the task. If the type union contains an `undefined`, then the payload will be optional. Otherise, it will enforce the provided type for that task. Below are some examples.
 
 ```ts
 declare module '@sapphire/plugin-scheduled-tasks' {
 	interface ScheduledTasks {
 		[ExampleTasks.One]: { data: string } | null;
 		[ExampleTasks.Two]: never;
+		[ExampleTasks.Three]: boolean | undefined;
 	}
 }
 
 /** ExampleTasks.One */
 
 // Good
-await container.tasks.create(ExampleTasks.One, { data: 'value' });
+await container.tasks.create({ name: ExampleTasks.One, payload: { data: 'value' } });
 
-await container.tasks.create(ExampleTasks.One, null);
+await container.tasks.create({ name: ExampleTasks.One, payload: null });
 
 // Type error
-await container.tasks.create(ExampleTasks.One, { data: true });
+await container.tasks.create({ name: ExampleTasks.One, payload: { data: true } });
 
-await container.tasks.create(ExampleTasks.One, { invalidProperty: 'value' });
-
-await container.tasks.create(ExampleTasks.One, false);
+await container.tasks.create({ name: ExampleTasks.One, payload: false });
 
 /** ExampleTasks.Two */
 
 // Good
-await container.tasks.create(ExampleTasks.Two, undefined);
+await container.tasks.create(ExampleTasks.Two);
 
-await container.tasks.create(ExampleTasks.Two, true);
+await container.tasks.create({ name: ExampleTasks.Two });
 
-await container.tasks.create(ExampleTasks.Two, { data: 'value' });
-```
+// Type error
+await container.tasks.create({ name: ExampleTasks.Two, payload: null });
 
-Example: the task is **NOT** defined
+/** ExampleTasks.Three */
 
-```ts
-// This task is not defined in the interface, so the payload will be `unknown`
-await container.tasks.create('another_example', undefined);
+// Good
+await container.tasks.create(ExampleTasks.Three);
 
-await container.tasks.create('another_example', 1);
+await container.tasks.create({ name: ExampleTasks.Three });
 
-await container.tasks.create('another_example', 'string');
-```
-
-### Required payloads
-
-Since types can now be enforced on payloads, this will also means that the payload argument can not be optional. Keeping payloads optional would allow `undefined` to be passed where an object may be required.
-
-Before:
-
-```ts
-await container.tasks.create('task_name');
-```
-
-After:
-
-```ts
-await container.tasks.create('task_name', undefined);
+await container.tasks.create({ name: ExampleTasks.Three, payload: true });
 ```
 
 ## Task handler
