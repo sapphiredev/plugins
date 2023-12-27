@@ -1,5 +1,6 @@
 import { Listener } from '@sapphire/framework';
 import { ScheduledTaskEvents } from '../lib/types/ScheduledTaskEvents';
+import { ScheduledTask } from '../lib/structures/ScheduledTask';
 
 export class PluginListener extends Listener<typeof ScheduledTaskEvents.ScheduledTaskError> {
 	public constructor(context: Listener.LoaderContext) {
@@ -9,12 +10,8 @@ export class PluginListener extends Listener<typeof ScheduledTaskEvents.Schedule
 		});
 	}
 
-	public override run(error: unknown, task: string) {
-		let message = `Encountered error on scheduled task "${task}"`;
-
-		const piece = this.container.stores.get('scheduled-tasks').get(task);
-		if (piece) message = message.concat(` at path "${piece.location.full}"`);
-
-		this.container.logger.error(message, error);
+	public override run(error: unknown, task: ScheduledTask) {
+		const { name, location } = task;
+		this.container.logger.error(`Encountered error on scheduled task "${name}" at path "${location.full}"`, error);
 	}
 }

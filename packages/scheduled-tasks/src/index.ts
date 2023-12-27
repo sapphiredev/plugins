@@ -25,7 +25,7 @@ declare module 'discord.js' {
 		tasks?: ScheduledTaskHandlerOptions;
 		/**
 		 * If the the pre-included scheduled task error listeners should be loaded
-		 * @default false
+		 * @default true
 		 */
 		loadScheduledTaskErrorListeners?: boolean;
 	}
