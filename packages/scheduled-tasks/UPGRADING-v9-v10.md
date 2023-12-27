@@ -66,3 +66,11 @@ The internal BullMQ client does not actually throw any errors, it just emits the
 ### Error payload types
 
 The error listeners previously only returned the name of the task when an error was emitted, but now the event will provide the associated Piece.
+
+## BullMQ v5
+
+The BullMQ dependency is being updated to v5 from v3. If you depend on the internal BullMQ client in any way, check out their releases for breaking changes.
+
+### Required `tasks` client property
+
+The `tasks` property for options relating to this plugin are now required. They were previously optional which was an oversight, as a connection string is always needed.

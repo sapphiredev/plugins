@@ -34,9 +34,9 @@ export class ScheduledTaskHandler {
 	#client: BullClient;
 	#worker: Worker;
 
-	public constructor(options?: ScheduledTaskHandlerOptions) {
-		this.queue = options?.queue ?? 'scheduled-tasks';
-		this.options = options?.bull ?? {};
+	public constructor(options: ScheduledTaskHandlerOptions) {
+		this.queue = options.queue ?? 'scheduled-tasks';
+		this.options = options.bull;
 
 		this.#client = new Queue(this.queue, this.options);
 		this.#worker = new Worker(

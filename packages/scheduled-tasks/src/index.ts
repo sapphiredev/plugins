@@ -22,7 +22,7 @@ declare module '@sapphire/pieces' {
 
 declare module 'discord.js' {
 	export interface ClientOptions {
-		tasks?: ScheduledTaskHandlerOptions;
+		tasks: ScheduledTaskHandlerOptions;
 		/**
 		 * If the the pre-included scheduled task error listeners should be loaded
 		 * @default true
