@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@10.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@10.0.0...@sapphire/plugin-scheduled-tasks@10.0.0) - (2023-12-27)
+
+## 🚀 Features
+
+- Bullmq v5 (#529) ([4278ab0](https://github.com/sapphiredev/plugins/commit/4278ab035989ec99bf0f7233f98e4ff75b57f71d))
+  - 💥 **BREAKING CHANGE:** This plugin now uses bullmq v5.1.0 (previously v3.15.8). Refer to the bullmq breaking changes from v4.0.0 onwards for any breaking changes that they have included https://github.com/taskforcesh/bullmq/blob/master/docs/gitbook/changelog.md#400-2023-06-21
+- **scheduled-tasks:** Enforce payload types, clearer Redis/BullMQ errors (#509) ([9fbf980](https://github.com/sapphiredev/plugins/commit/9fbf980e603022c3e1cd61a9ad742cd43a60e7fa))
+  - 💥 **BREAKING CHANGE:** Refer to https://github.com/sapphiredev/plugins/blob/main/packages/scheduled-tasks/UPGRADING-v9-v10.md for upgrading instructions.
+  - 💥 **BREAKING CHANGE:** payload types are now enforced, you may need to update your code to match.
+  - 💥 **BREAKING CHANGE:** The `ScheduledTaskJob` interface has been removed in favor of defining types on `ScheduledTasks`.
+  - 💥 **BREAKING CHANGE:** Due to the removal of `ScheduledTaskJob`, the `BullClient` will now be typed as `unknown` since the Job types in the Queue can not _really_ be known. So you will need to do validation when interacting directly with the client.
+  - 💥 **BREAKING CHANGE:** The included error listeners are now enabled by default. If you want them to be disabled, just set `loadScheduledTaskErrorListeners` to false in the `SapphireClient` options.
+  - 💥 **BREAKING CHANGE:** The internal BullMQ client does not actually throw any errors, it just emits them from the client. As such, those error events will now be sent to the corresponding error listener registered by the plugin.
+  - 💥 **BREAKING CHANGE:** The error listeners previously only returned the name of the task when an error was emitted, but now the event will provide the associated Piece.
+
 # [@sapphire/plugin-scheduled-tasks@9.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@9.1.0...@sapphire/plugin-scheduled-tasks@9.1.0) - (2023-12-18)
 
 ## 🚀 Features
