@@ -6,7 +6,7 @@ import type { ScheduledTaskCustomJobOptions } from '../structures/ScheduledTask'
  */
 export interface ScheduledTaskHandlerOptions {
 	queue?: string;
-	bull?: QueueOptions;
+	bull: QueueOptions;
 }
 
 /**

@@ -1177,7 +1177,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.2.1"
     "@sapphire/stopwatch": "npm:^1.5.1"
     "@sapphire/utilities": "npm:^3.14.0"
-    bullmq: "npm:3.15.8"
+    bullmq: "npm:5.1.0"
     concurrently: "npm:^8.2.2"
     tslib: "npm:^2.6.2"
     tsup: "npm:^8.0.1"
@@ -1936,19 +1936,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:3.15.8":
-  version: 3.15.8
-  resolution: "bullmq@npm:3.15.8"
+"bullmq@npm:5.1.0":
+  version: 5.1.0
+  resolution: "bullmq@npm:5.1.0"
   dependencies:
     cron-parser: "npm:^4.6.0"
     glob: "npm:^8.0.3"
     ioredis: "npm:^5.3.2"
     lodash: "npm:^4.17.21"
     msgpackr: "npm:^1.6.2"
-    semver: "npm:^7.3.7"
+    node-abort-controller: "npm:^3.1.1"
+    semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
     uuid: "npm:^9.0.0"
-  checksum: 307ce70454fce96ddca271d375e1b2fb402c89c51a4b160979fbaf9777a8751e3145bb57f1a276db50f91be5f0f5cd95c4f54839863cb3c27a4bffff9770c8a6
+  checksum: dcbd4595747900e4ac243c31a8200daf0247013bf24ceb674bf24f75be78fce7033d878e3e3f46ea33ec8a22d6ae87e3e27181cb321dd772653c2021cb0b3ac3
   languageName: node
   linkType: hard
 
@@ -4989,6 +4990,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-abort-controller@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "node-abort-controller@npm:3.1.1"
+  checksum: 0a2cdb7ec0aeaf3cb31e1ca0e192f5add48f1c5c9c9ed822129f9dddbd9432f69b7425982f94ce803c56a2104884530aa67cd57696e5774b2e5b8ec2f58de042
+  languageName: node
+  linkType: hard
+
 "node-fetch@npm:^2.6.12":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
@@ -5896,7 +5904,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.5.4, semver@npm:^7.0.0, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4":
+"semver@npm:7.5.4, semver@npm:^7.0.0, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4":
   version: 7.5.4
   resolution: "semver@npm:7.5.4"
   dependencies:
