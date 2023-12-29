@@ -15,7 +15,7 @@ import { SubcommandIdentifiers } from '../lib/types/Enums';
  * The context for the subcommand cooldown precondition
  * @since 5.1.0
  */
-export interface SubcommandCooldownPreconditionContext extends CorePreconditions.CooldownContext {
+export interface PluginSubcommandCooldownPreconditionContext extends CorePreconditions.CooldownContext {
 	/** The name of the subcommand */
 	subcommandMethodName: string;
 	/** The name of the subcommand group, if any */
@@ -33,7 +33,7 @@ export class PluginPrecondition extends AllFlowsPrecondition {
 	public override messageRun(
 		message: Message,
 		subcommand: Subcommand,
-		context: SubcommandCooldownPreconditionContext
+		context: PluginSubcommandCooldownPreconditionContext
 	): AllFlowsPrecondition.Result {
 		const cooldownId = this.getIdFromMessage(message, context);
 
@@ -43,7 +43,7 @@ export class PluginPrecondition extends AllFlowsPrecondition {
 	public override chatInputRun(
 		interaction: ChatInputCommandInteraction,
 		subcommand: Subcommand,
-		context: SubcommandCooldownPreconditionContext
+		context: PluginSubcommandCooldownPreconditionContext
 	): AllFlowsPrecondition.Result {
 		const cooldownId = this.getIdFromInteraction(interaction, context);
 
@@ -53,7 +53,7 @@ export class PluginPrecondition extends AllFlowsPrecondition {
 	public override contextMenuRun(
 		interaction: ContextMenuCommandInteraction,
 		subcommand: Command,
-		context: SubcommandCooldownPreconditionContext
+		context: PluginSubcommandCooldownPreconditionContext
 	): AllFlowsPrecondition.Result {
 		const cooldownId = this.getIdFromInteraction(interaction, context);
 
@@ -63,7 +63,7 @@ export class PluginPrecondition extends AllFlowsPrecondition {
 	private sharedRun(
 		authorId: string,
 		subcommand: Subcommand,
-		context: SubcommandCooldownPreconditionContext,
+		context: PluginSubcommandCooldownPreconditionContext,
 		cooldownId: string,
 		commandType: string
 	): AllFlowsPrecondition.Result {
@@ -93,7 +93,7 @@ export class PluginPrecondition extends AllFlowsPrecondition {
 		return this.ok();
 	}
 
-	private getIdFromMessage(message: Message, context: SubcommandCooldownPreconditionContext) {
+	private getIdFromMessage(message: Message, context: PluginSubcommandCooldownPreconditionContext) {
 		const subcommandIdentifier = this.getSubcommandMappingName(context);
 		switch (context.scope) {
 			case BucketScope.Global:
@@ -107,7 +107,7 @@ export class PluginPrecondition extends AllFlowsPrecondition {
 		}
 	}
 
-	private getIdFromInteraction(interaction: CommandInteraction, context: SubcommandCooldownPreconditionContext) {
+	private getIdFromInteraction(interaction: CommandInteraction, context: PluginSubcommandCooldownPreconditionContext) {
 		const subcommandIdentifier = this.getSubcommandMappingName(context);
 		switch (context.scope) {
 			case BucketScope.Global:
@@ -121,11 +121,11 @@ export class PluginPrecondition extends AllFlowsPrecondition {
 		}
 	}
 
-	private getSubcommandMappingName(context: SubcommandCooldownPreconditionContext) {
+	private getSubcommandMappingName(context: PluginSubcommandCooldownPreconditionContext) {
 		return context.subcommandGroupName ? `${context.subcommandGroupName}.${context.subcommandMethodName}` : context.subcommandMethodName;
 	}
 
-	private getManager(subcommand: Subcommand, context: SubcommandCooldownPreconditionContext) {
+	private getManager(subcommand: Subcommand, context: PluginSubcommandCooldownPreconditionContext) {
 		let manager = this.subcommandBuckets.get(subcommand);
 		if (!manager) {
 			manager = new RateLimitManager(context.delay, context.limit);

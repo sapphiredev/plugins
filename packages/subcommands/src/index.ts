@@ -1,5 +1,8 @@
 import type { CooldownOptions } from '@sapphire/framework';
-import { PluginPrecondition as SubcommandCooldown, type SubcommandCooldownPreconditionContext } from './preconditions/PluginSubcommandCooldown';
+import {
+	PluginPrecondition as PluginSubcommandCooldown,
+	type PluginSubcommandCooldownPreconditionContext
+} from './preconditions/PluginSubcommandCooldown';
 
 export * from './lib/Subcommand';
 export * as SubcommandPreconditionResolvers from './lib/precondition-resolvers/subcommandCooldown';
@@ -33,7 +36,7 @@ declare module 'discord.js' {
 
 declare module '@sapphire/framework' {
 	interface Preconditions {
-		SubcommandCooldown: SubcommandPreconditions.SubcommandCooldownContext;
+		PluginSubcommandCooldown: SubcommandPreconditions.PluginSubcommandCooldownContext;
 	}
 }
 
@@ -42,7 +45,7 @@ declare module '@sapphire/framework' {
  * @since 5.1.0
  */
 export const SubcommandPreconditions = {
-	SubcommandCooldown
+	PluginSubcommandCooldown
 };
 
 /**
@@ -51,7 +54,7 @@ export const SubcommandPreconditions = {
  */
 export namespace SubcommandPreconditions {
 	/** The context for the subcommand cooldown precondition */
-	export type SubcommandCooldownContext = SubcommandCooldownPreconditionContext;
+	export type PluginSubcommandCooldownContext = PluginSubcommandCooldownPreconditionContext;
 }
 
 /**

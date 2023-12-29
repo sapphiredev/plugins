@@ -27,7 +27,7 @@ export interface ParseSubcommandConstructorPreConditionsCooldownParameters<
 }
 
 /**
- * Appends the `SubcommandCooldown` precondition when {@link Subcommand.Options.cooldownLimit} and
+ * Appends the `PluginSubcommandCooldown` precondition when {@link Subcommand.Options.cooldownLimit} and
  * {@link Subcommand.Options.cooldownDelay} are both non-zero.
  *
  * @param options The {@link ParseSubcommandConstructorPreConditionsCooldownParameters} for adding this subcommand cooldown precondition
@@ -62,7 +62,7 @@ export function parseSubcommandConstructorPreConditionsCooldown<
 		const filteredUsers = cooldownFilteredUsers ?? subcommandDefaultCooldown?.filteredUsers;
 
 		preconditionContainerArray.append({
-			name: SubcommandCommandPreConditions.SubcommandCooldown,
+			name: SubcommandCommandPreConditions.PluginSubcommandCooldown,
 			context: { scope, limit, delay, filteredUsers, subcommandGroupName, subcommandMethodName }
 		});
 	}

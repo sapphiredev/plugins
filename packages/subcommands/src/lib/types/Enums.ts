@@ -3,7 +3,7 @@
  * @since 2.0.0
  */
 export enum SubcommandCommandPreConditions {
-	SubcommandCooldown = 'SubcommandCooldown'
+	PluginSubcommandCooldown = 'PluginSubcommandCooldown'
 }
 
 /**
