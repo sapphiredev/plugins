@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@6.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@6.0.2...@sapphire/plugin-subcommands@6.0.2) - (2023-12-30)
+
+## 🐛 Bug Fixes
+
+- **subcommands:** Bump transitive dependencies ([4765979](https://github.com/sapphiredev/plugins/commit/47659797881fc06acb12bcf145069d5d7cb046cd))
+- **plugins:** Fixed name for plugin subcommnad cooldown precondition (#531) ([f6cd4b6](https://github.com/sapphiredev/plugins/commit/f6cd4b6f2113b6be072fef0e0342a0ad49e2acc1))
+
 # [@sapphire/plugin-subcommands@6.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@6.0.1...@sapphire/plugin-subcommands@6.0.1) - (2023-12-05)
 
 ## ↩️ Revert
