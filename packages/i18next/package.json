@@ -49,10 +49,10 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^3.14.0",
+		"@sapphire/utilities": "^3.15.1",
 		"@skyra/i18next-backend": "^2.0.5",
 		"chokidar": "^3.5.3",
-		"i18next": "^23.7.11"
+		"i18next": "^23.7.12"
 	},
 	"repository": {
 		"type": "git",
