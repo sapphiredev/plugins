@@ -163,9 +163,11 @@ export class InternationalizationHandler {
 		}
 		this.languagesLoaded = true;
 
+		const formatter = i18next.services.formatter!;
 		const formatters = this.options.formatters ?? [];
-		for (const { name, format } of formatters) {
-			i18next.services.formatter!.add(name, format);
+		for (const { name, format, cached } of formatters) {
+			if (cached) formatter.addCached(name, format);
+			else formatter.add(name, format);
 		}
 	}
 
