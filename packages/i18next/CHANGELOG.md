@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@7.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@7.1.0...@sapphire/plugin-i18next@7.1.0) - (2024-01-02)
+
+## 🐛 Bug Fixes
+
+- **i18next:** Bump i18next transitive dependency ([296296a](https://github.com/sapphiredev/plugins/commit/296296adff689aef68b45c741e733a4831a57acf))
+- **i18next:** Bump transitive dependencies ([98ec315](https://github.com/sapphiredev/plugins/commit/98ec315b37827eb59f120cc2735e6c80dbedba6f))
+- **deps:** Update dependency @skyra/i18next-backend to ^2.0.5 (#517) ([bf7bc8b](https://github.com/sapphiredev/plugins/commit/bf7bc8b369d9c03676f486ec668092c29f61bd3e))
+
+## 🚀 Features
+
+- **i18next:** Add support for cached formatters (#533) ([7f5b169](https://github.com/sapphiredev/plugins/commit/7f5b169af586265bd5d0df3d70ada593298fccde))
+
 # [@sapphire/plugin-i18next@7.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@7.0.1...@sapphire/plugin-i18next@7.0.1) - (2023-12-05)
 
 ## ↩️ Revert
