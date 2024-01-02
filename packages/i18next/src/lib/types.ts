@@ -105,7 +105,7 @@ export interface InternationalizationOptions {
 	 * @since 2.0.0
 	 * @default []
 	 */
-	formatters?: I18nextFormatters[];
+	formatters?: I18nextFormatter[];
 
 	/**
 	 * Reload languages and namespaces when updating the languages directory.
@@ -149,9 +149,40 @@ export interface InternationalizationClientOptions {
 	i18n?: InternationalizationOptions;
 }
 
-export interface I18nextFormatters {
+/** @deprecated Use {I18nextFormatter} instead */
+export interface I18nextFormatters extends I18nextNamedFormatter {}
+
+/**
+ * Represents a formatter that is added to i18next with `i18next.services.formatter.add` or `i18next.services.formatter.addCached`,
+ * depending on the `cached` property.
+ *
+ * @since 7.1.0
+ * @seealso {@link https://www.i18next.com/translation-function/formatting#adding-custom-format-function}
+ */
+export type I18nextFormatter = I18nextNamedFormatter | I18nextNamedCachedFormatter;
+
+/**
+ * Represents a cached formatter that is added to i18next with `i18next.services.formatter.add`.
+ *
+ * @since 7.1.0
+ * @seealso {@link https://www.i18next.com/translation-function/formatting#adding-custom-format-function}
+ */
+export interface I18nextNamedFormatter {
+	cached?: false;
 	name: string;
 	format(value: any, lng: string | undefined, options: any): string;
+}
+
+/**
+ * Represents a cached formatter that is added to i18next with `i18next.services.formatter.addCached`.
+ *
+ * @since 7.1.0
+ * @seealso {@link https://www.i18next.com/translation-function/formatting#adding-custom-format-function}
+ */
+export interface I18nextNamedCachedFormatter {
+	cached: true;
+	name: string;
+	format(lng: string | undefined, options: any): (value: any) => string;
 }
 
 export interface LocalizedData {
