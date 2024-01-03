@@ -149,7 +149,7 @@ export interface InternationalizationClientOptions {
 	i18n?: InternationalizationOptions;
 }
 
-/** @deprecated Use {I18nextFormatter} instead */
+/** @deprecated Use {@link I18nextFormatter} instead */
 export interface I18nextFormatters extends I18nextNamedFormatter {}
 
 /**
