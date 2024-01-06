@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@6.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@6.1.0...@sapphire/plugin-api@6.1.0) - (2024-01-06)
+
+## 🐛 Bug Fixes
+
+- **api:** Bump undici to v6 (we already dropped support for node 16) ([4f9601d](https://github.com/sapphiredev/plugins/commit/4f9601da4f9e60f2fd6985acf2f2187cba924018))
+
+## 🚀 Features
+
+- **api:** Add image function to ApiResponse (#534) ([adac80a](https://github.com/sapphiredev/plugins/commit/adac80aded5fc30aa038e016c98508207f81614a))
+
 # [@sapphire/plugin-api@6.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@6.0.1...@sapphire/plugin-api@6.0.1) - (2023-12-05)
 
 ## ↩️ Revert
