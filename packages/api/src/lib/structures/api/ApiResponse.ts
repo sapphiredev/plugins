@@ -122,7 +122,7 @@ export class ApiResponse<Request extends IncomingMessage = IncomingMessage> exte
 	 * @param data - The image data as a `string`, {@link Buffer}, {@link Uint8Array}, or {@link ReadableStream}.
 	 */
 	public image(
-		type: Extract<MimeTypes, MimeTypes.ImageGif | MimeTypes.ImageJpg | MimeTypes.ImagePng | MimeTypes.ImageWebp | MimeTypes.ImageXIcon>,
+		type: MimeTypes.ImageGif | MimeTypes.ImageJpg | MimeTypes.ImagePng | MimeTypes.ImageWebp | MimeTypes.ImageXIcon,
 		data: string | Buffer | Uint8Array | Readable
 	): void {
 		if (data instanceof Readable) {
