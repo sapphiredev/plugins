@@ -112,6 +112,21 @@ export class ApiResponse<Request extends IncomingMessage = IncomingMessage> exte
 	}
 
 	/**
+	 * @since 6.1.0
+	 *
+	 * Sets the image content type and sends the image data in the response.
+	 *
+	 * @param type - The MIME type of the image (e.g., {@link MimeTypes.ImagePng}).
+	 * @param data - The image data as a {@link Buffer}.
+	 */
+	public image(
+		type: Extract<MimeTypes, MimeTypes.ImageGif | MimeTypes.ImageJpg | MimeTypes.ImagePng | MimeTypes.ImageWebp | MimeTypes.ImageXIcon>,
+		data: string | Buffer | Uint8Array
+	): void {
+		this.setContentType(type).end(data);
+	}
+
+	/**
 	 * @since 5.1.0
 	 */
 	public html(code: number, data: string): void {
