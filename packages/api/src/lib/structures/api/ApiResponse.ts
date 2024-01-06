@@ -1,4 +1,5 @@
 import { IncomingMessage, ServerResponse, STATUS_CODES } from 'node:http';
+import { ReadableStream } from 'node:stream/web';
 import { MimeTypes } from '../../utils/MimeTypes';
 import { HttpCodes } from '../http/HttpCodes';
 import type { CookieStore } from './CookieStore';
@@ -117,13 +118,46 @@ export class ApiResponse<Request extends IncomingMessage = IncomingMessage> exte
 	 * Sets the image content type and sends the image data in the response.
 	 *
 	 * @param type - The MIME type of the image (e.g., {@link MimeTypes.ImagePng}).
-	 * @param data - The image data as a {@link Buffer}.
+	 * @param data - The image data as a `string`, {@link Buffer}, {@link Uint8Array}, or {@link ReadableStream}.
+	 *
+	 * If the data is a {@link ReadableStream}, {@link asyncImage} will be called while letting the promise that
+	 * function returns float.
+	 * > A "floating" Promise is one that is created without any code set up to handle any errors it might throw.
+	 * Floating Promises can cause several issues, such as improperly sequenced operations, ignored Promise rejections,
+	 * and more.
 	 */
 	public image(
 		type: Extract<MimeTypes, MimeTypes.ImageGif | MimeTypes.ImageJpg | MimeTypes.ImagePng | MimeTypes.ImageWebp | MimeTypes.ImageXIcon>,
-		data: string | Buffer | Uint8Array
+		data: string | Buffer | Uint8Array | ReadableStream
 	): void {
-		this.setContentType(type).end(data);
+		if (data instanceof ReadableStream) {
+			void this.asyncImage(type, data);
+		} else {
+			this.setContentType(type).end(data);
+		}
+	}
+
+	/**
+	 * @since 6.1.0
+	 *
+	 * Sets the image content type and sends the image data in the response.
+	 *
+	 * This is the async variant of {@link image} to allow for streaming the image data from a {@link ReadableStream}.
+	 *
+	 * @param type - The MIME type of the image (e.g., {@link MimeTypes.ImagePng}).
+	 * @param data - The image data as a {@link ReadableStream}.
+	 */
+	public async asyncImage(
+		type: Extract<MimeTypes, MimeTypes.ImageGif | MimeTypes.ImageJpg | MimeTypes.ImagePng | MimeTypes.ImageWebp | MimeTypes.ImageXIcon>,
+		data: ReadableStream
+	): Promise<void> {
+		const buffers: Uint8Array[] = [];
+		for await (const chunk of data) {
+			buffers.push(chunk);
+		}
+
+		const buffer = Buffer.concat(buffers);
+		this.setContentType(type).end(buffer);
 	}
 
 	/**
