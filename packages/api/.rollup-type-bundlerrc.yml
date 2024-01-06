@@ -2,6 +2,7 @@ external:
   - node:http
   - node:net
   - node:events
+  - node:stream
   - zlib
 onlyBundle: true
 excludeFromClean:

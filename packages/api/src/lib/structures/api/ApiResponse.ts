@@ -126,8 +126,8 @@ export class ApiResponse<Request extends IncomingMessage = IncomingMessage> exte
 		data: string | Buffer | Uint8Array | Readable
 	): void {
 		if (data instanceof Readable) {
+			this.setContentType(type);
 			data.pipe(this);
-			this.setContentType(type).end();
 		} else {
 			this.setContentType(type).end(data);
 		}
