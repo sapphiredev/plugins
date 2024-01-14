@@ -137,8 +137,9 @@ export type ScheduledTasksResolvable =
 	| ScheduledTasksResolvableNoPayload
 	| ScheduledTasksResolvablePayload;
 
-export type ScheduledTasksJob<T> = T extends ScheduledTasksResolvableNoPayload<infer R>
-	? Job<ScheduledTasksPayload<R>>
-	: T extends ScheduledTasksResolvablePayload<infer R>
+export type ScheduledTasksJob<T> =
+	T extends ScheduledTasksResolvableNoPayload<infer R>
 		? Job<ScheduledTasksPayload<R>>
-		: Job<undefined>;
+		: T extends ScheduledTasksResolvablePayload<infer R>
+			? Job<ScheduledTasksPayload<R>>
+			: Job<undefined>;
