@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@10.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@10.0.1...@sapphire/plugin-scheduled-tasks@10.0.1) - (2024-01-19)
+
+## 🐛 Bug Fixes
+
+- Update transitive sapphire dependencies ([c78017c](https://github.com/sapphiredev/plugins/commit/c78017c090b04f6380103b4ae4cd97767796eeb6))
+- Update bullmq transitive dependency ([43dd84c](https://github.com/sapphiredev/plugins/commit/43dd84c8e1331d71be69c6b0e279796a2bfa41b9))
+- Ensure cts file extensions in dist/cjs (#537) ([6f863f8](https://github.com/sapphiredev/plugins/commit/6f863f8187b7028cf6464dd04f197dd1be6ca1dd))
+- **scheduled-tasks:** Bump transitive dependencies ([834119e](https://github.com/sapphiredev/plugins/commit/834119e0423c7e046975d8e320b0515c00971714))
+- **scheduled-tasks:** Bump bullmq transitive dependency ([8efcaee](https://github.com/sapphiredev/plugins/commit/8efcaee5802a2203288089ce79fcae9ee9c7b086))
+- **scheduled-tasks:** Bump transitive dependencies ([30116e2](https://github.com/sapphiredev/plugins/commit/30116e2fe9e7fb523c9805afc150f5725395ef96))
+
 # [@sapphire/plugin-scheduled-tasks@10.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@10.0.0...@sapphire/plugin-scheduled-tasks@10.0.0) - (2023-12-27)
 
 ## 🚀 Features
