@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@6.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@6.1.1...@sapphire/plugin-api@6.1.1) - (2024-01-19)
+
+## 🐛 Bug Fixes
+
+- Update transitive undici dependency ([2a89351](https://github.com/sapphiredev/plugins/commit/2a8935124fbfd35c8ec6abfdc6cf173f94559585))
+- Ensure cts file extensions in dist/cjs (#537) ([6f863f8](https://github.com/sapphiredev/plugins/commit/6f863f8187b7028cf6464dd04f197dd1be6ca1dd))
+
 # [@sapphire/plugin-api@6.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@6.1.0...@sapphire/plugin-api@6.1.0) - (2024-01-06)
 
 ## 🐛 Bug Fixes
