@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@7.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@7.1.1...@sapphire/plugin-i18next@7.1.1) - (2024-01-19)
+
+## 🐛 Bug Fixes
+
+- Update transitive sapphire dependencies ([c78017c](https://github.com/sapphiredev/plugins/commit/c78017c090b04f6380103b4ae4cd97767796eeb6))
+- Ensure cts file extensions in dist/cjs (#537) ([6f863f8](https://github.com/sapphiredev/plugins/commit/6f863f8187b7028cf6464dd04f197dd1be6ca1dd))
+- **i18next:** Bump transitive dependencies ([2e13369](https://github.com/sapphiredev/plugins/commit/2e1336953a8fcafb770294f4c77c1b57d67c5236))
+- **i18next:** Fixed docs link ([8638659](https://github.com/sapphiredev/plugins/commit/86386593516f14d1b8008ce92bb38425f74047d1))
+
 # [@sapphire/plugin-i18next@7.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@7.1.0...@sapphire/plugin-i18next@7.1.0) - (2024-01-02)
 
 ## 🐛 Bug Fixes
