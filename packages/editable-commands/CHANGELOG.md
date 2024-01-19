@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-editable-commands@4.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@4.0.2...@sapphire/plugin-editable-commands@4.0.2) - (2024-01-19)
+
+## 🐛 Bug Fixes
+
+- Ensure cts file extensions in dist/cjs (#537) ([6f863f8](https://github.com/sapphiredev/plugins/commit/6f863f8187b7028cf6464dd04f197dd1be6ca1dd))
+
 # [@sapphire/plugin-editable-commands@4.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@4.0.0...@sapphire/plugin-editable-commands@4.0.0) - (2023-12-05)
 
 ## 🐛 Bug Fixes

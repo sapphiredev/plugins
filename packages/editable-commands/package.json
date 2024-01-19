@@ -1,6 +1,6 @@
 {
 	"name": "@sapphire/plugin-editable-commands",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"description": "Plugin for @sapphire/framework to have editable commands",
 	"author": "@sapphire",
 	"license": "MIT",
