@@ -1,6 +1,6 @@
 {
 	"name": "@sapphire/plugin-utilities-store",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "Plugin for @sapphire/framework to have a Sapphire store which you can fill with utility functions available through the container",
 	"author": "@sapphire",
 	"license": "MIT",
