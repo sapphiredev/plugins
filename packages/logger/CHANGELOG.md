@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-logger@4.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@4.0.2...@sapphire/plugin-logger@4.0.2) - (2024-01-19)
+
+## 🐛 Bug Fixes
+
+- Update transitive sapphire dependencies ([c78017c](https://github.com/sapphiredev/plugins/commit/c78017c090b04f6380103b4ae4cd97767796eeb6))
+- Ensure cts file extensions in dist/cjs (#537) ([6f863f8](https://github.com/sapphiredev/plugins/commit/6f863f8187b7028cf6464dd04f197dd1be6ca1dd))
+
 # [@sapphire/plugin-logger@4.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-logger@4.0.1...@sapphire/plugin-logger@4.0.1) - (2023-12-05)
 
 ## ↩️ Revert
