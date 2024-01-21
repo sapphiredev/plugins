@@ -1126,7 +1126,7 @@ __metadata:
     "@skyra/i18next-backend": "npm:^2.0.5"
     chokidar: "npm:^3.5.3"
     concurrently: "npm:^8.2.2"
-    i18next: "npm:^23.7.16"
+    i18next: "npm:^23.7.18"
     tsup: "npm:^8.0.1"
     tsx: "npm:^4.7.0"
     typedoc: "npm:^0.25.7"
@@ -3679,12 +3679,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^23.7.16":
-  version: 23.7.16
-  resolution: "i18next@npm:23.7.16"
+"i18next@npm:^23.7.18":
+  version: 23.7.18
+  resolution: "i18next@npm:23.7.18"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: 77e74c07a73316f6fb6678a5a3e8ce58a6e66be457dd1ccd23941e9fc57ad8e1da55193fa6328c70b86073337b776cd267f3c13c6309f548b3116f27a1e41787
+  checksum: 35cff337e3ecd407d9b98d3ca0e788bd3a65adf8048d11b80e722be586dff126d9bb6803ccd48efbcc2460f10ec54def08657ac32acee732ea16a96eef7cbbfd
   languageName: node
   linkType: hard
 
@@ -5707,7 +5707,7 @@ __metadata:
     tsx: "npm:^4.7.0"
     turbo: "npm:^1.11.3"
     typescript: "npm:^5.3.3"
-    vite: "npm:^5.0.11"
+    vite: "npm:^5.0.12"
     vitest: "npm:^1.2.1"
   languageName: unknown
   linkType: soft
@@ -6767,7 +6767,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.0, vite@npm:^5.0.11":
+"vite@npm:^5.0.0, vite@npm:^5.0.12":
   version: 5.0.12
   resolution: "vite@npm:5.0.12"
   dependencies:
