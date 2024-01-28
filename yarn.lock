@@ -1125,14 +1125,14 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@types/ws": "npm:^8.5.10"
     concurrently: "npm:^8.2.2"
-    tldts: "npm:^6.1.2"
+    tldts: "npm:^6.1.4"
     tslib: "npm:^2.6.2"
     tsup: "npm:^8.0.1"
     tsx: "npm:^4.7.0"
     typedoc: "npm:^0.25.7"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.3.3"
-    undici: "npm:^6.4.0"
+    undici: "npm:^6.5.0"
   languageName: unknown
   linkType: soft
 
@@ -1178,7 +1178,7 @@ __metadata:
     "@skyra/i18next-backend": "npm:^2.0.5"
     chokidar: "npm:^3.5.3"
     concurrently: "npm:^8.2.2"
-    i18next: "npm:^23.7.18"
+    i18next: "npm:^23.7.20"
     tsup: "npm:^8.0.1"
     tsx: "npm:^4.7.0"
     typedoc: "npm:^0.25.7"
@@ -1227,7 +1227,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@sapphire/stopwatch": "npm:^1.5.2"
     "@sapphire/utilities": "npm:^3.15.3"
-    bullmq: "npm:5.1.3"
+    bullmq: "npm:5.1.5"
     concurrently: "npm:^8.2.2"
     tslib: "npm:^2.6.2"
     tsup: "npm:^8.0.1"
@@ -2100,9 +2100,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.1.3":
-  version: 5.1.3
-  resolution: "bullmq@npm:5.1.3"
+"bullmq@npm:5.1.5":
+  version: 5.1.5
+  resolution: "bullmq@npm:5.1.5"
   dependencies:
     cron-parser: "npm:^4.6.0"
     glob: "npm:^8.0.3"
@@ -2113,7 +2113,7 @@ __metadata:
     semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
     uuid: "npm:^9.0.0"
-  checksum: 23568096749b1732ef8060a0bf3c5800a84bcea95f32f48ce1b572d2b21addbe55c4eef29cc6acb9faed0b9d958b3749472351cb030d1fc5c279f1acdda84a8c
+  checksum: 98813e6e017923228aee58ca90085881a11e81a758b28e334f49486fec25a78338d769799951b178e34d2d661fc4e11465bb03d240d17886c1d005f63fbc5242
   languageName: node
   linkType: hard
 
@@ -3854,12 +3854,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^23.7.18":
-  version: 23.7.18
-  resolution: "i18next@npm:23.7.18"
+"i18next@npm:^23.7.20":
+  version: 23.7.20
+  resolution: "i18next@npm:23.7.20"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: 35cff337e3ecd407d9b98d3ca0e788bd3a65adf8048d11b80e722be586dff126d9bb6803ccd48efbcc2460f10ec54def08657ac32acee732ea16a96eef7cbbfd
+  checksum: e6eac61ee6785910c30fe99480ec58284071ef541e4070453b6f265d0cf1f67dbb0fe749cb1a2eda1d2e757516b1d2a24fbb6f52817a382feb39fce9e552a729
   languageName: node
   linkType: hard
 
@@ -6447,21 +6447,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.2":
-  version: 6.1.2
-  resolution: "tldts-core@npm:6.1.2"
-  checksum: 9ae2f1e0b842d8206daf7c832d2b82a6feba744124df5884ea9f2a49533fb91dc40b400e53190315717b11d2b441a749892d045edf4978c74fc4e89a955dd53e
+"tldts-core@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "tldts-core@npm:6.1.4"
+  checksum: cc530938a4f34bf08ae6e72bb2db3c8d4d138168f5e925ad198b90bd44865be2ea1aa266d3e666e81bf1d273a46804e2cc721201b102754b03e13987b92181d9
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.1.2":
-  version: 6.1.2
-  resolution: "tldts@npm:6.1.2"
+"tldts@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "tldts@npm:6.1.4"
   dependencies:
-    tldts-core: "npm:^6.1.2"
+    tldts-core: "npm:^6.1.4"
   bin:
     tldts: bin/cli.js
-  checksum: 1abac96e56519b5ba074a5f379373ac6827877d7767994e50bb54b2661449b24d87d7c61e288f11e1a30065c08ace9f1f97359d0952cd73f0480de08584d0747
+  checksum: 66ab49318eebb07b229db5a058c430c091ab80082515bbba5361456b045830d1eb2438781c0551a954e93512e269fa55db9c3066db09d782f0e4bde1eb776b02
   languageName: node
   linkType: hard
 
@@ -6829,12 +6829,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^6.4.0":
-  version: 6.4.0
-  resolution: "undici@npm:6.4.0"
+"undici@npm:^6.5.0":
+  version: 6.5.0
+  resolution: "undici@npm:6.5.0"
   dependencies:
     "@fastify/busboy": "npm:^2.0.0"
-  checksum: 65552916aa84eb8ea262cf7205bf2dc1ca86b616843adceb6d994a172a5a6be7fbf384ab790e7ede82811942f0c71a53e639309e92e05be044866ca54993e0be
+  checksum: 0ad9289bd8dc8a5ee8cf81a48a629a59c33814702ae706b1d8e7c7fac3cfa85bd6a73943db5d9379f4d420858d239ed3857ec1003e517ddb67eb44fdbc227f3e
   languageName: node
   linkType: hard
 
