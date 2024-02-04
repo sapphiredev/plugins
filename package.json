@@ -29,7 +29,7 @@
 		"@sapphire/stopwatch": "^1.5.2",
 		"@sapphire/ts-config": "^5.0.0",
 		"@sapphire/utilities": "^3.15.3",
-		"@types/node": "^20.11.5",
+		"@types/node": "^20.11.16",
 		"@types/ws": "^8.5.10",
 		"@typescript-eslint/eslint-plugin": "^6.20.0",
 		"@typescript-eslint/parser": "^6.20.0",
