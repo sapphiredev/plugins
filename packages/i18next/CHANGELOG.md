@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@7.1.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@7.1.2...@sapphire/plugin-i18next@7.1.2) - (2024-02-09)
+
+## 🐛 Bug Fixes
+
+- Fixed container.format not processing variables correctly (#545) ([9d57b2f](https://github.com/sapphiredev/plugins/commit/9d57b2fc62133ba4dc02b1c27d8f32a5c9beb8bb))
+- **i18next:** Update transitive dependencies ([caef3d5](https://github.com/sapphiredev/plugins/commit/caef3d5f3b511950570e020b553b34cc0189d031))
+- Update transitive dependencies ([f375166](https://github.com/sapphiredev/plugins/commit/f375166292979c6ef076b768374ed932fcb83609))
+- **deps:** Update all non-major dependencies ([8b2085c](https://github.com/sapphiredev/plugins/commit/8b2085c46ccc398a2a3713b85c204fd68f79aceb))
+
 # [@sapphire/plugin-i18next@7.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@7.1.1...@sapphire/plugin-i18next@7.1.1) - (2024-01-19)
 
 ## 🐛 Bug Fixes
