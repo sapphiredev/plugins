@@ -51,9 +51,8 @@
 	},
 	"dependencies": {
 		"@types/ws": "^8.5.10",
-		"tldts": "^6.1.7",
-		"tslib": "^2.6.2",
-		"undici": "^6.6.0"
+		"tldts": "^6.1.10",
+		"undici": "^6.6.2"
 	},
 	"repository": {
 		"type": "git",
