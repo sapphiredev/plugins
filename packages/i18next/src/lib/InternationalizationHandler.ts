@@ -4,6 +4,7 @@ import { isFunction, type Awaitable } from '@sapphire/utilities';
 import { Backend, type PathResolvable } from '@skyra/i18next-backend';
 import i18next, {
 	type AppendKeyPrefix,
+	type DefaultNamespace,
 	type InterpolationMap,
 	type Namespace,
 	type ParseKeys,
@@ -16,7 +17,7 @@ import type { PathLike } from 'node:fs';
 import { opendir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { URL, fileURLToPath } from 'node:url';
-import type { $Dictionary, InternationalizationContext, InternationalizationOptions } from './types';
+import type { $Dictionary, $SpecialObject, InternationalizationContext, InternationalizationOptions } from './types';
 
 /**
  * A generalized class for handling `i18next` JSON files and their discovery.
@@ -195,9 +196,9 @@ export class InternationalizationHandler {
 	 */
 	public format<
 		const Key extends ParseKeys<Ns, TOpt, undefined>,
-		const TOpt extends TOptions,
-		Ns extends Namespace,
-		Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt>,
+		const TOpt extends TOptions = TOptions,
+		Ns extends Namespace = DefaultNamespace,
+		Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt> = TOpt['returnObjects'] extends true ? $SpecialObject : string,
 		const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>
 	>(
 		locale: string,
@@ -218,7 +219,7 @@ export class InternationalizationHandler {
 					? language(this.options.defaultMissingKey, { replace: { key } })
 					: '';
 
-		return language<Key, TOpt, Ret, ActualOptions>(key, defaultValue, optionsOrUndefined);
+		return language<Key, TOpt, Ret, ActualOptions>(key, { defaultValue, ...((optionsOrUndefined ?? {}) as TOpt) });
 	}
 
 	/**
