@@ -52,7 +52,7 @@
 	"dependencies": {
 		"@sapphire/utilities": "^3.15.3",
 		"@skyra/i18next-backend": "^2.0.5",
-		"chokidar": "^3.5.3",
+		"chokidar": "^3.6.0",
 		"i18next": "^23.8.2"
 	},
 	"repository": {
