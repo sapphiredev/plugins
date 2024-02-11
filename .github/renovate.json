@@ -4,7 +4,7 @@
 	"npm": {
 		"packageRules": [
 			{
-				"matchPackagePatterns": ["bullmq"],
+				"matchPackagePatterns": ["@types/node"],
 				"enabled": false
 			}
 		]
