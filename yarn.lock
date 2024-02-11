@@ -1074,9 +1074,9 @@ __metadata:
     "@types/ws": "npm:^8.5.10"
     concurrently: "npm:^8.2.2"
     tldts: "npm:^6.1.10"
-    tsup: "npm:^8.0.1"
-    tsx: "npm:^4.7.0"
-    typedoc: "npm:^0.25.7"
+    tsup: "npm:^8.0.2"
+    tsx: "npm:^4.7.1"
+    typedoc: "npm:^0.25.8"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.3.3"
     undici: "npm:^6.6.2"
@@ -1091,9 +1091,9 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@skyra/editable-commands": "npm:^3.0.1"
     concurrently: "npm:^8.2.2"
-    tsup: "npm:^8.0.1"
-    tsx: "npm:^4.7.0"
-    typedoc: "npm:^0.25.7"
+    tsup: "npm:^8.0.2"
+    tsx: "npm:^4.7.1"
+    typedoc: "npm:^0.25.8"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -1107,9 +1107,9 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     chokidar: "npm:^3.6.0"
     concurrently: "npm:^8.2.2"
-    tsup: "npm:^8.0.1"
-    tsx: "npm:^4.7.0"
-    typedoc: "npm:^0.25.7"
+    tsup: "npm:^8.0.2"
+    tsx: "npm:^4.7.1"
+    typedoc: "npm:^0.25.8"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -1126,9 +1126,9 @@ __metadata:
     chokidar: "npm:^3.6.0"
     concurrently: "npm:^8.2.2"
     i18next: "npm:^23.8.2"
-    tsup: "npm:^8.0.1"
-    tsx: "npm:^4.7.0"
-    typedoc: "npm:^0.25.7"
+    tsup: "npm:^8.0.2"
+    tsx: "npm:^4.7.1"
+    typedoc: "npm:^0.25.8"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -1143,9 +1143,9 @@ __metadata:
     "@sapphire/timestamp": "npm:^1.0.3"
     colorette: "npm:^2.0.20"
     concurrently: "npm:^8.2.2"
-    tsup: "npm:^8.0.1"
-    tsx: "npm:^4.7.0"
-    typedoc: "npm:^0.25.7"
+    tsup: "npm:^8.0.2"
+    tsx: "npm:^4.7.1"
+    typedoc: "npm:^0.25.8"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -1158,9 +1158,9 @@ __metadata:
     "@favware/cliff-jumper": "npm:^2.2.3"
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     concurrently: "npm:^8.2.2"
-    tsup: "npm:^8.0.1"
-    tsx: "npm:^4.7.0"
-    typedoc: "npm:^0.25.7"
+    tsup: "npm:^8.0.2"
+    tsx: "npm:^4.7.1"
+    typedoc: "npm:^0.25.8"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -1174,11 +1174,11 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@sapphire/stopwatch": "npm:^1.5.2"
     "@sapphire/utilities": "npm:^3.15.3"
-    bullmq: "npm:5.1.9"
+    bullmq: "npm:5.1.10"
     concurrently: "npm:^8.2.2"
-    tsup: "npm:^8.0.1"
-    tsx: "npm:^4.7.0"
-    typedoc: "npm:^0.25.7"
+    tsup: "npm:^8.0.2"
+    tsx: "npm:^4.7.1"
+    typedoc: "npm:^0.25.8"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -1192,9 +1192,9 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@sapphire/utilities": "npm:^3.15.3"
     concurrently: "npm:^8.2.2"
-    tsup: "npm:^8.0.1"
-    tsx: "npm:^4.7.0"
-    typedoc: "npm:^0.25.7"
+    tsup: "npm:^8.0.2"
+    tsx: "npm:^4.7.1"
+    typedoc: "npm:^0.25.8"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -1207,9 +1207,9 @@ __metadata:
     "@favware/cliff-jumper": "npm:^2.2.3"
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     concurrently: "npm:^8.2.2"
-    tsup: "npm:^8.0.1"
-    tsx: "npm:^4.7.0"
-    typedoc: "npm:^0.25.7"
+    tsup: "npm:^8.0.2"
+    tsx: "npm:^4.7.1"
+    typedoc: "npm:^0.25.8"
     typedoc-json-parser: "npm:^9.0.1"
     typescript: "npm:^5.3.3"
   languageName: unknown
@@ -1922,9 +1922,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.1.9":
-  version: 5.1.9
-  resolution: "bullmq@npm:5.1.9"
+"bullmq@npm:5.1.10":
+  version: 5.1.10
+  resolution: "bullmq@npm:5.1.10"
   dependencies:
     cron-parser: "npm:^4.6.0"
     glob: "npm:^8.0.3"
@@ -1935,7 +1935,7 @@ __metadata:
     semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
     uuid: "npm:^9.0.0"
-  checksum: 10/149df398cd1e56a27d8282c1d790ad7086777b9009c177032da081e3c52364a58fcfc4e11d490fcae92d36a96cec3e229cb9b4ab8975ad4d409906e59d2344a5
+  checksum: 10/5b7b08d22ca54274475923b5f8d7a9349578d872ea4b964054c22da8bea40f053bdb5a19af6aec42c03c050418d818d2b870ce4d3424c232effca9b2badaa5d6
   languageName: node
   linkType: hard
 
@@ -5700,11 +5700,11 @@ __metadata:
     lint-staged: "npm:^15.2.2"
     prettier: "npm:^3.2.5"
     rimraf: "npm:^5.0.5"
-    tsup: "npm:^8.0.1"
-    tsx: "npm:^4.7.0"
+    tsup: "npm:^8.0.2"
+    tsx: "npm:^4.7.1"
     turbo: "npm:^1.12.3"
     typescript: "npm:^5.3.3"
-    vite: "npm:^5.1.0"
+    vite: "npm:^5.1.1"
     vitest: "npm:^1.2.2"
   languageName: unknown
   linkType: soft
@@ -6374,9 +6374,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "tsup@npm:8.0.1"
+"tsup@npm:^8.0.2":
+  version: 8.0.2
+  resolution: "tsup@npm:8.0.2"
   dependencies:
     bundle-require: "npm:^4.0.0"
     cac: "npm:^6.7.12"
@@ -6409,13 +6409,13 @@ __metadata:
   bin:
     tsup: dist/cli-default.js
     tsup-node: dist/cli-node.js
-  checksum: 10/f5866035ac96c5f421856a3e41ae25afaccae4eba0c9e747626a691be9d017b32b799a533f1e57bf1da6808395452608bb52d16625d2223022448f0d4e42e9ec
+  checksum: 10/dd8c375181a748cdeb86aa3d779d6d755596881f47fe38b7c4b810ff1ef6424d485b23065fda0f6e32d9988bae19cd64e49f6e2f11295d5184485ab7528a37d1
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.7.0":
-  version: 4.7.0
-  resolution: "tsx@npm:4.7.0"
+"tsx@npm:^4.7.1":
+  version: 4.7.1
+  resolution: "tsx@npm:4.7.1"
   dependencies:
     esbuild: "npm:~0.19.10"
     fsevents: "npm:~2.3.3"
@@ -6425,7 +6425,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/3e6ee0a0a8adb7b1cb58875f50b143b41df0132ade3a7cdda16a166ac473eee446197762ba6afb235ace4c6adae7e55f61a420ee55b17438717eea1e55e611c0
+  checksum: 10/3a462b595f31ae58b31f9c6e8c450577dc87660b1225012bd972b6b58d7d2f6c4034728763ebc53bb731acff68de8b0fa50586e4c1ec4c086226f1788ccf9b7d
   languageName: node
   linkType: hard
 
@@ -6583,9 +6583,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.25.1, typedoc@npm:^0.25.7":
-  version: 0.25.7
-  resolution: "typedoc@npm:0.25.7"
+"typedoc@npm:^0.25.1, typedoc@npm:^0.25.8":
+  version: 0.25.8
+  resolution: "typedoc@npm:0.25.8"
   dependencies:
     lunr: "npm:^2.3.9"
     marked: "npm:^4.3.0"
@@ -6595,7 +6595,7 @@ __metadata:
     typescript: 4.6.x || 4.7.x || 4.8.x || 4.9.x || 5.0.x || 5.1.x || 5.2.x || 5.3.x
   bin:
     typedoc: bin/typedoc
-  checksum: 10/fa88c808e9912ef248cc45b4defea49522e93b97b4bb67423670257a4507ccabdc25c1518a39f6058a728d08675ee0947de55944419fa4bb9f870d84ba4db764
+  checksum: 10/68749aa3fc90843dbb68b9e486405056ddadb23682bb11000d8077f758101814fbb8aa27e1bca17c6a062fb54e6f4ee9474e9fe2fdb44bc7ed27f67afd9953b1
   languageName: node
   linkType: hard
 
@@ -6764,9 +6764,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.0, vite@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "vite@npm:5.1.0"
+"vite@npm:^5.0.0, vite@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "vite@npm:5.1.1"
   dependencies:
     esbuild: "npm:^0.19.3"
     fsevents: "npm:~2.3.3"
@@ -6800,7 +6800,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/14d136f2e71d657cb55bec2a9330951e27e572ed79c4e79e3edc24decfa87f95664b8206614bfcf6a61db933667e554a8eed389291ad8af49de0784548a83a4c
+  checksum: 10/bdb8e683caddaa0a9adcbf40144ca8ea3660836b208862b07d43787ea867845919af16e58745365bd13ed3b7f66bbf9788a6869ee22cfaacac01645b59729c34
   languageName: node
   linkType: hard
 
