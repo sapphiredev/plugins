@@ -51,7 +51,7 @@
 	"dependencies": {
 		"@sapphire/stopwatch": "^1.5.2",
 		"@sapphire/utilities": "^3.15.3",
-		"bullmq": "5.2.1"
+		"bullmq": "5.3.2"
 	},
 	"devDependencies": {
 		"@favware/cliff-jumper": "^2.2.3",
