@@ -51,17 +51,17 @@
 	"dependencies": {
 		"@sapphire/stopwatch": "^1.5.2",
 		"@sapphire/utilities": "^3.15.3",
-		"bullmq": "5.4.1"
+		"bullmq": "5.4.2"
 	},
 	"devDependencies": {
-		"@favware/cliff-jumper": "^3.0.0",
+		"@favware/cliff-jumper": "^3.0.1",
 		"@favware/rollup-type-bundler": "^3.3.0",
 		"concurrently": "^8.2.2",
 		"tsup": "^8.0.2",
 		"tsx": "^4.7.1",
-		"typedoc": "^0.25.9",
+		"typedoc": "^0.25.11",
 		"typedoc-json-parser": "^9.0.1",
-		"typescript": "^5.3.3"
+		"typescript": "^5.4.2"
 	},
 	"repository": {
 		"type": "git",
