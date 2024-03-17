@@ -82,7 +82,7 @@
 		"concurrently": "^8.2.2",
 		"tsup": "^8.0.2",
 		"tsx": "^4.7.1",
-		"typedoc": "^0.25.11",
+		"typedoc": "^0.25.12",
 		"typedoc-json-parser": "^9.0.1",
 		"typescript": "^5.4.2"
 	}
