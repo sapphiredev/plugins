@@ -51,8 +51,8 @@
 	},
 	"dependencies": {
 		"@types/ws": "^8.5.10",
-		"tldts": "^6.1.13",
-		"undici": "^6.9.0"
+		"tldts": "^6.1.14",
+		"undici": "^6.10.1"
 	},
 	"repository": {
 		"type": "git",
@@ -90,6 +90,6 @@
 		"tsx": "^4.7.1",
 		"typedoc": "^0.25.12",
 		"typedoc-json-parser": "^9.0.1",
-		"typescript": "^5.4.2"
+		"typescript": "^5.4.3"
 	}
 }
