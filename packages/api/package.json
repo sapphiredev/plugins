@@ -52,7 +52,7 @@
 	"dependencies": {
 		"@types/ws": "^8.5.10",
 		"tldts": "^6.1.16",
-		"undici": "^6.10.2"
+		"undici": "^6.11.1"
 	},
 	"repository": {
 		"type": "git",
@@ -87,9 +87,9 @@
 		"@favware/rollup-type-bundler": "^3.3.0",
 		"concurrently": "^8.2.2",
 		"tsup": "^8.0.2",
-		"tsx": "^4.7.1",
+		"tsx": "^4.7.2",
 		"typedoc": "^0.25.12",
 		"typedoc-json-parser": "^9.0.1",
-		"typescript": "^5.4.3"
+		"typescript": "^5.4.4"
 	}
 }
