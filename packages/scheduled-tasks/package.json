@@ -51,14 +51,14 @@
 	"dependencies": {
 		"@sapphire/stopwatch": "^1.5.2",
 		"@sapphire/utilities": "^3.15.3",
-		"bullmq": "5.7.6"
+		"bullmq": "5.7.8"
 	},
 	"devDependencies": {
 		"@favware/cliff-jumper": "^3.0.3",
 		"@favware/rollup-type-bundler": "^3.3.0",
 		"concurrently": "^8.2.2",
 		"tsup": "^8.0.2",
-		"tsx": "^4.7.3",
+		"tsx": "^4.9.1",
 		"typedoc": "^0.25.13",
 		"typedoc-json-parser": "^10.0.0",
 		"typescript": "^5.4.5"
