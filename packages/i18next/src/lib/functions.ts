@@ -89,6 +89,58 @@ export async function resolveKey<
 	Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt> = TOpt['returnObjects'] extends true ? $SpecialObject : string,
 	Ns extends Namespace = DefaultNamespace,
 	const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>
+>(target: Target, key: Key | Key[], options?: ActualOptions): Promise<TFunctionReturnOptionalDetails<Ret, TOpt>>;
+
+/**
+ * Resolves a key and its parameters.
+ * @since 2.0.0
+ * @param target The target to fetch the language key from.
+ * @param key The i18next key.
+ * @param options The interpolation options as well as a `defaultValue` for the key and any key/value pairs.
+ * @returns The data that `key` held, processed by i18next.
+ */
+export async function resolveKey<
+	const Key extends ParseKeys<Ns, TOpt, undefined>,
+	const TOpt extends TOptions = TOptions,
+	Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt> = TOpt['returnObjects'] extends true ? $SpecialObject : string,
+	Ns extends Namespace = DefaultNamespace,
+	const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>
+>(target: Target, key: string | string[], options: TOpt & $Dictionary & { defaultValue: string }): Promise<TFunctionReturnOptionalDetails<Ret, TOpt>>;
+
+/**
+ * Resolves a key and its parameters.
+ * @since 2.0.0
+ * @param target The target to fetch the language key from.
+ * @param key The i18next key.
+ * @param defaultValue The default value to use if the key is not found.
+ * @param options The interpolation options.
+ * @returns The data that `key` held, processed by i18next.
+ */
+export async function resolveKey<
+	const Key extends ParseKeys<Ns, TOpt, undefined>,
+	const TOpt extends TOptions = TOptions,
+	Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt> = TOpt['returnObjects'] extends true ? $SpecialObject : string,
+	Ns extends Namespace = DefaultNamespace,
+	const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>
+>(target: Target, key: string | string[], defaultValue: string, options?: TOpt & $Dictionary): Promise<TFunctionReturnOptionalDetails<Ret, TOpt>>;
+
+/**
+ * Resolves a key and its parameters.
+ * @since 2.0.0
+ * @param target The target to fetch the language key from.
+ *
+ * @remark This function also has additional parameters for `key`, `defaultValue`, and `options`, however
+ * TSDoc does not let us document those while matching proper implementation. See the overloads for this method
+ * for the documentation on those parameters.
+ *
+ * @returns The data that `key` held, processed by i18next.
+ */
+export async function resolveKey<
+	const Key extends ParseKeys<Ns, TOpt, undefined>,
+	const TOpt extends TOptions = TOptions,
+	Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt> = TOpt['returnObjects'] extends true ? $SpecialObject : string,
+	Ns extends Namespace = DefaultNamespace,
+	const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>
 >(
 	target: Target,
 	...[key, defaultValueOrOptions, optionsOrUndefined]:

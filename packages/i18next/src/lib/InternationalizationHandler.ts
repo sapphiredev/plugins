@@ -200,6 +200,66 @@ export class InternationalizationHandler {
 		Ns extends Namespace = DefaultNamespace,
 		Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt> = TOpt['returnObjects'] extends true ? $SpecialObject : string,
 		const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>
+	>(locale: string, key: Key | Key[], options?: ActualOptions): TFunctionReturnOptionalDetails<Ret, TOpt>;
+
+	/**
+	 * Localizes a content given one or more keys and i18next options.
+	 * @since 2.0.0
+	 * @param locale The language to be used.
+	 * @param key The key or keys to retrieve the content from.
+	 * @param options The interpolation options as well as a `defaultValue` for the key and any key/value pairs.
+	 * @see {@link https://www.i18next.com/overview/api#t}
+	 * @returns The localized content.
+	 */
+	public format<
+		const Key extends ParseKeys<Ns, TOpt, undefined>,
+		const TOpt extends TOptions = TOptions,
+		Ns extends Namespace = DefaultNamespace,
+		Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt> = TOpt['returnObjects'] extends true ? $SpecialObject : string,
+		const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>
+	>(locale: string, key: string | string[], options: TOpt & $Dictionary & { defaultValue: string }): TFunctionReturnOptionalDetails<Ret, TOpt>;
+
+	/**
+	 * Localizes a content given one or more keys and i18next options.
+	 * @since 2.0.0
+	 * @param locale The language to be used.
+	 * @param key The key or keys to retrieve the content from.
+	 * @param defaultValue The default value to use if the key is not found.
+	 * @param options The interpolation options.
+	 * @see {@link https://www.i18next.com/overview/api#t}
+	 * @returns The localized content.
+	 */
+	public format<
+		const Key extends ParseKeys<Ns, TOpt, undefined>,
+		const TOpt extends TOptions = TOptions,
+		Ns extends Namespace = DefaultNamespace,
+		Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt> = TOpt['returnObjects'] extends true ? $SpecialObject : string,
+		const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>
+	>(
+		locale: string,
+		key: string | string[],
+		defaultValue: string | undefined,
+		options?: TOpt & $Dictionary
+	): TFunctionReturnOptionalDetails<Ret, TOpt>;
+
+	/**
+	 * Localizes a content given one or more keys and i18next options.
+	 * @since 2.0.0
+	 * @param locale The language to be used.
+	 *
+	 * @remark This function also has additional parameters for `key`, `defaultValue`, and `options`, however
+	 * TSDoc does not let us document those while matching proper implementation. See the overloads for this method
+	 * for the documentation on those parameters.
+	 *
+	 * @see {@link https://www.i18next.com/overview/api#t}
+	 * @returns The localized content.
+	 */
+	public format<
+		const Key extends ParseKeys<Ns, TOpt, undefined>,
+		const TOpt extends TOptions = TOptions,
+		Ns extends Namespace = DefaultNamespace,
+		Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt> = TOpt['returnObjects'] extends true ? $SpecialObject : string,
+		const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>
 	>(
 		locale: string,
 		...[key, defaultValueOrOptions, optionsOrUndefined]:
