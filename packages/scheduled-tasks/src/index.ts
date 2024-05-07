@@ -6,7 +6,7 @@ export * from './lib/ScheduledTaskHandler';
 export * from './lib/structures/ScheduledTask';
 export * from './lib/structures/ScheduledTaskStore';
 export * from './lib/types/ScheduledTaskEvents';
-export * from './lib/types/ScheduledTaskTypes';
+export type * from './lib/types/ScheduledTaskTypes';
 
 export { loadListeners } from './listeners/_load';
 

@@ -116,7 +116,7 @@ export type ScheduledTasksPayload<
 /**
  * An entry in {@link ScheduledTasks} that has no payload.
  */
-interface ScheduledTasksResolvableNoPayload<
+export interface ScheduledTasksResolvableNoPayload<
 	K extends ScheduledTasksKeysNoPayload = ScheduledTasksKeysNoPayload //
 > {
 	name: K;
