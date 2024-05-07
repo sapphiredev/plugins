@@ -9,6 +9,10 @@ export * as SubcommandPreconditionResolvers from './lib/precondition-resolvers/s
 export * from './lib/types/Enums';
 export * from './lib/types/Events';
 export * from './lib/types/SubcommandMappings';
+export {
+	PluginPrecondition as PluginSubcommandCooldownPrecondition,
+	type PluginSubcommandCooldownPreconditionContext
+} from './preconditions/PluginSubcommandCooldown';
 
 export { loadListeners } from './listeners/_load';
 export { loadPreconditions } from './preconditions/_load';
@@ -43,6 +47,8 @@ declare module '@sapphire/framework' {
 /**
  * The preconditions specific to subcommands
  * @since 5.1.0
+ * @deprecated - This will be replaced with a regular top level export of {@link PluginSubcommandCooldown}
+ * in the next major version as opposed to a namespaced export.
  */
 export const SubcommandPreconditions = {
 	PluginSubcommandCooldown
@@ -51,6 +57,8 @@ export const SubcommandPreconditions = {
 /**
  * The preconditions specific to subcommands
  * @since 5.1.0
+ * @deprecated - This will be replaced with a regular top level export of {@link PluginSubcommandCooldownPreconditionContext}
+ * in the next major version as opposed to a namespaced export.
  */
 export namespace SubcommandPreconditions {
 	/** The context for the subcommand cooldown precondition */
