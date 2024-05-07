@@ -68,7 +68,6 @@ export class Auth {
 	 * Encrypts an object with aes-256-cbc to use as a token.
 	 * @since 1.0.0
 	 * @param data An object to encrypt
-	 * @param secret The secret to encrypt the data with
 	 */
 	public encrypt(data: AuthData): string {
 		const iv = randomBytes(16);
@@ -80,7 +79,6 @@ export class Auth {
 	 * Decrypts an object with aes-256-cbc to use as a token.
 	 * @since 1.0.0
 	 * @param token An data to decrypt
-	 * @param secret The secret to decrypt the data with
 	 */
 	public decrypt(token: string): AuthData | null {
 		const [data, iv] = token.split('.');
