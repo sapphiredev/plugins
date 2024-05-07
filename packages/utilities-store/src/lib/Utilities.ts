@@ -14,7 +14,6 @@ export class Utilities {
 
 	/**
 	 * @since 1.0.0
-	 * @param options The options for this server
 	 */
 	public constructor() {
 		container.utilities = this;
