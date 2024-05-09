@@ -79,7 +79,6 @@ export class ScheduledTaskHandler {
 	 * Creates a scheduled task.
 	 *
 	 * @param task - The task to be scheduled.
-	 * @param payload - The payload for the task.
 	 * @param options - The options for the task.
 	 */
 	public async create<T extends ScheduledTasksResolvable>(
@@ -197,7 +196,6 @@ export class ScheduledTaskHandler {
 	 * Runs a scheduled task with the given name and payload.
 	 *
 	 * @param task - The name of the scheduled task to run.
-	 * @param payload - The payload to pass to the scheduled task.
 	 *
 	 * @remarks `undefined` will be returned if the task was not found.
 	 */
