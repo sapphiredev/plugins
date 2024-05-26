@@ -49,7 +49,7 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^3.15.3"
+		"@sapphire/utilities": "^3.16.2"
 	},
 	"repository": {
 		"type": "git",
@@ -85,7 +85,7 @@
 		"@favware/rollup-type-bundler": "^3.3.0",
 		"concurrently": "^8.2.2",
 		"tsup": "^8.0.2",
-		"tsx": "^4.10.5",
+		"tsx": "^4.11.0",
 		"typedoc": "^0.25.13",
 		"typedoc-json-parser": "^10.0.0",
 		"typescript": "^5.4.5"
