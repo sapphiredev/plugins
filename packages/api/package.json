@@ -51,7 +51,7 @@
 	},
 	"dependencies": {
 		"@types/ws": "^8.5.10",
-		"tldts": "^6.1.21",
+		"tldts": "^6.1.22",
 		"undici": "^6.18.1"
 	},
 	"repository": {
