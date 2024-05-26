@@ -1235,7 +1235,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@types/ws": "npm:^8.5.10"
     concurrently: "npm:^8.2.2"
-    tldts: "npm:^6.1.21"
+    tldts: "npm:^6.1.22"
     tsup: "npm:^8.0.2"
     tsx: "npm:^4.11.0"
     typedoc: "npm:^0.25.13"
@@ -6087,21 +6087,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.21":
-  version: 6.1.21
-  resolution: "tldts-core@npm:6.1.21"
-  checksum: 10/f1d5cd4e605c0ee5e1013e8e262454c42e1aba2fb972f4d89cb45a4f7128de73549c46a3baaa660063d6f05aed794a1e4dbf85fe554fde7df7ed5241c60f4da5
+"tldts-core@npm:^6.1.22":
+  version: 6.1.22
+  resolution: "tldts-core@npm:6.1.22"
+  checksum: 10/6d8ed7c616185c45c69ac8f7979e400da508f071b6ed043086959237ef11518f3623b139f63e43dd266f1d15049e2d99955308da13c67bd8da0a4d728dba3e2f
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.1.21":
-  version: 6.1.21
-  resolution: "tldts@npm:6.1.21"
+"tldts@npm:^6.1.22":
+  version: 6.1.22
+  resolution: "tldts@npm:6.1.22"
   dependencies:
-    tldts-core: "npm:^6.1.21"
+    tldts-core: "npm:^6.1.22"
   bin:
     tldts: bin/cli.js
-  checksum: 10/a514a3f1e15cd388a55253fe555f717582023a9265468139d3da8360909f8099bde665500c63383614cbe31220d7ab9a8516d58883888045729d810adf21ebf4
+  checksum: 10/745255912853d5a4c35523e38962349dba327c9159a0fad93ce0257b1ff81507196b31395b626f9f2ffc86d356dbebc767d1eb99c13209d82b8966cb07149907
   languageName: node
   linkType: hard
 
