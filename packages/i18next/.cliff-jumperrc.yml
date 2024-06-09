@@ -1,3 +1,9 @@
 name: plugin-i18next
 org: sapphire
+install: true
 packagePath: packages/i18next
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+githubRepo: sapphiredev/plugins

@@ -1,3 +1,9 @@
 name: plugin-utilities-store
 org: sapphire
+install: true
 packagePath: packages/utilities-store
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+githubRepo: sapphiredev/plugins

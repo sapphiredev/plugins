@@ -1,3 +1,9 @@
 name: plugin-api
 org: sapphire
+install: true
 packagePath: packages/api
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+githubRepo: sapphiredev/plugins

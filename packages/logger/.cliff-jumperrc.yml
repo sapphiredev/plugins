@@ -1,3 +1,9 @@
 name: plugin-logger
 org: sapphire
+install: true
 packagePath: packages/logger
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+githubRepo: sapphiredev/plugins

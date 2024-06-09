@@ -1,3 +1,9 @@
 name: plugin-editable-commands
 org: sapphire
+install: true
 packagePath: packages/editable-commands
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+githubRepo: sapphiredev/plugins
