@@ -91,12 +91,13 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 	 * If you wish to override this behaviour, you can do so by overriding this method.
 	 */
 	protected parseApiPrefix(): string {
-		const api = this.container.server.options;
+		const { prefix } = this.container.server.options;
 
-		if (!api.prefix) return '';
+		if (!prefix) return '';
 
-		if (api.prefix.endsWith('/')) return api.prefix;
-		return `${api.prefix}/`;
+		if (prefix.endsWith('/')) return prefix;
+
+		return `${prefix}/`;
 	}
 }
 
