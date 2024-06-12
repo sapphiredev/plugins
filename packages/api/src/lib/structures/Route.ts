@@ -2,9 +2,9 @@ import { Piece } from '@sapphire/pieces';
 import type { Awaitable } from '@sapphire/utilities';
 import { Collection } from 'discord.js';
 import { RouteData } from '../utils/RouteData';
+import type { MethodCallback, RouteStore } from './RouteStore';
 import { methodEntries, type Methods } from './http/HttpMethods';
 import type { MimeTypeWithoutParameters } from './http/Server';
-import type { MethodCallback, RouteStore } from './RouteStore';
 
 /**
  * @since 1.0.0
@@ -33,16 +33,18 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 	public constructor(context: Route.LoaderContext, options: Options = {} as Options) {
 		super(context, options);
 
-		const api = this.container.server.options;
-		this.router = new RouteData(`${api.prefix ?? ''}${options.route ?? this.name ?? ''}`);
+		const apiPrefix = this.parseApiPrefix();
+		const routeName = options.route ?? this.name ?? '';
+		this.router = new RouteData(apiPrefix + routeName);
 
 		for (const [method, symbol] of methodEntries) {
 			const value = Reflect.get(this, symbol) as MethodCallback;
 			if (typeof value === 'function') this.methods.set(method, value);
 		}
 
-		this.maximumBodyLength = options.maximumBodyLength ?? api.maximumBodyLength ?? 1024 * 1024 * 50;
-		this.acceptedContentMimeTypes = options.acceptedContentMimeTypes ?? api.acceptedContentMimeTypes ?? null;
+		const { maximumBodyLength, acceptedContentMimeTypes } = this.container.server.options;
+		this.maximumBodyLength = options.maximumBodyLength ?? maximumBodyLength ?? 1024 * 1024 * 50;
+		this.acceptedContentMimeTypes = options.acceptedContentMimeTypes ?? acceptedContentMimeTypes ?? null;
 	}
 
 	/**
@@ -71,6 +73,30 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 		}
 
 		return undefined;
+	}
+
+	/**
+	 * Parses the `api.prefix` option.
+	 *
+	 * What this comes down to is the following rules being applied:
+	 *
+	 * 1. If the prefix is not set, return an empty string.
+	 * 2. If the prefix ends with a `/`, return the prefix.
+	 * 3. If the prefix does not end with a `/`, return the prefix with a `/` appended.
+	 *
+	 * This is to ensure that if a prefix *is* set, it always ends with a `/` character to form a URL that follows
+	 * best practises.
+	 * Note that if your prefix *does not* also start with a `/`, this will be automatically added regardless.
+	 *
+	 * If you wish to override this behaviour, you can do so by overriding this method.
+	 */
+	protected parseApiPrefix(): string {
+		const api = this.container.server.options;
+
+		if (!api.prefix) return '';
+
+		if (api.prefix.endsWith('/')) return api.prefix;
+		return `${api.prefix}/`;
 	}
 }
 
