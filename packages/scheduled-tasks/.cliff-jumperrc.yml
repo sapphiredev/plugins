@@ -1,3 +1,9 @@
 name: plugin-scheduled-tasks
 org: sapphire
+install: true
 packagePath: packages/scheduled-tasks
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+githubRepo: sapphiredev/plugins

@@ -1,3 +1,9 @@
 name: plugin-hmr
 org: sapphire
+install: true
 packagePath: packages/hmr
+identifierBase: false
+pushTag: true
+githubRelease: true
+githubReleaseLatest: true
+githubRepo: sapphiredev/plugins
