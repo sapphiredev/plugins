@@ -2,9 +2,11 @@ import { Piece } from '@sapphire/pieces';
 import type { Awaitable } from '@sapphire/utilities';
 import { Collection } from 'discord.js';
 import { RouteData } from '../utils/RouteData';
+import type { MethodCallback, RouteStore } from './RouteStore';
+import type { ApiRequest } from './api/ApiRequest';
+import type { ApiResponse } from './api/ApiResponse';
 import { methodEntries, type Methods } from './http/HttpMethods';
 import type { MimeTypeWithoutParameters } from './http/Server';
-import type { MethodCallback, RouteStore } from './RouteStore';
 
 /**
  * @since 1.0.0
@@ -34,7 +36,13 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 		super(context, options);
 
 		const api = this.container.server.options;
-		this.router = new RouteData(`${api.prefix ?? ''}${options.route ?? this.name ?? ''}`);
+		// Concat a `/` to the prefix if it does not end with it
+		const prefix = api.prefix ? (api.prefix.endsWith('/') ? api.prefix : `${api.prefix}/`) : '';
+		// Use the defined route, otherwise:
+		// - If the location is virtual, use the name.
+		// - Otherwise, use the directories and the name.
+		const path = options.route ?? (this.location.virtual ? this.name : this.location.directories.concat(this.name).join('/'));
+		this.router = new RouteData(`${prefix}${path}`);
 
 		for (const [method, symbol] of methodEntries) {
 			const value = Reflect.get(this, symbol) as MethodCallback;
@@ -86,7 +94,7 @@ export interface RouteOptions extends Piece.Options {
 	 * ```
 	 * @example
 	 * ```typescript
-	 * '/guilds/:guild/members/:member/'
+	 * '/guilds/[guild]/members/[member]'
 	 * // request.params -> { guild: '...', member: '...' }
 	 * ```
 	 */
@@ -114,4 +122,7 @@ export namespace Route {
 	export type Options = RouteOptions;
 	export type JSON = Piece.JSON;
 	export type LocationJSON = Piece.LocationJSON;
+
+	export type Request = ApiRequest;
+	export type Response = ApiResponse;
 }
