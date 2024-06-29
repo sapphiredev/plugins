@@ -39,7 +39,7 @@ import type { MimeTypeWithoutParameters } from './http/Server';
  * ```
  *
  * ```bash
- * $ curl -H "Content-Type: application/json" -d '{"hello":"world"}' http://localhost:4000/echo
+ * $ curl -X POST -H "Content-Type: application/json" -d '{"hello":"world"}' http://localhost:4000/echo
  * {"hello":"world"}
  * ```
  */
