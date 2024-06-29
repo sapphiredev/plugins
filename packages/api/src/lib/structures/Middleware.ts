@@ -31,7 +31,7 @@ export abstract class Middleware<Options extends Middleware.Options = Middleware
 	 * @param response The server's response.
 	 * @param route The route that matched this request, will be `null` if none matched.
 	 */
-	public abstract run(request: ApiRequest, response: ApiResponse, route: Route | null): Awaitable<unknown>;
+	public abstract run(request: Middleware.Request, response: Middleware.Response, route: Route | null): Awaitable<unknown>;
 }
 
 /**
@@ -53,4 +53,7 @@ export namespace Middleware {
 	export type Options = MiddlewareOptions;
 	export type JSON = Piece.JSON;
 	export type LocationJSON = Piece.LocationJSON;
+
+	export type Request = ApiRequest;
+	export type Response = ApiResponse;
 }

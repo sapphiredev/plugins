@@ -1,8 +1,6 @@
 import { Store } from '@sapphire/pieces';
 import { Middleware } from './Middleware';
 import type { Route } from './Route';
-import type { ApiRequest } from './api/ApiRequest';
-import type { ApiResponse } from './api/ApiResponse';
 
 /**
  * @since 1.0.0
@@ -17,7 +15,7 @@ export class MiddlewareStore extends Store<Middleware, 'middlewares'> {
 		super(Middleware, { name: 'middlewares' });
 	}
 
-	public async run(request: ApiRequest, response: ApiResponse, route: Route | null): Promise<void> {
+	public async run(request: Middleware.Request, response: Middleware.Response, route: Route | null): Promise<void> {
 		for (const middleware of this.sortedMiddlewares) {
 			if (response.writableEnded) return;
 			if (middleware.enabled) await middleware.run(request, response, route);

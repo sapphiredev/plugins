@@ -18,7 +18,7 @@ export abstract class MediaParser<Options extends MediaParser.Options = MediaPar
 	 * Parses the body data from an API request.
 	 * @since 1.3.0
 	 */
-	public abstract run(request: ApiRequest): Awaitable<unknown>;
+	public abstract run(request: MediaParser.Request): Awaitable<unknown>;
 
 	/**
 	 * Checks if a route accepts the media type from this parser.
@@ -34,7 +34,7 @@ export abstract class MediaParser<Options extends MediaParser.Options = MediaPar
 	 * @since 1.3.0
 	 * @param request The request to read the body from.
 	 */
-	protected async readString(request: ApiRequest): Promise<string> {
+	protected async readString(request: MediaParser.Request): Promise<string> {
 		const stream = this.contentStream(request);
 		if (stream === null) return '';
 
@@ -49,7 +49,7 @@ export abstract class MediaParser<Options extends MediaParser.Options = MediaPar
 	 * @since 1.3.0
 	 * @param request The request to read the body from.
 	 */
-	protected async readBuffer(request: ApiRequest): Promise<Buffer> {
+	protected async readBuffer(request: MediaParser.Request): Promise<Buffer> {
 		const stream = this.contentStream(request);
 		if (stream === null) return Buffer.alloc(0);
 
@@ -64,7 +64,7 @@ export abstract class MediaParser<Options extends MediaParser.Options = MediaPar
 	 * @since 1.3.0
 	 * @param request The request to read the body from.
 	 */
-	protected contentStream(request: ApiRequest): ApiRequest | Gunzip | null {
+	protected contentStream(request: MediaParser.Request): MediaParser.Request | Gunzip | null {
 		switch ((request.headers['content-encoding'] ?? 'identity').toLowerCase()) {
 			// RFC 7230 4.2.2:
 			//
@@ -114,4 +114,6 @@ export namespace MediaParser {
 	export type Options = Piece.Options;
 	export type JSON = Piece.JSON;
 	export type LocationJSON = Piece.LocationJSON;
+
+	export type Request = ApiRequest;
 }

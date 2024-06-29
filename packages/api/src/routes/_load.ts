@@ -1,6 +1,6 @@
 import { container } from '@sapphire/pieces';
-import { PluginRoute as PluginOAuthCallback } from './oauth/callback';
-import { PluginRoute as PluginOAuthLogout } from './oauth/logout';
+import { PluginRoute as PluginOAuthCallback } from './oauth/callback.post';
+import { PluginRoute as PluginOAuthLogout } from './oauth/logout.post';
 
 export function loadRoutes() {
 	const store = 'routes' as const;

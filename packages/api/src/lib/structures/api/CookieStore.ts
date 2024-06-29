@@ -25,8 +25,8 @@ export class CookieStore extends Map<string, string> {
 			const index = pair.indexOf('=');
 			if (index === -1) continue;
 
-			const key = decodeURIComponent(pair.substr(0, index).trim());
-			const value = decodeURIComponent(pair.substr(index + 1).trim());
+			const key = decodeURIComponent(pair.slice(0, index).trim());
+			const value = decodeURIComponent(pair.slice(index + 1).trim());
 			this.set(key, value);
 		}
 
@@ -59,7 +59,7 @@ export class CookieStore extends Map<string, string> {
 			set = [set.toString()];
 		}
 
-		set = set.filter((i) => i.substr(0, i.indexOf('=')) !== name);
+		set = set.filter((i) => i.slice(0, i.indexOf('=')) !== name);
 		set.push(entry);
 
 		this.response.setHeader('Set-Cookie', set);

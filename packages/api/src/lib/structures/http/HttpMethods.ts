@@ -1,41 +1,38 @@
-import { METHODS } from 'node:http';
+export type MethodName = (typeof MethodNames)[number];
 
-export type Methods =
-	| 'ACL'
-	| 'BIND'
-	| 'CHECKOUT'
-	| 'CONNECT'
-	| 'COPY'
-	| 'DELETE'
-	| 'GET'
-	| 'HEAD'
-	| 'LINK'
-	| 'LOCK'
-	| 'M-SEARCH'
-	| 'MERGE'
-	| 'MKACTIVITY'
-	| 'MKCALENDAR'
-	| 'MKCOL'
-	| 'MOVE'
-	| 'NOTIFY'
-	| 'OPTIONS'
-	| 'PATCH'
-	| 'POST'
-	| 'PRI'
-	| 'PROPFIND'
-	| 'PROPPATCH'
-	| 'PURGE'
-	| 'PUT'
-	| 'REBIND'
-	| 'REPORT'
-	| 'SEARCH'
-	| 'SOURCE'
-	| 'SUBSCRIBE'
-	| 'TRACE'
-	| 'UNBIND'
-	| 'UNLINK'
-	| 'UNLOCK'
-	| 'UNSUBSCRIBE';
-
-export const methods = Object.fromEntries(METHODS.map((method) => [method as Methods, Symbol(`HTTP-${method}`)])) as Record<Methods, symbol>;
-export const methodEntries = Object.entries(methods) as readonly [Methods, symbol][];
+export const MethodNames = [
+	'ACL',
+	'BIND',
+	'CHECKOUT',
+	'CONNECT',
+	'COPY',
+	'DELETE',
+	'GET',
+	'HEAD',
+	'LINK',
+	'LOCK',
+	'M-SEARCH',
+	'MERGE',
+	'MKACTIVITY',
+	'MKCALENDAR',
+	'MKCOL',
+	'MOVE',
+	'NOTIFY',
+	'OPTIONS',
+	'PATCH',
+	'POST',
+	'PROPFIND',
+	'PROPPATCH',
+	'PURGE',
+	'PUT',
+	'REBIND',
+	'REPORT',
+	'SEARCH',
+	'SOURCE',
+	'SUBSCRIBE',
+	'TRACE',
+	'UNBIND',
+	'UNLINK',
+	'UNLOCK',
+	'UNSUBSCRIBE'
+] as const;

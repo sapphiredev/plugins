@@ -1,22 +1,17 @@
+import { sleep } from '@sapphire/utilities';
 import { OAuth2Routes } from 'discord.js';
 import { stringify } from 'querystring';
 import { fetch } from 'undici';
-import { promisify } from 'util';
 import { Route } from '../../lib/structures/Route';
-import type { ApiRequest } from '../../lib/structures/api/ApiRequest';
-import type { ApiResponse } from '../../lib/structures/api/ApiResponse';
 import { HttpCodes } from '../../lib/structures/http/HttpCodes';
-import { methods } from '../../lib/structures/http/HttpMethods';
-
-const sleep = promisify(setTimeout);
 
 export class PluginRoute extends Route {
 	public constructor(context: Route.LoaderContext) {
-		super(context, { route: 'oauth/logout' });
+		super(context, { route: 'oauth/logout', methods: ['POST'] });
 		this.enabled = this.container.server.auth !== null;
 	}
 
-	public override async [methods.POST](request: ApiRequest, response: ApiResponse) {
+	public override async run(request: Route.Request, response: Route.Response) {
 		if (!request.auth) return response.status(HttpCodes.Unauthorized).json({ error: 'Unauthorized.' });
 
 		const result = await this.revoke(request.auth.token);
@@ -50,7 +45,7 @@ export class PluginRoute extends Route {
 		return response.status(HttpCodes.InternalServerError).json({ error: 'Unexpected error from server.' });
 	}
 
-	private success(response: ApiResponse) {
+	private success(response: Route.Response) {
 		// Sending an empty cookie with "expires" set to 1970-01-01 makes the browser instantly remove the cookie.
 		response.cookies.remove(this.container.server.auth!.cookie);
 		return response.json({ success: true });

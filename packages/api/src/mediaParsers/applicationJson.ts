@@ -1,5 +1,4 @@
 import { MediaParser } from '../lib/structures/MediaParser';
-import type { ApiRequest } from '../lib/structures/api/ApiRequest';
 import { MimeTypes } from '../lib/utils/MimeTypes';
 
 export class PluginMediaParser extends MediaParser {
@@ -7,7 +6,7 @@ export class PluginMediaParser extends MediaParser {
 		super(context, { name: MimeTypes.ApplicationJson });
 	}
 
-	public override async run(request: ApiRequest): Promise<unknown> {
+	public override async run(request: MediaParser.Request): Promise<unknown> {
 		const body = await this.readString(request);
 		return body.length === 0 ? null : JSON.parse(body);
 	}

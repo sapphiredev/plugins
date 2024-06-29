@@ -1,5 +1,3 @@
-import type { ApiRequest } from '../lib/structures/api/ApiRequest';
-import type { ApiResponse } from '../lib/structures/api/ApiResponse';
 import { HttpCodes } from '../lib/structures/http/HttpCodes';
 import type { MediaParserStore } from '../lib/structures/MediaParserStore';
 import { Middleware } from '../lib/structures/Middleware';
@@ -13,7 +11,7 @@ export class PluginMiddleware extends Middleware {
 		this.mediaParsers = this.container.server.mediaParsers;
 	}
 
-	public override async run(request: ApiRequest, response: ApiResponse, route: Route) {
+	public override async run(request: Middleware.Request, response: Middleware.Response, route: Route) {
 		// RFC 1341 4.
 		const contentType = request.headers['content-type'];
 		if (typeof contentType !== 'string') return;

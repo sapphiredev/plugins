@@ -2,23 +2,20 @@ import { OAuth2Routes, type RESTPostOAuth2AccessTokenResult, type RESTPostOAuth2
 import { stringify } from 'querystring';
 import { fetch } from 'undici';
 import { Route } from '../../lib/structures/Route';
-import type { ApiRequest } from '../../lib/structures/api/ApiRequest';
-import type { ApiResponse } from '../../lib/structures/api/ApiResponse';
 import { HttpCodes } from '../../lib/structures/http/HttpCodes';
-import { methods } from '../../lib/structures/http/HttpMethods';
 
 export class PluginRoute extends Route {
 	private readonly redirectUri: string | undefined;
 
 	public constructor(context: Route.LoaderContext) {
-		super(context, { route: 'oauth/callback' });
+		super(context, { route: 'oauth/callback', methods: ['POST'] });
 
 		const { server } = this.container;
 		this.enabled = server.auth !== null;
 		this.redirectUri = server.auth?.redirect;
 	}
 
-	public override async [methods.POST](request: ApiRequest, response: ApiResponse) {
+	public override async run(request: Route.Request, response: Route.Response) {
 		const body = request.body as OAuth2BodyData;
 		if (typeof body?.code !== 'string') {
 			return response.badRequest();

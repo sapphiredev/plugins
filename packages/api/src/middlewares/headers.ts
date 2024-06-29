@@ -1,27 +1,39 @@
-import { METHODS } from 'node:http';
 import { Middleware } from '../lib/structures/Middleware';
 import type { Route } from '../lib/structures/Route';
-import type { ApiRequest } from '../lib/structures/api/ApiRequest';
-import type { ApiResponse } from '../lib/structures/api/ApiResponse';
+import type { RouteStore } from '../lib/structures/RouteStore';
 import { HttpCodes } from '../lib/structures/http/HttpCodes';
 
 export class PluginMiddleware extends Middleware {
 	private readonly origin: string;
-	private readonly methods: string = METHODS.join(', ');
+	private readonly routes: RouteStore;
 
 	public constructor(context: Middleware.LoaderContext) {
 		super(context, { position: 10 });
 		this.origin = this.container.server.options.origin ?? '*';
+		this.routes = this.container.stores.get('routes');
 	}
 
-	public override run(request: ApiRequest, response: ApiResponse, route: Route | null) {
+	public override run(request: Middleware.Request, response: Middleware.Response, route: Route | null) {
 		response.setHeader('Date', new Date().toUTCString());
 		response.setHeader('Access-Control-Allow-Credentials', 'true');
 		response.setHeader('Access-Control-Allow-Origin', this.origin);
 		response.setHeader('Access-Control-Allow-Headers', 'Authorization, User-Agent, Content-Type');
-		response.setHeader('Access-Control-Allow-Methods', this.methods);
+		response.setHeader('Access-Control-Allow-Methods', this.getMethods(route));
 
 		this.ensurePotentialEarlyExit(request, response, route);
+	}
+
+	private getMethods(route: Route | null) {
+		if (route === null) {
+			const { methods } = this.routes;
+			if (methods.size === 0) return '';
+			if (methods.size === 1) return methods.firstKey()!;
+			return [...methods.keys()].join(', ');
+		}
+
+		if (route.methods.size === 0) return '';
+		if (route.methods.size === 1) return route.methods.keys().next().value;
+		return [...route.methods].join(', ');
 	}
 
 	/**
@@ -39,7 +51,7 @@ export class PluginMiddleware extends Middleware {
 	 * @param response The API response that will go out
 	 * @param route The route being requested by the request
 	 */
-	private ensurePotentialEarlyExit(request: ApiRequest, response: ApiResponse, route: Route | null) {
+	private ensurePotentialEarlyExit(request: Middleware.Request, response: Middleware.Response, route: Route | null) {
 		if (request.method === 'OPTIONS') {
 			if (!route || !route.methods.has('OPTIONS')) {
 				response.end();
