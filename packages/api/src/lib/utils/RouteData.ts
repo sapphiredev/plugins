@@ -1,5 +1,3 @@
-const [slash, colon]: [number, number] = [47, 58];
-
 /**
  * @since 1.0.0
  */
@@ -24,7 +22,7 @@ export class RouteData {
 
 	public constructor(path: string) {
 		this.path = path;
-		this.parts = RouteData.split(path).map(RouteData.parsePart.bind(null));
+		this.parts = RouteData.split(path).map((value) => RouteData.parsePart(value));
 		this.static = this.parts.every((part) => part.type === TypeState.Static);
 	}
 
@@ -52,8 +50,8 @@ export class RouteData {
 	 * @since 1.0.0
 	 */
 	private static parsePart(value: string): ParsedPart {
-		const type = value.charCodeAt(0) === colon ? TypeState.Dynamic : TypeState.Static;
-		if (type === TypeState.Dynamic) value = value.substring(1);
+		const type = value.length > 2 && value.at(0) === '[' && value.at(-1) === ']' ? TypeState.Dynamic : TypeState.Static;
+		if (type === TypeState.Dynamic) value = value.slice(1, -1);
 		return { value, type };
 	}
 
@@ -61,9 +59,9 @@ export class RouteData {
 	 * @since 1.0.0
 	 */
 	private static split(url: string): string[] {
-		if (url.length === 1 && url.charCodeAt(0) === slash) return [''];
-		if (url.charCodeAt(0) === slash) url = url.substring(1);
-		if (url.length > 0 && url.charCodeAt(url.length - 1) === slash) url = url.substring(0, url.length - 1);
+		if (url.length === 1 && url.at(0) === '/') return [''];
+		if (url.at(0) === '/') url = url.slice(1);
+		if (url.length > 0 && url.at(-1) === '/') url = url.slice(0, -1);
 		return url.split('/');
 	}
 }
