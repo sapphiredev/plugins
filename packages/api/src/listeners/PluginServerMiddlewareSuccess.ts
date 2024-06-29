@@ -7,11 +7,11 @@ export class PluginListener extends Listener {
 		super(context, { emitter: 'server', event: ServerEvents.MiddlewareSuccess });
 	}
 
-	public override async run(request: Route.Request, response: Route.Response, match: Route) {
+	public override async run(request: Route.Request, response: Route.Response, route: Route) {
 		try {
-			await match.run(request, response);
+			await route.run(request, response);
 		} catch (error) {
-			this.container.server.emit(ServerEvents.RouteError, error, { request, response, match });
+			this.container.server.emit(ServerEvents.RouteError, error, { request, response, route });
 		}
 	}
 }

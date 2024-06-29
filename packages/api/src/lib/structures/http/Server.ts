@@ -254,5 +254,5 @@ export interface MiddlewareErrorContext {
 	 * The route match.
 	 * @since 1.2.0
 	 */
-	match: Route;
+	route: Route;
 }

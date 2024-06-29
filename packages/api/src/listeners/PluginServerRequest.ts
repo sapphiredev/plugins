@@ -15,7 +15,7 @@ export class PluginListener extends Listener {
 			// Middlewares need to be run regardless of the match, specially since browsers do an OPTIONS request first.
 			await this.container.server.middlewares.run(request, response, route);
 		} catch (error) {
-			this.container.server.emit(ServerEvents.MiddlewareError, error, { request, response, match: route });
+			this.container.server.emit(ServerEvents.MiddlewareError, error, { request, response, route });
 
 			// If a middleware errored, it might cause undefined behavior in the routes, so we will return early.
 			return;
