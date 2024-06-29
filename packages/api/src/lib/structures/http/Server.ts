@@ -4,7 +4,8 @@ import { Server as HttpServer, createServer as httpCreateServer, type ServerOpti
 import type { ListenOptions } from 'node:net';
 import { MediaParserStore } from '../MediaParserStore';
 import { MiddlewareStore } from '../MiddlewareStore';
-import { RouteStore, type RouteMatch } from '../RouteStore';
+import type { Route } from '../Route';
+import { RouteStore } from '../RouteStore';
 import { ApiRequest } from '../api/ApiRequest';
 import { ApiResponse } from '../api/ApiResponse';
 import { Auth, type ServerOptionsAuth } from './Auth';
@@ -253,5 +254,5 @@ export interface MiddlewareErrorContext {
 	 * The route match.
 	 * @since 1.2.0
 	 */
-	match: RouteMatch;
+	match: Route;
 }

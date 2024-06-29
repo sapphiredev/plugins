@@ -1,5 +1,3 @@
-import type { ApiRequest } from '../lib/structures/api/ApiRequest';
-import type { ApiResponse } from '../lib/structures/api/ApiResponse';
 import { Middleware } from '../lib/structures/Middleware';
 
 export class PluginMiddleware extends Middleware {
@@ -13,7 +11,7 @@ export class PluginMiddleware extends Middleware {
 		this.enabled = server.auth !== null;
 	}
 
-	public override run(request: ApiRequest, response: ApiResponse) {
+	public override run(request: Middleware.Request, response: Middleware.Response) {
 		// If there are no cookies, set auth as null:
 		const authorization = response.cookies.get(this.cookieName);
 		if (!authorization) {

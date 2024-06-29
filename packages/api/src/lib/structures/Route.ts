@@ -1,15 +1,47 @@
 import { Piece } from '@sapphire/pieces';
 import type { Awaitable } from '@sapphire/utilities';
-import { Collection } from 'discord.js';
 import { RouteData } from '../utils/RouteData';
-import type { MethodCallback, RouteStore } from './RouteStore';
 import type { ApiRequest } from './api/ApiRequest';
 import type { ApiResponse } from './api/ApiResponse';
-import { methodEntries, type Methods } from './http/HttpMethods';
+import type { MethodName } from './http/HttpMethods';
 import type { MimeTypeWithoutParameters } from './http/Server';
 
 /**
  * @since 1.0.0
+ *
+ * @example A simple GET route that returns a JSON response:
+ * ```typescript
+ * // hello.get.ts
+ * import { Route } from '@sapphire/plugin-api';
+ *
+ * export class MyRoute extends Route {
+ *   public run(request: Route.Request, response: Route.Response) {
+ *     return response.json({ message: 'Hello, World!' });
+ *   }
+ * }
+ * ```
+ *
+ * ```bash
+ * $ curl http://localhost:4000/hello
+ * {"message":"Hello, World!"}
+ * ```
+ *
+ * @example A simple POST route that reads the body and returns it:
+ * ```typescript
+ * // echo.post.ts
+ * import { Route } from '@sapphire/plugin-api';
+ *
+ * export class MyRoute extends Route {
+ *   public run(request: Route.Request, response: Route.Response) {
+ *     return response.json(request.params);
+ *   }
+ * }
+ * ```
+ *
+ * ```bash
+ * $ curl -H "Content-Type: application/json" -d '{"hello":"world"}' http://localhost:4000/echo
+ * {"hello":"world"}
+ * ```
  */
 export abstract class Route<Options extends Route.Options = Route.Options> extends Piece<Options, 'routes'> {
 	/**
@@ -30,7 +62,7 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 	/**
 	 * The methods this route accepts.
 	 */
-	public readonly methods = new Collection<Methods, MethodCallback>();
+	public readonly methods: ReadonlySet<MethodName>;
 
 	public constructor(context: Route.LoaderContext, options: Options = {} as Options) {
 		super(context, options);
@@ -41,52 +73,36 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 		// Use the defined route, otherwise:
 		// - If the location is virtual, use the name.
 		// - Otherwise, use the directories and the name.
-		const path = options.route ?? (this.location.virtual ? this.name : this.location.directories.concat(this.name).join('/'));
-		this.router = new RouteData(`${prefix}${path}`);
+		let path = options.route ?? (this.location.virtual ? this.name : this.location.directories.concat(this.name).join('/'));
 
-		for (const [method, symbol] of methodEntries) {
-			const value = Reflect.get(this, symbol) as MethodCallback;
-			if (typeof value === 'function') this.methods.set(method, value);
+		const methods = new Set(options.methods);
+		// If the path contains a method (e.g. `/users.get`), extract it and add it to the methods set:
+		const methodIndex = path.lastIndexOf('.');
+		if (methodIndex !== -1) {
+			// Extract the method from the path:
+			const method = path.slice(methodIndex + 1).toUpperCase() as MethodName;
+			if (!methods.has(method)) methods.add(method);
+
+			// Update the path to remove the method:
+			path = path.slice(0, methodIndex);
 		}
 
+		this.methods = methods;
+		this.router = new RouteData(`${prefix}${path}`);
 		this.maximumBodyLength = options.maximumBodyLength ?? api.maximumBodyLength ?? 1024 * 1024 * 50;
 		this.acceptedContentMimeTypes = options.acceptedContentMimeTypes ?? api.acceptedContentMimeTypes ?? null;
 	}
 
-	/**
-	 * Per-piece listener that is called when the piece is loaded into the store.
-	 * Useful to set-up asynchronous initialization tasks.
-	 */
-	public override onLoad(): Awaitable<unknown> {
-		const store = this.store as unknown as RouteStore;
-
-		for (const [method, cb] of this.methods) {
-			store.table.get(method)!.set(this, cb.bind(this));
-		}
-
-		return undefined;
-	}
-
-	/**
-	 * Per-piece listener that is called when the piece is unloaded from the store.
-	 * Useful to set-up clean-up tasks.
-	 */
-	public override onUnload(): Awaitable<unknown> {
-		const store = this.store as unknown as RouteStore;
-
-		for (const [method] of this.methods) {
-			store.table.get(method)!.delete(this);
-		}
-
-		return undefined;
-	}
+	public abstract run(request: Route.Request, response: Route.Response): Awaitable<unknown>;
 }
 
 export interface RouteOptions extends Piece.Options {
 	/**
 	 * The route the piece should represent.
 	 * @since 1.0.0
-	 * @default ''
+	 *
+	 * @defaultValue The filesystem-based path, or the name if the location is virtual.
+	 *
 	 * @example
 	 * ```typescript
 	 * '/users'
@@ -103,16 +119,26 @@ export interface RouteOptions extends Piece.Options {
 	/**
 	 * (RFC 7230 3.3.2) The maximum decimal number of octets.
 	 * @since 1.0.0
-	 * @default this.context.server.options.maximumBodyLength ?? 1024 * 1024 * 50
+	 *
+	 * @defaultValue this.context.server.options.maximumBodyLength ?? 1024 * 1024 * 50
 	 */
 	maximumBodyLength?: number;
 
 	/**
 	 * The accepted content types for this route. If set to null, the route will accept any data.
 	 * @since 1.3.0
-	 * @default this.context.server.options.acceptedContentMimeTypes ?? null
+	 *
+	 * @defaultValue this.context.server.options.acceptedContentMimeTypes ?? null
 	 */
-	acceptedContentMimeTypes?: MimeTypeWithoutParameters[] | null;
+	acceptedContentMimeTypes?: readonly MimeTypeWithoutParameters[] | null;
+
+	/**
+	 * The methods this route accepts.
+	 * @since 7.0.0
+	 *
+	 * @defaultValue The method defined in the piece name, or none if not set.
+	 */
+	methods?: readonly MethodName[];
 }
 
 export namespace Route {
