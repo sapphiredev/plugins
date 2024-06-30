@@ -1,10 +1,10 @@
 import { Piece } from '@sapphire/pieces';
-import type { Awaitable } from '@sapphire/utilities';
-import { RouteData } from '../utils/RouteData';
+import { isNullish, type Awaitable } from '@sapphire/utilities';
 import type { ApiRequest } from './api/ApiRequest';
 import type { ApiResponse } from './api/ApiResponse';
 import type { MethodName } from './http/HttpMethods';
 import type { MimeTypeWithoutParameters } from './http/Server';
+import { RouterRoot } from './router/RouterRoot';
 
 /**
  * @since 1.0.0
@@ -55,9 +55,9 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 	public readonly acceptedContentMimeTypes: readonly MimeTypeWithoutParameters[] | null;
 
 	/**
-	 * The route information.
+	 * The path this route represents.
 	 */
-	public readonly router: RouteData;
+	public readonly path: readonly string[];
 
 	/**
 	 * The methods this route accepts.
@@ -68,27 +68,21 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 		super(context, options);
 
 		const api = this.container.server.options;
-		// Concat a `/` to the prefix if it does not end with it
-		const prefix = api.prefix ? (api.prefix.endsWith('/') ? api.prefix : `${api.prefix}/`) : '';
-		// Use the defined route, otherwise:
-		// - If the location is virtual, use the name.
-		// - Otherwise, use the directories and the name.
-		let path = options.route ?? (this.location.virtual ? this.name : this.location.directories.concat(this.name).join('/'));
+		const path = ([] as string[]).concat(
+			RouterRoot.normalize(api.prefix),
+			RouterRoot.normalize(options.route ?? (this.location.virtual ? this.name : this.location.directories.concat(this.name).join('/')))
+		);
 
 		const methods = new Set(options.methods);
-		// If the path contains a method (e.g. `/users.get`), extract it and add it to the methods set:
-		const methodIndex = path.lastIndexOf('.');
-		if (methodIndex !== -1) {
-			// Extract the method from the path:
-			const method = path.slice(methodIndex + 1).toUpperCase() as MethodName;
-			if (!methods.has(method)) methods.add(method);
-
-			// Update the path to remove the method:
-			path = path.slice(0, methodIndex);
+		const implied = RouterRoot.extractMethod(path);
+		if (!isNullish(implied)) {
+			const lastIndex = path.length - 1;
+			path[lastIndex] = path[lastIndex].slice(0, path[lastIndex].length - implied.length - 1);
+			methods.add(implied as MethodName);
 		}
 
+		this.path = path;
 		this.methods = methods;
-		this.router = new RouteData(`${prefix}${path}`);
 		this.maximumBodyLength = options.maximumBodyLength ?? api.maximumBodyLength ?? 1024 * 1024 * 50;
 		this.acceptedContentMimeTypes = options.acceptedContentMimeTypes ?? api.acceptedContentMimeTypes ?? null;
 	}

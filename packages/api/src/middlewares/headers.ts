@@ -13,22 +13,19 @@ export class PluginMiddleware extends Middleware {
 		this.routes = this.container.stores.get('routes');
 	}
 
-	public override run(request: Middleware.Request, response: Middleware.Response, route: Route | null) {
+	public override run(request: Middleware.Request, response: Middleware.Response) {
 		response.setHeader('Date', new Date().toUTCString());
 		response.setHeader('Access-Control-Allow-Credentials', 'true');
 		response.setHeader('Access-Control-Allow-Origin', this.origin);
 		response.setHeader('Access-Control-Allow-Headers', 'Authorization, User-Agent, Content-Type');
-		response.setHeader('Access-Control-Allow-Methods', this.getMethods(route));
+		response.setHeader('Access-Control-Allow-Methods', this.getMethods(request.route ?? null));
 
-		this.ensurePotentialEarlyExit(request, response, route);
+		this.ensurePotentialEarlyExit(request, response);
 	}
 
 	private getMethods(route: Route | null) {
 		if (route === null) {
-			const { methods } = this.routes;
-			if (methods.size === 0) return '';
-			if (methods.size === 1) return methods.firstKey()!;
-			return [...methods.keys()].join(', ');
+			return this.routes.router.supportedMethods.join(', ');
 		}
 
 		if (route.methods.size === 0) return '';
@@ -51,13 +48,15 @@ export class PluginMiddleware extends Middleware {
 	 * @param response The API response that will go out
 	 * @param route The route being requested by the request
 	 */
-	private ensurePotentialEarlyExit(request: Middleware.Request, response: Middleware.Response, route: Route | null) {
-		if (request.method === 'OPTIONS') {
+	private ensurePotentialEarlyExit({ method, route, routerNode }: Middleware.Request, response: Middleware.Response) {
+		if (method === 'OPTIONS') {
 			if (!route || !route.methods.has('OPTIONS')) {
 				response.end();
 			}
-		} else if (route === null) {
+		} else if (routerNode === null) {
 			response.status(HttpCodes.NotFound).end();
+		} else if (route === null) {
+			response.status(HttpCodes.MethodNotAllowed).end();
 		}
 	}
 }

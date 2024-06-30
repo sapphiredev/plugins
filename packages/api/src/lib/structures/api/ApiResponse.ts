@@ -67,6 +67,13 @@ export class ApiResponse<Request extends IncomingMessage = IncomingMessage> exte
 	}
 
 	/**
+	 * @since 7.0.0
+	 */
+	public methodNotAllowed(data?: unknown): void {
+		return this.error(HttpCodes.MethodNotAllowed, data);
+	}
+
+	/**
 	 * @since 1.0.0
 	 */
 	public conflict(data?: unknown) {
