@@ -51,6 +51,7 @@
 	},
 	"dependencies": {
 		"@types/ws": "^8.5.10",
+		"@vladfrangu/async_event_emitter": "2.4.0",
 		"tldts": "^6.1.30",
 		"undici": "^6.19.2"
 	},

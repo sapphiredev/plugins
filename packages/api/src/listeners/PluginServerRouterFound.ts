@@ -5,14 +5,10 @@ import { ServerEvent } from '../lib/structures/http/Server';
 
 export class PluginListener extends Listener {
 	public constructor(context: Listener.LoaderContext) {
-		super(context, { emitter: 'server', event: ServerEvent.MiddlewareSuccess });
+		super(context, { emitter: 'server', event: ServerEvent.RouterFound });
 	}
 
-	public override async run(request: ApiRequest, response: ApiResponse) {
-		try {
-			await request.route!.run(request, response);
-		} catch (error) {
-			this.container.server.emit(ServerEvent.RouteError, error, request, response);
-		}
+	public override run(request: ApiRequest, response: ApiResponse) {
+		this.container.server.emit(response.writableEnded ? ServerEvent.MiddlewareFailure : ServerEvent.MiddlewareSuccess, request, response);
 	}
 }

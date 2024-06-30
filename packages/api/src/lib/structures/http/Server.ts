@@ -1,5 +1,5 @@
 import { container } from '@sapphire/pieces';
-import { EventEmitter } from 'node:events';
+import { AsyncEventEmitter } from '@vladfrangu/async_event_emitter';
 import { Server as HttpServer, createServer as httpCreateServer, type ServerOptions as HttpOptions } from 'node:http';
 import type { ListenOptions } from 'node:net';
 import { MediaParserStore } from '../MediaParserStore';
@@ -8,23 +8,37 @@ import type { Route } from '../Route';
 import { RouteStore } from '../RouteStore';
 import { ApiRequest } from '../api/ApiRequest';
 import { ApiResponse } from '../api/ApiResponse';
+import type { RouterBranch } from '../router/RouterBranch';
 import { Auth, type ServerOptionsAuth } from './Auth';
 
-export enum ServerEvents {
+export enum ServerEvent {
 	Error = 'error',
 	Request = 'request',
-	Match = 'match',
-	NoMatch = 'noMatch',
+	RouterBranchNotFound = 'routerBranchNotFound',
+	RouterBranchMethodNotAllowed = 'routerBranchMethodNotAllowed',
+	RouterFound = 'routerFound',
 	RouteError = 'routeError',
 	MiddlewareFailure = 'middlewareFailure',
 	MiddlewareError = 'middlewareError',
 	MiddlewareSuccess = 'middlewareSuccess'
 }
 
+export interface ServerEvents {
+	[ServerEvent.Error]: [error: Error, request: ApiRequest, response: ApiResponse];
+	[ServerEvent.Request]: [request: ApiRequest, response: ApiResponse];
+	[ServerEvent.RouterBranchNotFound]: [request: ApiRequest, response: ApiResponse];
+	[ServerEvent.RouterBranchMethodNotAllowed]: [request: ApiRequest, response: ApiResponse, node: RouterBranch];
+	[ServerEvent.RouterFound]: [request: ApiRequest, response: ApiResponse];
+	[ServerEvent.RouteError]: [error: Error, request: ApiRequest, response: ApiResponse];
+	[ServerEvent.MiddlewareFailure]: [error: Error, request: ApiRequest, response: ApiResponse];
+	[ServerEvent.MiddlewareSuccess]: [request: Route.Request, response: Route.Response, route: Route];
+	[ServerEvent.MiddlewareError]: [error: Error, request: ApiRequest, response: ApiResponse];
+}
+
 /**
  * @since 1.0.0
  */
-export class Server extends EventEmitter {
+export class Server extends AsyncEventEmitter<ServerEvents> {
 	/**
 	 * The routes this server holds.
 	 * @since 1.0.0
@@ -80,8 +94,8 @@ export class Server extends EventEmitter {
 		this.middlewares = new MiddlewareStore();
 		this.mediaParsers = new MediaParserStore();
 		this.auth = Auth.create(auth);
-		this.server.on('error', this.emit.bind(this, ServerEvents.Error));
-		this.server.on('request', this.emit.bind(this, ServerEvents.Request));
+		this.server.on('error', this.emit.bind(this, ServerEvent.Error));
+		this.server.on('request', this.emit.bind(this, ServerEvent.Request));
 	}
 
 	public connect() {
@@ -232,27 +246,3 @@ export interface ServerOptions {
  * @since 1.0.0
  */
 export type AuthLessServerOptions = Omit<ServerOptions, 'auth'>;
-
-/**
- * The context sent in the error events.
- * @since 1.2.0
- */
-export interface MiddlewareErrorContext {
-	/**
-	 * The erroneous request.
-	 * @since 1.2.0
-	 */
-	request: ApiRequest;
-
-	/**
-	 * The server's response.
-	 * @since 1.2.0
-	 */
-	response: ApiResponse;
-
-	/**
-	 * The route match.
-	 * @since 1.2.0
-	 */
-	route: Route;
-}

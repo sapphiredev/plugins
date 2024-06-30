@@ -15,9 +15,11 @@ export * from './lib/structures/MediaParserStore';
 export * from './lib/structures/Middleware';
 export * from './lib/structures/MiddlewareStore';
 export * from './lib/structures/Route';
+export * from './lib/structures/router/RouterBranch';
+export * from './lib/structures/router/RouterNode';
+export * from './lib/structures/router/RouterRoot';
 export * from './lib/structures/RouteStore';
 export * from './lib/utils/MimeTypes';
-export * from './lib/utils/RouteData';
 
 export { loadListeners } from './listeners/_load';
 export { loadMediaParsers } from './mediaParsers/_load';

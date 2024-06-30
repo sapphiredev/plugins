@@ -1,5 +1,7 @@
 import { IncomingMessage } from 'node:http';
+import type { Route } from '../Route';
 import type { AuthData } from '../http/Auth';
+import type { RouterNode } from '../router/RouterNode';
 
 export class ApiRequest extends IncomingMessage {
 	/**
@@ -25,4 +27,32 @@ export class ApiRequest extends IncomingMessage {
 	 * - `AuthData`: The user is authorized.
 	 */
 	public auth?: AuthData | null;
+
+	/**
+	 * The router node that matched the request. The field indicates three
+	 * possible values:
+	 *
+	 * - `undefined`: The router handler has not been executed yet.
+	 * - `null`: The router handler has been executed, but no node matched the
+	 *   request.
+	 * - `RouterNode`: The router handler has been executed and a node matched
+	 *   the request.
+	 *
+	 * @since 7.0.0
+	 */
+	public routerNode?: RouterNode | null;
+
+	/**
+	 * The route that matched the request. The field indicates three possible
+	 * values:
+	 *
+	 * - `undefined`: The router handler has not been executed yet.
+	 * - `null`: The router handler has been executed, but no route matched the
+	 *   request.
+	 * - `Route`: The router handler has been executed and a route matched the
+	 *   request.
+	 *
+	 * @since 7.0.0
+	 */
+	public route?: Route | null;
 }

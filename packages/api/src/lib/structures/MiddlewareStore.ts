@@ -1,6 +1,5 @@
 import { Store } from '@sapphire/pieces';
 import { Middleware } from './Middleware';
-import type { Route } from './Route';
 
 /**
  * @since 1.0.0
@@ -15,10 +14,10 @@ export class MiddlewareStore extends Store<Middleware, 'middlewares'> {
 		super(Middleware, { name: 'middlewares' });
 	}
 
-	public async run(request: Middleware.Request, response: Middleware.Response, route: Route | null): Promise<void> {
+	public async run(request: Middleware.Request, response: Middleware.Response): Promise<void> {
 		for (const middleware of this.sortedMiddlewares) {
 			if (response.writableEnded) return;
-			if (middleware.enabled) await middleware.run(request, response, route);
+			if (middleware.enabled) await middleware.run(request, response);
 		}
 	}
 
