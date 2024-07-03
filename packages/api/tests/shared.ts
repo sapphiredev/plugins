@@ -11,7 +11,7 @@ export function makeRoute(route: string) {
 		}
 
 		public override run() {
-			// nop
+			// noop
 		}
 	}
 
