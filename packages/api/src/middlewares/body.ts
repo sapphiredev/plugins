@@ -1,7 +1,6 @@
 import { HttpCodes } from '../lib/structures/http/HttpCodes';
 import type { MediaParserStore } from '../lib/structures/MediaParserStore';
 import { Middleware } from '../lib/structures/Middleware';
-import type { Route } from '../lib/structures/Route';
 
 export class PluginMiddleware extends Middleware {
 	private readonly mediaParsers: MediaParserStore;
@@ -11,7 +10,9 @@ export class PluginMiddleware extends Middleware {
 		this.mediaParsers = this.container.server.mediaParsers;
 	}
 
-	public override async run(request: Middleware.Request, response: Middleware.Response, route: Route) {
+	public override async run(request: Middleware.Request, response: Middleware.Response) {
+		if (!request.route) return;
+
 		// RFC 1341 4.
 		const contentType = request.headers['content-type'];
 		if (typeof contentType !== 'string') return;
@@ -22,7 +23,7 @@ export class PluginMiddleware extends Middleware {
 
 		// Verify if the content length is lower than accepted:
 		const length = Number(lengthString);
-		const maximumLength = route.maximumBodyLength;
+		const maximumLength = request.route.maximumBodyLength;
 		if (length > maximumLength) {
 			response.status(HttpCodes.PayloadTooLarge).json({ error: 'Exceeded maximum content length.' });
 			return;
@@ -31,7 +32,7 @@ export class PluginMiddleware extends Middleware {
 		// Verify if the content type is supported by the parser:
 		const type = this.mediaParsers.parseContentType(contentType);
 		const parser = this.mediaParsers.get(type);
-		if (!parser || !parser.accepts(route)) {
+		if (!parser || !parser.accepts(request.route)) {
 			response.status(HttpCodes.UnsupportedMediaType).json({ error: `Unsupported type ${type}.` });
 			return;
 		}
