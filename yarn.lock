@@ -1189,7 +1189,7 @@ __metadata:
     "@types/ws": "npm:^8.5.10"
     "@vladfrangu/async_event_emitter": "npm:2.4.1"
     concurrently: "npm:^8.2.2"
-    tldts: "npm:^6.1.30"
+    tldts: "npm:^6.1.31"
     tsup: "npm:^8.1.0"
     tsx: "npm:^4.16.2"
     typedoc: "npm:^0.25.13"
@@ -6080,21 +6080,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.30":
-  version: 6.1.30
-  resolution: "tldts-core@npm:6.1.30"
-  checksum: 10/bb7696c5894e2920ea6c2db0f16ce781c1cdce7f3ebcb086e5d791deca7a28af63fdfe452564fb8ea787c548db5c559e56b49b9cea7e6ba57ed8d6e35c339695
+"tldts-core@npm:^6.1.31":
+  version: 6.1.31
+  resolution: "tldts-core@npm:6.1.31"
+  checksum: 10/2f0bceb31ba62099969160e448c375f263936762aa20468bf569e26007606da41736ff5b2bf1b9cf273fd8e9a7a62b7537076681425998677b54f1dcdd21b052
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.1.30":
-  version: 6.1.30
-  resolution: "tldts@npm:6.1.30"
+"tldts@npm:^6.1.31":
+  version: 6.1.31
+  resolution: "tldts@npm:6.1.31"
   dependencies:
-    tldts-core: "npm:^6.1.30"
+    tldts-core: "npm:^6.1.31"
   bin:
     tldts: bin/cli.js
-  checksum: 10/34c6a1b4e95b142b04adcbe947676f05fcceda1f5de733032a2f16bcfcb8b8c848381628d231d1eed5091bfa4c55f56f2ac83f035f8819897fee5a16487bd9e5
+  checksum: 10/bbc9c5451e56f95ff18ba374ef69d14ae6d5be214d88c93a39c776c13d7f5ee4fbd766d5e1d1e9ad4f2f50c75af1d005ec2f3a72e8af2639bb447ea5ff286f1e
   languageName: node
   linkType: hard
 
