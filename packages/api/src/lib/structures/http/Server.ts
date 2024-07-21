@@ -30,7 +30,7 @@ export interface ServerEvents {
 	[ServerEvent.RouterBranchMethodNotAllowed]: [request: ApiRequest, response: ApiResponse, node: RouterBranch];
 	[ServerEvent.RouterFound]: [request: ApiRequest, response: ApiResponse];
 	[ServerEvent.RouteError]: [error: Error, request: ApiRequest, response: ApiResponse];
-	[ServerEvent.MiddlewareFailure]: [error: Error, request: ApiRequest, response: ApiResponse];
+	[ServerEvent.MiddlewareFailure]: [request: ApiRequest, response: ApiResponse];
 	[ServerEvent.MiddlewareSuccess]: [request: Route.Request, response: Route.Response, route: Route];
 	[ServerEvent.MiddlewareError]: [error: Error, request: ApiRequest, response: ApiResponse];
 }

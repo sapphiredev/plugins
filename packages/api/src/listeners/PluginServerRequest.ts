@@ -29,7 +29,7 @@ export class PluginListener extends Listener {
 			// Middlewares need to be run regardless of the match, specially since browsers do an OPTIONS request first.
 			await this.container.server.middlewares.run(request, response);
 		} catch (error) {
-			this.container.server.emit(ServerEvent.MiddlewareError, error, request, response);
+			this.container.server.emit(ServerEvent.MiddlewareError, error as Error, request, response);
 
 			// If a middleware errored, it might cause undefined behavior in the routes, so we will return early.
 			return;
@@ -38,7 +38,7 @@ export class PluginListener extends Listener {
 		if (branch === null) {
 			this.container.server.emit(ServerEvent.RouterBranchNotFound, request, response);
 		} else if (route === null) {
-			this.container.server.emit(ServerEvent.RouterBranchMethodNotAllowed, request, response);
+			this.container.server.emit(ServerEvent.RouterBranchMethodNotAllowed, request, response, branch);
 		} else {
 			this.container.server.emit(ServerEvent.RouterFound, request, response);
 		}
