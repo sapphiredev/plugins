@@ -54,8 +54,8 @@ export function parseSubcommandConstructorPreConditionsCooldown<
 		subcommandDefaultCooldown?.filteredCommands?.includes(
 			subcommandGroupName ? `${command.name}.${subcommandGroupName}.${subcommandMethodName}` : `${command.name}.${subcommandMethodName}`
 		) ?? false;
-	const limit = cooldownLimit ?? (filtered ? 0 : subcommandDefaultCooldown?.limit ?? 1);
-	const delay = cooldownDelay ?? (filtered ? 0 : subcommandDefaultCooldown?.delay ?? 0);
+	const limit = cooldownLimit ?? (filtered ? 0 : (subcommandDefaultCooldown?.limit ?? 1));
+	const delay = cooldownDelay ?? (filtered ? 0 : (subcommandDefaultCooldown?.delay ?? 0));
 
 	if (limit && delay) {
 		const scope = cooldownScope ?? subcommandDefaultCooldown?.scope ?? BucketScope.User;
