@@ -1178,7 +1178,7 @@ __metadata:
     "@favware/cliff-jumper": "npm:^4.0.2"
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@types/ws": "npm:^8.5.10"
-    "@vladfrangu/async_event_emitter": "npm:2.4.1"
+    "@vladfrangu/async_event_emitter": "npm:2.4.4"
     concurrently: "npm:^8.2.2"
     tldts: "npm:^6.1.31"
     tsup: "npm:^8.1.0"
@@ -1684,7 +1684,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vladfrangu/async_event_emitter@npm:2.4.1, @vladfrangu/async_event_emitter@npm:^2.2.4":
+"@vladfrangu/async_event_emitter@npm:2.4.4":
+  version: 2.4.4
+  resolution: "@vladfrangu/async_event_emitter@npm:2.4.4"
+  checksum: 10/634c2d656fb3a3b47584865b5bf2b92f06f19a0018324340c29f2215a82fc96b4997dc2a78c6aeefcb29b6b2f8c03e8f06234b45965b706f7bde5b997b7d8be2
+  languageName: node
+  linkType: hard
+
+"@vladfrangu/async_event_emitter@npm:^2.2.4":
   version: 2.4.1
   resolution: "@vladfrangu/async_event_emitter@npm:2.4.1"
   checksum: 10/f8212e81c56d4994b1d5bf23f66bb47d4254c80f1dee7437a411a0b9cd942ae53bb3f21400590c3c70121b299457a77241535567a1de35822a35044740ccb48e

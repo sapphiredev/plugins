@@ -12,7 +12,7 @@ export class PluginListener extends Listener {
 		try {
 			await request.route!.run(request, response);
 		} catch (error) {
-			this.container.server.emit(ServerEvent.RouteError, error, request, response);
+			this.container.server.emit(ServerEvent.RouteError, error as Error, request, response);
 		}
 	}
 }

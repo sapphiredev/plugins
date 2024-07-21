@@ -9,6 +9,7 @@ export class PluginListener extends Listener {
 	}
 
 	public override run(request: ApiRequest, response: ApiResponse) {
-		this.container.server.emit(response.writableEnded ? ServerEvent.MiddlewareFailure : ServerEvent.MiddlewareSuccess, request, response);
+		const event = response.writableEnded ? ServerEvent.MiddlewareFailure : ServerEvent.MiddlewareSuccess;
+		this.container.server.emit(event, request, response);
 	}
 }
