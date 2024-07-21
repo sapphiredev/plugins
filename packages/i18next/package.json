@@ -53,7 +53,7 @@
 		"@sapphire/utilities": "^3.16.2",
 		"@skyra/i18next-backend": "^2.0.5",
 		"chokidar": "^3.6.0",
-		"i18next": "^23.11.5"
+		"i18next": "^23.12.2"
 	},
 	"repository": {
 		"type": "git",
@@ -89,7 +89,7 @@
 		"@favware/cliff-jumper": "^4.0.2",
 		"@favware/rollup-type-bundler": "^3.3.0",
 		"concurrently": "^8.2.2",
-		"tsup": "^8.1.0",
+		"tsup": "^8.2.1",
 		"tsx": "^4.16.2",
 		"typedoc": "^0.25.13",
 		"typedoc-json-parser": "^10.0.0",
