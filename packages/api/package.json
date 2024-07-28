@@ -52,8 +52,8 @@
 	"dependencies": {
 		"@types/ws": "^8.5.11",
 		"@vladfrangu/async_event_emitter": "2.4.4",
-		"tldts": "^6.1.33",
-		"undici": "^6.19.2"
+		"tldts": "^6.1.35",
+		"undici": "^6.19.4"
 	},
 	"repository": {
 		"type": "git",
@@ -84,10 +84,10 @@
 		"access": "public"
 	},
 	"devDependencies": {
-		"@favware/cliff-jumper": "^4.0.2",
+		"@favware/cliff-jumper": "^4.0.3",
 		"@favware/rollup-type-bundler": "^3.3.0",
 		"concurrently": "^8.2.2",
-		"tsup": "^8.2.1",
+		"tsup": "^8.2.3",
 		"tsx": "^4.16.2",
 		"typedoc": "^0.25.13",
 		"typedoc-json-parser": "^10.0.0",
