@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@7.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@6.0.3...@sapphire/plugin-subcommands@7.0.0) - (2024-08-07)
+
+## 🏠 Refactor
+
+- Changed no match errors to emit on a subcommand listener instead of the root MessageCommandError / ChatInputCommandError ([6e7a5bf](https://github.com/sapphiredev/plugins/commit/6e7a5bf89feb869e656cb1a07bb29a664b1ebd41)) ([#601](https://github.com/sapphiredev/plugins/pull/601) by @favna)
+  - 💥 **BREAKING CHANGE:** If no subcommand matched the error was emitted to `MessageCommandError` or `ChatInputCommandError`.
+This was inconsistent with errors during runtime emitted to `MessageSubcommandError` and `ChatInputSubcommandError` respectively.
+Therefore these events are now emitted to the new events `PluginMessageSubcommandNoMatch` and `PluginChatInputSubcommandNoMatch` respectively.
+New built-in listeners for these events will log the infractions to the console at the error level. You can override these listeners to provide your functionality.
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies ([43df709](https://github.com/sapphiredev/plugins/commit/43df70954d837f7b14d62ea9123aca4b1da9ae36)) ([#574](https://github.com/sapphiredev/plugins/pull/574) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([7909d16](https://github.com/sapphiredev/plugins/commit/7909d16fcec9a8e5e9a3f8816c90a26fbc7d1284)) ([#573](https://github.com/sapphiredev/plugins/pull/573) by @renovate[bot])
+- **subcommands:** Export cooldown precondition on top level and deprecate namespaced exports ([e71f926](https://github.com/sapphiredev/plugins/commit/e71f9260de9b04f2ff010d4f8697fb78f230c1bb))
+- **deps:** Update all non-major dependencies ([ee64834](https://github.com/sapphiredev/plugins/commit/ee64834c799a5ac28b1ae172cb19f77a1887f3d4)) ([#546](https://github.com/sapphiredev/plugins/pull/546) by @renovate[bot])
+- **subcommands:** Update transitive dependencies ([342090e](https://github.com/sapphiredev/plugins/commit/342090efa7a6c2c5a82a6e97eced374d60885be9))
+
 # [@sapphire/plugin-subcommands@6.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@6.0.3...@sapphire/plugin-subcommands@6.0.3) - (2024-01-19)
 
 ## 🐛 Bug Fixes
