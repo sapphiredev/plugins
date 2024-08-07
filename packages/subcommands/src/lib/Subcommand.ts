@@ -233,7 +233,7 @@ export class Subcommand<PreParseReturn extends Args = Args, Options extends Subc
 	 * Whether this command has message-based subcommands or not
 	 * @returns `true` if this command has message-based subcommands, otherwise `false`
 	 */
-	public override supportsMessageCommands(): boolean {
+	public override supportsMessageCommands(): this is MessageCommand {
 		return this.#supportsCommandType('messageRun');
 	}
 
@@ -330,15 +330,17 @@ export class Subcommand<PreParseReturn extends Args = Args, Options extends Subc
 			return this.#handleMessageRun(message, args, context, defaultCommand, subcommandGroupName);
 		}
 
-		// No match and no subcommand, return an err:
-		throw new UserError({
+		const commandPrefix = this.#getCommandPrefix(message.content, args.commandContext.prefix);
+		const prefixLessContent = message.content.slice(commandPrefix.length).trim();
+
+		// No match and no subcommand, emit an error:
+		this.container.client.emit(SubcommandPluginEvents.MessageSubcommandNoMatch, message, args, {
+			...context,
+			command: this,
 			identifier: SubcommandPluginIdentifiers.MessageSubcommandNoMatch,
-			message: 'No subcommand was matched with the provided arguments.',
-			context: {
-				...context,
-				possibleSubcommandName: subcommandName.unwrapOr(null),
-				possibleSubcommandGroupOrName: subcommandOrGroup.unwrapOr(null)
-			}
+			message: `Unable to match a subcommand on message command "${this.name}" at path "${this.location.full}" with content ${prefixLessContent}`,
+			possibleSubcommandName: subcommandName.unwrapOr(null),
+			possibleSubcommandGroupOrName: subcommandOrGroup.unwrapOr(null)
 		});
 	}
 
@@ -376,12 +378,17 @@ export class Subcommand<PreParseReturn extends Args = Args, Options extends Subc
 			}
 		}
 
-		// No match and no subcommand, return an err:
-		throw new UserError({
+		// No match and no subcommand, emit an error:
+		this.container.client.emit(SubcommandPluginEvents.ChatInputSubcommandNoMatch, interaction, {
+			...context,
+			command: this,
 			identifier: SubcommandPluginIdentifiers.ChatInputSubcommandNoMatch,
-			message: 'No subcommand was matched with the provided command.',
-			context
+			message: `Unable to match a subcommand on chat input command "${this.name}" at path "${this.location.full}"`
 		});
+	}
+
+	#getCommandPrefix(content: string, prefix: string | RegExp): string {
+		return typeof prefix === 'string' ? prefix : prefix.exec(content)![0];
 	}
 
 	async #getMessageParametersAsString(args: Args): Promise<Partial<Pick<MessageCommandDeniedPayload, 'parameters'>>> {

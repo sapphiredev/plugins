@@ -1,4 +1,4 @@
-import type { ChatInputCommand, MessageCommand, MessageCommandDeniedPayload, UserError } from '@sapphire/framework';
+import type { Args, ChatInputCommand, ChatInputCommandContext, MessageCommand, MessageCommandDeniedPayload, UserError } from '@sapphire/framework';
 import type { Message } from 'discord.js';
 import type { Subcommand } from '../Subcommand';
 import type { ChatInputCommandSubcommandMappingMethod, MessageSubcommandMappingMethod, SubcommandMappingMethod } from './SubcommandMappings';
@@ -8,11 +8,13 @@ export const SubcommandPluginEvents = {
 	ChatInputSubcommandRun: 'chatInputSubcommandRun' as const,
 	ChatInputSubcommandSuccess: 'chatInputSubcommandSuccess' as const,
 	ChatInputSubcommandError: 'chatInputSubcommandError' as const,
+	ChatInputSubcommandNoMatch: 'chatInputSubcommandNoMatch' as const,
 
 	MessageSubcommandDenied: 'messageSubcommandDenied' as const,
 	MessageSubcommandRun: 'messageSubcommandRun' as const,
 	MessageSubcommandSuccess: 'messageSubcommandSuccess' as const,
 	MessageSubcommandError: 'messageSubcommandError' as const,
+	MessageSubcommandNoMatch: 'messageSubcommandNoMatch' as const,
 
 	SubcommandMappingIsMissingMessageCommandHandler: 'subcommandMappingIsMissingMessageCommandHandler' as const,
 	SubcommandMappingIsMissingChatInputCommandHandler: 'subcommandMappingIsMissingChatInputCommandHandler' as const
@@ -25,8 +27,17 @@ export enum SubcommandPluginIdentifiers {
 }
 
 export interface MessageSubcommandNoMatchContext extends MessageCommand.RunContext {
+	command: Subcommand;
+	identifier: SubcommandPluginIdentifiers.MessageSubcommandNoMatch;
+	message: string;
 	possibleSubcommandName: string | null;
 	possibleSubcommandGroupOrName: string | null;
+}
+
+export interface ChatInputSubcommandNoMatchContext extends ChatInputCommandContext {
+	command: Subcommand;
+	identifier: SubcommandPluginIdentifiers.ChatInputSubcommandNoMatch;
+	message: string;
 }
 
 export interface IMessageSubcommandPayload {
@@ -87,6 +98,7 @@ declare module 'discord.js' {
 			payload: ChatInputSubcommandSuccessPayload
 		];
 		[SubcommandPluginEvents.ChatInputSubcommandError]: [error: unknown, payload: ChatInputSubcommandErrorPayload];
+		[SubcommandPluginEvents.ChatInputSubcommandNoMatch]: [interaction: ChatInputCommand.Interaction, context: ChatInputSubcommandNoMatchContext];
 
 		[SubcommandPluginEvents.MessageSubcommandDenied]: [error: UserError, payload: MessageSubcommandDeniedPayload];
 		[SubcommandPluginEvents.MessageSubcommandRun]: [
@@ -100,6 +112,7 @@ declare module 'discord.js' {
 			payload: MessageSubcommandSuccessPayload
 		];
 		[SubcommandPluginEvents.MessageSubcommandError]: [error: unknown, payload: MessageSubcommandErrorPayload];
+		[SubcommandPluginEvents.MessageSubcommandNoMatch]: [message: Message, args: Args, context: MessageSubcommandNoMatchContext];
 
 		[SubcommandPluginEvents.SubcommandMappingIsMissingMessageCommandHandler]: [
 			message: Message,
