@@ -383,7 +383,7 @@ export class Subcommand<PreParseReturn extends Args = Args, Options extends Subc
 			...context,
 			command: this,
 			identifier: SubcommandPluginIdentifiers.ChatInputSubcommandNoMatch,
-			message: `Unable to match a subcommand on chat input command "${this.name}" at path "${this.location.full}"}`
+			message: `Unable to match a subcommand on chat input command "${this.name}" at path "${this.location.full}"`
 		});
 	}
 
