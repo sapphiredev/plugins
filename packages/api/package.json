@@ -52,8 +52,8 @@
 	"dependencies": {
 		"@types/ws": "^8.5.12",
 		"@vladfrangu/async_event_emitter": "2.4.5",
-		"tldts": "^6.1.37",
-		"undici": "^6.19.5"
+		"tldts": "^6.1.39",
+		"undici": "^6.19.7"
 	},
 	"repository": {
 		"type": "git",
@@ -88,7 +88,7 @@
 		"@favware/rollup-type-bundler": "^3.3.0",
 		"concurrently": "^8.2.2",
 		"tsup": "^8.2.4",
-		"tsx": "^4.16.5",
+		"tsx": "^4.17.0",
 		"typedoc": "^0.25.13",
 		"typedoc-json-parser": "^10.0.0",
 		"typescript": "~5.4.5"
