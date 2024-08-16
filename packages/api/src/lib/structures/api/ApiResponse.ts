@@ -1,7 +1,7 @@
 import { IncomingMessage, ServerResponse, STATUS_CODES } from 'node:http';
 import { Readable } from 'node:stream';
 import { ReadableStream } from 'node:stream/web';
-import { MimeTypes } from '../../utils/MimeTypes';
+import type { MimeType } from '../../utils/MimeType';
 import { HttpCodes } from '../http/HttpCodes';
 import type { CookieStore } from './CookieStore';
 
@@ -110,14 +110,14 @@ export class ApiResponse<Request extends IncomingMessage = IncomingMessage> exte
 	 * @since 1.0.0
 	 */
 	public json(data: any): void {
-		this.setContentType(MimeTypes.ApplicationJson).end(JSON.stringify(data));
+		this.setContentType('application/json').end(JSON.stringify(data));
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
 	public text(data: string): void {
-		this.setContentType(MimeTypes.TextPlain).end(data);
+		this.setContentType('text/plain').end(data);
 	}
 
 	/**
@@ -125,13 +125,10 @@ export class ApiResponse<Request extends IncomingMessage = IncomingMessage> exte
 	 *
 	 * Sets the image content type and sends the image data in the response.
 	 *
-	 * @param type - The MIME type of the image (e.g., {@link MimeTypes.ImagePng}).
+	 * @param type - The MIME type of the image (e.g., 'image/png').
 	 * @param data - The image data as a `string`, {@link Buffer}, {@link Uint8Array}, or {@link ReadableStream}.
 	 */
-	public image(
-		type: MimeTypes.ImageGif | MimeTypes.ImageJpg | MimeTypes.ImagePng | MimeTypes.ImageWebp | MimeTypes.ImageXIcon,
-		data: string | Buffer | Uint8Array | Readable
-	): void {
+	public image(type: Extract<MimeType, `image/${string}`>, data: string | Buffer | Uint8Array | Readable): void {
 		if (data instanceof Readable) {
 			this.setContentType(type);
 			data.pipe(this);
@@ -144,13 +141,13 @@ export class ApiResponse<Request extends IncomingMessage = IncomingMessage> exte
 	 * @since 5.1.0
 	 */
 	public html(code: number, data: string): void {
-		this.setContentType(MimeTypes.TextHtml).status(code).end(data);
+		this.setContentType('text/html').status(code).end(data);
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
-	public setContentType(contentType: MimeTypes): this {
+	public setContentType(contentType: MimeType): this {
 		this.setHeader('Content-Type', contentType);
 		return this;
 	}
