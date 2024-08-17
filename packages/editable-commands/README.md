@@ -7,7 +7,6 @@
 **Plugin for <a href="https://github.com/sapphiredev/framework">@sapphire/framework</a> to have editable commands.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/plugins)](https://github.com/sapphiredev/plugins/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/plugins/branch/main/graph/badge.svg?token=QWL8FB16BR)](https://codecov.io/gh/sapphiredev/plugins)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/@sapphire/plugin-editable_commands?logo=webpack&style=flat-square)](https://bundlephobia.com/result?p=@sapphire/plugin-editable-commands)
 [![npm](https://img.shields.io/npm/v/@sapphire/plugin-editable-commands?color=crimson&logo=npm&style=flat-square)](https://www.npmjs.com/package/@sapphire/plugin-editable-commands)
 

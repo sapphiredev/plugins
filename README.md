@@ -7,7 +7,6 @@
 **Plugins for Sapphire Framework.**
 
 [![GitHub](https://img.shields.io/github/license/sapphiredev/plugins)](https://github.com/sapphiredev/plugins/blob/main/LICENSE.md)
-[![codecov](https://codecov.io/gh/sapphiredev/plugins/branch/main/graph/badge.svg?token=hygqPZuVZ5)](https://codecov.io/gh/sapphiredev/plugins)
 
 **Packages**
 

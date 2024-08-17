@@ -1,13 +1,7 @@
 {
-	"eslint.validate": ["typescript"],
-	"editor.tabSize": 4,
-	"editor.useTabStops": true,
-	"editor.insertSpaces": false,
-	"editor.detectIndentation": false,
-	"files.eol": "\n",
 	"cSpell.words": ["Dashless"],
 	"sonarlint.connectedMode.project": {
-		"connectionId": "https-sonarqube-sapphirejs-dev",
-		"projectKey": "sapphiredev_plugins_caed5c00-494e-44d2-b01c-b40a0e2680d8"
+		"connectionId": "sapphiredev",
+		"projectKey": "sapphiredev_plugins"
 	}
 }
