@@ -1,8 +1,8 @@
 import { Piece } from '@sapphire/pieces';
 import type { Awaitable } from '@sapphire/utilities';
 import { createBrotliDecompress, createGunzip, createInflate, type Gunzip } from 'zlib';
+import type { MimeType } from '../utils/MimeType';
 import type { ApiRequest } from './api/ApiRequest';
-import type { MimeTypeWithoutParameters } from './http/Server';
 import type { Route } from './Route';
 
 /**
@@ -26,7 +26,7 @@ export abstract class MediaParser<Options extends MediaParser.Options = MediaPar
 	 * @param route The route to be checked.
 	 */
 	public accepts(route: Route): boolean {
-		return route.acceptedContentMimeTypes === null || route.acceptedContentMimeTypes.includes(this.name as MimeTypeWithoutParameters);
+		return route.acceptedContentMimeTypes === null || route.acceptedContentMimeTypes.includes(this.name as MimeType);
 	}
 
 	/**

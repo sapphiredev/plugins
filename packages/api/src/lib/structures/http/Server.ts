@@ -2,6 +2,7 @@ import { container } from '@sapphire/pieces';
 import { AsyncEventEmitter } from '@vladfrangu/async_event_emitter';
 import { Server as HttpServer, createServer as httpCreateServer, type ServerOptions as HttpOptions } from 'node:http';
 import type { ListenOptions } from 'node:net';
+import type { MimeType } from '../../utils/MimeType';
 import { MediaParserStore } from '../MediaParserStore';
 import { MiddlewareStore } from '../MiddlewareStore';
 import type { Route } from '../Route';
@@ -168,15 +169,16 @@ export type ContentTypeParameter = `; ${string}=${string}`;
 /**
  * RFC 1341 4: Defines the syntax for a Content-Type field without parameters, which follows the following structure:
  * `type "/" subtype`.
+ * @since 7.0.0
  */
-export type MimeTypeWithoutParameters = `${ContentTypeType}/${string}`;
+export type GenericMimeType = `${ContentTypeType}/${string}`;
 
 /**
  * RFC 1341 4: Defines the syntax for a Content-Type field, which follows the following structure:
  * `type "/" subtype *[";" parameter]`.
- * @since 1.3.0
+ * @since 7.0.0
  */
-export type MimeType = `${MimeTypeWithoutParameters}${'' | ContentTypeParameter}`;
+export type GenericParametrizedMimeType = `${GenericMimeType}${'' | ContentTypeParameter}`;
 
 /**
  * The API options.
@@ -209,7 +211,7 @@ export interface ServerOptions {
 	 * @since 1.3.0
 	 * @default null
 	 */
-	acceptedContentMimeTypes?: MimeTypeWithoutParameters[] | null;
+	acceptedContentMimeTypes?: MimeType[] | null;
 
 	/**
 	 * The HTTP server options.

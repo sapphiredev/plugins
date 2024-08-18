@@ -1,9 +1,9 @@
 import { Piece } from '@sapphire/pieces';
 import { isNullish, type Awaitable } from '@sapphire/utilities';
+import type { MimeType } from '../utils/MimeType';
 import type { ApiRequest } from './api/ApiRequest';
 import type { ApiResponse } from './api/ApiResponse';
 import type { MethodName } from './http/HttpMethods';
-import type { MimeTypeWithoutParameters } from './http/Server';
 import { RouterRoot } from './router/RouterRoot';
 
 /**
@@ -52,7 +52,7 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 	/**
 	 * The accepted content types.
 	 */
-	public readonly acceptedContentMimeTypes: readonly MimeTypeWithoutParameters[] | null;
+	public readonly acceptedContentMimeTypes: readonly MimeType[] | null;
 
 	/**
 	 * The path this route represents.
@@ -124,7 +124,7 @@ export interface RouteOptions extends Piece.Options {
 	 *
 	 * @defaultValue this.context.server.options.acceptedContentMimeTypes ?? null
 	 */
-	acceptedContentMimeTypes?: readonly MimeTypeWithoutParameters[] | null;
+	acceptedContentMimeTypes?: readonly MimeType[] | null;
 
 	/**
 	 * The methods this route accepts.

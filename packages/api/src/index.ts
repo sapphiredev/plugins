@@ -19,7 +19,7 @@ export * from './lib/structures/router/RouterBranch';
 export * from './lib/structures/router/RouterNode';
 export * from './lib/structures/router/RouterRoot';
 export * from './lib/structures/RouteStore';
-export * from './lib/utils/MimeTypes';
+export type * from './lib/utils/MimeType';
 
 export { loadListeners } from './listeners/_load';
 export { loadMediaParsers } from './mediaParsers/_load';
