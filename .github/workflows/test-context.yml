@@ -8,4 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
-        run: echo "${{ toJSON(github) }}"
+        run: |
+          echo "${{ toJSON(github) }}" > context.json
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: context.json
+          name: github-context-fork.json
+          retention-days: 1
