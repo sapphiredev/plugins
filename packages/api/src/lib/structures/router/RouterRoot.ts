@@ -40,15 +40,15 @@ export class RouterRoot extends RouterBranch {
 
 	public static makeRoutePathForPiece(directories: readonly string[], name: string): string {
 		const parts: string[] = [];
-		for (let directory of directories) {
-			directory = directory.trim();
+		for (const directory of directories) {
+			const trimmed = directory.trim();
 
 			// If empty, skip:
-			if (isNullishOrEmpty(directory)) continue;
+			if (isNullishOrEmpty(trimmed)) continue;
 			// If it's a group, skip:
-			if (directory.startsWith('(') && directory.endsWith(')')) continue;
+			if (trimmed.startsWith('(') && trimmed.endsWith(')')) continue;
 
-			parts.push(directory);
+			parts.push(trimmed);
 		}
 
 		parts.push(name);
