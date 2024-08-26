@@ -1,7 +1,7 @@
 import './index';
 
-import { Plugin, preGenericsInitialization, SapphireClient } from '@sapphire/framework';
-import type { ClientOptions } from 'discord.js';
+import { container, Plugin, preGenericsInitialization, SapphireClient } from '@sapphire/framework';
+import { Collection, type ClientOptions } from 'discord.js';
 import { Logger } from './index';
 
 /**
@@ -17,4 +17,5 @@ export class LoggerPlugin extends Plugin {
 	}
 }
 
+container.transporters = new Collection();
 SapphireClient.plugins.registerPreGenericsInitializationHook(LoggerPlugin[preGenericsInitialization], 'Logger-PreGenericsInitialization');
