@@ -68,10 +68,10 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 		super(context, options);
 
 		const api = this.container.server.options;
-		const path = ([] as string[]).concat(
-			RouterRoot.normalize(api.prefix),
-			RouterRoot.normalize(options.route ?? (this.location.virtual ? this.name : this.location.directories.concat(this.name).join('/')))
-		);
+		const path = [
+			...RouterRoot.normalize(api.prefix),
+			...RouterRoot.normalize(options.route ?? RouterRoot.makeRoutePathForPiece(this.location.directories, this.name))
+		];
 
 		const methods = new Set(options.methods);
 		const implied = RouterRoot.extractMethod(path);
