@@ -51,7 +51,7 @@ export class RouterRoot extends RouterBranch {
 			parts.push(trimmed);
 		}
 
-		parts.push(name);
+		parts.push(name.trim());
 		return parts.join('/');
 	}
 
