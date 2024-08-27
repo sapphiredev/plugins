@@ -5,7 +5,7 @@ import { PluginMiddleware as PluginCookies } from './cookies';
 import { PluginMiddleware as PluginHeaders } from './headers';
 
 export function loadMiddlewares() {
-	const store = 'middlewares' as const;
+	const store = 'middlewares';
 	void container.stores.loadPiece({ name: 'auth', piece: PluginAuth, store });
 	void container.stores.loadPiece({ name: 'body', piece: PluginBody, store });
 	void container.stores.loadPiece({ name: 'cookies', piece: PluginCookies, store });

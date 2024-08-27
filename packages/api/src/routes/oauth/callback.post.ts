@@ -16,7 +16,7 @@ export class PluginRoute extends Route {
 	}
 
 	public override async run(request: Route.Request, response: Route.Response) {
-		const body = request.body as OAuth2BodyData;
+		const body = (await request.readBodyJson()) as OAuth2BodyData;
 		if (typeof body?.code !== 'string') {
 			return response.badRequest();
 		}

@@ -2,8 +2,6 @@ import { container } from '@sapphire/pieces';
 import { AsyncEventEmitter } from '@vladfrangu/async_event_emitter';
 import { Server as HttpServer, createServer as httpCreateServer, type ServerOptions as HttpOptions } from 'node:http';
 import type { ListenOptions } from 'node:net';
-import type { MimeType } from '../../utils/MimeType';
-import { MediaParserStore } from '../MediaParserStore';
 import { MiddlewareStore } from '../MiddlewareStore';
 import type { Route } from '../Route';
 import { RouteStore } from '../RouteStore';
@@ -53,12 +51,6 @@ export class Server extends AsyncEventEmitter<ServerEvents> {
 	public readonly middlewares: MiddlewareStore;
 
 	/**
-	 * The media parsers this server holds.
-	 * @since 1.3.0
-	 */
-	public readonly mediaParsers: MediaParserStore;
-
-	/**
 	 * The authentication system.
 	 * @since 1.0.0
 	 */
@@ -93,7 +85,6 @@ export class Server extends AsyncEventEmitter<ServerEvents> {
 		});
 		this.routes = new RouteStore();
 		this.middlewares = new MiddlewareStore();
-		this.mediaParsers = new MediaParserStore();
 		this.auth = Auth.create(auth);
 		this.server.on('error', this.emit.bind(this, ServerEvent.Error));
 		this.server.on('request', this.emit.bind(this, ServerEvent.Request));
@@ -136,7 +127,7 @@ export class Server extends AsyncEventEmitter<ServerEvents> {
 
 	public disconnect() {
 		return new Promise<void>((resolve, reject) => {
-			this.server.close((error) => (error ? resolve() : reject(error)));
+			this.server.close((error) => (error ? reject(error) : resolve()));
 		});
 	}
 }
@@ -205,13 +196,6 @@ export interface ServerOptions {
 	 * @default 1024 * 1024 * 50
 	 */
 	maximumBodyLength?: number;
-
-	/**
-	 * The accepted content types for this route. If set to null, the route will accept any data.
-	 * @since 1.3.0
-	 * @default null
-	 */
-	acceptedContentMimeTypes?: MimeType[] | null;
 
 	/**
 	 * The HTTP server options.

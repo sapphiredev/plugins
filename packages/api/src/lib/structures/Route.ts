@@ -1,6 +1,5 @@
 import { Piece } from '@sapphire/pieces';
 import { isNullish, type Awaitable } from '@sapphire/utilities';
-import type { MimeType } from '../utils/MimeType';
 import type { ApiRequest } from './api/ApiRequest';
 import type { ApiResponse } from './api/ApiResponse';
 import type { MethodName } from './http/HttpMethods';
@@ -50,11 +49,6 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 	public readonly maximumBodyLength: number;
 
 	/**
-	 * The accepted content types.
-	 */
-	public readonly acceptedContentMimeTypes: readonly MimeType[] | null;
-
-	/**
 	 * The path this route represents.
 	 */
 	public readonly path: readonly string[];
@@ -78,13 +72,12 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 		if (!isNullish(implied)) {
 			const lastIndex = path.length - 1;
 			path[lastIndex] = path[lastIndex].slice(0, path[lastIndex].length - implied.length - 1);
-			methods.add(implied as MethodName);
+			methods.add(implied);
 		}
 
 		this.path = path;
 		this.methods = methods;
 		this.maximumBodyLength = options.maximumBodyLength ?? api.maximumBodyLength ?? 1024 * 1024 * 50;
-		this.acceptedContentMimeTypes = options.acceptedContentMimeTypes ?? api.acceptedContentMimeTypes ?? null;
 	}
 
 	public abstract run(request: Route.Request, response: Route.Response): Awaitable<unknown>;
@@ -119,14 +112,6 @@ export interface RouteOptions extends Piece.Options {
 	maximumBodyLength?: number;
 
 	/**
-	 * The accepted content types for this route. If set to null, the route will accept any data.
-	 * @since 1.3.0
-	 *
-	 * @defaultValue this.context.server.options.acceptedContentMimeTypes ?? null
-	 */
-	acceptedContentMimeTypes?: readonly MimeType[] | null;
-
-	/**
 	 * The methods this route accepts.
 	 * @since 7.0.0
 	 *
@@ -137,7 +122,7 @@ export interface RouteOptions extends Piece.Options {
 
 export namespace Route {
 	/** @deprecated Use {@linkcode LoaderContext} instead. */
-	export type Context = LoaderContext;
+	export type Context = LoaderContext; // NOSONAR
 	export type LoaderContext = Piece.LoaderContext<'routes'>;
 	export type Options = RouteOptions;
 	export type JSON = Piece.JSON;

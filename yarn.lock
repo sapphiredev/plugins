@@ -1342,6 +1342,7 @@ __metadata:
     "@types/ws": "npm:^8.5.12"
     "@vladfrangu/async_event_emitter": "npm:2.4.6"
     concurrently: "npm:^8.2.2"
+    cookie-es: "npm:^1.2.2"
     tldts: "npm:^6.1.41"
     tsup: "npm:^8.2.4"
     tsx: "npm:^4.18.0"
@@ -2607,6 +2608,13 @@ __metadata:
   bin:
     conventional-recommended-bump: dist/cli/index.js
   checksum: 10/d4a72f48ceec9947bf6f4ae346574262c8c991930a4b8d6d5d43cfd03bcf9531f74200ce60d43a251fd537b5292668f6480c17fe4ed458b4f84418db2be3af85
+  languageName: node
+  linkType: hard
+
+"cookie-es@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "cookie-es@npm:1.2.2"
+  checksum: 10/0fd742c11caa185928e450543f84df62d4b2c1fc7b5041196b57b7db04e1c6ac6585fb40e4f579a2819efefd2d6a9cbb4d17f71240d05f4dcd8f74ae81341a20
   languageName: node
   linkType: hard
 

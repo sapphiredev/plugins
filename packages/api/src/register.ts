@@ -1,8 +1,6 @@
-import './index';
-
 import { Plugin, postInitialization, preLogin, SapphireClient } from '@sapphire/framework';
 import type { ClientOptions } from 'discord.js';
-import { loadListeners, loadMediaParsers, loadMiddlewares, loadRoutes, Server } from './index';
+import { loadListeners, loadMiddlewares, loadRoutes, Server } from './index';
 
 /**
  * @since 1.0.0
@@ -15,11 +13,9 @@ export class Api extends Plugin {
 		this.server = new Server(options.api);
 		this.stores
 			.register(this.server.routes) //
-			.register(this.server.mediaParsers)
 			.register(this.server.middlewares);
 
 		loadListeners();
-		loadMediaParsers();
 		loadMiddlewares();
 		loadRoutes();
 	}
