@@ -1,9 +1,8 @@
-import { Logger as BuiltinLogger, container, LogLevel, type LogMethods } from '@sapphire/framework';
+import { Logger as BuiltinLogger, LogLevel, type LogMethods } from '@sapphire/framework';
 import { bgRed, cyan, gray, isColorSupported, magenta, red, white, yellow, type Color } from 'colorette';
 import { Console } from 'console';
 import { inspect, type InspectOptions } from 'util';
 import { LoggerLevel, type LoggerLevelOptions } from './LoggerLevel';
-import { LoggerTransport, type TransporterOption } from './LoggerTransport';
 
 /**
  * The logger class.
@@ -41,18 +40,6 @@ export class Logger extends BuiltinLogger {
 		this.formats = Logger.createFormatMap(options.format, options.defaultFormat);
 		this.join = options.join ?? ' ';
 		this.depth = options.depth ?? 0;
-
-		if (options.transports) {
-			for (const transport of options.transports) {
-				container.transporters.set(
-					transport.loglevel,
-					new LoggerTransport({
-						file: transport.file,
-						loglevel: transport.loglevel
-					})
-				);
-			}
-		}
 	}
 
 	/**
@@ -67,10 +54,6 @@ export class Logger extends BuiltinLogger {
 		const formatter = this.formats.get(level) ?? this.formats.get(LogLevel.None)!;
 
 		this.console[method](formatter.run(this.preprocess(values)));
-		const transporter = container.transporters.get(level);
-		if (transporter) {
-			void transporter.transport(formatter.run(this.preprocess(values)));
-		}
 	}
 
 	/**
@@ -171,12 +154,6 @@ export interface LoggerOptions {
 	 * @default 0
 	 */
 	depth?: number;
-
-	/**
-	 * The transporter options
-	 * @since 4.1.0
-	 */
-	transports?: TransporterOption[];
 }
 
 /**

@@ -1,7 +1,4 @@
-import type { Collection } from 'discord.js';
 import type { LoggerOptions } from './lib/Logger';
-import type { LoggerTransport } from './lib/LoggerTransport';
-import type { LogLevel } from '@sapphire/framework';
 
 export * from './lib/Logger';
 export * from './lib/LoggerLevel';
@@ -10,9 +7,6 @@ export * from './lib/LoggerTimestamp';
 
 declare module '@sapphire/framework' {
 	export interface ClientLoggerOptions extends LoggerOptions {}
-	export interface Container {
-		transporters: Collection<LogLevel, LoggerTransport>;
-	}
 }
 
 /**
