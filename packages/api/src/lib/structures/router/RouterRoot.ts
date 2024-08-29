@@ -38,6 +38,23 @@ export class RouterRoot extends RouterBranch {
 		return '';
 	}
 
+	public static makeRoutePathForPiece(directories: readonly string[], name: string): string {
+		const parts: string[] = [];
+		for (const directory of directories) {
+			const trimmed = directory.trim();
+
+			// If empty, skip:
+			if (isNullishOrEmpty(trimmed)) continue;
+			// If it's a group, skip:
+			if (trimmed.startsWith('(') && trimmed.endsWith(')')) continue;
+
+			parts.push(trimmed);
+		}
+
+		parts.push(name.trim());
+		return parts.join('/');
+	}
+
 	public static normalize(path: string | null | undefined): string[] {
 		const parts = [] as string[];
 		if (isNullishOrEmpty(path)) return parts;
