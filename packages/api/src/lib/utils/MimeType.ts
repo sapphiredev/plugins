@@ -1476,6 +1476,7 @@ export type MimeType =
 	| 'application/vnd.truedoc'
 	| 'application/vnd.ubisoft.webplayer'
 	| 'application/vnd.ufdl'
+	| 'application/vnd.uic.osdm+json'
 	| 'application/vnd.uiq.theme'
 	| 'application/vnd.umajin'
 	| 'application/vnd.unity'
