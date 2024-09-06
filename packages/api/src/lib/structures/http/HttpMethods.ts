@@ -25,6 +25,7 @@ export const MethodNames = [
 	'PROPPATCH',
 	'PURGE',
 	'PUT',
+	'QUERY',
 	'REBIND',
 	'REPORT',
 	'SEARCH',

@@ -1,16 +1,12 @@
 import { HttpCodes } from '../lib/structures/http/HttpCodes';
-import type { MediaParserStore } from '../lib/structures/MediaParserStore';
 import { Middleware } from '../lib/structures/Middleware';
 
 export class PluginMiddleware extends Middleware {
-	private readonly mediaParsers: MediaParserStore;
-
 	public constructor(context: Middleware.LoaderContext) {
 		super(context, { position: 20 });
-		this.mediaParsers = this.container.server.mediaParsers;
 	}
 
-	public override async run(request: Middleware.Request, response: Middleware.Response) {
+	public override run(request: Middleware.Request, response: Middleware.Response) {
 		if (!request.route) return;
 
 		// RFC 1341 4.
@@ -26,22 +22,6 @@ export class PluginMiddleware extends Middleware {
 		const maximumLength = request.route.maximumBodyLength;
 		if (length > maximumLength) {
 			response.status(HttpCodes.PayloadTooLarge).json({ error: 'Exceeded maximum content length.' });
-			return;
-		}
-
-		// Verify if the content type is supported by the parser:
-		const type = this.mediaParsers.parseContentType(contentType);
-		const parser = this.mediaParsers.get(type);
-		if (!parser || !parser.accepts(request.route)) {
-			response.status(HttpCodes.UnsupportedMediaType).json({ error: `Unsupported type ${type}.` });
-			return;
-		}
-
-		try {
-			// Parse the content body:
-			request.body = await parser.run(request);
-		} catch {
-			response.status(HttpCodes.BadRequest).json({ error: `Cannot parse ${type} data.` });
 		}
 	}
 }

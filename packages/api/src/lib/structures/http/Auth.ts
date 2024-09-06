@@ -47,7 +47,7 @@ export class Auth {
 	#secret: string;
 
 	private constructor(options: ServerOptionsAuth) {
-		this.id = options.id as Snowflake;
+		this.id = options.id;
 		this.cookie = options.cookie ?? 'SAPPHIRE_AUTH';
 		this.scopes = options.scopes ?? [OAuth2Scopes.Identify];
 		this.redirect = options.redirect;
@@ -178,7 +178,7 @@ export interface ServerOptionsAuth {
 	 * The client's application id, this can be retrieved in Discord Developer Portal at https://discord.com/developers/applications.
 	 * @since 1.0.0
 	 */
-	id: string;
+	id: Snowflake;
 
 	/**
 	 * The name for the cookie, this will be used to identify a Secure HttpOnly cookie.

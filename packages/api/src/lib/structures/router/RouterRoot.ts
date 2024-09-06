@@ -73,7 +73,6 @@ export class RouterRoot extends RouterBranch {
 
 		if (part.length) {
 			parts.push(part);
-			part = '';
 		}
 
 		return parts;

@@ -8,7 +8,7 @@ import { PluginListener as PluginServerRouterBranchNotFound } from './PluginServ
 import { PluginListener as PluginServerRouterFound } from './PluginServerRouterFound';
 
 export function loadListeners() {
-	const store = 'listeners' as const;
+	const store = 'listeners';
 	void container.stores.loadPiece({ name: 'PluginRouteError', piece: PluginRouteError, store });
 	void container.stores.loadPiece({ name: 'PluginServerMiddlewareError', piece: PluginServerMiddlewareError, store });
 	void container.stores.loadPiece({ name: 'PluginServerMiddlewareSuccess', piece: PluginServerMiddlewareSuccess, store });
