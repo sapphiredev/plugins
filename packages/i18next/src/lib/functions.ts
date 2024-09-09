@@ -56,8 +56,8 @@ export function fetchLanguage(target: Target): Promise<string> {
 		return resolveLanguage({ user: null, channel: null, guild: target });
 	}
 
-	// Handle DMChannel:
-	if (target.type === ChannelType.DM) {
+	// Handle DMChannel and GroupDMChannel:
+	if (target.type === ChannelType.DM || target.type === ChannelType.GroupDM) {
 		return resolveLanguage({ user: null, channel: target, guild: null });
 	}
 
