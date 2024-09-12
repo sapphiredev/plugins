@@ -73,7 +73,8 @@ import { container } from '@sapphire/framework';
 
 export class MyAwesomeService {
 	public createAwesomeTask() {
-		container.tasks.create('name', { id: '123' }, 2000);
+		const payload = { awesome: true };
+		container.tasks.create({ name: 'awesome', payload }, 2000);
 	}
 }
 ```
@@ -95,7 +96,8 @@ export class MuteCommand extends Command {
 
 	public async run(message: Message) {
 		// create a task to unmute the user in 1 minute
-		this.container.tasks.create('unmute', { authorId: message.author.id }, 60_000);
+		const payload = { authorId: message.author.id };
+		this.container.tasks.create({ name: 'unmute', payload }, 60_000);
 	}
 }
 ```
@@ -131,14 +133,15 @@ declare module '@sapphire/plugin-scheduled-tasks' {
 ##### Using Manual Tasks
 
 ```typescript
-container.tasks.create('manual', payload, 5000);
+const payload = { awesome: true };
+container.tasks.create({ name: 'manual', payload }, 5000);
 ```
 
 #### Pattern Task Example
 
 Pattern jobs are currently only supported by the Redis strategy.
 
-##### Creating the Piece:
+##### Creating the Piece
 
 ```typescript
 import { ScheduledTask } from '@sapphire/plugin-scheduled-tasks';
