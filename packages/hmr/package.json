@@ -49,7 +49,7 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"chokidar": "^3.6.0"
+		"chokidar": "^4.0.0"
 	},
 	"repository": {
 		"type": "git",

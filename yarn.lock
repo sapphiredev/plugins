@@ -1375,7 +1375,7 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": "npm:^4.1.0"
     "@favware/rollup-type-bundler": "npm:^3.3.0"
-    chokidar: "npm:^3.6.0"
+    chokidar: "npm:^4.0.0"
     concurrently: "npm:^9.0.1"
     tsup: "npm:^8.2.4"
     tsx: "npm:^4.19.0"
@@ -1393,7 +1393,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@sapphire/utilities": "npm:^3.17.0"
     "@skyra/i18next-backend": "npm:^2.0.5"
-    chokidar: "npm:^3.6.0"
+    chokidar: "npm:^4.0.0"
     concurrently: "npm:^9.0.1"
     i18next: "npm:^23.14.0"
     tsup: "npm:^8.2.4"
@@ -2311,6 +2311,15 @@ __metadata:
     fsevents:
       optional: true
   checksum: 10/c327fb07704443f8d15f7b4a7ce93b2f0bc0e6cea07ec28a7570aa22cd51fcf0379df589403976ea956c369f25aa82d84561947e227cd925902e1751371658df
+  languageName: node
+  linkType: hard
+
+"chokidar@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "chokidar@npm:4.0.0"
+  dependencies:
+    readdirp: "npm:^4.0.1"
+  checksum: 10/e9a65db724a9ba2a40ad10f1d55caa5ccb5ba17533414271ec315004664860439348e51fa4faaa640fcc5f6427a410919fa1608892fbad41ed86fce682633cfa
   languageName: node
   linkType: hard
 
@@ -5581,6 +5590,13 @@ __metadata:
     string_decoder: "npm:^1.1.1"
     util-deprecate: "npm:^1.0.1"
   checksum: 10/d9e3e53193adcdb79d8f10f2a1f6989bd4389f5936c6f8b870e77570853561c362bee69feca2bbb7b32368ce96a85504aa4cedf7cf80f36e6a9de30d64244048
+  languageName: node
+  linkType: hard
+
+"readdirp@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "readdirp@npm:4.0.1"
+  checksum: 10/f8a2d3308c9dd19d9da4fc7f19a02fc057259a80014949d8f3d98f4e6042896119fb96eb3f3e6a743747d12f0bf781b771902b0b03aba58f884589c50968fad4
   languageName: node
   linkType: hard
 
