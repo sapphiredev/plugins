@@ -6,6 +6,16 @@ import type { InitOptions } from 'i18next';
 
 /**
  * This is a re-exported type from i18next.
+ *
+ * We could use NoInfer typescript build-in utility,
+ * however this project still supports ts < 5.4.
+ *
+ * @see https://github.com/millsp/ts-toolbelt/blob/master/sources/Function/NoInfer.ts
+ */
+export type $NoInfer<A> = [A][A extends any ? 0 : never];
+
+/**
+ * This is a re-exported type from i18next.
  * It is essentially an object of key-value pairs, where the key is a string and the value is any.
  */
 export interface $Dictionary {

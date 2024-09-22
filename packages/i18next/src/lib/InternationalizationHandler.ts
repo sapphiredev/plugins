@@ -18,7 +18,7 @@ import type { PathLike } from 'node:fs';
 import { opendir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { URL, fileURLToPath } from 'node:url';
-import type { $Dictionary, $SpecialObject, InternationalizationContext, InternationalizationOptions } from './types';
+import type { $Dictionary, $NoInfer, $SpecialObject, InternationalizationContext, InternationalizationOptions } from './types';
 
 /**
  * A generalized class for handling `i18next` JSON files and their discovery.
@@ -268,7 +268,7 @@ export class InternationalizationHandler {
 			| [key: Key | Key[], options?: ActualOptions]
 			| [key: string | string[], options: TOpt & $Dictionary & { defaultValue: string }]
 			| [key: string | string[], defaultValue: DefaultValue | undefined, options?: TOpt & $Dictionary]
-	): TFunctionReturnOptionalDetails<TFunctionProcessReturnValue<NoInfer<Ret>, DefaultValue>, TOpt> {
+	): TFunctionReturnOptionalDetails<TFunctionProcessReturnValue<$NoInfer<Ret>, DefaultValue>, TOpt> {
 		if (!this.languagesLoaded) throw new Error('Cannot call this method until InternationalizationHandler#init has been called');
 
 		const language = this.languages.get(locale);
