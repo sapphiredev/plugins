@@ -9,6 +9,7 @@ import i18next, {
 	type Namespace,
 	type ParseKeys,
 	type TFunction,
+	type TFunctionProcessReturnValue,
 	type TFunctionReturn,
 	type TFunctionReturnOptionalDetails,
 	type TOptions
@@ -17,7 +18,7 @@ import type { PathLike } from 'node:fs';
 import { opendir } from 'node:fs/promises';
 import { join } from 'node:path';
 import { URL, fileURLToPath } from 'node:url';
-import type { $Dictionary, $SpecialObject, InternationalizationContext, InternationalizationOptions } from './types';
+import type { $Dictionary, $NoInfer, $SpecialObject, InternationalizationContext, InternationalizationOptions } from './types';
 
 /**
  * A generalized class for handling `i18next` JSON files and their discovery.
@@ -259,14 +260,15 @@ export class InternationalizationHandler {
 		const TOpt extends TOptions = TOptions,
 		Ns extends Namespace = DefaultNamespace,
 		Ret extends TFunctionReturn<Ns, AppendKeyPrefix<Key, undefined>, TOpt> = TOpt['returnObjects'] extends true ? $SpecialObject : string,
-		const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>
+		const ActualOptions extends TOpt & InterpolationMap<Ret> = TOpt & InterpolationMap<Ret>,
+		DefaultValue extends string = never
 	>(
 		locale: string,
 		...[key, defaultValueOrOptions, optionsOrUndefined]:
 			| [key: Key | Key[], options?: ActualOptions]
 			| [key: string | string[], options: TOpt & $Dictionary & { defaultValue: string }]
-			| [key: string | string[], defaultValue: string | undefined, options?: TOpt & $Dictionary]
-	): TFunctionReturnOptionalDetails<Ret, TOpt> {
+			| [key: string | string[], defaultValue: DefaultValue | undefined, options?: TOpt & $Dictionary]
+	): TFunctionReturnOptionalDetails<TFunctionProcessReturnValue<$NoInfer<Ret>, DefaultValue>, TOpt> {
 		if (!this.languagesLoaded) throw new Error('Cannot call this method until InternationalizationHandler#init has been called');
 
 		const language = this.languages.get(locale);
@@ -279,7 +281,10 @@ export class InternationalizationHandler {
 					? language(this.options.defaultMissingKey, { replace: { key } })
 					: '';
 
-		return language<Key, TOpt, Ret, ActualOptions>(key, { defaultValue, ...((optionsOrUndefined ?? {}) as TOpt) });
+		return language<Key, TOpt, Ret, ActualOptions, DefaultValue>(key, {
+			defaultValue,
+			...((optionsOrUndefined ?? {}) as TOpt)
+		} as TOpt & $Dictionary & { defaultValue: DefaultValue });
 	}
 
 	/**
