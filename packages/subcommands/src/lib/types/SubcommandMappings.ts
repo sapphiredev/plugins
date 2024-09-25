@@ -64,7 +64,7 @@ export interface SubcommandMappingMethod
 	 *
 	 * @example
 	 * ```typescript
-	 * messageRun(message: Message) {
+	 * runAdminConfig(message: Message) {
 	 *    return message.reply(`<@${message.author.id}> has been granted admin`);
 	 * }
 	 * ```
