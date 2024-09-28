@@ -996,6 +996,7 @@ export type MimeType =
 	| 'application/vnd.kde.kspread'
 	| 'application/vnd.kde.kword'
 	| 'application/vnd.kenameaapp'
+	| 'application/vnd.keyman.kmp+zip'
 	| 'application/vnd.kidspiration'
 	| 'application/vnd.Kinar'
 	| 'application/vnd.koan'
