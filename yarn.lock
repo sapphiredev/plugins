@@ -1443,7 +1443,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@sapphire/stopwatch": "npm:^1.5.2"
     "@sapphire/utilities": "npm:^3.17.0"
-    bullmq: "npm:5.15.0"
+    bullmq: "npm:5.16.0"
     concurrently: "npm:^9.0.1"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
@@ -2175,9 +2175,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.15.0":
-  version: 5.15.0
-  resolution: "bullmq@npm:5.15.0"
+"bullmq@npm:5.16.0":
+  version: 5.16.0
+  resolution: "bullmq@npm:5.16.0"
   dependencies:
     cron-parser: "npm:^4.6.0"
     ioredis: "npm:^5.4.1"
@@ -2186,7 +2186,7 @@ __metadata:
     semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
     uuid: "npm:^9.0.0"
-  checksum: 10/f5cc6c3325785d789f223840ff5b89c2e00ac0412b1e81a42edb0308e1ca90628aea8dfb37c7eb2dde718f974514ab7c92fe51ea73be4bd07c1a5ecb00f56075
+  checksum: 10/39febf6e4a43c27a47e43c6d4cbfa0173cf801b5d804a0a2aac871fed376fdaf49a60eb1a0394292de1a21c11916086b424d4a244499be8a013c0d4b383f5c17
   languageName: node
   linkType: hard
 
