@@ -1342,13 +1342,13 @@ __metadata:
     "@vladfrangu/async_event_emitter": "npm:2.4.6"
     concurrently: "npm:^9.0.1"
     cookie-es: "npm:^1.2.2"
-    tldts: "npm:^6.1.50"
+    tldts: "npm:^6.1.51"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
     typedoc: "npm:^0.25.13"
     typedoc-json-parser: "npm:^10.0.0"
     typescript: "npm:~5.4.5"
-    undici: "npm:^6.19.8"
+    undici: "npm:^6.20.0"
   languageName: unknown
   linkType: soft
 
@@ -1443,7 +1443,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@sapphire/stopwatch": "npm:^1.5.2"
     "@sapphire/utilities": "npm:^3.17.0"
-    bullmq: "npm:5.16.0"
+    bullmq: "npm:5.19.1"
     concurrently: "npm:^9.0.1"
     tsup: "npm:^8.3.0"
     tsx: "npm:^4.19.1"
@@ -1610,12 +1610,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^20.16.10":
-  version: 20.16.10
-  resolution: "@types/node@npm:20.16.10"
+"@types/node@npm:*, @types/node@npm:^20.16.11":
+  version: 20.16.11
+  resolution: "@types/node@npm:20.16.11"
   dependencies:
     undici-types: "npm:~6.19.2"
-  checksum: 10/f0832d16fed07737c2c3edd6cb6414a22e8379173e56e701ab8890b8798c8f9bc37337332631818f813ff7f8c0e168e9900e8f44cdfd2406d15150289c813acc
+  checksum: 10/6d2f92b7b320c32ba0c2bc54d21651bd21690998a2e27f00d15019d4db3e0ec30fce85332efed5e37d4cda078ff93ea86ee3e92b76b7a25a9b92a52a039b60b2
   languageName: node
   linkType: hard
 
@@ -2175,9 +2175,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.16.0":
-  version: 5.16.0
-  resolution: "bullmq@npm:5.16.0"
+"bullmq@npm:5.19.1":
+  version: 5.19.1
+  resolution: "bullmq@npm:5.19.1"
   dependencies:
     cron-parser: "npm:^4.6.0"
     ioredis: "npm:^5.4.1"
@@ -2186,7 +2186,7 @@ __metadata:
     semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
     uuid: "npm:^9.0.0"
-  checksum: 10/39febf6e4a43c27a47e43c6d4cbfa0173cf801b5d804a0a2aac871fed376fdaf49a60eb1a0394292de1a21c11916086b424d4a244499be8a013c0d4b383f5c17
+  checksum: 10/4ea0a3c15dffbf51f6c3413eda9ac3377a4d0b8cd4f6f8c4673561dc23dbe0b7b8cf1f4414e030f7e9aceb8077ae49f56030039c4cb6e54fd34bbae1ba6e4b29
   languageName: node
   linkType: hard
 
@@ -5870,7 +5870,7 @@ __metadata:
     "@sapphire/stopwatch": "npm:^1.5.2"
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sapphire/utilities": "npm:^3.17.0"
-    "@types/node": "npm:^20.16.10"
+    "@types/node": "npm:^20.16.11"
     "@types/ws": "npm:^8.5.12"
     "@typescript-eslint/eslint-plugin": "npm:^7.13.1"
     "@typescript-eslint/parser": "npm:^7.13.1"
@@ -6392,21 +6392,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.50":
-  version: 6.1.50
-  resolution: "tldts-core@npm:6.1.50"
-  checksum: 10/a08373740ceccdb470228e20c86478e61f8a29d5e9a4b4425cb8661b7200e57cc62c7ecd3c7ba487e661bd2a7c6bf947f94006394f8d28dd92b22ed32d877dc9
+"tldts-core@npm:^6.1.51":
+  version: 6.1.51
+  resolution: "tldts-core@npm:6.1.51"
+  checksum: 10/861d5736d714abfd649c0545b9aae27058cd76f28f83077328fde6ba5ba9f7f107227d09406cfd38baf6215fc7840545ed0b17352f2f364182265887774394dc
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.1.50":
-  version: 6.1.50
-  resolution: "tldts@npm:6.1.50"
+"tldts@npm:^6.1.51":
+  version: 6.1.51
+  resolution: "tldts@npm:6.1.51"
   dependencies:
-    tldts-core: "npm:^6.1.50"
+    tldts-core: "npm:^6.1.51"
   bin:
     tldts: bin/cli.js
-  checksum: 10/67bff64acd7798709442c8d77df362e6d3ee19a884f2b859468e07eaa55646c372a49d193fb57d443ed58dd565bcee09205d035b6991a3b29061a8a8039db683
+  checksum: 10/42e664469b1497af2fc6ac4cbf94f8a6507fcd23bf59521ace34223e36cb74ec7a003cf42834fcc4ba159c7448aa7e6f0f79f1f2fb8145b2e72ef44e87f035ec
   languageName: node
   linkType: hard
 
@@ -6722,10 +6722,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:6.19.8, undici@npm:^6.19.8":
+"undici@npm:6.19.8":
   version: 6.19.8
   resolution: "undici@npm:6.19.8"
   checksum: 10/19ae4ba38b029a664d99fd330935ef59136cf99edb04ed821042f27b5a9e84777265fb744c8a7abc83f2059afb019446c69a4ebef07bbc0ed6b2de8d67ef4090
+  languageName: node
+  linkType: hard
+
+"undici@npm:^6.20.0":
+  version: 6.20.0
+  resolution: "undici@npm:6.20.0"
+  checksum: 10/c96a7ad49e08e84001d2275da0b287315d8631f79790b7cee7e487de90c2563f49e55498603b031b2b4d0b44fcbf1d50ffcfa6d6a46b0ff9e04f4747dce77266
   languageName: node
   linkType: hard
 
