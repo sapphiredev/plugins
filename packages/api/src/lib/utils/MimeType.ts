@@ -873,6 +873,7 @@ export type MimeType =
 	| 'application/vnd.geo+json'
 	| 'application/vnd.geocube+xml'
 	| 'application/vnd.geogebra.file'
+	| 'application/vnd.geogebra.pinboard'
 	| 'application/vnd.geogebra.slides'
 	| 'application/vnd.geogebra.tool'
 	| 'application/vnd.geometry-explorer'
