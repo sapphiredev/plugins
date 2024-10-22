@@ -470,6 +470,7 @@ export type MimeType =
 	| 'application/tm+json'
 	| 'application/tnauthlist'
 	| 'application/token-introspection+jwt'
+	| 'application/toml'
 	| 'application/trickle-ice-sdpfrag'
 	| 'application/trig'
 	| 'application/trust-chain+json'
