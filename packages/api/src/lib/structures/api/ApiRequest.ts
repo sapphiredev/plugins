@@ -1,5 +1,6 @@
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import { IncomingMessage } from 'node:http';
+import type { FormData, Request } from 'undici';
 import type { MimeType } from '../../utils/MimeType';
 import { RequestProxy } from '../../utils/_body/RequestProxy';
 import type { Route } from '../Route';
@@ -88,7 +89,7 @@ export class ApiRequest extends IncomingMessage {
 	 *
 	 * @returns The result of the body parsing
 	 */
-	public readBody() {
+	public readBody(): Promise<unknown> {
 		return this.#isFormContentType ? this.readBodyFormData() : this.readBodyJson();
 	}
 
@@ -97,7 +98,7 @@ export class ApiRequest extends IncomingMessage {
 	 *
 	 * @returns The result of the body parsing
 	 */
-	public readBodyArrayBuffer() {
+	public readBodyArrayBuffer(): Promise<ArrayBuffer> {
 		return this.asWeb().arrayBuffer();
 	}
 
@@ -106,7 +107,7 @@ export class ApiRequest extends IncomingMessage {
 	 *
 	 * @returns The result of the body parsing
 	 */
-	public readBodyBlob() {
+	public readBodyBlob(): Promise<Blob> {
 		return this.asWeb().blob();
 	}
 
@@ -122,7 +123,7 @@ export class ApiRequest extends IncomingMessage {
 	 *
 	 * @returns The result of the body parsing
 	 */
-	public readBodyFormData() {
+	public readBodyFormData(): Promise<FormData> {
 		return this.asWeb().formData(); // NOSONAR
 	}
 
@@ -132,7 +133,7 @@ export class ApiRequest extends IncomingMessage {
 	 *
 	 * @returns The result of the body parsing
 	 */
-	public readBodyJson() {
+	public readBodyJson(): Promise<unknown> {
 		return this.asWeb().json();
 	}
 
@@ -141,7 +142,7 @@ export class ApiRequest extends IncomingMessage {
 	 *
 	 * @returns The result of the body parsing
 	 */
-	public readBodyText() {
+	public readBodyText(): Promise<string> {
 		return this.asWeb().text();
 	}
 
@@ -162,7 +163,7 @@ export class ApiRequest extends IncomingMessage {
 	 * @param validator The validator function to use on the body parsing result
 	 * @returns The validated body
 	 */
-	public readValidatedBodyFormData<Type extends FormData>(validator: ValidatorFunction<FormData, Type>) {
+	public readValidatedBodyFormData<Type>(validator: ValidatorFunction<FormData, Type>) {
 		return this.readBodyFormData().then(validator);
 	}
 
@@ -182,9 +183,9 @@ export class ApiRequest extends IncomingMessage {
 	 * @param validator The validator function to use on the body parsing result
 	 * @returns The validated body
 	 */
-	public readValidatedBodyText<Type extends string>(validator: ValidatorFunction<string, Type>) {
+	public readValidatedBodyText<Type>(validator: ValidatorFunction<string, Type>) {
 		return this.readBodyText().then(validator);
 	}
 }
 
-export type ValidatorFunction<Data, Type extends Data> = (data: Data) => Type | ((data: Data) => data is Type);
+export type ValidatorFunction<Data, Type> = (data: Data) => Type;

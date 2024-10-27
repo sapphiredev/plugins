@@ -1,6 +1,6 @@
 import { isNullishOrEmpty } from '@sapphire/utilities';
 import { splitSetCookieString } from 'cookie-es';
-import type { Headers, SpecIterableIterator } from 'undici-types';
+import type { Headers, SpecIterableIterator } from 'undici';
 import type { ApiRequest } from '../../structures/api/ApiRequest';
 import { NodeUtilInspectSymbol } from '../constants';
 
