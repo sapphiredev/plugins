@@ -1,4 +1,5 @@
 import { isNullishOrEmpty } from '@sapphire/utilities';
+import type { Blob } from 'node:buffer';
 import { IncomingMessage } from 'node:http';
 import type { FormData, Request } from 'undici';
 import type { MimeType } from '../../utils/MimeType';

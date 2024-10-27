@@ -2,16 +2,17 @@ import { isNullish, isNullishOrEmpty } from '@sapphire/utilities';
 import { Blob } from 'node:buffer';
 import { arrayBuffer } from 'node:stream/consumers';
 import { ReadableStream } from 'node:stream/web';
-import type {
-	FormData,
-	Headers,
-	ReferrerPolicy,
-	Request,
-	RequestCache,
-	RequestCredentials,
-	RequestDestination,
-	RequestMode,
-	RequestRedirect
+import {
+	Response,
+	type FormData,
+	type Headers,
+	type ReferrerPolicy,
+	type Request,
+	type RequestCache,
+	type RequestCredentials,
+	type RequestDestination,
+	type RequestMode,
+	type RequestRedirect
 } from 'undici';
 import type { ApiRequest } from '../../structures/api/ApiRequest';
 import type { MethodName } from '../../structures/http/HttpMethods';
