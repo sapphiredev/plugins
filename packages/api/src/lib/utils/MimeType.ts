@@ -6,6 +6,7 @@ export type MimeType =
 	| 'application/3gpp-ims+xml'
 	| 'application/A2L'
 	| 'application/ace-groupcomm+cbor'
+	| 'application/ace-trl+cbor'
 	| 'application/ace+cbor'
 	| 'application/ace+json'
 	| 'application/activemessage'
