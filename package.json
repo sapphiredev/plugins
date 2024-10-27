@@ -74,7 +74,7 @@
 		}
 	},
 	"resolutions": {
-		"acorn": "^8.13.0",
+		"acorn": "^8.14.0",
 		"ansi-regex": "^5.0.1",
 		"minimist": "^1.2.8"
 	},
