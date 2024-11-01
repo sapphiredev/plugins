@@ -80,6 +80,7 @@ export type MimeType =
 	| 'application/cfw'
 	| 'application/cid-edhoc+cbor-seq'
 	| 'application/city+json'
+	| 'application/city+json-seq'
 	| 'application/clr'
 	| 'application/clue_info+xml'
 	| 'application/clue+xml'
