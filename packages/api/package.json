@@ -45,7 +45,7 @@
 		"build:rename-cjs-register": "tsx ../../scripts/rename-cjs-register.mts",
 		"sync-mime-types": "tsx scripts/sync-mime-types.mts",
 		"typecheck": "tsc -b src",
-		"docs": "echo \"temporarily disabled\" || typedoc-json-parser",
+		"docs": "typedoc-json-parser",
 		"prepack": "yarn build",
 		"bump": "cliff-jumper",
 		"check-update": "cliff-jumper --dry-run"
