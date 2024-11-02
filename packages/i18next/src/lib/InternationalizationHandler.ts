@@ -167,6 +167,7 @@ export class InternationalizationHandler {
 
 		const formatter = i18next.services.formatter!;
 		const formatters = this.options.formatters ?? [];
+		// eslint-disable-next-line @typescript-eslint/unbound-method
 		for (const { name, format, cached } of formatters) {
 			if (cached) formatter.addCached(name, format);
 			else formatter.add(name, format);
