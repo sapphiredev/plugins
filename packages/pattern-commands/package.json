@@ -1,6 +1,6 @@
 {
 	"name": "@sapphire/plugin-pattern-commands",
-	"version": "6.0.2",
+	"version": "6.0.3",
 	"description": "Plugin for @sapphire/framework that adds support for pattern commands.",
 	"author": "@sapphire",
 	"license": "MIT",
