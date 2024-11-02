@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-hmr@3.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-hmr@3.0.1...@sapphire/plugin-hmr@3.0.2) - (2024-11-02)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update dependency chokidar to v4 ([e6fdc84](https://github.com/sapphiredev/plugins/commit/e6fdc8494268eec4aba7f06f54e48454b2fabbc0)) ([#626](https://github.com/sapphiredev/plugins/pull/626) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([43df709](https://github.com/sapphiredev/plugins/commit/43df70954d837f7b14d62ea9123aca4b1da9ae36)) ([#574](https://github.com/sapphiredev/plugins/pull/574) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([7909d16](https://github.com/sapphiredev/plugins/commit/7909d16fcec9a8e5e9a3f8816c90a26fbc7d1284)) ([#573](https://github.com/sapphiredev/plugins/pull/573) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([ee64834](https://github.com/sapphiredev/plugins/commit/ee64834c799a5ac28b1ae172cb19f77a1887f3d4)) ([#546](https://github.com/sapphiredev/plugins/pull/546) by @renovate[bot])
+- **hmr:** Update transitive dependencies ([7579d59](https://github.com/sapphiredev/plugins/commit/7579d599e5422cd1f6480567ed78abd1c06bd3b6))
+
 # [@sapphire/plugin-hmr@3.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-hmr@3.0.1...@sapphire/plugin-hmr@3.0.1) - (2024-01-19)
 
 ## 🐛 Bug Fixes
