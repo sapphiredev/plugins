@@ -2,6 +2,67 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@7.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@6.1.1...@sapphire/plugin-api@7.0.0) - (2024-11-02)
+
+## 🏠 Refactor
+
+- Remove media parsers ([56b0ad1](https://github.com/sapphiredev/plugins/commit/56b0ad11604af73443c7c1e686682a5d3c42da3e)) ([#616](https://github.com/sapphiredev/plugins/pull/616) by @kyranet)
+  - 💥 **BREAKING CHANGE:** Removed `MediaParser`
+  - 💥 **BREAKING CHANGE:** Removed `MediaParserStore`
+  - 💥 **BREAKING CHANGE:** Removed `Route#acceptedContentMimeTypes`
+  - 💥 **BREAKING CHANGE:** Removed `ApiRequest#body`, use the new methods instead
+- Switch `MimeTypes` to `MimeType` and use IANA media types ([834b446](https://github.com/sapphiredev/plugins/commit/834b446e7934e57a6281b38cf5a8e2cd5bcf01da)) ([#603](https://github.com/sapphiredev/plugins/pull/603) by @kyranet)
+  - 💥 **BREAKING CHANGE:** `MimeTypes` has been removed in favor of the `MimeType` string union type consists of all IANA media types
+- **router:** Change router system ([ce675e0](https://github.com/sapphiredev/plugins/commit/ce675e0e5cd0a9ff50de621fe3e5504ddbb5483c)) ([#590](https://github.com/sapphiredev/plugins/pull/590) by @kyranet)
+  - 💥 **BREAKING CHANGE:** Moved `RouteStore#match` to a listener
+  - 💥 **BREAKING CHANGE:** Replaced `node:events` with `@vladfrangu/async_event_emitter`
+  - 💥 **BREAKING CHANGE:** Removed `route` parameter in the `Middleware#run` method, use `request.route` instead
+  - 💥 **BREAKING CHANGE:** Removed `Route#router` property
+  - 💥 **BREAKING CHANGE:** Removed `RouteStore#methods` property
+  - 💥 **BREAKING CHANGE:** Removed objects in router events, use `request.route` and `request.routerNode` instead
+  - 💥 **BREAKING CHANGE:** Renamed `ServerEvents` enum to `ServerEvent`
+  - 💥 **BREAKING CHANGE:** Renamed event `match` to `routerFound`
+  - 💥 **BREAKING CHANGE:** Renamed event `noMatch` to `routerBranchNotFound`
+- **route:** Change method handling ([08a81b1](https://github.com/sapphiredev/plugins/commit/08a81b1eabbff0d0dcf3afe9438c7876c55a3510)) ([#588](https://github.com/sapphiredev/plugins/pull/588) by @kyranet)
+  - 💥 **BREAKING CHANGE:** The headers middleware now uses the supported HTTP methods from the route or the store instead of sending all supported methods
+  - 💥 **BREAKING CHANGE:** Changed the method handling in the `Route` class to not be keyed by the method name, sending all requests to the `run` method. This allows for more flexibility in the route handling
+  - 💥 **BREAKING CHANGE:** Writing the name of a file as `<name>.<method>.ts` will now set `<method>` as a method for the route
+- **route:** Proper route handling and FS-based paths ([d27dc1c](https://github.com/sapphiredev/plugins/commit/d27dc1c5511a95ec66a2eb972c033c393a253cb1)) ([#587](https://github.com/sapphiredev/plugins/pull/587) by @kyranet)
+  - 💥 **BREAKING CHANGE:** The prefix is now suffixed with a `/` before concatenating in `RouteData`
+  - 💥 **BREAKING CHANGE:** `Route` now reads defaults to filesystem-based path definition when `options.route` is not defined. Virtual pieces (those loaded with `loadPiece`) are unaffected
+  - 💥 **BREAKING CHANGE:** Route parameters are now defined as `/guilds/[guild]` rather than `/guilds/:guild`
+
+## 🐛 Bug Fixes
+
+- **api:** Bump tldts dependency ([d418c93](https://github.com/sapphiredev/plugins/commit/d418c936b3376f74bb479ae6661ca8f5fd5e8ca3))
+- Specify types from the `undici` package ([d9dd30c](https://github.com/sapphiredev/plugins/commit/d9dd30cb79365c9150b2fac776d61aaccfc97203)) ([#649](https://github.com/sapphiredev/plugins/pull/649) by @kyranet)
+- **deps:** Update `@vladfrangu/async_event_emitter` ([26d4b68](https://github.com/sapphiredev/plugins/commit/26d4b68632d2797f543a240e34455371371c8766)) ([#596](https://github.com/sapphiredev/plugins/pull/596) by @kyranet)
+- **deps:** Update dependency tldts to ^6.1.31 ([fc8e636](https://github.com/sapphiredev/plugins/commit/fc8e636a00cb3042e93cfde4a19920bfa10cdf2d)) ([#592](https://github.com/sapphiredev/plugins/pull/592) by @renovate[bot])
+- **deps:** Update dependency tldts to ^6.1.22 ([f28d6dd](https://github.com/sapphiredev/plugins/commit/f28d6dd073e711ef0b9d76cbf82f8feea8381266)) ([#575](https://github.com/sapphiredev/plugins/pull/575) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([43df709](https://github.com/sapphiredev/plugins/commit/43df70954d837f7b14d62ea9123aca4b1da9ae36)) ([#574](https://github.com/sapphiredev/plugins/pull/574) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([7909d16](https://github.com/sapphiredev/plugins/commit/7909d16fcec9a8e5e9a3f8816c90a26fbc7d1284)) ([#573](https://github.com/sapphiredev/plugins/pull/573) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([ee64834](https://github.com/sapphiredev/plugins/commit/ee64834c799a5ac28b1ae172cb19f77a1887f3d4)) ([#546](https://github.com/sapphiredev/plugins/pull/546) by @renovate[bot])
+- **api:** Update transitive dependencies ([a41b970](https://github.com/sapphiredev/plugins/commit/a41b9705bc24e9f6187b5d72aa101e103004e2c8))
+- Update transitive dependencies ([9bcd222](https://github.com/sapphiredev/plugins/commit/9bcd2222032371c71e696f504503e78f29638cc5))
+
+## 📝 Documentation
+
+- **typedoc:** Exclude externals to exclude Collection and Map methods from Store ([c3e54a4](https://github.com/sapphiredev/plugins/commit/c3e54a4e412a150f57f5795ae9c2a26974cfd0a6))
+- **api:** Fix tsdoc comments ([13aa0b1](https://github.com/sapphiredev/plugins/commit/13aa0b1919508305c7d3313468e77276efaee44c))
+
+## 🚀 Features
+
+- Update mime types ([ccf3dc1](https://github.com/sapphiredev/plugins/commit/ccf3dc1b11a46c3d6e1d091c5805be19022695d2)) ([#651](https://github.com/sapphiredev/plugins/pull/651) by @github-actions[bot])
+- Update mime types ([518ac87](https://github.com/sapphiredev/plugins/commit/518ac87e9c5b8b01209a237a7e6afdef79553d5e)) ([#647](https://github.com/sapphiredev/plugins/pull/647) by @github-actions[bot])
+- Update mime types ([9e3ae6f](https://github.com/sapphiredev/plugins/commit/9e3ae6fd4377aba82115cae6e0820ad233ba5024)) ([#645](https://github.com/sapphiredev/plugins/pull/645) by @github-actions[bot])
+- Update mime types ([a1d7d5e](https://github.com/sapphiredev/plugins/commit/a1d7d5e13becd19b172f884fffa7f255287cf6df)) ([#641](https://github.com/sapphiredev/plugins/pull/641) by @github-actions[bot])
+- Update mime types ([352f2cd](https://github.com/sapphiredev/plugins/commit/352f2cdd66d9280dfc3cba995da812e4a145153c)) ([#634](https://github.com/sapphiredev/plugins/pull/634) by @github-actions[bot])
+- Update mime types ([51af5e9](https://github.com/sapphiredev/plugins/commit/51af5e9d6913fe75b61982c00d0d7072eb46d4c2)) ([#632](https://github.com/sapphiredev/plugins/pull/632) by @github-actions[bot])
+- Update mime types ([fb8af18](https://github.com/sapphiredev/plugins/commit/fb8af184e7722464c076eac1d8b6ca43914bef01)) ([#620](https://github.com/sapphiredev/plugins/pull/620) by @github-actions[bot])
+- Update mime types ([e37f2d0](https://github.com/sapphiredev/plugins/commit/e37f2d04de0bb118042e83755f2ba0ef7bea8641)) ([#618](https://github.com/sapphiredev/plugins/pull/618) by @github-actions[bot])
+- **router:** Add FS group syntax ([7ba75bc](https://github.com/sapphiredev/plugins/commit/7ba75bc7de215db6ff67445f0b3fe8a8606c19de)) ([#615](https://github.com/sapphiredev/plugins/pull/615) by @kyranet)
+- Update mime types ([677d87e](https://github.com/sapphiredev/plugins/commit/677d87e8ce9d539353d3b6f0a826e407329782b0)) ([#611](https://github.com/sapphiredev/plugins/pull/611) by @github-actions[bot])
+
 # [@sapphire/plugin-api@6.1.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@6.1.1...@sapphire/plugin-api@6.1.1) - (2024-01-19)
 
 ## 🐛 Bug Fixes
