@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-subcommands@7.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@7.0.0...@sapphire/plugin-subcommands@7.0.1) - (2024-11-02)
+
+## 🐛 Bug Fixes
+
+- Update sapphire dependencies ([a837459](https://github.com/sapphiredev/plugins/commit/a83745920f0b6eb896c7b9b5c9624dad662f5186))
+
+## 📝 Documentation
+
+- **SubcommandMappings:** Fix messageRun example ([f177359](https://github.com/sapphiredev/plugins/commit/f177359a0913a14904c93b462df14b23ccb180a5)) ([#631](https://github.com/sapphiredev/plugins/pull/631) by @SapphicMoe)
+
 # [@sapphire/plugin-subcommands@7.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-subcommands@6.0.3...@sapphire/plugin-subcommands@7.0.0) - (2024-08-07)
 
 ## 🏠 Refactor
