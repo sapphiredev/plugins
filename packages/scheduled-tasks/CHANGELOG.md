@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@10.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@10.0.1...@sapphire/plugin-scheduled-tasks@10.0.2) - (2024-11-02)
+
+## 🐛 Bug Fixes
+
+- Update sapphire dependencies ([a837459](https://github.com/sapphiredev/plugins/commit/a83745920f0b6eb896c7b9b5c9624dad662f5186))
+- **scheduled-tasks:** Bump `bullmq` dependency ([80d26ac](https://github.com/sapphiredev/plugins/commit/80d26ac632fef3f2b914e9dfbc32f80cedfe92c3))
+- **deps:** Update dependency bullmq to v5.20.0 ([5ea63b2](https://github.com/sapphiredev/plugins/commit/5ea63b29cbd65bfc6e076c0b35648bda3283cf6d)) ([#639](https://github.com/sapphiredev/plugins/pull/639) by @renovate[bot])
+- **deps:** Update dependency bullmq to v5.16.0 ([fa73a83](https://github.com/sapphiredev/plugins/commit/fa73a83bf043ba74be60929badec91d2c7c64df8)) ([#636](https://github.com/sapphiredev/plugins/pull/636) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([43df709](https://github.com/sapphiredev/plugins/commit/43df70954d837f7b14d62ea9123aca4b1da9ae36)) ([#574](https://github.com/sapphiredev/plugins/pull/574) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([7909d16](https://github.com/sapphiredev/plugins/commit/7909d16fcec9a8e5e9a3f8816c90a26fbc7d1284)) ([#573](https://github.com/sapphiredev/plugins/pull/573) by @renovate[bot])
+- **scheduled-tasks:** Export `ScheduledTasksResolvableNoPayload` ([ec27a29](https://github.com/sapphiredev/plugins/commit/ec27a2976c2a6e7c9af9ee02f1f93d8e11c975a6))
+- **deps:** Update dependency bullmq to v5.5.3 ([73f41bb](https://github.com/sapphiredev/plugins/commit/73f41bb0afcc766314db5e2d2789e7b04a536a11)) ([#563](https://github.com/sapphiredev/plugins/pull/563) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([ee64834](https://github.com/sapphiredev/plugins/commit/ee64834c799a5ac28b1ae172cb19f77a1887f3d4)) ([#546](https://github.com/sapphiredev/plugins/pull/546) by @renovate[bot])
+- **scheduled-tasks:** Update transitive dependencies ([0b7d28c](https://github.com/sapphiredev/plugins/commit/0b7d28c0fb133c5467a0867096e2fcb0a0f1ed72))
+- Update transitive dependencies ([c708be7](https://github.com/sapphiredev/plugins/commit/c708be73f0c137a25cb2a6c8e4f8da2c301a9c26))
+
+## 📝 Documentation
+
+- Update create task function type ([f730be1](https://github.com/sapphiredev/plugins/commit/f730be14bea3976f317b679bfc0daf28b4829a05)) ([#623](https://github.com/sapphiredev/plugins/pull/623) by @Swiizyy)
+- **readme:** Remove duplication in Scheduled Tasks README ([5193167](https://github.com/sapphiredev/plugins/commit/51931673394313f8504d6ef4e27923ef5aec846e)) ([#604](https://github.com/sapphiredev/plugins/pull/604) by @feelthatvib3)
+- **ScheduledTaskHandler:** Remove unused tsdoc parameters ([f9230eb](https://github.com/sapphiredev/plugins/commit/f9230eb3d9929fb78dd5ee7158684263df5f742c))
+- **typedoc:** Exclude externals to exclude Collection and Map methods from Store ([c3e54a4](https://github.com/sapphiredev/plugins/commit/c3e54a4e412a150f57f5795ae9c2a26974cfd0a6))
+
 # [@sapphire/plugin-scheduled-tasks@10.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@10.0.1...@sapphire/plugin-scheduled-tasks@10.0.1) - (2024-01-19)
 
 ## 🐛 Bug Fixes
