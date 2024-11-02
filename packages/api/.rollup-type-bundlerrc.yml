@@ -3,6 +3,7 @@ external:
   - node:net
   - node:events
   - node:stream
+  - node:buffer
   - zlib
 onlyBundle: true
 excludeFromClean:

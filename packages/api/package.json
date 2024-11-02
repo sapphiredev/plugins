@@ -51,7 +51,7 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@types/ws": "^8.5.12",
+		"@types/ws": "^8.5.13",
 		"@vladfrangu/async_event_emitter": "2.4.6",
 		"cookie-es": "^1.2.2",
 		"tldts": "^6.1.58",
@@ -91,8 +91,8 @@
 		"concurrently": "^9.0.1",
 		"tsup": "^8.3.5",
 		"tsx": "^4.19.2",
-		"typedoc": "^0.25.13",
-		"typedoc-json-parser": "^10.0.0",
+		"typedoc": "^0.26.11",
+		"typedoc-json-parser": "^10.2.0",
 		"typescript": "~5.4.5"
 	}
 }
