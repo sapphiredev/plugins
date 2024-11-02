@@ -50,7 +50,7 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^3.17.0",
+		"@sapphire/utilities": "^3.18.0",
 		"@skyra/i18next-backend": "^2.0.5",
 		"chokidar": "^4.0.1",
 		"i18next": "^23.16.4"

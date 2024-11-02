@@ -49,8 +49,8 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@sapphire/stopwatch": "^1.5.2",
-		"@sapphire/utilities": "^3.17.0",
+		"@sapphire/stopwatch": "^1.5.3",
+		"@sapphire/utilities": "^3.18.0",
 		"bullmq": "5.22.0"
 	},
 	"devDependencies": {
