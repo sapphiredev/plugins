@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-editable-commands@4.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@4.0.2...@sapphire/plugin-editable-commands@4.0.3) - (2024-11-02)
+
+## 🐛 Bug Fixes
+
+- **editable-commands:** Bump `@skyra/editable-commands` dependency ([f46353d](https://github.com/sapphiredev/plugins/commit/f46353d01d782269a661608f2a133718fbb9279d))
+- **deps:** Update all non-major dependencies ([43df709](https://github.com/sapphiredev/plugins/commit/43df70954d837f7b14d62ea9123aca4b1da9ae36)) ([#574](https://github.com/sapphiredev/plugins/pull/574) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([7909d16](https://github.com/sapphiredev/plugins/commit/7909d16fcec9a8e5e9a3f8816c90a26fbc7d1284)) ([#573](https://github.com/sapphiredev/plugins/pull/573) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([ee64834](https://github.com/sapphiredev/plugins/commit/ee64834c799a5ac28b1ae172cb19f77a1887f3d4)) ([#546](https://github.com/sapphiredev/plugins/pull/546) by @renovate[bot])
+
 # [@sapphire/plugin-editable-commands@4.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@4.0.2...@sapphire/plugin-editable-commands@4.0.2) - (2024-01-19)
 
 ## 🐛 Bug Fixes
