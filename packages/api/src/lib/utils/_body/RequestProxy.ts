@@ -2,16 +2,17 @@ import { isNullish, isNullishOrEmpty } from '@sapphire/utilities';
 import { Blob } from 'node:buffer';
 import { arrayBuffer } from 'node:stream/consumers';
 import { ReadableStream } from 'node:stream/web';
-import type {
-	FormData,
-	Headers,
-	ReferrerPolicy,
-	Request,
-	RequestCache,
-	RequestCredentials,
-	RequestDestination,
-	RequestMode,
-	RequestRedirect
+import {
+	Response,
+	type FormData,
+	type Headers,
+	type ReferrerPolicy,
+	type Request,
+	type RequestCache,
+	type RequestCredentials,
+	type RequestDestination,
+	type RequestMode,
+	type RequestRedirect
 } from 'undici';
 import type { ApiRequest } from '../../structures/api/ApiRequest';
 import type { MethodName } from '../../structures/http/HttpMethods';
@@ -57,7 +58,7 @@ export class RequestProxy implements Request {
 		return this.#cachedMethod;
 	}
 
-	public get signal() {
+	public get signal(): AbortSignal {
 		this.#abortController ??= new AbortController();
 		return this.#abortController.signal;
 	}
@@ -65,7 +66,7 @@ export class RequestProxy implements Request {
 	public get body(): ReadableStream<Uint8Array> | null {
 		if (!this.hasBody) return null;
 
-		this.#bodyStream ??= new ReadableStream({
+		this.#bodyStream ??= new ReadableStream<Uint8Array>({
 			start: (controller) => {
 				this.#request
 					.on('data', (chunk) => controller.enqueue(chunk))
@@ -113,7 +114,7 @@ export class RequestProxy implements Request {
 		return new RequestProxy(this.#request);
 	}
 
-	private get hasBody() {
+	private get hasBody(): boolean {
 		if (this.#cachedHasBody !== null) return this.#cachedHasBody;
 
 		const contentLengthString = this.headers.get('content-length');
