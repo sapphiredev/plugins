@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@7.1.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@7.1.2...@sapphire/plugin-i18next@7.1.3) - (2024-11-02)
+
+## 🏠 Refactor
+
+- **i18next:** Update the dependency to 23.15.1 accounting for typescript changes ([f8b2f60](https://github.com/sapphiredev/plugins/commit/f8b2f608af2119c4419c20089debb9d543ce564d)) ([#629](https://github.com/sapphiredev/plugins/pull/629) by @favna)
+
+## 🐛 Bug Fixes
+
+- Update sapphire dependencies ([a837459](https://github.com/sapphiredev/plugins/commit/a83745920f0b6eb896c7b9b5c9624dad662f5186))
+- **deps:** Update dependency chokidar to v4 ([e6fdc84](https://github.com/sapphiredev/plugins/commit/e6fdc8494268eec4aba7f06f54e48454b2fabbc0)) ([#626](https://github.com/sapphiredev/plugins/pull/626) by @renovate[bot])
+- Update for latest discord.js ([821ff70](https://github.com/sapphiredev/plugins/commit/821ff705c078888c91cac57a724b3d2f2ed89a82)) ([#622](https://github.com/sapphiredev/plugins/pull/622) by @favna)
+- **deps:** Update all non-major dependencies ([43df709](https://github.com/sapphiredev/plugins/commit/43df70954d837f7b14d62ea9123aca4b1da9ae36)) ([#574](https://github.com/sapphiredev/plugins/pull/574) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([7909d16](https://github.com/sapphiredev/plugins/commit/7909d16fcec9a8e5e9a3f8816c90a26fbc7d1284)) ([#573](https://github.com/sapphiredev/plugins/pull/573) by @renovate[bot])
+- **i18next:** Add overloaded methods and fix tsdoc for those ([5fc4ae9](https://github.com/sapphiredev/plugins/commit/5fc4ae9e908a2453f01634f193dc8db7ed6fd032))
+- **deps:** Update all non-major dependencies ([ee64834](https://github.com/sapphiredev/plugins/commit/ee64834c799a5ac28b1ae172cb19f77a1887f3d4)) ([#546](https://github.com/sapphiredev/plugins/pull/546) by @renovate[bot])
+
 # [@sapphire/plugin-i18next@7.1.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@7.1.2...@sapphire/plugin-i18next@7.1.2) - (2024-02-09)
 
 ## 🐛 Bug Fixes
