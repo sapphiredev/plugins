@@ -49,7 +49,7 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@skyra/editable-commands": "^3.0.3"
+		"@skyra/editable-commands": "^3.0.4"
 	},
 	"repository": {
 		"type": "git",
