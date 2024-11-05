@@ -156,4 +156,41 @@ describe('RouterBranch', () => {
 			expect(value).toBe('GET');
 		});
 	});
+
+	describe('makeRoutePathForPiece', () => {
+		test('GIVEN empty directories and index file THEN it should return empty path', () => {
+			const value = RouterRoot.makeRoutePathForPiece([], 'index');
+			expect(value).toBe('');
+		});
+
+		test('GIVEN empty directories and non-index file THEN it should return the name', () => {
+			const value = RouterRoot.makeRoutePathForPiece([], 'users');
+			expect(value).toBe('users');
+		});
+
+		test('GIVEN non-empty directories and index file THEN it should return the validated directories', () => {
+			const value = RouterRoot.makeRoutePathForPiece(['testing'], 'index');
+			expect(value).toBe('testing');
+		});
+
+		test('GIVEN non-empty directories and non-index file THEN it should return the validated directories joined with the name', () => {
+			const value = RouterRoot.makeRoutePathForPiece(['testing'], 'users');
+			expect(value).toBe('testing/users');
+		});
+
+		test('GIVEN a group directory THEN it is ignored', () => {
+			const value = RouterRoot.makeRoutePathForPiece(['(users)'], 'index');
+			expect(value).toBe('');
+		});
+
+		test('GIVEN a name with group directory syntax THEN it is used-as-is', () => {
+			const value = RouterRoot.makeRoutePathForPiece([], '(users)');
+			expect(value).toBe('(users)');
+		});
+
+		test('GIVEN an empty or whitespace-only directory name THEN it is ignored', () => {
+			const value = RouterRoot.makeRoutePathForPiece([' '], 'index');
+			expect(value).toBe('');
+		});
+	});
 });
