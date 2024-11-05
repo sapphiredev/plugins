@@ -9,7 +9,7 @@ export class Api extends Plugin {
 	/**
 	 * @since 1.0.0
 	 */
-	public static [postInitialization](this: SapphireClient, options: ClientOptions): void {
+	public static override [postInitialization](this: SapphireClient, options: ClientOptions): void {
 		this.server = new Server(options.api);
 		this.stores
 			.register(this.server.routes) //
@@ -23,7 +23,7 @@ export class Api extends Plugin {
 	/**
 	 * @since 1.0.0
 	 */
-	public static async [preLogin](this: SapphireClient): Promise<void> {
+	public static override async [preLogin](this: SapphireClient): Promise<void> {
 		if (!(this.server.options.automaticallyConnect ?? true)) {
 			return;
 		}
