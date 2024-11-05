@@ -81,14 +81,16 @@ export class RouterRoot extends RouterBranch {
 		return parts;
 	}
 
-	public static extractMethod(path: readonly string[]): MethodName | null {
+	public static extractMethod(path: string | readonly string[]): MethodName | null {
 		if (path.length === 0) return null;
+		if (typeof path === 'string') {
+			const methodSeparatorPositionIndex = path.lastIndexOf('.');
+			if (methodSeparatorPositionIndex === -1 || methodSeparatorPositionIndex === path.length - 1) return null;
+
+			return path.slice(methodSeparatorPositionIndex + 1).toUpperCase() as MethodName;
+		}
 
 		const lastIndex = path.length - 1;
-		const last = path[lastIndex];
-		const methodIndex = last.lastIndexOf('.');
-		if (methodIndex === -1 || methodIndex === last.length - 1) return null;
-
-		return last.slice(methodIndex + 1).toUpperCase() as MethodName;
+		return RouterRoot.extractMethod(path[lastIndex]);
 	}
 }

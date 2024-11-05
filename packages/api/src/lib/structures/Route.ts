@@ -62,17 +62,23 @@ export abstract class Route<Options extends Route.Options = Route.Options> exten
 		super(context, options);
 
 		const api = this.container.server.options;
-		const path = [
-			...RouterRoot.normalize(api.prefix),
-			...RouterRoot.normalize(options.route ?? RouterRoot.makeRoutePathForPiece(this.location.directories, this.name))
-		];
 
+		const path = RouterRoot.normalize(api.prefix);
 		const methods = new Set(options.methods);
-		const implied = RouterRoot.extractMethod(path);
-		if (!isNullish(implied)) {
-			const lastIndex = path.length - 1;
-			path[lastIndex] = path[lastIndex].slice(0, path[lastIndex].length - implied.length - 1);
-			methods.add(implied);
+		if (options.route) {
+			// If a route is specified, no extra processing is made:
+			path.push(...RouterRoot.normalize(options.route));
+		} else {
+			// If a route is not specified, extra processing is made to calculate
+			// one from the file system if it's possible:
+			let lastPart = context.name;
+			const implied = RouterRoot.extractMethod(lastPart);
+			if (!isNullish(implied)) {
+				lastPart = lastPart.slice(0, lastPart.length - implied.length - 1);
+				methods.add(implied);
+			}
+
+			path.push(...RouterRoot.normalize(RouterRoot.makeRoutePathForPiece(this.location.directories, lastPart)));
 		}
 
 		this.path = path;
