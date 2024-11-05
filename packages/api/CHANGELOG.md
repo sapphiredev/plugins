@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@7.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@7.0.1...@sapphire/plugin-api@7.0.2) - (2024-11-05)
+
+## 🐛 Bug Fixes
+
+- **route:** Handle `index` case correctly ([954d495](https://github.com/sapphiredev/plugins/commit/954d495d2834f76983a70034624a3d4f5749e97e)) ([#657](https://github.com/sapphiredev/plugins/pull/657) by @kyranet)
+
 # [@sapphire/plugin-api@7.0.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@7.0.0...@sapphire/plugin-api@7.0.1) - (2024-11-05)
 
 ## 🏠 Refactor
