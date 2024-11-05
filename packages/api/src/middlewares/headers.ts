@@ -1,7 +1,8 @@
+import { isNullish } from '@sapphire/utilities';
 import { Middleware } from '../lib/structures/Middleware';
-import type { Route } from '../lib/structures/Route';
 import type { RouteStore } from '../lib/structures/RouteStore';
 import { HttpCodes } from '../lib/structures/http/HttpCodes';
+import type { RouterNode } from '../lib/structures/router/RouterNode';
 
 export class PluginMiddleware extends Middleware {
 	private readonly origin: string;
@@ -18,19 +19,17 @@ export class PluginMiddleware extends Middleware {
 		response.setHeader('Access-Control-Allow-Credentials', 'true');
 		response.setHeader('Access-Control-Allow-Origin', this.origin);
 		response.setHeader('Access-Control-Allow-Headers', 'Authorization, User-Agent, Content-Type');
-		response.setHeader('Access-Control-Allow-Methods', this.getMethods(request.route ?? null));
+		response.setHeader('Access-Control-Allow-Methods', this.getMethods(request.routerNode));
 
 		this.ensurePotentialEarlyExit(request, response);
 	}
 
-	private getMethods(route: Route | null) {
-		if (route === null) {
+	private getMethods(routerNode: RouterNode | null | undefined): string {
+		if (isNullish(routerNode)) {
 			return this.routes.router.supportedMethods.join(', ');
 		}
 
-		if (route.methods.size === 0) return '';
-		if (route.methods.size === 1) return route.methods.keys().next().value;
-		return [...route.methods].join(', ');
+		return [...routerNode.methods()].join(', ');
 	}
 
 	/**
@@ -50,7 +49,7 @@ export class PluginMiddleware extends Middleware {
 	 */
 	private ensurePotentialEarlyExit({ method, route, routerNode }: Middleware.Request, response: Middleware.Response) {
 		if (method === 'OPTIONS') {
-			if (!route || !route.methods.has('OPTIONS')) {
+			if (!route?.methods.has('OPTIONS')) {
 				response.end();
 			}
 		} else if (routerNode === null) {

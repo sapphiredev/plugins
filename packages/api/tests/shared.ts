@@ -1,13 +1,13 @@
 import { VirtualPath, container } from '@sapphire/pieces';
-import { Route, RouterBranch } from '../src';
+import { Route, type MethodName } from '../src';
 
-export function makeRoute(route: string) {
+export function makeRoute(route: string, methods: readonly MethodName[] = ['GET']) {
 	// @ts-expect-error Stub
 	container.server ??= { options: {} };
 
 	class UserRoute extends Route {
 		public constructor(context: Route.LoaderContext) {
-			super(context, { route, methods: ['GET'] });
+			super(context, { route, methods });
 		}
 
 		public override run() {
@@ -19,6 +19,6 @@ export function makeRoute(route: string) {
 		name: VirtualPath,
 		path: VirtualPath,
 		root: VirtualPath,
-		store: container.stores.get('routes')!
+		store: container.stores.get('routes')
 	});
 }

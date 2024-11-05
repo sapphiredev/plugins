@@ -32,8 +32,13 @@ describe('RouterBranch', () => {
 
 		test('GIVEN a child of the root THEN it should return the correct path', () => {
 			const root = new RouterRoot();
-			const value = root.add(makeRoute('test'));
+			const route = makeRoute('test');
+			const value = root.add(route);
+
 			expect(value.path).toBe('/test');
+			expect([...value.methods()]).toEqual(['GET']);
+			expect(value.extractParameters(['test'])).toEqual({});
+			expect(value.get('GET')).toBe(route);
 		});
 	});
 
@@ -48,6 +53,19 @@ describe('RouterBranch', () => {
 			value.add(makeRoute('child1'));
 			value.add(makeRoute('child2'));
 			expect(value.children.map((child) => child.toString())).toEqual(['child1', 'child2']);
+		});
+
+		test('GIVEN a branch with two same-name static children with different methods THEN it should return the correct children in insert order', () => {
+			const value = new RouterRoot();
+			value.add(makeRoute('child1', ['GET']));
+			value.add(makeRoute('child1', ['POST']));
+
+			expect(value.children).toHaveLength(1);
+			expect([...value.node.methods()]).toEqual([]);
+			expect([...value.children[0].node.methods()]).toEqual(['GET', 'POST']);
+
+			expect(value.supportedMethods).toEqual(['GET', 'POST']);
+			expect(value.children[0].supportedMethods).toEqual(['GET', 'POST']);
 		});
 
 		test('GIVEN a branch with dynamic children THEN it should return the correct children in insert order', () => {

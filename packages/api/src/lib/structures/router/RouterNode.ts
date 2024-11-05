@@ -12,7 +12,7 @@ export class RouterNode {
 	/**
 	 * The methods this node supports.
 	 */
-	#methods = new Collection<MethodName, Route>();
+	readonly #methods = new Collection<MethodName, Route>();
 
 	public constructor(parent: RouterBranch) {
 		this.parent = parent;
