@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@7.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@7.0.2...@sapphire/plugin-api@7.0.3) - (2024-11-06)
+
+## 🐛 Bug Fixes
+
+- **cors:** Use `RouterNode` for the available ACAM values ([b77af3f](https://github.com/sapphiredev/plugins/commit/b77af3f30897a3e123dce323f02cffba30ce4735)) ([#658](https://github.com/sapphiredev/plugins/pull/658) by @kyranet)
+
 # [@sapphire/plugin-api@7.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@7.0.1...@sapphire/plugin-api@7.0.2) - (2024-11-05)
 
 ## 🐛 Bug Fixes
