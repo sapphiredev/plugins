@@ -3,7 +3,7 @@ import { CookieStore } from '../lib/structures/api/CookieStore';
 
 export class PluginMiddleware extends Middleware {
 	private readonly production: boolean = process.env.NODE_ENV === 'production';
-	private domainOverwrite: string | null = null;
+	private readonly domainOverwrite: string | null;
 
 	public constructor(context: Middleware.LoaderContext) {
 		super(context, { position: 30 });
