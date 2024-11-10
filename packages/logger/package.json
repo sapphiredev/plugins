@@ -50,7 +50,7 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@sapphire/timestamp": "^1.0.4",
+		"@sapphire/timestamp": "^1.0.5",
 		"colorette": "^2.0.20"
 	},
 	"repository": {
@@ -84,7 +84,7 @@
 	"devDependencies": {
 		"@favware/cliff-jumper": "^5.0.0",
 		"@favware/rollup-type-bundler": "^3.3.0",
-		"concurrently": "^9.0.1",
+		"concurrently": "^9.1.0",
 		"tsup": "^8.3.5",
 		"tsx": "^4.19.2",
 		"typedoc": "^0.26.11",

@@ -54,7 +54,7 @@
 		"@types/ws": "^8.5.13",
 		"@vladfrangu/async_event_emitter": "2.4.6",
 		"cookie-es": "^1.2.2",
-		"tldts": "^6.1.58",
+		"tldts": "^6.1.59",
 		"undici": "^6.20.1"
 	},
 	"repository": {
@@ -88,7 +88,7 @@
 	"devDependencies": {
 		"@favware/cliff-jumper": "^5.0.0",
 		"@favware/rollup-type-bundler": "^3.3.0",
-		"concurrently": "^9.0.1",
+		"concurrently": "^9.1.0",
 		"tsup": "^8.3.5",
 		"tsx": "^4.19.2",
 		"typedoc": "^0.26.11",
