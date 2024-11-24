@@ -54,7 +54,7 @@
 		"@types/ws": "^8.5.13",
 		"@vladfrangu/async_event_emitter": "2.4.6",
 		"cookie-es": "^1.2.2",
-		"tldts": "^6.1.61",
+		"tldts": "^6.1.64",
 		"undici": "^6.21.0"
 	},
 	"repository": {
