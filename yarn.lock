@@ -1596,7 +1596,7 @@ __metadata:
     "@skyra/i18next-backend": "npm:^2.0.5"
     chokidar: "npm:^4.0.1"
     concurrently: "npm:^9.1.0"
-    i18next: "npm:^23.16.8"
+    i18next: "npm:^24.0.2"
     tsup: "npm:^8.3.5"
     tsx: "npm:^4.19.2"
     typedoc: "npm:^0.26.11"
@@ -4329,12 +4329,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^23.16.8":
-  version: 23.16.8
-  resolution: "i18next@npm:23.16.8"
+"i18next@npm:^24.0.2":
+  version: 24.0.2
+  resolution: "i18next@npm:24.0.2"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: 10/d5c38011de4d3b4aa466fac6773520eb28007b9d6138e03432bfbfc0d041c04df45e15c67d96f22cd660088cc9b24d3eda32cddc9fb4c6508c5afada6c2e6290
+  peerDependencies:
+    typescript: ^5
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10/d8ea00988a8f88c88f0068c3dc4d36732a32ffc4d0626199e5fda05b3ee2562664e4648a530ebe7fd87fa0d6ea13775989fe8202cf8f598cb8ff7c22b6e75167
   languageName: node
   linkType: hard
 
