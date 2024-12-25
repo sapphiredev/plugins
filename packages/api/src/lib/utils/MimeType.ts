@@ -1520,6 +1520,8 @@ export type MimeType =
 	| 'application/vnd.vd-study'
 	| 'application/vnd.vectorworks'
 	| 'application/vnd.vel+json'
+	| 'application/vnd.veraison.tsm-report+cbor'
+	| 'application/vnd.veraison.tsm-report+json'
 	| 'application/vnd.verimatrix.vcas'
 	| 'application/vnd.veritone.aion+json'
 	| 'application/vnd.veryant.thin'
