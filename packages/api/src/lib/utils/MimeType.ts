@@ -1831,6 +1831,8 @@ export type MimeType =
 	| 'image/hsj2'
 	| 'image/ief'
 	| 'image/j2c'
+	| 'image/jaii'
+	| 'image/jais'
 	| 'image/jls'
 	| 'image/jp2'
 	| 'image/jpeg'
