@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@8.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@7.0.3...@sapphire/plugin-api@8.0.0) - (2025-01-02)
+
+## 🐛 Bug Fixes
+
+- **api:** Revert removing index import for api plugin register file ([19c2b86](https://github.com/sapphiredev/plugins/commit/19c2b86ee545c4722ff59f7c13805d1e292e738b)) ([#680](https://github.com/sapphiredev/plugins/pull/680) by @MrBazlow)
+- **deps:** Update all non-major dependencies ([c74b327](https://github.com/sapphiredev/plugins/commit/c74b327f7e9beea3d5164f8f5e17fbd8e61f74d7)) ([#678](https://github.com/sapphiredev/plugins/pull/678) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([7c80885](https://github.com/sapphiredev/plugins/commit/7c80885f4798348b0c077d9b87117782f7af67d8)) ([#673](https://github.com/sapphiredev/plugins/pull/673) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([2f82767](https://github.com/sapphiredev/plugins/commit/2f8276724338631c4d6d8c7b553d268d5990cc74)) ([#672](https://github.com/sapphiredev/plugins/pull/672) by @renovate[bot])
+- **deps:** Update dependency undici to v7 ([865f053](https://github.com/sapphiredev/plugins/commit/865f053625b518828545203ba664ce59168dd8e1)) ([#668](https://github.com/sapphiredev/plugins/pull/668) by @renovate[bot])
+
+## 🚀 Features
+
+- Update mime types ([28abc27](https://github.com/sapphiredev/plugins/commit/28abc271ed1056c6a470cf8cd878af93fb00c2e6)) ([#681](https://github.com/sapphiredev/plugins/pull/681) by @github-actions[bot])
+- Update mime types ([fe87827](https://github.com/sapphiredev/plugins/commit/fe8782756040f35445e1ec043e966ef6b3a6431e)) ([#679](https://github.com/sapphiredev/plugins/pull/679) by @github-actions[bot])
+- Update mime types ([d74a1ba](https://github.com/sapphiredev/plugins/commit/d74a1ba6ce5723416973d8001cfd0e04aed8133b)) ([#675](https://github.com/sapphiredev/plugins/pull/675) by @github-actions[bot])
+- Update mime types ([413f547](https://github.com/sapphiredev/plugins/commit/413f547dd1d1d6c6284d25572613da922c621ccd)) ([#674](https://github.com/sapphiredev/plugins/pull/674) by @github-actions[bot])
+- Update mime types ([f34b540](https://github.com/sapphiredev/plugins/commit/f34b5403a48eb54b26cc19a0d91def58243c1d20)) ([#670](https://github.com/sapphiredev/plugins/pull/670) by @github-actions[bot])
+- Update mime types ([3068466](https://github.com/sapphiredev/plugins/commit/3068466ba36b8ab79783d2a9c7efad6306f3cbcb)) ([#665](https://github.com/sapphiredev/plugins/pull/665) by @github-actions[bot])
+
 # [@sapphire/plugin-api@7.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@7.0.2...@sapphire/plugin-api@7.0.3) - (2024-11-06)
 
 ## 🐛 Bug Fixes
