@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-editable-commands@4.0.4](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@4.0.3...@sapphire/plugin-editable-commands@4.0.4) - (2025-01-05)
+
+## 🐛 Bug Fixes
+
+- **editable-commands:** Update PluginMessageUpdate for latest discord.js version ([aa45009](https://github.com/sapphiredev/plugins/commit/aa45009b590c76dc4eccfb68b47fdf27e8cdfe93)) ([#683](https://github.com/sapphiredev/plugins/pull/683) by @favna)
+- **deps:** Update all non-major dependencies ([a6eeff6](https://github.com/sapphiredev/plugins/commit/a6eeff668d57c995335e02466eb48fbcb699f3ea))
+- **deps:** Update all non-major dependencies ([c74b327](https://github.com/sapphiredev/plugins/commit/c74b327f7e9beea3d5164f8f5e17fbd8e61f74d7)) ([#678](https://github.com/sapphiredev/plugins/pull/678) by @renovate[bot])
+
 # [@sapphire/plugin-editable-commands@4.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-editable-commands@4.0.2...@sapphire/plugin-editable-commands@4.0.3) - (2024-11-02)
 
 ## 🐛 Bug Fixes
