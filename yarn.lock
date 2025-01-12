@@ -1558,13 +1558,13 @@ __metadata:
     "@vladfrangu/async_event_emitter": "npm:2.4.6"
     concurrently: "npm:^9.1.2"
     cookie-es: "npm:^1.2.2"
-    tldts: "npm:^6.1.70"
+    tldts: "npm:^6.1.71"
     tsup: "npm:^8.3.5"
     tsx: "npm:^4.19.2"
     typedoc: "npm:^0.26.11"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.4.5"
-    undici: "npm:^7.2.0"
+    undici: "npm:^7.2.1"
   languageName: unknown
   linkType: soft
 
@@ -1610,7 +1610,7 @@ __metadata:
     "@skyra/i18next-backend": "npm:^2.0.5"
     chokidar: "npm:^4.0.3"
     concurrently: "npm:^9.1.2"
-    i18next: "npm:^24.2.0"
+    i18next: "npm:^24.2.1"
     tsup: "npm:^8.3.5"
     tsx: "npm:^4.19.2"
     typedoc: "npm:^0.26.11"
@@ -1659,7 +1659,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^3.3.0"
     "@sapphire/stopwatch": "npm:^1.5.4"
     "@sapphire/utilities": "npm:^3.18.1"
-    bullmq: "npm:5.34.6"
+    bullmq: "npm:5.34.8"
     concurrently: "npm:^9.1.2"
     tsup: "npm:^8.3.5"
     tsx: "npm:^4.19.2"
@@ -2423,9 +2423,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.34.6":
-  version: 5.34.6
-  resolution: "bullmq@npm:5.34.6"
+"bullmq@npm:5.34.8":
+  version: 5.34.8
+  resolution: "bullmq@npm:5.34.8"
   dependencies:
     cron-parser: "npm:^4.9.0"
     ioredis: "npm:^5.4.1"
@@ -2434,7 +2434,7 @@ __metadata:
     semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
     uuid: "npm:^9.0.0"
-  checksum: 10/cb2f652cf1d92bbf95a450f0dc3d320424a776373e0ceeacda351522a9f70d4e9014d5bf51f401698dda7a703a6dffc308523ddfb34f5cf3915073a793789574
+  checksum: 10/57e2e2281cd39b11426851afb5da697fa24c1587f0469e9704c13538e62ddaaf1c176de88edc903c1e1d62adf07912d73811ef7ae578c4152618a0555e84e67d
   languageName: node
   linkType: hard
 
@@ -3081,9 +3081,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"discord.js@npm:^14.17.2":
-  version: 14.17.2
-  resolution: "discord.js@npm:14.17.2"
+"discord.js@npm:^14.17.3":
+  version: 14.17.3
+  resolution: "discord.js@npm:14.17.3"
   dependencies:
     "@discordjs/builders": "npm:^1.10.0"
     "@discordjs/collection": "npm:1.5.3"
@@ -3097,7 +3097,7 @@ __metadata:
     lodash.snakecase: "npm:4.1.1"
     tslib: "npm:^2.6.3"
     undici: "npm:6.19.8"
-  checksum: 10/5da04c578a3bf7d6263d45b808c21738c6c546d244d5d9d1c3a25c6d33156b7e0c602152544ea74b3e89133b7f79efb781d222a0f912984f98a7faafed067fda
+  checksum: 10/4df34dcce5fec945c3f117d0f23e13c4f51f7e7070051977b10a39100d0ebc36e8d3a44e1b7355b2c5490d2f589352a15e2629da3cf1339c896bdc09a10222b2
   languageName: node
   linkType: hard
 
@@ -4325,9 +4325,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^24.2.0":
-  version: 24.2.0
-  resolution: "i18next@npm:24.2.0"
+"i18next@npm:^24.2.1":
+  version: 24.2.1
+  resolution: "i18next@npm:24.2.1"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
   peerDependencies:
@@ -4335,7 +4335,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/43e15d15fcf046c0fb7a44f7de6c224e17145c66334e81bb45b36b0e3e550cc849f80f9de406f3805f57c2050fd8d33bed561933dfaca5e4681a8addc1957be1
+  checksum: 10/74836c3ca3365155906f95162bf75461f8f82a86034b03fc8efc670e10f610299dc5b51923acc1ab9d52ec7e7e717e44fb95b91ff1560ff45c6bad0c383517af
   languageName: node
   linkType: hard
 
@@ -6334,7 +6334,7 @@ __metadata:
     concurrently: "npm:^9.1.2"
     cz-conventional-changelog: "npm:^3.3.0"
     discord-api-types: "npm:^0.37.114"
-    discord.js: "npm:^14.17.2"
+    discord.js: "npm:^14.17.3"
     esbuild-plugin-file-path-extensions: "npm:^2.1.4"
     esbuild-plugin-version-injector: "npm:^1.2.1"
     eslint: "npm:^8.57.1"
@@ -6879,21 +6879,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.70":
-  version: 6.1.70
-  resolution: "tldts-core@npm:6.1.70"
-  checksum: 10/c304a482d9ad65612db508822d9f30fc7c9e67918ce1b48b44bf7190d96ae523b84f5ba40ff38ad0452a1492441c61aecc3d68fc1cba50f25d9a132da0cd8fb2
+"tldts-core@npm:^6.1.71":
+  version: 6.1.71
+  resolution: "tldts-core@npm:6.1.71"
+  checksum: 10/9bed9e06791c9044d5f6cfe75c7b685c650c1d5cd3fc6f8c5ee3b24478925a1c356a621fe592b889f11b340e5db96a8876ec810379abad11c71700c9d4fe86b7
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.1.70":
-  version: 6.1.70
-  resolution: "tldts@npm:6.1.70"
+"tldts@npm:^6.1.71":
+  version: 6.1.71
+  resolution: "tldts@npm:6.1.71"
   dependencies:
-    tldts-core: "npm:^6.1.70"
+    tldts-core: "npm:^6.1.71"
   bin:
     tldts: bin/cli.js
-  checksum: 10/e69bd6c975c51ee477fc367f4d6e3fb1fee41a380d00c0050fcefaa9bfacb4a6bad39d018f423763719f5bf50550adb8f8ee602dfdf6af5a16f0e8524cb74c63
+  checksum: 10/6a3e9ebf140c45ce5e179b3d9011b6b828c14bacfb2834f3ca61e8a5557b29b2a4e0b62da2c0382156d09e265e0f16255b5acdfef1cbccb25d7cd051ef11e9eb
   languageName: node
   linkType: hard
 
@@ -7217,10 +7217,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^7.2.0":
-  version: 7.2.0
-  resolution: "undici@npm:7.2.0"
-  checksum: 10/35828910a11b8230e36147555ff6d65ce65c1a534ce6a92cb08a324b2c96fd52d7adb7a9864c877dea3149f678118fa233d43f4812eb8151678cf4aa6b4926d5
+"undici@npm:^7.2.1":
+  version: 7.2.1
+  resolution: "undici@npm:7.2.1"
+  checksum: 10/36ae7060097c029607d348e55e71ded43ebf5988754989e88408f125bd30cd9f3659598c1d37ffa8d9102f627b7f0f82f3d88fd7c2cd20e9f1f1a63adc934cee
   languageName: node
   linkType: hard
 
