@@ -1591,6 +1591,7 @@ export type MimeType =
 	| 'application/vnd.zzazz.deck+xml'
 	| 'application/voicexml+xml'
 	| 'application/voucher-cms+json'
+	| 'application/voucher-jws+json'
 	| 'application/vp'
 	| 'application/vp+cose'
 	| 'application/vp+jwt'
