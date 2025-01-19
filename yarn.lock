@@ -1559,13 +1559,13 @@ __metadata:
     "@vladfrangu/async_event_emitter": "npm:2.4.6"
     concurrently: "npm:^9.1.2"
     cookie-es: "npm:^1.2.2"
-    tldts: "npm:^6.1.71"
+    tldts: "npm:^6.1.73"
     tsup: "npm:^8.3.5"
     tsx: "npm:^4.19.2"
     typedoc: "npm:^0.26.11"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.4.5"
-    undici: "npm:^7.2.1"
+    undici: "npm:^7.2.3"
   languageName: unknown
   linkType: soft
 
@@ -1660,7 +1660,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^4.0.0"
     "@sapphire/stopwatch": "npm:^1.5.4"
     "@sapphire/utilities": "npm:^3.18.1"
-    bullmq: "npm:5.34.8"
+    bullmq: "npm:5.34.10"
     concurrently: "npm:^9.1.2"
     tsup: "npm:^8.3.5"
     tsx: "npm:^4.19.2"
@@ -1897,12 +1897,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.10.5":
-  version: 22.10.5
-  resolution: "@types/node@npm:22.10.5"
+"@types/node@npm:*, @types/node@npm:^22.10.7":
+  version: 22.10.7
+  resolution: "@types/node@npm:22.10.7"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10/a5366961ffa9921e8f15435bc18ea9f8b7a7bb6b3d92dd5e93ebcd25e8af65708872bd8e6fee274b4655bab9ca80fbff9f0e42b5b53857790f13cf68cf4cbbfc
+  checksum: 10/64cde1c2f5e5f7d597d3bd462f52c3c2d688a66623eb75d25e1d1d63d384ef553a27100635ad0dbb7d74da517048aa636947863eb624cf85f25d2f22370ce474
   languageName: node
   linkType: hard
 
@@ -2417,9 +2417,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.34.8":
-  version: 5.34.8
-  resolution: "bullmq@npm:5.34.8"
+"bullmq@npm:5.34.10":
+  version: 5.34.10
+  resolution: "bullmq@npm:5.34.10"
   dependencies:
     cron-parser: "npm:^4.9.0"
     ioredis: "npm:^5.4.1"
@@ -2428,7 +2428,7 @@ __metadata:
     semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
     uuid: "npm:^9.0.0"
-  checksum: 10/57e2e2281cd39b11426851afb5da697fa24c1587f0469e9704c13538e62ddaaf1c176de88edc903c1e1d62adf07912d73811ef7ae578c4152618a0555e84e67d
+  checksum: 10/e78121b197f9d8193468dde06642fbcd33a057d024ec20dfae4b20b44b97bc2d111d899e4cee417f4f80235655260e3bec80e1f9b2f91782e48a9a75af3e8f88
   languageName: node
   linkType: hard
 
@@ -3491,9 +3491,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^5.1.3, eslint-plugin-prettier@npm:^5.2.1":
-  version: 5.2.1
-  resolution: "eslint-plugin-prettier@npm:5.2.1"
+"eslint-plugin-prettier@npm:^5.1.3, eslint-plugin-prettier@npm:^5.2.3":
+  version: 5.2.3
+  resolution: "eslint-plugin-prettier@npm:5.2.3"
   dependencies:
     prettier-linter-helpers: "npm:^1.0.0"
     synckit: "npm:^0.9.1"
@@ -3507,7 +3507,7 @@ __metadata:
       optional: true
     eslint-config-prettier:
       optional: true
-  checksum: 10/10ddf68215237e327af09a47adab4c63f3885fda4fb28c4c42d1fc5f47d8a0cc45df6484799360ff1417a0aa3c77c3aaac49d7e9dfd145557b17e2d7ecc2a27c
+  checksum: 10/6444a0b89f3e2a6b38adce69761133f8539487d797f1655b3fa24f93a398be132c4f68f87041a14740b79202368d5782aa1dffd2bd7a3ea659f263d6796acf15
   languageName: node
   linkType: hard
 
@@ -4836,9 +4836,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^15.3.0":
-  version: 15.3.0
-  resolution: "lint-staged@npm:15.3.0"
+"lint-staged@npm:^15.4.1":
+  version: 15.4.1
+  resolution: "lint-staged@npm:15.4.1"
   dependencies:
     chalk: "npm:~5.4.1"
     commander: "npm:~12.1.0"
@@ -4852,7 +4852,7 @@ __metadata:
     yaml: "npm:~2.6.1"
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 10/b19ce450641f6cc76be8399658423f0dfa9f9a471aaa427c10bef6a1de2017f1c2547e293de908a57b9202ee20a19fd2305aec3e435cb1d4cfc1d03ace843e9f
+  checksum: 10/615a1f0a66c6cb35fda928745fec9864498853d5aab49785840b12643e40c6518daf01218b5255a727d32ef9a3738e3766103679cfdcd6f1b320e272920f3b68
   languageName: node
   linkType: hard
 
@@ -6327,7 +6327,7 @@ __metadata:
     "@sapphire/stopwatch": "npm:^1.5.4"
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sapphire/utilities": "npm:^3.18.1"
-    "@types/node": "npm:^22.10.5"
+    "@types/node": "npm:^22.10.7"
     "@types/ws": "npm:^8.5.13"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
@@ -6340,8 +6340,8 @@ __metadata:
     esbuild-plugin-version-injector: "npm:^1.2.1"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-prettier: "npm:^5.2.1"
-    lint-staged: "npm:^15.3.0"
+    eslint-plugin-prettier: "npm:^5.2.3"
+    lint-staged: "npm:^15.4.1"
     prettier: "npm:^3.4.2"
     rimraf: "npm:^6.0.1"
     tsup: "npm:^8.3.5"
@@ -6880,21 +6880,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.71":
-  version: 6.1.71
-  resolution: "tldts-core@npm:6.1.71"
-  checksum: 10/9bed9e06791c9044d5f6cfe75c7b685c650c1d5cd3fc6f8c5ee3b24478925a1c356a621fe592b889f11b340e5db96a8876ec810379abad11c71700c9d4fe86b7
+"tldts-core@npm:^6.1.73":
+  version: 6.1.73
+  resolution: "tldts-core@npm:6.1.73"
+  checksum: 10/bae2ea553a6a90bfcb6a5babd134e5c2e6ee6482fbe2c53e163d3705cdf84ee9e76210975534e606c8b9bed8834d8c33181cace1a44d0599732fc487d98edb55
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.1.71":
-  version: 6.1.71
-  resolution: "tldts@npm:6.1.71"
+"tldts@npm:^6.1.73":
+  version: 6.1.73
+  resolution: "tldts@npm:6.1.73"
   dependencies:
-    tldts-core: "npm:^6.1.71"
+    tldts-core: "npm:^6.1.73"
   bin:
     tldts: bin/cli.js
-  checksum: 10/6a3e9ebf140c45ce5e179b3d9011b6b828c14bacfb2834f3ca61e8a5557b29b2a4e0b62da2c0382156d09e265e0f16255b5acdfef1cbccb25d7cd051ef11e9eb
+  checksum: 10/fb4992e3d3abe02fa76ce2877dc30d3166e2998b047e32d06749a711339b7204c496862a7e8c7e91fc2cbf22d0cbc3386230aa255ba57bf10a9fffd08256d486
   languageName: node
   linkType: hard
 
@@ -7218,10 +7218,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^7.2.1":
-  version: 7.2.1
-  resolution: "undici@npm:7.2.1"
-  checksum: 10/36ae7060097c029607d348e55e71ded43ebf5988754989e88408f125bd30cd9f3659598c1d37ffa8d9102f627b7f0f82f3d88fd7c2cd20e9f1f1a63adc934cee
+"undici@npm:^7.2.3":
+  version: 7.2.3
+  resolution: "undici@npm:7.2.3"
+  checksum: 10/92870d186682c19f4b9909e4b6229a88b4e73e6e12d7a3e151033cefb66579bdc1d36e46d97e386161ba0afcd84b718e917fca7b7f08d409d918689343034c09
   languageName: node
   linkType: hard
 
