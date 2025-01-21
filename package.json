@@ -49,7 +49,7 @@
 		"tsx": "^4.19.2",
 		"turbo": "^2.3.3",
 		"typescript": "~5.4.5",
-		"vite": "^6.0.7",
+		"vite": "^6.0.9",
 		"vitest": "^3.0.2"
 	},
 	"repository": {
