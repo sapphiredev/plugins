@@ -2157,6 +2157,7 @@ export type MimeType =
 	| 'video/vnd.nokia.mp4vr'
 	| 'video/vnd.nokia.videovoip'
 	| 'video/vnd.objectvideo'
+	| 'video/vnd.planar'
 	| 'video/vnd.radgamettools.bink'
 	| 'video/vnd.radgamettools.smacker'
 	| 'video/vnd.sealed.mpeg1'
