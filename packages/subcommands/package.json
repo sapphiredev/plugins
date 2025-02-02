@@ -49,7 +49,7 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
-		"@sapphire/utilities": "^3.18.1"
+		"@sapphire/utilities": "^3.18.2"
 	},
 	"repository": {
 		"type": "git",

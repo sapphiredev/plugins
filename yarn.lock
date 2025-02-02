@@ -1398,7 +1398,7 @@ __metadata:
     "@vladfrangu/async_event_emitter": "npm:2.4.6"
     concurrently: "npm:^9.1.2"
     cookie-es: "npm:^1.2.2"
-    tldts: "npm:^6.1.74"
+    tldts: "npm:^6.1.76"
     tsup: "npm:^8.3.6"
     tsx: "npm:^4.19.2"
     typedoc: "npm:^0.26.11"
@@ -1446,7 +1446,7 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": "npm:^6.0.0"
     "@favware/rollup-type-bundler": "npm:^4.0.0"
-    "@sapphire/utilities": "npm:^3.18.1"
+    "@sapphire/utilities": "npm:^3.18.2"
     "@skyra/i18next-backend": "npm:^2.0.5"
     chokidar: "npm:^4.0.3"
     concurrently: "npm:^9.1.2"
@@ -1498,8 +1498,8 @@ __metadata:
     "@favware/cliff-jumper": "npm:^6.0.0"
     "@favware/rollup-type-bundler": "npm:^4.0.0"
     "@sapphire/stopwatch": "npm:^1.5.4"
-    "@sapphire/utilities": "npm:^3.18.1"
-    bullmq: "npm:5.37.0"
+    "@sapphire/utilities": "npm:^3.18.2"
+    bullmq: "npm:5.39.2"
     concurrently: "npm:^9.1.2"
     tsup: "npm:^8.3.6"
     tsx: "npm:^4.19.2"
@@ -1515,7 +1515,7 @@ __metadata:
   dependencies:
     "@favware/cliff-jumper": "npm:^6.0.0"
     "@favware/rollup-type-bundler": "npm:^4.0.0"
-    "@sapphire/utilities": "npm:^3.18.1"
+    "@sapphire/utilities": "npm:^3.18.2"
     concurrently: "npm:^9.1.2"
     tsup: "npm:^8.3.6"
     tsx: "npm:^4.19.2"
@@ -1613,10 +1613,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/utilities@npm:3.18.1, @sapphire/utilities@npm:^3.16.2, @sapphire/utilities@npm:^3.17.0, @sapphire/utilities@npm:^3.18.1":
+"@sapphire/utilities@npm:3.18.1":
   version: 3.18.1
   resolution: "@sapphire/utilities@npm:3.18.1"
   checksum: 10/e13fdc6f83d2a326dfe124a65d0db4243cd5ca636cc770d881927a5e466221065d5f241e3e7673bf133b76c2359f86e4c0b1b834485f0470e25941457ee2cb90
+  languageName: node
+  linkType: hard
+
+"@sapphire/utilities@npm:^3.16.2, @sapphire/utilities@npm:^3.17.0, @sapphire/utilities@npm:^3.18.1, @sapphire/utilities@npm:^3.18.2":
+  version: 3.18.2
+  resolution: "@sapphire/utilities@npm:3.18.2"
+  checksum: 10/d7433b4231f56e3b07b93daaad7c43cb129f4a4e01ecf36ac22a6fcb1cedbd9059c124427002839006e3ee16fae7faa29bc48f6d40338873ac5c84dc28757ab8
   languageName: node
   linkType: hard
 
@@ -1736,12 +1743,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.10.10":
-  version: 22.10.10
-  resolution: "@types/node@npm:22.10.10"
+"@types/node@npm:*, @types/node@npm:^22.13.0":
+  version: 22.13.0
+  resolution: "@types/node@npm:22.13.0"
   dependencies:
     undici-types: "npm:~6.20.0"
-  checksum: 10/61559b62bc7e62b947876e097c99472dd01317dd3b5916b538e2c40db8d68a1fc23c8de48149ef04cd2790a97bf2c005ea60cbb067e55ddbefd013d73da7a147
+  checksum: 10/a7563e57df48cb7e28f936dbabe228316dcdb4c7c3a88a6c1659fae898ffde2647a7193a9e29e0cbcb7dacc05a91fb3bc30c1a1d6fc9294694a734ff71a5f12e
   languageName: node
   linkType: hard
 
@@ -2256,9 +2263,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.37.0":
-  version: 5.37.0
-  resolution: "bullmq@npm:5.37.0"
+"bullmq@npm:5.39.2":
+  version: 5.39.2
+  resolution: "bullmq@npm:5.39.2"
   dependencies:
     cron-parser: "npm:^4.9.0"
     ioredis: "npm:^5.4.1"
@@ -2267,7 +2274,7 @@ __metadata:
     semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
     uuid: "npm:^9.0.0"
-  checksum: 10/57ed9920b6ae776d5c7f3cc463c71164f1af0f59e8c0f03aca5aaa407f3865d2e1a543828c12cce26fecf212890efe54fb5d9ee6f959e7d6410a022c372dc90e
+  checksum: 10/00432a078166fe76383529d5f5c3eb6911b563f0a70828324a3ee378eef0075add216be37cc107c987330990b6f08a1ae448a0334651c1dffbf5e12ffd016ec9
   languageName: node
   linkType: hard
 
@@ -4606,9 +4613,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^15.4.2":
-  version: 15.4.2
-  resolution: "lint-staged@npm:15.4.2"
+"lint-staged@npm:^15.4.3":
+  version: 15.4.3
+  resolution: "lint-staged@npm:15.4.3"
   dependencies:
     chalk: "npm:^5.4.1"
     commander: "npm:^13.1.0"
@@ -4622,7 +4629,7 @@ __metadata:
     yaml: "npm:^2.7.0"
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 10/19f85db74d002b46901b8d1acf8af195e116eab53a1c3790be89d6d175b2fdf62098df86d6b5d0db2822ce4e0ccae8dc954f2dd2a79b656b7837d2f5af65c563
+  checksum: 10/14a6a9cb9b5e8027b1347cb24e114839d618d343d5c724c26def7d45ca9b9a9b813b585531c68f5a3d13332407c2dba198987a73f0350df483d99a876ba69c60
   languageName: node
   linkType: hard
 
@@ -6096,8 +6103,8 @@ __metadata:
     "@sapphire/prettier-config": "npm:^2.0.0"
     "@sapphire/stopwatch": "npm:^1.5.4"
     "@sapphire/ts-config": "npm:^5.0.1"
-    "@sapphire/utilities": "npm:^3.18.1"
-    "@types/node": "npm:^22.10.10"
+    "@sapphire/utilities": "npm:^3.18.2"
+    "@types/node": "npm:^22.13.0"
     "@types/ws": "npm:^8.5.14"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
@@ -6111,12 +6118,12 @@ __metadata:
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^10.0.1"
     eslint-plugin-prettier: "npm:^5.2.3"
-    lint-staged: "npm:^15.4.2"
+    lint-staged: "npm:^15.4.3"
     prettier: "npm:^3.4.2"
     rimraf: "npm:^6.0.1"
     tsup: "npm:^8.3.6"
     tsx: "npm:^4.19.2"
-    turbo: "npm:^2.3.4"
+    turbo: "npm:^2.4.0"
     typescript: "npm:~5.4.5"
     vite: "npm:^6.0.11"
     vitest: "npm:^3.0.4"
@@ -6650,21 +6657,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.74":
-  version: 6.1.74
-  resolution: "tldts-core@npm:6.1.74"
-  checksum: 10/f2b8dd7cf66b25c8cc71557980cdc3573629223229f7738fb8ef942ed23fedd5371fa0d7a80e0515edf6d06bf694ffb6f989f8bd15c9d693412f39d3c122d52f
+"tldts-core@npm:^6.1.76":
+  version: 6.1.76
+  resolution: "tldts-core@npm:6.1.76"
+  checksum: 10/eebb67d4efba10982b9d4ae2f2edaccf79c6f3354e21088446edaa06eab804c15eda662680892b5463df801adda4fe54fe02773be55b8b54a4377007be7bab01
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.1.74":
-  version: 6.1.74
-  resolution: "tldts@npm:6.1.74"
+"tldts@npm:^6.1.76":
+  version: 6.1.76
+  resolution: "tldts@npm:6.1.76"
   dependencies:
-    tldts-core: "npm:^6.1.74"
+    tldts-core: "npm:^6.1.76"
   bin:
     tldts: bin/cli.js
-  checksum: 10/5381c66841bfa8d0ecde64d9db57fc381816c833ce0e6db344c01b1257758cde48f1949634603b9595bdb14390c09f6346e66e03d2ca493eea2bcc4579024a18
+  checksum: 10/eeca7529fc4c1f4af08582e7b61d7a517bd2c2f9f12b295154f5dddbf87f7cb96085df6e8f18f15ca0fac579b27f9a73212e61d0b1b911b941fabe5cf9f9f4cd
   languageName: node
   linkType: hard
 
@@ -6798,58 +6805,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:2.3.4":
-  version: 2.3.4
-  resolution: "turbo-darwin-64@npm:2.3.4"
+"turbo-darwin-64@npm:2.4.0":
+  version: 2.4.0
+  resolution: "turbo-darwin-64@npm:2.4.0"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:2.3.4":
-  version: 2.3.4
-  resolution: "turbo-darwin-arm64@npm:2.3.4"
+"turbo-darwin-arm64@npm:2.4.0":
+  version: 2.4.0
+  resolution: "turbo-darwin-arm64@npm:2.4.0"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:2.3.4":
-  version: 2.3.4
-  resolution: "turbo-linux-64@npm:2.3.4"
+"turbo-linux-64@npm:2.4.0":
+  version: 2.4.0
+  resolution: "turbo-linux-64@npm:2.4.0"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:2.3.4":
-  version: 2.3.4
-  resolution: "turbo-linux-arm64@npm:2.3.4"
+"turbo-linux-arm64@npm:2.4.0":
+  version: 2.4.0
+  resolution: "turbo-linux-arm64@npm:2.4.0"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:2.3.4":
-  version: 2.3.4
-  resolution: "turbo-windows-64@npm:2.3.4"
+"turbo-windows-64@npm:2.4.0":
+  version: 2.4.0
+  resolution: "turbo-windows-64@npm:2.4.0"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:2.3.4":
-  version: 2.3.4
-  resolution: "turbo-windows-arm64@npm:2.3.4"
+"turbo-windows-arm64@npm:2.4.0":
+  version: 2.4.0
+  resolution: "turbo-windows-arm64@npm:2.4.0"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:^2.3.4":
-  version: 2.3.4
-  resolution: "turbo@npm:2.3.4"
+"turbo@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "turbo@npm:2.4.0"
   dependencies:
-    turbo-darwin-64: "npm:2.3.4"
-    turbo-darwin-arm64: "npm:2.3.4"
-    turbo-linux-64: "npm:2.3.4"
-    turbo-linux-arm64: "npm:2.3.4"
-    turbo-windows-64: "npm:2.3.4"
-    turbo-windows-arm64: "npm:2.3.4"
+    turbo-darwin-64: "npm:2.4.0"
+    turbo-darwin-arm64: "npm:2.4.0"
+    turbo-linux-64: "npm:2.4.0"
+    turbo-linux-arm64: "npm:2.4.0"
+    turbo-windows-64: "npm:2.4.0"
+    turbo-windows-arm64: "npm:2.4.0"
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -6865,7 +6872,7 @@ __metadata:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: 10/e1ea94c1977c7d907dff50796b09dca8dc4713590ef0f3a5697abb2de41b9a465e6ca25b8d417d12cadb4db5e65a2c247dd60486c85eaaf69a1888ff9f0d604a
+  checksum: 10/074e612c5258132e52d1aeed3152178c6f8b2a8c77625ec734b5eb71a77ab123639446404b6c9ea126a382594359e4a095c4fafa860c2bc451dbec8846cebdab
   languageName: node
   linkType: hard
 
