@@ -87,6 +87,7 @@ export type MimeType =
 	| 'application/clue+xml'
 	| 'application/cms'
 	| 'application/cnrp+xml'
+	| 'application/coap-eap'
 	| 'application/coap-group+json'
 	| 'application/coap-payload'
 	| 'application/commonground'
