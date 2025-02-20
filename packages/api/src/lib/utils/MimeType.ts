@@ -2104,6 +2104,7 @@ export type MimeType =
 	| 'video/JPEG'
 	| 'video/jpeg2000'
 	| 'video/jxsv'
+	| 'video/lottie+json'
 	| 'video/matroska'
 	| 'video/matroska-3d'
 	| 'video/mj2'
