@@ -1229,7 +1229,7 @@ __metadata:
     "@types/ws": "npm:^8.5.14"
     "@vladfrangu/async_event_emitter": "npm:2.4.6"
     concurrently: "npm:^9.1.2"
-    cookie-es: "npm:^1.2.2"
+    cookie-es: "npm:^2.0.0"
     tldts: "npm:^6.1.82"
     tsup: "npm:^8.4.0"
     tsx: "npm:^4.19.3"
@@ -2569,10 +2569,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie-es@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "cookie-es@npm:1.2.2"
-  checksum: 10/0fd742c11caa185928e450543f84df62d4b2c1fc7b5041196b57b7db04e1c6ac6585fb40e4f579a2819efefd2d6a9cbb4d17f71240d05f4dcd8f74ae81341a20
+"cookie-es@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "cookie-es@npm:2.0.0"
+  checksum: 10/dffbfec1846fc3fce4a8e8bcf650f8bb26c7ec7f00ac18060226dd21a0e14372d593b91289ed52834141ab85d6bcb6755834be560d789c138127e6d594bdde0f
   languageName: node
   linkType: hard
 
