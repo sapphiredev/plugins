@@ -1868,6 +1868,7 @@ export type MimeType =
 	| 'image/tiff-fx'
 	| 'image/vnd.adobe.photoshop'
 	| 'image/vnd.airzip.accelerator.azv'
+	| 'image/vnd.clip'
 	| 'image/vnd.cns.inf2'
 	| 'image/vnd.dece.graphic'
 	| 'image/vnd.djvu'
