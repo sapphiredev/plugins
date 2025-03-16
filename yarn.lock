@@ -51,12 +51,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.23.2":
-  version: 7.26.0
-  resolution: "@babel/runtime@npm:7.26.0"
+"@babel/runtime@npm:^7.26.10":
+  version: 7.26.10
+  resolution: "@babel/runtime@npm:7.26.10"
   dependencies:
     regenerator-runtime: "npm:^0.14.0"
-  checksum: 10/9f4ea1c1d566c497c052d505587554e782e021e6ccd302c2ad7ae8291c8e16e3f19d4a7726fb64469e057779ea2081c28b7dbefec6d813a22f08a35712c0f699
+  checksum: 10/9d7ff8e96abe3791047c1138789c742411e3ef19c4d7ca18ce916f83cec92c06ec5dc64401759f6dd1e377cf8a01bbd2c62e033eb7550f435cf6579768d0d4a5
   languageName: node
   linkType: hard
 
@@ -1236,7 +1236,7 @@ __metadata:
     typedoc: "npm:^0.26.11"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.4.5"
-    undici: "npm:^7.4.0"
+    undici: "npm:^7.5.0"
   languageName: unknown
   linkType: soft
 
@@ -1282,7 +1282,7 @@ __metadata:
     "@skyra/i18next-backend": "npm:^2.0.5"
     chokidar: "npm:^4.0.3"
     concurrently: "npm:^9.1.2"
-    i18next: "npm:^24.2.2"
+    i18next: "npm:^24.2.3"
     tsup: "npm:^8.4.0"
     tsx: "npm:^4.19.3"
     typedoc: "npm:^0.26.11"
@@ -1331,7 +1331,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^4.0.0"
     "@sapphire/stopwatch": "npm:^1.5.4"
     "@sapphire/utilities": "npm:^3.18.2"
-    bullmq: "npm:5.41.8"
+    bullmq: "npm:5.43.1"
     concurrently: "npm:^9.1.2"
     tsup: "npm:^8.4.0"
     tsx: "npm:^4.19.3"
@@ -2095,9 +2095,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.41.8":
-  version: 5.41.8
-  resolution: "bullmq@npm:5.41.8"
+"bullmq@npm:5.43.1":
+  version: 5.43.1
+  resolution: "bullmq@npm:5.43.1"
   dependencies:
     cron-parser: "npm:^4.9.0"
     ioredis: "npm:^5.4.1"
@@ -2106,7 +2106,7 @@ __metadata:
     semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
     uuid: "npm:^9.0.0"
-  checksum: 10/d6289143285795b2806fa41365fd60c96cdd6b152b0b223f03ce5687567a28c01b11688c6312924b4ac1c2547a9df3029a2d89d47a0db94cc3b507b555f15ba1
+  checksum: 10/366f1d47bab8def075ed585ac438c46b6b2e4463e6a41406c778c0f79873c088a32e31e13c9c0de7ee62c9e51ff5461af17bb6561f16845819c14c7e99371e09
   languageName: node
   linkType: hard
 
@@ -3852,17 +3852,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^24.2.2":
-  version: 24.2.2
-  resolution: "i18next@npm:24.2.2"
+"i18next@npm:^24.2.3":
+  version: 24.2.3
+  resolution: "i18next@npm:24.2.3"
   dependencies:
-    "@babel/runtime": "npm:^7.23.2"
+    "@babel/runtime": "npm:^7.26.10"
   peerDependencies:
     typescript: ^5
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/f66ed9e56d9412e59502f5df39163631daf9f1264774732fb21edbd66a528ca7a6b67dc2e2aec95683c6c7956e42c651587a54bd8ee082bd12008880ce6cd326
+  checksum: 10/6c73d964f2a98b1aa2c2717fe6da66fc265bcbbc5fcd52b2bfff51ff013d30d4f7d7449c4eb7f464d27af43e2e73f2e7f1d46a144d731bd3bdb1385d4c199e4c
   languageName: node
   linkType: hard
 
@@ -4362,9 +4362,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^15.4.3":
-  version: 15.4.3
-  resolution: "lint-staged@npm:15.4.3"
+"lint-staged@npm:^15.5.0":
+  version: 15.5.0
+  resolution: "lint-staged@npm:15.5.0"
   dependencies:
     chalk: "npm:^5.4.1"
     commander: "npm:^13.1.0"
@@ -4378,7 +4378,7 @@ __metadata:
     yaml: "npm:^2.7.0"
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: 10/14a6a9cb9b5e8027b1347cb24e114839d618d343d5c724c26def7d45ca9b9a9b813b585531c68f5a3d13332407c2dba198987a73f0350df483d99a876ba69c60
+  checksum: 10/5873584649c5f840b990036c20abd4b58d6b1313dad5505627b4d0cc077f0ec8ac0d6cf4cf4d959e66e0ab085db384bb12dce9490ff29217bf4ed96d0442ed51
   languageName: node
   linkType: hard
 
@@ -5867,14 +5867,14 @@ __metadata:
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^10.1.1"
     eslint-plugin-prettier: "npm:^5.2.3"
-    lint-staged: "npm:^15.4.3"
+    lint-staged: "npm:^15.5.0"
     prettier: "npm:^3.5.3"
     rimraf: "npm:^6.0.1"
     tsup: "npm:^8.4.0"
     tsx: "npm:^4.19.3"
     turbo: "npm:^2.4.4"
     typescript: "npm:~5.4.5"
-    vite: "npm:^6.2.1"
+    vite: "npm:^6.2.2"
     vitest: "npm:^3.0.8"
   languageName: unknown
   linkType: soft
@@ -6744,10 +6744,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^7.4.0":
-  version: 7.4.0
-  resolution: "undici@npm:7.4.0"
-  checksum: 10/b2f659f2e2cdad422ad9ae6aff2bbba2669c0707708eed9cb56d85bcaf554c4e61be5fd437e58bb181d5ee6cd6c87def393fcfccd1633cc8ff2aa6b744abe520
+"undici@npm:^7.5.0":
+  version: 7.5.0
+  resolution: "undici@npm:7.5.0"
+  checksum: 10/66b84d69f7648c2fef5d213492d037ef337c74c817c61589aa6abf51bff75ad9c97aba55139724471e967e3efcbce3e9748a72271db4d3421bdfc0ee8143dbe9
   languageName: node
   linkType: hard
 
@@ -6930,9 +6930,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.0 || ^6.0.0, vite@npm:^6.2.1":
-  version: 6.2.1
-  resolution: "vite@npm:6.2.1"
+"vite@npm:^5.0.0 || ^6.0.0, vite@npm:^6.2.2":
+  version: 6.2.2
+  resolution: "vite@npm:6.2.2"
   dependencies:
     esbuild: "npm:^0.25.0"
     fsevents: "npm:~2.3.3"
@@ -6978,7 +6978,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/a37cbc33a3d9746434e8e96614dd6d8d45d821e61e9d266f389808da290b3128ac93ba0059ab09a098cdeab8b790d6d3ae7cdd5e1ce7d55c31b8bece650b3790
+  checksum: 10/30896cbdbc082131cca3a343461ada8c2e8c30eed640dfaca39fd44b2f2fa4a1a312fe298e037063106af09f3026239be822a6b2f49e3d8239b8a64e86e83193
   languageName: node
   linkType: hard
 
