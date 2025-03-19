@@ -118,6 +118,7 @@ export type MimeType =
 	| 'application/dicom'
 	| 'application/dicom+json'
 	| 'application/dicom+xml'
+	| 'application/did'
 	| 'application/DII'
 	| 'application/DIT'
 	| 'application/dns'
