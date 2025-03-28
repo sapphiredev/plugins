@@ -410,6 +410,7 @@ export type MimeType =
 	| 'application/scvp-cv-response'
 	| 'application/scvp-vp-request'
 	| 'application/scvp-vp-response'
+	| 'application/sdf+json'
 	| 'application/sdp'
 	| 'application/secevent+jwt'
 	| 'application/senml-etch+cbor'
