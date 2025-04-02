@@ -2069,6 +2069,7 @@ export type MimeType =
 	| 'text/vnd.si.uricatalogue'
 	| 'text/vnd.sun.j2me.app-descriptor'
 	| 'text/vnd.sosi'
+	| 'text/vnd.typst'
 	| 'text/vnd.trolltech.linguist'
 	| 'text/vnd.vcf'
 	| 'text/vnd.wap.si'
