@@ -1541,6 +1541,7 @@ export type MimeType =
 	| 'application/vnd.vividence.scriptfile'
 	| 'application/vnd.vocalshaper.vsp4'
 	| 'application/vnd.vsf'
+	| 'application/vnd.wantverse'
 	| 'application/vnd.wap.sic'
 	| 'application/vnd.wap.slc'
 	| 'application/vnd.wap.wbxml'
