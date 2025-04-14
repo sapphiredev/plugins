@@ -1230,7 +1230,7 @@ __metadata:
     "@vladfrangu/async_event_emitter": "npm:2.4.6"
     concurrently: "npm:^9.1.2"
     cookie-es: "npm:^2.0.0"
-    tldts: "npm:^6.1.86"
+    tldts: "npm:^7.0.0"
     tsup: "npm:^8.4.0"
     tsx: "npm:^4.19.3"
     typedoc: "npm:^0.26.11"
@@ -6406,21 +6406,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^6.1.86":
-  version: 6.1.86
-  resolution: "tldts-core@npm:6.1.86"
-  checksum: 10/cb5dff9cc15661ac773a2099e98c99a5cb3cebc35909c23cc4261ff7992032c7501995ae995de3574dbbf3431e59c47496534d52f5e96abcb231f0e72144c020
+"tldts-core@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "tldts-core@npm:7.0.0"
+  checksum: 10/ed2feed7f4bc8d24228a881914be1f058b07e1b1f3b498201a26307b5f0e5df64fce41feaffe9d53b76351ccfaea306a193d095fa21200121e112aa7669b033c
   languageName: node
   linkType: hard
 
-"tldts@npm:^6.1.86":
-  version: 6.1.86
-  resolution: "tldts@npm:6.1.86"
+"tldts@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "tldts@npm:7.0.0"
   dependencies:
-    tldts-core: "npm:^6.1.86"
+    tldts-core: "npm:^7.0.0"
   bin:
     tldts: bin/cli.js
-  checksum: 10/f7e66824e44479ccdda55ea556af14ce61c4d27708be403e3f90631defde49f82a580e1ca07187cc7e3b349e257a30c2808a22903f3a0548e136ebb609ccc109
+  checksum: 10/bb8b86a43421d6b546879e6934338c87d014fddc74e414b393609a6b797a6a29fa72aa146f0a7972965ba47706ed7baa0ee8c1aba0bfbd748c5a842417a8e4aa
   languageName: node
   linkType: hard
 
