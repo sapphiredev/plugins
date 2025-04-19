@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@8.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@8.0.0...@sapphire/plugin-api@8.1.0) - (2025-04-19)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update dependency tldts to v7 ([b2f016e](https://github.com/sapphiredev/plugins/commit/b2f016e8337043c86c221721444f29b307e3dc81)) ([#728](https://github.com/sapphiredev/plugins/pull/728) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([1fc0c36](https://github.com/sapphiredev/plugins/commit/1fc0c36ed68ea90def7f172c0a0e8e5254a8b643)) ([#727](https://github.com/sapphiredev/plugins/pull/727) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([c246384](https://github.com/sapphiredev/plugins/commit/c246384416e7d80326aa11a83a40a9a253d5cb2a)) ([#723](https://github.com/sapphiredev/plugins/pull/723) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([7a67b07](https://github.com/sapphiredev/plugins/commit/7a67b070e800700d344e2b0192a41cf2f67746c0)) ([#716](https://github.com/sapphiredev/plugins/pull/716) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([c1fcec2](https://github.com/sapphiredev/plugins/commit/c1fcec227cd5b369e74025c966c794952f755904)) ([#712](https://github.com/sapphiredev/plugins/pull/712) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([214f8ce](https://github.com/sapphiredev/plugins/commit/214f8cec2dd7964fb08402a07fdd646c3a837493)) ([#710](https://github.com/sapphiredev/plugins/pull/710) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([e879702](https://github.com/sapphiredev/plugins/commit/e8797028bd02dcc33b8f60dd07547a73ac4f4125)) ([#709](https://github.com/sapphiredev/plugins/pull/709) by @renovate[bot])
+- **deps:** Update dependency cookie-es to v2 ([87ed879](https://github.com/sapphiredev/plugins/commit/87ed8798c144996540051fb96cc7ddc78b58c953)) ([#706](https://github.com/sapphiredev/plugins/pull/706) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([cc47e19](https://github.com/sapphiredev/plugins/commit/cc47e198df63b90ae64fd9d945ba2d521d17a8f2)) ([#705](https://github.com/sapphiredev/plugins/pull/705) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([fb563e8](https://github.com/sapphiredev/plugins/commit/fb563e8d6b9bc7e3594563ab99838a6abea9032c)) ([#704](https://github.com/sapphiredev/plugins/pull/704) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([a7d24b1](https://github.com/sapphiredev/plugins/commit/a7d24b13d77c311c4b33c99d1aec6457504e553c)) ([#697](https://github.com/sapphiredev/plugins/pull/697) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([689cfd8](https://github.com/sapphiredev/plugins/commit/689cfd8be9e0dccce1aac838e07b77d56e5cc0fa)) ([#695](https://github.com/sapphiredev/plugins/pull/695) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([48a1e26](https://github.com/sapphiredev/plugins/commit/48a1e26ca064fcfe666b6826dacaa2c8bc7714bb)) ([#694](https://github.com/sapphiredev/plugins/pull/694) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([ebf804c](https://github.com/sapphiredev/plugins/commit/ebf804c63c55d8eb4986f70350612b0c714e79ea)) ([#688](https://github.com/sapphiredev/plugins/pull/688) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([aa2ed66](https://github.com/sapphiredev/plugins/commit/aa2ed66e38e2cae79bd9585149896205c009dd1b)) ([#684](https://github.com/sapphiredev/plugins/pull/684) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([a6eeff6](https://github.com/sapphiredev/plugins/commit/a6eeff668d57c995335e02466eb48fbcb699f3ea))
+
+## 🚀 Features
+
+- Update mime types ([9f69aae](https://github.com/sapphiredev/plugins/commit/9f69aaefe36c9689b92486fa194f17b0c5a44bfd)) ([#730](https://github.com/sapphiredev/plugins/pull/730) by @github-actions[bot])
+- Update mime types ([a24f9ec](https://github.com/sapphiredev/plugins/commit/a24f9ec96c878453320fe47b592f00850958fc42)) ([#729](https://github.com/sapphiredev/plugins/pull/729) by @github-actions[bot])
+- Update mime types ([cf109b1](https://github.com/sapphiredev/plugins/commit/cf109b121bf452b8e869515eed102b8f14847d95)) ([#724](https://github.com/sapphiredev/plugins/pull/724) by @github-actions[bot])
+- Update mime types ([1ba8a04](https://github.com/sapphiredev/plugins/commit/1ba8a045cc02692fb870fba4bb030bcba6b4f229)) ([#720](https://github.com/sapphiredev/plugins/pull/720) by @github-actions[bot])
+- Update mime types ([3b38d76](https://github.com/sapphiredev/plugins/commit/3b38d76e41db19acfb91d068e9d25f8733955aac)) ([#715](https://github.com/sapphiredev/plugins/pull/715) by @github-actions[bot])
+- Update mime types ([e191096](https://github.com/sapphiredev/plugins/commit/e19109649b90217b0f7318aa92a731f8cd733e9b)) ([#711](https://github.com/sapphiredev/plugins/pull/711) by @github-actions[bot])
+- Update mime types ([4b27ae4](https://github.com/sapphiredev/plugins/commit/4b27ae4106ee0882b4780bae22cfe5a084250ef5)) ([#708](https://github.com/sapphiredev/plugins/pull/708) by @github-actions[bot])
+- Update mime types ([c02e438](https://github.com/sapphiredev/plugins/commit/c02e43825ce9877f1a717c53ac7cd8ce48dbebef)) ([#703](https://github.com/sapphiredev/plugins/pull/703) by @github-actions[bot])
+- Update mime types ([119ad9c](https://github.com/sapphiredev/plugins/commit/119ad9cdc168b907e7eafb4330a19d95d1b4e2b8)) ([#702](https://github.com/sapphiredev/plugins/pull/702) by @github-actions[bot])
+- Update mime types ([d37e114](https://github.com/sapphiredev/plugins/commit/d37e11401093b6e0c85e98e31d52c79733cee3ca)) ([#693](https://github.com/sapphiredev/plugins/pull/693) by @github-actions[bot])
+- Update mime types ([adf9c85](https://github.com/sapphiredev/plugins/commit/adf9c858bee3209f928eb4dd6b2b4b1f3d1d0460)) ([#687](https://github.com/sapphiredev/plugins/pull/687) by @github-actions[bot])
+- Update mime types ([2f6302d](https://github.com/sapphiredev/plugins/commit/2f6302d66bf6635d5d278fc48b22d4f3bf91a2e7)) ([#682](https://github.com/sapphiredev/plugins/pull/682) by @github-actions[bot])
+
 # [@sapphire/plugin-api@8.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@7.0.3...@sapphire/plugin-api@8.0.0) - (2025-01-02)
 
 ## 🐛 Bug Fixes
