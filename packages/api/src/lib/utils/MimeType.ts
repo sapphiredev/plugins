@@ -679,6 +679,7 @@ export type MimeType =
 	| 'application/vnd.canon-cpdl'
 	| 'application/vnd.canon-lips'
 	| 'application/vnd.capasystems-pg+json'
+	| 'application/vnd.cel'
 	| 'application/vnd.cendio.thinlinc.clientconf'
 	| 'application/vnd.century-systems.tcp_stream'
 	| 'application/vnd.chemdraw+xml'
