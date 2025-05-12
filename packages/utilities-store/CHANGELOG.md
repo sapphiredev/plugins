@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-utilities-store@2.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-utilities-store@2.0.2...@sapphire/plugin-utilities-store@2.0.3) - (2025-05-12)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies ([cc47e19](https://github.com/sapphiredev/plugins/commit/cc47e198df63b90ae64fd9d945ba2d521d17a8f2)) ([#705](https://github.com/sapphiredev/plugins/pull/705) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([fb563e8](https://github.com/sapphiredev/plugins/commit/fb563e8d6b9bc7e3594563ab99838a6abea9032c)) ([#704](https://github.com/sapphiredev/plugins/pull/704) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([48a1e26](https://github.com/sapphiredev/plugins/commit/48a1e26ca064fcfe666b6826dacaa2c8bc7714bb)) ([#694](https://github.com/sapphiredev/plugins/pull/694) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([a6eeff6](https://github.com/sapphiredev/plugins/commit/a6eeff668d57c995335e02466eb48fbcb699f3ea))
+- **deps:** Update all non-major dependencies ([c74b327](https://github.com/sapphiredev/plugins/commit/c74b327f7e9beea3d5164f8f5e17fbd8e61f74d7)) ([#678](https://github.com/sapphiredev/plugins/pull/678) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([43df709](https://github.com/sapphiredev/plugins/commit/43df70954d837f7b14d62ea9123aca4b1da9ae36)) ([#574](https://github.com/sapphiredev/plugins/pull/574) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([7909d16](https://github.com/sapphiredev/plugins/commit/7909d16fcec9a8e5e9a3f8816c90a26fbc7d1284)) ([#573](https://github.com/sapphiredev/plugins/pull/573) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([ee64834](https://github.com/sapphiredev/plugins/commit/ee64834c799a5ac28b1ae172cb19f77a1887f3d4)) ([#546](https://github.com/sapphiredev/plugins/pull/546) by @renovate[bot])
+
+## 📝 Documentation
+
+- **typedoc:** Exclude externals to exclude Collection and Map methods from Store ([c3e54a4](https://github.com/sapphiredev/plugins/commit/c3e54a4e412a150f57f5795ae9c2a26974cfd0a6))
+- **utilities-store:** Fix tsdoc comment for constructor ([2cef2b9](https://github.com/sapphiredev/plugins/commit/2cef2b97b0afb2adaa1936fd89fa1977b2ffd42a))
+
 # [@sapphire/plugin-utilities-store@2.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-utilities-store@2.0.2...@sapphire/plugin-utilities-store@2.0.2) - (2024-01-19)
 
 ## 🐛 Bug Fixes
