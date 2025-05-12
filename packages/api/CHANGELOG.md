@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@8.2.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@8.2.0...@sapphire/plugin-api@8.2.1) - (2025-05-12)
+
+## 🐛 Bug Fixes
+
+- **api:** Debump cookie-es to v1 to allow for CJS bots ([abbe598](https://github.com/sapphiredev/plugins/commit/abbe5983fa3ffc46d564413179d3c8a4a4cf9392))
+
 # [@sapphire/plugin-api@8.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@8.1.0...@sapphire/plugin-api@8.2.0) - (2025-05-12)
 
 ## 🐛 Bug Fixes
