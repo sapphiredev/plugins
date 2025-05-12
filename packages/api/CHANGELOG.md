@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@8.2.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@8.1.0...@sapphire/plugin-api@8.2.0) - (2025-05-12)
+
+## 🐛 Bug Fixes
+
+- **api:** Bump dependencies ([76938d8](https://github.com/sapphiredev/plugins/commit/76938d81ec58bfe4762b29abc6f8dd69798391ac))
+- **api:** Bump tldts library ([9e7d4d1](https://github.com/sapphiredev/plugins/commit/9e7d4d196a221e5a744cb80b3e2a89f0f386678e))
+
+## 🚀 Features
+
+- Update mime types ([b8eca5f](https://github.com/sapphiredev/plugins/commit/b8eca5f771537ea2e12360157e23deaf18ec353b)) ([#735](https://github.com/sapphiredev/plugins/pull/735) by @github-actions[bot])
+- Update mime types ([79a4381](https://github.com/sapphiredev/plugins/commit/79a4381f6db2a369a9834c8be720445912e79b67)) ([#731](https://github.com/sapphiredev/plugins/pull/731) by @github-actions[bot])
+
 # [@sapphire/plugin-api@8.1.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@8.0.0...@sapphire/plugin-api@8.1.0) - (2025-04-19)
 
 ## 🐛 Bug Fixes
