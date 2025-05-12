@@ -104,16 +104,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-validator@npm:^19.8.0":
-  version: 19.8.0
-  resolution: "@commitlint/config-validator@npm:19.8.0"
-  dependencies:
-    "@commitlint/types": "npm:^19.8.0"
-    ajv: "npm:^8.11.0"
-  checksum: 10/2187dd82ab643336989c5466f620091782e81945dd9c4f6e765c7bbddaf5ab8b2c71559793327389af276b1553e05b2e008e9efb50107d015410938a22145ed3
-  languageName: node
-  linkType: hard
-
 "@commitlint/config-validator@npm:^19.8.1":
   version: 19.8.1
   resolution: "@commitlint/config-validator@npm:19.8.1"
@@ -135,13 +125,6 @@ __metadata:
     lodash.startcase: "npm:^4.4.0"
     lodash.upperfirst: "npm:^4.3.1"
   checksum: 10/af342f61b246c301937cc03477c64b86ca6dea47de23f94d237181d346d020ec23c8a458f56aec8bfe9cdcb80a06adcc34964f32c05a2649282a959ce6fae39d
-  languageName: node
-  linkType: hard
-
-"@commitlint/execute-rule@npm:^19.8.0":
-  version: 19.8.0
-  resolution: "@commitlint/execute-rule@npm:19.8.0"
-  checksum: 10/88aaa3a6bc93407673d10975081c8eb4406678931ab68078a93c3dd27ede8b5195a535c04c69a9369048bca040b8933e763f418e4c9af40962a2c7a2ae6f4a96
   languageName: node
   linkType: hard
 
@@ -184,25 +167,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/load@npm:>6.1.1":
-  version: 19.8.0
-  resolution: "@commitlint/load@npm:19.8.0"
-  dependencies:
-    "@commitlint/config-validator": "npm:^19.8.0"
-    "@commitlint/execute-rule": "npm:^19.8.0"
-    "@commitlint/resolve-extends": "npm:^19.8.0"
-    "@commitlint/types": "npm:^19.8.0"
-    chalk: "npm:^5.3.0"
-    cosmiconfig: "npm:^9.0.0"
-    cosmiconfig-typescript-loader: "npm:^6.1.0"
-    lodash.isplainobject: "npm:^4.0.6"
-    lodash.merge: "npm:^4.6.2"
-    lodash.uniq: "npm:^4.5.0"
-  checksum: 10/7cf41b635735dc8a380db42e855a21b7a37be94ff13ab5e37bccac7ca453b71b704bcd52f8e64549d7a8b147829110305bb1a7ee64c19e7167e0e05ec3d7c0d9
-  languageName: node
-  linkType: hard
-
-"@commitlint/load@npm:^19.8.1":
+"@commitlint/load@npm:>6.1.1, @commitlint/load@npm:^19.8.1":
   version: 19.8.1
   resolution: "@commitlint/load@npm:19.8.1"
   dependencies:
@@ -251,20 +216,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/resolve-extends@npm:^19.8.0":
-  version: 19.8.0
-  resolution: "@commitlint/resolve-extends@npm:19.8.0"
-  dependencies:
-    "@commitlint/config-validator": "npm:^19.8.0"
-    "@commitlint/types": "npm:^19.8.0"
-    global-directory: "npm:^4.0.1"
-    import-meta-resolve: "npm:^4.0.0"
-    lodash.mergewith: "npm:^4.6.2"
-    resolve-from: "npm:^5.0.0"
-  checksum: 10/622a7c3da8b1e32428702eeb1d2f6ea931acdae993d1f9d811dd9e2fe41f31fe2a61e49ec5c46282424f37365a532075a31e81c36204f6ef35c324ef10ced3b5
-  languageName: node
-  linkType: hard
-
 "@commitlint/resolve-extends@npm:^19.8.1":
   version: 19.8.1
   resolution: "@commitlint/resolve-extends@npm:19.8.1"
@@ -304,16 +255,6 @@ __metadata:
   dependencies:
     find-up: "npm:^7.0.0"
   checksum: 10/c875b6c1be495675c77d86e80419d27fd5eb70fc061ef412d041541219c3222d9c4dbd6f0353247d49e9b2cd6d86a7ffc9df1ba20f96c77726c1f9a0edeeb8fe
-  languageName: node
-  linkType: hard
-
-"@commitlint/types@npm:^19.8.0":
-  version: 19.8.0
-  resolution: "@commitlint/types@npm:19.8.0"
-  dependencies:
-    "@types/conventional-commits-parser": "npm:^5.0.0"
-    chalk: "npm:^5.3.0"
-  checksum: 10/a8bd0b65a2cf7d9924102c798ec2b68ffeb28c58c4aa975f953b85fcc7404fcc50f11054899d1b7a87f2a14da43a22452725eca6a211bbd5dcdde92b33458a6d
   languageName: node
   linkType: hard
 
@@ -1641,16 +1582,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 22.15.14
-  resolution: "@types/node@npm:22.15.14"
-  dependencies:
-    undici-types: "npm:~6.21.0"
-  checksum: 10/94d24bb024a770d5ca7c4462f5c6186dee3d3429513d28f0ee7af1cf0f9adc938b0410183bb638c2ee99609384618e53e4c0fa2089915c8b31f514553a02d242
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^22.15.17":
+"@types/node@npm:*, @types/node@npm:^22.15.17":
   version: 22.15.17
   resolution: "@types/node@npm:22.15.17"
   dependencies:
@@ -3071,18 +3003,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^10.1.3":
-  version: 10.1.3
-  resolution: "eslint-config-prettier@npm:10.1.3"
-  peerDependencies:
-    eslint: ">=7.0.0"
-  bin:
-    eslint-config-prettier: bin/cli.js
-  checksum: 10/89207971364d2454e24696d19f569e160dcb8a64149b522ecffd6b19b0d9aca145990c31c387c4b6cc9d1bc41e5e4c6edb71eacc3601f536284a0870913f31b8
-  languageName: node
-  linkType: hard
-
-"eslint-config-prettier@npm:^10.1.5":
+"eslint-config-prettier@npm:^10.1.3, eslint-config-prettier@npm:^10.1.5":
   version: 10.1.5
   resolution: "eslint-config-prettier@npm:10.1.5"
   peerDependencies:
