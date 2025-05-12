@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-i18next@8.0.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@7.1.3...@sapphire/plugin-i18next@8.0.0) - (2025-05-12)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update dependency i18next to v25 ([b4041d6](https://github.com/sapphiredev/plugins/commit/b4041d680c9946ef38e663de2caf00f218b78a03)) ([#738](https://github.com/sapphiredev/plugins/pull/738) by @renovate[bot])
+  - 💥 **Co-authored-by:** renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+- **deps:** Update all non-major dependencies ([214f8ce](https://github.com/sapphiredev/plugins/commit/214f8cec2dd7964fb08402a07fdd646c3a837493)) ([#710](https://github.com/sapphiredev/plugins/pull/710) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([cc47e19](https://github.com/sapphiredev/plugins/commit/cc47e198df63b90ae64fd9d945ba2d521d17a8f2)) ([#705](https://github.com/sapphiredev/plugins/pull/705) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([fb563e8](https://github.com/sapphiredev/plugins/commit/fb563e8d6b9bc7e3594563ab99838a6abea9032c)) ([#704](https://github.com/sapphiredev/plugins/pull/704) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([689cfd8](https://github.com/sapphiredev/plugins/commit/689cfd8be9e0dccce1aac838e07b77d56e5cc0fa)) ([#695](https://github.com/sapphiredev/plugins/pull/695) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([48a1e26](https://github.com/sapphiredev/plugins/commit/48a1e26ca064fcfe666b6826dacaa2c8bc7714bb)) ([#694](https://github.com/sapphiredev/plugins/pull/694) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([aa2ed66](https://github.com/sapphiredev/plugins/commit/aa2ed66e38e2cae79bd9585149896205c009dd1b)) ([#684](https://github.com/sapphiredev/plugins/pull/684) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([a6eeff6](https://github.com/sapphiredev/plugins/commit/a6eeff668d57c995335e02466eb48fbcb699f3ea))
+- **deps:** Update all non-major dependencies ([c74b327](https://github.com/sapphiredev/plugins/commit/c74b327f7e9beea3d5164f8f5e17fbd8e61f74d7)) ([#678](https://github.com/sapphiredev/plugins/pull/678) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([7c80885](https://github.com/sapphiredev/plugins/commit/7c80885f4798348b0c077d9b87117782f7af67d8)) ([#673](https://github.com/sapphiredev/plugins/pull/673) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([2f82767](https://github.com/sapphiredev/plugins/commit/2f8276724338631c4d6d8c7b553d268d5990cc74)) ([#672](https://github.com/sapphiredev/plugins/pull/672) by @renovate[bot])
+- **deps:** Update dependency i18next to v24 ([f7c0c49](https://github.com/sapphiredev/plugins/commit/f7c0c498cfdddd2970e6a2ef828c97ecf3fdfec4)) ([#664](https://github.com/sapphiredev/plugins/pull/664) by @renovate[bot])
+  - 💥 **BREAKING CHANGE:** i18next has been upgraded to v24. Please refer to the i18next migration guide: https://www.i18next.com/misc/migration-guide#v23.x.x-to-v24.0.0. Most importantly you may need to update your JSON files and the Intl API is now mandatory (no problem with NodeJS v18 and above)
+
 # [@sapphire/plugin-i18next@7.1.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-i18next@7.1.2...@sapphire/plugin-i18next@7.1.3) - (2024-11-02)
 
 ## 🏠 Refactor
