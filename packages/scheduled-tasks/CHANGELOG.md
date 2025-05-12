@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-scheduled-tasks@10.0.3](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@10.0.2...@sapphire/plugin-scheduled-tasks@10.0.3) - (2025-05-12)
+
+## 🐛 Bug Fixes
+
+- **scheduled-tasks:** Bump bullmq ([2497ce9](https://github.com/sapphiredev/plugins/commit/2497ce93f8cf1190435be240d78188fd07984baf))
+- **scheduled-tasks:** Bump bullmq ([147893c](https://github.com/sapphiredev/plugins/commit/147893c2a295fb588b4ae61988cc6ef512452fcf))
+- **deps:** Update all non-major dependencies ([1fc0c36](https://github.com/sapphiredev/plugins/commit/1fc0c36ed68ea90def7f172c0a0e8e5254a8b643)) ([#727](https://github.com/sapphiredev/plugins/pull/727) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([c246384](https://github.com/sapphiredev/plugins/commit/c246384416e7d80326aa11a83a40a9a253d5cb2a)) ([#723](https://github.com/sapphiredev/plugins/pull/723) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([7a67b07](https://github.com/sapphiredev/plugins/commit/7a67b070e800700d344e2b0192a41cf2f67746c0)) ([#716](https://github.com/sapphiredev/plugins/pull/716) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([c1fcec2](https://github.com/sapphiredev/plugins/commit/c1fcec227cd5b369e74025c966c794952f755904)) ([#712](https://github.com/sapphiredev/plugins/pull/712) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([214f8ce](https://github.com/sapphiredev/plugins/commit/214f8cec2dd7964fb08402a07fdd646c3a837493)) ([#710](https://github.com/sapphiredev/plugins/pull/710) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([e879702](https://github.com/sapphiredev/plugins/commit/e8797028bd02dcc33b8f60dd07547a73ac4f4125)) ([#709](https://github.com/sapphiredev/plugins/pull/709) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([cc47e19](https://github.com/sapphiredev/plugins/commit/cc47e198df63b90ae64fd9d945ba2d521d17a8f2)) ([#705](https://github.com/sapphiredev/plugins/pull/705) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([fb563e8](https://github.com/sapphiredev/plugins/commit/fb563e8d6b9bc7e3594563ab99838a6abea9032c)) ([#704](https://github.com/sapphiredev/plugins/pull/704) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([0260b3d](https://github.com/sapphiredev/plugins/commit/0260b3db74d58768732eea448e04b81d1f6befa9)) ([#701](https://github.com/sapphiredev/plugins/pull/701) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([a7d24b1](https://github.com/sapphiredev/plugins/commit/a7d24b13d77c311c4b33c99d1aec6457504e553c)) ([#697](https://github.com/sapphiredev/plugins/pull/697) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([689cfd8](https://github.com/sapphiredev/plugins/commit/689cfd8be9e0dccce1aac838e07b77d56e5cc0fa)) ([#695](https://github.com/sapphiredev/plugins/pull/695) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([48a1e26](https://github.com/sapphiredev/plugins/commit/48a1e26ca064fcfe666b6826dacaa2c8bc7714bb)) ([#694](https://github.com/sapphiredev/plugins/pull/694) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([ebf804c](https://github.com/sapphiredev/plugins/commit/ebf804c63c55d8eb4986f70350612b0c714e79ea)) ([#688](https://github.com/sapphiredev/plugins/pull/688) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([aa2ed66](https://github.com/sapphiredev/plugins/commit/aa2ed66e38e2cae79bd9585149896205c009dd1b)) ([#684](https://github.com/sapphiredev/plugins/pull/684) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([a6eeff6](https://github.com/sapphiredev/plugins/commit/a6eeff668d57c995335e02466eb48fbcb699f3ea))
+- **deps:** Update all non-major dependencies ([c74b327](https://github.com/sapphiredev/plugins/commit/c74b327f7e9beea3d5164f8f5e17fbd8e61f74d7)) ([#678](https://github.com/sapphiredev/plugins/pull/678) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([7c80885](https://github.com/sapphiredev/plugins/commit/7c80885f4798348b0c077d9b87117782f7af67d8)) ([#673](https://github.com/sapphiredev/plugins/pull/673) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([2f82767](https://github.com/sapphiredev/plugins/commit/2f8276724338631c4d6d8c7b553d268d5990cc74)) ([#672](https://github.com/sapphiredev/plugins/pull/672) by @renovate[bot])
+- **deps:** Update dependency bullmq to v5.23.0 ([5dff388](https://github.com/sapphiredev/plugins/commit/5dff3882b287b69db71a752df1dea8036a77092f)) ([#652](https://github.com/sapphiredev/plugins/pull/652) by @renovate[bot])
+
 # [@sapphire/plugin-scheduled-tasks@10.0.2](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-scheduled-tasks@10.0.1...@sapphire/plugin-scheduled-tasks@10.0.2) - (2024-11-02)
 
 ## 🐛 Bug Fixes
