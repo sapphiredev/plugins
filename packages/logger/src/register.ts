@@ -13,7 +13,7 @@ export class LoggerPlugin extends Plugin {
 	 */
 	public static [preGenericsInitialization](this: SapphireClient, options: ClientOptions): void {
 		options.logger ??= {};
-		options.logger.instance = new Logger(options.logger);
+		options.logger.instance = options.logger?.instance ?? new Logger(options.logger);
 	}
 }
 
