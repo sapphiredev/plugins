@@ -396,6 +396,7 @@ export type MimeType =
 	| 'application/rpki-roa'
 	| 'application/rpki-signed-tal'
 	| 'application/rpki-updown'
+	| 'application/rs-metadata+xml'
 	| 'application/rtf'
 	| 'application/rtploopback'
 	| 'application/rtx'
