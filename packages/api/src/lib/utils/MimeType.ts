@@ -459,6 +459,7 @@ export type MimeType =
 	| 'application/ST2110-41'
 	| 'application/stix+json'
 	| 'application/stratum'
+	| 'application/suit-envelope+cose'
 	| 'application/swid+cbor'
 	| 'application/swid+xml'
 	| 'application/tamp-apex-update'
