@@ -575,6 +575,7 @@ export type MimeType =
 	| 'application/vnd.3gpp.s1ap'
 	| 'application/vnd.3gpp.seal-app-comm-requirements-info+xml'
 	| 'application/vnd.3gpp.seal-data-delivery-info+cbor'
+	| 'application/vnd.3gpp.seal-data-delivery-info+xml'
 	| 'application/vnd.3gpp.seal-group-doc+xml'
 	| 'application/vnd.3gpp.seal-info+xml'
 	| 'application/vnd.3gpp.seal-location-info+cbor'
