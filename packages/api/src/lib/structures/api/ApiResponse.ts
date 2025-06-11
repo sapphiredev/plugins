@@ -1,7 +1,7 @@
 import { IncomingMessage, ServerResponse, STATUS_CODES } from 'node:http';
 import { Readable } from 'node:stream';
 import { ReadableStream } from 'node:stream/web';
-import type { MimeType } from '../../utils/MimeType';
+import type { MimeType } from '@sapphire/iana-mime-types';
 import { HttpCodes } from '../http/HttpCodes';
 import type { CookieStore } from './CookieStore';
 

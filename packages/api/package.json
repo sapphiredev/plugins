@@ -43,7 +43,6 @@
 		"build:types:esm": "rollup-type-bundler -d dist/esm -t .mts",
 		"build:types:cleanup": "tsx ../../scripts/clean-register-imports.mts",
 		"build:rename-cjs-register": "tsx ../../scripts/rename-cjs-register.mts",
-		"sync-mime-types": "tsx scripts/sync-mime-types.mts",
 		"typecheck": "tsc -b src",
 		"docs": "typedoc-json-parser",
 		"prepack": "yarn build",
@@ -51,6 +50,7 @@
 		"check-update": "cliff-jumper --dry-run"
 	},
 	"dependencies": {
+		"@sapphire/iana-mime-types": "*",
 		"@types/ws": "^8.18.1",
 		"@vladfrangu/async_event_emitter": "2.4.6",
 		"cookie-es": "^1.2.2",

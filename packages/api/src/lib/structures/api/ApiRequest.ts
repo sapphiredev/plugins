@@ -2,7 +2,7 @@ import { isNullishOrEmpty } from '@sapphire/utilities';
 import type { Blob } from 'node:buffer';
 import { IncomingMessage } from 'node:http';
 import type { FormData, Request } from 'undici';
-import type { MimeType } from '../../utils/MimeType';
+import type { MimeType } from '@sapphire/iana-mime-types';
 import { RequestProxy } from '../../utils/_body/RequestProxy';
 import type { Route } from '../Route';
 import type { AuthData } from '../http/Auth';

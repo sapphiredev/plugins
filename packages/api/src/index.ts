@@ -16,7 +16,7 @@ export * from './lib/structures/router/RouterBranch';
 export * from './lib/structures/router/RouterNode';
 export * from './lib/structures/router/RouterRoot';
 export * from './lib/structures/RouteStore';
-export type * from './lib/utils/MimeType';
+export type * from '@sapphire/iana-mime-types';
 
 export { loadListeners } from './listeners/_load';
 export { loadMiddlewares } from './middlewares/_load';
