@@ -1278,6 +1278,7 @@ export type MimeType =
 	| 'application/vnd.oma-scws-config'
 	| 'application/vnd.oma-scws-http-request'
 	| 'application/vnd.oma-scws-http-response'
+	| 'application/vnd.oms.cellular-cose-content+cbor'
 	| 'application/vnd.onepager'
 	| 'application/vnd.onepagertamp'
 	| 'application/vnd.onepagertamx'
