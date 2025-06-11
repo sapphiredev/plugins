@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@8.3.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@8.2.1...@sapphire/plugin-api@8.3.0) - (2025-06-11)
+
+## 🏠 Refactor
+
+- **api:** Migrate to `@sapphire/iana-mime-types` ([c7aaadd](https://github.com/sapphiredev/plugins/commit/c7aaaddfc8c2d4fa3e4dc7bcb77142641513c961))
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies ([ae90958](https://github.com/sapphiredev/plugins/commit/ae90958bcead612768260afdb49ac1730f4c9186)) ([#748](https://github.com/sapphiredev/plugins/pull/748) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([0d9024f](https://github.com/sapphiredev/plugins/commit/0d9024f61a8eb43f6af9d3fbaec4a1271f9e919a)) ([#744](https://github.com/sapphiredev/plugins/pull/744) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([5106865](https://github.com/sapphiredev/plugins/commit/5106865eadcdece085cc00003100845d1e3a372a)) ([#742](https://github.com/sapphiredev/plugins/pull/742) by @renovate[bot])
+
+## 🚀 Features
+
+- Update mime types ([8508a07](https://github.com/sapphiredev/plugins/commit/8508a078ee8285e5932f9e497bfa19b73dfdf6e9)) ([#751](https://github.com/sapphiredev/plugins/pull/751) by @github-actions[bot])
+- Update mime types ([e1295d1](https://github.com/sapphiredev/plugins/commit/e1295d146fd19b3979fd9e1da0e378f118adddc8)) ([#749](https://github.com/sapphiredev/plugins/pull/749) by @github-actions[bot])
+- Update mime types ([6bd83f1](https://github.com/sapphiredev/plugins/commit/6bd83f188a28598e384443a998d5f59fe44718c5)) ([#747](https://github.com/sapphiredev/plugins/pull/747) by @github-actions[bot])
+- Update mime types ([6664087](https://github.com/sapphiredev/plugins/commit/6664087e0b419adcd9ce9411148793e131dd7c3d)) ([#746](https://github.com/sapphiredev/plugins/pull/746) by @github-actions[bot])
+- Update mime types ([9c20163](https://github.com/sapphiredev/plugins/commit/9c20163d043f5c3b196a73c1b19fd7cdca153908)) ([#743](https://github.com/sapphiredev/plugins/pull/743) by @github-actions[bot])
+- Update mime types ([b5bb6ef](https://github.com/sapphiredev/plugins/commit/b5bb6ef4329c92e26b82c67ecdf6c3a51401b006)) ([#740](https://github.com/sapphiredev/plugins/pull/740) by @github-actions[bot])
+
 # [@sapphire/plugin-api@8.2.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@8.2.0...@sapphire/plugin-api@8.2.1) - (2025-05-12)
 
 ## 🐛 Bug Fixes
