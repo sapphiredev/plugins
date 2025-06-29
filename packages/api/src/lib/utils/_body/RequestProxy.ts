@@ -49,6 +49,11 @@ export class RequestProxy implements Request {
 		this.headers = new RequestHeadersProxy(request);
 	}
 
+	public async bytes(): Promise<Uint8Array> {
+		const { body } = this;
+		return isNullish(body) ? new Uint8Array(0) : new Uint8Array(await arrayBuffer(body));
+	}
+
 	public get url(): string {
 		return this.#url.href;
 	}
