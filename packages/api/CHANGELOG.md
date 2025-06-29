@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+# [@sapphire/plugin-api@8.3.1](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@8.3.0...@sapphire/plugin-api@8.3.1) - (2025-06-29)
+
+## 🐛 Bug Fixes
+
+- **deps:** Update all non-major dependencies ([4c42df2](https://github.com/sapphiredev/plugins/commit/4c42df2a7ec779aa20b039ead15a7a5e586a2211)) ([#756](https://github.com/sapphiredev/plugins/pull/756) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([ae08934](https://github.com/sapphiredev/plugins/commit/ae089340f9e923b9e1d3a8373d703dfcfaff0183)) ([#754](https://github.com/sapphiredev/plugins/pull/754) by @renovate[bot])
+- **deps:** Update all non-major dependencies ([d23894e](https://github.com/sapphiredev/plugins/commit/d23894e01c8ca84f8ff06b6921cbdc350b668f21)) ([#752](https://github.com/sapphiredev/plugins/pull/752) by @renovate[bot])
+
 # [@sapphire/plugin-api@8.3.0](https://github.com/sapphiredev/plugins/compare/@sapphire/plugin-api@8.2.1...@sapphire/plugin-api@8.3.0) - (2025-06-11)
 
 ## 🏠 Refactor
