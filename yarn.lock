@@ -51,10 +51,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.27.1":
-  version: 7.27.1
-  resolution: "@babel/runtime@npm:7.27.1"
-  checksum: 10/34cefcbf781ea5a4f1b93f8563327b9ac82694bebdae91e8bd9d7f58d084cbe5b9a6e7f94d77076e15b0bcdaa0040a36cb30737584028df6c4673b4c67b2a31d
+"@babel/runtime@npm:^7.27.6":
+  version: 7.27.6
+  resolution: "@babel/runtime@npm:7.27.6"
+  checksum: 10/cc957a12ba3781241b83d528eb69ddeb86ca5ac43179a825e83aa81263a6b3eb88c57bed8a937cdeacfc3192e07ec24c73acdfea4507d0c0428c8e23d6322bfe
   languageName: node
   linkType: hard
 
@@ -1243,7 +1243,7 @@ __metadata:
     "@vladfrangu/async_event_emitter": "npm:2.4.6"
     concurrently: "npm:^9.2.0"
     cookie-es: "npm:^1.2.2"
-    tldts: "npm:^7.0.9"
+    tldts: "npm:^7.0.10"
     tsup: "npm:^8.5.0"
     tsx: "npm:^4.20.3"
     typedoc: "npm:^0.26.11"
@@ -1295,7 +1295,7 @@ __metadata:
     "@skyra/i18next-backend": "npm:^2.0.6"
     chokidar: "npm:^4.0.3"
     concurrently: "npm:^9.2.0"
-    i18next: "npm:^25.2.1"
+    i18next: "npm:^25.3.1"
     tsup: "npm:^8.5.0"
     tsx: "npm:^4.20.3"
     typedoc: "npm:^0.26.11"
@@ -1344,7 +1344,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^4.0.0"
     "@sapphire/stopwatch": "npm:^1.5.4"
     "@sapphire/utilities": "npm:^3.18.2"
-    bullmq: "npm:5.56.0"
+    bullmq: "npm:5.56.1"
     concurrently: "npm:^9.2.0"
     tsup: "npm:^8.5.0"
     tsx: "npm:^4.20.3"
@@ -1604,12 +1604,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.15.34":
-  version: 22.15.34
-  resolution: "@types/node@npm:22.15.34"
+"@types/node@npm:*, @types/node@npm:^22.16.0":
+  version: 22.16.0
+  resolution: "@types/node@npm:22.16.0"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10/b0fb6674f6c17e3d515531d7f787ccd6676641ba161a6a0e6a93a2d5bc2089fde492eac24b5152a11413bf07a818055a9ec9077d3200b03cf7ea9718470a8417
+  checksum: 10/26ebbbd24749caa4a692664290c53cdca63ec717ca250cd2babf3d3da796e9d3d0b6b9814d160693261b5e881796bf0f3c1887fef355b19e9a78fe27cd5e2ce2
   languageName: node
   linkType: hard
 
@@ -2138,9 +2138,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.56.0":
-  version: 5.56.0
-  resolution: "bullmq@npm:5.56.0"
+"bullmq@npm:5.56.1":
+  version: 5.56.1
+  resolution: "bullmq@npm:5.56.1"
   dependencies:
     cron-parser: "npm:^4.9.0"
     ioredis: "npm:^5.4.1"
@@ -2149,7 +2149,7 @@ __metadata:
     semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
     uuid: "npm:^9.0.0"
-  checksum: 10/7a009082a4d88804caeac703bbac9e9c82d6d67aec619ad4dd2b6fde3bc2a72d42d4ca5c32636acda76715249f03bd0f2532198da6c6cc13623c8b992d25eb52
+  checksum: 10/6de09521e9342afb8db4964fea1a165493d45375205775a0ce34b2c21db88bf3fc7ad833fc2334b2d451039188dfb84eed243da43bb442c2413e9bbda9209767
   languageName: node
   linkType: hard
 
@@ -3910,17 +3910,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^25.2.1":
-  version: 25.2.1
-  resolution: "i18next@npm:25.2.1"
+"i18next@npm:^25.3.1":
+  version: 25.3.1
+  resolution: "i18next@npm:25.3.1"
   dependencies:
-    "@babel/runtime": "npm:^7.27.1"
+    "@babel/runtime": "npm:^7.27.6"
   peerDependencies:
     typescript: ^5
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/7abc9dedee928d23c926917fcc640ff45e22320c814f3f254ade74bc255247edd78e8dd58c835bbfe1898489f6cb2e874e547f9fa68a1a6820409c1306dec28c
+  checksum: 10/f5f38af0f7b7c0055e607d4017dade5aedd1c75c44e091473b4d01537f0849e21a7ae7f66397719a2557fc53767cf9ea96a4da34127b906d3fe5ce21db895224
   languageName: node
   linkType: hard
 
@@ -5944,7 +5944,7 @@ __metadata:
     "@sapphire/stopwatch": "npm:^1.5.4"
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sapphire/utilities": "npm:^3.18.2"
-    "@types/node": "npm:^22.15.34"
+    "@types/node": "npm:^22.16.0"
     "@types/ws": "npm:^8.18.1"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
@@ -5965,7 +5965,7 @@ __metadata:
     tsx: "npm:^4.20.3"
     turbo: "npm:^2.5.4"
     typescript: "npm:~5.4.5"
-    vite: "npm:^7.0.0"
+    vite: "npm:^7.0.2"
     vitest: "npm:^3.2.4"
   languageName: unknown
   linkType: soft
@@ -6512,21 +6512,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^7.0.9":
-  version: 7.0.9
-  resolution: "tldts-core@npm:7.0.9"
-  checksum: 10/8074f07f6cab0aa8858673dc00a5ed00aff06fe4ac82883ce515f530c9c9e8e445cc3b876a91432492b021477ba2cd803dd2505639fcf0e766418d56fefb62d3
+"tldts-core@npm:^7.0.10":
+  version: 7.0.10
+  resolution: "tldts-core@npm:7.0.10"
+  checksum: 10/465c42ebb5a95f43b06e03ebdddfdba5853a3c8c5f937c54fbdbe666be7e0b3fa7b6667f6157203ca38205ae6e29b32b455624ecdf768a210f9a2909e5638722
   languageName: node
   linkType: hard
 
-"tldts@npm:^7.0.9":
-  version: 7.0.9
-  resolution: "tldts@npm:7.0.9"
+"tldts@npm:^7.0.10":
+  version: 7.0.10
+  resolution: "tldts@npm:7.0.10"
   dependencies:
-    tldts-core: "npm:^7.0.9"
+    tldts-core: "npm:^7.0.10"
   bin:
     tldts: bin/cli.js
-  checksum: 10/bf7bbc30f65e5da6f1321ef38d2b74ce722c39717487cce58e7b5305099460b580f929739ba8f973f80c3f91610702fce1052ec603ce7aa6ca6f8a51211e2b0f
+  checksum: 10/c0dbf848433d0e62cb21c260b1d0636fc468f567cdc75b920697595b874a185cec896e65e73dd53120e93485b4a5fd1484f73ccd18ba71087b76a5a296c0ec15
   languageName: node
   linkType: hard
 
@@ -7044,9 +7044,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.0 || ^6.0.0 || ^7.0.0-0, vite@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "vite@npm:7.0.0"
+"vite@npm:^5.0.0 || ^6.0.0 || ^7.0.0-0, vite@npm:^7.0.2":
+  version: 7.0.2
+  resolution: "vite@npm:7.0.2"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.4.6"
@@ -7095,7 +7095,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/2501b706dc481529efb16c6241794a66d68ea7a074d49f22e45b701769fbeeccc721c58272c9fce743d3b1472a3de497f85ca18cb059b1b8b906b2b295e524dc
+  checksum: 10/7042e7abae4f1dad83d504f3e23936eacde97d7e45dac8761fa06966eff2b0ac739abe89bf7c59617de799e43cdb89d96ec14dd52b444c1be5d8ecc79c7097d1
   languageName: node
   linkType: hard
 
