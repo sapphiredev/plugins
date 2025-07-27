@@ -1344,7 +1344,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^4.0.0"
     "@sapphire/stopwatch": "npm:^1.5.4"
     "@sapphire/utilities": "npm:^3.18.2"
-    bullmq: "npm:5.56.5"
+    bullmq: "npm:5.56.7"
     concurrently: "npm:^9.2.0"
     tsup: "npm:^8.5.0"
     tsx: "npm:^4.20.3"
@@ -2138,9 +2138,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.56.5":
-  version: 5.56.5
-  resolution: "bullmq@npm:5.56.5"
+"bullmq@npm:5.56.7":
+  version: 5.56.7
+  resolution: "bullmq@npm:5.56.7"
   dependencies:
     cron-parser: "npm:^4.9.0"
     ioredis: "npm:^5.4.1"
@@ -2149,7 +2149,7 @@ __metadata:
     semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
     uuid: "npm:^9.0.0"
-  checksum: 10/cb0678a59580f14737d4b61ce063634f6ebd6e021164b241ba0ef8b084ec0d3ebcc96e689e7b480401bc604d0b4fafb7ae4bf64d174a3cd14b82646607b19c8e
+  checksum: 10/9346a420c4df07d95d70f462ef959f143a21e28ec050018fd67edd4a8e13a4a32142d23e191444f90b6a6f53bc862f3f77720f4c73cd64c48e585aaf9a7fd73b
   languageName: node
   linkType: hard
 
@@ -5522,10 +5522,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "picomatch@npm:4.0.2"
-  checksum: 10/ce617b8da36797d09c0baacb96ca8a44460452c89362d7cb8f70ca46b4158ba8bc3606912de7c818eb4a939f7f9015cef3c766ec8a0c6bfc725fdc078e39c717
+"picomatch@npm:^4.0.2, picomatch@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "picomatch@npm:4.0.3"
+  checksum: 10/57b99055f40b16798f2802916d9c17e9744e620a0db136554af01d19598b96e45e2f00014c91d1b8b13874b80caa8c295b3d589a3f72373ec4aaf54baa5962d5
   languageName: node
   linkType: hard
 
@@ -5965,7 +5965,7 @@ __metadata:
     tsx: "npm:^4.20.3"
     turbo: "npm:^2.5.5"
     typescript: "npm:~5.4.5"
-    vite: "npm:^7.0.5"
+    vite: "npm:^7.0.6"
     vitest: "npm:^3.2.4"
   languageName: unknown
   linkType: soft
@@ -7044,14 +7044,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.0 || ^6.0.0 || ^7.0.0-0, vite@npm:^7.0.5":
-  version: 7.0.5
-  resolution: "vite@npm:7.0.5"
+"vite@npm:^5.0.0 || ^6.0.0 || ^7.0.0-0, vite@npm:^7.0.6":
+  version: 7.0.6
+  resolution: "vite@npm:7.0.6"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.4.6"
     fsevents: "npm:~2.3.3"
-    picomatch: "npm:^4.0.2"
+    picomatch: "npm:^4.0.3"
     postcss: "npm:^8.5.6"
     rollup: "npm:^4.40.0"
     tinyglobby: "npm:^0.2.14"
@@ -7095,7 +7095,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/7429198ee4a62badb20691356425b5b98fe87be82108748c3b3661487868fdc647c3fbb2bb1fe1803aea8e72f1a6494815fc53bf6c329b61c6784f5f2273e9eb
+  checksum: 10/729ddefd6710b0b5aa38a62a537f3dc28577edaf57958c815a1964f1e348a1c7cb17ce8f708675668d7e80d95fb62f7c433b718fe12d80dd8a756ccec519bc2a
   languageName: node
   linkType: hard
 
