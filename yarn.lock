@@ -1245,7 +1245,7 @@ __metadata:
     cookie-es: "npm:^1.2.2"
     tldts: "npm:^7.0.12"
     tsup: "npm:^8.5.0"
-    tsx: "npm:^4.20.4"
+    tsx: "npm:^4.20.5"
     typedoc: "npm:^0.26.11"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.4.5"
@@ -1262,7 +1262,7 @@ __metadata:
     "@skyra/editable-commands": "npm:^3.0.4"
     concurrently: "npm:^9.2.0"
     tsup: "npm:^8.5.0"
-    tsx: "npm:^4.20.4"
+    tsx: "npm:^4.20.5"
     typedoc: "npm:^0.26.11"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.4.5"
@@ -1278,7 +1278,7 @@ __metadata:
     chokidar: "npm:^4.0.3"
     concurrently: "npm:^9.2.0"
     tsup: "npm:^8.5.0"
-    tsx: "npm:^4.20.4"
+    tsx: "npm:^4.20.5"
     typedoc: "npm:^0.26.11"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.4.5"
@@ -1297,7 +1297,7 @@ __metadata:
     concurrently: "npm:^9.2.0"
     i18next: "npm:^25.4.1"
     tsup: "npm:^8.5.0"
-    tsx: "npm:^4.20.4"
+    tsx: "npm:^4.20.5"
     typedoc: "npm:^0.26.11"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.4.5"
@@ -1314,7 +1314,7 @@ __metadata:
     colorette: "npm:^2.0.20"
     concurrently: "npm:^9.2.0"
     tsup: "npm:^8.5.0"
-    tsx: "npm:^4.20.4"
+    tsx: "npm:^4.20.5"
     typedoc: "npm:^0.26.11"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.4.5"
@@ -1329,7 +1329,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^4.0.0"
     concurrently: "npm:^9.2.0"
     tsup: "npm:^8.5.0"
-    tsx: "npm:^4.20.4"
+    tsx: "npm:^4.20.5"
     typedoc: "npm:^0.26.11"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.4.5"
@@ -1347,7 +1347,7 @@ __metadata:
     bullmq: "npm:5.58.1"
     concurrently: "npm:^9.2.0"
     tsup: "npm:^8.5.0"
-    tsx: "npm:^4.20.4"
+    tsx: "npm:^4.20.5"
     typedoc: "npm:^0.26.11"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.4.5"
@@ -1363,7 +1363,7 @@ __metadata:
     "@sapphire/utilities": "npm:^3.18.2"
     concurrently: "npm:^9.2.0"
     tsup: "npm:^8.5.0"
-    tsx: "npm:^4.20.4"
+    tsx: "npm:^4.20.5"
     typedoc: "npm:^0.26.11"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.4.5"
@@ -1378,7 +1378,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^4.0.0"
     concurrently: "npm:^9.2.0"
     tsup: "npm:^8.5.0"
-    tsx: "npm:^4.20.4"
+    tsx: "npm:^4.20.5"
     typedoc: "npm:^0.26.11"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.4.5"
@@ -5962,7 +5962,7 @@ __metadata:
     prettier: "npm:^3.6.2"
     rimraf: "npm:^6.0.1"
     tsup: "npm:^8.5.0"
-    tsx: "npm:^4.20.4"
+    tsx: "npm:^4.20.5"
     turbo: "npm:^2.5.6"
     typescript: "npm:~5.4.5"
     vite: "npm:^7.1.3"
@@ -6645,9 +6645,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.20.4":
-  version: 4.20.4
-  resolution: "tsx@npm:4.20.4"
+"tsx@npm:^4.20.5":
+  version: 4.20.5
+  resolution: "tsx@npm:4.20.5"
   dependencies:
     esbuild: "npm:~0.25.0"
     fsevents: "npm:~2.3.3"
@@ -6657,7 +6657,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.mjs
-  checksum: 10/dc5d7b7a15fc67f9e3bd20a6d0b3322bd798aa544ce6ab1e857134ea5803f2cd7ac8f4a2099e4ca842dd6e22f2d5a5ea0e0057f571f4d2101ba64b676ffaea3d
+  checksum: 10/161420678027c43d07b60b7b6b512cc67ff86ae3cca0641a19b0d3e742c5e262bca57034c4bff6d9346f9269e9ada24b6030e1d2bc890df5e1a9754865d3c08a
   languageName: node
   linkType: hard
 
