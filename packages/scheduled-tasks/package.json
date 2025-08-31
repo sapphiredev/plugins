@@ -51,12 +51,12 @@
 	"dependencies": {
 		"@sapphire/stopwatch": "^1.5.4",
 		"@sapphire/utilities": "^3.18.2",
-		"bullmq": "5.58.1"
+		"bullmq": "5.58.4"
 	},
 	"devDependencies": {
 		"@favware/cliff-jumper": "^6.0.0",
 		"@favware/rollup-type-bundler": "^4.0.0",
-		"concurrently": "^9.2.0",
+		"concurrently": "^9.2.1",
 		"tsup": "^8.5.0",
 		"tsx": "^4.20.5",
 		"typedoc": "^0.26.11",
