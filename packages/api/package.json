@@ -54,8 +54,8 @@
 		"@types/ws": "^8.18.1",
 		"@vladfrangu/async_event_emitter": "2.4.6",
 		"cookie-es": "^1.2.2",
-		"tldts": "^7.0.13",
-		"undici": "^7.15.0"
+		"tldts": "^7.0.14",
+		"undici": "^7.16.0"
 	},
 	"repository": {
 		"type": "git",
