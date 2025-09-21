@@ -1243,7 +1243,7 @@ __metadata:
     "@vladfrangu/async_event_emitter": "npm:2.4.6"
     concurrently: "npm:^9.2.1"
     cookie-es: "npm:^1.2.2"
-    tldts: "npm:^7.0.14"
+    tldts: "npm:^7.0.15"
     tsup: "npm:^8.5.0"
     tsx: "npm:^4.20.5"
     typedoc: "npm:^0.26.11"
@@ -1344,7 +1344,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^4.0.0"
     "@sapphire/stopwatch": "npm:^1.5.4"
     "@sapphire/utilities": "npm:^3.18.2"
-    bullmq: "npm:5.58.5"
+    bullmq: "npm:5.58.7"
     concurrently: "npm:^9.2.1"
     tsup: "npm:^8.5.0"
     tsx: "npm:^4.20.5"
@@ -1604,12 +1604,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.18.3":
-  version: 22.18.3
-  resolution: "@types/node@npm:22.18.3"
+"@types/node@npm:*, @types/node@npm:^22.18.6":
+  version: 22.18.6
+  resolution: "@types/node@npm:22.18.6"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10/6acec9f6efbd1afe7bb4168ccbec60933a6c5562e8d2cd3912e4ec4c291fbafd3c75c939d478f20156dc808b6533685b59e202a2b952964b3fac2be5d3ed4f11
+  checksum: 10/d816882476fa4f2d2db238139e9d65299414ac54bf81aa85dae850589b480cfe0c1722dc845295d446e2babd6ddfe64b79a8c56d771bf5345ddb1c48950f029e
   languageName: node
   linkType: hard
 
@@ -2138,9 +2138,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.58.5":
-  version: 5.58.5
-  resolution: "bullmq@npm:5.58.5"
+"bullmq@npm:5.58.7":
+  version: 5.58.7
+  resolution: "bullmq@npm:5.58.7"
   dependencies:
     cron-parser: "npm:^4.9.0"
     ioredis: "npm:^5.4.1"
@@ -2148,8 +2148,8 @@ __metadata:
     node-abort-controller: "npm:^3.1.1"
     semver: "npm:^7.5.4"
     tslib: "npm:^2.0.0"
-    uuid: "npm:^9.0.0"
-  checksum: 10/6771357b3767bcaad3ca0dcf08f30d1cf6e53bfacad7561ea87f933e74ff3e53e0f28a8a0ab11e7c0f6c0fd8eea6afee88e502d0818c1a15aaf9a40914edf752
+    uuid: "npm:^11.1.0"
+  checksum: 10/38f93d4a435576468c29028e802aaa81f451cbd6e5de8d1837df835723d0f58b7c116a2b2778bcc5dd9599a4837e07f96a901f1334bf026d558a914c1756bb28
   languageName: node
   linkType: hard
 
@@ -5943,7 +5943,7 @@ __metadata:
     "@sapphire/stopwatch": "npm:^1.5.4"
     "@sapphire/ts-config": "npm:^5.0.1"
     "@sapphire/utilities": "npm:^3.18.2"
-    "@types/node": "npm:^22.18.3"
+    "@types/node": "npm:^22.18.6"
     "@types/ws": "npm:^8.18.1"
     "@typescript-eslint/eslint-plugin": "npm:^7.18.0"
     "@typescript-eslint/parser": "npm:^7.18.0"
@@ -5964,7 +5964,7 @@ __metadata:
     tsx: "npm:^4.20.5"
     turbo: "npm:^2.5.6"
     typescript: "npm:~5.4.5"
-    vite: "npm:^7.1.5"
+    vite: "npm:^7.1.6"
     vitest: "npm:^3.2.4"
   languageName: unknown
   linkType: soft
@@ -6511,21 +6511,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tldts-core@npm:^7.0.14":
-  version: 7.0.14
-  resolution: "tldts-core@npm:7.0.14"
-  checksum: 10/753b573ea972b9da2deb04df2d2fb4631e33b898cb36506bb4ae0dde272d155f92d19aba3011c296544d1548408ec93289e29ad7d57b9f0bc8de339f7b2ddc4b
+"tldts-core@npm:^7.0.15":
+  version: 7.0.15
+  resolution: "tldts-core@npm:7.0.15"
+  checksum: 10/91d265fd1ae67ce34de40ba91463ac1ca9fd564e99e0402e1851de149a3b8e030d785041314a17817537b7499ceb534ee214a565c6f748df8d86aa698d169336
   languageName: node
   linkType: hard
 
-"tldts@npm:^7.0.14":
-  version: 7.0.14
-  resolution: "tldts@npm:7.0.14"
+"tldts@npm:^7.0.15":
+  version: 7.0.15
+  resolution: "tldts@npm:7.0.15"
   dependencies:
-    tldts-core: "npm:^7.0.14"
+    tldts-core: "npm:^7.0.15"
   bin:
     tldts: bin/cli.js
-  checksum: 10/fbee0768cc35446465c4d2e3c166a7a66b89b033f7b3fc8bfd7e1125eb691d243601ff8efae3f581606db13afd74c172d7fea6b7ce69d1a6acd3d0a1789a3c91
+  checksum: 10/184cb9307f5eeefacdf35ff4e243f50764e47b97a732a2385c8a0aa997fa15ee0b757ac977a11ef4617f44046e362240084b88eb9dcc57805ad8bb414ab44487
   languageName: node
   linkType: hard
 
@@ -6992,12 +6992,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^9.0.0":
-  version: 9.0.1
-  resolution: "uuid@npm:9.0.1"
+"uuid@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "uuid@npm:11.1.0"
   bin:
-    uuid: dist/bin/uuid
-  checksum: 10/9d0b6adb72b736e36f2b1b53da0d559125ba3e39d913b6072f6f033e0c87835b414f0836b45bcfaf2bdf698f92297fea1c3cc19b0b258bc182c9c43cc0fab9f2
+    uuid: dist/esm/bin/uuid
+  checksum: 10/d2da43b49b154d154574891ced66d0c83fc70caaad87e043400cf644423b067542d6f3eb641b7c819224a7cd3b4c2f21906acbedd6ec9c6a05887aa9115a9cf5
   languageName: node
   linkType: hard
 
@@ -7043,9 +7043,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.0.0 || ^6.0.0 || ^7.0.0-0, vite@npm:^7.1.5":
-  version: 7.1.5
-  resolution: "vite@npm:7.1.5"
+"vite@npm:^5.0.0 || ^6.0.0 || ^7.0.0-0, vite@npm:^7.1.6":
+  version: 7.1.6
+  resolution: "vite@npm:7.1.6"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.5.0"
@@ -7094,7 +7094,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/59edeef7e98757a668b2ad8a1731a5657fa83e22a165a36b7359225ea98a9be39b2f486710c0cf5085edb85daee7c8b6b6b0bd85d0ef32a1aa84aef71aabd0f0
+  checksum: 10/b0bb7c5b4d3fbaf7e34f17e9103bac7a380d9de076343ba9b81f5fafc07982aef19d7d5a701faf8c8571c75a7ab2920bfeb41cc70b84ae22dd6db79f92ad6d1b
   languageName: node
   linkType: hard
 
