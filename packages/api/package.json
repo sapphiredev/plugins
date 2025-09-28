@@ -54,7 +54,7 @@
 		"@types/ws": "^8.18.1",
 		"@vladfrangu/async_event_emitter": "2.4.6",
 		"cookie-es": "^1.2.2",
-		"tldts": "^7.0.15",
+		"tldts": "^7.0.16",
 		"undici": "^7.16.0"
 	},
 	"repository": {
@@ -90,7 +90,7 @@
 		"@favware/rollup-type-bundler": "^4.0.0",
 		"concurrently": "^9.2.1",
 		"tsup": "^8.5.0",
-		"tsx": "^4.20.5",
+		"tsx": "^4.20.6",
 		"typedoc": "^0.26.11",
 		"typedoc-json-parser": "^10.2.0",
 		"typescript": "~5.4.5"
