@@ -52,7 +52,7 @@
 	"dependencies": {
 		"@sapphire/iana-mime-types": "*",
 		"@types/ws": "^8.18.1",
-		"@vladfrangu/async_event_emitter": "2.4.6",
+		"@vladfrangu/async_event_emitter": "2.4.7",
 		"cookie-es": "^1.2.2",
 		"tldts": "^7.0.16",
 		"undici": "^7.16.0"
