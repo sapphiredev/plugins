@@ -10,7 +10,7 @@ export class HmrPlugin extends Plugin {
 	/**
 	 * @since 1.0.0
 	 */
-	public static [postLogin](this: SapphireClient): void {
+	public static override [postLogin](this: SapphireClient): void {
 		start(this.options.hmr);
 	}
 }

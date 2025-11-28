@@ -11,7 +11,7 @@ export class LoggerPlugin extends Plugin {
 	/**
 	 * @since 1.0.0
 	 */
-	public static [preGenericsInitialization](this: SapphireClient, options: ClientOptions): void {
+	public static override [preGenericsInitialization](this: SapphireClient, options: ClientOptions): void {
 		options.logger ??= {};
 		options.logger.instance ??= new Logger(options.logger);
 	}

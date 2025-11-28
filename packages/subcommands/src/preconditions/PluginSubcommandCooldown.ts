@@ -101,7 +101,7 @@ export class PluginPrecondition extends AllFlowsPrecondition {
 			case BucketScope.Channel:
 				return `${message.channelId}.${subcommandIdentifier}`;
 			case BucketScope.Guild:
-				return `${message.guildId}.${subcommandIdentifier}` ?? `${message.channelId}.${subcommandIdentifier}`;
+				return message.guildId ? `${message.guildId}.${subcommandIdentifier}` : `${message.channelId}.${subcommandIdentifier}`;
 			default:
 				return `${message.author.id}.${subcommandIdentifier}`;
 		}
@@ -115,7 +115,7 @@ export class PluginPrecondition extends AllFlowsPrecondition {
 			case BucketScope.Channel:
 				return `${interaction.channelId}.${subcommandIdentifier}`;
 			case BucketScope.Guild:
-				return `${interaction.guildId}.${subcommandIdentifier}` ?? `${interaction.channelId}.${subcommandIdentifier}`;
+				return interaction.guildId ? `${interaction.guildId}.${subcommandIdentifier}` : `${interaction.channelId}.${subcommandIdentifier}`;
 			default:
 				return `${interaction.user.id}.${subcommandIdentifier}`;
 		}

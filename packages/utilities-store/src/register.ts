@@ -10,7 +10,7 @@ export class UtilitiesPlugin extends Plugin {
 	/**
 	 * @since 1.0.0
 	 */
-	public static [preInitialization](this: SapphireClient): void {
+	public static override [preInitialization](this: SapphireClient): void {
 		this.utilities = new Utilities();
 		this.stores.register(this.utilities.store);
 	}
@@ -18,7 +18,7 @@ export class UtilitiesPlugin extends Plugin {
 	/**
 	 * @since 1.0.0
 	 */
-	public static [postLogin](this: SapphireClient): void {
+	public static override [postLogin](this: SapphireClient): void {
 		const pieces = this.utilities.store;
 
 		for (const [name, piece] of pieces.entries()) {
