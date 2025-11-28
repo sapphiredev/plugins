@@ -1,11 +1,13 @@
 {
 	"extends": "@sapphire",
+	"rules": {
+		"@typescript-eslint/unbound-method": "off"
+	},
 	"overrides": [
 		{
 			"files": ["*.mjs"],
 			"rules": {
-				"@typescript-eslint/naming-convention": "off",
-				"@typescript-eslint/unbound-method": "off"
+				"@typescript-eslint/naming-convention": "off"
 			}
 		}
 	]
