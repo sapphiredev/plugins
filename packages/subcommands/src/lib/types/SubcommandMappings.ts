@@ -23,7 +23,8 @@ interface SubcommandMappingBase {
  * Describes how a subcommand method maps to the actual implementation of that subcommand.
  */
 export interface SubcommandMappingMethod
-	extends SubcommandMappingBase,
+	extends
+		SubcommandMappingBase,
 		Pick<
 			Command.Options,
 			| 'preconditions'

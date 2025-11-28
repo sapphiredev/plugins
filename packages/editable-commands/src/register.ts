@@ -8,7 +8,7 @@ export class EditableCommandsPlugin extends Plugin {
 	/**
 	 * @since 1.0.0
 	 */
-	public static [postInitialization](this: SapphireClient): void {
+	public static override [postInitialization](this: SapphireClient): void {
 		loadListeners();
 	}
 }

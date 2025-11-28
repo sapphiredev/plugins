@@ -13,14 +13,14 @@ export class ScheduledTasksPlugin extends Plugin {
 	/**
 	 * @since 1.0.0
 	 */
-	public static [preGenericsInitialization](this: SapphireClient, options: ClientOptions): void {
+	public static override [preGenericsInitialization](this: SapphireClient, options: ClientOptions): void {
 		container.tasks = new ScheduledTaskHandler(options.tasks);
 	}
 
 	/**
 	 * @since 1.0.0
 	 */
-	public static [postInitialization](this: SapphireClient, options: ClientOptions): void {
+	public static override [postInitialization](this: SapphireClient, options: ClientOptions): void {
 		this.stores.register(new ScheduledTaskStore());
 
 		if (options.loadScheduledTaskErrorListeners !== false) {
@@ -31,7 +31,7 @@ export class ScheduledTasksPlugin extends Plugin {
 	/**
 	 * @since 1.0.0
 	 */
-	public static [postLogin](this: SapphireClient): void {
+	public static override [postLogin](this: SapphireClient): void {
 		void container.tasks.createRepeated();
 	}
 }

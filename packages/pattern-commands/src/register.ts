@@ -11,7 +11,7 @@ export class PatternCommandPlugin extends Plugin {
 	/**
 	 * @since 1.0.0
 	 */
-	public static [postInitialization](this: SapphireClient, _options: ClientOptions): void {
+	public static override [postInitialization](this: SapphireClient, _options: ClientOptions): void {
 		this.stores.register(new PatternCommandStore());
 		loadListeners();
 	}

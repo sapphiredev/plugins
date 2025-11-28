@@ -46,8 +46,7 @@ export interface IMessageSubcommandPayload {
 }
 
 export interface MessageSubcommandDeniedPayload
-	extends Omit<MessageCommandDeniedPayload, 'parameters' | 'command'>,
-		MessageSubcommandAcceptedPayload {
+	extends Omit<MessageCommandDeniedPayload, 'parameters' | 'command'>, MessageSubcommandAcceptedPayload {
 	parameters?: string;
 }
 

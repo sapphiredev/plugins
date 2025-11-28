@@ -11,7 +11,7 @@ export class SubcommandsPlugin extends Plugin {
 	/**
 	 * @since 3.1.2
 	 */
-	public static [postInitialization](this: SapphireClient, options: ClientOptions): void {
+	public static override [postInitialization](this: SapphireClient, options: ClientOptions): void {
 		loadPreconditions();
 
 		if (options.loadSubcommandErrorListeners !== false) {
