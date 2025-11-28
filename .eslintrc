@@ -4,7 +4,8 @@
 		{
 			"files": ["*.mjs"],
 			"rules": {
-				"@typescript-eslint/naming-convention": "off"
+				"@typescript-eslint/naming-convention": "off",
+				"@typescript-eslint/unbound-method": "off"
 			}
 		}
 	]
