@@ -32,7 +32,7 @@
 		"@types/ws": "^8.18.1",
 		"@typescript-eslint/eslint-plugin": "^7.18.0",
 		"@typescript-eslint/parser": "^7.18.0",
-		"@vitest/coverage-v8": "^4.0.15",
+		"@vitest/coverage-v8": "^4.0.16",
 		"concurrently": "^9.2.1",
 		"cz-conventional-changelog": "^3.3.0",
 		"discord-api-types": "^0.38.34",
@@ -47,10 +47,10 @@
 		"rimraf": "^6.1.2",
 		"tsup": "^8.5.1",
 		"tsx": "^4.21.0",
-		"turbo": "^2.6.3",
+		"turbo": "^2.7.1",
 		"typescript": "~5.9.3",
-		"vite": "^7.2.7",
-		"vitest": "^4.0.15"
+		"vite": "^7.3.0",
+		"vitest": "^4.0.16"
 	},
 	"repository": {
 		"type": "git",
