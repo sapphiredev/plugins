@@ -16,8 +16,8 @@
 		"check-update": "turbo run check-update"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^20.3.0",
-		"@commitlint/config-conventional": "^20.3.0",
+		"@commitlint/cli": "^20.3.1",
+		"@commitlint/config-conventional": "^20.3.1",
 		"@favware/cliff-jumper": "^6.0.0",
 		"@favware/npm-deprecate": "^2.0.0",
 		"@favware/rollup-type-bundler": "^4.0.0",
@@ -28,7 +28,7 @@
 		"@sapphire/stopwatch": "^1.5.4",
 		"@sapphire/ts-config": "^5.0.3",
 		"@sapphire/utilities": "^3.18.2",
-		"@types/node": "^24.10.4",
+		"@types/node": "^24.10.7",
 		"@types/ws": "^8.18.1",
 		"@typescript-eslint/eslint-plugin": "^7.18.0",
 		"@typescript-eslint/parser": "^7.18.0",
@@ -47,9 +47,9 @@
 		"rimraf": "^6.1.2",
 		"tsup": "^8.5.1",
 		"tsx": "^4.21.0",
-		"turbo": "^2.7.2",
+		"turbo": "^2.7.3",
 		"typescript": "~5.9.3",
-		"vite": "^7.3.0",
+		"vite": "^7.3.1",
 		"vitest": "^4.0.16"
 	},
 	"repository": {
