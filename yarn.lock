@@ -1448,7 +1448,7 @@ __metadata:
     typedoc: "npm:^0.28.14"
     typedoc-json-parser: "npm:^10.2.0"
     typescript: "npm:~5.9.3"
-    undici: "npm:^7.24.3"
+    undici: "npm:^8.10.2"
   languageName: unknown
   linkType: soft
 
@@ -7074,10 +7074,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^7.24.3":
-  version: 7.29.0
-  resolution: "undici@npm:7.29.0"
-  checksum: 10/ca73639071bdcbc41e57be1800847fa18f86f8fbf7a5641ff9899f7bbb6f5cecdd593e225f5fd94e31703dcbfaea4a722a3b81cab90c5c4e2b406aec1ae55732
+"undici@npm:^8.10.2":
+  version: 8.10.2
+  resolution: "undici@npm:8.10.2"
+  checksum: 10/90f7ba3d3e9543f25d47552282239faa395eaa66d0db7272ebf57055c8ced34e4c948923c734be5571bfce0cc56080e93c0e2f960e9c5fba163759fce112bab4
   languageName: node
   linkType: hard
 
