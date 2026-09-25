@@ -32,7 +32,7 @@
 		"@types/ws": "^8.18.1",
 		"@typescript-eslint/eslint-plugin": "^7.18.0",
 		"@typescript-eslint/parser": "^7.18.0",
-		"@vitest/coverage-v8": "^4.1.0",
+		"@vitest/coverage-v8": "^5.0.2",
 		"concurrently": "^9.2.1",
 		"cz-conventional-changelog": "^3.3.0",
 		"discord-api-types": "^0.38.34",
@@ -50,7 +50,7 @@
 		"turbo": "^2.8.17",
 		"typescript": "~5.9.3",
 		"vite": "^7.3.1",
-		"vitest": "^4.1.0"
+		"vitest": "^5.0.2"
 	},
 	"repository": {
 		"type": "git",
