@@ -874,13 +874,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ioredis/commands@npm:1.10.0":
-  version: 1.10.0
-  resolution: "@ioredis/commands@npm:1.10.0"
-  checksum: 10/2b0322f99d24f11d99ae279b59d977bb129f95f973ed3a31cbee68376e8fad41f974d23d7f9a06151b3d9c140038ef312e0b45d4577048ab0797aa9a6839213d
-  languageName: node
-  linkType: hard
-
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -1686,7 +1679,7 @@ __metadata:
     "@favware/rollup-type-bundler": "npm:^4.0.0"
     "@sapphire/stopwatch": "npm:^1.5.4"
     "@sapphire/utilities": "npm:^3.18.3"
-    bullmq: "npm:5.81.6"
+    bullmq: "npm:6.7.10"
     concurrently: "npm:^9.2.5"
     tsup: "npm:^8.5.1"
     tsx: "npm:^4.23.15"
@@ -2560,22 +2553,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:5.81.6":
-  version: 5.81.6
-  resolution: "bullmq@npm:5.81.6"
+"bullmq@npm:6.7.10":
+  version: 6.7.10
+  resolution: "bullmq@npm:6.7.10"
   dependencies:
-    cron-parser: "npm:4.9.0"
-    ioredis: "npm:5.11.1"
-    msgpackr: "npm:2.0.5"
+    cron-parser: "npm:5.10.6"
+    msgpackr: "npm:2.1.4"
     node-abort-controller: "npm:3.1.1"
-    semver: "npm:7.8.5"
-    tslib: "npm:2.8.1"
+    semver: "npm:7.8.6"
+    tslib: "npm:2.9.1"
   peerDependencies:
+    bullmq-otel: ">=2.0.0"
+    ioredis: ">=5.0.0"
+    pg: ">=8.0.0"
     redis: ">=5.0.0"
   peerDependenciesMeta:
+    bullmq-otel:
+      optional: true
+    ioredis:
+      optional: true
+    pg:
+      optional: true
     redis:
       optional: true
-  checksum: 10/a04cc4867b6f03f8318f43324b3436b900af34e704ec0024d42fc17e9265f8cbeb7c886858234329f6e90db362f599105fb7331122bc44d765e8692d08376006
+  checksum: 10/df79badab95c4fdcd485fe786e9f8e8adf80dd40f28b5063d2e2d2f8d2ba6617354216e6475a7ed1f183e01c9ab0b70107594da7ba01edd2d94c7ba4e891491d
   languageName: node
   linkType: hard
 
@@ -2794,13 +2795,6 @@ __metadata:
   version: 1.0.4
   resolution: "clone@npm:1.0.4"
   checksum: 10/d06418b7335897209e77bdd430d04f882189582e67bd1f75a04565f3f07f5b3f119a9d670c943b6697d0afb100f03b866b3b8a1f91d4d02d72c4ecf2bb64b5dd
-  languageName: node
-  linkType: hard
-
-"cluster-key-slot@npm:1.1.1":
-  version: 1.1.1
-  resolution: "cluster-key-slot@npm:1.1.1"
-  checksum: 10/2b926e8ebe7c350f4d87f0156a581cdaf3d26722b1256ec7c0b970c136e51dddd3cd2dc69acee61d5c310dc3730531705eac6ecaf9fec51903cf3a9f9287babf
   languageName: node
   linkType: hard
 
@@ -3069,12 +3063,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cron-parser@npm:4.9.0":
-  version: 4.9.0
-  resolution: "cron-parser@npm:4.9.0"
+"cron-parser@npm:5.10.6":
+  version: 5.10.6
+  resolution: "cron-parser@npm:5.10.6"
   dependencies:
-    luxon: "npm:^3.2.1"
-  checksum: 10/ffca5e532a5ee0923412ee6e4c7f9bbceacc6ddf8810c16d3e9fb4fe5ec7e2de1b6896d7956f304bb6bc96b0ce37ad7e3935304179d52951c18d84107184faa7
+    luxon: "npm:^3.7.2"
+  checksum: 10/15f92909b4ed31bc0891f7151e63299f448acb7d75fe42f1c823982886e7740c170825787b9932af004c113a7f27d390d2491084fe137af61a8a92958498faac
   languageName: node
   linkType: hard
 
@@ -3107,7 +3101,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:4, debug@npm:4.4.3, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4, debug@npm:^4.4.0":
+"debug@npm:4, debug@npm:^4.3.1, debug@npm:^4.3.2, debug@npm:^4.3.4, debug@npm:^4.4.0":
   version: 4.4.3
   resolution: "debug@npm:4.4.3"
   dependencies:
@@ -3139,13 +3133,6 @@ __metadata:
   dependencies:
     clone: "npm:^1.0.2"
   checksum: 10/3a88b7a587fc076b84e60affad8b85245c01f60f38fc1d259e7ac1d89eb9ce6abb19e27215de46b98568dd5bc48471730b327637e6f20b0f1bc85cf00440c80a
-  languageName: node
-  linkType: hard
-
-"denque@npm:2.1.0":
-  version: 2.1.0
-  resolution: "denque@npm:2.1.0"
-  checksum: 10/8ea05321576624b90acfc1ee9208b8d1d04b425cf7573b9b4fa40a2c3ed4d4b0af5190567858f532f677ed2003d4d2b73c8130b34e3c7b8d5e88cdcfbfaa1fe7
   languageName: node
   linkType: hard
 
@@ -4471,21 +4458,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:5.11.1":
-  version: 5.11.1
-  resolution: "ioredis@npm:5.11.1"
-  dependencies:
-    "@ioredis/commands": "npm:1.10.0"
-    cluster-key-slot: "npm:1.1.1"
-    debug: "npm:4.4.3"
-    denque: "npm:2.1.0"
-    redis-errors: "npm:1.2.0"
-    redis-parser: "npm:3.0.0"
-    standard-as-callback: "npm:2.1.0"
-  checksum: 10/f27653075b0599a9e8886b28a59bb2e232ca7d91b4a81de699e932cb55dcdcec791fe571fb7d4ebc81fc26f44667a76cf165162ecea57285548190ea0d58f734
-  languageName: node
-  linkType: hard
-
 "ip-address@npm:^9.0.5":
   version: 9.0.5
   resolution: "ip-address@npm:9.0.5"
@@ -5064,10 +5036,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"luxon@npm:^3.2.1":
-  version: 3.5.0
-  resolution: "luxon@npm:3.5.0"
-  checksum: 10/48f86e6c1c96815139f8559456a3354a276ba79bcef0ae0d4f2172f7652f3ba2be2237b0e103b8ea0b79b47715354ac9fac04eb1db3485dcc72d5110491dd47f
+"luxon@npm:^3.7.2":
+  version: 3.7.2
+  resolution: "luxon@npm:3.7.2"
+  checksum: 10/b24cd205ed306ce7415991687897dcc4027921ae413c9116590bc33a95f93b86ce52cf74ba72b4f5c5ab1c10090517f54ac8edfb127c049e0bf55b90dc2260be
   languageName: node
   linkType: hard
 
@@ -5454,7 +5426,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msgpackr-extract@npm:^3.0.4":
+"msgpackr-extract@npm:^3.0.6":
   version: 3.0.7
   resolution: "msgpackr-extract@npm:3.0.7"
   dependencies:
@@ -5485,15 +5457,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msgpackr@npm:2.0.5":
-  version: 2.0.5
-  resolution: "msgpackr@npm:2.0.5"
+"msgpackr@npm:2.1.4":
+  version: 2.1.4
+  resolution: "msgpackr@npm:2.1.4"
   dependencies:
-    msgpackr-extract: "npm:^3.0.4"
+    msgpackr-extract: "npm:^3.0.6"
   dependenciesMeta:
     msgpackr-extract:
       optional: true
-  checksum: 10/2eda64f30bf89a8195d732b9eea82a79091c56e2da4a0146a03ccf68b87a2871b18aa371a9f881f6bec53b09a5d63057de4e28942b08aaf8b0cb024b38e9daee
+  checksum: 10/fa0837035d31eb187c89a14fc3fb5b1e003d3ea183b22d2149a8909ffbeff7c45f8fd06b4567814e219931360d191e6923902df6e83d39c290c2ddabcb653f6b
   languageName: node
   linkType: hard
 
@@ -6037,22 +6009,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redis-errors@npm:1.2.0, redis-errors@npm:^1.0.0":
-  version: 1.2.0
-  resolution: "redis-errors@npm:1.2.0"
-  checksum: 10/001c11f63ddd52d7c80eb4f4ede3a9433d29a458a7eea06b9154cb37c9802a218d93b7988247aa8c958d4b5d274b18354e8853c148f1096fda87c6e675cfd3ee
-  languageName: node
-  linkType: hard
-
-"redis-parser@npm:3.0.0":
-  version: 3.0.0
-  resolution: "redis-parser@npm:3.0.0"
-  dependencies:
-    redis-errors: "npm:^1.0.0"
-  checksum: 10/b10846844b4267f19ce1a6529465819c3d78c3e89db7eb0c3bb4eb19f83784797ec411274d15a77dbe08038b48f95f76014b83ca366dc955a016a3a0a0234650
-  languageName: node
-  linkType: hard
-
 "regex@npm:^4.3.2":
   version: 4.4.0
   resolution: "regex@npm:4.4.0"
@@ -6403,16 +6359,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:7.8.5":
-  version: 7.8.5
-  resolution: "semver@npm:7.8.5"
-  bin:
-    semver: bin/semver.js
-  checksum: 10/9b01d2ff11e6e4a4539b7ca3c5f280c8704cb397a28504469f2ed4f00ad2194748d756647362a9712fff30984d15772ab7f083108c2fb508e2096ae9e708f22c
-  languageName: node
-  linkType: hard
-
-"semver@npm:^7.3.5, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.6.0, semver@npm:^7.7.4":
+"semver@npm:7.8.6, semver@npm:^7.3.5, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.6.0, semver@npm:^7.7.4":
   version: 7.8.6
   resolution: "semver@npm:7.8.6"
   bin:
@@ -6581,13 +6528,6 @@ __metadata:
   version: 0.0.2
   resolution: "stackback@npm:0.0.2"
   checksum: 10/2d4dc4e64e2db796de4a3c856d5943daccdfa3dd092e452a1ce059c81e9a9c29e0b9badba91b43ef0d5ff5c04ee62feb3bcc559a804e16faf447bac2d883aa99
-  languageName: node
-  linkType: hard
-
-"standard-as-callback@npm:2.1.0":
-  version: 2.1.0
-  resolution: "standard-as-callback@npm:2.1.0"
-  checksum: 10/88bec83ee220687c72d94fd86a98d5272c91d37ec64b66d830dbc0d79b62bfa6e47f53b71646011835fc9ce7fae62739545d13124262b53be4fbb3e2ebad551c
   languageName: node
   linkType: hard
 
@@ -6934,10 +6874,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.8.1, tslib@npm:^2.1.0, tslib@npm:^2.6.2, tslib@npm:^2.6.3, tslib@npm:^2.8.1":
-  version: 2.8.1
-  resolution: "tslib@npm:2.8.1"
-  checksum: 10/3e2e043d5c2316461cb54e5c7fe02c30ef6dccb3384717ca22ae5c6b5bc95232a6241df19c622d9c73b809bea33b187f6dbc73030963e29950c2141bc32a79f7
+"tslib@npm:2.9.1, tslib@npm:^2.1.0, tslib@npm:^2.6.2, tslib@npm:^2.6.3, tslib@npm:^2.8.1":
+  version: 2.9.1
+  resolution: "tslib@npm:2.9.1"
+  checksum: 10/20aa8c3282c88f8dd1bf0a62c5b1aa03b35998cbc6db4780f6e84d593ba4ffe232bd967916c6e0f96b9e5d719dade9e329d1b2cfede31043481d8fd13f10ca5f
   languageName: node
   linkType: hard
 
